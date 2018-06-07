@@ -29,8 +29,8 @@
 
   
 
-  <link rel="icon" href="/notes/css/images/1.png">
-  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  <link rel="icon" href="/css/images/1.png">
+  <link rel="apple-touch-icon" href="/css/images/1.png">
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
@@ -48,20 +48,20 @@
   <script src="../../js/bootstrap.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/notes/css/home.css" >
-  
-
-  
-
+    <link rel="stylesheet" href="/css/home.css" >
   
 
   
+
+  
+
   
   
-    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
   
 
 </head>
@@ -226,7 +226,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Stata中的日期和时间"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-连续型随机变量的模拟"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -234,7 +234,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/23495/">Stata中的日期和时间</a>
+      <a class="article-title" href="../../posts/44201/">连续型随机变量的模拟</a>
     </h1>
   
 
@@ -242,7 +242,7 @@
     
     <div class="article-meta">
       
-	<a href="../../posts/23495/" class="article-date">
+	<a href="../../posts/44201/" class="article-date">
 	  <time datetime="2018-02-13T13:23:23.000Z" itemprop="datePublished">2018-02-13</time>
 	</a>
 
@@ -253,10 +253,12 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">	type dates.txt //显示数据</span><br><span class="line">	infix str name <span class="number">1</span><span class="number">-4</span> str bday <span class="number">6</span><span class="number">-17</span> using dates.txt //导入数据</span><br><span class="line">	gen birthday = date(bday, <span class="string">"DMY"</span>)</span><br><span class="line">	list</span><br><span class="line">	format birthday % d</span><br><span class="line">//这个命令只是强制birthday按照用户喜欢的日期表达方式显示，</span><br><span class="line">//并不改变其具体数值</span><br><span class="line">//% d表示birthday 的显示格式为简单的日期格式，即用两位数字</span><br><span class="line">//表示日期，用三位字母表示月份以及用四位数字表示年份</span><br><span class="line">	list</span><br><span class="line">//我们可以用不同的日期格式来显示日期数据</span><br><span class="line">	clear</span><br><span class="line">	set more off</span><br><span class="line">	set obs <span class="number">4</span></span><br><span class="line">	gen int bday = uniform()*<span class="number">1000</span> - <span class="number">200</span></span><br><span class="line">	gen bday1 = bday</span><br><span class="line">	gen bday2 = bday</span><br><span class="line">	gen bday3 = bday</span><br><span class="line">	gen bday4 = bday</span><br><span class="line">	gen bday5 = bday</span><br><span class="line">	gen bday6 = bday</span><br><span class="line">	format bday1 % d</span><br><span class="line">	format bday2 % dCYND</span><br><span class="line">	format bday3 % dCY_N_D</span><br><span class="line">	format bday4 % dCY_m_D</span><br><span class="line">	format bday5 % dM_D_Y</span><br><span class="line">	format bday6 % dm_D_Y</span><br><span class="line">	list</span><br><span class="line">	outsheet using birthday.txt, replace</span><br><span class="line">	insheet using birthday.txt, clear</span><br></pre></td></tr></table></figure>
-        <!-- 123456789101112131415161718192021222324252627282930	type dates.txt //显示数据	infix str name 1-4 str bday 6-17 using dates.txt //导入数据	gen birthday = date(bday, "DMY")	list	format birthday % d//这个命令只是强制......  -->
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//连续型随机变量的模拟</span><br><span class="line">//均匀分布</span><br><span class="line">//单位圆上的双变量均匀分布(<span class="number">1</span>)</span><br><span class="line">	clear all</span><br><span class="line">	set more off</span><br><span class="line">	set seed <span class="number">789</span></span><br><span class="line">	set obs <span class="number">10000</span></span><br><span class="line">	gen r = uniform()</span><br><span class="line">	gen theta = uniform()*<span class="number">2</span>*c(pi)</span><br><span class="line">	gen x = r*cos(theta)</span><br><span class="line">	gen y = r*sin(theta)</span><br></pre></td></tr></table></figure>
+        <!-- 1234567891011//连续型随机变量的模拟//均匀分布//单位圆上的双变量均匀分布(1)	clear all	set more off	set seed 789	set obs 10000	gen r = uniform()	gen theta = uniform()*2*c(pi)	gen x = r*cos(theta)	gen y = r*sin(theta)
+
+1234567......  -->
         <p class="article-more-link">
-          <a href="../../posts/23495/#more">阅读全文</a>
+          <a href="../../posts/44201/#more">阅读全文</a>
         </p>
       
     </div>
@@ -364,51 +366,6 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-批量提取统计检验的结果"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/29995/">批量提取统计检验的结果</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/29995/" class="article-date">
-	  <time datetime="2018-02-13T13:21:23.000Z" itemprop="datePublished">2018-02-13</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/*批量提取统计检验的结果*/</span><br><span class="line"></span><br><span class="line">	sysuse auto, clear</span><br><span class="line">	mat a = J(<span class="number">6</span>,<span class="number">2</span>,<span class="number">0</span>)</span><br><span class="line">	local i = <span class="number">1</span></span><br><span class="line">	foreach v of varlist price mpg rep78 headroom trunk weight&#123;</span><br><span class="line">		qui ttest `v<span class="string">' == 0</span></span><br><span class="line"><span class="string">		mat a[`i'</span>,<span class="number">1</span>] = r(t)</span><br><span class="line">		mat a[`i<span class="string">',2] = r(p_u)</span></span><br><span class="line"><span class="string">		local i = `i'</span> + <span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">	mat list a</span><br><span class="line">	svmat a, names(col) //这个命令可以将矩阵转化成dta文件里的变量,同时使用矩阵中的列名命名新变量</span><br><span class="line">	rename c1 t</span><br><span class="line">	rename c2 p_value</span><br><span class="line">	list t p_value <span class="keyword">in</span> <span class="number">1</span>/<span class="number">6</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-使用chinagcode命令获取中文地址经纬度"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -440,6 +397,51 @@
 <p>请不要滥用我的百度密钥</p>
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">/* 使用chinagcode命令获取中文地址经纬度 */</span><br><span class="line">clear</span><br><span class="line">//方式<span class="number">1</span>：定义省市区和地址的组合提取经纬度</span><br><span class="line">input str10 prov str10 city str10 dist str60 addr</span><br><span class="line"><span class="string">"广东省"</span> <span class="string">"广州市"</span> <span class="string">"番禺区"</span> <span class="string">"暨南大学番禺校区"</span></span><br><span class="line"><span class="string">"广东省"</span> <span class="string">""</span> <span class="string">""</span> <span class="string">"暨南大学番禺校区"</span></span><br><span class="line"><span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">"暨南大学番禺校区"</span></span><br><span class="line">end</span><br><span class="line">chinagcode,baidukey(tXvh2UTmo4z0zq5t41XLPTm1kQbMHjYl) province(prov) city(city) district(dist) address(addr)</span><br><span class="line">list</span><br><span class="line">/*百度密钥需要到百度申请*/</span><br><span class="line"></span><br><span class="line">//方式<span class="number">2</span>：定义一个完整地址fulladdress选项 来获得经纬度：</span><br><span class="line">clear all</span><br><span class="line"></span><br><span class="line">input str60 fulladdr</span><br><span class="line"><span class="string">"广东省广州市番禺区暨南大学番禺校区"</span></span><br><span class="line"><span class="string">"广州市暨南大学番禺校区"</span></span><br><span class="line"><span class="string">"广州市暨南大学"</span>  //这个定位的是校本部</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">chinagcode, baidukey(tXvh2UTmo4z0zq5t41XLPTm1kQbMHjYl) fulladdress(fulladdr)</span><br><span class="line">list</span><br><span class="line">//最好定义地址的方式是xx省xx市xx区xx路xx号，当同时使用上述两种格式定义地址时，会优先从省市区的组合提取经纬度，如果提取不到才会从完整的地址中提取</span><br><span class="line">//如果加入了ffirst选项则会优先从完整地址中提取经纬度：</span><br><span class="line">clear all</span><br><span class="line">set more off</span><br><span class="line"><span class="keyword">global</span> PATH <span class="string">"D:\Desktop\Stata笔记"</span></span><br><span class="line">cd $PATH</span><br><span class="line">input str15 prov str15 city str15 dist str60 addr str100 fulladdr</span><br><span class="line"><span class="string">"广东省"</span> <span class="string">"广州市"</span> <span class="string">""</span> <span class="string">"暨南大学番禺校区"</span> <span class="string">""</span></span><br><span class="line"><span class="string">""</span> <span class="string">"广州市"</span> <span class="string">"番禺区"</span> <span class="string">"暨南大学番禺校区"</span> <span class="string">"广东省广州市暨南大学"</span></span><br><span class="line"><span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">"广东省广州市暨南大学"</span></span><br><span class="line">end</span><br><span class="line">chinagcode, baidukey(tXvh2UTmo4z0zq5t41XLPTm1kQbMHjYl) province(prov) city(city) district(dist) address(addr) fulladdress(fulladdr)</span><br><span class="line">list</span><br><span class="line"></span><br><span class="line">//加上ffirst选项</span><br><span class="line">clear all</span><br><span class="line">input str15 prov str15 city str15 dist str60 addr str100 fulladdr</span><br><span class="line"><span class="string">"广东省"</span> <span class="string">"广州市"</span> <span class="string">""</span> <span class="string">"暨南大学番禺校区"</span> <span class="string">""</span></span><br><span class="line"><span class="string">""</span> <span class="string">"广州市"</span> <span class="string">"番禺区"</span> <span class="string">"暨南大学番禺校区"</span> <span class="string">"广东省广州市暨南大学"</span></span><br><span class="line"><span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">"广东省广州市暨南大学"</span></span><br><span class="line">end</span><br><span class="line">chinagcode, baidukey(tXvh2UTmo4z0zq5t41XLPTm1kQbMHjYl) province(prov) city(city) district(dist) address(addr) fulladdress(fulladdr) ffirst</span><br><span class="line">list</span><br><span class="line"></span><br><span class="line">//还可以通过long()和lat()两个选项定义新生成的变量名</span><br><span class="line">clear all</span><br><span class="line">input str15 prov str15 city str15 dist str60 addr str100 fulladdr</span><br><span class="line"><span class="string">"广东省"</span> <span class="string">"广州市"</span> <span class="string">""</span> <span class="string">"暨南大学番禺校区"</span> <span class="string">""</span></span><br><span class="line"><span class="string">""</span> <span class="string">"广州市"</span> <span class="string">"番禺区"</span> <span class="string">"暨南大学番禺校区"</span> <span class="string">"广东省广州市暨南大学"</span></span><br><span class="line"><span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">"广东省广州市暨南大学"</span></span><br><span class="line">end</span><br><span class="line">chinagcode, baidukey(tXvh2UTmo4z0zq5t41XLPTm1kQbMHjYl) ///</span><br><span class="line">province(prov) city(city) district(dist) address(addr) ///</span><br><span class="line">fulladdress(fulladdr) ffirst long(long1) lat(lat1)</span><br><span class="line">list</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-批量提取统计检验的结果"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/29995/">批量提取统计检验的结果</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/29995/" class="article-date">
+	  <time datetime="2018-02-13T13:21:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/*批量提取统计检验的结果*/</span><br><span class="line"></span><br><span class="line">	sysuse auto, clear</span><br><span class="line">	mat a = J(<span class="number">6</span>,<span class="number">2</span>,<span class="number">0</span>)</span><br><span class="line">	local i = <span class="number">1</span></span><br><span class="line">	foreach v of varlist price mpg rep78 headroom trunk weight&#123;</span><br><span class="line">		qui ttest `v<span class="string">' == 0</span></span><br><span class="line"><span class="string">		mat a[`i'</span>,<span class="number">1</span>] = r(t)</span><br><span class="line">		mat a[`i<span class="string">',2] = r(p_u)</span></span><br><span class="line"><span class="string">		local i = `i'</span> + <span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">	mat list a</span><br><span class="line">	svmat a, names(col) //这个命令可以将矩阵转化成dta文件里的变量,同时使用矩阵中的列名命名新变量</span><br><span class="line">	rename c1 t</span><br><span class="line">	rename c2 p_value</span><br><span class="line">	list t p_value <span class="keyword">in</span> <span class="number">1</span>/<span class="number">6</span></span><br></pre></td></tr></table></figure>
 
       
     </div>

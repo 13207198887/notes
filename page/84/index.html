@@ -29,8 +29,8 @@
 
   
 
-  <link rel="icon" href="/notes/css/images/1.png">
-  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  <link rel="icon" href="/css/images/1.png">
+  <link rel="apple-touch-icon" href="/css/images/1.png">
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
@@ -48,20 +48,20 @@
   <script src="../../js/bootstrap.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/notes/css/home.css" >
-  
-
-  
-
+    <link rel="stylesheet" href="/css/home.css" >
   
 
   
+
+  
+
   
   
-    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
   
 
 </head>
@@ -226,51 +226,6 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-char——产生副变量名"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/27871/">char——产生副变量名</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/27871/" class="article-date">
-	  <time datetime="2018-02-20T07:10:23.000Z" itemprop="datePublished">2018-02-20</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/Stata编程导论/">Stata编程导论</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">. sysuse auto, clear</span><br><span class="line">(<span class="number">1978</span> Automobile Data)</span><br><span class="line"></span><br><span class="line">. char make[varname] <span class="string">"变量1"</span></span><br><span class="line"></span><br><span class="line">. char price[varname] <span class="string">"变量2"</span></span><br><span class="line"></span><br><span class="line">. char weight[varname] <span class="string">"变量3"</span></span><br><span class="line"></span><br><span class="line">. list make price weight <span class="keyword">in</span> <span class="number">1</span>/<span class="number">10</span>, sep(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">     +---------------------------------+</span><br><span class="line">     | make             price   weight |</span><br><span class="line">     |---------------------------------|</span><br><span class="line">  <span class="number">1.</span> | AMC Concord      <span class="number">4</span>,<span class="number">099</span>    <span class="number">2</span>,<span class="number">930</span> |</span><br><span class="line">  <span class="number">2.</span> | AMC Pacer        <span class="number">4</span>,<span class="number">749</span>    <span class="number">3</span>,<span class="number">350</span> |</span><br><span class="line">  <span class="number">3.</span> | AMC Spirit       <span class="number">3</span>,<span class="number">799</span>    <span class="number">2</span>,<span class="number">640</span> |</span><br><span class="line">  <span class="number">4.</span> | Buick Century    <span class="number">4</span>,<span class="number">816</span>    <span class="number">3</span>,<span class="number">250</span> |</span><br><span class="line">  <span class="number">5.</span> | Buick Electra    <span class="number">7</span>,<span class="number">827</span>    <span class="number">4</span>,<span class="number">080</span> |</span><br><span class="line">  <span class="number">6.</span> | Buick LeSabre    <span class="number">5</span>,<span class="number">788</span>    <span class="number">3</span>,<span class="number">670</span> |</span><br><span class="line">  <span class="number">7.</span> | Buick Opel       <span class="number">4</span>,<span class="number">453</span>    <span class="number">2</span>,<span class="number">230</span> |</span><br><span class="line">  <span class="number">8.</span> | Buick Regal      <span class="number">5</span>,<span class="number">189</span>    <span class="number">3</span>,<span class="number">280</span> |</span><br><span class="line">  <span class="number">9.</span> | Buick Riviera   <span class="number">10</span>,<span class="number">372</span>    <span class="number">3</span>,<span class="number">880</span> |</span><br><span class="line"> <span class="number">10.</span> | Buick Skylark    <span class="number">4</span>,<span class="number">082</span>    <span class="number">3</span>,<span class="number">400</span> |</span><br><span class="line">     +---------------------------------+</span><br><span class="line"></span><br><span class="line">. list make price weight <span class="keyword">in</span> <span class="number">1</span>/<span class="number">10</span>, sep(<span class="number">0</span>) subvarname</span><br><span class="line"></span><br><span class="line">     +--------------------------------+</span><br><span class="line">     | 变量<span class="number">1</span>            变量<span class="number">2</span>   变量<span class="number">3</span> |</span><br><span class="line">     |--------------------------------|</span><br><span class="line">  <span class="number">1.</span> | AMC Concord      <span class="number">4</span>,<span class="number">099</span>   <span class="number">2</span>,<span class="number">930</span> |</span><br><span class="line">  <span class="number">2.</span> | AMC Pacer        <span class="number">4</span>,<span class="number">749</span>   <span class="number">3</span>,<span class="number">350</span> |</span><br><span class="line">  <span class="number">3.</span> | AMC Spirit       <span class="number">3</span>,<span class="number">799</span>   <span class="number">2</span>,<span class="number">640</span> |</span><br><span class="line">  <span class="number">4.</span> | Buick Century    <span class="number">4</span>,<span class="number">816</span>   <span class="number">3</span>,<span class="number">250</span> |</span><br><span class="line">  <span class="number">5.</span> | Buick Electra    <span class="number">7</span>,<span class="number">827</span>   <span class="number">4</span>,<span class="number">080</span> |</span><br><span class="line">  <span class="number">6.</span> | Buick LeSabre    <span class="number">5</span>,<span class="number">788</span>   <span class="number">3</span>,<span class="number">670</span> |</span><br><span class="line">  <span class="number">7.</span> | Buick Opel       <span class="number">4</span>,<span class="number">453</span>   <span class="number">2</span>,<span class="number">230</span> |</span><br><span class="line">  <span class="number">8.</span> | Buick Regal      <span class="number">5</span>,<span class="number">189</span>   <span class="number">3</span>,<span class="number">280</span> |</span><br><span class="line">  <span class="number">9.</span> | Buick Riviera   <span class="number">10</span>,<span class="number">372</span>   <span class="number">3</span>,<span class="number">880</span> |</span><br><span class="line"> <span class="number">10.</span> | Buick Skylark    <span class="number">4</span>,<span class="number">082</span>   <span class="number">3</span>,<span class="number">400</span> |</span><br><span class="line">     +--------------------------------+</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-pctrange_一个ado文件的示例"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -299,6 +254,51 @@
     <div class="article-entry" itemprop="articleBody">
       
         <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">*! 一个ado文件的示例</span><br><span class="line">cap prog drop _all</span><br><span class="line">prog pctrange, rclass byable(recall)</span><br><span class="line">* byable(recall):使该命令可以使用by/bysort前缀</span><br><span class="line">	version <span class="number">14.0</span></span><br><span class="line">	syntax varlist(min = <span class="number">1</span> numeric ts) [<span class="keyword">if</span>] [<span class="keyword">in</span>] [, noPRINT FORmat(passthru) MATrix(string)]</span><br><span class="line">	marksample touse</span><br><span class="line">	qui count <span class="keyword">if</span> `touse<span class="string">'</span></span><br><span class="line"><span class="string">	if `r(N)'</span> == <span class="number">0</span>&#123;</span><br><span class="line">		error <span class="number">2000</span></span><br><span class="line">	&#125;</span><br><span class="line">	local nvar: word count `varlist<span class="string">'</span></span><br><span class="line"><span class="string">	if `nvar'</span> == <span class="number">1</span>&#123;</span><br><span class="line">		local res range p7525 p9010 p9505 p9901</span><br><span class="line">		tempname `res<span class="string">'</span></span><br><span class="line"><span class="string">		qui sum `varlist'</span> <span class="keyword">if</span> `touse<span class="string">', d</span></span><br><span class="line"><span class="string">		scalar `range'</span> = r(max) - r(min)</span><br><span class="line">		scalar `p7525<span class="string">' = r(p75) - r(p25)</span></span><br><span class="line"><span class="string">		scalar `p9010'</span> = r(p90) - p(p10)</span><br><span class="line">		scalar `p9505<span class="string">' = r(p95) - p(p5)</span></span><br><span class="line"><span class="string">		scalar `p9901'</span> = r(p99) - p(p1)</span><br><span class="line">		<span class="keyword">if</span> <span class="string">"`print'"</span> != <span class="string">"noprint"</span>&#123;</span><br><span class="line">			di <span class="keyword">as</span> result _n <span class="string">"Percentile ranges for `varlist'"</span>, N = `r(N)<span class="string">'</span></span><br><span class="line"><span class="string">			di as text "75-25": `p7525'</span></span><br><span class="line">			di <span class="keyword">as</span> text <span class="string">"90-10"</span>: `p9010<span class="string">'</span></span><br><span class="line"><span class="string">			di as text "99-01": `p9901'</span></span><br><span class="line">			di <span class="keyword">as</span> text <span class="string">"Range"</span>: `range<span class="string">'</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">		foreach r of local res&#123;</span></span><br><span class="line"><span class="string">			ret scalar `r'</span> = ``<span class="string">r''</span></span><br><span class="line">		&#125;</span><br><span class="line">		ret scalar N = r(N)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		tempname rmat</span><br><span class="line">		matrix `rmat<span class="string">' = J(`nvar'</span>, <span class="number">5</span>, .)</span><br><span class="line">		local i <span class="number">0</span></span><br><span class="line">		foreach v of varlist `varlist<span class="string">'&#123;</span></span><br><span class="line"><span class="string">			local ++i</span></span><br><span class="line"><span class="string">			qui sum `v'</span> <span class="keyword">if</span> `touse<span class="string">', d</span></span><br><span class="line"><span class="string">			matrix `rmat'</span>[`i<span class="string">', 1] = r(max) - r(min)</span></span><br><span class="line"><span class="string">			matrix `rmat'</span>[`i<span class="string">', 2] = r(p75) - r(p25)</span></span><br><span class="line"><span class="string">			matrix `rmat'</span>[`i<span class="string">', 3] = r(p90) - r(p10)</span></span><br><span class="line"><span class="string">			matrix `rmat'</span>[`i<span class="string">', 4] = r(p95) - r(p5)</span></span><br><span class="line"><span class="string">			matrix `rmat'</span>[`i<span class="string">', 5] = r(p99) - r(p1)</span></span><br><span class="line"><span class="string">			local rown "`rown'</span> `v<span class="string">'"</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">		matrix colnames `rmat'</span> = Range p75-p25 p90-p10 p95-p5 p99-p1</span><br><span class="line">		matrix rownames `rmat<span class="string">' = `rown'</span></span><br><span class="line">		<span class="keyword">if</span> <span class="string">"`print'"</span> != <span class="string">"noprint"</span>&#123;</span><br><span class="line">			local form <span class="string">", noheader"</span></span><br><span class="line">			<span class="keyword">if</span> <span class="string">"`format'"</span> != <span class="string">""</span>&#123;</span><br><span class="line">				local form <span class="string">"`form' `format'"</span></span><br><span class="line">			&#125;</span><br><span class="line">			matrix list `rmat<span class="string">' `form'</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> <span class="string">"`matrix'"</span> != <span class="string">""</span>&#123;</span><br><span class="line">			matrix `matrix<span class="string">' = `rmat'</span></span><br><span class="line">		&#125;</span><br><span class="line">		ret matrix rmat = `rmat<span class="string">'</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">	ret local varname `varlist'</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-char——产生副变量名"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/27871/">char——产生副变量名</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/27871/" class="article-date">
+	  <time datetime="2018-02-20T07:10:23.000Z" itemprop="datePublished">2018-02-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata编程导论/">Stata编程导论</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">. sysuse auto, clear</span><br><span class="line">(<span class="number">1978</span> Automobile Data)</span><br><span class="line"></span><br><span class="line">. char make[varname] <span class="string">"变量1"</span></span><br><span class="line"></span><br><span class="line">. char price[varname] <span class="string">"变量2"</span></span><br><span class="line"></span><br><span class="line">. char weight[varname] <span class="string">"变量3"</span></span><br><span class="line"></span><br><span class="line">. list make price weight <span class="keyword">in</span> <span class="number">1</span>/<span class="number">10</span>, sep(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">     +---------------------------------+</span><br><span class="line">     | make             price   weight |</span><br><span class="line">     |---------------------------------|</span><br><span class="line">  <span class="number">1.</span> | AMC Concord      <span class="number">4</span>,<span class="number">099</span>    <span class="number">2</span>,<span class="number">930</span> |</span><br><span class="line">  <span class="number">2.</span> | AMC Pacer        <span class="number">4</span>,<span class="number">749</span>    <span class="number">3</span>,<span class="number">350</span> |</span><br><span class="line">  <span class="number">3.</span> | AMC Spirit       <span class="number">3</span>,<span class="number">799</span>    <span class="number">2</span>,<span class="number">640</span> |</span><br><span class="line">  <span class="number">4.</span> | Buick Century    <span class="number">4</span>,<span class="number">816</span>    <span class="number">3</span>,<span class="number">250</span> |</span><br><span class="line">  <span class="number">5.</span> | Buick Electra    <span class="number">7</span>,<span class="number">827</span>    <span class="number">4</span>,<span class="number">080</span> |</span><br><span class="line">  <span class="number">6.</span> | Buick LeSabre    <span class="number">5</span>,<span class="number">788</span>    <span class="number">3</span>,<span class="number">670</span> |</span><br><span class="line">  <span class="number">7.</span> | Buick Opel       <span class="number">4</span>,<span class="number">453</span>    <span class="number">2</span>,<span class="number">230</span> |</span><br><span class="line">  <span class="number">8.</span> | Buick Regal      <span class="number">5</span>,<span class="number">189</span>    <span class="number">3</span>,<span class="number">280</span> |</span><br><span class="line">  <span class="number">9.</span> | Buick Riviera   <span class="number">10</span>,<span class="number">372</span>    <span class="number">3</span>,<span class="number">880</span> |</span><br><span class="line"> <span class="number">10.</span> | Buick Skylark    <span class="number">4</span>,<span class="number">082</span>    <span class="number">3</span>,<span class="number">400</span> |</span><br><span class="line">     +---------------------------------+</span><br><span class="line"></span><br><span class="line">. list make price weight <span class="keyword">in</span> <span class="number">1</span>/<span class="number">10</span>, sep(<span class="number">0</span>) subvarname</span><br><span class="line"></span><br><span class="line">     +--------------------------------+</span><br><span class="line">     | 变量<span class="number">1</span>            变量<span class="number">2</span>   变量<span class="number">3</span> |</span><br><span class="line">     |--------------------------------|</span><br><span class="line">  <span class="number">1.</span> | AMC Concord      <span class="number">4</span>,<span class="number">099</span>   <span class="number">2</span>,<span class="number">930</span> |</span><br><span class="line">  <span class="number">2.</span> | AMC Pacer        <span class="number">4</span>,<span class="number">749</span>   <span class="number">3</span>,<span class="number">350</span> |</span><br><span class="line">  <span class="number">3.</span> | AMC Spirit       <span class="number">3</span>,<span class="number">799</span>   <span class="number">2</span>,<span class="number">640</span> |</span><br><span class="line">  <span class="number">4.</span> | Buick Century    <span class="number">4</span>,<span class="number">816</span>   <span class="number">3</span>,<span class="number">250</span> |</span><br><span class="line">  <span class="number">5.</span> | Buick Electra    <span class="number">7</span>,<span class="number">827</span>   <span class="number">4</span>,<span class="number">080</span> |</span><br><span class="line">  <span class="number">6.</span> | Buick LeSabre    <span class="number">5</span>,<span class="number">788</span>   <span class="number">3</span>,<span class="number">670</span> |</span><br><span class="line">  <span class="number">7.</span> | Buick Opel       <span class="number">4</span>,<span class="number">453</span>   <span class="number">2</span>,<span class="number">230</span> |</span><br><span class="line">  <span class="number">8.</span> | Buick Regal      <span class="number">5</span>,<span class="number">189</span>   <span class="number">3</span>,<span class="number">280</span> |</span><br><span class="line">  <span class="number">9.</span> | Buick Riviera   <span class="number">10</span>,<span class="number">372</span>   <span class="number">3</span>,<span class="number">880</span> |</span><br><span class="line"> <span class="number">10.</span> | Buick Skylark    <span class="number">4</span>,<span class="number">082</span>   <span class="number">3</span>,<span class="number">400</span> |</span><br><span class="line">     +--------------------------------+</span><br></pre></td></tr></table></figure>
 
       
     </div>

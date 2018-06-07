@@ -29,8 +29,8 @@
 
   
 
-  <link rel="icon" href="/notes/css/images/1.png">
-  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  <link rel="icon" href="/css/images/1.png">
+  <link rel="apple-touch-icon" href="/css/images/1.png">
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
@@ -48,20 +48,20 @@
   <script src="../../js/bootstrap.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/notes/css/home.css" >
-  
-
-  
-
+    <link rel="stylesheet" href="/css/home.css" >
   
 
   
+
+  
+
   
   
-    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
   
 
 </head>
@@ -226,52 +226,6 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Stata绘图中的配色"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/64426/">Stata绘图中的配色</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/64426/" class="article-date">
-	  <time datetime="2018-01-23T05:05:23.000Z" itemprop="datePublished">2018-01-23</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="https://github.com/czxa/Web_data_Source/raw/master/Stata绘图中的配色.png" alt=""></p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sysuse auto, clear</span><br><span class="line">gr bar mpg, asyvars over(rep78) ///</span><br><span class="line">bar(<span class="number">1</span>, bcolor(red*<span class="number">0.4</span>)) ///</span><br><span class="line">bar(<span class="number">2</span>, bcolor(red*<span class="number">0.2</span>)) ///</span><br><span class="line">bar(<span class="number">3</span>, bcolor(blue*<span class="number">0.2</span>)) ///</span><br><span class="line">bar(<span class="number">4</span>, bcolor(blue*<span class="number">0.4</span>)) ///</span><br><span class="line">bar(<span class="number">5</span>, bcolor(blue*<span class="number">0.6</span>)) ///</span><br><span class="line">leg(row(<span class="number">1</span>) title(<span class="string">"REP78"</span>)) ///</span><br><span class="line">title(<span class="string">"Mean MPG for rep78"</span>) ///</span><br><span class="line">yla(, nogrid angle(<span class="number">0</span>)) scheme(s1mono)</span><br><span class="line">graph export Stata绘图中的配色.png, replace</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-分组散点图"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -301,6 +255,52 @@
       
         <h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="https://github.com/czxa/Web_data_Source/raw/master/分组散点图.png" alt=""></p>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">sysuse auto, clear</span><br><span class="line">tw ///</span><br><span class="line">sc weight mpg <span class="keyword">if</span> rep78 == <span class="number">1</span> || ///</span><br><span class="line">sc weight mpg <span class="keyword">if</span> rep78 == <span class="number">2</span> || ///</span><br><span class="line">sc weight mpg <span class="keyword">if</span> rep78 == <span class="number">3</span> || ///</span><br><span class="line">sc weight mpg <span class="keyword">if</span> rep78 == <span class="number">4</span> || ///</span><br><span class="line">sc weight mpg <span class="keyword">if</span> rep78 == <span class="number">5</span>, name(a1) ///</span><br><span class="line">leg(row(<span class="number">2</span>) label(<span class="number">1</span> <span class="string">"weight, rep78 == 1"</span>)) ///</span><br><span class="line">leg(label(<span class="number">2</span> <span class="string">"weight, rep78 == 2"</span>)) ///</span><br><span class="line">leg(label(<span class="number">3</span> <span class="string">"weight, rep78 == 3"</span>)) ///</span><br><span class="line">leg(label(<span class="number">4</span> <span class="string">"weight, rep78 == 4"</span>)) ///</span><br><span class="line">leg(label(<span class="number">5</span> <span class="string">"weight, rep78 == 5"</span>)) yla(, nogrid angle(<span class="number">0</span>)) scheme(s1mono)</span><br><span class="line">gr export 分组散点图.png, replace</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Stata绘图中的配色"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/64426/">Stata绘图中的配色</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/64426/" class="article-date">
+	  <time datetime="2018-01-23T05:05:23.000Z" itemprop="datePublished">2018-01-23</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="https://github.com/czxa/Web_data_Source/raw/master/Stata绘图中的配色.png" alt=""></p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sysuse auto, clear</span><br><span class="line">gr bar mpg, asyvars over(rep78) ///</span><br><span class="line">bar(<span class="number">1</span>, bcolor(red*<span class="number">0.4</span>)) ///</span><br><span class="line">bar(<span class="number">2</span>, bcolor(red*<span class="number">0.2</span>)) ///</span><br><span class="line">bar(<span class="number">3</span>, bcolor(blue*<span class="number">0.2</span>)) ///</span><br><span class="line">bar(<span class="number">4</span>, bcolor(blue*<span class="number">0.4</span>)) ///</span><br><span class="line">bar(<span class="number">5</span>, bcolor(blue*<span class="number">0.6</span>)) ///</span><br><span class="line">leg(row(<span class="number">1</span>) title(<span class="string">"REP78"</span>)) ///</span><br><span class="line">title(<span class="string">"Mean MPG for rep78"</span>) ///</span><br><span class="line">yla(, nogrid angle(<span class="number">0</span>)) scheme(s1mono)</span><br><span class="line">graph export Stata绘图中的配色.png, replace</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -374,52 +374,6 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-Stata绘图中使用特殊符号"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/58267/">Stata绘图中使用特殊符号</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/58267/" class="article-date">
-	  <time datetime="2018-01-22T08:44:23.000Z" itemprop="datePublished">2018-01-22</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="https://github.com/czxa/Web_data_Source/raw/master/Stata绘图中使用特殊符号.png" alt=""></p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">tw ///</span><br><span class="line">scatteri <span class="number">6.5</span> <span class="number">0</span> <span class="string">"其他符号"</span>, mlabsize(small) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">6.5</span> <span class="number">0.3</span> <span class="string">"&#123;&amp;trade&#125; &#123;&amp;copyright&#125; &#123;&amp;loz&#125; &#123;&amp;reg&#125; &#123;&amp;ellipsis&#125; &#123;&amp;diamond&#125; &#123;&amp;spades&#125; &#123;&amp;diams&#125; &#123;&amp;degree&#125;  &#123;&amp;hArr&#125; &#123;&amp;uArr&#125;"</span>, mlabsize(huge) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">5.5</span> <span class="number">0</span> <span class="string">"粗体"</span>, mlabsize(small) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">5.5</span> <span class="number">0.5</span> <span class="string">"&#123;bf: Bold Font&#125; &#123;&amp;crarr&#125; &#123;&amp;prime&#125;"</span>, mlabsize(huge) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">4.5</span> <span class="number">0</span> <span class="string">"&#123;it: 斜体&#125;"</span>, mlabsize(small) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">4.5</span> <span class="number">0.5</span> <span class="string">"&#123;it: Italics&#125;"</span>, mlabsize(huge) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">3.5</span> <span class="number">0</span> <span class="string">"上标"</span>, mlabsize(small) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">3.0</span> <span class="number">0.5</span> <span class="string">"&#123;superscript: Superscript&#125;"</span>, mlabsize(huge) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">2.5</span> <span class="number">0</span> <span class="string">"下标"</span>, mlabsize(small) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">2.5</span> <span class="number">0.5</span> <span class="string">"&#123;subscript: subscript&#125;"</span>, mlabsize(huge) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">1.5</span> <span class="number">0</span> <span class="string">"默认字体样式"</span>, mlabsize(small) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">1.5</span> <span class="number">0.5</span> <span class="string">"&#123;stSymbol: adcv&#125;  &#123;stSerif:serif&#125; &#123;stSans:sans serif&#125;"</span>, mlabsize(huge) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">0.5</span> <span class="number">0</span> <span class="string">"希腊字母"</span>, mlabsize(small) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">0.5</span> <span class="number">0.5</span> <span class="string">"&#123;&amp;Alpha&#125; &#123;&amp;pi&#125; &#123;&amp;Sigma&#125; &#123;&amp;Beta&#125; &#123;&amp;beta&#125;"</span>, mlabsize(huge) pstyle(p1) title(<span class="string">"可以在Stata中使用的特殊字体"</span>, color(red)) xla(<span class="number">-0.05</span> <span class="number">1</span>) yla(<span class="number">-1</span> <span class="number">7</span>) xsc(off) ysc(off) leg(off) note(<span class="string">"Stata中的特殊字体"</span> <span class="string">"还有很多其他选项，查看&#123;bf: help graph text&#125;"</span>, ring(<span class="number">0</span>))</span><br><span class="line">graph export Stata绘图中使用特殊符号.png, replace</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-使用scatteri命令在图片指定的位置添加文字"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -449,6 +403,52 @@
       
         <h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="https://github.com/czxa/Web_data_Source/raw/master/一个文字图.png" alt=""></p>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">tw ///</span><br><span class="line">scatteri <span class="number">6</span> <span class="number">0</span> <span class="string">"Stata可以绘制很多图"</span>, mlabsize(huge) pstyle(p1) msymbol(i) || ///</span><br><span class="line">scatteri <span class="number">5</span> <span class="number">0</span> <span class="string">"scheme控制着图片的整体样式"</span>, mlabsize(huge) pstyle(p1) msymbol(i) || ///</span><br><span class="line">scatteri <span class="number">4</span> <span class="number">0</span> <span class="string">"绘图命令有着相似的结构"</span>, mlabsize(huge) pstyle(p1) msymbol(i) || ///</span><br><span class="line">scatteri <span class="number">3</span> <span class="number">0</span> <span class="string">"Stata可以构建很多复杂的图形"</span>, mlabsize(huge) pstyle(p1) msymbol(i) || ///</span><br><span class="line">scatteri <span class="number">2</span> <span class="number">0</span> <span class="string">"这只是一个非常简单的例子"</span>, mlabsize(huge) pstyle(p1) msymbol(i) || ///</span><br><span class="line">scatteri <span class="number">1</span> <span class="number">0</span> <span class="string">"可视化是非常有趣的"</span>, mlabsize(huge) pstyle(p1) title(概览) xla(<span class="number">-0.05</span> <span class="number">1</span>) yla(<span class="number">-1</span> <span class="number">7</span>) xsc(off) ysc(off) leg(off) note(<span class="string">"Stata绘图是非常简单和容易的"</span> <span class="string">"Stata的绘图功能是非常强大的！"</span>, ring(<span class="number">0</span>)) msymbol(i)</span><br><span class="line">graph export 一个文字图.png, replace</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Stata绘图中使用特殊符号"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/58267/">Stata绘图中使用特殊符号</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/58267/" class="article-date">
+	  <time datetime="2018-01-22T08:44:23.000Z" itemprop="datePublished">2018-01-22</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="https://github.com/czxa/Web_data_Source/raw/master/Stata绘图中使用特殊符号.png" alt=""></p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">tw ///</span><br><span class="line">scatteri <span class="number">6.5</span> <span class="number">0</span> <span class="string">"其他符号"</span>, mlabsize(small) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">6.5</span> <span class="number">0.3</span> <span class="string">"&#123;&amp;trade&#125; &#123;&amp;copyright&#125; &#123;&amp;loz&#125; &#123;&amp;reg&#125; &#123;&amp;ellipsis&#125; &#123;&amp;diamond&#125; &#123;&amp;spades&#125; &#123;&amp;diams&#125; &#123;&amp;degree&#125;  &#123;&amp;hArr&#125; &#123;&amp;uArr&#125;"</span>, mlabsize(huge) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">5.5</span> <span class="number">0</span> <span class="string">"粗体"</span>, mlabsize(small) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">5.5</span> <span class="number">0.5</span> <span class="string">"&#123;bf: Bold Font&#125; &#123;&amp;crarr&#125; &#123;&amp;prime&#125;"</span>, mlabsize(huge) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">4.5</span> <span class="number">0</span> <span class="string">"&#123;it: 斜体&#125;"</span>, mlabsize(small) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">4.5</span> <span class="number">0.5</span> <span class="string">"&#123;it: Italics&#125;"</span>, mlabsize(huge) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">3.5</span> <span class="number">0</span> <span class="string">"上标"</span>, mlabsize(small) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">3.0</span> <span class="number">0.5</span> <span class="string">"&#123;superscript: Superscript&#125;"</span>, mlabsize(huge) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">2.5</span> <span class="number">0</span> <span class="string">"下标"</span>, mlabsize(small) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">2.5</span> <span class="number">0.5</span> <span class="string">"&#123;subscript: subscript&#125;"</span>, mlabsize(huge) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">1.5</span> <span class="number">0</span> <span class="string">"默认字体样式"</span>, mlabsize(small) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">1.5</span> <span class="number">0.5</span> <span class="string">"&#123;stSymbol: adcv&#125;  &#123;stSerif:serif&#125; &#123;stSans:sans serif&#125;"</span>, mlabsize(huge) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">0.5</span> <span class="number">0</span> <span class="string">"希腊字母"</span>, mlabsize(small) pstyle(p1) || ///</span><br><span class="line">scatteri <span class="number">0.5</span> <span class="number">0.5</span> <span class="string">"&#123;&amp;Alpha&#125; &#123;&amp;pi&#125; &#123;&amp;Sigma&#125; &#123;&amp;Beta&#125; &#123;&amp;beta&#125;"</span>, mlabsize(huge) pstyle(p1) title(<span class="string">"可以在Stata中使用的特殊字体"</span>, color(red)) xla(<span class="number">-0.05</span> <span class="number">1</span>) yla(<span class="number">-1</span> <span class="number">7</span>) xsc(off) ysc(off) leg(off) note(<span class="string">"Stata中的特殊字体"</span> <span class="string">"还有很多其他选项，查看&#123;bf: help graph text&#125;"</span>, ring(<span class="number">0</span>))</span><br><span class="line">graph export Stata绘图中使用特殊符号.png, replace</span><br></pre></td></tr></table></figure>
 
       
     </div>

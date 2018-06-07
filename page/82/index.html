@@ -29,8 +29,8 @@
 
   
 
-  <link rel="icon" href="/notes/css/images/1.png">
-  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  <link rel="icon" href="/css/images/1.png">
+  <link rel="apple-touch-icon" href="/css/images/1.png">
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
@@ -48,20 +48,20 @@
   <script src="../../js/bootstrap.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/notes/css/home.css" >
-  
-
-  
-
+    <link rel="stylesheet" href="/css/home.css" >
   
 
   
+
+  
+
   
   
-    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
   
 
 </head>
@@ -271,51 +271,6 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-mata中的循环"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/55562/">mata中的循环</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/55562/" class="article-date">
-	  <time datetime="2018-02-20T13:33:23.000Z" itemprop="datePublished">2018-02-20</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/Stata编程导论/">Stata编程导论</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">mata</span><br><span class="line">mata clear</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;=<span class="number">10</span>; i++)&#123;</span><br><span class="line">	printf(<span class="string">"%g squared is %g \n"</span>, i, i^<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">10</span>; i &gt; <span class="number">0</span>; i = i - <span class="number">2</span>)&#123;</span><br><span class="line">	printf(<span class="string">"%g squared is %g \n"</span>, i, i^<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line">i = <span class="number">1</span></span><br><span class="line">do&#123;</span><br><span class="line">	printf(<span class="string">"%g squared is %g \n"</span>, i, i^<span class="number">2</span>)</span><br><span class="line">	i++</span><br><span class="line">&#125; <span class="keyword">while</span>(i &lt;= <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">i = <span class="number">1</span></span><br><span class="line"><span class="keyword">if</span>(i == <span class="number">1</span>)&#123;</span><br><span class="line">	printf(<span class="string">"%g equals 1."</span>, i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">	printf(<span class="string">"%g don't equal 1 "</span>, i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">n = <span class="number">10</span></span><br><span class="line">k = <span class="number">5</span></span><br><span class="line"><span class="keyword">if</span> (k == <span class="number">0</span>) dof = n - <span class="number">1</span></span><br><span class="line"><span class="keyword">else</span> dof = n - k</span><br><span class="line">dof</span><br><span class="line"></span><br><span class="line">// 上面一段代码等价于下面的代码</span><br><span class="line">dof = (k == 0 ? n - 1 : n - k)</span><br><span class="line">dof</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-muxyplot——多个y和多个x的散点图"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -345,6 +300,51 @@
       
         <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">muxyplot produces a scatter <span class="keyword">or</span> twoway plot <span class="keyword">for</span> yvars versus xvars,</span><br><span class="line">all of which xvars are measured on comparable scales. The number of</span><br><span class="line">yvars must equal the number of xvars. For example,</span><br><span class="line"></span><br><span class="line">muxyplot y1 y2 y3 x1 x2 x3</span><br><span class="line"></span><br><span class="line">plots y1 versus x1, y2 versus x2 <span class="keyword">and</span> y3 versus x3, all on the same</span><br><span class="line">scatter plot.</span><br><span class="line">*/</span><br><span class="line">sysuse auto, clear</span><br><span class="line">muxyplot price weight  rep78 headroom</span><br><span class="line">gre muxyplot</span><br></pre></td></tr></table></figure>
 <p><img src="https://github.com/czxa/Web_data_Source/raw/master/muxyplot.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-mata中的循环"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/55562/">mata中的循环</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/55562/" class="article-date">
+	  <time datetime="2018-02-20T13:33:23.000Z" itemprop="datePublished">2018-02-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata编程导论/">Stata编程导论</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">mata</span><br><span class="line">mata clear</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;=<span class="number">10</span>; i++)&#123;</span><br><span class="line">	printf(<span class="string">"%g squared is %g \n"</span>, i, i^<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">10</span>; i &gt; <span class="number">0</span>; i = i - <span class="number">2</span>)&#123;</span><br><span class="line">	printf(<span class="string">"%g squared is %g \n"</span>, i, i^<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line">i = <span class="number">1</span></span><br><span class="line">do&#123;</span><br><span class="line">	printf(<span class="string">"%g squared is %g \n"</span>, i, i^<span class="number">2</span>)</span><br><span class="line">	i++</span><br><span class="line">&#125; <span class="keyword">while</span>(i &lt;= <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">i = <span class="number">1</span></span><br><span class="line"><span class="keyword">if</span>(i == <span class="number">1</span>)&#123;</span><br><span class="line">	printf(<span class="string">"%g equals 1."</span>, i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">	printf(<span class="string">"%g don't equal 1 "</span>, i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">n = <span class="number">10</span></span><br><span class="line">k = <span class="number">5</span></span><br><span class="line"><span class="keyword">if</span> (k == <span class="number">0</span>) dof = n - <span class="number">1</span></span><br><span class="line"><span class="keyword">else</span> dof = n - k</span><br><span class="line">dof</span><br><span class="line"></span><br><span class="line">// 上面一段代码等价于下面的代码</span><br><span class="line">dof = (k == 0 ? n - 1 : n - k)</span><br><span class="line">dof</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 
       
     </div>

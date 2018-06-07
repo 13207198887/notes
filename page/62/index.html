@@ -29,8 +29,8 @@
 
   
 
-  <link rel="icon" href="/notes/css/images/1.png">
-  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  <link rel="icon" href="/css/images/1.png">
+  <link rel="apple-touch-icon" href="/css/images/1.png">
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
@@ -48,20 +48,20 @@
   <script src="../../js/bootstrap.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/notes/css/home.css" >
-  
-
-  
-
+    <link rel="stylesheet" href="/css/home.css" >
   
 
   
+
+  
+
   
   
-    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
   
 
 </head>
@@ -226,7 +226,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-groups_列示分组频数和百分比"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-labeldup——报告和选择性的移除重复的数值标签"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -234,7 +234,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/28152/">groups_列示分组频数和百分比</a>
+      <a class="article-title" href="../../posts/372/">labeldup——报告和选择性的移除重复的数值标签</a>
     </h1>
   
 
@@ -242,7 +242,7 @@
     
     <div class="article-meta">
       
-	<a href="../../posts/28152/" class="article-date">
+	<a href="../../posts/372/" class="article-date">
 	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
 	</a>
 
@@ -253,11 +253,8 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">* 列示分组频数和百分比</span><br><span class="line">sysuse auto, clear</span><br><span class="line"></span><br><span class="line">groups foreign</span><br><span class="line">tabulate foreign</span><br><span class="line">groups foreign rep78</span><br><span class="line">tabulate foreign rep78</span><br><span class="line"></span><br><span class="line">groups foreign rep78, fillin</span><br><span class="line"></span><br><span class="line">bysort foreign: groups rep78</span><br><span class="line">groups foreign rep78, percentvar(foreign)</span><br><span class="line">groups foreign rep78, percentvar(foreign) show(f p P)</span><br><span class="line"></span><br><span class="line">groups mpg, select(f == <span class="number">1</span>) show(none)</span><br><span class="line">groups mpg, select(<span class="number">5</span>)</span><br><span class="line">groups mpg, select(<span class="number">-5</span>)</span><br><span class="line">groups mpg, select(<span class="number">5</span>) order(h)</span><br><span class="line"></span><br><span class="line">groups foreign rep78, fillin select(f == <span class="number">0</span>) show(none)</span><br><span class="line"></span><br><span class="line">groups foreign rep78, sepby(foreign)</span><br><span class="line">groups foreign rep78, sepby(foreign) showhead(<span class="comment"># %)</span></span><br><span class="line"></span><br><span class="line">groups rep78, missing show(freq percent vpercent) separator(<span class="number">0</span>)</span><br><span class="line">groups rep78, show(freq rfreq RPercent) ge</span><br><span class="line">groups rep78, show(F f Rf) lt showhead(&lt; = &gt;)</span><br><span class="line"></span><br><span class="line">groups mpg, reverse</span><br><span class="line">groups mpg, reverse show(f p RP) ge</span><br><span class="line"></span><br><span class="line">webuse nlswork, clear</span><br><span class="line">groups collgrad not_smsa c_city south, order(high) separator(<span class="number">0</span>)</span><br><span class="line">groups collgrad not_smsa c_city south, order(high) separator(<span class="number">0</span>) colorder(<span class="number">5</span> <span class="number">6</span>)</span><br></pre></td></tr></table></figure>
-        <!-- 代码12345678910111213141516171819202122232425262728293031323334* 列示分组频数和百分比sysuse auto, cleargroups foreigntabulate foreigngroups foreign rep78tabulate foreign rep78groups foreign rep78, fillinbysort......  -->
-        <p class="article-more-link">
-          <a href="../../posts/28152/#more">阅读全文</a>
-        </p>
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">* 报告和选择性的移除重复的数值标签</span><br><span class="line">sysuse auto, clear</span><br><span class="line">* 制作两个重复的数值标签</span><br><span class="line">label <span class="function"><span class="keyword">def</span> <span class="title">rep1</span> 1 "1" 2 "2" 3 "3" 4 "4" 5 "5"</span></span><br><span class="line"><span class="function"><span class="title">label</span> <span class="title">def</span> <span class="title">rep2</span> 1 "1" 2 "2" 3 "3" 4 "4" 5 "5"</span></span><br><span class="line"><span class="function">* 报告所有的重复的数值标签</span></span><br><span class="line"><span class="function"><span class="title">labeldup</span></span></span><br><span class="line">labeldup rep1, select</span><br><span class="line">labelbook</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">

@@ -29,8 +29,8 @@
 
   
 
-  <link rel="icon" href="/notes/css/images/1.png">
-  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  <link rel="icon" href="/css/images/1.png">
+  <link rel="apple-touch-icon" href="/css/images/1.png">
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
@@ -48,20 +48,20 @@
   <script src="../../js/bootstrap.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/notes/css/home.css" >
-  
-
-  
-
+    <link rel="stylesheet" href="/css/home.css" >
   
 
   
+
+  
+
   
   
-    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
   
 
 </head>
@@ -226,51 +226,6 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-egen_inequal_计算不平等度的egen函数"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/31656/">egen_inequal_计算不平等度的egen函数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/31656/" class="article-date">
-	  <time datetime="2018-05-26T08:53:23.000Z" itemprop="datePublished">2018-05-26</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">net</span> install egen_inequal.pkg, from(<span class="string">"http://fmwww.bc.edu/RePEc/bocode/e/"</span>)</span><br><span class="line">cuse fincome, <span class="keyword">clear</span></span><br><span class="line"><span class="comment">* egen_inequal包中可以计算的不平等度</span></span><br><span class="line"><span class="comment">* rmd        the relative mean deviation</span></span><br><span class="line"><span class="comment">* cov        the coefficient of variation</span></span><br><span class="line"><span class="comment">* sdl        the standard deviation of logs</span></span><br><span class="line"><span class="comment">* gini       the Gini index</span></span><br><span class="line"><span class="comment">* mehran     the Mehran index</span></span><br><span class="line"><span class="comment">* piesch     the Piesch index</span></span><br><span class="line"><span class="comment">* kakwani    the Kakwani index</span></span><br><span class="line"><span class="comment">* theil      Theil entropy index</span></span><br><span class="line"><span class="comment">* mld        the mean log deviation</span></span><br><span class="line"><span class="comment">* entropy    generalized entropy measure (GE -1)</span></span><br><span class="line"><span class="comment">* half       generalized entropy measure (GE 2)</span></span><br><span class="line"><span class="keyword">egen</span> rmd = inequal(fincome), <span class="built_in">index</span>(rmd) weight(fnum) <span class="keyword">by</span>(provcd)</span><br><span class="line"><span class="keyword">egen</span> cov = inequal(fincome), <span class="built_in">index</span>(cov) weight(fnum) <span class="keyword">by</span>(provcd)</span><br><span class="line"><span class="keyword">egen</span> sdl = inequal(fincome), <span class="built_in">index</span>(sdl) weight(fnum) <span class="keyword">by</span>(provcd)</span><br><span class="line"><span class="keyword">egen</span> mehran = inequal(fincome), <span class="built_in">index</span>(mehran) weight(fnum) <span class="keyword">by</span>(provcd)</span><br><span class="line"><span class="keyword">egen</span> piesch = inequal(fincome), <span class="built_in">index</span>(piesch) weight(fnum) <span class="keyword">by</span>(provcd)</span><br><span class="line"><span class="keyword">egen</span> kakwani = inequal(fincome), <span class="built_in">index</span>(kakwani) weight(fnum) <span class="keyword">by</span>(provcd)</span><br><span class="line"><span class="keyword">egen</span> theil = inequal(fincome), <span class="built_in">index</span>(theil) weight(fnum) <span class="keyword">by</span>(provcd)</span><br><span class="line"><span class="keyword">egen</span> mld = inequal(fincome), <span class="built_in">index</span>(mld) weight(fnum) <span class="keyword">by</span>(provcd)</span><br><span class="line"><span class="keyword">egen</span> entropy = inequal(fincome), <span class="built_in">index</span>(entropy) weight(fnum) <span class="keyword">by</span>(provcd)</span><br><span class="line"><span class="keyword">egen</span> half = inequal(fincome), <span class="built_in">index</span>(half) weight(fnum) <span class="keyword">by</span>(provcd)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-retainlbl—存储变量标签"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -361,7 +316,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-AmChart柱形图"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-egen_inequal_计算不平等度的egen函数"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -369,7 +324,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/32951/">AmChart柱形图</a>
+      <a class="article-title" href="../../posts/31656/">egen_inequal_计算不平等度的egen函数</a>
     </h1>
   
 
@@ -377,7 +332,52 @@
     
     <div class="article-meta">
       
-	<a href="../../posts/32951/" class="article-date">
+	<a href="../../posts/31656/" class="article-date">
+	  <time datetime="2018-05-26T08:53:23.000Z" itemprop="datePublished">2018-05-26</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">net</span> install egen_inequal.pkg, from(<span class="string">"http://fmwww.bc.edu/RePEc/bocode/e/"</span>)</span><br><span class="line">cuse fincome, <span class="keyword">clear</span></span><br><span class="line"><span class="comment">* egen_inequal包中可以计算的不平等度</span></span><br><span class="line"><span class="comment">* rmd        the relative mean deviation</span></span><br><span class="line"><span class="comment">* cov        the coefficient of variation</span></span><br><span class="line"><span class="comment">* sdl        the standard deviation of logs</span></span><br><span class="line"><span class="comment">* gini       the Gini index</span></span><br><span class="line"><span class="comment">* mehran     the Mehran index</span></span><br><span class="line"><span class="comment">* piesch     the Piesch index</span></span><br><span class="line"><span class="comment">* kakwani    the Kakwani index</span></span><br><span class="line"><span class="comment">* theil      Theil entropy index</span></span><br><span class="line"><span class="comment">* mld        the mean log deviation</span></span><br><span class="line"><span class="comment">* entropy    generalized entropy measure (GE -1)</span></span><br><span class="line"><span class="comment">* half       generalized entropy measure (GE 2)</span></span><br><span class="line"><span class="keyword">egen</span> rmd = inequal(fincome), <span class="built_in">index</span>(rmd) weight(fnum) <span class="keyword">by</span>(provcd)</span><br><span class="line"><span class="keyword">egen</span> cov = inequal(fincome), <span class="built_in">index</span>(cov) weight(fnum) <span class="keyword">by</span>(provcd)</span><br><span class="line"><span class="keyword">egen</span> sdl = inequal(fincome), <span class="built_in">index</span>(sdl) weight(fnum) <span class="keyword">by</span>(provcd)</span><br><span class="line"><span class="keyword">egen</span> mehran = inequal(fincome), <span class="built_in">index</span>(mehran) weight(fnum) <span class="keyword">by</span>(provcd)</span><br><span class="line"><span class="keyword">egen</span> piesch = inequal(fincome), <span class="built_in">index</span>(piesch) weight(fnum) <span class="keyword">by</span>(provcd)</span><br><span class="line"><span class="keyword">egen</span> kakwani = inequal(fincome), <span class="built_in">index</span>(kakwani) weight(fnum) <span class="keyword">by</span>(provcd)</span><br><span class="line"><span class="keyword">egen</span> theil = inequal(fincome), <span class="built_in">index</span>(theil) weight(fnum) <span class="keyword">by</span>(provcd)</span><br><span class="line"><span class="keyword">egen</span> mld = inequal(fincome), <span class="built_in">index</span>(mld) weight(fnum) <span class="keyword">by</span>(provcd)</span><br><span class="line"><span class="keyword">egen</span> entropy = inequal(fincome), <span class="built_in">index</span>(entropy) weight(fnum) <span class="keyword">by</span>(provcd)</span><br><span class="line"><span class="keyword">egen</span> half = inequal(fincome), <span class="built_in">index</span>(half) weight(fnum) <span class="keyword">by</span>(provcd)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-AmChart多变量走势图"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/48658/">AmChart多变量走势图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/48658/" class="article-date">
 	  <time datetime="2018-05-26T07:42:23.000Z" itemprop="datePublished">2018-05-26</time>
 	</a>
 
@@ -395,7 +395,7 @@
 <blockquote>
 <p>成果图</p>
 </blockquote>
-<p><img src="https://github.com/czxa/mr/raw/master/amchart柱形图.png" alt=""></p>
+<p><img src="https://github.com/czxa/mr/raw/master/多变量走势图.png" alt=""></p>
         <!-- 
 AmChart绘图需要的js及其他文件
 
@@ -405,9 +405,10 @@ AmChart绘图需要的js及其他文件
 
 
 
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778......  -->
+12
+...  -->
         <p class="article-more-link">
-          <a href="../../posts/32951/#more">阅读全文</a>
+          <a href="../../posts/48658/#more">阅读全文</a>
         </p>
       
     </div>
@@ -425,7 +426,7 @@ AmChart绘图需要的js及其他文件
 <!-- Table of Contents -->
 
   
-    <article id="post-AmChart日内数据"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-AmChart横向柱形图+折线图"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -433,7 +434,7 @@ AmChart绘图需要的js及其他文件
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/25280/">AmChart日内数据</a>
+      <a class="article-title" href="../../posts/52529/">AmChart横向柱形图+折线图</a>
     </h1>
   
 
@@ -441,7 +442,7 @@ AmChart绘图需要的js及其他文件
     
     <div class="article-meta">
       
-	<a href="../../posts/25280/" class="article-date">
+	<a href="../../posts/52529/" class="article-date">
 	  <time datetime="2018-05-26T07:42:23.000Z" itemprop="datePublished">2018-05-26</time>
 	</a>
 
@@ -459,7 +460,7 @@ AmChart绘图需要的js及其他文件
 <blockquote>
 <p>成果图</p>
 </blockquote>
-<p><img src="https://github.com/czxa/mr/raw/master/日内数据.png" alt=""></p>
+<p><img src="https://github.com/czxa/mr/raw/master/横向柱形图+折线图.png" alt=""></p>
         <!-- 
 AmChart绘图需要的js及其他文件
 
@@ -471,7 +472,7 @@ AmChart绘图需要的js及其他文件
 
 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778......  -->
         <p class="article-more-link">
-          <a href="../../posts/25280/#more">阅读全文</a>
+          <a href="../../posts/52529/#more">阅读全文</a>
         </p>
       
     </div>
