@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/81/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-暖享网站整站爬取程序"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/35388/">暖享网站整站爬取程序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/35388/" class="article-date">
+	  <time datetime="2018-02-21T15:45:23.000Z" itemprop="datePublished">2018-02-21</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/网站爬取程序/">网站爬取程序</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>该网站一共1811组图<br>第一页和最后一页的网址分别为：<br><a href="http://www.axlcg.com/pic/1/1.html" target="_blank" rel="noopener">http://www.axlcg.com/pic/1/1.html</a><br><a href="http://www.axlcg.com/pic/1811/1.html" target="_blank" rel="noopener">http://www.axlcg.com/pic/1811/1.html</a><br>每组图都是8张，一共14488张图片。爬取程序如下:</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">cap mkdir <span class="string">"~/Desktop/暖享"</span></span><br><span class="line">cd <span class="string">"~/Desktop/暖享"</span></span><br><span class="line">local pwd = <span class="string">"~/Desktop/暖享"</span></span><br><span class="line">forval i = <span class="number">1</span>/<span class="number">1811</span>&#123;</span><br><span class="line">	qui&#123;</span><br><span class="line">		copy <span class="string">"http://www.axlcg.com/pic/`i'/1.html"</span> temp.txt, replace</span><br><span class="line">		cap unicode encoding set gb18030</span><br><span class="line">		cap unicode translate temp.txt</span><br><span class="line">		cap unicode erasebackups, badidea</span><br><span class="line">		infix strL v <span class="number">1</span><span class="number">-20000</span> using temp.txt, clear</span><br><span class="line">		cap erase temp.txt</span><br><span class="line">		keep <span class="keyword">if</span> index(v, `<span class="string">"&lt;h1 class="</span>details-title<span class="string">"&gt;"</span><span class="string">') | index(v, `"&lt;img style="'</span>)</span><br><span class="line">		replace v = ustrregexs(<span class="number">1</span>) <span class="keyword">if</span> ustrregexm(v, <span class="string">"&gt;(.*)&lt;"</span>)</span><br><span class="line">		replace v = ustrregexs(<span class="number">1</span>) <span class="keyword">if</span> ustrregexm(v, `<span class="string">"src=\"(.*)\" /&gt;"</span><span class="string">')</span></span><br><span class="line"><span class="string">		local name = v[1]</span></span><br><span class="line"><span class="string">		local name = subinstr("`name'</span><span class="string">", "</span> <span class="string">", "</span><span class="string">", .)</span></span><br><span class="line"><span class="string">		local name = subinstr("</span>`name<span class="string">'", ".", "", .)</span></span><br><span class="line"><span class="string">		local name = subinstr("`name'</span><span class="string">", "</span>/<span class="string">", "</span><span class="string">", .)</span></span><br><span class="line"><span class="string">		local name = subinstr("</span>`name<span class="string">'", "\", "", .)</span></span><br><span class="line"><span class="string">		cap mkdir "`name'</span><span class="string">"</span></span><br><span class="line"><span class="string">		cd "</span>`name<span class="string">'"</span></span><br><span class="line"><span class="string">		local url = v[2]</span></span><br><span class="line"><span class="string">		copy "`url'</span><span class="string">" "</span>`name<span class="string">'_1.jpg", replace</span></span><br><span class="line"><span class="string">		forval j = 2/8&#123;</span></span><br><span class="line"><span class="string">			clear</span></span><br><span class="line"><span class="string">			copy "http://www.axlcg.com/pic/`i'</span>/`j<span class="string">'.html" temp.txt, replace</span></span><br><span class="line"><span class="string">			cap unicode encoding set gb18030</span></span><br><span class="line"><span class="string">			cap unicode translate temp.txt</span></span><br><span class="line"><span class="string">			cap unicode erasebackups, badidea</span></span><br><span class="line"><span class="string">			infix strL v 1-20000 using temp.txt, clear</span></span><br><span class="line"><span class="string">			cap erase temp.txt</span></span><br><span class="line"><span class="string">			keep if index(v, `"&lt;img style="'</span>)</span><br><span class="line">			replace v = ustrregexs(<span class="number">1</span>) <span class="keyword">if</span> ustrregexm(v, `<span class="string">"src=\"(.*)\" /&gt;"</span><span class="string">')</span></span><br><span class="line"><span class="string">			local url = v[1]</span></span><br><span class="line"><span class="string">			copy "`url'</span><span class="string">" "</span>`name<span class="string">'_`j'</span>.jpg<span class="string">", replace</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">		cd "</span>`pwd<span class="string">'"</span></span><br><span class="line"><span class="string">		local jd = (`i'</span>/<span class="number">1811</span>)*<span class="number">100</span></span><br><span class="line">	&#125;</span><br><span class="line">	di <span class="string">"已下载完第`i'个妹子，完成`jd'%."</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-彼岸图库网站整站爬取程序"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/7284/">彼岸图库网站整站爬取程序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/7284/" class="article-date">
+	  <time datetime="2018-02-21T02:45:23.000Z" itemprop="datePublished">2018-02-21</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/网站爬取程序/">网站爬取程序</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>该网站的图片分为“4k风景”、“4k美女”、“4k游戏”等12个类别，爬取思路就是先获得所有的图片类别，然后分类别建立文件夹，爬取每个类别的所有图片。</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line"><span class="keyword">global</span> pwd = <span class="string">"你打算把图片存放的一个文件夹的工作路径"</span></span><br><span class="line">cd <span class="string">"$pwd"</span></span><br><span class="line"></span><br><span class="line">qui&#123;</span><br><span class="line">	local ad1 = <span class="string">"http://pic.netbian.com/4kfengjing/"</span></span><br><span class="line">	<span class="keyword">global</span> ad = <span class="string">"http://pic.netbian.com"</span></span><br><span class="line">	cap copy `ad1<span class="string">' temp.txt, replace</span></span><br><span class="line"><span class="string">	cap unicode encoding set gb18030</span></span><br><span class="line"><span class="string">	cap unicode translate temp.txt</span></span><br><span class="line"><span class="string">	cap unicode erasebackups, badidea</span></span><br><span class="line"><span class="string">	infix strL v 1-20000 using temp.txt, clear</span></span><br><span class="line"><span class="string">	keep if index(v, "curr")</span></span><br><span class="line"><span class="string">	drop in 1</span></span><br><span class="line"><span class="string">	split v, parse(`"""'</span> <span class="string">"&gt;"</span> <span class="string">"&lt;"</span>)</span><br><span class="line">	sxpose, clear</span><br><span class="line">	drop <span class="keyword">in</span> <span class="number">1</span></span><br><span class="line">	keep <span class="keyword">if</span> index(_var1, <span class="string">"4"</span>) &amp; index(_var1, <span class="string">"图片"</span>) == <span class="number">0</span></span><br><span class="line">	compress</span><br><span class="line">&#125;</span><br><span class="line">di <span class="keyword">as</span> text <span class="string">"已获取所有的图片种类"</span></span><br><span class="line"></span><br><span class="line">forvalues m = <span class="number">1</span> (<span class="number">2</span>) `=_N<span class="string">' &#123;</span></span><br><span class="line"><span class="string">	local ad4 = _var1[`m'</span>+<span class="number">1</span>]</span><br><span class="line">	di <span class="keyword">as</span> text <span class="string">"当前正在下载 `ad4' 的图片"</span></span><br><span class="line">	qui&#123;</span><br><span class="line">		cap mkdir <span class="string">"`ad4'"</span></span><br><span class="line">		cd <span class="string">"$pwd/`ad4'"</span></span><br><span class="line">		local ad3 = _var1[`m<span class="string">']</span></span><br><span class="line"><span class="string">		cap copy "$ad/`ad3'</span><span class="string">" temp.txt, replace</span></span><br><span class="line"><span class="string">		cap unicode encoding set gb18030</span></span><br><span class="line"><span class="string">		cap unicode translate temp.txt</span></span><br><span class="line"><span class="string">		cap unicode erasebackups, badidea</span></span><br><span class="line"><span class="string">		infix strL v 1-20000 using temp.txt, clear</span></span><br><span class="line"><span class="string">		keep if index(v, "</span>alt<span class="string">") &amp; index(v, "</span>html<span class="string">")</span></span><br><span class="line"><span class="string">		split v, parse(`"</span><span class="string">""</span><span class="string">')</span></span><br><span class="line"><span class="string">		cap which sxpose</span></span><br><span class="line"><span class="string">		if _rc != 0&#123;</span></span><br><span class="line"><span class="string">			ssc install sxpose, replace</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">		sxpose, clear</span></span><br><span class="line"><span class="string">		rename _var1 v</span></span><br><span class="line"><span class="string">		drop in 1</span></span><br><span class="line"><span class="string">		keep if index(v, "html")</span></span><br><span class="line"><span class="string">		compress</span></span><br><span class="line"><span class="string">		forvalues i = 1 (1) `=_N'</span> &#123;</span><br><span class="line">			preserve</span><br><span class="line">			local ad2 = v[`i<span class="string">']</span></span><br><span class="line"><span class="string">			local url = "$ad`ad2'</span><span class="string">"</span></span><br><span class="line"><span class="string">			cap copy `url' temp2.txt, replace</span></span><br><span class="line"><span class="string">			clear</span></span><br><span class="line"><span class="string">			cap unicode encoding set gb18030</span></span><br><span class="line"><span class="string">			cap unicode translate temp2.txt</span></span><br><span class="line"><span class="string">			cap unicode erasebackups, badidea</span></span><br><span class="line"><span class="string">			infix strL v 1-20000 using temp2.txt, clear</span></span><br><span class="line"><span class="string">			keep if index(v, "</span>photo-pic<span class="string">")</span></span><br><span class="line"><span class="string">			split v, parse(`"</span><span class="string">""</span><span class="string">')</span></span><br><span class="line"><span class="string">			sxpose, clear</span></span><br><span class="line"><span class="string">			drop in 1</span></span><br><span class="line"><span class="string">			keep if index(_var1, ".") | ustrregexm(_var1, "[\u4e00-\u9fa5]+")</span></span><br><span class="line"><span class="string">			compress</span></span><br><span class="line"><span class="string">			replace _var1 = subinstr(_var1, " ", "_", .)</span></span><br><span class="line"><span class="string">			replace _var1 = subinstr(_var1, ":", "_", .)</span></span><br><span class="line"><span class="string">			replace _var1 = subinstr(_var1, "*", "_", .)</span></span><br><span class="line"><span class="string">			replace _var1 = subinstr(_var1, "?", "_", .)</span></span><br><span class="line"><span class="string">			replace _var1 = subinstr(_var1, `"""'</span>, <span class="string">"_"</span>, .)</span><br><span class="line">			replace _var1 = subinstr(_var1, <span class="string">"|"</span>, <span class="string">"_"</span>, .)</span><br><span class="line">			replace _var1 = subinstr(_var1, <span class="string">"&gt;"</span>, <span class="string">"_"</span>, .)</span><br><span class="line">			replace _var1 = subinstr(_var1, <span class="string">"&lt;"</span>, <span class="string">"_"</span>, .)</span><br><span class="line">			local a = _var1[<span class="number">1</span>]</span><br><span class="line">			local b = length(_var1[<span class="number">1</span>])</span><br><span class="line">			local c = substr(_var1[<span class="number">1</span>], `<span class="string">b'-5, `b'</span>)</span><br><span class="line">			local d = _var1[<span class="number">2</span>]</span><br><span class="line">			cap copy <span class="string">"$ad`a'"</span> <span class="string">"`d'_`c'"</span>, replace</span><br><span class="line">			restore</span><br><span class="line">		&#125;</span><br><span class="line">		infix strL v <span class="number">1</span><span class="number">-20000</span> using temp.txt, clear</span><br><span class="line">		keep <span class="keyword">if</span> index(v, <span class="string">"index"</span>) &amp; index(v, <span class="string">"php"</span>) == <span class="number">0</span></span><br><span class="line">		local l = length(v)</span><br><span class="line">		replace v = substr(v, `l<span class="string">'-80, `l'</span>)</span><br><span class="line">		replace v = ustrregexs(<span class="number">0</span>) <span class="keyword">if</span> ustrregexm(v, <span class="string">"&gt;[0-9]+&lt;"</span>)</span><br><span class="line">		replace v = subinstr(v, <span class="string">"&lt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace v = subinstr(v, <span class="string">"&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">		destring v, replace</span><br><span class="line">		local page = v[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">		forvalues i = <span class="number">2</span>/`page<span class="string">' &#123;</span></span><br><span class="line"><span class="string">			cap copy "$ad/`ad3'</span>index_`i<span class="string">'.html" temp.txt, replace</span></span><br><span class="line"><span class="string">			clear</span></span><br><span class="line"><span class="string">			cap unicode encoding set gb18030</span></span><br><span class="line"><span class="string">			cap unicode translate temp.txt</span></span><br><span class="line"><span class="string">			cap unicode erasebackups, badidea</span></span><br><span class="line"><span class="string">			infix strL v 1-20000 using temp.txt, clear</span></span><br><span class="line"><span class="string">			keep if index(v, "alt") &amp; index(v, "html")</span></span><br><span class="line"><span class="string">			split v, parse(`"""'</span>)</span><br><span class="line">			sxpose, clear</span><br><span class="line">			rename _var1 v</span><br><span class="line">			drop <span class="keyword">in</span> <span class="number">1</span></span><br><span class="line">			keep <span class="keyword">if</span> index(v, <span class="string">"html"</span>)</span><br><span class="line">			compress</span><br><span class="line"></span><br><span class="line">			forvalues i = <span class="number">1</span> (<span class="number">1</span>) `=_N<span class="string">' &#123;</span></span><br><span class="line"><span class="string">				preserve</span></span><br><span class="line"><span class="string">				local ad2 = v[`i'</span>]</span><br><span class="line">				local url = <span class="string">"$ad`ad2'"</span></span><br><span class="line">				cap copy `url<span class="string">' temp2.txt, replace</span></span><br><span class="line"><span class="string">				clear</span></span><br><span class="line"><span class="string">				cap unicode encoding set gb18030</span></span><br><span class="line"><span class="string">				cap unicode translate temp2.txt</span></span><br><span class="line"><span class="string">				cap unicode erasebackups, badidea</span></span><br><span class="line"><span class="string">				infix strL v 1-20000 using temp2.txt, clear</span></span><br><span class="line"><span class="string">				keep if index(v, "photo-pic")</span></span><br><span class="line"><span class="string">				split v, parse(`"""'</span>)</span><br><span class="line">				sxpose, clear</span><br><span class="line">				drop <span class="keyword">in</span> <span class="number">1</span></span><br><span class="line">				keep <span class="keyword">if</span> index(_var1, <span class="string">"."</span>) | ustrregexm(_var1, <span class="string">"[\u4e00-\u9fa5]+"</span>)</span><br><span class="line">				compress</span><br><span class="line">				local a = _var1[<span class="number">1</span>]</span><br><span class="line">				replace _var1 = subinstr(_var1, <span class="string">" "</span>, <span class="string">"_"</span>, .)</span><br><span class="line">				replace _var1 = subinstr(_var1, <span class="string">":"</span>, <span class="string">"_"</span>, .)</span><br><span class="line">				replace _var1 = subinstr(_var1, <span class="string">"*"</span>, <span class="string">"_"</span>, .)</span><br><span class="line">				replace _var1 = subinstr(_var1, <span class="string">"?"</span>, <span class="string">"_"</span>, .)</span><br><span class="line">				replace _var1 = subinstr(_var1, `<span class="string">"""', "_", .)</span></span><br><span class="line"><span class="string">				replace _var1 = subinstr(_var1, "|", "_", .)</span></span><br><span class="line"><span class="string">				replace _var1 = subinstr(_var1, "&gt;", "_", .)</span></span><br><span class="line"><span class="string">				replace _var1 = subinstr(_var1, "&lt;", "_", .)</span></span><br><span class="line"><span class="string">				replace _var1 = subinstr(_var1, "\", "_", .)</span></span><br><span class="line"><span class="string">				replace _var1 = subinstr(_var1, "/", "_", .)</span></span><br><span class="line"><span class="string">				local b = length(_var1[1])</span></span><br><span class="line"><span class="string">				local c = substr(_var1[1], `b'-5, `b')</span></span><br><span class="line"><span class="string">				local d = _var1[2]</span></span><br><span class="line"><span class="string">				cap copy "$ad`a'" "`d'_`c'", replace</span></span><br><span class="line"><span class="string">				restore</span></span><br><span class="line"><span class="string">			&#125;</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">		erase "temp.txt"</span></span><br><span class="line"><span class="string">		erase "temp2.txt"</span></span><br><span class="line"><span class="string">		cd "$pwd"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">		infix strL v 1-20000 using temp.txt, clear</span></span><br><span class="line"><span class="string">		keep if index(v, "curr")</span></span><br><span class="line"><span class="string">		drop in 1</span></span><br><span class="line"><span class="string">		split v, parse(`"""</span><span class="string">' "&gt;" "&lt;")</span></span><br><span class="line"><span class="string">		sxpose, clear</span></span><br><span class="line"><span class="string">		drop in 1</span></span><br><span class="line"><span class="string">		keep if index(_var1, "4") &amp; index(_var1, "图片") == 0</span></span><br><span class="line"><span class="string">		compress</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">erase "temp.txt"</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-m_mzitu网站整站爬取程序"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/12732/">m_mzitu网站整站爬取程序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/12732/" class="article-date">
+	  <time datetime="2018-02-20T16:45:23.000Z" itemprop="datePublished">2018-02-21</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/网站爬取程序/">网站爬取程序</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>截止今天，该网站一共168页，4018个妹子，最新的妹子为“极品美女信悦儿大尺度情趣写真诱惑无限”</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">cap mkdir <span class="string">"~/Desktop/m_mzitu"</span></span><br><span class="line">cd <span class="string">"~/Desktop/m_mzitu"</span></span><br><span class="line"><span class="comment">/*该网站一个168页，每页有好几个妹子</span></span><br><span class="line"><span class="comment">第一页和最后一页的网址为：</span></span><br><span class="line"><span class="comment">http://m.mzitu.com/page/1/</span></span><br><span class="line"><span class="comment">http://m.mzitu.com/page/168/</span></span><br><span class="line"><span class="comment">然后每一页有很多妹子的封面</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">** 第一步：先爬所有妹子的链接和名字</span><br><span class="line">copy <span class="string">"http://m.mzitu.com/"</span> temp.txt, replace</span><br><span class="line">cap unicode encoding set gb18030</span><br><span class="line">cap unicode translate temp.txt</span><br><span class="line">cap unicode erasebackups, badidea</span><br><span class="line">infix strL v <span class="number">1</span>-<span class="number">20000</span> using temp.txt, clear</span><br><span class="line"><span class="function">keep <span class="keyword">if</span> <span class="title">index</span><span class="params">(v, <span class="string">"&lt;h2&gt;"</span>)</span></span></span><br><span class="line"><span class="function">replace v </span>= subinstr(v, <span class="string">"&lt;h2&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">replace v = subinstr(v, <span class="string">"&lt;/a&gt;&lt;/h2&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">gen url = ustrregexs(<span class="number">0</span>) <span class="function"><span class="keyword">if</span> <span class="title">ustrregexm</span><span class="params">(v, `<span class="string">"http+(.*)[0-9]\""</span><span class="string">')</span></span></span></span><br><span class="line"><span class="function"><span class="params"><span class="string">replace url = subinstr(url, `"""'</span>, <span class="string">""</span>, .)</span></span></span><br><span class="line"><span class="function">gen name </span>= ustrregexs(<span class="number">1</span>) <span class="function"><span class="keyword">if</span> <span class="title">ustrregexm</span><span class="params">(v, <span class="string">"&gt;(.*)"</span>)</span></span></span><br><span class="line"><span class="function">replace name </span>= subinstr(name, <span class="string">" "</span>, <span class="string">""</span>, .)</span><br><span class="line">drop v</span><br><span class="line">compress</span><br><span class="line">save <span class="number">1</span>.dta, replace</span><br><span class="line">cap erase temp.txt</span><br><span class="line">forvalues i = <span class="number">2</span>/<span class="number">168</span> &#123;</span><br><span class="line">	copy <span class="string">"http://m.mzitu.com/page/`i'/"</span> temp.txt, replace</span><br><span class="line">	cap unicode encoding set gb18030</span><br><span class="line">	cap unicode translate temp.txt</span><br><span class="line">	cap unicode erasebackups, badidea</span><br><span class="line">	infix strL v <span class="number">1</span>-<span class="number">20000</span> using temp.txt, clear</span><br><span class="line">	<span class="function">keep <span class="keyword">if</span> <span class="title">index</span><span class="params">(v, <span class="string">"&lt;h2&gt;"</span>)</span></span></span><br><span class="line"><span class="function">	replace v </span>= subinstr(v, <span class="string">"&lt;h2&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace v = subinstr(v, <span class="string">"&lt;/a&gt;&lt;/h2&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">	gen url = ustrregexs(<span class="number">0</span>) <span class="function"><span class="keyword">if</span> <span class="title">ustrregexm</span><span class="params">(v, `<span class="string">"http+(.*)[0-9]\""</span><span class="string">')</span></span></span></span><br><span class="line"><span class="function"><span class="params"><span class="string">	replace url = subinstr(url, `"""'</span>, <span class="string">""</span>, .)</span></span></span><br><span class="line"><span class="function">	gen name </span>= ustrregexs(<span class="number">1</span>) <span class="function"><span class="keyword">if</span> <span class="title">ustrregexm</span><span class="params">(v, <span class="string">"&gt;(.*)"</span>)</span></span></span><br><span class="line"><span class="function">	replace name </span>= subinstr(name, <span class="string">" "</span>, <span class="string">""</span>, .)</span><br><span class="line">	drop v</span><br><span class="line">	compress</span><br><span class="line">	local j = `i<span class="string">'-1</span></span><br><span class="line"><span class="string">	append using `j'</span>.dta</span><br><span class="line">	erase `j<span class="string">'.dta</span></span><br><span class="line"><span class="string">	save `i'</span>.dta, replace</span><br><span class="line">	cap erase temp.txt</span><br><span class="line">&#125;</span><br><span class="line">replace name = subinstr(name, <span class="string">"."</span>, <span class="string">""</span>, .)</span><br><span class="line">save <span class="number">168</span>, replace</span><br><span class="line"></span><br><span class="line">count</span><br><span class="line">ret list</span><br><span class="line">local N = `r(N)<span class="string">'</span></span><br><span class="line"><span class="string">* 一共是4018个妹子</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">use 168.dta, clear</span></span><br><span class="line"><span class="string">gen n = _n</span></span><br><span class="line"><span class="string">gsort -n</span></span><br><span class="line"><span class="string">drop n</span></span><br><span class="line"><span class="string">qui&#123;</span></span><br><span class="line"><span class="string">	preserve</span></span><br><span class="line"><span class="string">	local url = "`=url[1]'</span><span class="string">"</span></span><br><span class="line"><span class="string">	local name = "</span>`=name[<span class="number">1</span>]<span class="string">'"</span></span><br><span class="line"><span class="string">	cap mkdir "`name'</span><span class="string">"</span></span><br><span class="line"><span class="string">	qui cd "</span>`name<span class="string">'"</span></span><br><span class="line"><span class="string">	copy "`url'</span><span class="string">" "</span>temp.txt<span class="string">", replace</span></span><br><span class="line"><span class="string">	infix strL v1 1-20000 using temp.txt, clear</span></span><br><span class="line">	keep if (index(v1, "alt") &amp; index(v1, "&lt;/a&gt;&lt;/p&gt;")) | index(v1, "prev-next-page")</span><br><span class="line">	replace v1 = ustrregexs(<span class="number">0</span>) <span class="function"><span class="keyword">if</span> <span class="title">ustrregexm</span><span class="params">(v1, `<span class="string">"http://i+(.*)jpg\""</span><span class="string">')</span></span></span></span><br><span class="line"><span class="function"><span class="params"><span class="string">	replace v1 = ustrregexs(1) if ustrregexm(v1, "\/([0-9]+)页+")</span></span></span></span><br><span class="line"><span class="function"><span class="params"><span class="string">	replace v1 = subinstr(v1, `"""'</span>, <span class="string">""</span>, .)</span></span></span><br><span class="line"><span class="function">	local w </span>= v1[<span class="number">1</span>]</span><br><span class="line">	!curl `w<span class="string">' -e http://m.mzitu.com/ -o `name'</span>_1.jpg</span><br><span class="line">	cap erase temp.txt</span><br><span class="line">	drop in <span class="number">1</span></span><br><span class="line">	destring v1, replace</span><br><span class="line">	local page = `=v1[<span class="number">1</span>]<span class="string">'</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">di "正在下载《`name'</span>》，一共`page<span class="string">'页，已下完第1页"</span></span><br><span class="line"><span class="string">forvalues j = 2/`page'</span> &#123;</span><br><span class="line">	cap qui&#123;</span><br><span class="line">		copy <span class="string">"`url'/`j'"</span> temp.txt, replace</span><br><span class="line">		infix strL v1 <span class="number">1</span>-<span class="number">20000</span> using temp.txt, clear</span><br><span class="line">		<span class="function">keep <span class="keyword">if</span> <span class="title">index</span><span class="params">(v1, <span class="string">"alt"</span>)</span> &amp; <span class="title">index</span><span class="params">(v1, <span class="string">"&lt;/a&gt;&lt;/p&gt;"</span>)</span></span></span><br><span class="line"><span class="function">		replace v1 </span>= ustrregexs(<span class="number">0</span>) <span class="function"><span class="keyword">if</span> <span class="title">ustrregexm</span><span class="params">(v1, `<span class="string">"http://i+(.*)[a-z]\""</span><span class="string">')</span></span></span></span><br><span class="line"><span class="function"><span class="params"><span class="string">		replace v1 = subinstr(v1, `"""'</span>, <span class="string">""</span>, .)</span></span></span><br><span class="line"><span class="function">		local w </span>= v1[<span class="number">1</span>]</span><br><span class="line">		!curl `w<span class="string">' -e http://m.mzitu.com/ -o `name'</span>_`j<span class="string">'.jpg</span></span><br><span class="line"><span class="string">		cap erase "temp.txt"</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">	di "正在下载《`name'</span>》，一共`page<span class="string">'页，已下完第`j'</span>页<span class="string">"</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">restore</span></span><br><span class="line"><span class="string">forvalues m = 2/`=_N'&#123;</span></span><br><span class="line"><span class="string">	local jd = (100*`m')/4018</span></span><br><span class="line">	di "###############已完成`jd'%#################"</span><br><span class="line">	cd <span class="string">"~/Desktop/m_mzitu"</span></span><br><span class="line">	cap qui&#123;</span><br><span class="line">		preserve</span><br><span class="line">		local url = url[`m<span class="string">']</span></span><br><span class="line"><span class="string">		local name = name[`m'</span>]</span><br><span class="line">		cap mkdir <span class="string">"`name'"</span></span><br><span class="line">		qui cd <span class="string">"`name'"</span></span><br><span class="line">		copy `url<span class="string">' temp.txt, replace</span></span><br><span class="line"><span class="string">		infix strL v1 1-20000 using temp.txt, clear</span></span><br><span class="line"><span class="string">		keep if (index(v1, "alt") &amp; index(v1, "&lt;/a&gt;&lt;/p&gt;")) | index(v1, "prev-next-page")</span></span><br><span class="line"><span class="string">		replace v1 = ustrregexs(0) if ustrregexm(v1, `"http://i+(.*)jpg\""'</span>)</span><br><span class="line">		replace v1 = ustrregexs(<span class="number">1</span>) <span class="function"><span class="keyword">if</span> <span class="title">ustrregexm</span><span class="params">(v1, <span class="string">"\/([0-9]+)页+"</span>)</span></span></span><br><span class="line"><span class="function">		replace v1 </span>= subinstr(v1, `<span class="string">""</span><span class="string">"', "</span><span class="string">", .)</span></span><br><span class="line"><span class="string">		local w = v1[1]</span></span><br><span class="line"><span class="string">		!curl `w' -e http://m.mzitu.com/ -o `name'_1.jpg</span></span><br><span class="line"><span class="string">		cap erase "</span><span class="number">1</span>_`m<span class="string">'.txt"</span></span><br><span class="line"><span class="string">		drop in 1</span></span><br><span class="line"><span class="string">		destring v1, replace</span></span><br><span class="line"><span class="string">		local page = v1[1]</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">	di "正在下载《`name'</span>》，一共`page<span class="string">'页，已下完第1页"</span></span><br><span class="line"><span class="string">	forvalues j = 2(1)`page'</span> &#123;</span><br><span class="line">		cap qui&#123;</span><br><span class="line">			copy <span class="string">"`url'/`j'"</span> temp.txt, replace</span><br><span class="line">			infix strL v1 <span class="number">1</span>-<span class="number">20000</span> using temp.txt, clear</span><br><span class="line">			<span class="function">keep <span class="keyword">if</span> <span class="title">index</span><span class="params">(v1, <span class="string">"alt"</span>)</span> &amp; <span class="title">index</span><span class="params">(v1, <span class="string">"&lt;/a&gt;&lt;/p&gt;"</span>)</span></span></span><br><span class="line"><span class="function">			replace v1 </span>= ustrregexs(<span class="number">0</span>) <span class="function"><span class="keyword">if</span> <span class="title">ustrregexm</span><span class="params">(v1, `<span class="string">"http://i+(.*)jpg\""</span><span class="string">')</span></span></span></span><br><span class="line"><span class="function"><span class="params"><span class="string">			replace v1 = subinstr(v1, `"""'</span>, <span class="string">""</span>, .)</span></span></span><br><span class="line"><span class="function">			local w </span>= v1[<span class="number">1</span>]</span><br><span class="line">			!curl `w<span class="string">' -e http://m.mzitu.com/ -o `name'</span>_`j<span class="string">'.jpg</span></span><br><span class="line"><span class="string">			cap erase "temp.txt"</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">		di "正在下载《`name'</span>》，一共`page<span class="string">'页，已下完第`j'</span>页<span class="string">"</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">	restore</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">cap erase temp.txt</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-pairplot_处理效果图"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/8131/">pairplot_处理效果图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/8131/" class="article-date">
+	  <time datetime="2018-02-20T14:45:23.000Z" itemprop="datePublished">2018-02-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">clear</span><br><span class="line">set obs <span class="number">76</span></span><br><span class="line">gen treatment=mod(_n,<span class="number">3</span>)+<span class="number">1</span></span><br><span class="line"></span><br><span class="line">gen w_before=rnormal(<span class="number">82</span>, <span class="number">4.8</span>)</span><br><span class="line">replace w_before=rnormal(<span class="number">81</span>, <span class="number">5.7</span>)  <span class="keyword">if</span> treatment==<span class="number">2</span></span><br><span class="line">replace w_before=rnormal(<span class="number">83</span>, <span class="number">5</span>)    <span class="keyword">if</span> treatment==<span class="number">3</span></span><br><span class="line"></span><br><span class="line">gen w_after=rnormal(<span class="number">85.6</span>, <span class="number">8.3</span>)</span><br><span class="line">replace w_after=rnormal(<span class="number">81.1</span>, <span class="number">4.7</span>) <span class="keyword">if</span> treatment==<span class="number">2</span></span><br><span class="line">replace w_after=rnormal(<span class="number">90</span>, <span class="number">5.4</span>)   <span class="keyword">if</span> treatment==<span class="number">3</span></span><br><span class="line">//end of making up the data</span><br><span class="line"></span><br><span class="line">label var w_before <span class="string">" Weight before treatment, lb"</span></span><br><span class="line">label var w_after  <span class="string">" Weight after treatment, lb"</span></span><br><span class="line">label define treat ///</span><br><span class="line">        <span class="number">1</span>  <span class="string">"Cognitive behavioural"</span> ///</span><br><span class="line">        <span class="number">2</span>  <span class="string">"Control"</span>               ///</span><br><span class="line">        <span class="number">3</span>  <span class="string">"Family therapy"</span></span><br><span class="line"></span><br><span class="line">label values treatment treat</span><br><span class="line"></span><br><span class="line">pairplot w_after w_before</span><br><span class="line">gre pairplot</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/pairplot.png" alt=""><br>
+        <!-- 123456789101112131415161718192021222324clearset obs 76gen treatment=mod(_n,3)+1gen w_before=rnormal(82, 4.8)replace w_before=rnormal(81, 5.7)  if treatment==2replace w_before=rnormal(83, 5)    if t......  -->
+        <p class="article-more-link">
+          <a href="../../posts/8131/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-rcof——验证一个return代码"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/30628/">rcof——验证一个return代码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/30628/" class="article-date">
+	  <time datetime="2018-02-20T13:36:23.000Z" itemprop="datePublished">2018-02-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata编程导论/">Stata编程导论</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">* 验证一个<span class="keyword">return</span>代码</span><br><span class="line">* 示例</span><br><span class="line"></span><br><span class="line">discard    /* 清除估计结果 */</span><br><span class="line">rcof <span class="string">"regress"</span> == <span class="number">301</span></span><br><span class="line">rcof <span class="string">"regress mpg weight badvar"</span> == <span class="number">111</span></span><br><span class="line">* 如果一个命令的返回值为 <span class="number">111</span>, 也就是说如果你运行这个命令,你将会看到：</span><br><span class="line">regress mpg weight badvar</span><br><span class="line"></span><br><span class="line">* 然后验证代码将会继续运行. Stata命令会继续运行. 如果你想看到运行结果包括错误信息, 你可以在Stata命令前面加上noisily：</span><br><span class="line">rcof <span class="string">"noisily regress mpg weight badvar"</span> == <span class="number">111</span></span><br><span class="line"></span><br><span class="line">* 但是代码运行将会被终止. 另一方面, 当返回值不是你推测的时候会发生如下情况:</span><br><span class="line"></span><br><span class="line">rcof <span class="string">"regress mpg weight badvar"</span> == <span class="number">198</span></span><br><span class="line"></span><br><span class="line">* 当Stata命令不包含下面的符号时，可以省略双引号 =, &lt;, &gt;, ~, <span class="keyword">and</span> !.</span><br><span class="line"></span><br><span class="line">rcof noisily regress mpg weight badvar == <span class="number">111</span></span><br><span class="line"></span><br><span class="line">* 下面的命令就会出错：</span><br><span class="line"></span><br><span class="line">rcof gen mpg = <span class="number">3</span> == <span class="number">110</span></span><br><span class="line"></span><br><span class="line">* 因为上面的命令含有等号，因此需要使用双引号：</span><br><span class="line"></span><br><span class="line">rcof <span class="string">"gen mpg = 3"</span> == <span class="number">110</span></span><br><span class="line"></span><br><span class="line">* 不鼓励省略双引号。</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../80/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../79/">79</a><a class="page-number" href="../80/">80</a><span class="page-number current">81</span><a class="page-number" href="../82/">82</a><a class="page-number" href="../83/">83</a><span class="space">&hellip;</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../82/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

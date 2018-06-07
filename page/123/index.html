@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/123/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+<link rel="stylesheet" type="text/css" href="/assets/css/DPlayer.min.css"><script src="/assets/js/DPlayer.min.js"></script></head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-wordconvert命令转换word文件"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/13659/">wordconvert命令转换word文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/13659/" class="article-date">
+	  <time datetime="2018-02-04T03:28:23.000Z" itemprop="datePublished">2018-02-04</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>这个命令似乎不能在Mac上使用。</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">* wordconvert命令转换word文件</span><br><span class="line">* 首先需要将PowerShell的ExecutionPolicy设置为RemoteSigned。</span><br><span class="line">* 然后将PowerShell所在的路径添加到环境变量中</span><br><span class="line">* 首先生成一个rtf文档</span><br><span class="line">	sysuse auto, clear</span><br><span class="line">	tempname handle</span><br><span class="line">	rtfopen `handle<span class="string">' using temp.rtf,replace</span></span><br><span class="line"><span class="string">* 需要安装rtfutil</span></span><br><span class="line"><span class="string">	file write `handle'</span> `<span class="string">"&#123;\pard\b`=ustrto("</span>描述性统计<span class="string">","</span>gb2312<span class="string">",1)'\par&#125;"</span><span class="string">'</span></span><br><span class="line"><span class="string">	rtfclose `handle'</span></span><br><span class="line">	estpost summarize price mpg rep78 weight length, d</span><br><span class="line">* 需要安装estout</span><br><span class="line">	esttab using temp.rtf, cells(<span class="string">"count mean(fmt(3)) sd(fmt(3)) min(fmt(3)) max(fmt(3))"</span>) noobs append compress</span><br><span class="line">	rtfappend `handle<span class="string">' using temp.rtf, replace</span></span><br><span class="line"><span class="string">	file write `handle'</span> <span class="string">"\page"</span></span><br><span class="line">	file write `handle<span class="string">' `"&#123;\pard\b`=ustrto("回归结果","gb2312",1)'</span>\par&#125;<span class="string">"'</span></span><br><span class="line"><span class="string">	rtfclose `handle'</span></span><br><span class="line"><span class="string">	reg price mpg weight rep78</span></span><br><span class="line"><span class="string">	est store m1</span></span><br><span class="line"><span class="string">	reg price mpg length weight</span></span><br><span class="line"><span class="string">	est store m2</span></span><br><span class="line"><span class="string">	esttab m1 m2 using temp.rtf, append star(* 0.10 ** 0.05 *** 0.01) ar2 nogaps</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">* 使用wordconvert命令将rtf文件转换成其他格式</span></span><br><span class="line"><span class="string">	wordconvert "</span>temp.rt<span class="string">f" "</span>temp.docx<span class="string">", encoding(gb2312) replace</span></span><br><span class="line"><span class="string">* 简体中文设置为gb2312即可</span></span><br><span class="line"><span class="string">	wordconvert "</span>temp.rt<span class="string">f" "</span>temp.pd<span class="string">f", encoding(gb2312) replace</span></span><br><span class="line"><span class="string">	wordconvert "</span>temp.rt<span class="string">f" "</span>temp.doc<span class="string">", encoding(gb2312) replace</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-getfilename2——返回文件的名称格式和路径"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/48170/">getfilename2——返回文件的名称格式和路径</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/48170/" class="article-date">
+	  <time datetime="2018-02-04T03:21:23.000Z" itemprop="datePublished">2018-02-04</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">* 安装：ssc install getfilename2</span><br><span class="line">. getfilename2 <span class="string">"`=c(sysdir_plus)'n/nslwork.dta"</span></span><br><span class="line"></span><br><span class="line">. ret list</span><br><span class="line"></span><br><span class="line">macros:</span><br><span class="line">           r(filename) : <span class="string">"nslwork.dta"</span></span><br><span class="line">               r(root) : <span class="string">"nslwork"</span></span><br><span class="line">                r(ext) : <span class="string">"dta"</span></span><br><span class="line">               r(path) : <span class="string">"~/Library/Application Support/Stata/ado/plus/n"</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-winsor2——缩尾或修建"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/13612/">winsor2——缩尾或修建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/13612/" class="article-date">
+	  <time datetime="2018-02-03T16:28:23.000Z" itemprop="datePublished">2018-02-04</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>如何处理离群值：winsor还是cut</p>
+</blockquote>
+<ul>
+<li>缩尾处理: winsorize</li>
+<li>缩尾处理：取个例子，对变量进行1%的缩尾处理是指，如果一个样本的某变量值大于该变量的99分位数，则该样本的值就会被强制指定99%分位数的值；类似的，如果一个样本某变量的值小于该变量的1%分位数，则将该样本该变量的值强制指定为1%分位数的值。Stata内置的winsor命令只能对样本进行对称的缩尾处理，且每次只能处理一个变量。如果我们想对样本进行一端缩尾或者直接删除尾部极端样本，就需要使用winsor2命令。winsor2的主要功能是可以同时对多个变量进行缩尾（winsorize）或者修剪（trim）处理:</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">winsor2 varlist [if] [in], [suffix*(string) replace trim cuts(# #) by(groupvar) label]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>suffix()：设置处理后新变量的后缀名，默认为_w或_tr；</li>
+<li>replace：替换原有变量；</li>
+<li>trim：将特定分位数上下的数值替换为缺失值；</li>
+<li>cuts(# #)：在具体的分位数上下进行缩尾或者修剪处理；</li>
+<li>by：分组处理；</li>
+<li>label：为新变量加标签。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sysuse nlsw88, clear</span><br><span class="line"><span class="comment">/*不加option选项时，默认对变量进行上下1%的缩尾处理，同时生成后缀名为_w的新变量*/</span></span><br><span class="line">keep wage ttl_exp</span><br><span class="line">winsor2 wage ttl_exp</span><br><span class="line">winsor2 wage ttl_exp, cuts(<span class="number">0.5</span> <span class="number">99.5</span>) replace</span><br><span class="line">winsor2 wage ttl_exp, cuts(<span class="number">1</span> <span class="number">99</span>) trim</span><br><span class="line">winsor2 wage ttl_exp, cuts(<span class="number">0</span> <span class="number">99</span>) replace</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-pieplot——绘制饼图"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/64707/">pieplot</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/64707/" class="article-date">
+	  <time datetime="2018-02-03T16:22:23.000Z" itemprop="datePublished">2018-02-04</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sysuse auto, clear</span><br><span class="line">pieplot rep78</span><br><span class="line">gre pieplot1</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/pieplot1.png" alt=""><br>
+        <!-- 123sysuse auto, clearpieplot rep78gre pieplot1
+12pieplot rep78 foreigngre pieplot2
+
+12pieplot rep78 foreign, sumgre pieplot3
+
+12pieplot rep78 foreign, sum plabelsubopts(size(*2))gre pieplot4
+
+12pie......  -->
+        <p class="article-more-link">
+          <a href="../../posts/64707/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-借我"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/42111/">借我</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/42111/" class="article-date">
+	  <time datetime="2018-02-03T04:27:22.000Z" itemprop="datePublished">2018-02-03</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/音乐电影/">音乐电影</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="这个是女朋友唱的～"><a href="#这个是女朋友唱的～" class="headerlink" title="这个是女朋友唱的～"></a>这个是女朋友唱的～</h4><center><br><div id="dplayer1" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px; width:400px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer1"),"theme":"#FADFA3","loop":true,"video":{"url":"https://github.com/czxa/Web_data_Source/raw/master/借我——笑笑.mp4","pic":"https://github.com/czxa/Web_data_Source/raw/master/DSC00924.jpg"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script><br></center>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../122/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../121/">121</a><a class="page-number" href="../122/">122</a><span class="page-number current">123</span><a class="page-number" href="../124/">124</a><a class="page-number" href="../125/">125</a><span class="space">&hellip;</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../124/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

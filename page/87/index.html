@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/87/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-assert命令——检验一个语句的正确性"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/31535/">assert命令——检验一个语句的正确性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/31535/" class="article-date">
+	  <time datetime="2018-02-20T06:27:23.000Z" itemprop="datePublished">2018-02-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata编程导论/">Stata编程导论</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">. use census2b, clear</span><br><span class="line">(Version of census2a <span class="keyword">for</span> data validation purposes)</span><br><span class="line"></span><br><span class="line">. list <span class="keyword">if</span> !inrange(pop, <span class="number">300000</span>, <span class="number">3e7</span>)</span><br><span class="line"></span><br><span class="line">     +-------------------------------------------+</span><br><span class="line">     |    state    region   pop   medage   drate |</span><br><span class="line">     |-------------------------------------------|</span><br><span class="line">  <span class="number">4.</span> | Arkansas     South    <span class="number">-9</span>     <span class="number">30.6</span>      <span class="number">99</span> |</span><br><span class="line"> <span class="number">10.</span> |  Georgia     South     .     <span class="number">28.7</span>      <span class="number">81</span> |</span><br><span class="line"> <span class="number">15.</span> |     Iowa   N Cntrl     <span class="number">0</span>       <span class="number">30</span>      <span class="number">90</span> |</span><br><span class="line">     +-------------------------------------------+</span><br><span class="line"></span><br><span class="line">. <span class="keyword">assert</span> inrange(pop, <span class="number">300000</span>, <span class="number">3e7</span>)</span><br><span class="line"><span class="number">3</span> contradictions <span class="keyword">in</span> <span class="number">50</span> observations</span><br><span class="line">assertion <span class="keyword">is</span> false</span><br><span class="line">r(<span class="number">9</span>);</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. list <span class="keyword">if</span> !inrange(medage, <span class="number">20</span>, <span class="number">50</span>)</span><br><span class="line"></span><br><span class="line">     +-------------------------------------------------+</span><br><span class="line">     |       state   region       pop   medage   drate |</span><br><span class="line">     |-------------------------------------------------|</span><br><span class="line">  <span class="number">7.</span> | Connecticut       NE   <span class="number">3107576</span>      <span class="number">321</span>      <span class="number">84</span> |</span><br><span class="line">     +-------------------------------------------------+</span><br><span class="line"></span><br><span class="line">. <span class="keyword">assert</span> inrange(medage, <span class="number">20</span>, <span class="number">50</span>)</span><br><span class="line"><span class="number">1</span> contradiction <span class="keyword">in</span> <span class="number">50</span> observations</span><br><span class="line">assertion <span class="keyword">is</span> false</span><br><span class="line">r(<span class="number">9</span>);</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. list <span class="keyword">if</span> !inrange(drate, <span class="number">10</span>, <span class="number">104</span>+<span class="number">145</span>)</span><br><span class="line"></span><br><span class="line">     +---------------------------------------------+</span><br><span class="line">     |   state   region       pop   medage   drate |</span><br><span class="line">     |---------------------------------------------|</span><br><span class="line">  <span class="number">9.</span> | Florida    South   <span class="number">9746324</span>     <span class="number">34.7</span>    <span class="number">1107</span> |</span><br><span class="line">     +---------------------------------------------+</span><br><span class="line"></span><br><span class="line">. <span class="keyword">assert</span> inrange(drate, <span class="number">10</span>, <span class="number">104</span>+<span class="number">145</span>)</span><br><span class="line"><span class="number">1</span> contradiction <span class="keyword">in</span> <span class="number">50</span> observations</span><br><span class="line">assertion <span class="keyword">is</span> false</span><br><span class="line">r(<span class="number">9</span>);</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. duplicates report state</span><br><span class="line"></span><br><span class="line">Duplicates <span class="keyword">in</span> terms of state</span><br><span class="line"></span><br><span class="line">--------------------------------------</span><br><span class="line">   copies | observations       surplus</span><br><span class="line">----------+---------------------------</span><br><span class="line">        <span class="number">1</span> |           <span class="number">48</span>             <span class="number">0</span></span><br><span class="line">        <span class="number">2</span> |            <span class="number">2</span>             <span class="number">1</span></span><br><span class="line">--------------------------------------</span><br><span class="line"></span><br><span class="line">. <span class="keyword">assert</span> r(unique_value) == r(N)</span><br><span class="line">assertion <span class="keyword">is</span> false</span><br><span class="line">r(<span class="number">9</span>);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Stata自定义绘图"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/14981/">Stata自定义绘图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/14981/" class="article-date">
+	  <time datetime="2018-02-18T17:14:23.000Z" itemprop="datePublished">2018-02-19</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/Web_data_Source/raw/master/mygraph.png" alt=""><br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">tw ///</span><br><span class="line">pcarrowi <span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span>  <span class="number">6</span>  ///</span><br><span class="line">         <span class="number">0</span>  <span class="number">0</span>  <span class="number">10</span>  <span class="number">0</span>  || ///</span><br><span class="line">pci <span class="number">8</span> <span class="number">0</span> <span class="number">0</span> <span class="number">4</span>, lw(*<span class="number">1</span>) lc(black) || ///</span><br><span class="line">pcarrowi <span class="number">5.1</span> <span class="number">-0.2</span> <span class="number">7.7</span> <span class="number">-0.2</span>, lw(*<span class="number">1.5</span>) lc(black) || ///</span><br><span class="line">pcarrowi <span class="number">-0.2</span> <span class="number">4.9</span> <span class="number">-0.2</span> <span class="number">4.1</span>, lw(*<span class="number">1.5</span>) lc(black) || ///</span><br><span class="line">pci <span class="number">5</span> <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>, lw(*<span class="number">1</span>) lc(black) ||, ///</span><br><span class="line">sch(s2mono) ysc(off) xsc(off) ///</span><br><span class="line">aspect(<span class="number">1</span>) leg(off) ///</span><br><span class="line">text(<span class="number">8</span> <span class="number">-0.9</span> <span class="string">"(1+&#123;&amp;tau&#125;&#123;sub:b&#125;)(Y+B&#123;sub:t&#125;)"</span>) ///</span><br><span class="line">text(<span class="number">5</span> <span class="number">-0.7</span> <span class="string">"Y+B&#123;sub:t&#125;"</span>) ///</span><br><span class="line">text(<span class="number">-0.7</span> <span class="number">4</span> <span class="string">"(1-&#123;&amp;tau&#125;&#123;sub:b&#125;)(Y+B&#123;sub:t&#125;)"</span>) ///</span><br><span class="line">text(<span class="number">10</span> <span class="number">-0.7</span> <span class="string">"消费"</span>) ///</span><br><span class="line">text(<span class="number">-0.7</span> <span class="number">6</span> <span class="string">"收入"</span>) ///</span><br><span class="line">text(<span class="number">-0.7</span> <span class="number">5</span> <span class="string">"Y+B&#123;sub:t&#125;"</span>) ///</span><br><span class="line">graphr(margin(<span class="number">10</span> <span class="number">10</span> <span class="number">10</span> <span class="number">10</span>) fc(white)) ///</span><br><span class="line">plotr(margin(<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>) fc(white)) ///</span><br><span class="line">yla(<span class="number">0</span>(<span class="number">2</span>)<span class="number">10</span>) xla(<span class="number">0</span>(<span class="number">2</span>)<span class="number">6</span>) ///</span><br><span class="line">yla(, nogrid)</span><br><span class="line">gre mygraph</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-showtext_好玩的字体"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/63652/">showtext_好玩的字体</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/63652/" class="article-date">
+	  <time datetime="2018-02-16T09:09:23.000Z" itemprop="datePublished">2018-02-16</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/Web_data_Source/raw/master/chinese-char.png" alt=""></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(showtext)</span><br><span class="line"><span class="comment"># 添加字体册中的字体</span></span><br><span class="line">font_add(<span class="string">"kaishu"</span>, <span class="string">"AdobeKaitiStd-Regular.otf"</span>)</span><br><span class="line"><span class="keyword">library</span>(Cairo)</span><br><span class="line">CairoPNG(<span class="string">"chinese-char.png"</span>, <span class="number">600</span>, <span class="number">600</span>)</span><br><span class="line">showtext.begin()</span><br><span class="line">set.seed(<span class="number">123</span>)</span><br><span class="line">plot(<span class="number">1</span>, xlim = c(-<span class="number">3</span>, <span class="number">3</span>), ylim = c(-<span class="number">3</span>, <span class="number">3</span>), type = <span class="string">"n"</span>)</span><br><span class="line">text(runif(<span class="number">100</span>, -<span class="number">3</span>, <span class="number">3</span>), runif(<span class="number">100</span>, -<span class="number">3</span>, <span class="number">3</span>),</span><br><span class="line">     intToUtf8(round(runif(<span class="number">100</span>, <span class="number">19968</span>,<span class="number">40869</span>)), multiple = <span class="literal">TRUE</span>),</span><br><span class="line">     col = rgb(runif(<span class="number">100</span>), runif(<span class="number">100</span>), runif(<span class="number">100</span>), <span class="number">0.5</span> + runif(<span class="number">100</span>)/<span class="number">2</span>),</span><br><span class="line">     cex = <span class="number">2</span>, family = <span class="string">"kaishu"</span>)</span><br><span class="line">title(<span class="string">"随机汉字"</span>, family = <span class="string">"kaishu"</span>)</span><br><span class="line">showtext.end()</span><br><span class="line">dev.off()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/R/">R</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-R语言-绘制不等宽柱形图"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/11995/">R语言-绘制不等宽柱形图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/11995/" class="article-date">
+	  <time datetime="2018-02-16T07:09:23.000Z" itemprop="datePublished">2018-02-16</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/Web_data_Source/raw/master/不等宽柱形图.png" alt=""></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line"><span class="keyword">library</span>(scales)</span><br><span class="line">mydata &lt;- data.frame(Name = paste0(<span class="string">"Pjt"</span>, <span class="number">1</span>:<span class="number">5</span>), Scale = c(<span class="number">35</span>, <span class="number">30</span>, <span class="number">20</span>, <span class="number">10</span>, <span class="number">5</span>), ARPU = c(<span class="number">56</span>, <span class="number">37</span>, <span class="number">63</span>, <span class="number">57</span>, <span class="number">59</span>))</span><br><span class="line"><span class="comment"># 在ggplot2的系统里面，生成矩阵的图层函数是geom_rect()函数，内置四个参数：xmin/xmax/ymin/ymax</span></span><br><span class="line"><span class="comment"># 构造x轴的起点</span></span><br><span class="line">mydata$xmin &lt;- <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">2</span>:<span class="number">5</span>)&#123;</span><br><span class="line">  mydata$xmin[i] &lt;- sum(mydata$Scale[<span class="number">1</span>:i-<span class="number">1</span>])</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 构造矩形的终点</span></span><br><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:<span class="number">5</span>)&#123;</span><br><span class="line">  mydata$xmax[i] &lt;- sum(mydata$Scale[<span class="number">1</span>:i])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构造数据标签的横坐标：</span></span><br><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:<span class="number">5</span>)&#123;</span><br><span class="line">  mydata$label[i] &lt;- sum(mydata$Scale[<span class="number">1</span>:i])-mydata$Scale[i]/<span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字体设置</span></span><br><span class="line">quartzFonts(</span><br><span class="line">  sans = quartzFont(rep(<span class="string">"AppleGothic"</span>, <span class="number">4</span>)),</span><br><span class="line">  serif = quartzFont(rep(<span class="string">"AppleMyungjp"</span>, <span class="number">4</span>))</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">ggplot(mydata) +</span><br><span class="line">  geom_rect(aes(xmin = xmin, xmax = xmax, ymin = <span class="number">0</span>, ymax = ARPU, fill = Name)) +</span><br><span class="line">  scale_fill_manual(values = c(<span class="string">"#54576B"</span>, <span class="string">"#BD1F12"</span>, <span class="string">"#E8BA11"</span>, <span class="string">"#62962A"</span>, <span class="string">"#9B56AF"</span>)) +</span><br><span class="line">  geom_text(aes(x = label, y = ARPU - <span class="number">3</span>, label = ARPU), size = <span class="number">4</span>, col = <span class="string">"white"</span>, family = <span class="string">"sans"</span>) +</span><br><span class="line">  geom_text(aes(x = label, y = -<span class="number">2.5</span>, label = Scale), size = <span class="number">4</span>, col = <span class="string">"black"</span>, family = <span class="string">"sans"</span>) +</span><br><span class="line">  geom_text(aes(x = label, y = -<span class="number">5.5</span>, label = Name), size = <span class="number">4</span>, col = <span class="string">"black"</span>, family = <span class="string">"sans"</span>) +</span><br><span class="line">  annotate(<span class="string">"text"</span>, x = <span class="number">16</span>, y = <span class="number">70</span>, label = <span class="string">"Title"</span>, size = <span class="number">8</span>, family = <span class="string">"sans"</span>) +</span><br><span class="line">  annotate(<span class="string">"text"</span>, x = <span class="number">14</span>, y = <span class="number">64</span>, label = <span class="string">"czx"</span>, size = <span class="number">4</span>, family = <span class="string">"sans"</span>) +</span><br><span class="line">  annotate(<span class="string">"text"</span>, x = <span class="number">11</span>, y = -<span class="number">9.8</span>, label = <span class="string">"Source: EasyCharts"</span>, size = <span class="number">4</span>, family = <span class="string">"sans"</span>) +</span><br><span class="line">  ylim(-<span class="number">10</span>, <span class="number">80</span>) + theme_void()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/R/">R</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-R语言中的数据长宽变换"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/58318/">R语言中的数据长宽变换</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/58318/" class="article-date">
+	  <time datetime="2018-02-16T07:07:23.000Z" itemprop="datePublished">2018-02-16</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/R包/">R包</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="先生成一些模拟数据"><a href="#先生成一些模拟数据" class="headerlink" title="先生成一些模拟数据"></a>先生成一些模拟数据</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">library</span>(data.table)</span><br><span class="line">&gt; set.seed(<span class="number">123</span>)</span><br><span class="line">&gt; market &lt;- data.table(stkcd = <span class="number">1</span>:<span class="number">100</span>,</span><br><span class="line">+        type = sample(c(<span class="number">0</span>,<span class="number">1</span>), <span class="number">100</span>, replace = <span class="literal">TRUE</span>),</span><br><span class="line">+        industry = sample(letters, <span class="number">100</span>, replace = <span class="literal">TRUE</span>),</span><br><span class="line">+        roa2013 = runif(<span class="number">100</span>, min = <span class="number">0</span>, max = <span class="number">1</span>),</span><br><span class="line">+        roa2014 = runif(<span class="number">100</span>, min = <span class="number">0</span>, max = <span class="number">1</span>),</span><br><span class="line">+        roa2015 = runif(<span class="number">100</span>, min = <span class="number">0</span>, max = <span class="number">1</span>),</span><br><span class="line">+        lev2013 = runif(<span class="number">100</span>, min = <span class="number">0</span>, max = <span class="number">1</span>),</span><br><span class="line">+        lev2014 = runif(<span class="number">100</span>, min = <span class="number">0</span>, max = <span class="number">1</span>),</span><br><span class="line">+        lev2015 = runif(<span class="number">100</span>, min = <span class="number">0</span>, max = <span class="number">1</span>)</span><br><span class="line">+        )</span><br><span class="line">&gt; head(market)</span><br><span class="line">   stkcd type industry   roa2013     roa2014   roa2015    lev2013   lev2014    lev2015</span><br><span class="line"><span class="number">1</span>:     <span class="number">1</span>    <span class="number">0</span>        p <span class="number">0.2387260</span> <span class="number">0.784575267</span> <span class="number">0.9860543</span> <span class="number">0.35360608</span> <span class="number">0.2372297</span> <span class="number">0.84493354</span></span><br><span class="line"><span class="number">2</span>:     <span class="number">2</span>    <span class="number">1</span>        i <span class="number">0.9623589</span> <span class="number">0.009429905</span> <span class="number">0.1370675</span> <span class="number">0.36644144</span> <span class="number">0.6864904</span> <span class="number">0.26013247</span></span><br><span class="line"><span class="number">3</span>:     <span class="number">3</span>    <span class="number">0</span>        m <span class="number">0.6013657</span> <span class="number">0.779065883</span> <span class="number">0.9053096</span> <span class="number">0.28710013</span> <span class="number">0.2258184</span> <span class="number">0.02314449</span></span><br><span class="line"><span class="number">4</span>:     <span class="number">4</span>    <span class="number">1</span>        y <span class="number">0.5150297</span> <span class="number">0.729390652</span> <span class="number">0.5763018</span> <span class="number">0.07997291</span> <span class="number">0.3184946</span> <span class="number">0.86239954</span></span><br><span class="line"><span class="number">5</span>:     <span class="number">5</span>    <span class="number">1</span>        m <span class="number">0.4025733</span> <span class="number">0.630131853</span> <span class="number">0.3954489</span> <span class="number">0.36545427</span> <span class="number">0.1739838</span> <span class="number">0.33458796</span></span><br><span class="line"><span class="number">6</span>:     <span class="number">6</span>    <span class="number">0</span>        x <span class="number">0.8802465</span> <span class="number">0.480910830</span> <span class="number">0.4498025</span> <span class="number">0.17801381</span> <span class="number">0.8014296</span> <span class="number">0.63178887</span></span><br></pre></td></tr></table></figure>
+        <!-- 先生成一些模拟数据1234567891011121314151617181920&gt; library(data.table)&gt; set.seed(123)&gt; market &lt;- data.table(stkcd = 1:100,+        type = sample(c(0,1), 100, replace = TRUE),+        industry = ......  -->
+        <p class="article-more-link">
+          <a href="../../posts/58318/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/R/">R</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../86/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../85/">85</a><a class="page-number" href="../86/">86</a><span class="page-number current">87</span><a class="page-number" href="../88/">88</a><a class="page-number" href="../89/">89</a><span class="space">&hellip;</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../88/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

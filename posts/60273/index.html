@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>时间序列分析 | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="协整, VAR, SVAR" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="1.1 多元时间序列分析1.1.1 协整 如果n*1的时间序列向量中的每一个序列都是d阶单整的（特别是在大多数应用中，这些序列是一阶单整的，这意味着序列时非平稳的单位根过程或者随机游走的过程）。同时存在它们的线性组合是d-1阶单整的，特别是当阶数为0时，序列是一个平稳的过程。那么这些单整序列构成的向量是协整的。 直观上来看，这个定义意味着经济中存在某些潜藏力量。这种力量使n个看似是相互独立的随机游">
+<meta name="keywords" content="协整, VAR, SVAR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="时间序列分析">
+<meta property="og:url" content="http://www.czxa.top/posts/60273/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="1.1 多元时间序列分析1.1.1 协整 如果n*1的时间序列向量中的每一个序列都是d阶单整的（特别是在大多数应用中，这些序列是一阶单整的，这意味着序列时非平稳的单位根过程或者随机游走的过程）。同时存在它们的线性组合是d-1阶单整的，特别是当阶数为0时，序列是一个平稳的过程。那么这些单整序列构成的向量是协整的。 直观上来看，这个定义意味着经济中存在某些潜藏力量。这种力量使n个看似是相互独立的随机游">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-fd9418136290ed76.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-55202253a4cbe61b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-11b3a0b616d98c34.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-35449aada3ca4e98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-a83defb99bc1e437.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-a11fa4ff8e59c1f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-202756e570b33771.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-499f8ce71574e233.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-ca46347a5cdb64be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-8f56985988095e2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-7c02f2a90cd8210c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-02-13T09:35:35.933Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="时间序列分析">
+<meta name="twitter:description" content="1.1 多元时间序列分析1.1.1 协整 如果n*1的时间序列向量中的每一个序列都是d阶单整的（特别是在大多数应用中，这些序列是一阶单整的，这意味着序列时非平稳的单位根过程或者随机游走的过程）。同时存在它们的线性组合是d-1阶单整的，特别是当阶数为0时，序列是一个平稳的过程。那么这些单整序列构成的向量是协整的。 直观上来看，这个定义意味着经济中存在某些潜藏力量。这种力量使n个看似是相互独立的随机游">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/8103632-fd9418136290ed76.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-时间序列分析" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      时间序列分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2017-10-28T11:23:56.000Z" itemprop="datePublished">2017-10-28</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/金融/">金融</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-1-多元时间序列分析"><a href="#1-1-多元时间序列分析" class="headerlink" title="1.1 多元时间序列分析"></a>1.1 多元时间序列分析</h2><h3 id="1-1-1-协整"><a href="#1-1-1-协整" class="headerlink" title="1.1.1 协整"></a>1.1.1 协整</h3><ul>
+<li>如果n*1的时间序列向量中的每一个序列都是d阶单整的（特别是在大多数应用中，这些序列是一阶单整的，这意味着序列时非平稳的单位根过程或者随机游走的过程）。同时存在它们的线性组合是d-1阶单整的，特别是当阶数为0时，序列是一个平稳的过程。那么这些单整序列构成的向量是协整的。</li>
+<li>直观上来看，这个定义意味着经济中存在某些潜藏力量。这种力量使n个看似是相互独立的随机游走过程，但在长期中趋于一致。</li>
+<li>标准统计检验可以严格地展示时间序列向量中的单位根。R的tseries包或者urca包可以实施单位根检验，本文使用后者。下面的R代码模拟了两个长度为1000的序列：</li>
+</ul>
+<a id="more"></a>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#生成两个长度为1000的时间序列</span></span><br><span class="line">set.seed(<span class="number">20171009</span>)</span><br><span class="line">N = <span class="number">1000</span></span><br><span class="line">x = cumsum(rnorm(N))</span><br><span class="line">gamma = <span class="number">0.7</span></span><br><span class="line">y = gamma * x + rnorm(N)</span><br><span class="line">plot(x, type = <span class="string">"l"</span>)</span><br><span class="line">lines(y, col = <span class="string">"red"</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-fd9418136290ed76.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>可以通过urca包实施ADF检验来检验平稳性。原假设是存在一个单位根。如果检验统计量小于临界值，我们就拒绝原假设：</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">"urca"</span>)</span><br><span class="line"><span class="keyword">library</span>(<span class="string">'urca'</span>)</span><br><span class="line">summary(ur.df(x, type = <span class="string">"none"</span>))</span><br><span class="line"><span class="comment">###############################################</span></span><br><span class="line"><span class="comment"># Augmented Dickey-Fuller Test Unit Root Test #</span></span><br><span class="line"><span class="comment">###############################################</span></span><br><span class="line"></span><br><span class="line">Test regression none</span><br><span class="line"></span><br><span class="line">Call:</span><br><span class="line">lm(formula = z.diff ~ z.lag.1 - <span class="number">1</span> + z.diff.lag)</span><br><span class="line"></span><br><span class="line">Residuals:</span><br><span class="line">    Min      1Q  Median      3Q     Max</span><br><span class="line">-<span class="number">4.1461</span> -<span class="number">0.6795</span> -<span class="number">0.0022</span>  <span class="number">0.6407</span>  <span class="number">2.9450</span></span><br><span class="line"></span><br><span class="line">Coefficients:</span><br><span class="line">            Estimate Std. Error t value Pr(&gt;|t|)</span><br><span class="line">z.lag.1    <span class="number">0.0011096</span>  <span class="number">0.0006263</span>   <span class="number">1.772</span>   <span class="number">0.0767</span> .</span><br><span class="line">z.diff.lag <span class="number">0.0325559</span>  <span class="number">0.0317223</span>   <span class="number">1.026</span>   <span class="number">0.3050</span></span><br><span class="line">---</span><br><span class="line">Signif. codes:  <span class="number">0</span> ‘***’ <span class="number">0.001</span> ‘**’ <span class="number">0.01</span> ‘*’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line"></span><br><span class="line">Residual standard error: <span class="number">0.9937</span> on <span class="number">996</span> degrees of freedom</span><br><span class="line">Multiple R-squared:  <span class="number">0.004496</span>,	Adjusted R-squared:  <span class="number">0.002497</span></span><br><span class="line"><span class="literal">F</span>-statistic: <span class="number">2.249</span> on <span class="number">2</span> and <span class="number">996</span> DF,  p-value: <span class="number">0.1061</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Value of test-statistic is: <span class="number">1.7717</span></span><br><span class="line"></span><br><span class="line">Critical values <span class="keyword">for</span> test statistics:</span><br><span class="line">      1pct  5pct 10pct</span><br><span class="line">tau1 -<span class="number">2.58</span> -<span class="number">1.95</span> -<span class="number">1.62</span></span><br><span class="line">summary(ur.df(y, type = <span class="string">"none"</span>))</span><br><span class="line"><span class="comment">###############################################</span></span><br><span class="line"><span class="comment"># Augmented Dickey-Fuller Test Unit Root Test #</span></span><br><span class="line"><span class="comment">###############################################</span></span><br><span class="line"></span><br><span class="line">Test regression none</span><br><span class="line"></span><br><span class="line">Call:</span><br><span class="line">lm(formula = z.diff ~ z.lag.1 - <span class="number">1</span> + z.diff.lag)</span><br><span class="line"></span><br><span class="line">Residuals:</span><br><span class="line">    Min      1Q  Median      3Q     Max</span><br><span class="line">-<span class="number">5.2519</span> -<span class="number">0.9902</span>  <span class="number">0.0033</span>  <span class="number">1.0152</span>  <span class="number">4.6853</span></span><br><span class="line"></span><br><span class="line">Coefficients:</span><br><span class="line">            Estimate Std. Error t value Pr(&gt;|t|)</span><br><span class="line">z.lag.1     <span class="number">0.001360</span>   <span class="number">0.001323</span>   <span class="number">1.029</span>    <span class="number">0.304</span></span><br><span class="line">z.diff.lag -<span class="number">0.413785</span>   <span class="number">0.028924</span> -<span class="number">14.306</span>   &lt;<span class="number">2e-16</span> ***</span><br><span class="line">---</span><br><span class="line">Signif. codes:  <span class="number">0</span> ‘***’ <span class="number">0.001</span> ‘**’ <span class="number">0.01</span> ‘*’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line"></span><br><span class="line">Residual standard error: <span class="number">1.472</span> on <span class="number">996</span> degrees of freedom</span><br><span class="line">Multiple R-squared:  <span class="number">0.1705</span>,	Adjusted R-squared:  <span class="number">0.1688</span></span><br><span class="line"><span class="literal">F</span>-statistic: <span class="number">102.4</span> on <span class="number">2</span> and <span class="number">996</span> DF,  p-value: &lt; <span class="number">2.2e-16</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Value of test-statistic is: <span class="number">1.0287</span></span><br><span class="line"></span><br><span class="line">Critical values <span class="keyword">for</span> test statistics:</span><br><span class="line">      1pct  5pct 10pct</span><br><span class="line">tau1 -<span class="number">2.58</span> -<span class="number">1.95</span> -<span class="number">1.62</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>对于两个模拟序列，检验统计量大于一般显著性水平的临界值。因此我们不能拒绝原假设，并且我们认为这两个序列各自都是单位根过程。</li>
+<li>下面，对这两个序列取线性组合并绘出残差序列：</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">z = y - gamma * x</span><br><span class="line">plot(z, type = <span class="string">"l"</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-55202253a4cbe61b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>显然这是一个白噪声过程。我们再来进行ADF检验：</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">summary(ur.df(z, type = <span class="string">"none"</span>))</span><br><span class="line"><span class="comment">###############################################</span></span><br><span class="line"><span class="comment"># Augmented Dickey-Fuller Test Unit Root Test #</span></span><br><span class="line"><span class="comment">###############################################</span></span><br><span class="line"></span><br><span class="line">Test regression none</span><br><span class="line"></span><br><span class="line">Call:</span><br><span class="line">lm(formula = z.diff ~ z.lag.1 - <span class="number">1</span> + z.diff.lag)</span><br><span class="line"></span><br><span class="line">Residuals:</span><br><span class="line">    Min      1Q  Median      3Q     Max</span><br><span class="line">-<span class="number">3.8506</span> -<span class="number">0.6918</span> -<span class="number">0.0091</span>  <span class="number">0.6651</span>  <span class="number">3.2831</span></span><br><span class="line"></span><br><span class="line">Coefficients:</span><br><span class="line">           Estimate Std. Error t value Pr(&gt;|t|)</span><br><span class="line">z.lag.1    -<span class="number">0.97544</span>    <span class="number">0.04492</span> -<span class="number">21.715</span>   &lt;<span class="number">2e-16</span> ***</span><br><span class="line">z.diff.lag -<span class="number">0.03130</span>    <span class="number">0.03166</span>  -<span class="number">0.989</span>    <span class="number">0.323</span></span><br><span class="line">---</span><br><span class="line">Signif. codes:  <span class="number">0</span> ‘***’ <span class="number">0.001</span> ‘**’ <span class="number">0.01</span> ‘*’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line"></span><br><span class="line">Residual standard error: <span class="number">1.013</span> on <span class="number">996</span> degrees of freedom</span><br><span class="line">Multiple R-squared:  <span class="number">0.5041</span>,	Adjusted R-squared:  <span class="number">0.5031</span></span><br><span class="line"><span class="literal">F</span>-statistic: <span class="number">506.2</span> on <span class="number">2</span> and <span class="number">996</span> DF,  p-value: &lt; <span class="number">2.2e-16</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Value of test-statistic is: -<span class="number">21.7148</span></span><br><span class="line"></span><br><span class="line">Critical values <span class="keyword">for</span> test statistics:</span><br><span class="line">      1pct  5pct 10pct</span><br><span class="line">tau1 -<span class="number">2.58</span> -<span class="number">1.95</span> -<span class="number">1.62</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>检验结果表明应该拒绝原假设。</li>
+<li>实际应用中，我们并不知道协整系数。我们需要基于原始数据，通过一个序列对另外一个序列进行线性回归来估计这个值。这个检验协整的方法称为Engle-Granger方法，实施这个方法需要下面两个步骤：<ul>
+<li>y_t对x_t进行线性回归（简单的OLS估计）。</li>
+<li>检验残差以确定单位根的存在。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">coin = lm(y~x-<span class="number">1</span>) <span class="comment">#不带截距项的回归</span></span><br><span class="line">resid = coin$residuals</span><br><span class="line">summary(ur.df(resid))</span><br><span class="line"></span><br><span class="line"><span class="comment">###############################################</span></span><br><span class="line"><span class="comment"># Augmented Dickey-Fuller Test Unit Root Test #</span></span><br><span class="line"><span class="comment">###############################################</span></span><br><span class="line"></span><br><span class="line">Test regression none</span><br><span class="line"></span><br><span class="line">Call:</span><br><span class="line">lm(formula = z.diff ~ z.lag.1 - <span class="number">1</span> + z.diff.lag)</span><br><span class="line"></span><br><span class="line">Residuals:</span><br><span class="line">    Min      1Q  Median      3Q     Max</span><br><span class="line">-<span class="number">3.8450</span> -<span class="number">0.6867</span> -<span class="number">0.0050</span>  <span class="number">0.6681</span>  <span class="number">3.2854</span></span><br><span class="line"></span><br><span class="line">Coefficients:</span><br><span class="line">           Estimate Std. Error t value Pr(&gt;|t|)</span><br><span class="line">z.lag.1    -<span class="number">0.97544</span>    <span class="number">0.04492</span> -<span class="number">21.715</span>   &lt;<span class="number">2e-16</span> ***</span><br><span class="line">z.diff.lag -<span class="number">0.03130</span>    <span class="number">0.03166</span>  -<span class="number">0.989</span>    <span class="number">0.323</span></span><br><span class="line">---</span><br><span class="line">Signif. codes:  <span class="number">0</span> ‘***’ <span class="number">0.001</span> ‘**’ <span class="number">0.01</span> ‘*’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line"></span><br><span class="line">Residual standard error: <span class="number">1.013</span> on <span class="number">996</span> degrees of freedom</span><br><span class="line">Multiple R-squared:  <span class="number">0.5041</span>,	Adjusted R-squared:  <span class="number">0.5031</span></span><br><span class="line"><span class="literal">F</span>-statistic: <span class="number">506.2</span> on <span class="number">2</span> and <span class="number">996</span> DF,  p-value: &lt; <span class="number">2.2e-16</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Value of test-statistic is: -<span class="number">21.7152</span></span><br><span class="line"></span><br><span class="line">Critical values <span class="keyword">for</span> test statistics:</span><br><span class="line">      1pct  5pct 10pct</span><br><span class="line">tau1 -<span class="number">2.58</span> -<span class="number">1.95</span> -<span class="number">1.62</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>ADF检验表明，应该拒绝原假设，认为残差序列平稳。</li>
+<li>现在，我们思考如何将这个理论转化为成功的交易策略。此时，我们需要援引统计套利（statistical arbitrage）或者配对交易（pair trading）的概念。这个概念，在它最早期最简单的形式中，精确地探索这种协整关系。这些方法的主要目的是基于两个时间序列之间的价差来建立交易策略。如果序列是协整的，那么我们就可以预期它们的平稳线性组合将会回复到0。因此，我们只需要卖出高估证券买入低估证券，然后坐等价差回复，就能赚钱。</li>
+<li>这种观点背后的经济原理：潜在的经济力量决定了时间序列的线性组合形成协整关系。这种力量无法在统计模型中得到严格的确认，但是有时会作为问题中变量之间的长期关系而存在。比如，我们可以预期相同行业中的相似公司会具有相似的增长，可以预期金融产品的即期价格和远期价格通过无套利原则联系在一起，还可以预期存在某种贸易往来的国家的外汇汇率会共同运动，或者可以预期短期利率和长期利率趋于相近。当交易员推测未来价格相关性的时候，变量偏离了统计上或者理论上的预期联动开启了各种各样的量化交易策略。</li>
+</ul>
+<h3 id="1-1-2-VAR"><a href="#1-1-2-VAR" class="headerlink" title="1.1.2 VAR"></a>1.1.2 VAR</h3><ul>
+<li>股票收益率：2004年1月1日到2017年10月23日微软的价格指数；</li>
+<li>股票指数：2004年1月1日到2014年10月23日S&amp;P500指数；</li>
+<li>美国国债收益率：2004年1月1日到2017年10月23日；</li>
+</ul>
+<h4 id="我们的首要目的是通过额外便利预测股票市场指数，并识别出脉冲响应。在这里我们假设在给定的股票、股票市场整体和债券市场之间存在一种隐性长期关系。"><a href="#我们的首要目的是通过额外便利预测股票市场指数，并识别出脉冲响应。在这里我们假设在给定的股票、股票市场整体和债券市场之间存在一种隐性长期关系。" class="headerlink" title="我们的首要目的是通过额外便利预测股票市场指数，并识别出脉冲响应。在这里我们假设在给定的股票、股票市场整体和债券市场之间存在一种隐性长期关系。"></a>我们的首要目的是通过额外便利预测股票市场指数，并识别出脉冲响应。在这里我们假设在给定的股票、股票市场整体和债券市场之间存在一种隐性长期关系。</h4><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">"vars"</span>)</span><br><span class="line"><span class="keyword">library</span>(<span class="string">"vars"</span>)</span><br><span class="line">install.packages(<span class="string">"quantmod"</span>)</span><br><span class="line"><span class="keyword">library</span>(<span class="string">"quantmod"</span>)</span><br><span class="line">getSymbols(<span class="string">"MSFT"</span>, from = <span class="string">'2004-01-02'</span>, to = <span class="string">'2017-10-23'</span>,src = <span class="string">'yahoo'</span>)</span><br><span class="line">getSymbols(<span class="string">"SNP"</span>, from = <span class="string">'2004-01-02'</span>, to = <span class="string">'2017-10-23'</span>) <span class="comment">#默认雅虎</span></span><br><span class="line">getSymbols(<span class="string">"DTB3"</span>, from = <span class="string">'2004-01-02'</span>, to = <span class="string">'2017-10-23'</span>, src = <span class="string">'FRED'</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>使用下面的缩写可以访问下载数据的各个部分：</p>
+<blockquote>
+<p>Cl(MSFT)  #收盘价<br>OP(MSFT)  #开盘价<br>Hi(MSFT)  #当日最高价<br>Lo(MSFT)  #当日最低价<br>ClCl(MSFT)  #收盘价对收盘价的日收益率<br>Ad(MSFT)  #当日调整收盘价</p>
+</blockquote>
+</li>
+<li><p>绘图：</p>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dev.new()</span><br><span class="line">chartSeries(ClCl(MSFT))</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-11b3a0b616d98c34.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chartSeries(MSFT)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-35449aada3ca4e98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">head(DTB3,<span class="number">3</span>)</span><br><span class="line">tail(DTB3,<span class="number">3</span>)</span><br><span class="line">DTB3.sub = DTB3[<span class="string">'2004-01-02/2017-10-19'</span>]</span><br><span class="line">MSFT.ret &lt;- diff(log(Ad(MSFT)))</span><br><span class="line">SNP.ret &lt;- diff(log(Ad(SNP)))</span><br><span class="line"><span class="comment">#下面合并数据集，删除缺失值，通过内连接参数执行</span></span><br><span class="line">dataDaily &lt;- na.omit(merge(SNP.ret,MSFT.ret,DTB3.sub), join = <span class="string">'inner'</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>需要注意，VAR建模通常对低频数据进行，有一种简单的方法是把数据转成月度数据或者季度的频率，使用一下函数可以返回给定时期内的开盘价、最高价、最低价和收盘价：</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SNP.M = to.monthly(SNP.ret)$SNP.ret.Close</span><br><span class="line">MSFT.M = to.monthly(MSFT.ret)$MSFT.ret.Close</span><br><span class="line">DTB3.M = to.monthly(DTB3.sub)$DTB3.sub.Close</span><br></pre></td></tr></table></figure>
+<ul>
+<li>简单的缩减VAR模型可以使用vars包的VAR()函数拟合数据。下列代码中的参数优化允许在方程中有最大4阶的滞后，按照AIC选择模型：</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br></pre></td><td class="code"><pre><span class="line">var1 = VAR(dataDaily, lag.max = <span class="number">4</span>, ic = <span class="string">"AIC"</span>)</span><br><span class="line"><span class="comment">#对于更多已有模型的选择，可以考虑使用VARselect()，它提供了多种信息准则</span></span><br><span class="line">VARselect(dataDaily, lag.max = <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">$selection</span><br><span class="line">AIC(n)  HQ(n)  SC(n) FPE(n)</span><br><span class="line">     <span class="number">4</span>      <span class="number">4</span>      <span class="number">4</span>      <span class="number">4</span></span><br><span class="line"></span><br><span class="line">$criteria</span><br><span class="line">                   <span class="number">1</span>             <span class="number">2</span>             <span class="number">3</span>             <span class="number">4</span></span><br><span class="line">AIC(n) -<span class="number">2.195151e+01</span> -<span class="number">2.197605e+01</span> -<span class="number">2.201140e+01</span> -<span class="number">2.204160e+01</span></span><br><span class="line">HQ(n)  -<span class="number">2.194386e+01</span> -<span class="number">2.196267e+01</span> -<span class="number">2.199229e+01</span> -<span class="number">2.201675e+01</span></span><br><span class="line">SC(n)  -<span class="number">2.193010e+01</span> -<span class="number">2.193858e+01</span> -<span class="number">2.195788e+01</span> -<span class="number">2.197202e+01</span></span><br><span class="line">FPE(n)  <span class="number">2.928071e-10</span>  <span class="number">2.857090e-10</span>  <span class="number">2.757841e-10</span>  <span class="number">2.675798e-10</span></span><br><span class="line"></span><br><span class="line">&gt; summary(var1)</span><br><span class="line"></span><br><span class="line">VAR Estimation Results:</span><br><span class="line">=========================</span><br><span class="line">Endogenous variables: SNP.Adjusted, MSFT.Adjusted, DTB3</span><br><span class="line">Deterministic variables: const</span><br><span class="line">Sample size: <span class="number">3444</span></span><br><span class="line">Log Likelihood: <span class="number">23334.168</span></span><br><span class="line">Roots of the characteristic polynomial:</span><br><span class="line"><span class="number">0.9997</span> <span class="number">0.6239</span> <span class="number">0.6239</span> <span class="number">0.4834</span> <span class="number">0.4834</span> <span class="number">0.4819</span> <span class="number">0.4819</span> <span class="number">0.4407</span> <span class="number">0.4178</span> <span class="number">0.4178</span> <span class="number">0.4106</span> <span class="number">0.4106</span></span><br><span class="line">Call:</span><br><span class="line">VAR(y = dataDaily, lag.max = <span class="number">4</span>, ic = <span class="string">"AIC"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Estimation results <span class="keyword">for</span> equation SNP.Adjusted:</span><br><span class="line">=============================================</span><br><span class="line">SNP.Adjusted = SNP.Adjusted.l1 + MSFT.Adjusted.l1 + DTB3.l1 + SNP.Adjusted.l2 + MSFT.Adjusted.l2 + DTB3.l2 + SNP.Adjusted.l3 + MSFT.Adjusted.l3 + DTB3.l3 + SNP.Adjusted.l4 + MSFT.Adjusted.l4 + DTB3.l4 + const</span><br><span class="line"></span><br><span class="line">                   Estimate Std. Error t value Pr(&gt;|t|)    </span><br><span class="line">SNP.Adjusted.l1  -<span class="number">8.490e-02</span>  <span class="number">1.890e-02</span>  -<span class="number">4.491</span> <span class="number">7.31e-06</span> ***</span><br><span class="line">MSFT.Adjusted.l1 -<span class="number">4.431e-02</span>  <span class="number">2.860e-02</span>  -<span class="number">1.549</span>  <span class="number">0.12142</span>    </span><br><span class="line">DTB3.l1           <span class="number">8.126e-03</span>  <span class="number">8.587e-03</span>   <span class="number">0.946</span>  <span class="number">0.34400</span>    </span><br><span class="line">SNP.Adjusted.l2   <span class="number">1.108e-02</span>  <span class="number">1.894e-02</span>   <span class="number">0.585</span>  <span class="number">0.55881</span>    </span><br><span class="line">MSFT.Adjusted.l2 -<span class="number">1.770e-02</span>  <span class="number">2.860e-02</span>  -<span class="number">0.619</span>  <span class="number">0.53613</span>    </span><br><span class="line">DTB3.l2          -<span class="number">2.304e-02</span>  <span class="number">1.321e-02</span>  -<span class="number">1.744</span>  <span class="number">0.08126</span> .  </span><br><span class="line">SNP.Adjusted.l3  -<span class="number">3.181e-02</span>  <span class="number">1.889e-02</span>  -<span class="number">1.684</span>  <span class="number">0.09223</span> .  </span><br><span class="line">MSFT.Adjusted.l3  <span class="number">8.388e-02</span>  <span class="number">2.852e-02</span>   <span class="number">2.941</span>  <span class="number">0.00329</span> **</span><br><span class="line">DTB3.l3           <span class="number">1.428e-02</span>  <span class="number">1.321e-02</span>   <span class="number">1.081</span>  <span class="number">0.27973</span>    </span><br><span class="line">SNP.Adjusted.l4  -<span class="number">9.046e-03</span>  <span class="number">1.878e-02</span>  -<span class="number">0.482</span>  <span class="number">0.63011</span>    </span><br><span class="line">MSFT.Adjusted.l4 -<span class="number">6.701e-02</span>  <span class="number">2.851e-02</span>  -<span class="number">2.351</span>  <span class="number">0.01880</span> *  </span><br><span class="line">DTB3.l4           <span class="number">9.966e-04</span>  <span class="number">8.584e-03</span>   <span class="number">0.116</span>  <span class="number">0.90757</span>    </span><br><span class="line">const            -<span class="number">3.633e-05</span>  <span class="number">5.075e-04</span>  -<span class="number">0.072</span>  <span class="number">0.94294</span>    </span><br><span class="line">---</span><br><span class="line">Signif. codes:  <span class="number">0</span> ‘***’ <span class="number">0.001</span> ‘**’ <span class="number">0.01</span> ‘*’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Residual standard error: <span class="number">0.02406</span> on <span class="number">3431</span> degrees of freedom</span><br><span class="line">Multiple R-Squared: <span class="number">0.01686</span>,	Adjusted R-squared: <span class="number">0.01342</span></span><br><span class="line"><span class="literal">F</span>-statistic: <span class="number">4.903</span> on <span class="number">12</span> and <span class="number">3431</span> DF,  p-value: <span class="number">4.362e-08</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Estimation results <span class="keyword">for</span> equation MSFT.Adjusted:</span><br><span class="line">==============================================</span><br><span class="line">MSFT.Adjusted = SNP.Adjusted.l1 + MSFT.Adjusted.l1 + DTB3.l1 + SNP.Adjusted.l2 + MSFT.Adjusted.l2 + DTB3.l2 + SNP.Adjusted.l3 + MSFT.Adjusted.l3 + DTB3.l3 + SNP.Adjusted.l4 + MSFT.Adjusted.l4 + DTB3.l4 + const</span><br><span class="line"></span><br><span class="line">                   Estimate Std. Error t value Pr(&gt;|t|)   </span><br><span class="line">SNP.Adjusted.l1  -<span class="number">3.861e-02</span>  <span class="number">1.245e-02</span>  -<span class="number">3.100</span>  <span class="number">0.00195</span> **</span><br><span class="line">MSFT.Adjusted.l1 -<span class="number">1.896e-02</span>  <span class="number">1.884e-02</span>  -<span class="number">1.006</span>  <span class="number">0.31437</span>   </span><br><span class="line">DTB3.l1           <span class="number">6.463e-03</span>  <span class="number">5.657e-03</span>   <span class="number">1.142</span>  <span class="number">0.25333</span>   </span><br><span class="line">SNP.Adjusted.l2  -<span class="number">3.823e-02</span>  <span class="number">1.248e-02</span>  -<span class="number">3.063</span>  <span class="number">0.00221</span> **</span><br><span class="line">MSFT.Adjusted.l2  <span class="number">7.999e-05</span>  <span class="number">1.885e-02</span>   <span class="number">0.004</span>  <span class="number">0.99661</span>   </span><br><span class="line">DTB3.l2          -<span class="number">1.314e-02</span>  <span class="number">8.703e-03</span>  -<span class="number">1.510</span>  <span class="number">0.13112</span>   </span><br><span class="line">SNP.Adjusted.l3   <span class="number">5.372e-03</span>  <span class="number">1.244e-02</span>   <span class="number">0.432</span>  <span class="number">0.66596</span>   </span><br><span class="line">MSFT.Adjusted.l3  <span class="number">1.344e-02</span>  <span class="number">1.879e-02</span>   <span class="number">0.715</span>  <span class="number">0.47445</span>   </span><br><span class="line">DTB3.l3           <span class="number">1.123e-02</span>  <span class="number">8.703e-03</span>   <span class="number">1.290</span>  <span class="number">0.19713</span>   </span><br><span class="line">SNP.Adjusted.l4   <span class="number">1.288e-02</span>  <span class="number">1.238e-02</span>   <span class="number">1.041</span>  <span class="number">0.29814</span>   </span><br><span class="line">MSFT.Adjusted.l4 -<span class="number">5.074e-02</span>  <span class="number">1.878e-02</span>  -<span class="number">2.702</span>  <span class="number">0.00694</span> **</span><br><span class="line">DTB3.l4          -<span class="number">4.593e-03</span>  <span class="number">5.655e-03</span>  -<span class="number">0.812</span>  <span class="number">0.41678</span>   </span><br><span class="line">const             <span class="number">4.465e-04</span>  <span class="number">3.344e-04</span>   <span class="number">1.335</span>  <span class="number">0.18184</span>   </span><br><span class="line">---</span><br><span class="line">Signif. codes:  <span class="number">0</span> ‘***’ <span class="number">0.001</span> ‘**’ <span class="number">0.01</span> ‘*’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Residual standard error: <span class="number">0.01585</span> on <span class="number">3431</span> degrees of freedom</span><br><span class="line">Multiple R-Squared: <span class="number">0.01103</span>,	Adjusted R-squared: <span class="number">0.00757</span></span><br><span class="line"><span class="literal">F</span>-statistic: <span class="number">3.189</span> on <span class="number">12</span> and <span class="number">3431</span> DF,  p-value: <span class="number">0.0001475</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Estimation results <span class="keyword">for</span> equation DTB3:</span><br><span class="line">=====================================</span><br><span class="line">DTB3 = SNP.Adjusted.l1 + MSFT.Adjusted.l1 + DTB3.l1 + SNP.Adjusted.l2 + MSFT.Adjusted.l2 + DTB3.l2 + SNP.Adjusted.l3 + MSFT.Adjusted.l3 + DTB3.l3 + SNP.Adjusted.l4 + MSFT.Adjusted.l4 + DTB3.l4 + const</span><br><span class="line"></span><br><span class="line">                   Estimate Std. Error t value Pr(&gt;|t|)    </span><br><span class="line">SNP.Adjusted.l1   <span class="number">0.0593190</span>  <span class="number">0.0372905</span>   <span class="number">1.591</span> <span class="number">0.111764</span>    </span><br><span class="line">MSFT.Adjusted.l1 -<span class="number">0.0466161</span>  <span class="number">0.0564176</span>  -<span class="number">0.826</span> <span class="number">0.408710</span>    </span><br><span class="line">DTB3.l1           <span class="number">1.1534468</span>  <span class="number">0.0169389</span>  <span class="number">68.095</span>  &lt; <span class="number">2e-16</span> ***</span><br><span class="line">SNP.Adjusted.l2   <span class="number">0.0248444</span>  <span class="number">0.0373722</span>   <span class="number">0.665</span> <span class="number">0.506233</span>    </span><br><span class="line">MSFT.Adjusted.l2  <span class="number">0.0134104</span>  <span class="number">0.0564275</span>   <span class="number">0.238</span> <span class="number">0.812161</span>    </span><br><span class="line">DTB3.l2          -<span class="number">0.3119386</span>  <span class="number">0.0260578</span> -<span class="number">11.971</span>  &lt; <span class="number">2e-16</span> ***</span><br><span class="line">SNP.Adjusted.l3   <span class="number">0.1387971</span>  <span class="number">0.0372574</span>   <span class="number">3.725</span> <span class="number">0.000198</span> ***</span><br><span class="line">MSFT.Adjusted.l3  <span class="number">0.0065788</span>  <span class="number">0.0562537</span>   <span class="number">0.117</span> <span class="number">0.906908</span>    </span><br><span class="line">DTB3.l3          -<span class="number">0.0097403</span>  <span class="number">0.0260597</span>  -<span class="number">0.374</span> <span class="number">0.708599</span>    </span><br><span class="line">SNP.Adjusted.l4   <span class="number">0.1348806</span>  <span class="number">0.0370544</span>   <span class="number">3.640</span> <span class="number">0.000277</span> ***</span><br><span class="line">MSFT.Adjusted.l4 -<span class="number">0.1298693</span>  <span class="number">0.0562389</span>  -<span class="number">2.309</span> <span class="number">0.020989</span> *  </span><br><span class="line">DTB3.l4           <span class="number">0.1677271</span>  <span class="number">0.0169330</span>   <span class="number">9.905</span>  &lt; <span class="number">2e-16</span> ***</span><br><span class="line">const             <span class="number">0.0006164</span>  <span class="number">0.0010012</span>   <span class="number">0.616</span> <span class="number">0.538117</span>    </span><br><span class="line">---</span><br><span class="line">Signif. codes:  <span class="number">0</span> ‘***’ <span class="number">0.001</span> ‘**’ <span class="number">0.01</span> ‘*’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Residual standard error: <span class="number">0.04746</span> on <span class="number">3431</span> degrees of freedom</span><br><span class="line">Multiple R-Squared: <span class="number">0.9992</span>,	Adjusted R-squared: <span class="number">0.9992</span></span><br><span class="line"><span class="literal">F</span>-statistic: <span class="number">3.467e+05</span> on <span class="number">12</span> and <span class="number">3431</span> DF,  p-value: &lt; <span class="number">2.2e-16</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Covariance matrix of residuals:</span><br><span class="line">              SNP.Adjusted MSFT.Adjusted      DTB3</span><br><span class="line">SNP.Adjusted     <span class="number">0.0005788</span>     <span class="number">1.614e-04</span> <span class="number">1.361e-04</span></span><br><span class="line">MSFT.Adjusted    <span class="number">0.0001614</span>     <span class="number">2.512e-04</span> <span class="number">6.571e-05</span></span><br><span class="line">DTB3             <span class="number">0.0001361</span>     <span class="number">6.571e-05</span> <span class="number">2.252e-03</span></span><br><span class="line"></span><br><span class="line">Correlation matrix of residuals:</span><br><span class="line">              SNP.Adjusted MSFT.Adjusted    DTB3</span><br><span class="line">SNP.Adjusted        <span class="number">1.0000</span>       <span class="number">0.42323</span> <span class="number">0.11916</span></span><br><span class="line">MSFT.Adjusted       <span class="number">0.4232</span>       <span class="number">1.00000</span> <span class="number">0.08735</span></span><br><span class="line">DTB3                <span class="number">0.1192</span>       <span class="number">0.08735</span> <span class="number">1.00000</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt; var1</span><br><span class="line"></span><br><span class="line">VAR Estimation Results:</span><br><span class="line">=======================</span><br><span class="line"></span><br><span class="line">Estimated coefficients <span class="keyword">for</span> equation SNP.Adjusted:</span><br><span class="line">=================================================</span><br><span class="line">Call:</span><br><span class="line">SNP.Adjusted = SNP.Adjusted.l1 + MSFT.Adjusted.l1 + DTB3.l1 + SNP.Adjusted.l2 + MSFT.Adjusted.l2 + DTB3.l2 + SNP.Adjusted.l3 + MSFT.Adjusted.l3 + DTB3.l3 + SNP.Adjusted.l4 + MSFT.Adjusted.l4 + DTB3.l4 + const</span><br><span class="line"></span><br><span class="line"> SNP.Adjusted.l1 MSFT.Adjusted.l1          DTB3.l1  SNP.Adjusted.l2</span><br><span class="line">   -<span class="number">8.490108e-02</span>    -<span class="number">4.430641e-02</span>     <span class="number">8.126398e-03</span>     <span class="number">1.107612e-02</span></span><br><span class="line">MSFT.Adjusted.l2          DTB3.l2  SNP.Adjusted.l3 MSFT.Adjusted.l3</span><br><span class="line">   -<span class="number">1.769824e-02</span>    -<span class="number">2.303554e-02</span>    -<span class="number">3.180844e-02</span>     <span class="number">8.387531e-02</span></span><br><span class="line">         DTB3.l3  SNP.Adjusted.l4 MSFT.Adjusted.l4          DTB3.l4</span><br><span class="line">    <span class="number">1.428129e-02</span>    -<span class="number">9.046357e-03</span>    -<span class="number">6.700999e-02</span>     <span class="number">9.966415e-04</span></span><br><span class="line">           const</span><br><span class="line">   -<span class="number">3.632948e-05</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Estimated coefficients <span class="keyword">for</span> equation MSFT.Adjusted:</span><br><span class="line">==================================================</span><br><span class="line">Call:</span><br><span class="line">MSFT.Adjusted = SNP.Adjusted.l1 + MSFT.Adjusted.l1 + DTB3.l1 + SNP.Adjusted.l2 + MSFT.Adjusted.l2 + DTB3.l2 + SNP.Adjusted.l3 + MSFT.Adjusted.l3 + DTB3.l3 + SNP.Adjusted.l4 + MSFT.Adjusted.l4 + DTB3.l4 + const</span><br><span class="line"></span><br><span class="line"> SNP.Adjusted.l1 MSFT.Adjusted.l1          DTB3.l1  SNP.Adjusted.l2</span><br><span class="line">   -<span class="number">3.861195e-02</span>    -<span class="number">1.895941e-02</span>     <span class="number">6.463124e-03</span>    -<span class="number">3.823463e-02</span></span><br><span class="line">MSFT.Adjusted.l2          DTB3.l2  SNP.Adjusted.l3 MSFT.Adjusted.l3</span><br><span class="line">    <span class="number">7.998859e-05</span>    -<span class="number">1.314147e-02</span>     <span class="number">5.372020e-03</span>     <span class="number">1.343915e-02</span></span><br><span class="line">         DTB3.l3  SNP.Adjusted.l4 MSFT.Adjusted.l4          DTB3.l4</span><br><span class="line">    <span class="number">1.122737e-02</span>     <span class="number">1.287732e-02</span>    -<span class="number">5.074124e-02</span>    -<span class="number">4.592625e-03</span></span><br><span class="line">           const</span><br><span class="line">    <span class="number">4.465062e-04</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Estimated coefficients <span class="keyword">for</span> equation DTB3:</span><br><span class="line">=========================================</span><br><span class="line">Call:</span><br><span class="line">DTB3 = SNP.Adjusted.l1 + MSFT.Adjusted.l1 + DTB3.l1 + SNP.Adjusted.l2 + MSFT.Adjusted.l2 + DTB3.l2 + SNP.Adjusted.l3 + MSFT.Adjusted.l3 + DTB3.l3 + SNP.Adjusted.l4 + MSFT.Adjusted.l4 + DTB3.l4 + const</span><br><span class="line"></span><br><span class="line"> SNP.Adjusted.l1 MSFT.Adjusted.l1          DTB3.l1  SNP.Adjusted.l2</span><br><span class="line">    <span class="number">0.0593189605</span>    -<span class="number">0.0466160507</span>     <span class="number">1.1534467714</span>     <span class="number">0.0248444138</span></span><br><span class="line">MSFT.Adjusted.l2          DTB3.l2  SNP.Adjusted.l3 MSFT.Adjusted.l3</span><br><span class="line">    <span class="number">0.0134103957</span>    -<span class="number">0.3119386099</span>     <span class="number">0.1387971487</span>     <span class="number">0.0065787744</span></span><br><span class="line">         DTB3.l3  SNP.Adjusted.l4 MSFT.Adjusted.l4          DTB3.l4</span><br><span class="line">   -<span class="number">0.0097403342</span>     <span class="number">0.1348806467</span>    -<span class="number">0.1298693111</span>     <span class="number">0.1677270532</span></span><br><span class="line">           const</span><br><span class="line">    <span class="number">0.0006164476</span></span><br><span class="line">&gt; plot(vars) <span class="comment">#拟合值和残差</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-a83defb99bc1e437.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-a11fa4ff8e59c1f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-202756e570b33771.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&gt; coef(var1)</span><br><span class="line">$SNP.Adjusted</span><br><span class="line">                      Estimate   Std. Error     t value     Pr(&gt;|t|)</span><br><span class="line">SNP.Adjusted.l1  -<span class="number">8.490108e-02</span> <span class="number">0.0189030476</span> -<span class="number">4.49139627</span> <span class="number">7.308895e-06</span></span><br><span class="line">MSFT.Adjusted.l1 -<span class="number">4.430641e-02</span> <span class="number">0.0285988131</span> -<span class="number">1.54923932</span> <span class="number">1.214164e-01</span></span><br><span class="line">DTB3.l1           <span class="number">8.126398e-03</span> <span class="number">0.0085865197</span>  <span class="number">0.94641345</span> <span class="number">3.440044e-01</span></span><br><span class="line">SNP.Adjusted.l2   <span class="number">1.107612e-02</span> <span class="number">0.0189444289</span>  <span class="number">0.58466383</span> <span class="number">5.588122e-01</span></span><br><span class="line">MSFT.Adjusted.l2 -<span class="number">1.769824e-02</span> <span class="number">0.0286037976</span> -<span class="number">0.61873745</span> <span class="number">5.361304e-01</span></span><br><span class="line">DTB3.l2          -<span class="number">2.303554e-02</span> <span class="number">0.0132090387</span> -<span class="number">1.74392256</span> <span class="number">8.126215e-02</span></span><br><span class="line">SNP.Adjusted.l3  -<span class="number">3.180844e-02</span> <span class="number">0.0188862276</span> -<span class="number">1.68421373</span> <span class="number">9.223133e-02</span></span><br><span class="line">MSFT.Adjusted.l3  <span class="number">8.387531e-02</span> <span class="number">0.0285157396</span>  <span class="number">2.94136878</span> <span class="number">3.289514e-03</span></span><br><span class="line">DTB3.l3           <span class="number">1.428129e-02</span> <span class="number">0.0132099986</span>  <span class="number">1.08109690</span> <span class="number">2.797300e-01</span></span><br><span class="line">SNP.Adjusted.l4  -<span class="number">9.046357e-03</span> <span class="number">0.0187833252</span> -<span class="number">0.48161640</span> <span class="number">6.301092e-01</span></span><br><span class="line">MSFT.Adjusted.l4 -<span class="number">6.700999e-02</span> <span class="number">0.0285081927</span> -<span class="number">2.35055211</span> <span class="number">1.880190e-02</span></span><br><span class="line">DTB3.l4           <span class="number">9.966415e-04</span> <span class="number">0.0085835624</span>  <span class="number">0.11611048</span> <span class="number">9.075718e-01</span></span><br><span class="line">const            -<span class="number">3.632948e-05</span> <span class="number">0.0005075076</span> -<span class="number">0.07158412</span> <span class="number">9.429371e-01</span></span><br><span class="line"></span><br><span class="line">$MSFT.Adjusted</span><br><span class="line">                      Estimate   Std. Error      t value    Pr(&gt;|t|)</span><br><span class="line">SNP.Adjusted.l1  -<span class="number">3.861195e-02</span> <span class="number">0.0124539383</span> -<span class="number">3.100381039</span> <span class="number">0.001948399</span></span><br><span class="line">MSFT.Adjusted.l1 -<span class="number">1.895941e-02</span> <span class="number">0.0188418218</span> -<span class="number">1.006240733</span> <span class="number">0.314370741</span></span><br><span class="line">DTB3.l1           <span class="number">6.463124e-03</span> <span class="number">0.0056570765</span>  <span class="number">1.142484742</span> <span class="number">0.253332304</span></span><br><span class="line">SNP.Adjusted.l2  -<span class="number">3.823463e-02</span> <span class="number">0.0124812017</span> -<span class="number">3.063377705</span> <span class="number">0.002205526</span></span><br><span class="line">MSFT.Adjusted.l2  <span class="number">7.998859e-05</span> <span class="number">0.0188451058</span>  <span class="number">0.004244528</span> <span class="number">0.996613613</span></span><br><span class="line">DTB3.l2          -<span class="number">1.314147e-02</span> <span class="number">0.0087025413</span> -<span class="number">1.510073213</span> <span class="number">0.131116828</span></span><br><span class="line">SNP.Adjusted.l3   <span class="number">5.372020e-03</span> <span class="number">0.0124428567</span>  <span class="number">0.431735294</span> <span class="number">0.665960940</span></span><br><span class="line">MSFT.Adjusted.l3  <span class="number">1.343915e-02</span> <span class="number">0.0187870903</span>  <span class="number">0.715339426</span> <span class="number">0.474448006</span></span><br><span class="line">DTB3.l3           <span class="number">1.122737e-02</span> <span class="number">0.0087031737</span>  <span class="number">1.290031316</span> <span class="number">0.197126725</span></span><br><span class="line">SNP.Adjusted.l4   <span class="number">1.287732e-02</span> <span class="number">0.0123750613</span>  <span class="number">1.040586516</span> <span class="number">0.298140812</span></span><br><span class="line">MSFT.Adjusted.l4 -<span class="number">5.074124e-02</span> <span class="number">0.0187821181</span> -<span class="number">2.701571566</span> <span class="number">0.006935202</span></span><br><span class="line">DTB3.l4          -<span class="number">4.592625e-03</span> <span class="number">0.0056551282</span> -<span class="number">0.812116877</span> <span class="number">0.416780910</span></span><br><span class="line">const             <span class="number">4.465062e-04</span> <span class="number">0.0003343624</span>  <span class="number">1.335395885</span> <span class="number">0.181835396</span></span><br><span class="line"></span><br><span class="line">$DTB3</span><br><span class="line">                      Estimate  Std. Error     t value     Pr(&gt;|t|)</span><br><span class="line">SNP.Adjusted.l1   <span class="number">0.0593189605</span> <span class="number">0.037290535</span>   <span class="number">1.5907243</span> <span class="number">1.117638e-01</span></span><br><span class="line">MSFT.Adjusted.l1 -<span class="number">0.0466160507</span> <span class="number">0.056417625</span>  -<span class="number">0.8262675</span> <span class="number">4.087098e-01</span></span><br><span class="line">DTB3.l1           <span class="number">1.1534467714</span> <span class="number">0.016938852</span>  <span class="number">68.0947445</span> <span class="number">0.000000e+00</span></span><br><span class="line">SNP.Adjusted.l2   <span class="number">0.0248444138</span> <span class="number">0.037372169</span>   <span class="number">0.6647838</span> <span class="number">5.062334e-01</span></span><br><span class="line">MSFT.Adjusted.l2  <span class="number">0.0134103957</span> <span class="number">0.056427458</span>   <span class="number">0.2376573</span> <span class="number">8.121611e-01</span></span><br><span class="line">DTB3.l2          -<span class="number">0.3119386099</span> <span class="number">0.026057815</span> -<span class="number">11.9710192</span> <span class="number">2.206274e-32</span></span><br><span class="line">SNP.Adjusted.l3   <span class="number">0.1387971487</span> <span class="number">0.037257354</span>   <span class="number">3.7253625</span> <span class="number">1.981744e-04</span></span><br><span class="line">MSFT.Adjusted.l3  <span class="number">0.0065787744</span> <span class="number">0.056253744</span>   <span class="number">0.1169482</span> <span class="number">9.069079e-01</span></span><br><span class="line">DTB3.l3          -<span class="number">0.0097403342</span> <span class="number">0.026059709</span>  -<span class="number">0.3737699</span> <span class="number">7.085986e-01</span></span><br><span class="line">SNP.Adjusted.l4   <span class="number">0.1348806467</span> <span class="number">0.037054356</span>   <span class="number">3.6400753</span> <span class="number">2.765786e-04</span></span><br><span class="line">MSFT.Adjusted.l4 -<span class="number">0.1298693111</span> <span class="number">0.056238856</span>  -<span class="number">2.3092453</span> <span class="number">2.098910e-02</span></span><br><span class="line">DTB3.l4           <span class="number">0.1677270532</span> <span class="number">0.016933018</span>   <span class="number">9.9053256</span> <span class="number">7.966900e-23</span></span><br><span class="line">const             <span class="number">0.0006164476</span> <span class="number">0.001001174</span>   <span class="number">0.6157251</span> <span class="number">5.381168e-01</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">residuals(var1)</span><br><span class="line">fitted(var1)</span><br><span class="line">Phi(var1) <span class="comment">#coefficient matrices of VMA representation</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>预测：</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var.pred &lt;- predict(var1, n.ahead = <span class="number">10</span>, ci = <span class="number">0.95</span>)</span><br><span class="line">var.irf &lt;- irf(var1)</span><br><span class="line">dev.new()</span><br><span class="line">plot(var.irf)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-499f8ce71574e233.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="现在，考虑使用SVAR模型。识别SVAR模型需要-frac-K-K-1-2-个约束，在我们的这个例子中，约束个数为3。"><a href="#现在，考虑使用SVAR模型。识别SVAR模型需要-frac-K-K-1-2-个约束，在我们的这个例子中，约束个数为3。" class="headerlink" title="现在，考虑使用SVAR模型。识别SVAR模型需要$\frac{K(K-1)}{2}$个约束，在我们的这个例子中，约束个数为3。"></a>现在，考虑使用SVAR模型。识别SVAR模型需要$\frac{K(K-1)}{2}$个约束，在我们的这个例子中，约束个数为3。</h4><ul>
+<li>SVAR模型的分析始于一个已估计的缩减VAR模型。再用一个恰当的结构的约束矩阵来修正它。</li>
+<li>为了简化，我们使用下列约束：<ul>
+<li>S&amp;P500指数的冲击对微软股票不存在同期影响；</li>
+<li>S&amp;P500指数的冲击对利率不存在同期影响；</li>
+<li>国债利率的冲击对微软股票不存在同期影响。</li>
+</ul>
+</li>
+</ul>
+<p>这些约束通常在矩阵A中设置相应的0，施加到SVAR模型中，矩阵A如下所示：<br>$$\left{\<br>\begin{matrix}<br>1 &amp; a_{12} &amp; a_{13} \<br>0 &amp; 1 &amp; 0 \<br>0 &amp; a_{32} &amp; 1<br>\end{matrix}<br>\right}$$</p>
+<ul>
+<li>在R中设定矩阵A为SVAR的估计参数，需要估计的参数的未知数设为NA值：</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">amat &lt;- diag(<span class="number">3</span>)</span><br><span class="line">amat[<span class="number">2</span>,<span class="number">1</span>] &lt;- <span class="literal">NA</span></span><br><span class="line">amat[<span class="number">2</span>,<span class="number">3</span>] &lt;- <span class="literal">NA</span></span><br><span class="line">amat[<span class="number">3</span>,<span class="number">1</span>] &lt;- <span class="literal">NA</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>最后我们拟合SVAR模型，并且绘制出脉冲响应函数：</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">svar1 &lt;- SVAR(var1, estmethod = <span class="string">'direct'</span>, Amat = amat)</span><br><span class="line">irf.svar1 &lt;- irf(svar1)</span><br><span class="line">plot(irf.svar1)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-ca46347a5cdb64be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-8f56985988095e2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/8103632-7c02f2a90cd8210c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/R/">R</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../62664/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          因果推断简史
+        
+      </div>
+    </a>
+  
+  
+    <a href="../50493/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">期权组合交易策略损益分析</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-多元时间序列分析"><span class="nav-text">1.1 多元时间序列分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-协整"><span class="nav-text">1.1.1 协整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-VAR"><span class="nav-text">1.1.2 VAR</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#我们的首要目的是通过额外便利预测股票市场指数，并识别出脉冲响应。在这里我们假设在给定的股票、股票市场整体和债券市场之间存在一种隐性长期关系。"><span class="nav-text">我们的首要目的是通过额外便利预测股票市场指数，并识别出脉冲响应。在这里我们假设在给定的股票、股票市场整体和债券市场之间存在一种隐性长期关系。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#现在，考虑使用SVAR模型。识别SVAR模型需要-frac-K-K-1-2-个约束，在我们的这个例子中，约束个数为3。"><span class="nav-text">现在，考虑使用SVAR模型。识别SVAR模型需要$\frac{K(K-1)}{2}$个约束，在我们的这个例子中，约束个数为3。</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

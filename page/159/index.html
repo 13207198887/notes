@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/159/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-异方差"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/16835/">异方差</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/16835/" class="article-date">
+	  <time datetime="2018-01-08T16:26:23.000Z" itemprop="datePublished">2018-01-09</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/计量经济学/">计量经济学</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="异方差的后果"><a href="#异方差的后果" class="headerlink" title="异方差的后果"></a>异方差的后果</h4><ul>
+<li>OLS估计量依然是无偏、一致且渐进正态的；</li>
+<li>OLS估计量的方差不再是$\sigma^{2}(X’X)^{-1}$;</li>
+<li>高斯——马尔可夫定理失效，OLS不再是BLUE；</li>
+</ul>
+<h4 id="异方差的检验"><a href="#异方差的检验" class="headerlink" title="异方差的检验"></a>异方差的检验</h4><ul>
+<li>画残差图；</li>
+<li>BP检验；</li>
+<li>怀特检验；<blockquote>
+<p>怀特检验的缺点优点是：它可以检验任何形式的异方差，因为根据泰勒展开式，二次函数可以很好的逼近任何光滑的函数。怀特检验的缺点是，如果解释变量较多，则解释变量的二次项将更多，在辅助回归中将损失较多样本容量。</p>
+</blockquote>
+</li>
+</ul>
+        <!-- 异方差的后果
+OLS估计量依然是无偏、一致且渐进正态的；
+OLS估计量的方差不再是$\sigma^{2}(X’X)^{-1}$;
+高斯——马尔可夫定理失效，OLS不再是BLUE；
+
+异方差的检验
+画残差图；
+BP检验；
+怀特检验；
+怀特检验的缺点优点是：它可以检验任何形式的异方差，因为根据泰勒展开式，二次函数可以很好的逼近任何光滑的函数。怀特检验的缺点是，如果解释变量较多，则解释变量的二次项......  -->
+        <p class="article-more-link">
+          <a href="../../posts/16835/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-自相关"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/61833/">自相关</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/61833/" class="article-date">
+	  <time datetime="2018-01-08T16:08:23.000Z" itemprop="datePublished">2018-01-09</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/计量经济学/">计量经济学</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="自相关的后果"><a href="#自相关的后果" class="headerlink" title="自相关的后果"></a>自相关的后果</h4><h4 id="自相关的例子"><a href="#自相关的例子" class="headerlink" title="自相关的例子"></a>自相关的例子</h4><ul>
+<li>时间序列中的自相关</li>
+<li>横截面数据中的自相关</li>
+<li>对数据的人为处理</li>
+<li>设定误差：遗漏了某个自相关的解释变量。</li>
+</ul>
+<h4 id="自相关的检验"><a href="#自相关的检验" class="headerlink" title="自相关的检验"></a>自相关的检验</h4><ol>
+<li>画图；</li>
+<li>BG检验：使用扰动项的滞后项和解释变量进行辅助回归；</li>
+<li>Q检验：对残差的各阶自相关系数进行检验；</li>
+<li>DW检验：检验离2的远近。
+        <!-- 自相关的后果自相关的例子
+时间序列中的自相关
+横截面数据中的自相关
+对数据的人为处理
+设定误差：遗漏了某个自相关的解释变量。
+
+自相关的检验
+画图；
+BG检验：使用扰动项的滞后项和解释变量进行辅助回归；
+Q检验：对残差的各阶自相关系数进行检验；
+DW检验：检验离2的远近。
+自相关的处理
+OLS+robust；
+准差分法；
+GLS；
+修改模型的设定。
+
+第8章习题：使用数据集gasoline.......  -->
+        <p class="article-more-link">
+          <a href="../../posts/61833/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-断点回归"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/35085/">断点回归</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/35085/" class="article-date">
+	  <time datetime="2018-01-08T15:55:23.000Z" itemprop="datePublished">2018-01-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/计量经济学/">计量经济学</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="断点回归的思想"><a href="#断点回归的思想" class="headerlink" title="断点回归的思想"></a>断点回归的思想</h5><ul>
+<li>在有互动项的情况下，如果使用非标准化的变量，则$\widehat{\delta}$虽然度量断点两侧回归线的截距之差，但是并不等于这两条回归线在断点处的跳跃距离。</li>
+<li>由于断点回归在断点附近仿佛存在随机分组，故一般认为断点回归是内部有效性比较强的一种准实验。但外部有效性受局限。</li>
+<li>在进行断点回归时还要注意内生分组问题：如果个体实现知道分组规则，并可以通过自身努力而完全控制分组变量，则可自行选择进入处理组或控制组，导致在断点附近的内生分组而非随机分组，引起断点回归失效。
+        <!-- 断点回归的思想
+在有互动项的情况下，如果使用非标准化的变量，则$\widehat{\delta}$虽然度量断点两侧回归线的截距之差，但是并不等于这两条回归线在断点处的跳跃距离。
+由于断点回归在断点附近仿佛存在随机分组，故一般认为断点回归是内部有效性比较强的一种准实验。但外部有效性受局限。
+在进行断点回归时还要注意内生分组问题：如果个体实现知道分组规则，并可以通过自身努力而完全控制分组变量，则......  -->
+        <p class="article-more-link">
+          <a href="../../posts/35085/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-大样本OLS"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/61347/">大样本OLS</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/61347/" class="article-date">
+	  <time datetime="2018-01-08T15:55:23.000Z" itemprop="datePublished">2018-01-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/计量经济学/">计量经济学</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="为什么需要大样本理论"><a href="#为什么需要大样本理论" class="headerlink" title="为什么需要大样本理论"></a>为什么需要大样本理论</h4><ol>
+<li>小样本理论的假设过强。首先，小样本理论的严格外生性要求解释变量与所有的扰动项均正交；其次，小样本理论假定扰动项为正态分布，而大样本理论无此限制；</li>
+<li>在小样本理论的框架下，我们必须研究统计量的精确分布，但常常难以推导（即使是在正态分布的假设下）；而在大样本中，只要研究统计量的大样本分布，相对比较容易推导；</li>
+<li>使用大样本的代价是要求样本容量较大。</li>
+</ol>
+<h4 id="统计量的大样本性质"><a href="#统计量的大样本性质" class="headerlink" title="统计量的大样本性质"></a>统计量的大样本性质</h4><ol>
+<li>一致估计量；</li>
+<li>渐进正态分布与渐进方差；</li>
+<li>渐进有效；
+        <!-- 为什么需要大样本理论
+小样本理论的假设过强。首先，小样本理论的严格外生性要求解释变量与所有的扰动项均正交；其次，小样本理论假定扰动项为正态分布，而大样本理论无此限制；
+在小样本理论的框架下，我们必须研究统计量的精确分布，但常常难以推导（即使是在正态分布的假设下）；而在大样本中，只要研究统计量的大样本分布，相对比较容易推导；
+使用大样本的代价是要求样本容量较大。
+
+统计量的大样本性质
+一致估计......  -->
+        <p class="article-more-link">
+          <a href="../../posts/61347/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-随机实验与自然实验"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/4149/">随机实验与自然实验</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/4149/" class="article-date">
+	  <time datetime="2018-01-08T15:42:23.000Z" itemprop="datePublished">2018-01-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/计量经济学/">计量经济学</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="实验数据"><a href="#实验数据" class="headerlink" title="实验数据"></a>实验数据</h4><ul>
+<li>控制实验</li>
+<li>随机（控制）实验</li>
+<li>自然实验或准实验</li>
+<li>思想实验</li>
+</ul>
+        <!-- 实验数据
+控制实验
+随机（控制）实验
+自然实验或准实验
+思想实验
+
+
+引入更多的解释变量随机实验执行过程中可能出现的问题
+内部有效性问题
+
+
+未能完全遵从实验设计；
+未能完全随机分组；
+中途退出实验；
+实验效应或霍桑效应；
+样本较小。
+
+
+外部有效性问题
+
+
+样本的代表性不足；
+小型实验的条件与大规模推广时的现实条件不同；
+一般均衡效应；
+自我选择效应。
+
+自然实验...  -->
+        <p class="article-more-link">
+          <a href="../../posts/4149/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../158/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../157/">157</a><a class="page-number" href="../158/">158</a><span class="page-number current">159</span><a class="page-number" href="../160/">160</a><a class="page-number" href="../161/">161</a><span class="space">&hellip;</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../160/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

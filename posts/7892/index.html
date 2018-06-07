@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>do-file编程——函数、宏、标量与矩阵(三) | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Stata" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="_n/_N1234567891011121314. clear all. cd &quot;~/Desktop/itsp&quot;/Users/mr.cheng/Desktop/itsp. use census2c, clear(1980 Census data for NE and NC states). gsort region -pop. by region: gen totpop = sum(pop). b">
+<meta name="keywords" content="Stata">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Do-file编程——函数、宏、标量与矩阵(三)">
+<meta property="og:url" content="http://www.czxa.top/posts/7892/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="_n/_N1234567891011121314. clear all. cd &quot;~/Desktop/itsp&quot;/Users/mr.cheng/Desktop/itsp. use census2c, clear(1980 Census data for NE and NC states). gsort region -pop. by region: gen totpop = sum(pop). b">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-13T09:31:15.945Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Do-file编程——函数、宏、标量与矩阵(三)">
+<meta name="twitter:description" content="_n/_N1234567891011121314. clear all. cd &quot;~/Desktop/itsp&quot;/Users/mr.cheng/Desktop/itsp. use census2c, clear(1980 Census data for NE and NC states). gsort region -pop. by region: gen totpop = sum(pop). b">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Do-file编程——函数、宏、标量与矩阵(三)" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Do-file编程——函数、宏、标量与矩阵(三)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2018-01-24T08:28:23.000Z" itemprop="datePublished">2018-01-24</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata编程导论/">Stata编程导论</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="n-N"><a href="#n-N" class="headerlink" title="_n/_N"></a><code>_n</code>/<code>_N</code></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">. clear all</span><br><span class="line"></span><br><span class="line">. cd <span class="string">"~/Desktop/itsp"</span></span><br><span class="line">/Users/mr.cheng/Desktop/itsp</span><br><span class="line"></span><br><span class="line">. use census2c, clear</span><br><span class="line">(<span class="number">1980</span> Census data <span class="keyword">for</span> NE and NC states)</span><br><span class="line"></span><br><span class="line">. gsort region -pop</span><br><span class="line"></span><br><span class="line">. by region: gen totpop = sum(pop)</span><br><span class="line"></span><br><span class="line">. by region: list region totpop <span class="keyword">if</span> _n == _N</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line">-&gt; region = NE</span><br><span class="line"></span><br><span class="line">     +-------------------+</span><br><span class="line">     | region     totpop |</span><br><span class="line">     |-------------------|</span><br><span class="line">  <span class="number">9.</span> | NE       <span class="number">49135.28</span> |</span><br><span class="line">     +-------------------+</span><br><span class="line"></span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line">-&gt; region = N Cntrl</span><br><span class="line"></span><br><span class="line">     +--------------------+</span><br><span class="line">     | region      totpop |</span><br><span class="line">     |--------------------|</span><br><span class="line"> <span class="number">12.</span> | N Cntrl   <span class="number">58865.67</span> |</span><br><span class="line">     +--------------------+</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">. list region pop totpop, sepby(region)</span><br><span class="line"></span><br><span class="line">     +------------------------------+</span><br><span class="line">     | region        pop     totpop |</span><br><span class="line">     |------------------------------|</span><br><span class="line">  <span class="number">1.</span> | NE        <span class="number">17558.1</span>   <span class="number">17558.07</span> |</span><br><span class="line">  <span class="number">2.</span> | NE        <span class="number">11863.9</span>   <span class="number">29421.97</span> |</span><br><span class="line">  <span class="number">3.</span> | NE         <span class="number">7364.8</span>   <span class="number">36786.79</span> |</span><br><span class="line">  <span class="number">4.</span> | NE         <span class="number">5737.0</span>   <span class="number">42523.83</span> |</span><br><span class="line">  <span class="number">5.</span> | NE         <span class="number">3107.6</span>    <span class="number">45631.4</span> |</span><br><span class="line">  <span class="number">6.</span> | NE         <span class="number">1124.7</span>   <span class="number">46756.06</span> |</span><br><span class="line">  <span class="number">7.</span> | NE          <span class="number">947.2</span>   <span class="number">47703.22</span> |</span><br><span class="line">  <span class="number">8.</span> | NE          <span class="number">920.6</span>   <span class="number">48623.83</span> |</span><br><span class="line">  <span class="number">9.</span> | NE          <span class="number">511.5</span>   <span class="number">49135.28</span> |</span><br><span class="line">     |------------------------------|</span><br><span class="line"> <span class="number">10.</span> | N Cntrl   <span class="number">11426.5</span>   <span class="number">11426.52</span> |</span><br><span class="line"> <span class="number">11.</span> | N Cntrl   <span class="number">10797.6</span>   <span class="number">22224.15</span> |</span><br><span class="line"> <span class="number">12.</span> | N Cntrl    <span class="number">9262.1</span>   <span class="number">31486.23</span> |</span><br><span class="line"> <span class="number">13.</span> | N Cntrl    <span class="number">5490.2</span>   <span class="number">36976.45</span> |</span><br><span class="line"> <span class="number">14.</span> | N Cntrl    <span class="number">4916.7</span>   <span class="number">41893.14</span> |</span><br><span class="line"> <span class="number">15.</span> | N Cntrl    <span class="number">4705.8</span>    <span class="number">46598.9</span> |</span><br><span class="line"> <span class="number">16.</span> | N Cntrl    <span class="number">4076.0</span>   <span class="number">50674.87</span> |</span><br><span class="line"> <span class="number">17.</span> | N Cntrl    <span class="number">2913.8</span>   <span class="number">53588.68</span> |</span><br><span class="line"> <span class="number">18.</span> | N Cntrl    <span class="number">2363.7</span>   <span class="number">55952.36</span> |</span><br><span class="line"> <span class="number">19.</span> | N Cntrl    <span class="number">1569.8</span>   <span class="number">57522.18</span> |</span><br><span class="line"> <span class="number">20.</span> | N Cntrl     <span class="number">690.8</span>   <span class="number">58212.95</span> |</span><br><span class="line"> <span class="number">21.</span> | N Cntrl     <span class="number">652.7</span>   <span class="number">58865.67</span> |</span><br><span class="line">     +------------------------------+</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. gen smallpop = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">. replace smallpop = <span class="number">1</span> <span class="keyword">if</span> pop &lt;= <span class="number">5000</span> &amp; !missing(pop)</span><br><span class="line">(<span class="number">13</span> real changes made)</span><br><span class="line"></span><br><span class="line">. gen largepop = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">. replace largepop = <span class="number">1</span> <span class="keyword">if</span> pop &gt; <span class="number">5000</span> &amp; !missing(pop)</span><br><span class="line">(<span class="number">8</span> real changes made)</span><br><span class="line"></span><br><span class="line">. gen popsize = smallpop + <span class="number">2</span> * largepop</span><br><span class="line"></span><br><span class="line">. label <span class="keyword">var</span> popsize <span class="string">"人口规模代码"</span></span><br><span class="line"></span><br><span class="line">. label define popsize <span class="number">1</span> <span class="string">"&lt; 5百万"</span> <span class="number">2</span> <span class="string">"&gt; 5百万"</span></span><br><span class="line"></span><br><span class="line">. label val popsize popsize</span><br><span class="line"></span><br><span class="line">. bysort region popsize: egen meanpop2 = mean(pop)</span><br><span class="line"></span><br><span class="line">. list region popsize state meanpop2, sepby(region popsize)</span><br><span class="line"></span><br><span class="line">     +----------------------------------------------+</span><br><span class="line">     | region    popsize   state           meanpop2 |</span><br><span class="line">     |----------------------------------------------|</span><br><span class="line">  <span class="number">1.</span> | NE        &lt; <span class="number">5</span>百万   Connecticut     <span class="number">1322.291</span> |</span><br><span class="line">  <span class="number">2.</span> | NE        &lt; <span class="number">5</span>百万   Vermont         <span class="number">1322.291</span> |</span><br><span class="line">  <span class="number">3.</span> | NE        &lt; <span class="number">5</span>百万   Maine           <span class="number">1322.291</span> |</span><br><span class="line">  <span class="number">4.</span> | NE        &lt; <span class="number">5</span>百万   Rhode Island    <span class="number">1322.291</span> |</span><br><span class="line">  <span class="number">5.</span> | NE        &lt; <span class="number">5</span>百万   New Hampshire   <span class="number">1322.291</span> |</span><br><span class="line">     |----------------------------------------------|</span><br><span class="line">  <span class="number">6.</span> | NE        &gt; <span class="number">5</span>百万   New York        <span class="number">10630.96</span> |</span><br><span class="line">  <span class="number">7.</span> | NE        &gt; <span class="number">5</span>百万   New Jersey      <span class="number">10630.96</span> |</span><br><span class="line">  <span class="number">8.</span> | NE        &gt; <span class="number">5</span>百万   Pennsylvania    <span class="number">10630.96</span> |</span><br><span class="line">  <span class="number">9.</span> | NE        &gt; <span class="number">5</span>百万   Massachusetts   <span class="number">10630.96</span> |</span><br><span class="line">     |----------------------------------------------|</span><br><span class="line"> <span class="number">10.</span> | N Cntrl   &lt; <span class="number">5</span>百万   Kansas          <span class="number">2736.153</span> |</span><br><span class="line"> <span class="number">11.</span> | N Cntrl   &lt; <span class="number">5</span>百万   Wisconsin       <span class="number">2736.153</span> |</span><br><span class="line"> <span class="number">12.</span> | N Cntrl   &lt; <span class="number">5</span>百万   S. Dakota       <span class="number">2736.153</span> |</span><br><span class="line"> <span class="number">13.</span> | N Cntrl   &lt; <span class="number">5</span>百万   Minnesota       <span class="number">2736.153</span> |</span><br><span class="line"> <span class="number">14.</span> | N Cntrl   &lt; <span class="number">5</span>百万   Missouri        <span class="number">2736.153</span> |</span><br><span class="line"> <span class="number">15.</span> | N Cntrl   &lt; <span class="number">5</span>百万   N. Dakota       <span class="number">2736.153</span> |</span><br><span class="line"> <span class="number">16.</span> | N Cntrl   &lt; <span class="number">5</span>百万   Iowa            <span class="number">2736.153</span> |</span><br><span class="line"> <span class="number">17.</span> | N Cntrl   &lt; <span class="number">5</span>百万   Nebraska        <span class="number">2736.153</span> |</span><br><span class="line">     |----------------------------------------------|</span><br><span class="line"> <span class="number">18.</span> | N Cntrl   &gt; <span class="number">5</span>百万   Illinois        <span class="number">9244.112</span> |</span><br><span class="line"> <span class="number">19.</span> | N Cntrl   &gt; <span class="number">5</span>百万   Ohio            <span class="number">9244.112</span> |</span><br><span class="line"> <span class="number">20.</span> | N Cntrl   &gt; <span class="number">5</span>百万   Michigan        <span class="number">9244.112</span> |</span><br><span class="line"> <span class="number">21.</span> | N Cntrl   &gt; <span class="number">5</span>百万   Indiana         <span class="number">9244.112</span> |</span><br><span class="line">     +----------------------------------------------+</span><br></pre></td></tr></table></figure>
+<h4 id="局部宏"><a href="#局部宏" class="headerlink" title="局部宏"></a>局部宏</h4><ul>
+<li>当do文件运行终止时，local将不复存在，但全局宏可以在程序的全过程存在（一个程序中可能包含多个do文件）。</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">. * local</span><br><span class="line"></span><br><span class="line">. clear all</span><br><span class="line"></span><br><span class="line">. local anx <span class="keyword">None</span> Mild Moderate Severe</span><br><span class="line"></span><br><span class="line">. foreach a of local anx&#123;</span><br><span class="line">  <span class="number">2.</span> local count `count<span class="string">' + 1</span></span><br><span class="line"><span class="string">  3. di as text "Anxiety level `count'</span>: `a<span class="string">'"</span></span><br><span class="line"><span class="string">  4. &#125;</span></span><br><span class="line"><span class="string">Anxiety level 4 + 1: None</span></span><br><span class="line"><span class="string">Anxiety level 4 + 1 + 1: Mild</span></span><br><span class="line"><span class="string">Anxiety level 4 + 1 + 1 + 1: Moderate</span></span><br><span class="line"><span class="string">Anxiety level 4 + 1 + 1 + 1 + 1: Severe</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. * 如果使用等号</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. clear all</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. local anx None Mild Moderate Severe</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. foreach a of local anx&#123;</span></span><br><span class="line"><span class="string">  2. local count = `count'</span> + <span class="number">1</span></span><br><span class="line">  <span class="number">3.</span> di <span class="keyword">as</span> text <span class="string">"Anxiety level `count': `a'"</span></span><br><span class="line">  <span class="number">4.</span> &#125;</span><br><span class="line">Anxiety level <span class="number">9</span>: <span class="keyword">None</span></span><br><span class="line">Anxiety level <span class="number">10</span>: Mild</span><br><span class="line">Anxiety level <span class="number">11</span>: Moderate</span><br><span class="line">Anxiety level <span class="number">12</span>: Severe</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. local count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">. local anx <span class="keyword">None</span> Mild Moderate Severe</span><br><span class="line"></span><br><span class="line">. foreach a of local anx&#123;</span><br><span class="line">  <span class="number">2.</span> local count = `count<span class="string">' + 1</span></span><br><span class="line"><span class="string">  3. local newlist "`newlist'</span> `count<span class="string">' `a'</span><span class="string">"</span></span><br><span class="line"><span class="string">  4. &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. di "</span>`newlist<span class="string">'"</span></span><br><span class="line"><span class="string"> 1 None 2 Mild 3 Moderate 4 Severe 1 None 2 Mild 3 Moderate 4 Severe 1</span></span><br><span class="line"><span class="string">&gt;  None 2 Mild 3 Moderate 4 Severe</span></span><br></pre></td></tr></table></figure>
+<h4 id="拓展宏函数和宏列表函数"><a href="#拓展宏函数和宏列表函数" class="headerlink" title="拓展宏函数和宏列表函数"></a>拓展宏函数和宏列表函数</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">* 拓展的宏函数</span><br><span class="line">* 单词计数</span><br><span class="line">local anx <span class="keyword">None</span> Mild Moderate Severe</span><br><span class="line">local wds: word count `anx<span class="string">'</span></span><br><span class="line"><span class="string">di `wds'</span></span><br><span class="line">* 列举</span><br><span class="line">forval i = <span class="number">1</span>/`wds<span class="string">'&#123;</span></span><br><span class="line"><span class="string">	local wd: word `i'</span> of `anx<span class="string">'</span></span><br><span class="line"><span class="string">	di "`wd'</span><span class="string">"</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">help extended_fcn</span></span><br></pre></td></tr></table></figure>
+<h4 id="标量：存储数值"><a href="#标量：存储数值" class="headerlink" title="标量：存储数值"></a>标量：存储数值</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">. use fem2, clear</span><br><span class="line"></span><br><span class="line">. scalar lb1 = <span class="number">80</span></span><br><span class="line"></span><br><span class="line">. scalar ub1 = <span class="number">88</span></span><br><span class="line"></span><br><span class="line">. scalar lb2 = <span class="number">89</span></span><br><span class="line"></span><br><span class="line">. scalar ub2 = <span class="number">97</span></span><br><span class="line"></span><br><span class="line">. scalar lb3 = <span class="number">98</span></span><br><span class="line"></span><br><span class="line">. scalar ub3 = <span class="number">109</span></span><br><span class="line"></span><br><span class="line">. forval i = <span class="number">1</span>/<span class="number">3</span>&#123;</span><br><span class="line">  <span class="number">2.</span> di _n <span class="string">"IQ "</span> lb`i<span class="string">' " - " ub`i'</span></span><br><span class="line">  <span class="number">3.</span> tab anxiety <span class="keyword">if</span> inrange(iq, lb`i<span class="string">', ub`i'</span>)</span><br><span class="line">  <span class="number">4.</span> &#125;</span><br><span class="line"></span><br><span class="line">IQ <span class="number">80</span> - <span class="number">88</span></span><br><span class="line"></span><br><span class="line">    ANXIETY |      Freq.     Percent        Cum.</span><br><span class="line">------------+-----------------------------------</span><br><span class="line">          <span class="number">1</span> |          <span class="number">3</span>       <span class="number">12.00</span>       <span class="number">12.00</span></span><br><span class="line">          <span class="number">2</span> |         <span class="number">13</span>       <span class="number">52.00</span>       <span class="number">64.00</span></span><br><span class="line">          <span class="number">3</span> |          <span class="number">7</span>       <span class="number">28.00</span>       <span class="number">92.00</span></span><br><span class="line">          <span class="number">4</span> |          <span class="number">2</span>        <span class="number">8.00</span>      <span class="number">100.00</span></span><br><span class="line">------------+-----------------------------------</span><br><span class="line">      Total |         <span class="number">25</span>      <span class="number">100.00</span></span><br><span class="line"></span><br><span class="line">IQ <span class="number">89</span> - <span class="number">97</span></span><br><span class="line"></span><br><span class="line">    ANXIETY |      Freq.     Percent        Cum.</span><br><span class="line">------------+-----------------------------------</span><br><span class="line">          <span class="number">1</span> |          <span class="number">5</span>        <span class="number">7.35</span>        <span class="number">7.35</span></span><br><span class="line">          <span class="number">2</span> |         <span class="number">38</span>       <span class="number">55.88</span>       <span class="number">63.24</span></span><br><span class="line">          <span class="number">3</span> |         <span class="number">24</span>       <span class="number">35.29</span>       <span class="number">98.53</span></span><br><span class="line">          <span class="number">4</span> |          <span class="number">1</span>        <span class="number">1.47</span>      <span class="number">100.00</span></span><br><span class="line">------------+-----------------------------------</span><br><span class="line">      Total |         <span class="number">68</span>      <span class="number">100.00</span></span><br><span class="line"></span><br><span class="line">IQ <span class="number">98</span> - <span class="number">109</span></span><br><span class="line"></span><br><span class="line">    ANXIETY |      Freq.     Percent        Cum.</span><br><span class="line">------------+-----------------------------------</span><br><span class="line">          <span class="number">2</span> |          <span class="number">9</span>       <span class="number">75.00</span>       <span class="number">75.00</span></span><br><span class="line">          <span class="number">3</span> |          <span class="number">2</span>       <span class="number">16.67</span>       <span class="number">91.67</span></span><br><span class="line">          <span class="number">4</span> |          <span class="number">1</span>        <span class="number">8.33</span>      <span class="number">100.00</span></span><br><span class="line">------------+-----------------------------------</span><br><span class="line">      Total |         <span class="number">12</span>      <span class="number">100.00</span></span><br></pre></td></tr></table></figure>
+<h4 id="矩阵：存储数值矩阵"><a href="#矩阵：存储数值矩阵" class="headerlink" title="矩阵：存储数值矩阵"></a>矩阵：存储数值矩阵</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">. use fem2, clear</span><br><span class="line"></span><br><span class="line">. reg weight c.age<span class="comment">##c.age</span></span><br><span class="line"></span><br><span class="line">      Source |       SS           df       MS      Number of obs   =       <span class="number">107</span></span><br><span class="line">-------------+----------------------------------   F(<span class="number">2</span>, <span class="number">104</span>)       =     <span class="number">10.86</span></span><br><span class="line">       Model |  <span class="number">135.170028</span>         <span class="number">2</span>  <span class="number">67.5850139</span>   Prob &gt; F        =    <span class="number">0.0001</span></span><br><span class="line">    Residual |   <span class="number">647.10605</span>       <span class="number">104</span>  <span class="number">6.22217356</span>   R-squared       =    <span class="number">0.1728</span></span><br><span class="line">-------------+----------------------------------   Adj R-squared   =    <span class="number">0.1569</span></span><br><span class="line">       Total |  <span class="number">782.276078</span>       <span class="number">106</span>    <span class="number">7.379963</span>   Root MSE        =    <span class="number">2.4944</span></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">      weight |      Coef.   Std. Err.      t    P&gt;|t|     [<span class="number">95</span>% Conf. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">         age |   <span class="number">.1652777</span>     <span class="number">1.0152</span>     <span class="number">0.16</span>   <span class="number">0.871</span>    <span class="number">-1.847902</span>    <span class="number">2.178458</span></span><br><span class="line">             |</span><br><span class="line"> c.age<span class="comment">#c.age |   .0009098   .0136163     0.07   0.947    -.0260919    .0279115</span></span><br><span class="line">             |</span><br><span class="line">       _cons |  <span class="number">-5.918914</span>    <span class="number">18.6551</span>    <span class="number">-0.32</span>   <span class="number">0.752</span>    <span class="number">-42.91268</span>    <span class="number">31.07485</span></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">. ereturn list</span><br><span class="line"></span><br><span class="line">scalars:</span><br><span class="line">                  e(N) =  <span class="number">107</span></span><br><span class="line">               e(df_m) =  <span class="number">2</span></span><br><span class="line">               e(df_r) =  <span class="number">104</span></span><br><span class="line">                  e(F) =  <span class="number">10.8619621896282</span></span><br><span class="line">                 e(r2) =  <span class="number">.1727906958561397</span></span><br><span class="line">               e(rmse) =  <span class="number">2.494428502870775</span></span><br><span class="line">                e(mss) =  <span class="number">135.1700278037221</span></span><br><span class="line">                e(rss) =  <span class="number">647.1060498171503</span></span><br><span class="line">               e(r2_a) =  <span class="number">.1568828246226039</span></span><br><span class="line">                 e(ll) =  <span class="number">-248.1093756352844</span></span><br><span class="line">               e(ll_0) =  <span class="number">-258.2581933584128</span></span><br><span class="line">               e(rank) =  <span class="number">3</span></span><br><span class="line"></span><br><span class="line">macros:</span><br><span class="line">            e(cmdline) : <span class="string">"regress weight c.age##c.age"</span></span><br><span class="line">              e(title) : <span class="string">"Linear regression"</span></span><br><span class="line">          e(marginsok) : <span class="string">"XB default"</span></span><br><span class="line">                e(vce) : <span class="string">"ols"</span></span><br><span class="line">             e(depvar) : <span class="string">"weight"</span></span><br><span class="line">                e(cmd) : <span class="string">"regress"</span></span><br><span class="line">         e(properties) : <span class="string">"b V"</span></span><br><span class="line">            e(predict) : <span class="string">"regres_p"</span></span><br><span class="line">              e(model) : <span class="string">"ols"</span></span><br><span class="line">          e(estat_cmd) : <span class="string">"regress_estat"</span></span><br><span class="line"></span><br><span class="line">matrices:</span><br><span class="line">                  e(b) :  <span class="number">1</span> x <span class="number">3</span></span><br><span class="line">                  e(V) :  <span class="number">3</span> x <span class="number">3</span></span><br><span class="line"></span><br><span class="line">functions:</span><br><span class="line">             e(sample)   </span><br><span class="line"></span><br><span class="line">. matrix b = e(b)</span><br><span class="line"></span><br><span class="line">. matrix V = e(V)</span><br><span class="line"></span><br><span class="line">. matrix list b</span><br><span class="line"></span><br><span class="line">b[<span class="number">1</span>,<span class="number">3</span>]</span><br><span class="line">                     c.age<span class="comment">#            </span></span><br><span class="line">           age       c.age       _cons</span><br><span class="line">y1   <span class="number">.16527767</span>   <span class="number">.00090982</span>  <span class="number">-5.9189145</span></span><br><span class="line"></span><br><span class="line">. matrix list V</span><br><span class="line"></span><br><span class="line">symmetric V[<span class="number">3</span>,<span class="number">3</span>]</span><br><span class="line">                              c.age<span class="comment">#            </span></span><br><span class="line">                    age       c.age       _cons</span><br><span class="line">        age   <span class="number">1.0306315</span></span><br><span class="line">c.age<span class="comment">#c.age  -.01380654    .0001854</span></span><br><span class="line">      _cons   <span class="number">-18.91199</span>   <span class="number">.25270496</span>   <span class="number">348.01273</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>reg weight c.age##c.age<br>等价于<br>reg weight c.age c.age#c.age</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../19589/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          一些基本的要素和工具
+        
+      </div>
+    </a>
+  
+  
+    <a href="../32042/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Do-file编程——函数、宏、标量与矩阵(二)——egen/egenmore简介</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#n-N"><span class="nav-text">_n/_N</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部宏"><span class="nav-text">局部宏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拓展宏函数和宏列表函数"><span class="nav-text">拓展宏函数和宏列表函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标量：存储数值"><span class="nav-text">标量：存储数值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#矩阵：存储数值矩阵"><span class="nav-text">矩阵：存储数值矩阵</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

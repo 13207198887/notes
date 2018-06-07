@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>recharts包——绘制世界地图、美国、中国地图以及各省级行政区地图 | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="R" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="简介 一个R语言数据可视化的参考文档ECharts 该资源来自于Github。  recharts 提供了百度开源可视化js框架ECharts的R语言接口，现提供的图形展示接口包括：地图（eMap），柱状图（eBar），折线图（eLine），雷达图（eRadar），散点图（ePoints），漏斗图（eFunnel）以及万恶的饼图（ePie）。  同时计划对力导向图（eForce）， 时间序列散点图">
+<meta name="keywords" content="R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="recharts包——绘制世界地图、美国、中国地图以及各省级行政区地图">
+<meta property="og:url" content="http://www.czxa.top/posts/58107/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="简介 一个R语言数据可视化的参考文档ECharts 该资源来自于Github。  recharts 提供了百度开源可视化js框架ECharts的R语言接口，现提供的图形展示接口包括：地图（eMap），柱状图（eBar），折线图（eLine），雷达图（eRadar），散点图（ePoints），漏斗图（eFunnel）以及万恶的饼图（ePie）。  同时计划对力导向图（eForce）， 时间序列散点图">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/cnmap1.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/jsmap.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar1.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/worldphones.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/factor.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scatter.png">
+<meta property="og:updated_time" content="2018-02-13T09:51:17.970Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="recharts包——绘制世界地图、美国、中国地图以及各省级行政区地图">
+<meta name="twitter:description" content="简介 一个R语言数据可视化的参考文档ECharts 该资源来自于Github。  recharts 提供了百度开源可视化js框架ECharts的R语言接口，现提供的图形展示接口包括：地图（eMap），柱状图（eBar），折线图（eLine），雷达图（eRadar），散点图（ePoints），漏斗图（eFunnel）以及万恶的饼图（ePie）。  同时计划对力导向图（eForce）， 时间序列散点图">
+<meta name="twitter:image" content="https://github.com/czxa/Web_data_Source/raw/master/cnmap1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-recharts包——绘制世界地图、美国、中国地图以及各省级行政区地图" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      recharts包——绘制世界地图、美国、中国地图以及各省级行政区地图
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2017-12-27T14:14:35.000Z" itemprop="datePublished">2017-12-27</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/R包/">R包</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li>一个R语言数据可视化的参考文档<a href="https://github.com/ecomfe/echarts" target="_blank" rel="noopener"><strong><code>ECharts</code></strong></a></li>
+<li><p>该资源来自于Github。</p>
+</li>
+<li><p>recharts 提供了百度开源可视化js框架ECharts的R语言接口，现提供的图形展示接口包括：地图（<code>eMap</code>），柱状图（<code>eBar</code>），折线图（<code>eLine</code>），<br>雷达图（<code>eRadar</code>），散点图（<code>ePoints</code>），漏斗图（<code>eFunnel</code>）以及万恶的饼图（<code>ePie</code>）。</p>
+</li>
+<li>同时计划对力导向图（<a href="http://echarts.baidu.com/demo.html#graph-force" target="_blank" rel="noopener"><strong><code>eForce</code></strong></a>），</li>
+<li>时间序列散点图(<a href="http://echarts.baidu.com/demo.html#graph-life-expectancy" target="_blank" rel="noopener"><strong><code>ePoints_timeSeries</code></strong></a>)，</li>
+<li>矩阵树图(<a href="http://echarts.baidu.com/demo.html#treemap-disk" target="_blank" rel="noopener"><strong><code>eTree</code></strong></a>)，</li>
+<li>平行坐标图(<a href="http://echarts.baidu.com/demo.html#parallel-aqi" target="_blank" rel="noopener"><strong><code>eParallel</code></strong></a>)</li>
+<li>桑基图（<a href="http://echarts.baidu.com/demo.html#sankey-energy" target="_blank" rel="noopener"><strong><code>eSankey</code></strong></a>）图逐一实现。<a id="more"></a>
+</li>
+</ul>
+<h2 id="recharts的安装"><a href="#recharts的安装" class="headerlink" title="recharts的安装"></a>recharts的安装</h2><ul>
+<li>recharts包的源代码在<a href="https://github.com/taiyun/recharts" target="_blank" rel="noopener"><strong><code>Github/taiyun/recharts</code></strong></a>上提供下载与安装，安装需要使用以下代码：</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span>(devtools)</span><br><span class="line">devtools::install_github(<span class="string">'taiyun/recharts'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="图形使用模块"><a href="#图形使用模块" class="headerlink" title="图形使用模块"></a>图形使用模块</h2><h3 id="地图-eMap-使用"><a href="#地图-eMap-使用" class="headerlink" title="地图(eMap)使用"></a>地图(eMap)使用</h3><ul>
+<li><p>地图分别提供了世界地图、美国、中国地图以及各省级行政区地图，需要使用<code>region</code>参数进行地图显示地区的设置。</p>
+</li>
+<li><p>地图的使用需要由一个<strong>data.frame</strong>作为输入，包括了一列地名和多列数值，需要使用<code>~列名</code>的方式进行数值传递。</p>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(recharts)</span><br><span class="line">mapData &lt;- data.frame(province=c(<span class="string">"上海"</span>, <span class="string">"江苏"</span>, <span class="string">"广东"</span>, <span class="string">"黑龙江"</span>), val1=c(<span class="number">100</span>, <span class="number">200</span>, <span class="number">300</span>, <span class="number">500</span>), val2=c(<span class="number">200</span>,<span class="number">300</span>,<span class="number">400</span>,<span class="number">200</span>), val3=c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>), stringsAsFactors=<span class="literal">F</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 全国地图</span></span><br><span class="line">eMap(mapData, namevar=~province, datavar = ~val1+val2)</span><br><span class="line">provinceMapData &lt;- data.frame(city=c(<span class="string">"扬州市"</span>, <span class="string">"南京市"</span>, <span class="string">"苏州市"</span>), value=c(<span class="number">100</span>, <span class="number">200</span>, <span class="number">300</span>),val2=c(<span class="number">200</span>,<span class="number">300</span>,<span class="number">400</span>), val3=c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>), stringsAsFactors=<span class="literal">F</span>)</span><br><span class="line"><span class="comment">## 省份地图</span></span><br><span class="line">eMap(provinceMapData, namevar=~city, datavar = ~value+val2, region=<span class="string">"江苏"</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/cnmap1.png" alt=""></p>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/jsmap.png" alt=""></p>
+<h3 id="柱状图-eBar-使用"><a href="#柱状图-eBar-使用" class="headerlink" title="柱状图(eBar)使用"></a>柱状图(eBar)使用</h3><p>柱状图(eBar)，允许3种原始数据输入：</p>
+<ol>
+<li>data.frame，需要指定<code>xvar=~weekDay</code>; <code>yvar= ~saleNum</code>; <code>series=~seller</code>，其中series参数可选。</li>
+</ol>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df2 = data.frame(</span><br><span class="line">	saleNum=c(<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">15</span>,<span class="number">25</span>,<span class="number">35</span>,<span class="number">45</span>,<span class="number">55</span>,<span class="number">65</span>,<span class="number">75</span>,<span class="number">25</span>,<span class="number">35</span>,<span class="number">45</span>,<span class="number">55</span>,<span class="number">65</span>,<span class="number">75</span>,<span class="number">85</span>),seller=c(rep(<span class="string">"小黄"</span>,<span class="number">7</span>), rep(<span class="string">"小红"</span>,<span class="number">7</span>), rep(<span class="string">"小白"</span>,<span class="number">7</span>)),weekDay = c(rep(c(<span class="string">"周一"</span>,<span class="string">"周二"</span>,<span class="string">"周三"</span>,<span class="string">"周四"</span>,<span class="string">"周五"</span>,<span class="string">"周六"</span>,<span class="string">"周日"</span>),<span class="number">3</span>)))</span><br><span class="line">eBar(dat= df2, xvar=~weekDay, yvar=~saleNum, series=~seller)</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar1.png" alt=""></p>
+<ol start="2">
+<li>矩阵对象，以<code>WorldPhones</code>为例，可以显示以行为X轴分度，列名为颜色分度，<br>矩阵数值为Y轴分度的柱状图。<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eBar(WorldPhones)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/worldphones.png" alt=""></p>
+<ol start="3">
+<li>table对象或因子(factor)数组<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(recharts)</span><br><span class="line">eBar(cut(rnorm(<span class="number">1000</span>), -<span class="number">4</span>:<span class="number">4</span>))</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/factor.png" alt=""></p>
+<h3 id="散点-ePoints-图"><a href="#散点-ePoints-图" class="headerlink" title="散点(ePoints)图"></a>散点(ePoints)图</h3><p>散点图需要的输入是data.frame，需要指定<code>xvar</code>和<code>yvar</code>，<code>series</code>为可选的颜色分度参数，<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 测试下中文</span></span><br><span class="line">iris$Species &lt;- as.character(iris$Species)</span><br><span class="line">iris$Species[<span class="number">1</span>:<span class="number">20</span>] =<span class="string">"小红帽"</span></span><br><span class="line">ePoints(iris, ~Sepal.Length, ~Sepal.Width, series = ~Species)</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scatter.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/R/">R</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../9772/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Markdown语言扩展
+        
+      </div>
+    </a>
+  
+  
+    <a href="../30210/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">股票信息查询命令——stkd命令</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#recharts的安装"><span class="nav-text">recharts的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图形使用模块"><span class="nav-text">图形使用模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#地图-eMap-使用"><span class="nav-text">地图(eMap)使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#柱状图-eBar-使用"><span class="nav-text">柱状图(eBar)使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#散点-ePoints-图"><span class="nav-text">散点(ePoints)图</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

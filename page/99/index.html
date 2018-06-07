@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/99/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-set—trace—on——追踪你的程序"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/23429/">set—trace—on——追踪你的程序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/23429/" class="article-date">
+	  <time datetime="2018-02-13T12:08:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">//set trace on命令的主要功能是帮助我们追踪程序的运行过程，展示详尽的运算结果，例如：</span><br><span class="line"></span><br><span class="line">	sysuse auto</span><br><span class="line">	set trace on</span><br><span class="line">	reg price length weight</span><br><span class="line"></span><br><span class="line">/*在运行程序时难免遇到报错，此时可以使用display命令去定位可能出现错误的位置。而set trace on</span><br><span class="line">基于其自身追踪程序的特点也有一个强大的功能，那就是帮助我们准确定位复杂程序中可能出现的错误。</span><br><span class="line">*/</span><br><span class="line">	clear</span><br><span class="line">	set obs <span class="number">100</span></span><br><span class="line">	set seed <span class="number">10101</span></span><br><span class="line">	gen x1var = runiform()</span><br><span class="line">	gen x2var = runiform()</span><br><span class="line">	gen x3var = runiform()</span><br><span class="line">	gen x4var = runiform()</span><br><span class="line">	gen x5var = runiform()</span><br><span class="line">	gen sum = x1var + x2var + x3var + x4var</span><br><span class="line">	qui replace sum = <span class="number">0</span></span><br><span class="line">	local i <span class="number">1</span></span><br><span class="line">	<span class="keyword">while</span> `i<span class="string">' &lt;= 4&#123;</span></span><br><span class="line"><span class="string">		qui replace sum = sum + x`i'</span>var</span><br><span class="line">		local i = `i<span class="string">' + 1</span></span><br><span class="line"><span class="string">		forvalues `i'</span> = <span class="number">2</span>/<span class="number">4</span> &#123;</span><br><span class="line">			local x`i<span class="string">' sum</span></span><br><span class="line"><span class="string">			replace sum = x`i'</span> + `i<span class="string">'</span></span><br><span class="line"><span class="string">			if x1var[_n-1]! = x2var in `i'</span> &#123;</span><br><span class="line">				replace sum = x`i<span class="string">' + `1'</span></span><br><span class="line">				<span class="keyword">continue</span>, <span class="keyword">break</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span>&#123;</span><br><span class="line">				replace sum = x`i<span class="string">'var + `i'</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">//运行结果报错，但是由于循环较长，不知道哪里出错</span><br><span class="line">//在觉得可能出错的宏命令之前加上set trace on 后再次运行程序：</span><br><span class="line">	clear</span><br><span class="line">	set obs <span class="number">100</span></span><br><span class="line">	set seed <span class="number">10101</span></span><br><span class="line">	gen x1var = runiform()</span><br><span class="line">	gen x2var = runiform()</span><br><span class="line">	gen x3var = runiform()</span><br><span class="line">	gen x4var = runiform()</span><br><span class="line">	gen x5var = runiform()</span><br><span class="line">	gen sum = x1var + x2var + x3var + x4var</span><br><span class="line">	qui replace sum = <span class="number">0</span></span><br><span class="line">	local i <span class="number">1</span></span><br><span class="line">	set trace on</span><br><span class="line">	<span class="keyword">while</span> `i<span class="string">' &lt;= 4&#123;</span></span><br><span class="line"><span class="string">		qui replace sum = sum + x`i'</span>var</span><br><span class="line">		local i = `i<span class="string">' + 1</span></span><br><span class="line"><span class="string">		forvalues `i'</span> = <span class="number">2</span>/<span class="number">4</span> &#123;</span><br><span class="line">			local x`i<span class="string">' sum</span></span><br><span class="line"><span class="string">			replace sum = x`i'</span> + `i<span class="string">'</span></span><br><span class="line"><span class="string">			if x1var[_n-1]! = x2var in `i'</span> &#123;</span><br><span class="line">				replace sum = x`i<span class="string">' + `1'</span></span><br><span class="line">				<span class="keyword">continue</span>, <span class="keyword">break</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span>&#123;</span><br><span class="line">				replace sum = x`i<span class="string">'var + `i'</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">//此时就会显示出错的具体位置。应将`<span class="number">1</span><span class="string">'换成`i'</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-putexcel将矩阵输出到Excel"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/61552/">putexcel将矩阵输出到Excel</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/61552/" class="article-date">
+	  <time datetime="2018-02-13T12:07:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">/*putexcel基本语法：putexcel set fileneame [,set_options]</span><br><span class="line">set_options包括：modify, replace, sheet(sheetname[,replace])</span><br><span class="line">对指定单元格或某一范围输入内容：</span><br><span class="line">putexcel ul_cell = exp [,export_options format_options]</span><br><span class="line">对指定单元格输入指定内容，ul指upper-left，意指对Excel输入内容的起始位置</span><br><span class="line">putexcel ul_cell = matrix(name) [,export_options format_options]</span><br><span class="line">对指定单元格输入矩阵</span><br><span class="line">putexcel ul_cell = picture(filenames)</span><br><span class="line">对指定单元格导入图片</span><br><span class="line">putexcel ul_cell = returnset [,export_options]</span><br><span class="line">对指定单元格输入Stata命令返回值</span><br><span class="line">putexcel ul_cell = formula(formula) [, expoty_option]</span><br><span class="line">对指定单元格输入Excel函数</span><br><span class="line">putexcel cellrange, format_options</span><br><span class="line">对指定范围的单元格调整格式</span><br><span class="line">putexcel describe</span><br><span class="line">描述目前对Excel的导出设置</span><br><span class="line">putexcel clear</span><br><span class="line">结束对指定Excel表格的修改或输入内容，若不使用则以后的putexcel命令还会对之前指定的Excel表格进行内容输入或者修改。</span><br><span class="line">*/</span><br><span class="line">	clear</span><br><span class="line">	sysuse auto, clear</span><br><span class="line">	spearman price-gear</span><br><span class="line">	<span class="keyword">return</span> list</span><br><span class="line"></span><br><span class="line">	putexcel set putexcel.xls, replace</span><br><span class="line">	putexcel D5 = matrix(r(Rho)),names nfor(number_d2)</span><br><span class="line">	//选择项names表示保留矩阵行列名，nfor(number_d2)表示矩阵中显示两位小数</span><br><span class="line">	shellout putexcel.xls</span><br><span class="line">	<span class="keyword">import</span> excel using putexcel.xls, describe</span><br><span class="line"></span><br><span class="line">	putexcel D4 = <span class="string">"spearman correlation cofficident"</span>, font(Arial,<span class="number">15</span>,black)</span><br><span class="line">	putexcel D4:N4,merge bold hcenter vcenter border(bottom)</span><br><span class="line">	putexcel D16:N16,border(top)</span><br><span class="line">	putexcel E5:E16, hcenter vcenter</span><br><span class="line">	putexcel clear</span><br><span class="line">	shellout putexcel.xls</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-post命令——股价的同步性"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/52036/">post命令——股价的同步性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/52036/" class="article-date">
+	  <time datetime="2018-02-13T12:06:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">//post命令：股价同步性</span><br><span class="line">clear all</span><br><span class="line">cap cntrade <span class="number">000300</span>, index</span><br><span class="line">use <span class="number">000300</span>, clear</span><br><span class="line">/*</span><br><span class="line">在所得数据中，我们只需要日期和收益率两个指标。并且为了同步性的计算工作，我们需要将日数据转化为周数据。而将一周内多个交易日的收益率相加得到的收益率往往会受到周末效应的影响而饱受诟病，因此我们要将自然周转化为非自然周。比如用周三收盘到下一个周三收盘的日收益率累积计算周收益率</span><br><span class="line">*/</span><br><span class="line">keep date rmt</span><br><span class="line">gen year = year(date)</span><br><span class="line">keep <span class="keyword">if</span> year &gt; <span class="number">2010</span> &amp; year &lt; <span class="number">2016</span></span><br><span class="line">gen dow = dow(date) //周</span><br><span class="line">gen week = week(date)</span><br><span class="line">replace week = week<span class="number">-1</span> <span class="keyword">if</span> dow &lt;= <span class="number">2</span> //将自然周转化为每周三到下个周三的非自然周</span><br><span class="line">sort year week dow</span><br><span class="line">by year week: gen rmw = sum(rmt) //每周每个交易日收益率依次相加</span><br><span class="line">by year week: keep <span class="keyword">if</span> _n == _N //保留每周最后一行</span><br><span class="line">//由于sum命令是将本日数据与昨日数据相加，我们的周数据即为每周最后一日sum值，保留该值即可。</span><br><span class="line">keep year week rmw</span><br><span class="line">sort year week</span><br><span class="line">save index.dta, replace</span><br><span class="line">//至此，我们拿到了每年每周市场收益率。</span><br><span class="line">//下面是整理个股收益率</span><br><span class="line">cntrade <span class="number">2</span></span><br><span class="line">keep stkcd rit date</span><br><span class="line">destring rit, force replace</span><br><span class="line">gen year = year(date)</span><br><span class="line">keep <span class="keyword">if</span> year &gt; <span class="number">2010</span> &amp; year &lt; <span class="number">2016</span></span><br><span class="line">gen dow = dow(date)</span><br><span class="line">format stkcd %<span class="number">06.0</span>f</span><br><span class="line">gen week = week(date)</span><br><span class="line">replace week = week - <span class="number">1</span> <span class="keyword">if</span> dow &lt;= <span class="number">2</span></span><br><span class="line">sort year week dow</span><br><span class="line">by year week: gen riw = sum(rit)</span><br><span class="line">by year week: keep <span class="keyword">if</span> _n == _N</span><br><span class="line">sort year week riw</span><br><span class="line">by year: keep <span class="keyword">if</span> _N &gt;= <span class="number">20</span> //删除不足<span class="number">20</span>个交易周的公司年度</span><br><span class="line">sort year week</span><br><span class="line">merge year week using index.dta</span><br><span class="line">drop _m</span><br><span class="line">//计算同步性</span><br><span class="line">set trace on</span><br><span class="line">set depth <span class="number">1</span></span><br><span class="line">levelsof year, local(year)</span><br><span class="line">foreach y <span class="keyword">in</span> `yea<span class="string">r'&#123;</span></span><br><span class="line"><span class="string">	qui reg riw rmw if year == `y'</span></span><br><span class="line">	local syn = ln(e(r2))/(<span class="number">1</span>-e(r2))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//使用循环得到多只股篇的同步性</span><br><span class="line">postfile syn stkcd year syn using syn.dta, replace</span><br><span class="line">foreach stkcd <span class="keyword">in</span> <span class="number">1</span> <span class="number">2</span> <span class="number">600900</span> <span class="number">601666</span> &#123;</span><br><span class="line">	cntrade `stkcd<span class="string">'</span></span><br><span class="line"><span class="string">	keep stkcd rit date</span></span><br><span class="line"><span class="string">	destring rit, force replace</span></span><br><span class="line"><span class="string">	gen year = year(date)</span></span><br><span class="line"><span class="string">	keep if year &gt; 2010 &amp; year &lt; 2016</span></span><br><span class="line"><span class="string">	gen dow = dow(date)</span></span><br><span class="line"><span class="string">	format stkcd %06.0f</span></span><br><span class="line"><span class="string">	gen week = week(date)</span></span><br><span class="line"><span class="string">	replace week = week - 1 if dow &lt;= 2</span></span><br><span class="line"><span class="string">	sort year week dow</span></span><br><span class="line"><span class="string">	by year week: gen riw = sum(rit)</span></span><br><span class="line"><span class="string">	by year week: keep if _n == _N</span></span><br><span class="line"><span class="string">	sort year week riw</span></span><br><span class="line"><span class="string">	by year: keep if _N &gt;= 20</span></span><br><span class="line"><span class="string">	sort year week</span></span><br><span class="line"><span class="string">	merge year week using index.dta</span></span><br><span class="line"><span class="string">	drop _m</span></span><br><span class="line"><span class="string">	levelsof year, local(year)</span></span><br><span class="line"><span class="string">	foreach y in `year'</span>&#123;</span><br><span class="line">		qui reg riw rmw <span class="keyword">if</span> year == `y<span class="string">'</span></span><br><span class="line"><span class="string">		local syn = ln(e(r2))/(1-e(r2))</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">		post syn (`stkcd'</span>) (`y<span class="string">') (`syn'</span>)</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">postclose syn</span><br><span class="line">use syn, clear</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-从日期中提取年月"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/52514/">从日期中提取年月</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/52514/" class="article-date">
+	  <time datetime="2018-02-13T12:05:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//%tm格式的日期指形如<span class="number">1959</span>m12的日期，类似的还有%tw、%td、%tq的日期</span><br><span class="line">clear</span><br><span class="line">input str7 mydate</span><br><span class="line"><span class="number">1960</span>m1</span><br><span class="line"><span class="number">1980</span>m2</span><br><span class="line"><span class="number">2005</span>m3</span><br><span class="line"><span class="number">2010</span>m10</span><br><span class="line"><span class="number">2015</span>m11</span><br><span class="line"><span class="number">2017</span>m10</span><br><span class="line">end</span><br><span class="line">gen year1 = substr(mydate,<span class="number">1</span>,<span class="number">4</span>)</span><br><span class="line">gen month1 = substr(mydate,<span class="number">6</span>,<span class="number">2</span>)</span><br><span class="line">//substr(s,n1,n2)表示从第n1个开始，截取n2个字符</span><br><span class="line">list</span><br><span class="line">d</span><br><span class="line">destring, replace</span><br><span class="line">d</span><br><span class="line"></span><br><span class="line">gen mydate1 = monthly(mydate, <span class="string">"YM"</span>)</span><br><span class="line">list mydate1</span><br><span class="line">gen date = dofm(mydate1)</span><br><span class="line">//该函数将mydate1换算出的月份数转换为天数（月份默认为该月的第一天）</span><br><span class="line">list date</span><br><span class="line">*或用如下命令也一样</span><br><span class="line">gen year3 = int(mydate1/<span class="number">12</span>+<span class="number">1960</span>)</span><br><span class="line">gen month3 = mod(mydate1,<span class="number">12</span>) + <span class="number">1</span></span><br><span class="line">list</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-使用grss命令绘图"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/38273/">使用grss命令绘图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/38273/" class="article-date">
+	  <time datetime="2018-02-13T12:04:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sysuse auto, clear</span><br><span class="line">grss twoway hist price, frequency bin(<span class="number">20</span>)</span><br><span class="line">grss twoway hist weight, frequency bin(<span class="number">20</span>)</span><br><span class="line">grss scatter price weight</span><br><span class="line">grss twoway connected price weight,sort</span><br><span class="line">grss graph box price, over(foreign)</span><br><span class="line">grss clear //关闭所有图形窗口</span><br><span class="line"></span><br><span class="line">/*通过上面的作图我们可以发现，在每一句绘图语句前面加上</span><br><span class="line">grss命令，就可以将文件保存为临时文件并显示。（如果不加</span><br><span class="line">grss，Stata是只能显示一幅图的）</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../98/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../97/">97</a><a class="page-number" href="../98/">98</a><span class="page-number current">99</span><a class="page-number" href="../100/">100</a><a class="page-number" href="../101/">101</a><span class="space">&hellip;</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../100/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

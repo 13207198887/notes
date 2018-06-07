@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>因果推断简史 | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Rubin因果框架" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="《赵西亮：基本有用的计量经济学》学习笔记  因果推断之难 在经济学的研究中，我们非常关心经济变量之间的因果关系，尽管其他关系也很重要，但是在政策评价中，因果关系是更根本的。 关于因果关系的探讨有两个方向，一个方向是看到结果然后探寻原因，另外一个是看到原因继续调查追寻结果。 在政策效应评估中通常是由原因到结果，相对而言这一方向更加简单且可操作性更强。事实上两个方向的分析是密切相关的，搞清楚原因的结">
+<meta name="keywords" content="Rubin因果框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="因果推断简史">
+<meta property="og:url" content="http://www.czxa.top/posts/62664/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="《赵西亮：基本有用的计量经济学》学习笔记  因果推断之难 在经济学的研究中，我们非常关心经济变量之间的因果关系，尽管其他关系也很重要，但是在政策评价中，因果关系是更根本的。 关于因果关系的探讨有两个方向，一个方向是看到结果然后探寻原因，另外一个是看到原因继续调查追寻结果。 在政策效应评估中通常是由原因到结果，相对而言这一方向更加简单且可操作性更强。事实上两个方向的分析是密切相关的，搞清楚原因的结">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-05T09:15:42.081Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="因果推断简史">
+<meta name="twitter:description" content="《赵西亮：基本有用的计量经济学》学习笔记  因果推断之难 在经济学的研究中，我们非常关心经济变量之间的因果关系，尽管其他关系也很重要，但是在政策评价中，因果关系是更根本的。 关于因果关系的探讨有两个方向，一个方向是看到结果然后探寻原因，另外一个是看到原因继续调查追寻结果。 在政策效应评估中通常是由原因到结果，相对而言这一方向更加简单且可操作性更强。事实上两个方向的分析是密切相关的，搞清楚原因的结">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-因果推断简史" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      因果推断简史
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2017-10-28T11:47:56.000Z" itemprop="datePublished">2017-10-28</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/计量经济学/">计量经济学</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>《赵西亮：基本有用的计量经济学》学习笔记</p>
+</blockquote>
+<h4 id="因果推断之难"><a href="#因果推断之难" class="headerlink" title="因果推断之难"></a>因果推断之难</h4><ul>
+<li>在经济学的研究中，我们非常关心经济变量之间的因果关系，尽管其他关系也很重要，但是在政策评价中，因果关系是更根本的。</li>
+<li>关于因果关系的探讨有两个方向，一个方向是看到结果然后探寻原因，另外一个是看到原因继续调查追寻结果。</li>
+<li>在政策效应评估中通常是由原因到结果，相对而言这一方向更加简单且可操作性更强。事实上两个方向的分析是密切相关的，搞清楚原因的结果才有利于考察结果的原因以及每一种原因在结果中产生的作用。因而在更多的情况下，我们更加关注原因的结果。比如在微观经济学中我们更关系某些措施货干预对个体行为的影响，比如：<ul>
+<li>班级规模对儿童学习效果的影响；</li>
+<li>安全带是否可以增加乘客在交通事故中的幸存概率；</li>
+<li>教育对个人就业以及未来收入的影响等等。</li>
+</ul>
+</li>
+<li>一项干预对结果变量的影响通常被称为因果效应(causal effects)或干预效应(treatment effects)。下面我们通过两个简单的例子来了解因果推断的困难：</li>
+</ul>
+<a id="more"></a>
+<blockquote>
+<p>例子1: 新药的治疗效果：Yule-Simpson悖论</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>总样本</th>
+<th>生还</th>
+<th>死亡</th>
+<th>生还率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>干预组</td>
+<td>20</td>
+<td>20</td>
+<td>50%</td>
+</tr>
+<tr>
+<td>控制组</td>
+<td>16</td>
+<td>24</td>
+<td>40%</td>
+</tr>
+<tr>
+<td>男性样本</td>
+<td>生还</td>
+<td>死亡</td>
+<td>生还率</td>
+</tr>
+<tr>
+<td>干预组</td>
+<td>18</td>
+<td>12</td>
+<td>64%</td>
+</tr>
+<tr>
+<td>控制组</td>
+<td>7</td>
+<td>3</td>
+<td>70%</td>
+</tr>
+<tr>
+<td>女性样本</td>
+<td>生还</td>
+<td>死亡</td>
+<td>生还率</td>
+</tr>
+<tr>
+<td>干预组</td>
+<td>2</td>
+<td>8</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>控制组</td>
+<td>9</td>
+<td>21</td>
+<td>30%</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>从表格中可以看出，对于总体，新药的使用等增加平均生还率，但是对于两个性别子样本，新药的使用却都降低了平均生还率，这种现象在统计学中被成为Yule-Simpson悖论。</p>
+</blockquote>
+<blockquote>
+<p>例子2: 美国加州大学伯克利分校研究生录取存在性别歧视么？</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>总样本</th>
+<th>申请人数</th>
+<th>录取人数</th>
+<th>录取率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>男性</td>
+<td>1000</td>
+<td>440</td>
+<td>44%</td>
+</tr>
+<tr>
+<td>女性</td>
+<td>500</td>
+<td>190</td>
+<td>38%</td>
+</tr>
+<tr>
+<td>男性样本</td>
+<td>申请人数</td>
+<td>录取人数</td>
+<td>录取率</td>
+</tr>
+<tr>
+<td>专业1</td>
+<td>200</td>
+<td>40</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>专业2</td>
+<td>800</td>
+<td>400</td>
+<td>50%</td>
+</tr>
+<tr>
+<td>女性样本</td>
+<td>申请人数</td>
+<td>录取人数</td>
+<td>录取率</td>
+</tr>
+<tr>
+<td>专业1</td>
+<td>400</td>
+<td>120</td>
+<td>30%</td>
+</tr>
+<tr>
+<td>专业2</td>
+<td>100</td>
+<td>70</td>
+<td>70%</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>对于总样本，男鞋录取率高于女性，但是对于两个专业子样本，两个子样本中都是女性录取率高于男性。</p>
+</blockquote>
+<ul>
+<li>上面的两个例子告诉我们，简单的直观印象往往是错误的，真理的揭示是非常困难的，需要更加深入地分析，菜有可能找出现象背后的真相。同时也说明寻找真理的过程是非常吸引人的。</li>
+</ul>
+<h4 id="因果推断简史"><a href="#因果推断简史" class="headerlink" title="因果推断简史"></a>因果推断简史</h4><ul>
+<li>1923年，Neyman在研究农业实验中首次提出了潜在结果的概念，但由于其论文是用波兰语写的，因此并没有引起学术界的关注；</li>
+<li>1935年，Fisher提出的随机化试验是因果推断的基础；</li>
+<li>20世纪70年代以来，Rubin（1974，1977，1978）的一系列论文，重新独立地提出了潜在结果的概念，并将之推广到观测研究，从而构造出适用于随机化实验和观测研究的基本分析框架。Rubin提出的潜在结果框架被称为Rubin因果模型（Rubin Causal Model, RCM)。RCM的关键是提出了“潜在结果“的基本概念。</li>
+<li>在经济学文献中，因果推断可以追溯到Ashenfelter(1978)、Heckman and Robb(1985)等。</li>
+<li>关于潜在结果的概念，实际上在Haavelmo关于供求分析的联立方程理论中有所涉及，文中他区分了供给函数中“任何想象的价格$\pi$和实际价格p“。</li>
+<li>但是后来的计量经济学的理论发展并没有沿着潜在结果的方向走下去，而是开始对观测结果直接进行建模，将潜在结果和分配机制杂糅在一起，使因果效应的识别变得难以理解，并且引入的假设也越来越多。</li>
+<li>经济学界历来存在“计量经济学是否科学”的争论。Leamer（1983）更是指出：“计量经济学的艺术就是，研究者在计算机终端拟合很多（甚至上千个）统计模型，然后从其中选择一个活几个符合作者预期的估计结果在论文中进行报告。”</li>
+<li>Leamer提议让我们将计量经济学中的“谎言和欺骗”剔除出来，他提出的解决方案是“敏感性分析”（sensitivity analysis）。</li>
+<li>然而敏感性分析并不能真正解决实证分析结果的“可信性”问题。传统的计量经济学方法的“可信性危机”在当时逐渐显现出来。</li>
+<li>LaLonde（1986）利用美国70年代进行的一项就业培训的随机化实验数据，考察了传统计量经济学常用方法是否能够模拟随机化实验。它以随机化实验作为基准，利用观测数据作为控制组，运用回归、固定效应、Heckman选择模型等计量经济学常用方法估计了培训对收入的影响，发现这些计量经济学方法都无法复制随机化实验的结果。因而得到观察研究中，计量经济学方法无法可信地估计因果效应的悲观结论。</li>
+<li>LaLonde的研究直接推动了经济学实验研究的“可信性革命”。经济学家开始关注计量经济学方法的可信性问题。</li>
+<li>Wahba（1999）利用倾向得分匹配（Propensity score matching, PSM）的方法重新考察了LaLonde探讨的问题，他们利用PSM获得与干预组更为相似的控制组个体，发现估计的因果效应与随机化的实验结果非常相似。由此引发了计量经济学的“可信性革命”。</li>
+<li>随后，有很多文献考察和观测研究如何才能复制随机化实验的结果，如何才能使经验研究更加可信。</li>
+<li><strong>“可信性革命”的一个重要特点是强调设计，以随机化试验作为研究设计的基础，对潜在结果直接进行建模，而不是对观测结果进行建模，将潜在结果和分配机制分离开来，通过科学的设计，让数据自动呈现因果效应，尽量避免有关函数形式和模型设定这种假设因素，与结构计量经济学学派形成了清晰的差别。</strong></li>
+<li>最后，引发这场经济学经验研究“可信性革命”的代表任务包括下面几位大佬<ul>
+<li>加州大学伯克利分校的David Card</li>
+<li>普林斯顿大学的Alan Krueger</li>
+<li>斯坦福大学的Guido Imbens</li>
+<li>麻省理工学院的Joshua Angrist</li>
+<li>哈佛大学的Alberto Abadie等。</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../32875/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          jiebaR分词包
+        
+      </div>
+    </a>
+  
+  
+    <a href="../60273/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">时间序列分析</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#因果推断之难"><span class="nav-text">因果推断之难</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#因果推断简史"><span class="nav-text">因果推断简史</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

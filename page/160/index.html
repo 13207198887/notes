@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/160/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-模型设定与数据问题"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/57110/">模型设定与数据问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/57110/" class="article-date">
+	  <time datetime="2018-01-08T14:33:23.000Z" itemprop="datePublished">2018-01-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/计量经济学/">计量经济学</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="遗漏变量问题"><a href="#遗漏变量问题" class="headerlink" title="遗漏变量问题"></a>遗漏变量问题</h4><ul>
+<li>遗漏变量与解释变量之间没有相关关系，则OLS依然是一致的，但是被遗漏的变量放入扰动项中会增大扰动项的方差，从而影响OLS的精度。</li>
+<li>如果两者之间有相关关系，则会产生遗漏变量偏差。解决遗漏变量偏差的方法有：</li>
+</ul>
+<ol>
+<li>加入尽可能多的控制变量；</li>
+<li>随机实验或自然实验；</li>
+<li>IV法；</li>
+<li>使用面板数据。</li>
+</ol>
+<h4 id="无关变量"><a href="#无关变量" class="headerlink" title="无关变量"></a>无关变量</h4><ul>
+<li>无关变量的引入会增大$\widehat{\beta}$的方差。</li>
+</ul>
+<h4 id="建模策略：“由小到大”还是“由大到小”"><a href="#建模策略：“由小到大”还是“由大到小”" class="headerlink" title="建模策略：“由小到大”还是“由大到小”"></a>建模策略：“由小到大”还是“由大到小”</h4>
+        <!-- 遗漏变量问题
+遗漏变量与解释变量之间没有相关关系，则OLS依然是一致的，但是被遗漏的变量放入扰动项中会增大扰动项的方差，从而影响OLS的精度。
+如果两者之间有相关关系，则会产生遗漏变量偏差。解决遗漏变量偏差的方法有：
+
+
+加入尽可能多的控制变量；
+随机实验或自然实验；
+IV法；
+使用面板数据。
+
+无关变量
+无关变量的引入会增大$\widehat{\beta}$的方差。
+
+建模策略：“由小到大......  -->
+        <p class="article-more-link">
+          <a href="../../posts/57110/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-工具变量法"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/36837/">工具变量法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/36837/" class="article-date">
+	  <time datetime="2018-01-08T14:07:23.000Z" itemprop="datePublished">2018-01-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/计量经济学/">计量经济学</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="联立方程偏差"><a href="#联立方程偏差" class="headerlink" title="联立方程偏差"></a>联立方程偏差</h4><h4 id="测量误差偏差"><a href="#测量误差偏差" class="headerlink" title="测量误差偏差"></a>测量误差偏差</h4><h4 id="工具变量法"><a href="#工具变量法" class="headerlink" title="工具变量法"></a>工具变量法</h4><ul>
+<li>外生性</li>
+<li>相关性<h4 id="2SLS"><a href="#2SLS" class="headerlink" title="2SLS"></a>2SLS</h4></li>
+<li>阶条件：进行2SLS估计的必要条件是工具变量个数不少于内生解释变量的个数。<h4 id="弱工具变量问题"><a href="#弱工具变量问题" class="headerlink" title="弱工具变量问题"></a>弱工具变量问题</h4></li>
+<li><p>弱工具变量的检验：在做完2SLS回归之后运行如下命令。一个经验规则是如果此检验的F统计量大于10，则可拒绝“存在弱工具变量的原假设”，不必担心弱工具变量问题。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">estat</span> firststage</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果发现存在弱工具变量，可能的解决方法包括：</p>
+</li>
+</ul>
+<ol>
+<li>寻找更强的工具变量；</li>
+<li>使用对弱工具变量更不敏感的“有限信息最大似然估计法”（LIML）；在大样本下，LIML于2SLS渐进等价，但在弱工具变量的情况下，LIML的小样本性质可能优于2SLS。</li>
+</ol>
+<ul>
+<li>过度识别检验：原假设：所有的工具变量都是外生的。<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">estat</span> overid</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+        <!-- 联立方程偏差测量误差偏差工具变量法
+外生性
+相关性2SLS
+阶条件：进行2SLS估计的必要条件是工具变量个数不少于内生解释变量的个数。弱工具变量问题
+弱工具变量的检验：在做完2SLS回归之后运行如下命令。一个经验规则是如果此检验的F统计量大于10，则可拒绝“存在弱工具变量的原假设”，不必担心弱工具变量问题。
+1estat firststage
+
+如果发现存在弱工具变量，可能的解决方法包括：
+......  -->
+        <p class="article-more-link">
+          <a href="../../posts/36837/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-面板数据"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/52756/">面板数据</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/52756/" class="article-date">
+	  <time datetime="2018-01-08T11:03:23.000Z" itemprop="datePublished">2018-01-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/计量经济学/">计量经济学</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="面板数据的特点："><a href="#面板数据的特点：" class="headerlink" title="面板数据的特点："></a>面板数据的特点：</h4><h5 id="面板分类"><a href="#面板分类" class="headerlink" title="面板分类"></a>面板分类</h5><ul>
+<li>T小 n大：短面板；反之则为长面板；</li>
+<li>解释变量中包含被解释变量的滞后项：动态面板；反之则为静态面板；</li>
+<li>如果每个时期在样本中的个体完全一样：平衡面板；贩子则为非平衡面板；</li>
+</ul>
+<h5 id="面板数据的优点"><a href="#面板数据的优点" class="headerlink" title="面板数据的优点"></a>面板数据的优点</h5><ul>
+<li>可以解决遗漏变量问题；</li>
+<li>提供了更多个体动态行为的信息；</li>
+<li>样本容量较大。
+        <!-- 面板数据的特点：面板分类
+T小 n大：短面板；反之则为长面板；
+解释变量中包含被解释变量的滞后项：动态面板；反之则为静态面板；
+如果每个时期在样本中的个体完全一样：平衡面板；贩子则为非平衡面板；
+
+面板数据的优点
+可以解决遗漏变量问题；
+提供了更多个体动态行为的信息；
+样本容量较大。
+面板数据的缺点
+样本数据通常不满足iid假设，因为同一个体在不同期的扰动项一般存在自相关；
+数据搜集成本最高......  -->
+        <p class="article-more-link">
+          <a href="../../posts/52756/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-一元线性回归"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/33544/">一元线性回归</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/33544/" class="article-date">
+	  <time datetime="2018-01-07T17:06:23.000Z" itemprop="datePublished">2018-01-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/计量经济学/">计量经济学</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="取对数的意义："><a href="#取对数的意义：" class="headerlink" title="取对数的意义："></a>取对数的意义：</h4><ol>
+<li>求弹性；</li>
+<li>平缓数据；</li>
+<li>理论模型或者经验观测应为对数形式。</li>
+</ol>
+        <!-- 取对数的意义：
+求弹性；
+平缓数据；
+理论模型或者经验观测应为对数形式。
+
+
+...  -->
+        <p class="article-more-link">
+          <a href="../../posts/33544/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-多元线性回归"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/53786/">多元线性回归</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/53786/" class="article-date">
+	  <time datetime="2018-01-07T16:55:23.000Z" itemprop="datePublished">2018-01-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/计量经济学/">计量经济学</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="估计量"><a href="#估计量" class="headerlink" title="估计量"></a>估计量</h4><p>$$\widehat{\beta} = (X’X)^{-1}X’y$$</p>
+<h4 id="古典线性回归模型的假定"><a href="#古典线性回归模型的假定" class="headerlink" title="古典线性回归模型的假定"></a>古典线性回归模型的假定</h4><ol>
+<li>线性假定；</li>
+<li>严格外生性假定；</li>
+<li>不存在“严格多重共线性”；</li>
+<li>球型扰动项；</li>
+<li>给定X的情况下，扰动项正态分布；</li>
+</ol>
+<h4 id="OLS的小样本性质"><a href="#OLS的小样本性质" class="headerlink" title="OLS的小样本性质"></a>OLS的小样本性质</h4><ol>
+<li>线性性；线性估计量；</li>
+<li>无偏性；</li>
+<li>协方差矩阵为$\sigma^{2}(X’X)^{-1}$;</li>
+<li>高斯——马尔可夫定理——BLUE。</li>
+</ol>
+        <!-- 估计量$$\widehat{\beta} = (X’X)^{-1}X’y$$
+古典线性回归模型的假定
+线性假定；
+严格外生性假定；
+不存在“严格多重共线性”；
+球型扰动项；
+给定X的情况下，扰动项正态分布；
+
+OLS的小样本性质
+线性性；线性估计量；
+无偏性；
+协方差矩阵为$\sigma^{2}(X’X)^{-1}$;
+高斯——马尔可夫定理——BLUE。
+
+
+第五章习题5.5 数据集airq......  -->
+        <p class="article-more-link">
+          <a href="../../posts/53786/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../159/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../158/">158</a><a class="page-number" href="../159/">159</a><span class="page-number current">160</span><a class="page-number" href="../161/">161</a><a class="page-number" href="../162/">162</a><span class="space">&hellip;</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../161/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

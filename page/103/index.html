@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/103/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-aaplot——绘制拟合图"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/30935/">aaplot——绘制拟合图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/30935/" class="article-date">
+	  <time datetime="2018-02-13T09:34:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sysuse auto, clear</span><br><span class="line">gen gpm = <span class="number">1000</span> / mpg</span><br><span class="line">label var gpm <span class="string">"Gallons per thousand miles"</span></span><br><span class="line">* 默认线性拟合</span><br><span class="line">aaplot gpm weight, name(g1)</span><br><span class="line">gre aaplot1</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/aaplot1.png" alt=""><br>
+        <!-- 123456sysuse auto, cleargen gpm = 1000 / mpglabel var gpm "Gallons per thousand miles"* 默认线性拟合aaplot gpm weight, name(g1)gre aaplot1
+1234* lopts()表示使用tw lfit的选择项* aformat(), bformat(), cformat(), r......  -->
+        <p class="article-more-link">
+          <a href="../../posts/30935/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-stack——堆叠数据"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/32368/">stack——堆叠数据</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/32368/" class="article-date">
+	  <time datetime="2018-02-13T06:34:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br></pre></td><td class="code"><pre><span class="line">. webuse stackxmpl, clear s</span><br><span class="line">file ~/Library/Application Support/Stata/ado/plus/s/stackxmpl.dta saved</span><br><span class="line"></span><br><span class="line">. list</span><br><span class="line"></span><br><span class="line">     +---------------+</span><br><span class="line">     | a   b   c   d |</span><br><span class="line">     |---------------|</span><br><span class="line">  <span class="number">1.</span> | <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span> |</span><br><span class="line">  <span class="number">2.</span> | <span class="number">5</span>   <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span> |</span><br><span class="line">     +---------------+</span><br><span class="line"></span><br><span class="line">. * 堆叠 abcd</span><br><span class="line"></span><br><span class="line">. stack a b c d, into(e f) clear</span><br><span class="line"></span><br><span class="line">. list</span><br><span class="line"></span><br><span class="line">     +----------------+</span><br><span class="line">     | _stack   e   f |</span><br><span class="line">     |----------------|</span><br><span class="line">  <span class="number">1.</span> |      <span class="number">1</span>   <span class="number">1</span>   <span class="number">2</span> |</span><br><span class="line">  <span class="number">2.</span> |      <span class="number">1</span>   <span class="number">5</span>   <span class="number">6</span> |</span><br><span class="line">  <span class="number">3.</span> |      <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span> |</span><br><span class="line">  <span class="number">4.</span> |      <span class="number">2</span>   <span class="number">7</span>   <span class="number">8</span> |</span><br><span class="line">     +----------------+</span><br><span class="line"></span><br><span class="line">. * _stack = <span class="number">1</span> 表示是第一组ab堆叠成的数据集</span><br><span class="line"></span><br><span class="line">. * _stack = <span class="number">2</span> 表示是第二组cd堆叠成的数据集</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. * 下面的命令格式作用与上面的是等效的</span><br><span class="line"></span><br><span class="line">. webuse stackxmpl, clear</span><br><span class="line"></span><br><span class="line">. stack a b c d, into(v1-v2)</span><br><span class="line">Warning:  data <span class="keyword">in</span> memory will be lost.</span><br><span class="line">         Press any key to <span class="keyword">continue</span>, Ctrl-Break to abort.</span><br><span class="line"></span><br><span class="line">. list</span><br><span class="line"></span><br><span class="line">     +------------------+</span><br><span class="line">     | _stack   v1   v2 |</span><br><span class="line">     |------------------|</span><br><span class="line">  <span class="number">1.</span> |      <span class="number">1</span>    <span class="number">1</span>    <span class="number">2</span> |</span><br><span class="line">  <span class="number">2.</span> |      <span class="number">1</span>    <span class="number">5</span>    <span class="number">6</span> |</span><br><span class="line">  <span class="number">3.</span> |      <span class="number">2</span>    <span class="number">3</span>    <span class="number">4</span> |</span><br><span class="line">  <span class="number">4.</span> |      <span class="number">2</span>    <span class="number">7</span>    <span class="number">8</span> |</span><br><span class="line">     +------------------+</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. webuse stackxmpl, clear</span><br><span class="line"></span><br><span class="line">. stack a-d, into(v1-v2)</span><br><span class="line">Warning:  data <span class="keyword">in</span> memory will be lost.</span><br><span class="line">         Press any key to <span class="keyword">continue</span>, Ctrl-Break to abort.</span><br><span class="line"></span><br><span class="line">. list</span><br><span class="line"></span><br><span class="line">     +------------------+</span><br><span class="line">     | _stack   v1   v2 |</span><br><span class="line">     |------------------|</span><br><span class="line">  <span class="number">1.</span> |      <span class="number">1</span>    <span class="number">1</span>    <span class="number">2</span> |</span><br><span class="line">  <span class="number">2.</span> |      <span class="number">1</span>    <span class="number">5</span>    <span class="number">6</span> |</span><br><span class="line">  <span class="number">3.</span> |      <span class="number">2</span>    <span class="number">3</span>    <span class="number">4</span> |</span><br><span class="line">  <span class="number">4.</span> |      <span class="number">2</span>    <span class="number">7</span>    <span class="number">8</span> |</span><br><span class="line">     +------------------+</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. webuse stackxmpl, clear</span><br><span class="line"></span><br><span class="line">. stack a b c d, into(a b) clear</span><br><span class="line"></span><br><span class="line">. list</span><br><span class="line"></span><br><span class="line">     +----------------+</span><br><span class="line">     | _stack   a   b |</span><br><span class="line">     |----------------|</span><br><span class="line">  <span class="number">1.</span> |      <span class="number">1</span>   <span class="number">1</span>   <span class="number">2</span> |</span><br><span class="line">  <span class="number">2.</span> |      <span class="number">1</span>   <span class="number">5</span>   <span class="number">6</span> |</span><br><span class="line">  <span class="number">3.</span> |      <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span> |</span><br><span class="line">  <span class="number">4.</span> |      <span class="number">2</span>   <span class="number">7</span>   <span class="number">8</span> |</span><br><span class="line">     +----------------+</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. webuse stackxmpl, clear</span><br><span class="line"></span><br><span class="line">. stack a b c d, group(<span class="number">2</span>)</span><br><span class="line">Warning:  data <span class="keyword">in</span> memory will be lost.</span><br><span class="line">         Press any key to <span class="keyword">continue</span>, Ctrl-Break to abort.</span><br><span class="line"></span><br><span class="line">. list</span><br><span class="line"></span><br><span class="line">     +----------------+</span><br><span class="line">     | _stack   a   b |</span><br><span class="line">     |----------------|</span><br><span class="line">  <span class="number">1.</span> |      <span class="number">1</span>   <span class="number">1</span>   <span class="number">2</span> |</span><br><span class="line">  <span class="number">2.</span> |      <span class="number">1</span>   <span class="number">5</span>   <span class="number">6</span> |</span><br><span class="line">  <span class="number">3.</span> |      <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span> |</span><br><span class="line">  <span class="number">4.</span> |      <span class="number">2</span>   <span class="number">7</span>   <span class="number">8</span> |</span><br><span class="line">     +----------------+</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. webuse stackxmpl, clear</span><br><span class="line"></span><br><span class="line">. stack a b  a c, into(a bc) clear</span><br><span class="line"></span><br><span class="line">. list</span><br><span class="line"></span><br><span class="line">     +-----------------+</span><br><span class="line">     | _stack   a   bc |</span><br><span class="line">     |-----------------|</span><br><span class="line">  <span class="number">1.</span> |      <span class="number">1</span>   <span class="number">1</span>    <span class="number">2</span> |</span><br><span class="line">  <span class="number">2.</span> |      <span class="number">1</span>   <span class="number">5</span>    <span class="number">6</span> |</span><br><span class="line">  <span class="number">3.</span> |      <span class="number">2</span>   <span class="number">1</span>    <span class="number">3</span> |</span><br><span class="line">  <span class="number">4.</span> |      <span class="number">2</span>   <span class="number">5</span>    <span class="number">7</span> |</span><br><span class="line">     +-----------------+</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. * Stack a on a <span class="keyword">and</span> call it a, stack b on c <span class="keyword">and</span> call it bc, <span class="keyword">and</span> retain original v</span><br><span class="line">&gt; ariables (a will contain stacked values because a <span class="keyword">is</span> specified <span class="keyword">in</span> into())。</span><br><span class="line"></span><br><span class="line">. webuse stackxmpl, clear</span><br><span class="line"></span><br><span class="line">. stack a b  a c, into(a bc) clear wide</span><br><span class="line"></span><br><span class="line">. list</span><br><span class="line"></span><br><span class="line">     +-------------------------+</span><br><span class="line">     | _stack   a   bc   b   c |</span><br><span class="line">     |-------------------------|</span><br><span class="line">  <span class="number">1.</span> |      <span class="number">1</span>   <span class="number">1</span>    <span class="number">2</span>   <span class="number">2</span>   . |</span><br><span class="line">  <span class="number">2.</span> |      <span class="number">1</span>   <span class="number">5</span>    <span class="number">6</span>   <span class="number">6</span>   . |</span><br><span class="line">  <span class="number">3.</span> |      <span class="number">2</span>   <span class="number">1</span>    <span class="number">3</span>   .   <span class="number">3</span> |</span><br><span class="line">  <span class="number">4.</span> |      <span class="number">2</span>   <span class="number">5</span>    <span class="number">7</span>   .   <span class="number">7</span> |</span><br><span class="line">     +-------------------------+</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-splitvallabels标签自动换行"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/47949/">splitvallabels标签自动换行</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/47949/" class="article-date">
+	  <time datetime="2018-02-13T06:31:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/Web_data_Source/raw/master/splitvallabels标签自动换行.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sysuse auto, clear</span><br><span class="line"></span><br><span class="line">label define rep78 <span class="number">1</span> <span class="string">"Very low rating in 1978"</span> ///</span><br><span class="line"><span class="number">2</span> <span class="string">"Mediocre - Low Rating in 1978"</span>              ///</span><br><span class="line"><span class="number">3</span> <span class="string">"Medium Rating in 1978"</span>                      ///</span><br><span class="line"><span class="number">4</span> <span class="string">"Not bad rating in 1978, considering"</span>        ///</span><br><span class="line"><span class="number">5</span> <span class="string">"Excellent in 1978--the best of the year!"</span></span><br><span class="line"></span><br><span class="line">label values rep78 rep78</span><br><span class="line">splitvallabels rep78 <span class="keyword">if</span> rep78 &gt; <span class="number">3</span>, length(<span class="number">11</span>) recode</span><br><span class="line">gr bar mpg <span class="keyword">if</span> rep78 &gt; <span class="number">3</span>, over(rep78, relabel(`r(relabel)<span class="string">'))</span></span><br><span class="line"><span class="string">gre splitvallabels标签自动换行</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-g2——在柱条中间添加频数"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/65256/">g2——在柱条中间添加频数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/65256/" class="article-date">
+	  <time datetime="2018-02-13T06:29:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/Web_data_Source/raw/master/在柱条中间添加频数.png" alt=""></p>
+<ul>
+<li><p>绘图命令</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sysuse auto, clear</span><br><span class="line">egen pr2 = cut(price), group(<span class="number">10</span>)</span><br><span class="line">g2 weight, over(pr2)</span><br><span class="line">gre 在柱条中间添加频数</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>命令代码</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">*! g2：在柱条中间添加频数标签</span><br><span class="line">cap prog drop g2</span><br><span class="line">prog define g2</span><br><span class="line">	syntax varname, over(varname)</span><br><span class="line">	levelsof `ove<span class="string">r', local(kk)</span></span><br><span class="line"><span class="string">	graph bar  `varlist'</span>  , over(`ove<span class="string">r') blabel(bar, position(base) gap(*22.5) format(%9.1f) size(large) color(black))</span></span><br><span class="line"><span class="string">	local x=1</span></span><br><span class="line"><span class="string">	foreach i of local kk &#123;</span></span><br><span class="line"><span class="string">		summ `varlist'</span> <span class="keyword">if</span> `ove<span class="string">r'==`i'</span></span><br><span class="line">		local a1=<span class="string">"N= "</span>+string(r(N),<span class="string">"%8.0f"</span>)</span><br><span class="line"></span><br><span class="line">		gr_edit plotregion1.barlabels[`x<span class="string">'].text = &#123;&#125;</span></span><br><span class="line"><span class="string">		gr_edit plotregion1.barlabels[`x'</span>]._set_orientation vertical</span><br><span class="line">		gr_edit plotregion1.barlabels[`x<span class="string">'].text.Arrpush `"&#123;bf:  `a1'</span>   &#125;<span class="string">"'</span></span><br><span class="line"><span class="string">		local ++x</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">end</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-在柱条中间添加频数"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/14432/">在柱条中间添加频数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/14432/" class="article-date">
+	  <time datetime="2018-02-13T06:28:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/Web_data_Source/raw/master/在柱条中间添加频数.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">*! g2：在柱条中间添加频数标签</span><br><span class="line">cap prog drop g2</span><br><span class="line">prog define g2</span><br><span class="line">	syntax varname, over(varname)</span><br><span class="line">	levelsof `ove<span class="string">r', local(kk)</span></span><br><span class="line"><span class="string">	graph bar  `varlist'</span>  , over(`ove<span class="string">r') blabel(bar, position(base) gap(*22.5) format(%9.1f) size(large) color(black))</span></span><br><span class="line"><span class="string">	local x=1</span></span><br><span class="line"><span class="string">	foreach i of local kk &#123;</span></span><br><span class="line"><span class="string">		summ `varlist'</span> <span class="keyword">if</span> `ove<span class="string">r'==`i'</span></span><br><span class="line">		local a1=<span class="string">"N= "</span>+string(r(N),<span class="string">"%8.0f"</span>)</span><br><span class="line"></span><br><span class="line">		gr_edit plotregion1.barlabels[`x<span class="string">'].text = &#123;&#125;</span></span><br><span class="line"><span class="string">		gr_edit plotregion1.barlabels[`x'</span>]._set_orientation vertical</span><br><span class="line">		gr_edit plotregion1.barlabels[`x<span class="string">'].text.Arrpush `"&#123;bf:  `a1'</span>   &#125;<span class="string">"'</span></span><br><span class="line"><span class="string">		local ++x</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">end</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">sysuse auto, clear</span></span><br><span class="line"><span class="string">egen pr2 = cut(price), group(10)</span></span><br><span class="line"><span class="string">g2 weight, over(pr2)</span></span><br><span class="line"><span class="string">gre 在柱条中间添加频数</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../102/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../101/">101</a><a class="page-number" href="../102/">102</a><span class="page-number current">103</span><a class="page-number" href="../104/">104</a><a class="page-number" href="../105/">105</a><span class="space">&hellip;</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../104/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>多元线性回归 | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Stata" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="估计量$$\widehat{\beta} = (X’X)^{-1}X’y$$ 古典线性回归模型的假定 线性假定； 严格外生性假定； 不存在“严格多重共线性”； 球型扰动项； 给定X的情况下，扰动项正态分布；  OLS的小样本性质 线性性；线性估计量； 无偏性； 协方差矩阵为$\sigma^{2}(X’X)^{-1}$; 高斯——马尔可夫定理——BLUE。">
+<meta name="keywords" content="Stata">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多元线性回归">
+<meta property="og:url" content="http://www.czxa.top/posts/53786/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="估计量$$\widehat{\beta} = (X’X)^{-1}X’y$$ 古典线性回归模型的假定 线性假定； 严格外生性假定； 不存在“严格多重共线性”； 球型扰动项； 给定X的情况下，扰动项正态分布；  OLS的小样本性质 线性性；线性估计量； 无偏性； 协方差矩阵为$\sigma^{2}(X’X)^{-1}$; 高斯——马尔可夫定理——BLUE。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-08T17:11:10.057Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多元线性回归">
+<meta name="twitter:description" content="估计量$$\widehat{\beta} = (X’X)^{-1}X’y$$ 古典线性回归模型的假定 线性假定； 严格外生性假定； 不存在“严格多重共线性”； 球型扰动项； 给定X的情况下，扰动项正态分布；  OLS的小样本性质 线性性；线性估计量； 无偏性； 协方差矩阵为$\sigma^{2}(X’X)^{-1}$; 高斯——马尔可夫定理——BLUE。">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-多元线性回归" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      多元线性回归
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2018-01-07T16:55:23.000Z" itemprop="datePublished">2018-01-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/计量经济学/">计量经济学</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="估计量"><a href="#估计量" class="headerlink" title="估计量"></a>估计量</h4><p>$$\widehat{\beta} = (X’X)^{-1}X’y$$</p>
+<h4 id="古典线性回归模型的假定"><a href="#古典线性回归模型的假定" class="headerlink" title="古典线性回归模型的假定"></a>古典线性回归模型的假定</h4><ol>
+<li>线性假定；</li>
+<li>严格外生性假定；</li>
+<li>不存在“严格多重共线性”；</li>
+<li>球型扰动项；</li>
+<li>给定X的情况下，扰动项正态分布；</li>
+</ol>
+<h4 id="OLS的小样本性质"><a href="#OLS的小样本性质" class="headerlink" title="OLS的小样本性质"></a>OLS的小样本性质</h4><ol>
+<li>线性性；线性估计量；</li>
+<li>无偏性；</li>
+<li>协方差矩阵为$\sigma^{2}(X’X)^{-1}$;</li>
+<li>高斯——马尔可夫定理——BLUE。</li>
+</ol>
+<a id="more"></a>
+<h4 id="第五章习题"><a href="#第五章习题" class="headerlink" title="第五章习题"></a>第五章习题</h4><h5 id="5-5-数据集airq-dta"><a href="#5-5-数据集airq-dta" class="headerlink" title="5.5 数据集airq.dta"></a>5.5 数据集airq.dta</h5><ul>
+<li>（1）把airq对其他变量进行OLS回归：</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">clear</span> all</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">more</span> off</span><br><span class="line"><span class="keyword">cd</span> ~/Documents/Chen_Qiang_DataSets-master</span><br><span class="line"><span class="keyword">use</span> airq.dta, <span class="keyword">clear</span></span><br><span class="line"><span class="keyword">reg</span> airq vala rain coast density income</span><br></pre></td></tr></table></figure>
+<ul>
+<li>（2）检验$H_0$：平均收入对空气质量没有影响：</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">test</span> income</span><br><span class="line"> ( 1)  income = 0</span><br><span class="line">       <span class="built_in">F</span>(  1,    24) =    0.43</span><br><span class="line">            <span class="keyword">Prob</span> &gt; F =    0.5205</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>对回归方程的income系数的检验p值为0.5205，远远大于0.05，在5%的显著性水平下很不显著，因此无法拒绝原假设income的系数等于0，也就是说，没有充分的证据表明平均收入对空气质量有影响，也就是无法拒绝“$H_0$：平均收入对空气质量没有影响”。</p>
+</blockquote>
+<ul>
+<li>（3）检验经济变量density与income的联合显著性：</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">test</span> density income</span><br><span class="line">( 1)  density = 0</span><br><span class="line">( 2)  income = 0</span><br><span class="line">      <span class="built_in">F</span>(  2,    24) =    0.38</span><br><span class="line">           <span class="keyword">Prob</span> &gt; F =    0.6857</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>对density和income的系数联合检验的p值等于0.6857，远远大于0.05，在5%的显著性水平下很不显著，因此无法拒绝原假设density和income的系数都为0。没有充分的证据表明人口密度和人均收入对空气质量有影响。</p>
+</blockquote>
+<ul>
+<li>（4）检验环境变量rain和coast的联合显著性：</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">test</span> rain coast</span><br><span class="line"> ( 1)  rain = 0</span><br><span class="line"> ( 2)  coast = 0</span><br><span class="line">       <span class="built_in">F</span>(  2,    24) =    5.12</span><br><span class="line">            <span class="keyword">Prob</span> &gt; F =    0.0141</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>对rain和coast的系数联合检验的p值等于0.0141，小于0.05，因此拒绝原假设“$H_0$：rain和coast的系数都为0”，认为降雨量和是否为海岸城市对空气质量有影响。</p>
+</blockquote>
+<ul>
+<li>（5）检验所有变量的联合显著性：</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">test</span> vala rain coast density income</span><br><span class="line"> ( 1)  vala = 0</span><br><span class="line"> ( 2)  rain = 0</span><br><span class="line"> ( 3)  coast = 0</span><br><span class="line"> ( 4)  density = 0</span><br><span class="line"> ( 5)  income = 0</span><br><span class="line">       <span class="built_in">F</span>(  5,    24) =    2.98</span><br><span class="line">            <span class="keyword">Prob</span> &gt; F =    0.0313</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>对所有变量的联合显著性检验的p值为0.0313，小于0.05。因此拒绝原假设“$H_0$：所有解释变量的系数都为0”，认为该回归方程显著。</p>
+</blockquote>
+<h5 id="5-6-数据集geodata-short-dta"><a href="#5-6-数据集geodata-short-dta" class="headerlink" title="5.6 数据集geodata_short.dta"></a>5.6 数据集geodata_short.dta</h5><ul>
+<li>以5%的显著性水平检验是否存在绝对收敛：</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">clear</span> all</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">more</span> off</span><br><span class="line"><span class="keyword">cd</span> ~/Documents/Chen_Qiang_DataSets-master</span><br><span class="line"><span class="keyword">use</span> geodata_short.dta, <span class="keyword">clear</span></span><br><span class="line"><span class="keyword">reg</span> gdpg6590 lgdp65</span><br><span class="line"><span class="keyword">est</span> store m2</span><br><span class="line">esttab m2 using m2.rtf, scalars(r2_a) nonum mtitle(<span class="string">"OLS Regression for one variable"</span>) b(%6.2f) <span class="keyword">replace</span></span><br><span class="line"><span class="keyword">test</span> lgdp65</span><br><span class="line"> ( 1)  lgdp65 = 0</span><br><span class="line">       <span class="built_in">F</span>(  1,   106) =    3.21</span><br><span class="line">            <span class="keyword">Prob</span> &gt; F =    0.0761</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>“绝对收敛”指不需要考虑其他任何因素，穷国的增长速度就快于富国，因此使用一元回归。对lgdp65系数的检验p值为0.0761，大于0.05，因此无法拒绝lgdp65系数为0的原假设，因此认为不存在绝对收敛。</p>
+</blockquote>
+<ul>
+<li>（2）以5%的显著性水平检验是否存在条件收敛：</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> gdpg6590 lgdp65 syr1965</span><br><span class="line"><span class="keyword">est</span> store m3</span><br><span class="line">esttab m3 using m3.rtf, scalars(r2_a) nonum mtitle(<span class="string">"OLS Regression with two regressor"</span>) b(%6.2f) <span class="keyword">replace</span></span><br><span class="line"><span class="keyword">test</span> lgdp65</span><br><span class="line"> ( 1)  lgdp65 = 0</span><br><span class="line">       <span class="built_in">F</span>(  1,    87) =    5.55</span><br><span class="line">            <span class="keyword">Prob</span> &gt; F =    0.0207</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>“条件收敛是指在控制其他因素（如人力资本）的情况下，穷国的增长速度快于富国，因此使用二元回归。此时lgdp65的回归系数为-0.01&lt;0，且检验p值为0.0207&lt;0.05，在5%的显著性水平下显著，也就是说，在控制教育因素的情况下，1965年人均GDP越低，1965-1990年之间的GDP增长率越高。存在条件收敛。</p>
+</blockquote>
+<h5 id="5-7-数据集Woody-dta"><a href="#5-7-数据集Woody-dta" class="headerlink" title="5.7 数据集Woody.dta"></a>5.7 数据集Woody.dta</h5><ul>
+<li>（1）把y对其他变量进行多元回归：</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">clear</span> all</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">more</span> off</span><br><span class="line"><span class="keyword">use</span> Woody3.dta, <span class="keyword">clear</span></span><br><span class="line"><span class="keyword">reg</span> y competitors pop income</span><br><span class="line"><span class="keyword">est</span> store <span class="built_in">m</span></span><br><span class="line">esttab <span class="keyword">m</span> using m4.rtf, scalars(r2_a) nonum mtitle(<span class="string">"Multiple Regression"</span>) p(%6.4f) b(%6.2f) <span class="keyword">replace</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>（2）该回归模型的拟合优度为61.82%，校正拟合优度为57.87%。说明该模型解释了毛销售收入的变动的61.82%，有着较好的解释，同时模型的F检验的p值为0.0000，模型非常显著。变量competitors的回归系数为-9074.67，p值为0.0001，远远小雨0.05，非常显著，说明两公里内的直接竞争者的数目每增加1，毛销售收入平均减少9074.67个单位（题目没有说明单位）；变量pop的回归系数为0.35，p值为0.0000，也非常显著，说明三英里内的居民人数每增加一个单位，毛销售收入平均增加0.35个单位；变量income的回归系数为1.29，p值为0.0246&lt;0.05，在5%的显著性水平下显著，说明，三英里内的家庭平均收入每增加1个单位，毛销售收入平均增加1.29个单位。</p>
+</li>
+<li><p>（3）解释此回归结果如何有助于餐厅选址：</p>
+</li>
+</ul>
+<blockquote>
+<p>该回归结果表明，餐厅的选址应该远离竞争者、靠近人口密集区以及靠近高收入区。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../33544/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          一元线性回归
+        
+      </div>
+    </a>
+  
+  
+    <a href="../30211/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">长城</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#估计量"><span class="nav-text">估计量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#古典线性回归模型的假定"><span class="nav-text">古典线性回归模型的假定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OLS的小样本性质"><span class="nav-text">OLS的小样本性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第五章习题"><span class="nav-text">第五章习题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-5-数据集airq-dta"><span class="nav-text">5.5 数据集airq.dta</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-6-数据集geodata-short-dta"><span class="nav-text">5.6 数据集geodata_short.dta</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-7-数据集Woody-dta"><span class="nav-text">5.7 数据集Woody.dta</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

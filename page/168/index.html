@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/168/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-Markdown"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/31604/">Markdown教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/31604/" class="article-date">
+	  <time datetime="2017-10-18T09:24:00.000Z" itemprop="datePublished">2017-10-18</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/排版语言/">排版语言</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这篇文章翻译自网络，作者的github首页为：<code>https://github.com/iTimeTraveler</code>。这篇文章整合了Markdown语言的核心语法和拓展，细致地讲述了如何使用Markdown语言来写一篇排版精美的文章。</p>
+        <!-- 这篇文章翻译自网络，作者的github首页为：https://github.com/iTimeTraveler。这篇文章整合了Markdown语言的核心语法和拓展，细致地讲述了如何使用Markdown语言来写一篇排版精美的文章。
+
+
+块体单元
+段落与换行
+标题
+块引用
+列表
+代码块
+水平线
+表格
+
+
+行内元素
+链接
+强调
+代码
+图片
+删除线
+
+
+其他
+自动链接
+反斜杠转义字符
+
+
+内联HTM......  -->
+        <p class="article-more-link">
+          <a href="../../posts/31604/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Markdown/">Markdown</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-rvest包爬取猎聘网招聘信息"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/28152/">rvest包爬取猎聘网招聘信息</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/28152/" class="article-date">
+	  <time datetime="2017-10-18T01:32:41.000Z" itemprop="datePublished">2017-10-18</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/R包/">R包</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>R语言中文社区推文学习笔记</p>
+</blockquote>
+<h5 id="链接地址为：https-www-liepin-com-zhaopin-d-sfrom-search-fp-nvbar-amp-init-1"><a href="#链接地址为：https-www-liepin-com-zhaopin-d-sfrom-search-fp-nvbar-amp-init-1" class="headerlink" title="链接地址为：https://www.liepin.com/zhaopin/?d_sfrom=search_fp_nvbar&amp;init=1"></a>链接地址为：<a href="https://www.liepin.com/zhaopin/?d_sfrom=search_fp_nvbar&amp;init=1" target="_blank" rel="noopener">https://www.liepin.com/zhaopin/?d_sfrom=search_fp_nvbar&amp;init=1</a></h5><h4 id="首先我们需要下面几个函数，它们的用处分别是："><a href="#首先我们需要下面几个函数，它们的用处分别是：" class="headerlink" title="首先我们需要下面几个函数，它们的用处分别是："></a>首先我们需要下面几个函数，它们的用处分别是：</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">read_html()</td>
+<td style="text-align:left">读取html文档</td>
+</tr>
+<tr>
+<td style="text-align:left">html_nodes()</td>
+<td style="text-align:left">获取指定名称的网页元素、节点</td>
+</tr>
+<tr>
+<td style="text-align:left">html_text()</td>
+<td style="text-align:left">获得指定名称的网页元素、节点文本</td>
+</tr>
+<tr>
+<td style="text-align:left">html_attrs()</td>
+<td style="text-align:left">提取所有属性名称及其内容</td>
+</tr>
+<tr>
+<td style="text-align:left">html_tag()</td>
+<td style="text-align:left">提取标签名称</td>
+</tr>
+<tr>
+<td style="text-align:left">html_table()</td>
+<td style="text-align:left">解析网页数据表的数据到R的数据框中</td>
+</tr>
+<tr>
+<td style="text-align:left">html_session()</td>
+<td style="text-align:left">利用cookie实现模拟登陆</td>
+</tr>
+<tr>
+<td style="text-align:left">guess_encoding()</td>
+<td style="text-align:left">返回文档的详细编号</td>
+</tr>
+<tr>
+<td style="text-align:left">repair_encoding()</td>
+<td style="text-align:left">用来修复html文档读入后的乱码问题</td>
+</tr>
+</tbody>
+</table>
+        <!-- 
+R语言中文社区推文学习笔记
+
+链接地址为：https://www.liepin.com/zhaopin/?d_sfrom=search_fp_nvbar&amp;init=1首先我们需要下面几个函数，它们的用处分别是：
+
+
+函数
+作用
+
+
+
+
+read_html()
+读取html文档
+
+
+html_nodes()
+获取指定名称的网页元素、节点
+
+
+html_text()
+获得指定名称的网页......  -->
+        <p class="article-more-link">
+          <a href="../../posts/28152/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/R/">R</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-四种单一期权+股票对冲交易策略对比"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/47106/">四种单一期权+股票对冲交易策略对比</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/47106/" class="article-date">
+	  <time datetime="2017-10-18T01:29:30.000Z" itemprop="datePublished">2017-10-18</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/金融/">金融</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>【摘要】：单一期权+股票交易策略一共有四种，看空的时候有两种，看多的时候也有两种，本文将采用简单的数值模拟和比较静态分析的方法来比较四种策略构建成本</strong></p>
+<h4 id="策略一：保护卖权相反部位（看空）"><a href="#策略一：保护卖权相反部位（看空）" class="headerlink" title="策略一：保护卖权相反部位（看空）"></a>策略一：保护卖权相反部位（看空）</h4><ul>
+<li>方法：卖出一个put + 卖出一份股票</li>
+<li>构建理由：小幅看空</li>
+<li>最大损失：发生在股票大幅上涨的时候。股票部位亏损 $(S_T - S_t)$，put的买入者不会执行，但是可以赚取权利金，记为M。总亏损为：<br>$$(S_T-S_t-M)$$</li>
+<li>最大盈利：发生在股票下跌至执行价格K之下时。股票部位赚取$(S_t-S_T)$，卖出put赚取权利金M，这个时候put的买方会执行，期权的执行会给带来损失$(K-S_T)$。总盈利为：<br>$$(S_t-S_T)+M-(K-S_T)$$$$=(M+S_t-K)$$</li>
+</ul>
+        <!-- 【摘要】：单一期权+股票交易策略一共有四种，看空的时候有两种，看多的时候也有两种，本文将采用简单的数值模拟和比较静态分析的方法来比较四种策略构建成本
+策略一：保护卖权相反部位（看空）
+方法：卖出一个put + 卖出一份股票
+构建理由：小幅看空
+最大损失：发生在股票大幅上涨的时候。股票部位亏损 $(S_T - S_t)$，put的买入者不会执行，但是可以赚取权利金，记为M。总亏损为：$$(S_......  -->
+        <p class="article-more-link">
+          <a href="../../posts/47106/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/R/">R</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-金融时间序列及其特征（一）：资产收益率"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/25614/">金融时间序列及其特征（一）：资产收益率</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/25614/" class="article-date">
+	  <time datetime="2017-10-18T01:23:56.000Z" itemprop="datePublished">2017-10-18</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/金融/">金融</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>《蔡瑞胸：金融时间序列分析》学习笔记</p>
+</blockquote>
+<p><strong>如果你需要，可以点击<a href="https://github.com/czxa/Web_data_Source/raw/master/金融时间序列及其特征（一）：资产收益率.pdf" target="_blank" rel="noopener"><strong><code>下载PDF原文</code></strong></a></strong></p>
+<ul>
+<li>大家好！这篇文章是金融后院新专栏——金融计量专栏的开篇，既然是开篇，我们就首先来了解一些这个栏目是什么，学习这个栏目我们需要什么知识，最后通过这个栏目的学习，我们能学习到什么东西。</li>
+<li>按照MBA智库百科的定义：金融计量学通常就是指对金融市场的计量分析，这里的“计量分析”不仅包括对金融市场各种交易变量(如价格、交易量、波动率等)进行相应的统计分析和计量建模，还包含研究金融市场中大量的可行性方案和基于随机分析框架下实证金融的主要成果。</li>
+<li>如果你对量化投资、金融建模非常感兴趣，那么金融计量学就是一个很好的学习切入点。值得一提的是，小编本人的金融计量也是处于入门阶段。因此这个专栏不仅仅是向大家分享金融计量的知识，同时也是自己不断学习的历程。</li>
+<li>最后，欢迎对金融计量、量化投资感兴趣的同学在这个专栏投稿，欢迎前来交流。</li>
+<li>接下来我们进入正题部分。</li>
+</ul>
+        <!-- 
+《蔡瑞胸：金融时间序列分析》学习笔记
+
+如果你需要，可以点击下载PDF原文
+
+大家好！这篇文章是金融后院新专栏——金融计量专栏的开篇，既然是开篇，我们就首先来了解一些这个栏目是什么，学习这个栏目我们需要什么知识，最后通过这个栏目的学习，我们能学习到什么东西。
+按照MBA智库百科的定义：金融计量学通常就是指对金融市场的计量分析，这里的“计量分析”不仅包括对金融市场各种交易变量(如价格、交易量......  -->
+        <p class="article-more-link">
+          <a href="../../posts/25614/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/R/">R</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-倾向匹配得分的Stata示例"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/21100/">倾向匹配得分的Stata示例</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/21100/" class="article-date">
+	  <time datetime="2017-10-16T01:21:40.000Z" itemprop="datePublished">2017-10-16</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/计量经济学/">计量经济学</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>《陈强：高级计量经济学及Stata应用学习笔记</p>
+</blockquote>
+<ul>
+<li>Stata脚本和数据集：点击即可下载</li>
+</ul>
+<p><a href="https://github.com/czxa/Web_data_Source/raw/master/PSM_Stata操作实例.do" target="_blank" rel="noopener"><strong><code>PSM_Stata操作实例.do</code></strong></a></p>
+<p><a href="https://github.com/czxa/Chen_Qiang_DataSets/raw/master/ldw_exper.dta" target="_blank" rel="noopener"><strong><code>ldw_exper.dta</code></strong></a></p>
+<h4 id="倾向匹配得分可以通过下载psmatch2来实现："><a href="#倾向匹配得分可以通过下载psmatch2来实现：" class="headerlink" title="倾向匹配得分可以通过下载psmatch2来实现："></a>倾向匹配得分可以通过下载psmatch2来实现：</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ssc</span> install psmatch2, <span class="keyword">replace</span></span><br></pre></td></tr></table></figure>
+<h5 id="该命令的一般格式为："><a href="#该命令的一般格式为：" class="headerlink" title="该命令的一般格式为："></a>该命令的一般格式为：</h5><p>psmatch2 D x1 x2 x3, outcome(y) logit ties ate common odds pscore(varname) qui</p>
+<ul>
+<li>D: treatment variable</li>
+<li>x1 x2 x3: covariant variables</li>
+<li>outcome(y): indicate y as outcome variable</li>
+<li>logit: indicate use logit to estimate pscore, default method is probit</li>
+<li>ties: indicate that conclude all with same pscore, default method is sorting all data and select one.</li>
+<li>ate: indicate report ATE, ATU, and ATT, default method just report ATT</li>
+<li>common: indicate that just match within common support, default method is match all</li>
+</ul>
+        <!-- 
+《陈强：高级计量经济学及Stata应用学习笔记
+
+
+Stata脚本和数据集：点击即可下载
+
+PSM_Stata操作实例.do
+ldw_exper.dta
+倾向匹配得分可以通过下载psmatch2来实现：1ssc install psmatch2, replace
+该命令的一般格式为：psmatch2 D x1 x2 x3, outcome(y) logit ties ate common ......  -->
+        <p class="article-more-link">
+          <a href="../../posts/21100/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../167/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../166/">166</a><a class="page-number" href="../167/">167</a><span class="page-number current">168</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../169/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

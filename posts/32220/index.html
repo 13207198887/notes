@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>回归拟合与样条 | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Stata" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="开始1234vguse allstates.dta, cleartw sc ownhome pcturban80 || ///lfit ownhome pcturban80gr export rfs1.png, replace">
+<meta name="keywords" content="Stata">
+<meta property="og:type" content="article">
+<meta property="og:title" content="回归拟合与样条">
+<meta property="og:url" content="http://www.czxa.top/posts/32220/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="开始1234vguse allstates.dta, cleartw sc ownhome pcturban80 || ///lfit ownhome pcturban80gr export rfs1.png, replace">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/rfs1.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/rfs2.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/rfs3.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/rfs4.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/rfs5.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/rfs6.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/rfs7.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/rfs8.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/rfs9.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/rfs10.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/rfs11.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/rfs12.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/rfs13.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/rfs14.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/rfs15.png">
+<meta property="og:updated_time" content="2018-02-13T09:23:36.052Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="回归拟合与样条">
+<meta name="twitter:description" content="开始1234vguse allstates.dta, cleartw sc ownhome pcturban80 || ///lfit ownhome pcturban80gr export rfs1.png, replace">
+<meta name="twitter:image" content="https://github.com/czxa/Web_data_Source/raw/master/rfs1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-回归拟合与样条" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      回归拟合与样条
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2018-01-29T12:58:12.000Z" itemprop="datePublished">2018-01-29</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vguse allstates.dta, clear</span><br><span class="line">tw sc ownhome pcturban80 || <span class="comment">///</span></span><br><span class="line">lfit ownhome pcturban80</span><br><span class="line">gr <span class="keyword">export</span> rfs1.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/rfs1.png" alt=""><br><a id="more"></a></p>
+<h3 id="pcycle-使线条的颜色与散点的颜色相同"><a href="#pcycle-使线条的颜色与散点的颜色相同" class="headerlink" title="pcycle():使线条的颜色与散点的颜色相同"></a>pcycle():使线条的颜色与散点的颜色相同</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tw sc ownhome pcturban80 || <span class="comment">///</span></span><br><span class="line">lfit ownhome pcturban80 ||, pcycle(<span class="number">1</span>)</span><br><span class="line">gr <span class="keyword">export</span> rfs2.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/rfs2.png" alt=""></p>
+<h3 id="更多拟合方法"><a href="#更多拟合方法" class="headerlink" title="更多拟合方法"></a>更多拟合方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tw sc ownhome pcturban80, msize(small) || <span class="comment">///</span></span><br><span class="line">lfit ownhome pcturban80 || <span class="comment">///</span></span><br><span class="line">qfit ownhome pcturban80 || <span class="comment">///</span></span><br><span class="line">mspline ownhome pcturban80 || <span class="comment">///</span></span><br><span class="line">fpfit ownhome pcturban80 || <span class="comment">///</span></span><br><span class="line">lowess ownhome pcturban80 || <span class="comment">///</span></span><br><span class="line">mband ownhome pcturban80 || <span class="comment">///</span></span><br><span class="line">lpoly ownhome pcturban80</span><br><span class="line">gr <span class="keyword">export</span> rfs3.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/rfs3.png" alt=""></p>
+<h3 id="lpoly的选项：degree-2-：二次拟合"><a href="#lpoly的选项：degree-2-：二次拟合" class="headerlink" title="lpoly的选项：degree(2)：二次拟合"></a>lpoly的选项：degree(2)：二次拟合</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tw sc ownhome pcturban80, msize(small) || <span class="comment">///</span></span><br><span class="line">lpoly ownhome pcturban80, degree(<span class="number">2</span>)</span><br><span class="line">gr <span class="keyword">export</span> rfs4.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/rfs4.png" alt=""></p>
+<h3 id="置信区间：默认使用stdp：CIs-from-SE-of-prediction-the-default"><a href="#置信区间：默认使用stdp：CIs-from-SE-of-prediction-the-default" class="headerlink" title="置信区间：默认使用stdp：CIs from SE of prediction; the default"></a>置信区间：默认使用stdp：CIs from SE of prediction; the default</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tw lfitci ownhome pcturban80 || <span class="comment">///</span></span><br><span class="line">sc ownhome pcturban80, msize(small)</span><br><span class="line">gr <span class="keyword">export</span> rfs5.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/rfs5.png" alt=""></p>
+<h3 id="把两个图层的顺序换一下："><a href="#把两个图层的顺序换一下：" class="headerlink" title="把两个图层的顺序换一下："></a>把两个图层的顺序换一下：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tw sc ownhome pcturban80, msize(small) || <span class="comment">///</span></span><br><span class="line">lfitci ownhome pcturban80</span><br><span class="line">gr <span class="keyword">export</span> rfs6.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/rfs6.png" alt=""></p>
+<h3 id="lfitci的选项：stdf：CIs-from-SE-of-forecast"><a href="#lfitci的选项：stdf：CIs-from-SE-of-forecast" class="headerlink" title="lfitci的选项：stdf：CIs from SE of forecast"></a>lfitci的选项：stdf：CIs from SE of forecast</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tw lfitci ownhome pcturban80, stdf || <span class="comment">///</span></span><br><span class="line">sc ownhome pcturban80, msize(small)</span><br><span class="line">gr <span class="keyword">export</span> rfs7.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/rfs7.png" alt=""></p>
+<h3 id="90-置信区间："><a href="#90-置信区间：" class="headerlink" title="90%置信区间："></a>90%置信区间：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tw lfitci ownhome pcturban80, level(<span class="number">90</span>) || <span class="comment">///</span></span><br><span class="line">sc ownhome pcturban80, msize(small)</span><br><span class="line">gr <span class="keyword">export</span> rfs8.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/rfs8.png" alt=""></p>
+<h3 id="不绘制拟合线："><a href="#不绘制拟合线：" class="headerlink" title="不绘制拟合线："></a>不绘制拟合线：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tw lfitci ownhome pcturban80, nofit || <span class="comment">///</span></span><br><span class="line">sc ownhome pcturban80, msize(small)</span><br><span class="line">gr <span class="keyword">export</span> rfs9.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/rfs9.png" alt=""></p>
+<h3 id="改变线条的颜色、粗细："><a href="#改变线条的颜色、粗细：" class="headerlink" title="改变线条的颜色、粗细："></a>改变线条的颜色、粗细：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tw lfitci ownhome pcturban80, lp(dash) lw(thick) || <span class="comment">///</span></span><br><span class="line">sc ownhome pcturban80, msize(small)</span><br><span class="line">gr <span class="keyword">export</span> rfs10.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/rfs10.png" alt=""></p>
+<h3 id="改变置信区间的颜色"><a href="#改变置信区间的颜色" class="headerlink" title="改变置信区间的颜色"></a>改变置信区间的颜色</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tw lfitci ownhome pcturban80, bcolor(stone) || <span class="comment">///</span></span><br><span class="line">sc ownhome pcturban80, msize(small) sch(vg_brite)</span><br><span class="line">gr <span class="keyword">export</span> rfs11.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/rfs11.png" alt=""></p>
+<h3 id="把置信区间用线条显示：默认为ciplot-rarea"><a href="#把置信区间用线条显示：默认为ciplot-rarea" class="headerlink" title="把置信区间用线条显示：默认为ciplot(rarea)"></a>把置信区间用线条显示：默认为ciplot(rarea)</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tw lfitci ownhome pcturban80, ciplot(rline)|| <span class="comment">///</span></span><br><span class="line">sc ownhome pcturban80, msize(small)</span><br><span class="line">gr <span class="keyword">export</span> rfs12.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/rfs12.png" alt=""></p>
+<h3 id="更改置信区间线条的颜色、粗细："><a href="#更改置信区间线条的颜色、粗细：" class="headerlink" title="更改置信区间线条的颜色、粗细："></a>更改置信区间线条的颜色、粗细：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tw lfitci ownhome pcturban80, ciplot(rline) lp(dash) lw(thick) lcolor(green*<span class="number">0.8</span>) || <span class="comment">///</span></span><br><span class="line">sc ownhome pcturban80, msize(small)</span><br><span class="line">gr <span class="keyword">export</span> rfs13.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/rfs13.png" alt=""></p>
+<h3 id="其他拟合"><a href="#其他拟合" class="headerlink" title="其他拟合"></a>其他拟合</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tw qfitci ownhome pcturban80 || <span class="comment">///</span></span><br><span class="line">sc ownhome pcturban80, msize(small) sch(vg_brite)</span><br><span class="line">gr <span class="keyword">export</span> rfs14.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/rfs14.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tw lpolyci ownhome pcturban80 || <span class="comment">///</span></span><br><span class="line">sc ownhome pcturban80, msize(small) sch(vg_brite)</span><br><span class="line">gr <span class="keyword">export</span> rfs15.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/rfs15.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../28433/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          线图
+        
+      </div>
+    </a>
+  
+  
+    <a href="../60488/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">交错条形图</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#开始"><span class="nav-text">开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pcycle-使线条的颜色与散点的颜色相同"><span class="nav-text">pcycle():使线条的颜色与散点的颜色相同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更多拟合方法"><span class="nav-text">更多拟合方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lpoly的选项：degree-2-：二次拟合"><span class="nav-text">lpoly的选项：degree(2)：二次拟合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#置信区间：默认使用stdp：CIs-from-SE-of-prediction-the-default"><span class="nav-text">置信区间：默认使用stdp：CIs from SE of prediction; the default</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#把两个图层的顺序换一下："><span class="nav-text">把两个图层的顺序换一下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lfitci的选项：stdf：CIs-from-SE-of-forecast"><span class="nav-text">lfitci的选项：stdf：CIs from SE of forecast</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#90-置信区间："><span class="nav-text">90%置信区间：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不绘制拟合线："><span class="nav-text">不绘制拟合线：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变线条的颜色、粗细："><span class="nav-text">改变线条的颜色、粗细：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变置信区间的颜色"><span class="nav-text">改变置信区间的颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#把置信区间用线条显示：默认为ciplot-rarea"><span class="nav-text">把置信区间用线条显示：默认为ciplot(rarea)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改置信区间线条的颜色、粗细："><span class="nav-text">更改置信区间线条的颜色、粗细：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他拟合"><span class="nav-text">其他拟合</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

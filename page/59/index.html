@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/59/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-证券之星PPI爬取"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/19396/">证券之星PPI爬取</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/19396/" class="article-date">
+	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/网站爬取程序/">网站爬取程序</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">cpd</span><br><span class="line">copy <span class="string">"http://finance.stockstar.com/finance/macrodata/ppilist.aspx?page=1&amp;order=1&amp;by=1"</span> temp.txt, replace</span><br><span class="line">utrans temp.txt</span><br><span class="line">drm bak.stunicode</span><br><span class="line">infix str v <span class="number">1</span><span class="number">-20000</span> using temp.txt, clear</span><br><span class="line">keep <span class="keyword">if</span> index(v, <span class="string">"&lt;td&gt;"</span>)</span><br><span class="line">split v, parse(v, <span class="string">"&lt;/td&gt;"</span>)</span><br><span class="line">drop v</span><br><span class="line">foreach i of varlist _all&#123;</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;/td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">	replace `i'</span> = subinstr(`i<span class="string">', `"&lt;/span&gt;"'</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">compress</span></span><br><span class="line"><span class="string">save month_PPI, replace</span></span><br><span class="line"><span class="string">forval page = 2/7&#123;</span></span><br><span class="line"><span class="string">	copy "http://finance.stockstar.com/finance/macrodata/ppilist.aspx?page=`page'</span>&amp;order=<span class="number">1</span>&amp;by=<span class="number">1</span><span class="string">" temp.txt, replace</span></span><br><span class="line"><span class="string">	utrans temp.txt</span></span><br><span class="line"><span class="string">	drm bak.stunicode</span></span><br><span class="line"><span class="string">	infix str v 1-20000 using temp.txt, clear</span></span><br><span class="line"><span class="string">	keep if index(v, "</span>&lt;td&gt;<span class="string">")</span></span><br><span class="line">	split v, parse(v, "&lt;/td&gt;")</span><br><span class="line">	drop v</span><br><span class="line">	foreach i of varlist _all&#123;</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;/td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">		replace `i'</span> = subinstr(`i<span class="string">', `"&lt;/span&gt;"'</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">		replace `i'</span> = subinstr(`i<span class="string">', `"&lt;span class="green_color"&gt;"'</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">","</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">	compress</span></span><br><span class="line"><span class="string">	append using month_PPI</span></span><br><span class="line"><span class="string">	save month_PPI, replace</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">foreach i of varlist _all&#123;</span></span><br><span class="line"><span class="string">	replace `i'</span> = subinstr(`i<span class="string">', "-", "", .)</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">gen date = date(v1, "YM")</span></span><br><span class="line"><span class="string">format date %dCY-N</span></span><br><span class="line"><span class="string">order date</span></span><br><span class="line"><span class="string">drop v1</span></span><br><span class="line"><span class="string">destring, replace</span></span><br><span class="line"><span class="string">gsort date</span></span><br><span class="line"><span class="string">label var date "数据日期"</span></span><br><span class="line"><span class="string">label var v2 "工业品出厂价格指数（当月）(去年同月=100点)"</span></span><br><span class="line"><span class="string">label var v3 "同比增长(去年同月=100点)"</span></span><br><span class="line"><span class="string">label var v4 "工业品出厂价格指数（当期）(去年同期=100点)"</span></span><br><span class="line"><span class="string">label var v5 "同比增长(去年同期=100点)"</span></span><br><span class="line"><span class="string">ren date 数据日期</span></span><br><span class="line"><span class="string">ren v2 工业品出厂价格指数_当月_去年同月_100点</span></span><br><span class="line"><span class="string">ren v3 同比增减_去年同月_100点</span></span><br><span class="line"><span class="string">ren v4 工业品出厂价格指数_当期_去年同期=100点</span></span><br><span class="line"><span class="string">ren v5 同比增长_去年同期_100点</span></span><br><span class="line"><span class="string">findname, type(string)</span></span><br><span class="line"><span class="string">foreach i in `r(varlist)'</span>&#123;</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>green_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">compress</span></span><br><span class="line"><span class="string">gsort 数据日期</span></span><br><span class="line"><span class="string">save month_PPI, replace</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-证券之星GDP爬取"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/34215/">证券之星GDP爬取</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/34215/" class="article-date">
+	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/网站爬取程序/">网站爬取程序</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">* 证券之星网站提供的GDP从<span class="number">1952</span>年开始，时间范围非常好，所以就爬一下，为以后做准备</span><br><span class="line">clear all</span><br><span class="line">copy <span class="string">"http://finance.stockstar.com/finance/macrodata/gdplist.aspx?page=3&amp;order=1&amp;by=1"</span> temp.txt, replace</span><br><span class="line">utrans temp.txt</span><br><span class="line">drm bak.stunicode</span><br><span class="line">infix strL v <span class="number">1</span><span class="number">-20000</span> using temp.txt, clear</span><br><span class="line">keep <span class="keyword">if</span> index(v, <span class="string">"&lt;td&gt;"</span>)</span><br><span class="line">split v, parse(<span class="string">"&lt;/td&gt;"</span> `<span class="string">"&lt;td align="</span>Right<span class="string">"&gt;"</span><span class="string">' "&lt;td&gt;" `"&lt;span class="red_color"&gt;"'</span> `<span class="string">"&lt;span class="</span>green_colo<span class="string">r"&gt;"</span><span class="string">' "&lt;/span&gt;")</span></span><br><span class="line"><span class="string">replace v10 = "342.90" in 1</span></span><br><span class="line"><span class="string">replace v16 = "141.80" in 1</span></span><br><span class="line"><span class="string">replace v22 = "194.30" in 1</span></span><br><span class="line"><span class="string">keep v2 v4 v7 v10 v13 v16 v19 v22 v25</span></span><br><span class="line"><span class="string">save seasonal_GDP, replace</span></span><br><span class="line"><span class="string">clear</span></span><br><span class="line"><span class="string">copy "http://finance.stockstar.com/finance/macrodata/gdplist.aspx?page=2&amp;order=1&amp;by=1" temp.txt, replace</span></span><br><span class="line"><span class="string">utrans temp.txt</span></span><br><span class="line"><span class="string">infix strL v 1-20000 using temp.txt, clear</span></span><br><span class="line"><span class="string">keep if index(v, "&lt;td&gt;")</span></span><br><span class="line"><span class="string">split v, parse("&lt;/td&gt;" `"&lt;td align="Right"&gt;"'</span> <span class="string">"&lt;td&gt;"</span> `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">' `"&lt;span class="green_color"&gt;"'</span> <span class="string">"&lt;/span&gt;"</span>)</span><br><span class="line">keep v2 v4 v7 v10 v13 v16 v19 v22 v25</span><br><span class="line">append using seasonal_GDP</span><br><span class="line">clear</span><br><span class="line">copy <span class="string">"http://finance.stockstar.com/finance/macrodata/gdplist.aspx?page=1&amp;order=1&amp;by=1"</span> temp.txt, replace</span><br><span class="line">utrans temp.txt</span><br><span class="line">drm bak.stunicode</span><br><span class="line">infix strL v <span class="number">1</span><span class="number">-20000</span> using temp.txt, clear</span><br><span class="line">keep <span class="keyword">if</span> index(v, <span class="string">"&lt;td&gt;"</span>)</span><br><span class="line">split v, parse(<span class="string">"&lt;/td&gt;"</span> `<span class="string">"&lt;td align="</span>Right<span class="string">"&gt;"</span><span class="string">' "&lt;td&gt;" `"&lt;span class="red_color"&gt;"'</span> `<span class="string">"&lt;span class="</span>green_colo<span class="string">r"&gt;"</span><span class="string">' "&lt;/span&gt;")</span></span><br><span class="line"><span class="string">keep v2 v4 v7 v10 v13 v16 v19 v22 v25</span></span><br><span class="line"><span class="string">append using seasonal_GDP</span></span><br><span class="line"><span class="string">foreach i of varlist _all&#123;</span></span><br><span class="line"><span class="string">	replace `i'</span> = subinstr(`i<span class="string">', ",", "", .)</span></span><br><span class="line"><span class="string">	replace `i'</span> = <span class="string">""</span> <span class="keyword">if</span> `i<span class="string">' == "-"</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">destring, replace</span></span><br><span class="line"><span class="string">gsort v2</span></span><br><span class="line"><span class="string">label var v2 "数据日期"</span></span><br><span class="line"><span class="string">ren v2 数据日期</span></span><br><span class="line"><span class="string">label var v4 "GDP(绝对值)"</span></span><br><span class="line"><span class="string">ren v4 GDP_绝对值</span></span><br><span class="line"><span class="string">label var v7 "GDP(同比增减)"</span></span><br><span class="line"><span class="string">ren v7 GDP_同比增减</span></span><br><span class="line"><span class="string">label var v10 "第一产业(绝对值)"</span></span><br><span class="line"><span class="string">ren v10 第一产业_绝对值</span></span><br><span class="line"><span class="string">label var v16 "第一产业(同比增减)"</span></span><br><span class="line"><span class="string">ren v16 第一产业_同比增减</span></span><br><span class="line"><span class="string">label var v13 "第二产业(绝对值)"</span></span><br><span class="line"><span class="string">ren v13 第二产业_绝对值</span></span><br><span class="line"><span class="string">label var v19 "第二产业(同比增减)"</span></span><br><span class="line"><span class="string">ren v19 第二产业_同比增减</span></span><br><span class="line"><span class="string">label var v22 "第三产业(绝对值)"</span></span><br><span class="line"><span class="string">ren v22 第三产业_绝对值</span></span><br><span class="line"><span class="string">label var v25 "第三产业(同比增减)"</span></span><br><span class="line"><span class="string">ren v25 第三产业_同比增减</span></span><br><span class="line"><span class="string">label data "1952-2018第一季度国内生产总值"</span></span><br><span class="line"><span class="string">save seasonal_GDP, replace</span></span><br><span class="line"><span class="string">erase temp.txt</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-证券之星CPI数据爬取"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/22971/">证券之星CPI数据爬取</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/22971/" class="article-date">
+	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/网站爬取程序/">网站爬取程序</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">cpd</span><br><span class="line">copy <span class="string">"http://finance.stockstar.com/finance/macrodata/cpilist.aspx?page=1&amp;order=1&amp;by=1"</span> temp.txt, replace</span><br><span class="line">utrans temp.txt</span><br><span class="line">drm bak.stunicode</span><br><span class="line">infix str v <span class="number">1</span><span class="number">-20000</span> using temp.txt, clear</span><br><span class="line">keep <span class="keyword">if</span> index(v, <span class="string">"&lt;td&gt;"</span>)</span><br><span class="line">split v, parse(v, <span class="string">"&lt;/td&gt;"</span>)</span><br><span class="line">drop v</span><br><span class="line">foreach i of varlist _all&#123;</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;/td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">	replace `i'</span> = subinstr(`i<span class="string">', `"&lt;/span&gt;"'</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">compress</span></span><br><span class="line"><span class="string">save month_CPI, replace</span></span><br><span class="line"><span class="string">forval page = 2/7&#123;</span></span><br><span class="line"><span class="string">	copy "http://finance.stockstar.com/finance/macrodata/cpilist.aspx?page=`page'</span>&amp;order=<span class="number">1</span>&amp;by=<span class="number">1</span><span class="string">" temp.txt, replace</span></span><br><span class="line"><span class="string">	utrans temp.txt</span></span><br><span class="line"><span class="string">	drm bak.stunicode</span></span><br><span class="line"><span class="string">	infix str v 1-20000 using temp.txt, clear</span></span><br><span class="line"><span class="string">	keep if index(v, "</span>&lt;td&gt;<span class="string">")</span></span><br><span class="line">	split v, parse(v, "&lt;/td&gt;")</span><br><span class="line">	drop v</span><br><span class="line">	foreach i of varlist _all&#123;</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;/td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">		replace `i'</span> = subinstr(`i<span class="string">', `"&lt;/span&gt;"'</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">		replace `i'</span> = subinstr(`i<span class="string">', `"&lt;span class="green_color"&gt;"'</span>, <span class="string">""</span>, .)</span><br><span class="line">	&#125;</span><br><span class="line">	compress</span><br><span class="line">	append using month_CPI</span><br><span class="line">	save month_CPI, replace</span><br><span class="line">&#125;</span><br><span class="line">foreach i of varlist _all&#123;</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"-"</span>, <span class="string">""</span>, .)</span><br><span class="line">&#125;</span><br><span class="line">gen date = date(v1, <span class="string">"YM"</span>)</span><br><span class="line">format date %dCY-N</span><br><span class="line">order date</span><br><span class="line">drop v1</span><br><span class="line">destring, replace</span><br><span class="line">gsort date</span><br><span class="line">label var date <span class="string">"数据日期"</span></span><br><span class="line">label var v2 <span class="string">"全国(去年同月=100点)"</span></span><br><span class="line">label var v3 <span class="string">"同比增减(去年同月=100点)"</span></span><br><span class="line">label var v4 <span class="string">"城市(去年同月=100点)"</span></span><br><span class="line">label var v5 <span class="string">"农村(去年同月=100点)"</span></span><br><span class="line">label var v6 <span class="string">"全国(去年同期=100点)"</span></span><br><span class="line">label var v7 <span class="string">"同比增减(去年同期=100点)"</span></span><br><span class="line">label var v8 <span class="string">"城市(去年同期=100点)"</span></span><br><span class="line">label var v9 <span class="string">"农村(去年同期=100点)"</span></span><br><span class="line">ren date 数据日期</span><br><span class="line">ren v2 全国_去年同月_100点</span><br><span class="line">ren v3 同比增减_去年同月_100点</span><br><span class="line">ren v4 城市_去年同月_100点</span><br><span class="line">ren v5 农村_去年同月_100点</span><br><span class="line">ren v6 全国_去年同期_100点</span><br><span class="line">ren v7 同比增减_去年同期_100点</span><br><span class="line">ren v8 城市_去年同期_100点</span><br><span class="line">ren v9 农村_去年同期_100点</span><br><span class="line">save month_CPI, replace</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-融资融券日度数据爬取"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/33595/">融资融券日度数据爬取</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/33595/" class="article-date">
+	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/网站爬取程序/">网站爬取程序</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">cpd</span><br><span class="line">!curl <span class="string">'http://query.sse.com.cn/marketdata/tradedata/queryMargin.do?jsonCallBack=jsonpCallback6079&amp;isPagination=true&amp;beginDate=20100101&amp;endDate=20180428&amp;tabType=&amp;stockCode=&amp;pageHelp.pageSize=10000&amp;pageHelp.pageNo=1&amp;pageHelp.beginPage=1&amp;pageHelp.cacheSize=1&amp;pageHelp.endPage=5&amp;_=1524928602618'</span> -H <span class="string">'Accept-Encoding: gzip, deflate'</span> -H <span class="string">'Accept-Language: zh-CN,zh;q=0.9,en;q=0.8'</span> -H <span class="string">'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36'</span> -H <span class="string">'Referer: http://www.sse.com.cn/market/othersdata/margin/sum/'</span> -H <span class="string">'Cookie: yfx_c_g_u_id_10000042=_ck18042715133614816272843237555; yfx_mr_10000042=%3A%3Amarket_type_free_search%3A%3A%3A%3Abaidu%3A%3A%3A%3A%3A%3A%3A%3Awww.baidu.com%3A%3A%3A%3Apmf_from_free_search; yfx_mr_f_10000042=%3A%3Amarket_type_free_search%3A%3A%3A%3Abaidu%3A%3A%3A%3A%3A%3A%3A%3Awww.baidu.com%3A%3A%3A%3Apmf_from_free_search; yfx_key_10000042=; VISITED_MENU=%5B%228451%22%2C%228419%22%2C%229807%22%5D; yfx_f_l_v_t_10000042=f_t_1524813216474__r_t_1524901305066__v_t_1524928574505__r_c_1'</span> -H <span class="string">'Connection: keep-alive'</span> --compressed -o temp.txt</span><br><span class="line">clear all</span><br><span class="line">* 为了便于读取可以先进行简单的处理</span><br><span class="line">infix str v <span class="number">1</span><span class="number">-20000</span> using temp.txt, clear</span><br><span class="line">split v, parse(,)</span><br><span class="line">drop v v1 v3 v7 v12 v13 v14-v36</span><br><span class="line">foreach i of varlist _all&#123;</span><br><span class="line">	replace `i<span class="string">' = ustrregexs(1) if ustrregexm(`i'</span>, <span class="string">":(.*)"</span>)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"""', "", .)</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">compress</span></span><br><span class="line"><span class="string">a5 v2, s("")</span></span><br><span class="line"><span class="string">ren v2 日期</span></span><br><span class="line"><span class="string">ren v11 融资余额_元</span></span><br><span class="line"><span class="string">ren v4 融券卖出量</span></span><br><span class="line"><span class="string">ren v5 融券余量</span></span><br><span class="line"><span class="string">ren v6 融券余量金额_元</span></span><br><span class="line"><span class="string">ren v9 融资买入额_元</span></span><br><span class="line"><span class="string">ren v10 融资融券余额_元</span></span><br><span class="line"><span class="string">ren v8 融资偿还额_元</span></span><br><span class="line"><span class="string">destring, replace</span></span><br><span class="line"><span class="string">duplicates drop 日期, force</span></span><br><span class="line"><span class="string">save 上交所融资融券日度数据, replace</span></span><br><span class="line"><span class="string">export excel using "/Users/mr.cheng/Desktop/上交所融资融券日度数据.xlsx", firstrow(variables) replace</span></span><br><span class="line"><span class="string">* * 沪深300指数</span></span><br><span class="line"><span class="string">* stkpv 000300, index c</span></span><br><span class="line"><span class="string">* export excel using "/Users/mr.cheng/Desktop/沪深300.xlsx", firstrow(varlabels) replace</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">* stkpv 1, index c</span></span><br><span class="line"><span class="string">* export excel using "/Users/mr.cheng/Desktop/上证指数.xlsx", firstrow(varlabels) replace</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">* stkpv 399001, index c</span></span><br><span class="line"><span class="string">* export excel using "/Users/mr.cheng/Desktop/深证成指.xlsx", firstrow(varlabels) replace</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-新浪财经沪深300成分股实时交易数据爬取"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/62217/">新浪财经沪深300成分股实时交易数据爬取</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/62217/" class="article-date">
+	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/网站爬取程序/">网站爬取程序</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line">* 爬取接口为：</span><br><span class="line">* http://vip.stock.finance.sina.com.cn/mkt/<span class="comment">#hs300</span></span><br><span class="line">* http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?page=1&amp;num=80&amp;sort=symbol&amp;asc=1&amp;node=hs300&amp;symbol=&amp;_s_r_a=setlen</span><br><span class="line">clear</span><br><span class="line">set obs <span class="number">4</span></span><br><span class="line">gen x = <span class="string">""</span></span><br><span class="line">replace x = fileread(<span class="string">"http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?page=1&amp;num=80&amp;sort=symbol&amp;asc=1&amp;node=hs300&amp;symbol=&amp;_s_r_a=setlen"</span>) <span class="keyword">in</span> <span class="number">1</span></span><br><span class="line">replace x = fileread(<span class="string">"http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?page=2&amp;num=80&amp;sort=symbol&amp;asc=1&amp;node=hs300&amp;symbol=&amp;_s_r_a=setlen"</span>) <span class="keyword">in</span> <span class="number">2</span></span><br><span class="line">replace x = fileread(<span class="string">"http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?page=3&amp;num=80&amp;sort=symbol&amp;asc=1&amp;node=hs300&amp;symbol=&amp;_s_r_a=setlen"</span>) <span class="keyword">in</span> <span class="number">3</span></span><br><span class="line">replace x = fileread(<span class="string">"http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?page=4&amp;num=80&amp;sort=symbol&amp;asc=1&amp;node=hs300&amp;symbol=&amp;_s_r_a=setlen"</span>) <span class="keyword">in</span> <span class="number">4</span></span><br><span class="line">sxpose, clear</span><br><span class="line">ren _var* v*</span><br><span class="line">split v1, parse(&#125;,&#123; [&#123; &#125;])</span><br><span class="line">split v2, parse(&#125;,&#123; [&#123; &#125;])</span><br><span class="line">split v3, parse(&#125;,&#123; [&#123; &#125;])</span><br><span class="line">split v4, parse(&#125;,&#123; [&#123; &#125;])</span><br><span class="line">sxpose, clear</span><br><span class="line">drop <span class="keyword">in</span> <span class="number">1</span>/<span class="number">5</span></span><br><span class="line">ren _var1 v</span><br><span class="line">split v, parse(, `<span class="string">"""')</span></span><br><span class="line"><span class="string">drop v</span></span><br><span class="line"><span class="string">save temp.dta, replace</span></span><br><span class="line"><span class="string">utrans temp.dta</span></span><br><span class="line"><span class="string">use temp.dta, clear</span></span><br><span class="line"><span class="string">foreach i of varlist _all&#123;</span></span><br><span class="line"><span class="string">	if `i' == "" drop `i'</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">foreach i of varlist _all&#123;</span></span><br><span class="line"><span class="string">	if ustrregexm(`i', "[0-9]+") == 0 &amp; ustrregexm(`i', "[\u4e00-\u9fa5]+") == 0 drop `i'</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">drop v2</span></span><br><span class="line"><span class="string">ren v5 股票代码</span></span><br><span class="line"><span class="string">ren v8 股票名称</span></span><br><span class="line"><span class="string">ren v11  最新价</span></span><br><span class="line"><span class="string">ren v14  涨跌额</span></span><br><span class="line"><span class="string">ren v17  涨跌幅</span></span><br><span class="line"><span class="string">ren v20  买入</span></span><br><span class="line"><span class="string">ren v23  卖出</span></span><br><span class="line"><span class="string">ren v26  昨收</span></span><br><span class="line"><span class="string">ren v29  今开</span></span><br><span class="line"><span class="string">ren v32  最高</span></span><br><span class="line"><span class="string">ren v35  最低</span></span><br><span class="line"><span class="string">replace v37 = subinstr(v37, "volume:", "", .)</span></span><br><span class="line"><span class="string">replace v38 = subinstr(v38, "amount:", "", .)</span></span><br><span class="line"><span class="string">replace v42 = subinstr(v42, "per:", "", .)</span></span><br><span class="line"><span class="string">replace v43 = subinstr(v43, "pb:", "", .)</span></span><br><span class="line"><span class="string">replace v44 = subinstr(v44, "mktcap:", "", .)</span></span><br><span class="line"><span class="string">replace v45 = subinstr(v45, "nmc:", "", .)</span></span><br><span class="line"><span class="string">replace v46 = subinstr(v46, "turnoverratio:", "", .)</span></span><br><span class="line"><span class="string">destring, replace</span></span><br><span class="line"><span class="string">ren v37 成交量_股</span></span><br><span class="line"><span class="string">ren v38 成交额_元</span></span><br><span class="line"><span class="string">ren v40 更新时间</span></span><br><span class="line"><span class="string">ren v44 总市值_万元</span></span><br><span class="line"><span class="string">ren v45 流通市值_万元</span></span><br><span class="line"><span class="string">ren v46 换手率</span></span><br><span class="line"><span class="string">ren v42 市盈率</span></span><br><span class="line"><span class="string">ren v43 市净率</span></span><br><span class="line"><span class="string">order 更新时间</span></span><br><span class="line"><span class="string">save 新浪财经沪深300成分股实时交易数据爬取, replace</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">* 类似的可以爬上证指数的成分股实时交易数据</span></span><br><span class="line"><span class="string">* http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeDataSimple?page=1&amp;num=40&amp;sort=symbol&amp;asc=1&amp;node=zhishu_000001&amp;_s_r_a=setlen</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">clear</span></span><br><span class="line"><span class="string">set obs 18</span></span><br><span class="line"><span class="string">gen x = ""</span></span><br><span class="line"><span class="string">forval i = 1/`=_N'&#123;</span></span><br><span class="line"><span class="string">	replace x = fileread("http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeDataSimple?page=`i'&amp;num=80&amp;sort=symbol&amp;asc=1&amp;node=zhishu_000001&amp;_s_r_a=setlen") in `i'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">sxpose, clear</span></span><br><span class="line"><span class="string">ren _var* v*</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">forval i = 1/18&#123;</span></span><br><span class="line"><span class="string">	split v`i', parse(&#125;,&#123; [&#123; &#125;]) gen(m`i'm`i')</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">sxpose, clear</span></span><br><span class="line"><span class="string">drop in 1/19</span></span><br><span class="line"><span class="string">ren _var1 v</span></span><br><span class="line"><span class="string">split v, parse(, `"""</span><span class="string">')</span></span><br><span class="line"><span class="string">drop v</span></span><br><span class="line"><span class="string">save temp.dta, replace</span></span><br><span class="line"><span class="string">utrans temp.dta</span></span><br><span class="line"><span class="string">use temp.dta, clear</span></span><br><span class="line"><span class="string">foreach i of varlist _all&#123;</span></span><br><span class="line"><span class="string">	if `i'</span> == <span class="string">""</span> drop `i<span class="string">'</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">foreach i of varlist _all&#123;</span></span><br><span class="line"><span class="string">	if ustrregexm(`i'</span>, <span class="string">"[0-9]+"</span>) == <span class="number">0</span> &amp; ustrregexm(`i<span class="string">', "[\u4e00-\u9fa5]+") == 0 drop `i'</span></span><br><span class="line">&#125;</span><br><span class="line">drop v2</span><br><span class="line">ren v37 股票代码</span><br><span class="line">ren v5 股票名称</span><br><span class="line">ren v8  最新价</span><br><span class="line">ren v11  涨跌额</span><br><span class="line">ren v14  涨跌幅</span><br><span class="line">ren v17  买入</span><br><span class="line">ren v20  卖出</span><br><span class="line">ren v23  昨收</span><br><span class="line">ren v26  今开</span><br><span class="line">ren v29  最高</span><br><span class="line">ren v32  最低</span><br><span class="line">replace v34 = subinstr(v34, <span class="string">"volume:"</span>, <span class="string">""</span>, .)</span><br><span class="line">replace v35 = subinstr(v35, <span class="string">"amount:"</span>, <span class="string">""</span>, .)</span><br><span class="line">destring, replace</span><br><span class="line">ren v34 成交量_股</span><br><span class="line">ren v35 成交额_元</span><br><span class="line">ren v40 更新时间</span><br><span class="line">order 更新时间 股票代码</span><br><span class="line">drop <span class="keyword">if</span> 更新时间 == <span class="string">""</span></span><br><span class="line">save 新浪财经上证指数成分股实时交易数据爬取, replace</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../58/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../57/">57</a><a class="page-number" href="../58/">58</a><span class="page-number current">59</span><a class="page-number" href="../60/">60</a><a class="page-number" href="../61/">61</a><span class="space">&hellip;</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../60/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>stata14——回归表的输出 | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="统计,回归,检验" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="大家好，今天给大家带来的是关于Stata14的统计、回归和检验合并结果输出的命令及使用方法，因为篇幅的原因，我无法面面俱到，针对每一个命令的详细作用可以参考help文档，本文中的一些外部命令需要自行安装，例如ssc install outreg2, 这种方式没办法安装的可以通过”search 命令名“来查找安装；如有疑问请联系小编。  在《Stata14常用操作》那篇文章的后半部分，讲了如何将回">
+<meta name="keywords" content="统计,回归,检验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stata14——回归表的输出">
+<meta property="og:url" content="http://www.czxa.top/posts/34760/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="大家好，今天给大家带来的是关于Stata14的统计、回归和检验合并结果输出的命令及使用方法，因为篇幅的原因，我无法面面俱到，针对每一个命令的详细作用可以参考help文档，本文中的一些外部命令需要自行安装，例如ssc install outreg2, 这种方式没办法安装的可以通过”search 命令名“来查找安装；如有疑问请联系小编。  在《Stata14常用操作》那篇文章的后半部分，讲了如何将回">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-a585e25ffd378582.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-5e70f0087046e1e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-45ca896cc3b79c72.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-10910c567439b51f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-46bdc2b6e173f7e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-02-13T09:36:05.103Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Stata14——回归表的输出">
+<meta name="twitter:description" content="大家好，今天给大家带来的是关于Stata14的统计、回归和检验合并结果输出的命令及使用方法，因为篇幅的原因，我无法面面俱到，针对每一个命令的详细作用可以参考help文档，本文中的一些外部命令需要自行安装，例如ssc install outreg2, 这种方式没办法安装的可以通过”search 命令名“来查找安装；如有疑问请联系小编。  在《Stata14常用操作》那篇文章的后半部分，讲了如何将回">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/8103632-a585e25ffd378582.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Stata14——回归表的输出" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Stata14——回归表的输出
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2017-10-19T06:58:34.000Z" itemprop="datePublished">2017-10-19</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/计量经济学/">计量经济学</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>大家好，今天给大家带来的是关于Stata14的统计、回归和检验合并结果输出的命令及使用方法，因为篇幅的原因，我无法面面俱到，针对每一个命令的详细作用可以参考help文档，本文中的一些外部命令需要自行安装，例如ssc install outreg2, 这种方式没办法安装的可以通过”search 命令名“来查找安装；如有疑问请联系小编。</li>
+</ul>
+<h4 id="在《Stata14常用操作》那篇文章的后半部分，讲了如何将回归结果输出，我们首先来复习一下："><a href="#在《Stata14常用操作》那篇文章的后半部分，讲了如何将回归结果输出，我们首先来复习一下：" class="headerlink" title="在《Stata14常用操作》那篇文章的后半部分，讲了如何将回归结果输出，我们首先来复习一下："></a>在《Stata14常用操作》那篇文章的后半部分，讲了如何将回归结果输出，我们首先来复习一下：</h4><a id="more"></a>
+<h4 id="首先是将统计结果提取输出："><a href="#首先是将统计结果提取输出：" class="headerlink" title="首先是将统计结果提取输出："></a>首先是将统计结果提取输出：</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//提取统计结果到word文档</span></span><br><span class="line"><span class="keyword">clear</span> all</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">more</span> off</span><br><span class="line"><span class="keyword">cd</span> ~/Documents/Chen_Qiang_DataSets-master <span class="comment">//这里设置自己的工作目录</span></span><br><span class="line"><span class="keyword">sysuse</span> auto, <span class="keyword">clear</span></span><br><span class="line"><span class="keyword">tabstat</span> price mpg rep78 headroom trunk weight length, stat(<span class="keyword">mean</span> sd p5 p50 p95 max <span class="keyword">N</span>) <span class="keyword">format</span>(%6.2f)</span><br><span class="line"><span class="keyword">global</span> v <span class="string">"price mpg rep78 headroom trunk weight length"</span></span><br><span class="line">logout, <span class="keyword">save</span>(stat_temp) word <span class="keyword">replace</span>: <span class="keyword">tabstat</span> <span class="variable">$v</span>, <span class="built_in">s</span>(<span class="keyword">mean</span> sd p5 p50 p95 max <span class="keyword">N</span>) <span class="keyword">format</span>(%6.2f) c(s) <span class="comment">//c(s)的作用是display statistics in table columns</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后我们就可以打开生成的rtf文件（用word打开）就得到这个表了：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-a585e25ffd378582.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h5 id="然后就是如何输出回归表格了："><a href="#然后就是如何输出回归表格了：" class="headerlink" title="然后就是如何输出回归表格了："></a>然后就是如何输出回归表格了：</h5><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//输出回归表格</span></span><br><span class="line"><span class="keyword">clear</span> all</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">more</span> off</span><br><span class="line"><span class="keyword">sysuse</span> auto,<span class="keyword">clear</span></span><br><span class="line"><span class="keyword">reg</span> price weight</span><br><span class="line"><span class="keyword">est</span> store m1</span><br><span class="line"><span class="keyword">reg</span> price mpg rep78 weight</span><br><span class="line"><span class="keyword">est</span> store m2</span><br><span class="line"><span class="keyword">reg</span> price rep78 weight</span><br><span class="line"><span class="keyword">est</span> store m3</span><br><span class="line">outreg2 [m1 m2 m3] using temp.doc, see stats(coef, pval) addstat(Adjusted R2, `<span class="built_in">e</span>(r2_a)') <span class="keyword">replace</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后就可以在生成的temp.doc中看到回归表格了：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-5e70f0087046e1e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="今天我再给大家介绍另外一个实现同样功能的命令esttab，例如上-面的那个回归表，我们也可以通过下面的方式使用esttab命令得到："><a href="#今天我再给大家介绍另外一个实现同样功能的命令esttab，例如上-面的那个回归表，我们也可以通过下面的方式使用esttab命令得到：" class="headerlink" title="今天我再给大家介绍另外一个实现同样功能的命令esttab，例如上 面的那个回归表，我们也可以通过下面的方式使用esttab命令得到："></a>今天我再给大家介绍另外一个实现同样功能的命令esttab，例如上 面的那个回归表，我们也可以通过下面的方式使用esttab命令得到：</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//esttab命令输出回归表格</span></span><br><span class="line"><span class="keyword">clear</span> all</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">more</span> off</span><br><span class="line"><span class="keyword">sysuse</span> auto,<span class="keyword">clear</span></span><br><span class="line"><span class="keyword">reg</span> price weight</span><br><span class="line"><span class="keyword">est</span> store m1</span><br><span class="line"><span class="keyword">reg</span> price mpg rep78 weight</span><br><span class="line"><span class="keyword">est</span> store m2</span><br><span class="line"><span class="keyword">reg</span> price rep78 weight</span><br><span class="line"><span class="keyword">est</span> store m3</span><br><span class="line">esttab m1 m2 m3 using esttab.rtf, scalars(r2_a) nonum mtitle(<span class="string">"m1"</span> <span class="string">"m2"</span> <span class="string">"m3"</span>) b(%6.2f) <span class="keyword">replace</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-45ca896cc3b79c72.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>经常我们需要将回归的结果进行一定的修改之后输入，例如我们需要在回归结果表的下方增加一些我们需要的估计值，使用esttab命令是如何实现的呢？</li>
+</ul>
+<h4 id="首先是如何在回归结果中添加t检验的结果："><a href="#首先是如何在回归结果中添加t检验的结果：" class="headerlink" title="首先是如何在回归结果中添加t检验的结果："></a>首先是如何在回归结果中添加t检验的结果：</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在回归结果中添加t检验的结果</span></span><br><span class="line"><span class="keyword">clear</span> all</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">more</span> off</span><br><span class="line"><span class="keyword">sysuse</span> auto</span><br><span class="line"><span class="keyword">reg</span> mpg weight price length <span class="keyword">if</span> foreign</span><br><span class="line"><span class="keyword">local</span> foreign_length = _b[length] <span class="comment">//保存这一组的回归系数</span></span><br><span class="line"><span class="keyword">est</span> store m1</span><br><span class="line"><span class="keyword">reg</span> mpg weight price length <span class="keyword">if</span> ~foreign</span><br><span class="line"><span class="keyword">di</span> _b[length]</span><br><span class="line"><span class="keyword">test</span> _b[length] = <span class="symbol">`foreign_length'</span></span><br><span class="line"><span class="keyword">return</span> <span class="keyword">list</span></span><br><span class="line">estadd <span class="keyword">scalar</span> coef_diff = <span class="symbol">`foreign_length'</span>-_b[length], <span class="keyword">replace</span> <span class="comment">//添加两个回归系数估计值的差值到标量中</span></span><br><span class="line">estadd <span class="keyword">scalar</span> p_diff = <span class="built_in">r</span>(p),<span class="keyword">replace</span> <span class="comment">//添加两个回归系数估计值的差值的t检验的p值到标量中</span></span><br><span class="line"><span class="keyword">est</span> store m2 <span class="comment">//存储回归结果</span></span><br><span class="line">esttab m1 m2 using temp1.rtf, scalars(<span class="keyword">N</span> r2 coef_diff p_diff) nonum mtitle(foreig domestic) b(%12.3f) <span class="keyword">replace</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>运行上面的结果之后就会生成一个rtf文件到工作目录文件夹中，使用word打开之后就可以看到这个表格：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-10910c567439b51f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>再然后，我们把这个表格复制到我们的word文档中就可以啦！<h4 id="下面我们再用这种方法进行另一个操作："><a href="#下面我们再用这种方法进行另一个操作：" class="headerlink" title="下面我们再用这种方法进行另一个操作："></a>下面我们再用这种方法进行另一个操作：</h4></li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用添加交互项的方法检验系数差异并与回归结果合并输出</span></span><br><span class="line"><span class="keyword">clear</span> all</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">more</span> off</span><br><span class="line"><span class="keyword">sysuse</span> auto, <span class="keyword">clear</span></span><br><span class="line"><span class="keyword">gen</span> length_foreign = length*foreign</span><br><span class="line"><span class="keyword">reg</span> mpg weight price length foreign length_foreign</span><br><span class="line"><span class="keyword">matrix</span> diff = <span class="built_in">r</span>(<span class="keyword">table</span>) <span class="comment">//将回归结果储存在矩阵diff中</span></span><br><span class="line"><span class="keyword">reg</span> mpg weight price length <span class="keyword">if</span> foreign</span><br><span class="line"><span class="keyword">est</span> store m1</span><br><span class="line"><span class="keyword">reg</span> mpg weight price length <span class="keyword">if</span> ~foreign</span><br><span class="line">estadd <span class="keyword">scalar</span> coef_diff = diff[1,5],<span class="keyword">replace</span> <span class="comment">//将交互项系数添加到输出回归结果中</span></span><br><span class="line">estadd <span class="keyword">scalar</span> p_diff = diff[4,5],<span class="keyword">replace</span> <span class="comment">//将交互项的p值添加到输出回归结果中</span></span><br><span class="line"><span class="keyword">est</span> store m2</span><br><span class="line">esttab m1 m2, scalars(<span class="keyword">N</span> r2 coef_diff p_diff) nonum mtitle(foreign domestic) b(%12.3f) <span class="keyword">replace</span> <span class="comment">//直接将结果输出在Stata结果窗口</span></span><br><span class="line">esttab m1 m2 using temp2.rtf, scalars(<span class="keyword">N</span> r2 coef_diff p_diff) nonum mtitle(foreign domestic) b(%12.3f) <span class="keyword">replace</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>这样我们同样会得到一个排版非常好的表格：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-46bdc2b6e173f7e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>以上就是今天的全部内容了，希望大家能亲自动手操作一下，以后在学习生活中多多联系。点击阅读原文即可获得更好的阅读体验以及获得本文的PDF版。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../50493/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          期权组合交易策略损益分析
+        
+      </div>
+    </a>
+  
+  
+    <a href="../31604/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Markdown教程</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#在《Stata14常用操作》那篇文章的后半部分，讲了如何将回归结果输出，我们首先来复习一下："><span class="nav-text">在《Stata14常用操作》那篇文章的后半部分，讲了如何将回归结果输出，我们首先来复习一下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#首先是将统计结果提取输出："><span class="nav-text">首先是将统计结果提取输出：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#然后就是如何输出回归表格了："><span class="nav-text">然后就是如何输出回归表格了：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#今天我再给大家介绍另外一个实现同样功能的命令esttab，例如上-面的那个回归表，我们也可以通过下面的方式使用esttab命令得到："><span class="nav-text">今天我再给大家介绍另外一个实现同样功能的命令esttab，例如上 面的那个回归表，我们也可以通过下面的方式使用esttab命令得到：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#首先是如何在回归结果中添加t检验的结果："><span class="nav-text">首先是如何在回归结果中添加t检验的结果：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下面我们再用这种方法进行另一个操作："><span class="nav-text">下面我们再用这种方法进行另一个操作：</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

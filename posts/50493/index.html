@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>期权组合交易策略损益分析 | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="牛市价差,熊市价差,蝶形价差,鞍式,跨式,条式" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="Example An investor buys for \$3 a call with a strike price of \$30 and sells for \$1 a call with a strike price of \$35. The cost of the strategy is \$3-\$1=\$2. The profit is as follows:     Strike">
+<meta name="keywords" content="牛市价差,熊市价差,蝶形价差,鞍式,跨式,条式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="期权组合交易策略损益分析">
+<meta property="og:url" content="http://www.czxa.top/posts/50493/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="Example An investor buys for \$3 a call with a strike price of \$30 and sells for \$1 a call with a strike price of \$35. The cost of the strategy is \$3-\$1=\$2. The profit is as follows:     Strike">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-410f2174449fdd91.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-ba97dfe37dbc97de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-9241cd33ec8e183d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-3e379b97d5080e21.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-6b9718baafd24ea9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-abd2c344c7c2a556.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-c4eee0a2904b1e31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-02-13T09:35:41.247Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="期权组合交易策略损益分析">
+<meta name="twitter:description" content="Example An investor buys for \$3 a call with a strike price of \$30 and sells for \$1 a call with a strike price of \$35. The cost of the strategy is \$3-\$1=\$2. The profit is as follows:     Strike">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/8103632-410f2174449fdd91.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-期权组合交易策略损益分析" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      期权组合交易策略损益分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2017-10-19T07:11:54.000Z" itemprop="datePublished">2017-10-19</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/金融/">金融</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><ul>
+<li>An investor buys for \$3 a call with a strike price of \$30 and sells for \$1 a call with a strike price of \$35. The cost of the strategy is \$3-\$1=\$2. The profit is as follows:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Strike Price Range</th>
+<th style="text-align:center">Payoff from Long Call Option</th>
+<th style="text-align:center">Payoff from Short Call Option</th>
+<th style="text-align:center">Total Payoff</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$S(T)\le30$</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">$30&lt;S(T)\le35$</td>
+<td style="text-align:center">$S(T)-30$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$S(T)-30&gt;0$</td>
+</tr>
+<tr>
+<td style="text-align:center">$S(T)\ge35$</td>
+<td style="text-align:center">$S(T)-30$</td>
+<td style="text-align:center">$35-S(T)$</td>
+<td style="text-align:center">$35-30&gt;0$</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h4 id="求到期日的Payoff、最大损失和最大收益。"><a href="#求到期日的Payoff、最大损失和最大收益。" class="headerlink" title="求到期日的Payoff、最大损失和最大收益。"></a>求到期日的Payoff、最大损失和最大收益。</h4><ul>
+<li>根据题意，这个牛市价差策略的Payoff图为：</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(OTS)</span><br><span class="line">dev.new() <span class="comment">#打开一个独立的窗口</span></span><br><span class="line">bull(<span class="number">30</span>,<span class="number">3</span>,<span class="number">35</span>,<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-410f2174449fdd91.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>最大损失发生在股价下跌至低于\$30的时候，这个时候两个期权都不会被执行，净损失为：$$\$3-\$1=\$2$$</li>
+<li>最大收益发生在股价上升超过\$35的时候，这里时候两个期权都会被执行，看涨期权多头的收益$(S(T)-30)$，看涨期权空头的损失为$(35-S(T))$，交易策略的构建成本为$3-1=2$，因此总收益为：$$(S(T)-30)+(35-S(T))-2$$$$=\$3$$</li>
+</ul>
+<h3 id="熊市价差策略一：-P-K-2-T-P-K-1-T-K-1-lt-K-2"><a href="#熊市价差策略一：-P-K-2-T-P-K-1-T-K-1-lt-K-2" class="headerlink" title="熊市价差策略一：$+P(K_2,T)-P(K_1,T), K_1&lt;K_2$"></a>熊市价差策略一：$+P(K_2,T)-P(K_1,T), K_1&lt;K_2$</h3><ul>
+<li>这个时候的Payoff图像为（使用的是$K_2=35$, 价格$M_2=3$, $K_1=30$, 价格$M_1=1$绘制）</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dev.new()</span><br><span class="line">bear(<span class="number">30</span>,<span class="number">1</span>,<span class="number">35</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-ba97dfe37dbc97de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>该策略的构造成本为：$$M_2-M_1$$</li>
+<li>该策略的期末收益为：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Strike Price Range</th>
+<th style="text-align:center">Payoff from Long Call Option</th>
+<th style="text-align:center">Payoff from Short Call Option</th>
+<th style="text-align:center">Total Payoff</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$S(T)\ge K_2$</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">$K_1&lt;S(T)&lt; K_2$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$S(T)-K_1$</td>
+<td style="text-align:center">$S(T)-K_1&gt;0$</td>
+</tr>
+<tr>
+<td style="text-align:center">$S(T)\le K_1$</td>
+<td style="text-align:center">$K_2-S(T)$</td>
+<td style="text-align:center">$S(T)-K_1$</td>
+<td style="text-align:center">$K_2-K_1&gt;0$</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>扣除成本，最大收益发生在股价下跌至$K_1$下时，最大收益为：$$K_2-K_1-M_2+M_1$$</li>
+<li>加上成本，最大损失发生在股价上升至$K_2$上时，最大损失为构建该策略的成本：$$M_2-M_1$$</li>
+</ul>
+<h3 id="熊市价差策略二：-C-K-2-T-C-K-1-T-K-1-lt-K-2"><a href="#熊市价差策略二：-C-K-2-T-C-K-1-T-K-1-lt-K-2" class="headerlink" title="熊市价差策略二：$+C(K_2,T)-C(K_1,T), K_1&lt;K_2$"></a>熊市价差策略二：$+C(K_2,T)-C(K_1,T), K_1&lt;K_2$</h3><ul>
+<li>这个时候的图像为（使用的是$K_2=35$, 价格$M_2=1$, $K_1=30$, 价格$M_1=3$绘制）</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dev.new()</span><br><span class="line">bear(<span class="number">30</span>,<span class="number">3</span>,<span class="number">35</span>,<span class="number">1</span>,<span class="string">"call"</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-9241cd33ec8e183d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>该策略的构造期初收益为：$$M_1-M_2$$</li>
+<li>该策略的期末收益为：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Strike Price Range</th>
+<th style="text-align:center">Payoff from Long Call Option</th>
+<th style="text-align:center">Payoff from Short Call Option</th>
+<th style="text-align:center">Total Payoff</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$S(T)\le K_1$</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">$K_1&lt;S(T)&lt; K_2$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$K_1-S(T)$</td>
+<td style="text-align:center">$K_1-S(T)&lt; 0$</td>
+</tr>
+<tr>
+<td style="text-align:center">$S(T)\ge K_2$</td>
+<td style="text-align:center">$S(T)-K_2$</td>
+<td style="text-align:center">$K_1-S(T)$</td>
+<td style="text-align:center">$K_1-K_2&lt; 0$</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>加上期初收益，最大收益发生在股价下跌至$K_1$下时，最大收益为：$$M_1-M_2$$</li>
+<li>扣除期初收益，最大损失发生在股价上升至$K_2$上时，最大损失为构建该策略的成本：$$K_2-K_1-(M_1-M_2)$$</li>
+</ul>
+<h3 id="蝶式价差策略一：-P-K-1-P-K-3-2-times-P-K-2"><a href="#蝶式价差策略一：-P-K-1-P-K-3-2-times-P-K-2" class="headerlink" title="蝶式价差策略一：$P(K_1)+P(K_3)-2 \times P(K_2)$"></a>蝶式价差策略一：$P(K_1)+P(K_3)-2 \times P(K_2)$</h3><ul>
+<li>这个时候的图像为（使用的是$K_1=20$, 价格$M_2=1$, $K_2=30$, 价格$M_2=2$, $K_3=40$, $M_3=3$绘制)</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dev.new()</span><br><span class="line">butterfly(<span class="number">20</span>,<span class="number">1</span>,<span class="number">30</span>,<span class="number">2</span>,<span class="number">40</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-3e379b97d5080e21.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><p>该策略的构造成本为：$$2 \times M_2-M_1-M_3$$</p>
+</li>
+<li><p>该策略的期末收益为：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Strike Price Range</th>
+<th style="text-align:center">Payoff from Long Put $P(K_1)$</th>
+<th style="text-align:center">Payoff from Long Put $P(K_3)$</th>
+<th style="text-align:center">Payoff from Short Put $2 \times P(K_2)$</th>
+<th style="text-align:center">Total Payoff</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$S(T) \ge K_3$</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">$K_2&lt;S(T)&lt;K_3$</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">$K_3-S(T)$</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">$K_3-S(T)&gt;0$</td>
+</tr>
+<tr>
+<td style="text-align:center">$S(T)=K_2$</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">$K_3-K_2$</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">$K_3-K_2&gt;0$</td>
+</tr>
+<tr>
+<td style="text-align:center">$K_1&lt;S(T)&lt;K_2$</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">$K_3-S(T)$</td>
+<td style="text-align:center">$2\times (S(T)-K_2)$</td>
+<td style="text-align:center">$K_3-2\times K_2+S(T)$</td>
+</tr>
+<tr>
+<td style="text-align:center">$S(T) \le K_1$</td>
+<td style="text-align:center">$K_1-S(T)$</td>
+<td style="text-align:center">$K_3-S(T)$</td>
+<td style="text-align:center">$2\times (S(T)-K_2)$</td>
+<td style="text-align:center">$K_1+K_3-2 \times K_2$</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>最大收益发生在股价$S(T)=K_2$时，最大收益为：$$K_3-K_2-(2\times M_2-M_1-M_3)$$</li>
+<li>最大损失发生在股价下跌到$K_1$之下或上升超过$K_3$的时候，如果$K_2=\frac{K_1+K_3}{2}$且$M_2=\frac{M_1+M_3}{2}$，那么股价在两侧的最大损失处的损失将是一样大的，为$$0$$</li>
+</ul>
+<h3 id="蝶式价差策略二：-C-K-1-C-K-3-2-times-C-K-2"><a href="#蝶式价差策略二：-C-K-1-C-K-3-2-times-C-K-2" class="headerlink" title="蝶式价差策略二：$C(K_1)+C(K_3)-2 \times C(K_2)$"></a>蝶式价差策略二：$C(K_1)+C(K_3)-2 \times C(K_2)$</h3><ul>
+<li>这个时候的图像为（使用的是$K_1=20$, 价格$M_2=3$, $K_2=30$, 价格$M_2=2$, $K_3=40$, $M_3=1$绘制)</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dev.new()</span><br><span class="line">butterfly(<span class="number">20</span>,<span class="number">1</span>,<span class="number">30</span>,<span class="number">2</span>,<span class="number">40</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-6b9718baafd24ea9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><p>该策略的构造成本为：$$2\times M_2-M_1-M_3$$</p>
+</li>
+<li><p>该策略的期末收益为：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Strike Price Range</th>
+<th style="text-align:center">Payoff from Long Put $P(K_1)$</th>
+<th style="text-align:center">Payoff from Long Put $P(K_3)$</th>
+<th style="text-align:center">Payoff from Short Put $2 \times P(K_2)$</th>
+<th style="text-align:center">Total Payoff</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$S(T) \le K_1$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$0$</td>
+</tr>
+<tr>
+<td style="text-align:center">$K_1&lt;S(T)&lt;K_2$</td>
+<td style="text-align:center">$S(T)-K_1$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$0$</td>
+</tr>
+<tr>
+<td style="text-align:center">$S(T)=K_2$</td>
+<td style="text-align:center">$K_2-K_1$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$K_2-K_1&gt;0$</td>
+</tr>
+<tr>
+<td style="text-align:center">$K_2&lt;S(T)&lt;K_3$</td>
+<td style="text-align:center">$S(T)-K_1$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$2\times (K_2-S(T))$</td>
+<td style="text-align:center">$2\times K_2-K_1-S(T)$</td>
+</tr>
+<tr>
+<td style="text-align:center">$S(T) \ge K_3$</td>
+<td style="text-align:center">$S(T)-K_1$</td>
+<td style="text-align:center">$S(T)-K_3$</td>
+<td style="text-align:center">$2\times (K_2-S(T))$</td>
+<td style="text-align:center">$2 \times K_2-K_1-K_3$</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>最大收益发生在股价$S(T)=K_2$时，最大收益为：$$K_2-K_1-(2\times M_2-M_1-M_3)$$</li>
+<li>最大损失发生在股价下跌到$K_1$之下或上升超过$K_3$的时候，如果$K_2=\frac{K_1+K_3}{2}$且$M_2=\frac{M_1+M_3}{2}$，那么股价在两侧的最大损失处的损失将是一样大的，为$$0$$</li>
+</ul>
+<h3 id="Bottom-straddle-下跨式-：-C-K-T-P-K-T"><a href="#Bottom-straddle-下跨式-：-C-K-T-P-K-T" class="headerlink" title="Bottom straddle(下跨式)：$C(K,T)+P(K,T)$"></a>Bottom straddle(下跨式)：$C(K,T)+P(K,T)$</h3><ul>
+<li>这个时候的图像为（使用的是$K=20$, 价格$M_{call}=3$, $M_{put}=5$绘制):</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dev.new()</span><br><span class="line">straddle(<span class="number">30</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-abd2c344c7c2a556.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>这个策略的构造成本为： $$M_{call}+M_{put}$$ </li>
+<li>期末收益为：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Strike Price Range</th>
+<th style="text-align:center">Payoff from Call Option</th>
+<th style="text-align:center">Payoff from Put Option</th>
+<th style="text-align:center">Total Payoff</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$S(T) &lt; K$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$K-S(T)$</td>
+<td style="text-align:center">$K-S(T) &gt;0$</td>
+</tr>
+<tr>
+<td style="text-align:center">$S(T) = K$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$0$</td>
+</tr>
+<tr>
+<td style="text-align:center">$S(T) &gt; K$</td>
+<td style="text-align:center">$S(T)-K$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$S(T)-K&gt; 0$</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>最大损失发生在股价为K的时候，为： $$M_{call}+M_{put}$$ </li>
+<li>最大赢利为发生在股价无限大的时候（股价下跌最低只到$0$），为： $$S(T)-K-(M_{call}+M_{put})$$ </li>
+</ul>
+<h3 id="Top-straddle-上跨式-：-C-K-T-P-K-T"><a href="#Top-straddle-上跨式-：-C-K-T-P-K-T" class="headerlink" title="Top straddle(上跨式)：$-C(K,T)-P(K,T)$"></a>Top straddle(上跨式)：$-C(K,T)-P(K,T)$</h3><ul>
+<li>这个策略的构造期初收益为： $$M_{call}+M_{put}$$ </li>
+<li>期末收益为：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Strike Price Range</th>
+<th style="text-align:center">Payoff from Call Option</th>
+<th style="text-align:center">Payoff from Put Option</th>
+<th style="text-align:center">Total Payoff</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$S(T) &lt; K$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$S(T)-K$</td>
+<td style="text-align:center">$S(T)-K&lt; 0 $</td>
+</tr>
+<tr>
+<td style="text-align:center">$S(T) = K$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$0$</td>
+</tr>
+<tr>
+<td style="text-align:center">$S(T) &gt; K$</td>
+<td style="text-align:center">$K-S(T)$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$K-S(T)&lt; 0$</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>最大赢利发生在股价为K的时候，为：  $$M_{call}+M_{put}$$</li>
+<li>最大损失为发生在股价无限大的时候（股价下跌最低只到$0$），为： $$S(T)-K-(M_{call}+M_{put})$$ </li>
+</ul>
+<h3 id="Strip-条式-：-C-K-T-2-times-P-K-T"><a href="#Strip-条式-：-C-K-T-2-times-P-K-T" class="headerlink" title="Strip(条式)：$C(K,T)+2 \times P(K,T)$"></a>Strip(条式)：$C(K,T)+2 \times P(K,T)$</h3><ul>
+<li>这个时候的图像为(使用的是 $K=30, M_{call}=10,M_{put}=3$ 绘制)：</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dev.new()</span><br><span class="line">straddle(<span class="number">30</span>,<span class="number">10</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-c4eee0a2904b1e31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>这个策略的构造成本为： $$M_{call}+2\times M_{put}$$ </li>
+<li>期末收益为：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Strike Price Range</th>
+<th style="text-align:center">Payoff from Call Option</th>
+<th style="text-align:center">Payoff from Put Option</th>
+<th style="text-align:center">Total Payoff</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$S(T) &lt; K$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$2\times(K-S(T))$</td>
+<td style="text-align:center">$2\times(K-S(T))&gt; 0$</td>
+</tr>
+<tr>
+<td style="text-align:center">$S(T) = K$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$0$</td>
+</tr>
+<tr>
+<td style="text-align:center">$S(T) &gt; K$</td>
+<td style="text-align:center">$S(T)-K$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$S(T)-K &gt; 0$</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>最大损失发生在股价为K的时候，为： $$M_{call}+2\times M_{put}$$ </li>
+<li>最大赢利为发生在股价无限大的时候（股价下跌最低只到$0$），为： $$S(T)-K-(M_{call}+2\times M_{put})$$ </li>
+</ul>
+<h3 id="Top-Strangle-上勒式策略）：-C-K-2-T-P-K-1-T"><a href="#Top-Strangle-上勒式策略）：-C-K-2-T-P-K-1-T" class="headerlink" title="Top Strangle(上勒式策略）：$-C(K_2,T)-P(K_1,T)$"></a>Top Strangle(上勒式策略）：$-C(K_2,T)-P(K_1,T)$</h3><ul>
+<li>期初构建收益为：$$M_1+M_2$$</li>
+<li>期末收益为：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Strike Price Range</th>
+<th style="text-align:center">Payoff from Call Option</th>
+<th style="text-align:center">Payoff from Put Option</th>
+<th style="text-align:center">Total Payoff</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$S(T)\le K_1$</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">$S(T)-K_1$</td>
+<td style="text-align:center">$S(T)-K_1&lt; 0$</td>
+</tr>
+<tr>
+<td style="text-align:center">$K_1&lt;S(T)&lt; K_2$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$0$</td>
+</tr>
+<tr>
+<td style="text-align:center">$S(T)\ge K_2$</td>
+<td style="text-align:center">$K_2-S(T)$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$K_2-S(T) &lt; 0$</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>加上期初构建收益，最大收益发生在股价位于$K_1 \sim K_2$之间，为：$$M_1+M_2$$</li>
+<li>扣除期初收益，最大损失发生在股价上升至无限大的时候，为：$$S(T)-K_2-(M_1+M_2)$$</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/R/">R</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../60273/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          时间序列分析
+        
+      </div>
+    </a>
+  
+  
+    <a href="../34760/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Stata14——回归表的输出</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example"><span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#求到期日的Payoff、最大损失和最大收益。"><span class="nav-text">求到期日的Payoff、最大损失和最大收益。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#熊市价差策略一：-P-K-2-T-P-K-1-T-K-1-lt-K-2"><span class="nav-text">熊市价差策略一：$+P(K_2,T)-P(K_1,T), K_1&lt;K_2$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#熊市价差策略二：-C-K-2-T-C-K-1-T-K-1-lt-K-2"><span class="nav-text">熊市价差策略二：$+C(K_2,T)-C(K_1,T), K_1&lt;K_2$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蝶式价差策略一：-P-K-1-P-K-3-2-times-P-K-2"><span class="nav-text">蝶式价差策略一：$P(K_1)+P(K_3)-2 \times P(K_2)$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蝶式价差策略二：-C-K-1-C-K-3-2-times-C-K-2"><span class="nav-text">蝶式价差策略二：$C(K_1)+C(K_3)-2 \times C(K_2)$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bottom-straddle-下跨式-：-C-K-T-P-K-T"><span class="nav-text">Bottom straddle(下跨式)：$C(K,T)+P(K,T)$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Top-straddle-上跨式-：-C-K-T-P-K-T"><span class="nav-text">Top straddle(上跨式)：$-C(K,T)-P(K,T)$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Strip-条式-：-C-K-T-2-times-P-K-T"><span class="nav-text">Strip(条式)：$C(K,T)+2 \times P(K,T)$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Top-Strangle-上勒式策略）：-C-K-2-T-P-K-1-T"><span class="nav-text">Top Strangle(上勒式策略）：$-C(K_2,T)-P(K_1,T)$</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/65/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-ECharts一个简单的柱形图"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/51612/">ECharts一个简单的柱形图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/51612/" class="article-date">
+	  <time datetime="2018-04-05T16:28:23.000Z" itemprop="datePublished">2018-04-06</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/js可视化/">js可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/nr/raw/master/ECharts一个简单的柱形图.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>柱形图<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--引入echarts.js--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span> = <span class="string">"./js/echarts.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--为ECharts准备一个具备大小的DOM--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span> <span class="attr">style</span>=<span class="string">"width: 600px; height: 400px"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 基于准备好的DOM，初始化echarts实例</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> myChart = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'main'</span>));</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 指定图表的配置项和数据</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> option = &#123;</span></span><br><span class="line"><span class="undefined">        title: &#123;</span></span><br><span class="line"><span class="javascript">            text: <span class="string">'ECharts绘制一幅简单的柱形图'</span>,</span></span><br><span class="line"><span class="javascript">            left: <span class="string">'center'</span></span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        tooltip: &#123;&#125;,</span></span><br><span class="line"><span class="undefined">        legend: &#123;</span></span><br><span class="line"><span class="javascript">            data: [<span class="string">'销量'</span>],</span></span><br><span class="line"><span class="javascript">            top: <span class="string">'bottom'</span></span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        xAxis: &#123;</span></span><br><span class="line"><span class="javascript">            data: [<span class="string">"衬衫"</span>, <span class="string">"羊毛衫"</span>, <span class="string">"雪纺衫"</span>, <span class="string">"裤子"</span>, <span class="string">"高跟鞋"</span>, <span class="string">"袜子"</span>]</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        yAxis: &#123;&#125;,</span></span><br><span class="line"><span class="undefined">        series: [&#123;</span></span><br><span class="line"><span class="javascript">            name: <span class="string">'销量'</span>,</span></span><br><span class="line"><span class="javascript">            type: <span class="string">'bar'</span>,</span></span><br><span class="line"><span class="undefined">            data: [5, 20, 36, 10, 10, 20]</span></span><br><span class="line"><span class="undefined">        &#125;]</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 使用刚指定的配置项和数据显示图表</span></span></span><br><span class="line"><span class="undefined">    myChart.setOption(option)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/ECharts/">ECharts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-金融工程相关概念白话解释——Radon_Nikodym_derivative"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/5877/">金融工程相关概念白话解释——Radon_Nikodym_derivative</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/5877/" class="article-date">
+	  <time datetime="2018-04-05T16:18:02.000Z" itemprop="datePublished">2018-04-06</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/金融/">金融</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>第一卷书上给出的拉东-尼科迪姆导数的定义是这样的：$$Z(\omega) = \frac{\tilde{P}(\omega)}{P(\omega)}$$</li>
+<li>这个公式描述了风险中立概率测度和真实概率测度的比值。这是不符合我们对导数的认识的，因为我们对导数的认识是这个样子的：$$Z(\omega) = \frac{\Delta \tilde{P}(\omega)}{\Delta P(\omega)}$$或者是这个样子的：$$Z(\omega) = \frac{d \tilde{P}(\omega)}{d P(\omega)}$$</li>
+<li>那么首先第一个需要理解的就是书上的这个式子和我们认识中的导数形式的关系。事实上第三个式子就是在连续情况下的拉东-尼科迪姆导数的定义。而且我们也知道，如果概率测度$P(\cdot)$和$\tilde{P}(\cdot)$都是连续可微的函数，那么下式是成立的（也就是洛必达法则）：$$\lim_{\omega\rightarrow0}\frac{\tilde{P}(\omega)}{P(\omega)} = \lim_{\omega\rightarrow0}\frac{\frac{d\tilde{P}(\omega)}{d \omega}}{\frac{dP(\omega)}{d \omega}} = \lim_{\omega\rightarrow0}\frac{d\tilde{P}(\omega)}{dP(\omega)}$$</li>
+<li><p>也就是说，第一个式子实际上就是第三个式子在离散条件下的形式，也就是无限概率空间和有限概率空间的关系。</p>
+</li>
+<li><p>第二个需要理解的是，为什么要定义这个东西？为了理解这个问题，我们首先需要理解风险中性概率测度的存在意义。通过前面几节的学习，我们知道在风险中性测度下，股票价格的折现是一个鞅。也就是说有着一些很好的性质，这就使得我们可以简洁地表述那些方程组的求解结果。</p>
+</li>
+<li>一个例子就是我们常常听说的Black-Scholes期权定价公式，这个公式的就是在风险中性测度下求出的封闭解。事实上早在<code>1965年萨缪尔森</code>就已经推导出来一个非常相似的模型，但是他的模型中的资产以收益率$\mu$增长并以另一个利率$\mu^{\star}$折现。由于这两个参数都是未知的，因此萨缪尔森的模型并不实用。使用风险中性定价仅仅是一种旨在取得正确解答的人工方法，它并不意味着投资者都是风险中性的。</li>
+<li>第三个需要理解的是，风险中性这个词的含义。在英文中，中性一次也代表这“无关”的意思。因此风险中性的实际就是“无关风险的意思”。那么什么是“无关风险”呢？如果一个资产以无风险利率增长，那么如果我们使用该无风险利率作为折现率对其进行定价，这样得到的定价结果将会既符合无套利原则，又产生任何风险。因此在风险中性的世界中，所有证券的期望收益率必定为无风险利率$r$，背后的原因就是风险中性投资者不需要用风险溢价来吸引他们承担风险。简单来说，就是<code>“以无风险利率增长，并以无风险利率折现”</code>。</li>
+<li>最后一个需要理解的点就是，我们定价使用风险中性概率测度，然后实际世界的概率测度是真实概率测度，连接两个世界的桥梁就是拉东-尼科迪姆导数。这个拉东-尼科迪姆导数的作用就是在两个世界之间建立起一对一的映射关系。那么需要理解的地方就是，在风险中性世界计算得到的价格对于我们生活的真实世界是否适用？也就是说两个世界之间是否存在一个一一映射的关系。设想，如果这种映射不是一种一一映射，也就是说一个风险中性世界的资产价格使用拉东-尼科迪姆导数映射到真实世界之后有两个可能价格。那么这个时候在风险中性世界的定价将在真实世界中不适用，因为我们无法确定映射过来个价格那个才是正确的价格。</li>
+<li>不过不用担心，风险中性世界与我们真实世界之间的映射是一个一一映射。因为在金融建模的时候，我们需要建立一个样本空间，这个样本空间是未来所有可能结果的一个集合，不论是在风险中性世界中还是在真实世界中，这个样本集合都是一个集合。唯一不同的是样本空间里的各个结果在两个世界中发生的概率不同。另外资产价格变量也只有一个，它是随机变量（即市场未来状态的函数），只不过有时候我们使用风险中性概率测度，有时候我们采用真实概率测度，然而关于哪些可能，哪些不可能的看法我们并没有改变（不可能的未来状态在两个测度下都是不可能，可能的状态在两个测度下都是可能的，只不过概率不同。）因此两个世界之间是可以建立一一映射的。详细的证明过程在这套书的第二卷。</li>
+<li>综上所诉，资产的定价使用哪一个测度都是可以的。风险中性测度实际上也只是一种特殊的真实概率测度。为了简洁地建立定价模型，我们选择了真实测度中最特殊的风险中性测度。然后当我们需要在真实概率测度下对资产进行定价的时候，只需要使用拉东-尼科迪姆导数将风险中性测度下得到的资产价格转换成真实概率测度下的资产价格即可。</li>
+</ul>
+<p>参考：第二卷和FRM考试手册</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-金融工程相关概念白话解释——Martingale"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/35592/">金融工程相关概念白话解释——Martingale</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/35592/" class="article-date">
+	  <time datetime="2018-04-05T16:17:02.000Z" itemprop="datePublished">2018-04-06</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/金融/">金融</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>在法文里，<code>Martingale</code>有两层意思，一是<code>“倍赌策略”</code>（赢了收手，输了加倍），二是<code>“马缰绳”</code>，将其翻译成鞅（马的缰绳）是用了它的第二层含义。</li>
+<li>显然把<code>Martingale</code>理解为马缰绳是不正确且让人感到迷惑的，<code>Martingale</code>的正确理解应该还是<code>第一种意思</code>。现在我们来看一下为什么应该理解成这种意思。首先我们来看一下<code>Martingale</code>的数学定义：</li>
+</ul>
+<p>第一种是离散鞅：<br>如果一个离散时间的随机过程X1,X2,…,Xn,…满足以下条件：<br>（1） $E(|X_n|) < \infty $<br>（2） $E(X_{n+1}|X_1,..X_n) = X_n$<br>即，如果已知此刻以及之前的所有观察值，下一时刻的期望观察值等于此刻的值。<br>如果一个序列Y1,Y2,…Yn…是关于X1,X2,…Xn….的鞅（英文中序列Xi 称为filtration)，则应满足：<br>（1） $E(|Y_n|) < \infty $<br>（2） $E(Y_{n+1}|X_1,..X_n) = Y_n$<br>第二种是连续鞅：<br>如果一个连续时间的随机过程Xt 满足以下条件：<br>（1） $E(|Xt|) < \infty$<br>（2） $E(X_t| {X_m,m \le s}) = X_s$<br>即，已知至时间s的所有信息，则某时刻t（t&gt;s）的条件期望值为s时刻的值。<br>如果一个序列Yt 是关于Xt….的鞅，则应满足：<br>（1） $E(|Y_t|)< \infty $<br>（2） $E(Y_t| {X_m,m \le s}) = Y_s$</p>
+<ul>
+<li>简单来说就是<code>下一时刻的期望观察值等于此刻的值</code>。那么<code>倍赌策略</code>和这个有什么关系呢？</li>
+<li>考虑一个赌局，如果这个赌局是一个<code>公平的赌局</code>，也就是说赢和输的概率都是50%。在这种情况下，不管每局下注多少，赢钱的均值都是0，因此如果第一轮输钱了，第二轮采用倍赌策略可能就可以扳回损失。</li>
+<li>但是需要注意，倍赌策略看起来是一种<code>不正常</code>的策略，因为按照我们的正常心理，如果开始我们输了，后面我们就会产生对失败的恐惧而减注。在公平的赌局中这种心理是没有必要的，因为不论我们第一局是输是赢，第二局的输赢概率都还是那个样子，在某一时刻，无论我们如何利用在之前的赌局中取得的经验或者教训，我们在该时刻资产的期望都将是我们最初的资产额。这也是赌局的公平性的体现。也即$M_n = E_n[M_{n+1}]$</li>
+<li>所以在这种公平的赌局中，倍赌策略是一个有效的策略。所以<code>martingale</code>也翻译为平赌过程。</li>
+<li>相反，如果是一个不公平的赌局，我们第一局输了，那么采用倍赌策略只会让我们可能输的更惨。在不公平赌局中，输掉的第一局表明我们可能会在第二局继续输钱。可以用一个简单的例子来理解：</li>
+</ul>
+<blockquote>
+<p>在一个赌局中，假设我们赢的概率是0.4，输的概率是0.6，我们押注金额为X，那么很容易计算我们在游戏结束时候的资产期望是$-0.2X$，这也就意味着，我们押注越多，输的钱越多。</p>
+</blockquote>
+<ul>
+<li>考虑另外一种赌局，如果我们预期下一局赢的概率上升，也就是说，下一局我们的资产期望增加，也即$M_n \le E_n[M_{n+1}]$，这个时候<code>加注</code>是一个很好的策略，这样的过程称为<code>submartingale</code>，即<code>下鞅/次鞅</code>。我觉得翻译成<code>加注过程</code>更为形象。</li>
+<li>再考虑另外一种赌局，我们预期下一局输的概率上升，也就是说，下一局我们的资产期望值下降，也即$M_n \ge E_n[M_{n+1}]$，这个时候<code>减注</code>是个非常好的选择，这个过程称为<code>supermartingale</code>，即上鞅。我觉得翻译成<code>减注过程</code>更为形象。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-矩阵的定义"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/3684/">矩阵的定义</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/3684/" class="article-date">
+	  <time datetime="2018-04-05T16:16:02.000Z" itemprop="datePublished">2018-04-06</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">mat A = (<span class="number">1</span>, <span class="number">2</span> \ <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">mat B = (<span class="number">5</span>, <span class="number">7</span> \ <span class="number">9</span>, <span class="number">2</span>)</span><br><span class="line">mat C = A + B</span><br><span class="line">mat list C</span><br><span class="line"></span><br><span class="line">mat B = A - B</span><br><span class="line">matlist B</span><br><span class="line"></span><br><span class="line">mat X = (<span class="number">1</span>, <span class="number">1</span> \ <span class="number">2</span>, <span class="number">5</span> \ <span class="number">8</span>, <span class="number">0</span> \ <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line">mat C = <span class="number">3</span> * X * A<span class="string">' * B</span></span><br><span class="line"><span class="string">mat l C</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">mat D = (X'</span>*X - A<span class="string">'*A)/4</span></span><br><span class="line"><span class="string">mat rownames D = dog cat</span></span><br><span class="line"><span class="string">mat colnames D = bark meow</span></span><br><span class="line"><span class="string">mat l D </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">mat rownames A = aa bb</span></span><br><span class="line"><span class="string">mat colnames A = alpha beta </span></span><br><span class="line"><span class="string">mat l A</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">* kronecker product</span></span><br><span class="line"><span class="string">mat D = A#D</span></span><br><span class="line"><span class="string">mat l D</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">mat G = A, B \ D</span></span><br><span class="line"><span class="string">mat l G</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">mat Z = (B - A)'</span> * (B + A<span class="string">' * -B)/4</span></span><br><span class="line"><span class="string">mat l Z</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">* 一些特殊的矩阵函数</span></span><br><span class="line"><span class="string">* 单位对角矩阵</span></span><br><span class="line"><span class="string">mat A = I(4)</span></span><br><span class="line"><span class="string">matlist A</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">* r行c列全是k的矩阵</span></span><br><span class="line"><span class="string">mat A = J(3, 4 ,5)</span></span><br><span class="line"><span class="string">matlist A </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">* cholesky分解</span></span><br><span class="line"><span class="string">mat A = (1, 2 \ 2, 5)</span></span><br><span class="line"><span class="string">mat L = cholesky(4*I(2) + A'</span>*A)</span><br><span class="line">mat l L</span><br><span class="line"></span><br><span class="line">* 逆矩阵</span><br><span class="line">mat Ainv = invsym(A)</span><br><span class="line">mat l Ainv</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-matrix_accum——计算交叉乘积"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/62679/">matrix_accum——计算交叉乘积</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/62679/" class="article-date">
+	  <time datetime="2018-04-05T16:16:02.000Z" itemprop="datePublished">2018-04-06</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">sysuse auto, clear </span><br><span class="line">matrix accum A = price weight mpg</span><br><span class="line">matlist A</span><br><span class="line"></span><br><span class="line">* 省略首行首列</span><br><span class="line">* A = (y, X)<span class="string">'(y, X) = (y'</span>y y<span class="string">'X \ X'</span>y X<span class="string">'X)</span></span><br><span class="line"><span class="string">matrix XX = A[2..., 2...]</span></span><br><span class="line"><span class="string">matlist XX</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">matrix Xy = A[2..., 1]</span></span><br><span class="line"><span class="string">matrix list Xy</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">matrix b = syminv(XX) * Xy</span></span><br><span class="line"><span class="string">matrix list b</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">matrix b = invsym(A[2..., 2...]) * A[2..., 1]</span></span><br><span class="line"><span class="string">matlist b</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../64/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../63/">63</a><a class="page-number" href="../64/">64</a><span class="page-number current">65</span><a class="page-number" href="../66/">66</a><a class="page-number" href="../67/">67</a><span class="space">&hellip;</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../66/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

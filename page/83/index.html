@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/83/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-使用rolling和merge产生描述性统计量"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/7452/">使用rolling和merge产生描述性统计量</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/7452/" class="article-date">
+	  <time datetime="2018-02-20T07:16:23.000Z" itemprop="datePublished">2018-02-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata编程导论/">Stata编程导论</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">. use grunfeld, clear</span><br><span class="line"></span><br><span class="line">. gen linvest = log(invest)</span><br><span class="line"></span><br><span class="line">. mvsumm LD.linvest, gen(invrate) stat(mean) window(<span class="number">3</span>) end</span><br><span class="line"></span><br><span class="line">. qui rolling r(mean), window(<span class="number">3</span>) saving(ldinvest, replace): sum LD.linvest</span><br><span class="line"></span><br><span class="line">. cap restore</span><br><span class="line"></span><br><span class="line">. preserve</span><br><span class="line"></span><br><span class="line">. use ldinvest, clear</span><br><span class="line">(rolling: summarize)</span><br><span class="line"></span><br><span class="line">. ren (end _stat_1) (year rolling_ldinvest)</span><br><span class="line"></span><br><span class="line">. keep <span class="keyword">if</span> year &gt;= <span class="number">1939</span></span><br><span class="line">(<span class="number">20</span> observations deleted)</span><br><span class="line"></span><br><span class="line">. xtset company year</span><br><span class="line">       panel variable:  company (strongly balanced)</span><br><span class="line">        time variable:  year, <span class="number">1939</span> to <span class="number">1954</span></span><br><span class="line">                delta:  <span class="number">1</span> unit</span><br><span class="line"></span><br><span class="line">. save ldinvest, replace</span><br><span class="line">file ldinvest.dta saved</span><br><span class="line"></span><br><span class="line">. restore</span><br><span class="line"></span><br><span class="line">. merge m:<span class="number">1</span> company year using ldinvest</span><br><span class="line"></span><br><span class="line">    Result                           <span class="comment"># of obs.</span></span><br><span class="line">    -----------------------------------------</span><br><span class="line">    <span class="keyword">not</span> matched                            <span class="number">40</span></span><br><span class="line">        <span class="keyword">from</span> master                        <span class="number">40</span>  (_merge==<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">from</span> using                          <span class="number">0</span>  (_merge==<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    matched                               <span class="number">160</span>  (_merge==<span class="number">3</span>)</span><br><span class="line">    -----------------------------------------</span><br><span class="line"></span><br><span class="line">. drop _m</span><br><span class="line"></span><br><span class="line">. sum invrate rolling_ldinvest</span><br><span class="line"></span><br><span class="line">    Variable |        Obs        Mean    Std. Dev.       Min        Max</span><br><span class="line">-------------+---------------------------------------------------------</span><br><span class="line">     invrate |        <span class="number">160</span>    <span class="number">.0602769</span>    <span class="number">.1303373</span>  <span class="number">-.2292838</span>    <span class="number">.475313</span></span><br><span class="line">rolling_ld~t |        <span class="number">160</span>    <span class="number">.0602769</span>    <span class="number">.1303373</span>  <span class="number">-.2292838</span>    <span class="number">.475313</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-mvsumm_计算窗口移动的描述性统计量"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/186/">mvsumm_计算窗口移动的描述性统计量</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/186/" class="article-date">
+	  <time datetime="2018-02-20T07:15:23.000Z" itemprop="datePublished">2018-02-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata编程导论/">Stata编程导论</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">. * mvsumm computes a moving-window descriptive statistic <span class="keyword">for</span> tsvar which must be a time series variable under the aegis of tsset.</span><br><span class="line"></span><br><span class="line">. webuse grunfeld, clear</span><br><span class="line"></span><br><span class="line">. list invest <span class="keyword">in</span> <span class="number">1</span>/<span class="number">10</span></span><br><span class="line"></span><br><span class="line">     +--------+</span><br><span class="line">     | invest |</span><br><span class="line">     |--------|</span><br><span class="line">  <span class="number">1.</span> |  <span class="number">317.6</span> |</span><br><span class="line">  <span class="number">2.</span> |  <span class="number">391.8</span> |</span><br><span class="line">  <span class="number">3.</span> |  <span class="number">410.6</span> |</span><br><span class="line">  <span class="number">4.</span> |  <span class="number">257.7</span> |</span><br><span class="line">  <span class="number">5.</span> |  <span class="number">330.8</span> |</span><br><span class="line">     |--------|</span><br><span class="line">  <span class="number">6.</span> |  <span class="number">461.2</span> |</span><br><span class="line">  <span class="number">7.</span> |    <span class="number">512</span> |</span><br><span class="line">  <span class="number">8.</span> |    <span class="number">448</span> |</span><br><span class="line">  <span class="number">9.</span> |  <span class="number">499.6</span> |</span><br><span class="line"> <span class="number">10.</span> |  <span class="number">547.5</span> |</span><br><span class="line">     +--------+</span><br><span class="line"></span><br><span class="line">. mvsumm invest, stat(mean) win(<span class="number">3</span>) gen(inv3yavg) end</span><br><span class="line"></span><br><span class="line">. list invest inv3yavg <span class="keyword">in</span> <span class="number">1</span>/<span class="number">10</span></span><br><span class="line"></span><br><span class="line">     +-------------------+</span><br><span class="line">     | invest   inv3yavg |</span><br><span class="line">     |-------------------|</span><br><span class="line">  <span class="number">1.</span> |  <span class="number">317.6</span>          . |</span><br><span class="line">  <span class="number">2.</span> |  <span class="number">391.8</span>          . |</span><br><span class="line">  <span class="number">3.</span> |  <span class="number">410.6</span>   <span class="number">373.3333</span> |</span><br><span class="line">  <span class="number">4.</span> |  <span class="number">257.7</span>   <span class="number">353.3667</span> |</span><br><span class="line">  <span class="number">5.</span> |  <span class="number">330.8</span>   <span class="number">333.0333</span> |</span><br><span class="line">     |-------------------|</span><br><span class="line">  <span class="number">6.</span> |  <span class="number">461.2</span>      <span class="number">349.9</span> |</span><br><span class="line">  <span class="number">7.</span> |    <span class="number">512</span>   <span class="number">434.6667</span> |</span><br><span class="line">  <span class="number">8.</span> |    <span class="number">448</span>   <span class="number">473.7333</span> |</span><br><span class="line">  <span class="number">9.</span> |  <span class="number">499.6</span>   <span class="number">486.5333</span> |</span><br><span class="line"> <span class="number">10.</span> |  <span class="number">547.5</span>   <span class="number">498.3667</span> |</span><br><span class="line">     +-------------------+</span><br><span class="line"></span><br><span class="line">. mvsumm invest, stat(sd) win(<span class="number">5</span>) gen(inv5ysd) end</span><br><span class="line"></span><br><span class="line">. list invest inv5ysd <span class="keyword">in</span> <span class="number">1</span>/<span class="number">10</span></span><br><span class="line"></span><br><span class="line">     +-------------------+</span><br><span class="line">     | invest    inv5ysd |</span><br><span class="line">     |-------------------|</span><br><span class="line">  <span class="number">1.</span> |  <span class="number">317.6</span>          . |</span><br><span class="line">  <span class="number">2.</span> |  <span class="number">391.8</span>          . |</span><br><span class="line">  <span class="number">3.</span> |  <span class="number">410.6</span>          . |</span><br><span class="line">  <span class="number">4.</span> |  <span class="number">257.7</span>          . |</span><br><span class="line">  <span class="number">5.</span> |  <span class="number">330.8</span>   <span class="number">61.26344</span> |</span><br><span class="line">     |-------------------|</span><br><span class="line">  <span class="number">6.</span> |  <span class="number">461.2</span>   <span class="number">78.40295</span> |</span><br><span class="line">  <span class="number">7.</span> |    <span class="number">512</span>   <span class="number">101.5951</span> |</span><br><span class="line">  <span class="number">8.</span> |    <span class="number">448</span>   <span class="number">104.4181</span> |</span><br><span class="line">  <span class="number">9.</span> |  <span class="number">499.6</span>   <span class="number">71.83615</span> |</span><br><span class="line"> <span class="number">10.</span> |  <span class="number">547.5</span>   <span class="number">40.02771</span> |</span><br><span class="line">     +-------------------+</span><br><span class="line"></span><br><span class="line">. mvsumm D.mvalue, stat(median) win(<span class="number">5</span>) gen(meddmval) end</span><br><span class="line"></span><br><span class="line">. list mvalue meddmval <span class="keyword">in</span> <span class="number">1</span>/<span class="number">10</span></span><br><span class="line"></span><br><span class="line">     +--------------------+</span><br><span class="line">     | mvalue    meddmval |</span><br><span class="line">     |--------------------|</span><br><span class="line">  <span class="number">1.</span> | <span class="number">3078.5</span>           . |</span><br><span class="line">  <span class="number">2.</span> | <span class="number">4661.7</span>           . |</span><br><span class="line">  <span class="number">3.</span> | <span class="number">5387.1</span>           . |</span><br><span class="line">  <span class="number">4.</span> | <span class="number">2792.2</span>           . |</span><br><span class="line">  <span class="number">5.</span> | <span class="number">4313.2</span>           . |</span><br><span class="line">     |--------------------|</span><br><span class="line">  <span class="number">6.</span> | <span class="number">4643.9</span>    <span class="number">725.3999</span> |</span><br><span class="line">  <span class="number">7.</span> | <span class="number">4551.2</span>    <span class="number">330.6997</span> |</span><br><span class="line">  <span class="number">8.</span> | <span class="number">3244.1</span>   <span class="number">-92.69971</span> |</span><br><span class="line">  <span class="number">9.</span> | <span class="number">4053.7</span>    <span class="number">330.6997</span> |</span><br><span class="line"> <span class="number">10.</span> | <span class="number">4379.3</span>    <span class="number">325.5999</span> |</span><br><span class="line">     +--------------------+</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Jackknife_estimation"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/35606/">Jackknife_estimation</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/35606/" class="article-date">
+	  <time datetime="2018-02-20T07:14:23.000Z" itemprop="datePublished">2018-02-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata编程导论/">Stata编程导论</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">. * Jackknife estimation</span><br><span class="line"></span><br><span class="line">. * Setup</span><br><span class="line"></span><br><span class="line">. sysuse auto</span><br><span class="line">(<span class="number">1978</span> Automobile Data)</span><br><span class="line"></span><br><span class="line">. * Jackknifed standard error of the sample mean</span><br><span class="line"></span><br><span class="line">. jackknife r(mean): summarize mpg</span><br><span class="line">(running summarize on estimation sample)</span><br><span class="line"></span><br><span class="line">Jackknife replications (<span class="number">74</span>)</span><br><span class="line">----+--- <span class="number">1</span> ---+--- <span class="number">2</span> ---+--- <span class="number">3</span> ---+--- <span class="number">4</span> ---+--- <span class="number">5</span></span><br><span class="line">..................................................    <span class="number">50</span></span><br><span class="line">........................</span><br><span class="line"></span><br><span class="line">Jackknife results                               Number of obs     =         <span class="number">74</span></span><br><span class="line">                                                Replications      =         <span class="number">74</span></span><br><span class="line"></span><br><span class="line">      command:  summarize mpg</span><br><span class="line">        _jk_1:  r(mean)</span><br><span class="line">          n():  r(N)</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">             |              Jackknife</span><br><span class="line">             |      Coef.   Std. Err.      t    P&gt;|t|     [<span class="number">95</span>% Conf. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">       _jk_1 |    <span class="number">21.2973</span>   <span class="number">.6725542</span>    <span class="number">31.67</span>   <span class="number">0.000</span>      <span class="number">19.9569</span>     <span class="number">22.6377</span></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">. * Jackknifed standard errors of the coefficients <span class="keyword">from</span> a regression</span><br><span class="line"></span><br><span class="line">. jackknife: regress mpg weight trunk</span><br><span class="line">(running regress on estimation sample)</span><br><span class="line"></span><br><span class="line">Jackknife replications (<span class="number">74</span>)</span><br><span class="line">----+--- <span class="number">1</span> ---+--- <span class="number">2</span> ---+--- <span class="number">3</span> ---+--- <span class="number">4</span> ---+--- <span class="number">5</span></span><br><span class="line">..................................................    <span class="number">50</span></span><br><span class="line">........................</span><br><span class="line"></span><br><span class="line">Linear regression                               Number of obs     =         <span class="number">74</span></span><br><span class="line">                                                Replications      =         <span class="number">74</span></span><br><span class="line">                                                F(   <span class="number">2</span>,     <span class="number">73</span>)   =      <span class="number">78.10</span></span><br><span class="line">                                                Prob &gt; F          =     <span class="number">0.0000</span></span><br><span class="line">                                                R-squared         =     <span class="number">0.6543</span></span><br><span class="line">                                                Adj R-squared     =     <span class="number">0.6446</span></span><br><span class="line">                                                Root MSE          =     <span class="number">3.4492</span></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">             |              Jackknife</span><br><span class="line">         mpg |      Coef.   Std. Err.      t    P&gt;|t|     [<span class="number">95</span>% Conf. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">      weight |  <span class="number">-.0056527</span>   <span class="number">.0010216</span>    <span class="number">-5.53</span>   <span class="number">0.000</span>    <span class="number">-.0076887</span>   <span class="number">-.0036167</span></span><br><span class="line">       trunk |   <span class="number">-.096229</span>   <span class="number">.1486236</span>    <span class="number">-0.65</span>   <span class="number">0.519</span>    <span class="number">-.3924354</span>    <span class="number">.1999773</span></span><br><span class="line">       _cons |   <span class="number">39.68913</span>   <span class="number">1.873324</span>    <span class="number">21.19</span>   <span class="number">0.000</span>      <span class="number">35.9556</span>    <span class="number">43.42266</span></span><br><span class="line">------------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-bootstrap_自助法"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/62972/">bootstrap_自助法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/62972/" class="article-date">
+	  <time datetime="2018-02-20T07:11:23.000Z" itemprop="datePublished">2018-02-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata编程导论/">Stata编程导论</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">. use bpress, clear</span><br><span class="line">(fictional blood-pressure data)</span><br><span class="line"></span><br><span class="line">. set seed <span class="number">6789</span></span><br><span class="line"></span><br><span class="line">. ttest bp, by(sex)</span><br><span class="line"></span><br><span class="line">Two-sample t test <span class="keyword">with</span> equal variances</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">   Group |     Obs        Mean    Std. Err.   Std. Dev.   [<span class="number">95</span>% Conf. Interval]</span><br><span class="line">---------+--------------------------------------------------------------------</span><br><span class="line">    Male |     <span class="number">120</span>    <span class="number">157.3917</span>    <span class="number">1.236031</span>    <span class="number">13.54004</span>    <span class="number">154.9442</span>    <span class="number">159.8391</span></span><br><span class="line">  Female |     <span class="number">120</span>    <span class="number">150.4167</span>    <span class="number">1.064357</span>    <span class="number">11.65944</span>    <span class="number">148.3091</span>    <span class="number">152.5242</span></span><br><span class="line">---------+--------------------------------------------------------------------</span><br><span class="line">combined |     <span class="number">240</span>    <span class="number">153.9042</span>    <span class="number">.8445493</span>     <span class="number">13.0837</span>    <span class="number">152.2405</span>    <span class="number">155.5679</span></span><br><span class="line">---------+--------------------------------------------------------------------</span><br><span class="line">    diff |               <span class="number">6.975</span>    <span class="number">1.631143</span>                <span class="number">3.761679</span>    <span class="number">10.18832</span></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">    diff = mean(Male) - mean(Female)                              t =   <span class="number">4.2761</span></span><br><span class="line">Ho: diff = <span class="number">0</span>                                     degrees of freedom =      <span class="number">238</span></span><br><span class="line"></span><br><span class="line">    Ha: diff &lt; <span class="number">0</span>                 Ha: diff != <span class="number">0</span>                 Ha: diff &gt; <span class="number">0</span></span><br><span class="line"> Pr(T &lt; t) = <span class="number">1.0000</span>         Pr(|T| &gt; |t|) = <span class="number">0.0000</span>          Pr(T &gt; t) = <span class="number">0.0000</span></span><br></pre></td></tr></table></figure>
+        <!-- 123456789101112131415161718192021222324. use bpress, clear(fictional blood-pressure data). set seed 6789. ttest bp, by(sex)Two-sample t test with equal variances------------------------------------......  -->
+        <p class="article-more-link">
+          <a href="../../posts/62972/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-蒙特卡洛模拟_simulate"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/40741/">蒙特卡洛模拟_simulate</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/40741/" class="article-date">
+	  <time datetime="2018-02-20T07:10:23.000Z" itemprop="datePublished">2018-02-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata编程导论/">Stata编程导论</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">. * 蒙特卡洛模拟</span><br><span class="line"></span><br><span class="line">. cap prog drop simpctile</span><br><span class="line"></span><br><span class="line">. prog simpctile, rclass</span><br><span class="line">  <span class="number">1.</span> version <span class="number">14.0</span></span><br><span class="line">  <span class="number">2.</span> drop _all</span><br><span class="line">  <span class="number">3.</span> set obs <span class="number">200</span></span><br><span class="line">  <span class="number">4.</span> gen z = invnormal(runiform())</span><br><span class="line">  <span class="number">5.</span> sum z, d</span><br><span class="line">  <span class="number">6.</span> ret scalar p25 = r(p25)</span><br><span class="line">  <span class="number">7.</span> ret scalar p50 = r(p50)</span><br><span class="line">  <span class="number">8.</span> ret scalar p75 = r(p75)</span><br><span class="line">  <span class="number">9.</span> end</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. set seed <span class="number">234567</span></span><br><span class="line"></span><br><span class="line">. simulate p25 = r(p25) p50 = r(p50) p75 = r(p75), reps(<span class="number">1000</span>) nodots saving(pctile</span><br><span class="line">&gt; s, replace): simpctile</span><br><span class="line"></span><br><span class="line">      command:  simpctile</span><br><span class="line">          p25:  r(p25)</span><br><span class="line">          p50:  r(p50)</span><br><span class="line">          p75:  r(p75)</span><br></pre></td></tr></table></figure>
+        <!-- 1234567891011121314151617181920212223242526. * 蒙特卡洛模拟. cap prog drop simpctile. prog simpctile, rclass  1. version 14.0  2. drop _all  3. set obs 200  4. gen z = invnormal(runiform())  5. sum z, d ......  -->
+        <p class="article-more-link">
+          <a href="../../posts/40741/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../82/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../81/">81</a><a class="page-number" href="../82/">82</a><span class="page-number current">83</span><a class="page-number" href="../84/">84</a><a class="page-number" href="../85/">85</a><span class="space">&hellip;</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../84/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

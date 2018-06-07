@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/56/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-gen_apport_席位分摊函数"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/34771/">egen_apport_席位分摊函数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/34771/" class="article-date">
+	  <time datetime="2018-05-17T17:08:23.000Z" itemprop="datePublished">2018-05-18</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">* 席位分摊函数</span><br><span class="line">* net install st0265.pkg, <span class="keyword">from</span>(<span class="string">"http://www.stata-journal.com/software/sj12-3/"</span>)</span><br><span class="line">* net get st0265.pkg, <span class="keyword">from</span>(<span class="string">"http://www.stata-journal.com/software/sj12-3/"</span>)</span><br><span class="line"></span><br><span class="line">cuse uspop, clear</span><br><span class="line">save uspop, replace</span><br><span class="line">* 原来use还可以这么用！</span><br><span class="line">use uspop <span class="keyword">if</span> year == <span class="number">1790</span></span><br><span class="line">* 按照人口数使用汉密尔顿方法将<span class="number">105</span>个席位分摊给各个州</span><br><span class="line">egen ham = apport(pop), method(hamilton) size(<span class="number">105</span>)</span><br><span class="line">gen sumham = sum(ham)</span><br><span class="line">egen sumham1 = sum(ham)</span><br><span class="line">egen sumham2 = total(ham)</span><br><span class="line">* 默认使用Jefferson方法</span><br><span class="line">egen jeff = apport(pop), size(<span class="number">105</span>)</span><br><span class="line"></span><br><span class="line">cuse uspop, clear</span><br><span class="line">by year: egen jeff = apport(pop), method(jefferson) size(size)</span><br><span class="line">erase uspop.dta</span><br></pre></td></tr></table></figure>
+<h3 id="代码运行结果"><a href="#代码运行结果" class="headerlink" title="代码运行结果"></a>代码运行结果</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  ___  ____  ____  ____  ____ (R)</span><br><span class="line"> /__    /   ____/   /   ____/</span><br><span class="line">___/   /   /___/   /   /___/   <span class="number">15.1</span>   Copyright <span class="number">1985</span><span class="number">-2017</span> StataCorp LLC</span><br><span class="line">  Statistics/Data Analysis            StataCorp</span><br><span class="line">                                      <span class="number">4905</span> Lakeway Drive</span><br><span class="line">     Special Edition                  College Station, Texas <span class="number">77845</span> USA</span><br><span class="line">                                      <span class="number">800</span>-STATA-PC        http://www.stata.com</span><br><span class="line">                                      <span class="number">979</span><span class="number">-696</span><span class="number">-4600</span>        stata@stata.com</span><br><span class="line">                                      <span class="number">979</span><span class="number">-696</span><span class="number">-4601</span> (fax)</span><br><span class="line"></span><br><span class="line"><span class="number">100</span>-student Stata lab perpetual license:</span><br><span class="line">       Serial number:  <span class="number">401506209499</span></span><br><span class="line">         Licensed to:  程振兴</span><br><span class="line">                       暨南大学</span><br><span class="line"></span><br><span class="line">Notes:</span><br><span class="line">      <span class="number">1.</span>  Unicode <span class="keyword">is</span> supported; see help unicode_advice.</span><br><span class="line">      <span class="number">2.</span>  Maximum number of variables <span class="keyword">is</span> set to <span class="number">32767</span>; see help set_maxvar.</span><br><span class="line"></span><br><span class="line">. * 席位分摊函数</span><br><span class="line"></span><br><span class="line">. * net install st0265.pkg, <span class="keyword">from</span>(<span class="string">"http://www.stata-journal.com/software/sj12-3/"</span>)</span><br><span class="line"></span><br><span class="line">. * net get st0265.pkg, <span class="keyword">from</span>(<span class="string">"http://www.stata-journal.com/software/sj12-3/"</span>)</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. cuse uspop, clear</span><br><span class="line">(Balinsky (<span class="number">1982</span>: <span class="number">158</span><span class="number">-176</span>))</span><br><span class="line"></span><br><span class="line">. save uspop, replace</span><br><span class="line">(note: file uspop.dta <span class="keyword">not</span> found)</span><br><span class="line">file uspop.dta saved</span><br><span class="line"></span><br><span class="line">. * 原来use还可以这么用！</span><br><span class="line"></span><br><span class="line">. use uspop <span class="keyword">if</span> year == <span class="number">1790</span></span><br><span class="line">(Balinsky (<span class="number">1982</span>: <span class="number">158</span><span class="number">-176</span>))</span><br><span class="line"></span><br><span class="line">. * 按照人口数使用汉密尔顿方法将<span class="number">105</span>个席位分摊给各个州</span><br><span class="line"></span><br><span class="line">. egen ham = apport(pop), method(hamilton) size(<span class="number">105</span>)</span><br><span class="line">Seat goes to stronger party; consider option -raffle-</span><br><span class="line"></span><br><span class="line">. gen sumham = sum(ham)</span><br><span class="line"></span><br><span class="line">. egen sumham1 = sum(ham)</span><br><span class="line"></span><br><span class="line">. egen sumham2 = total(ham)</span><br><span class="line"></span><br><span class="line">. * 默认使用Jefferson方法</span><br><span class="line"></span><br><span class="line">. egen jeff = apport(pop), size(<span class="number">105</span>)</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. cuse uspop, clear</span><br><span class="line">(Balinsky (<span class="number">1982</span>: <span class="number">158</span><span class="number">-176</span>))</span><br><span class="line"></span><br><span class="line">. by year: egen jeff = apport(pop), method(jefferson) size(size)</span><br><span class="line"></span><br><span class="line">. erase uspop.dta</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-因变量与每个独立变量的二元关联，可以产生变量的描述性统计表格和VIF等"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/1433/">因变量与每个独立变量的二元关联，可以产生变量的描述性统计表格和VIF等</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/1433/" class="article-date">
+	  <time datetime="2018-05-17T17:08:23.000Z" itemprop="datePublished">2018-05-18</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">* net install bivariate.pkg, <span class="keyword">from</span>(<span class="string">"http://digital.cgdev.org/doc/stata/MO/Misc/"</span>)</span><br><span class="line">* h bivariate</span><br><span class="line">* 因变量与每个独立变量的二元关联，可以产生变量的描述性统计表格和VIF等</span><br><span class="line">* Setup</span><br><span class="line">sysuse auto, clear</span><br><span class="line">bivariate price weight mpg rep78 foreign, tabstat obsgain</span><br><span class="line">* 更美观的表格显示</span><br><span class="line">frmttable , statmat(r(TransposedST))</span><br><span class="line">frmttable , statmat(r(bivariate))</span><br><span class="line">* 下面的命令可以产生相同的结果</span><br><span class="line">regress price weight mpg rep78 foreign</span><br><span class="line">gen byte insample = e(sample)</span><br><span class="line">summ price weight mpg rep78 <span class="keyword">if</span> insample</span><br><span class="line">tab foreign <span class="keyword">if</span> insample, sum(price)</span><br><span class="line"></span><br><span class="line">* 不显示VIF</span><br><span class="line">bivariate price weight mpg rep78 foreign, novif</span><br><span class="line">* frmttable 命令可以将表格输出至word文件</span><br><span class="line">frmttable using word, replace statmat(r(bivariate)) rtitles(<span class="string">"Vehicle weight"</span> \ <span class="string">"Miles per gallon"</span> \ <span class="string">"Repair record"</span> \ <span class="string">"Foreign or domestic"</span>) sdec(<span class="number">3</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">0</span>) title(<span class="string">"Table _. Bivariate relationships between vehicle price and each independent variables"</span>)</span><br><span class="line">* 也可以制定统计量</span><br><span class="line">bivariate price weight mpg rep78, group(foreign) groupstats(n mean sd)</span><br><span class="line">matrix list r(grouptab)</span><br><span class="line">frmttable, statmat(r(grouptab))</span><br><span class="line">frmttable, statmat(r(frmttable)) substat(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="代码运行结果"><a href="#代码运行结果" class="headerlink" title="代码运行结果"></a>代码运行结果</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">. * net install bivariate.pkg, <span class="keyword">from</span>(<span class="string">"http://digital.cgdev.org/doc/stata/MO/Misc/"</span>)</span><br><span class="line"></span><br><span class="line">. * h bivariate</span><br><span class="line"></span><br><span class="line">. * 因变量与每个独立变量的二元关联，可以产生变量的描述性统计表格和VIF等</span><br><span class="line"></span><br><span class="line">. * Setup</span><br><span class="line"></span><br><span class="line">. sysuse auto, clear</span><br><span class="line">(<span class="number">1978</span> Automobile Data)</span><br><span class="line"></span><br><span class="line">. bivariate price weight mpg rep78 foreign, tabstat obsgain</span><br><span class="line"></span><br><span class="line">Summary of the bivariate relationships between the dependent variable: price</span><br><span class="line"> <span class="keyword">and</span> each of the independent variables: weight mpg rep78 foreign</span><br><span class="line"></span><br><span class="line">Casewise deletion deletes : <span class="number">5</span> observations.</span><br><span class="line"></span><br><span class="line">The analysis uses : <span class="number">69</span> observations.</span><br><span class="line">The variance inflation factor <span class="keyword">is</span>: Centered</span><br><span class="line">Without the variable rep78 nobs <span class="keyword">is</span>: <span class="number">74</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Bivariate table <span class="keyword">for</span> the dependent variable: price</span><br><span class="line"></span><br><span class="line">             | Correla~n    For D=<span class="number">0</span>    For D=<span class="number">1</span>     t-stat    p-value        VIF  Obs Gai~d</span><br><span class="line">-------------+-----------------------------------------------------------------------------</span><br><span class="line">      weight |  <span class="number">.5478396</span>          .          .   <span class="number">5.360207</span>   <span class="number">1.10e-06</span>   <span class="number">4.087574</span>          <span class="number">0</span></span><br><span class="line">         mpg |  <span class="number">-.455949</span>          .          .  <span class="number">-4.193346</span>   <span class="number">.0000825</span>   <span class="number">3.104604</span>          <span class="number">0</span></span><br><span class="line">       rep78 |  <span class="number">.0065533</span>          .          .    <span class="number">.053642</span>     <span class="number">.95738</span>    <span class="number">1.64413</span>          <span class="number">5</span></span><br><span class="line">     foreign |         .    <span class="number">6179.25</span>   <span class="number">6070.143</span>  <span class="number">-.1421511</span>   <span class="number">.8873872</span>    <span class="number">2.36932</span>          <span class="number">0</span></span><br><span class="line"></span><br><span class="line">If Gallup<span class="string">'s -frmttable- is installed, click here:</span></span><br><span class="line"><span class="string">    frmttable , statmat(r(bivariate))</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Option -tabstat-:</span></span><br><span class="line"><span class="string">Descriptive statistics on the dependent and the independent variables:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">             |      mean        p50         sd         cv        min        max   skewness</span></span><br><span class="line"><span class="string">-------------+-----------------------------------------------------------------------------</span></span><br><span class="line"><span class="string">       price |  6146.043       5079    2912.44   .4738724       3291      15906   1.687968</span></span><br><span class="line"><span class="string">      weight |  3032.029       3200   792.8515   .2614921       1760       4840   .1180643</span></span><br><span class="line"><span class="string">         mpg |  21.28986         20   5.866408   .2755495         12         41   .9953495</span></span><br><span class="line"><span class="string">       rep78 |  3.405797          3   .9899323    .290661          1          5  -.0570331</span></span><br><span class="line"><span class="string">     foreign |  .3043478          0   .4635016   1.522934          0          1   .8504201</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">If Gallup'</span>s -frmttable- <span class="keyword">is</span> installed, click here:</span><br><span class="line">    frmttable , statmat(r(TransposedST))</span><br><span class="line"></span><br><span class="line">. * 更美观的表格显示</span><br><span class="line"></span><br><span class="line">. frmttable , statmat(r(TransposedST))</span><br><span class="line"></span><br><span class="line">                               ------------------------------------------------------------------------------</span><br><span class="line">                                            mean      p50        sd      cv     min        max     skewness</span><br><span class="line">                               ------------------------------------------------------------------------------</span><br><span class="line">                                price     <span class="number">6</span>,<span class="number">146.04</span>  <span class="number">5</span>,<span class="number">079.00</span>  <span class="number">2</span>,<span class="number">912.44</span>  <span class="number">0.47</span>  <span class="number">3</span>,<span class="number">291.00</span>  <span class="number">15</span>,<span class="number">906.00</span>    <span class="number">1.69</span></span><br><span class="line">                                weight    <span class="number">3</span>,<span class="number">032.03</span>  <span class="number">3</span>,<span class="number">200.00</span>   <span class="number">792.85</span>   <span class="number">0.26</span>  <span class="number">1</span>,<span class="number">760.00</span>  <span class="number">4</span>,<span class="number">840.00</span>     <span class="number">0.12</span></span><br><span class="line">                                mpg        <span class="number">21.29</span>     <span class="number">20.00</span>      <span class="number">5.87</span>    <span class="number">0.28</span>   <span class="number">12.00</span>      <span class="number">41.00</span>      <span class="number">1.00</span></span><br><span class="line">                                rep78       <span class="number">3.41</span>      <span class="number">3.00</span>      <span class="number">0.99</span>    <span class="number">0.29</span>    <span class="number">1.00</span>      <span class="number">5.00</span>      <span class="number">-0.06</span></span><br><span class="line">                                foreign     <span class="number">0.30</span>      <span class="number">0.00</span>      <span class="number">0.46</span>    <span class="number">1.52</span>    <span class="number">0.00</span>      <span class="number">1.00</span>       <span class="number">0.85</span></span><br><span class="line">                               ------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">. frmttable , statmat(r(bivariate))</span><br><span class="line"></span><br><span class="line">                              -------------------------------------------------------------------------------</span><br><span class="line">                                         Correlation  For D=<span class="number">0</span>   For D=<span class="number">1</span>   t-stat  p-value  VIF   Obs Gained</span><br><span class="line">                              -------------------------------------------------------------------------------</span><br><span class="line">                               weight       <span class="number">0.55</span>                           <span class="number">5.36</span>    <span class="number">0.00</span>    <span class="number">4.09</span>     <span class="number">0.00</span></span><br><span class="line">                               mpg          <span class="number">-0.46</span>                         <span class="number">-4.19</span>    <span class="number">0.00</span>    <span class="number">3.10</span>     <span class="number">0.00</span></span><br><span class="line">                               rep78        <span class="number">0.01</span>                           <span class="number">0.05</span>    <span class="number">0.96</span>    <span class="number">1.64</span>     <span class="number">5.00</span></span><br><span class="line">                               foreign                <span class="number">6</span>,<span class="number">179.25</span>  <span class="number">6</span>,<span class="number">070.14</span>  <span class="number">-0.14</span>    <span class="number">0.89</span>    <span class="number">2.37</span>     <span class="number">0.00</span></span><br><span class="line">                              -------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">. * 下面的命令可以产生相同的结果</span><br><span class="line"></span><br><span class="line">. regress price weight mpg rep78 foreign</span><br><span class="line"></span><br><span class="line">      Source |       SS           df       MS      Number of obs   =        <span class="number">69</span></span><br><span class="line">-------------+----------------------------------   F(<span class="number">4</span>, <span class="number">64</span>)        =     <span class="number">15.82</span></span><br><span class="line">       Model |   <span class="number">286761158</span>         <span class="number">4</span>  <span class="number">71690289.6</span>   Prob &gt; F        =    <span class="number">0.0000</span></span><br><span class="line">    Residual |   <span class="number">290035800</span>        <span class="number">64</span>  <span class="number">4531809.38</span>   R-squared       =    <span class="number">0.4972</span></span><br><span class="line">-------------+----------------------------------   Adj R-squared   =    <span class="number">0.4657</span></span><br><span class="line">       Total |   <span class="number">576796959</span>        <span class="number">68</span>  <span class="number">8482308.22</span>   Root MSE        =    <span class="number">2128.8</span></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">       price |      Coef.   Std. Err.      t    P&gt;|t|     [<span class="number">95</span>% Conf. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">      weight |   <span class="number">3.565247</span>   <span class="number">.6582976</span>     <span class="number">5.42</span>   <span class="number">0.000</span>     <span class="number">2.250146</span>    <span class="number">4.880347</span></span><br><span class="line">         mpg |   <span class="number">27.32371</span>   <span class="number">77.53757</span>     <span class="number">0.35</span>   <span class="number">0.726</span>    <span class="number">-127.5754</span>    <span class="number">182.2228</span></span><br><span class="line">       rep78 |   <span class="number">121.1322</span>   <span class="number">334.3828</span>     <span class="number">0.36</span>   <span class="number">0.718</span>    <span class="number">-546.8742</span>    <span class="number">789.1387</span></span><br><span class="line">     foreign |   <span class="number">3520.324</span>    <span class="number">857.318</span>     <span class="number">4.11</span>   <span class="number">0.000</span>     <span class="number">1807.634</span>    <span class="number">5233.013</span></span><br><span class="line">       _cons |   <span class="number">-6729.56</span>   <span class="number">3450.835</span>    <span class="number">-1.95</span>   <span class="number">0.056</span>     <span class="number">-13623.4</span>    <span class="number">164.2752</span></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">. gen byte insample = e(sample)</span><br><span class="line"></span><br><span class="line">. summ price weight mpg rep78 <span class="keyword">if</span> insample</span><br><span class="line"></span><br><span class="line">    Variable |        Obs        Mean    Std. Dev.       Min        Max</span><br><span class="line">-------------+---------------------------------------------------------</span><br><span class="line">       price |         <span class="number">69</span>    <span class="number">6146.043</span>     <span class="number">2912.44</span>       <span class="number">3291</span>      <span class="number">15906</span></span><br><span class="line">      weight |         <span class="number">69</span>    <span class="number">3032.029</span>    <span class="number">792.8515</span>       <span class="number">1760</span>       <span class="number">4840</span></span><br><span class="line">         mpg |         <span class="number">69</span>    <span class="number">21.28986</span>    <span class="number">5.866408</span>         <span class="number">12</span>         <span class="number">41</span></span><br><span class="line">       rep78 |         <span class="number">69</span>    <span class="number">3.405797</span>    <span class="number">.9899323</span>          <span class="number">1</span>          <span class="number">5</span></span><br><span class="line"></span><br><span class="line">. tab foreign <span class="keyword">if</span> insample, sum(price)</span><br><span class="line"></span><br><span class="line">            |          Summary of Price</span><br><span class="line">   Car type |        Mean   Std. Dev.       Freq.</span><br><span class="line">------------+------------------------------------</span><br><span class="line">   Domestic |    <span class="number">6</span>,<span class="number">179.25</span>   <span class="number">3</span>,<span class="number">188.969</span>          <span class="number">48</span></span><br><span class="line">    Foreign |   <span class="number">6</span>,<span class="number">070.143</span>   <span class="number">2</span>,<span class="number">220.984</span>          <span class="number">21</span></span><br><span class="line">------------+------------------------------------</span><br><span class="line">      Total |   <span class="number">6</span>,<span class="number">146.043</span>    <span class="number">2</span>,<span class="number">912.44</span>          <span class="number">69</span></span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. * 不显示VIF</span><br><span class="line"></span><br><span class="line">. bivariate price weight mpg rep78 foreign, novif</span><br><span class="line"></span><br><span class="line">Summary of the bivariate relationships between the dependent variable: price</span><br><span class="line"> <span class="keyword">and</span> each of the independent variables: weight mpg rep78 foreign</span><br><span class="line"></span><br><span class="line">Casewise deletion deletes : <span class="number">5</span> observations.</span><br><span class="line"></span><br><span class="line">The analysis uses : <span class="number">69</span> observations.</span><br><span class="line">The variance inflation factor <span class="keyword">is</span>: Suppressed</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Bivariate table <span class="keyword">for</span> the dependent variable: price</span><br><span class="line"></span><br><span class="line">             | Correla~n    For D=<span class="number">0</span>    For D=<span class="number">1</span>     t-stat    p-value</span><br><span class="line">-------------+-------------------------------------------------------</span><br><span class="line">      weight |  <span class="number">.5478396</span>          .          .   <span class="number">5.360207</span>   <span class="number">1.10e-06</span></span><br><span class="line">         mpg |  <span class="number">-.455949</span>          .          .  <span class="number">-4.193346</span>   <span class="number">.0000825</span></span><br><span class="line">       rep78 |  <span class="number">.0065533</span>          .          .    <span class="number">.053642</span>     <span class="number">.95738</span></span><br><span class="line">     foreign |         .    <span class="number">6179.25</span>   <span class="number">6070.143</span>  <span class="number">-.1421511</span>   <span class="number">.8873872</span></span><br><span class="line"></span><br><span class="line">If Gallup<span class="string">'s -frmttable- is installed, click here:</span></span><br><span class="line"><span class="string">    frmttable , statmat(r(bivariate))</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. * frmttable 命令可以将表格输出至word文件</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. frmttable using word, replace statmat(r(bivariate)) rtitles("Vehicle weight" \ "Miles per gallon" \ "Repair record" \ "Foreign or domestic</span></span><br><span class="line"><span class="string">&gt; ") sdec(3,0,0,2,3,1,0) title("Table _. Bivariate relationships between vehicle price and each independent variables")</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">                           Table _. Bivariate relationships between vehicle price and each independent variables</span></span><br><span class="line"><span class="string">                                  -----------------------------------------------------------------------</span></span><br><span class="line"><span class="string">                                                         Correlation  For D=0  For D=1  t-stat  p-value</span></span><br><span class="line"><span class="string">                                  -----------------------------------------------------------------------</span></span><br><span class="line"><span class="string">                                   Vehicle weight           0.548                        5.36    0.000</span></span><br><span class="line"><span class="string">                                   Miles per gallon        -0.456                       -4.19    0.000</span></span><br><span class="line"><span class="string">                                   Repair record            0.007                        0.05    0.957</span></span><br><span class="line"><span class="string">                                   Foreign or domestic                 6,179    6,070   -0.14    0.887</span></span><br><span class="line"><span class="string">                                  -----------------------------------------------------------------------</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. * 也可以制定统计量</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. bivariate price weight mpg rep78, group(foreign) groupstats(n mean sd)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Summary of the bivariate relationships between the dependent variable: price</span></span><br><span class="line"><span class="string"> and each of the independent variables: weight mpg rep78</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Casewise deletion deletes : 5 observations.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">The analysis uses : 69 observations.</span></span><br><span class="line"><span class="string">The variance inflation factor is: Centered</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Bivariate table for the dependent variable: price</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">             | Correla~n     t-stat    p-value        VIF</span></span><br><span class="line"><span class="string">-------------+--------------------------------------------</span></span><br><span class="line"><span class="string">      weight |  .5478396   5.360207   1.10e-06   2.905282</span></span><br><span class="line"><span class="string">         mpg |  -.455949  -4.193346   .0000825   2.910836</span></span><br><span class="line"><span class="string">       rep78 |  .0065533    .053642     .95738   1.217191</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">If Gallup'</span>s -frmttable- <span class="keyword">is</span> installed, click here:</span><br><span class="line">    frmttable , statmat(r(bivariate))</span><br><span class="line"></span><br><span class="line">Estimation sample discrim lda</span><br><span class="line">Summarized by foreign</span><br><span class="line"></span><br><span class="line">               | foreign</span><br><span class="line">               |  Domestic    Foreign |     Total</span><br><span class="line">  -------------+----------------------+----------</span><br><span class="line">  price        |                      |</span><br><span class="line">          Mean |   <span class="number">6179.25</span>   <span class="number">6070.143</span> |  <span class="number">6146.043</span></span><br><span class="line">       Std dev |  <span class="number">3188.969</span>   <span class="number">2220.984</span> |   <span class="number">2912.44</span></span><br><span class="line">  -------------+----------------------+----------</span><br><span class="line">  weight       |                      |</span><br><span class="line">          Mean |  <span class="number">3368.333</span>   <span class="number">2263.333</span> |  <span class="number">3032.029</span></span><br><span class="line">       Std dev |  <span class="number">688.0108</span>   <span class="number">364.7099</span> |  <span class="number">792.8515</span></span><br><span class="line">  -------------+----------------------+----------</span><br><span class="line">  mpg          |                      |</span><br><span class="line">          Mean |  <span class="number">19.54167</span>   <span class="number">25.28571</span> |  <span class="number">21.28986</span></span><br><span class="line">       Std dev |  <span class="number">4.753312</span>   <span class="number">6.309856</span> |  <span class="number">5.866408</span></span><br><span class="line">  -------------+----------------------+----------</span><br><span class="line">  rep78        |                      |</span><br><span class="line">          Mean |  <span class="number">3.020833</span>   <span class="number">4.285714</span> |  <span class="number">3.405797</span></span><br><span class="line">       Std dev |   <span class="number">.837666</span>   <span class="number">.7171372</span> |  <span class="number">.9899323</span></span><br><span class="line">  -------------+----------------------+----------</span><br><span class="line">               |                      |</span><br><span class="line">             N |        <span class="number">48</span>         <span class="number">21</span> |        <span class="number">69</span></span><br><span class="line"></span><br><span class="line">Statistics by group available <span class="keyword">in</span> the matrix r(grouptab)</span><br><span class="line"></span><br><span class="line">             | Domestic             | Foreign</span><br><span class="line">             |      mean         sd |      mean         sd</span><br><span class="line">-------------+----------------------+----------------------</span><br><span class="line">       price |   <span class="number">6179.25</span>   <span class="number">3188.969</span> |  <span class="number">6070.143</span>   <span class="number">2220.984</span></span><br><span class="line">      weight |  <span class="number">3368.333</span>   <span class="number">688.0108</span> |  <span class="number">2263.333</span>   <span class="number">364.7099</span></span><br><span class="line">         mpg |  <span class="number">19.54167</span>   <span class="number">4.753312</span> |  <span class="number">25.28571</span>   <span class="number">6.309856</span></span><br><span class="line">       rep78 |  <span class="number">3.020833</span>    <span class="number">.837666</span> |  <span class="number">4.285714</span>   <span class="number">.7171372</span></span><br><span class="line"></span><br><span class="line">If Gallup<span class="string">'s -frmttable- is installed, click on one of the following links:</span></span><br><span class="line"><span class="string">    frmttable , statmat(r(grouptab))</span></span><br><span class="line"><span class="string">    frmttable , statmat(r(frmttable)) note(Statistics are -- mean sd) substat(1)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. matrix list r(grouptab)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">r(grouptab)[4,4]</span></span><br><span class="line"><span class="string">         Domestic:  Domestic:   Foreign:   Foreign:</span></span><br><span class="line"><span class="string">             mean         sd       mean         sd</span></span><br><span class="line"><span class="string"> price    6179.25  3188.9693  6070.1429  2220.9835</span></span><br><span class="line"><span class="string">weight  3368.3333   688.0108  2263.3333  364.70993</span></span><br><span class="line"><span class="string">   mpg  19.541667  4.7533116  25.285714  6.3098562</span></span><br><span class="line"><span class="string"> rep78  3.0208333  .83766604  4.2857143  .71713717</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. frmttable, statmat(r(grouptab))</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">                                             --------------------------------------------------</span></span><br><span class="line"><span class="string">                                                       Domestic  Domestic  Foreign   Foreign</span></span><br><span class="line"><span class="string">                                                         mean       sd       mean       sd</span></span><br><span class="line"><span class="string">                                             --------------------------------------------------</span></span><br><span class="line"><span class="string">                                              price    6,179.25  3,188.97  6,070.14  2,220.98</span></span><br><span class="line"><span class="string">                                              weight   3,368.33   688.01   2,263.33   364.71</span></span><br><span class="line"><span class="string">                                              mpg       19.54      4.75     25.29      6.31</span></span><br><span class="line"><span class="string">                                              rep78      3.02      0.84      4.29      0.72</span></span><br><span class="line"><span class="string">                                             --------------------------------------------------</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. frmttable, statmat(r(frmttable)) substat(1)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">                                                     ----------------------------------</span></span><br><span class="line"><span class="string">                                                                Domestic    Foreign</span></span><br><span class="line"><span class="string">                                                     ----------------------------------</span></span><br><span class="line"><span class="string">                                                      price     6,179.25    6,070.14</span></span><br><span class="line"><span class="string">                                                               (3,188.97)  (2,220.98)</span></span><br><span class="line"><span class="string">                                                      weight    3,368.33    2,263.33</span></span><br><span class="line"><span class="string">                                                                (688.01)    (364.71)</span></span><br><span class="line"><span class="string">                                                      mpg        19.54       25.29</span></span><br><span class="line"><span class="string">                                                                 (4.75)      (6.31)</span></span><br><span class="line"><span class="string">                                                      rep78       3.02        4.29</span></span><br><span class="line"><span class="string">                                                                 (0.84)      (0.72)</span></span><br><span class="line"><span class="string">                                                     ----------------------------------</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Stata+ECharts：世界各国人口性别比地图绘制"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/51602/">Stata+ECharts：世界各国人口性别比地图绘制</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/51602/" class="article-date">
+	  <time datetime="2018-05-17T06:17:23.000Z" itemprop="datePublished">2018-05-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/nr/raw/master/世界各国人口性别比地图.png" alt=""></p>
+        <!-- 
+
+Stata绘制代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979......  -->
+        <p class="article-more-link">
+          <a href="../../posts/51602/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/ECharts/">ECharts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-expgen——按照某个变量扩展数据集"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/28906/">expgen——按照某个变量扩展数据集</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/28906/" class="article-date">
+	  <time datetime="2018-05-17T05:49:23.000Z" itemprop="datePublished">2018-05-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">* net install expgen.pkg, <span class="keyword">from</span>(<span class="string">"http://fmwww.bc.edu/RePEc/bocode/e/"</span>)</span><br><span class="line"></span><br><span class="line">* 按照某个变量扩展数据集</span><br><span class="line">sysuse auto, clear</span><br><span class="line">sort foreign make</span><br><span class="line">keep <span class="keyword">in</span> <span class="number">1</span>/<span class="number">3</span></span><br><span class="line">expgen nreps=rep78, copy(repseq) sortedby(unique) order</span><br><span class="line"></span><br><span class="line">* 下面的例子使用census数据集，将数据集扩展四倍然后使用age :</span><br><span class="line"></span><br><span class="line">sysuse census, clear</span><br><span class="line">expgen = <span class="number">4</span>, copy(agegp)</span><br><span class="line">lab <span class="function"><span class="keyword">def</span> <span class="title">agegp</span> 1 "0-4" 2 "5-17" 3 "18-64" 4 "65+"</span></span><br><span class="line"><span class="function"><span class="title">lab</span> <span class="title">val</span> <span class="title">agegp</span> <span class="title">agegp</span></span></span><br><span class="line">gene popul = (agegp==1)*poplt5 + (agegp==2)*pop5_17 + (agegp==3)*(pop18p-pop65p) + (agegp==4)*pop65p</span><br><span class="line">drop pop poplt5 pop5_17 pop18p pop65p</span><br><span class="line">desc</span><br><span class="line">list state agegp popul</span><br></pre></td></tr></table></figure>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">. * 按照某个变量扩展数据集</span><br><span class="line"></span><br><span class="line">. sysuse auto, clear</span><br><span class="line">(<span class="number">1978</span> Automobile Data)</span><br><span class="line"></span><br><span class="line">. sort foreign make</span><br><span class="line"></span><br><span class="line">. keep <span class="keyword">in</span> <span class="number">1</span>/<span class="number">3</span></span><br><span class="line">(<span class="number">71</span> observations deleted)</span><br><span class="line"></span><br><span class="line">. expgen nreps=rep78, copy(repseq) sortedby(unique) order</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. * 下面的例子使用census数据集，将数据集扩展四倍然后使用age :</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. sysuse census, clear</span><br><span class="line">(<span class="number">1980</span> Census data by state)</span><br><span class="line"></span><br><span class="line">. expgen = <span class="number">4</span>, copy(agegp)</span><br><span class="line"></span><br><span class="line">. lab <span class="function"><span class="keyword">def</span> <span class="title">agegp</span> 1 "0-4" 2 "5-17" 3 "18-64" 4 "65+"</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">. <span class="title">lab</span> <span class="title">val</span> <span class="title">agegp</span> <span class="title">agegp</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line">. gene popul = (agegp==1)*poplt5 + (agegp==2)*pop5_17 + (agegp==3)*(pop18p-pop65p) + (ag</span><br><span class="line">&gt; egp==<span class="number">4</span>)*pop65p</span><br><span class="line"></span><br><span class="line">. drop pop poplt5 pop5_17 pop18p pop65p</span><br><span class="line"></span><br><span class="line">. desc</span><br><span class="line"></span><br><span class="line">Contains data <span class="keyword">from</span> /Applications/Stata/ado/base/c/census.dta</span><br><span class="line">  obs:           <span class="number">200</span>                          <span class="number">1980</span> Census data by state</span><br><span class="line"> vars:            <span class="number">10</span>                          <span class="number">6</span> Apr <span class="number">2016</span> <span class="number">15</span>:<span class="number">43</span></span><br><span class="line"> size:         <span class="number">8</span>,<span class="number">600</span>                          </span><br><span class="line">----------------------------------------------------------------------------------------</span><br><span class="line">              storage   display    value</span><br><span class="line">variable name   type    format     label      variable label</span><br><span class="line">----------------------------------------------------------------------------------------</span><br><span class="line">state           str14   %<span class="number">-14</span>s                 State</span><br><span class="line">state2          str2    %<span class="number">-2</span>s                  Two-letter state abbreviation</span><br><span class="line">region          int     %<span class="number">-8.0</span>g     cenreg     Census region</span><br><span class="line">popurban        long    %<span class="number">12.0</span>gc               Urban population</span><br><span class="line">medage          float   %<span class="number">9.2</span>f                 Median age</span><br><span class="line">death           long    %<span class="number">12.0</span>gc               Number of deaths</span><br><span class="line">marriage        long    %<span class="number">12.0</span>gc               Number of marriages</span><br><span class="line">divorce         long    %<span class="number">12.0</span>gc               Number of divorces</span><br><span class="line">agegp           byte    %<span class="number">12.0</span>g     agegp      Copy order <span class="keyword">in</span> dataset output by expgen</span><br><span class="line">popul           float   %<span class="number">9.0</span>g                 </span><br><span class="line">----------------------------------------------------------------------------------------</span><br><span class="line">Sorted by:</span><br><span class="line">     Note: Dataset has changed since last saved.</span><br><span class="line"></span><br><span class="line">. list state agegp popul <span class="keyword">in</span> <span class="number">1</span>/<span class="number">20</span></span><br><span class="line"></span><br><span class="line">     +-------------------------------+</span><br><span class="line">     | state        agegp      popul |</span><br><span class="line">     |-------------------------------|</span><br><span class="line">  <span class="number">1.</span> | Alabama        <span class="number">0</span><span class="number">-4</span>     <span class="number">296412</span> |</span><br><span class="line">  <span class="number">2.</span> | Alabama       <span class="number">5</span><span class="number">-17</span>     <span class="number">865836</span> |</span><br><span class="line">  <span class="number">3.</span> | Alabama      <span class="number">18</span><span class="number">-64</span>    <span class="number">2291625</span> |</span><br><span class="line">  <span class="number">4.</span> | Alabama        <span class="number">65</span>+     <span class="number">440015</span> |</span><br><span class="line">  <span class="number">5.</span> | Alaska         <span class="number">0</span><span class="number">-4</span>      <span class="number">38949</span> |</span><br><span class="line">     |-------------------------------|</span><br><span class="line">  <span class="number">6.</span> | Alaska        <span class="number">5</span><span class="number">-17</span>      <span class="number">91796</span> |</span><br><span class="line">  <span class="number">7.</span> | Alaska       <span class="number">18</span><span class="number">-64</span>     <span class="number">259559</span> |</span><br><span class="line">  <span class="number">8.</span> | Alaska         <span class="number">65</span>+      <span class="number">11547</span> |</span><br><span class="line">  <span class="number">9.</span> | Arizona        <span class="number">0</span><span class="number">-4</span>     <span class="number">213883</span> |</span><br><span class="line"> <span class="number">10.</span> | Arizona       <span class="number">5</span><span class="number">-17</span>     <span class="number">577604</span> |</span><br><span class="line">     |-------------------------------|</span><br><span class="line"> <span class="number">11.</span> | Arizona      <span class="number">18</span><span class="number">-64</span>    <span class="number">1619366</span> |</span><br><span class="line"> <span class="number">12.</span> | Arizona        <span class="number">65</span>+     <span class="number">307362</span> |</span><br><span class="line"> <span class="number">13.</span> | Arkansas       <span class="number">0</span><span class="number">-4</span>     <span class="number">175592</span> |</span><br><span class="line"> <span class="number">14.</span> | Arkansas      <span class="number">5</span><span class="number">-17</span>     <span class="number">495782</span> |</span><br><span class="line"> <span class="number">15.</span> | Arkansas     <span class="number">18</span><span class="number">-64</span>    <span class="number">1302584</span> |</span><br><span class="line">     |-------------------------------|</span><br><span class="line"> <span class="number">16.</span> | Arkansas       <span class="number">65</span>+     <span class="number">312477</span> |</span><br><span class="line"> <span class="number">17.</span> | California     <span class="number">0</span><span class="number">-4</span>    <span class="number">1708400</span> |</span><br><span class="line"> <span class="number">18.</span> | California    <span class="number">5</span><span class="number">-17</span>    <span class="number">4680558</span> |</span><br><span class="line"> <span class="number">19.</span> | California   <span class="number">18</span><span class="number">-64</span>   <span class="number">1.49e+07</span> |</span><br><span class="line"> <span class="number">20.</span> | California     <span class="number">65</span>+    <span class="number">2414250</span> |</span><br><span class="line">     +-------------------------------+</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-niceloglabels_产生对数坐标轴刻度"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/42916/">niceloglabels_产生对数坐标轴刻度</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/42916/" class="article-date">
+	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/nr/raw/master/niceloglabels.png" alt=""></p>
+        <!-- 
+
+12345678* 产生对数坐标轴刻度* ssc install niceloglabelssysuse census, clearsummarizeniceloglabels pop, local(yla) style(125)quantile pop, yscale(log) ylabel(`yla', angle(horizontal)) rlopts(lcolor(none))g......  -->
+        <p class="article-more-link">
+          <a href="../../posts/42916/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../55/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../54/">54</a><a class="page-number" href="../55/">55</a><span class="page-number current">56</span><a class="page-number" href="../57/">57</a><a class="page-number" href="../58/">58</a><span class="space">&hellip;</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../57/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>stata14基本操作 | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Stata" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="一、了解Stata1. Stata的窗口：">
+<meta name="keywords" content="Stata">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stata14基本操作">
+<meta property="og:url" content="http://www.czxa.top/posts/23333/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="一、了解Stata1. Stata的窗口：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-8b53b4e3ff2e4ae0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-ffa2a8031cb5e2df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-e40451723efe1741.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-881009723a1b5cfb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-36706d0b8977c7e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-9c3937c29f4bbba3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-c5e22a5d6015689f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-98ebb25fc67d2dfd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-089d434e966f8882.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-3ad2f1686485fa36.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-57bc822345bf2ff2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-ea628dd4cf1ddc4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-7f1d2fd7b919f220.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-fe11a81c54a94b8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-fe11a81c54a94b8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-7a3ba4b3b8ab5862.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-fde34ecfdc572fce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-71109c9b3c59128e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-871a331ab832880a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-ec35638da0e54432.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-9c0a444443a6166c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-1e2ebe5acd13e699.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-28f5d5379ac38d3d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-d71aaec885fd0776.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-dfe258578987ee82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-f3850d3d48a31fb0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-26d0267c47846f0e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-3d00e97691d12e59.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-47404a1d9abb75bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-778a3eb194538fae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-eaeaaeff2b71a80a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-d260467df5004afc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-0c8c3912acf50f9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-71d4da1f14141169.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-3d035cbc8fd4b799.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-8b5f0dedd700dbc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-d534a6d70f224d40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-fbf99c0aebfeca26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-766021eb74f185c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-b1ee5fd92ae0eb76.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-73cd7b31ad6fc126.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-e46c603005774cca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-b9a664da734ce6dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-e894888f5cdab57f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-2135ec96244b552d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-24dc143cb4719ed1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-7880207dd62ea24e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-426ef93aec852efd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-c07bc2f6a2ef502b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-a07552c1598d0ccb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-a563da0be80f49d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-02-13T09:32:47.084Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Stata14基本操作">
+<meta name="twitter:description" content="一、了解Stata1. Stata的窗口：">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/8103632-8b53b4e3ff2e4ae0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Stata14基本操作" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Stata14基本操作
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2017-10-08T01:17:59.000Z" itemprop="datePublished">2017-10-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、了解Stata"><a href="#一、了解Stata" class="headerlink" title="一、了解Stata"></a>一、了解Stata</h3><h4 id="1-Stata的窗口："><a href="#1-Stata的窗口：" class="headerlink" title="1. Stata的窗口："></a>1. Stata的窗口：</h4><p><img src="http://upload-images.jianshu.io/upload_images/8103632-8b53b4e3ff2e4ae0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<a id="more"></a>
+<ul>
+<li><p>新安装完成的Stata14窗口由4个部分组成：</p>
+</li>
+<li><p>首先是最左侧的Review框，这个框用来显示历史命令，例如我们在Command框里依次输入下面几句简单的Stata命令：</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">set more off</span><br><span class="line">mkdir d:<span class="regexp">/Stata_temp</span></span><br><span class="line"><span class="regexp">cd d:/</span>Stata_temp</span><br></pre></td></tr></table></figure>
+<p> 结果我们就会在Review框里看到我们的历史命令：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-ffa2a8031cb5e2df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>点击列表里面的历史命令就可以直接将历史命令发送到Command框中。</p>
+<ul>
+<li><p>然后是最下方的Command框，这个框是用来和Stata“交谈”的。</p>
+</li>
+<li><p>再然后就是最右侧的两个窗口了，上面的窗口显示的是当前Stata内存里的变量和变量的标签，下面的框框显示的是在上面的框中选中的变量的属性。</p>
+</li>
+<li><p>最后就是最中间最大的结果窗口了，这个窗口是显示命令运行结果的窗口，也是最为有用的窗口。</p>
+</li>
+<li><p>Stata的图标栏：</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-e40451723efe1741.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>将鼠标放置在对应的图标上就可以显示出该图标的作用，不过这些图标一般都没什么用处，因此此处不再赘述。</p>
+<h3 id="二、定制自己的Stata"><a href="#二、定制自己的Stata" class="headerlink" title="二、定制自己的Stata"></a>二、定制自己的Stata</h3><ul>
+<li><p>Review框框和Command框框用处都不大，因此建议关闭Review框和将Command框拉到最下面；</p>
+</li>
+<li><p>每个窗口的字体显示和风格可以通过在各自窗口中右键选择Font 或Preferences（只有结果窗口才有的）来改变；</p>
+</li>
+<li><p>小编自己的Stata窗口是这个样子的：</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-881009723a1b5cfb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="三、养成使用Do-file-Editor的习惯："><a href="#三、养成使用Do-file-Editor的习惯：" class="headerlink" title="三、养成使用Do-file Editor的习惯："></a>三、养成使用Do-file Editor的习惯：</h3><ul>
+<li>点击图标</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-36706d0b8977c7e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>即可新建一个do文档。</p>
+<h3 id="四、Stata数据读入"><a href="#四、Stata数据读入" class="headerlink" title="四、Stata数据读入"></a>四、Stata数据读入</h3><h4 id="1、键盘输入"><a href="#1、键盘输入" class="headerlink" title="1、键盘输入"></a>1、键盘输入</h4><ul>
+<li>方法1：输入下面的命令打开数据编辑窗口按照自己的需要输入数据：</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ed</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-9c3937c29f4bbba3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><p>方法2：使用input命令</p>
+<ul>
+<li>新建一个do文件，输入以下命令：</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*使用input命令创建数据*/</span></span><br><span class="line"><span class="comment">/*作者*/</span></span><br><span class="line"><span class="comment">/*2017/10/4*/</span></span><br><span class="line"></span><br><span class="line">	clear all <span class="comment">//清空所有内存</span></span><br><span class="line">	set more off <span class="comment">//设置直接翻页</span></span><br><span class="line">	cap mkdir d:<span class="regexp">/desktop/</span>Stata_temp <span class="comment">//因为在上次该命令时已经</span></span><br><span class="line">		<span class="comment">//创建了这个文件夹，所以如果不加上cap命令会出错而停止运行。</span></span><br><span class="line">	cd d:<span class="regexp">/desktop/</span>Stata_temp <span class="comment">//将刚刚创建的文件夹设置为工作目录</span></span><br><span class="line"></span><br><span class="line">	set obs <span class="number">5</span> <span class="comment">//设置生成的样本数量为5</span></span><br><span class="line">	input v1 str10 v2 float v3 <span class="comment">//创建并输入一个int型的变量v1，一个</span></span><br><span class="line">		<span class="comment">//长度为10的字符串型的变量v2，一个浮点型的变量v3</span></span><br><span class="line">	<span class="number">1.1</span> <span class="number">1.1</span> <span class="number">1.1</span></span><br><span class="line">	<span class="number">1.2</span> <span class="number">1.2</span> <span class="number">1.2</span></span><br><span class="line">	<span class="number">1.3</span> <span class="number">1.3</span> <span class="number">1.3</span></span><br><span class="line">	<span class="number">1.4</span> <span class="number">1.4</span> <span class="number">1.4</span></span><br><span class="line">	<span class="number">1.5</span> <span class="number">1.5</span> <span class="number">1.5</span></span><br><span class="line">	list</span><br></pre></td></tr></table></figure>
+<ul>
+<li>运行结果为：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-c5e22a5d6015689f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>另外我们也可以不设置样本数量而是这样：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">clear all <span class="comment">//清空所有内存</span></span><br><span class="line">set more off <span class="comment">//设置直接翻页</span></span><br><span class="line">cap mkdir d:<span class="regexp">/desktop/</span>Stata_temp <span class="comment">//因为在上次该命令时已经</span></span><br><span class="line">	<span class="comment">//创建了这个文件夹，所以如果不加上cap命令会出错而停止运行。</span></span><br><span class="line">cd d:<span class="regexp">/desktop/</span>Stata_temp <span class="comment">//将刚刚创建的文件夹设置为工作目录</span></span><br><span class="line"></span><br><span class="line">input v1 str10 v2 float v3 <span class="comment">//创建并输入一个int型的变量v1，一个</span></span><br><span class="line">	<span class="comment">//长度为10的字符串型的变量v2，一个浮点型的变量v3</span></span><br><span class="line"><span class="number">1.1</span> <span class="number">1.1</span> <span class="number">1.1</span></span><br><span class="line"><span class="number">1.2</span> <span class="number">1.2</span> <span class="number">1.2</span></span><br><span class="line"><span class="number">1.3</span> <span class="number">1.3</span> <span class="number">1.3</span></span><br><span class="line"><span class="number">1.4</span> <span class="number">1.4</span> <span class="number">1.4</span></span><br><span class="line"><span class="number">1.5</span> <span class="number">1.5</span> <span class="number">1.5</span></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">list</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这三个变量看起来是一样的，但是实际是不完全一样的，输入下面的命令：</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">d</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-98ebb25fc67d2dfd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>关于数据的类型这里就先不详述了。</p>
+<h4 id="2-读入Excel文件"><a href="#2-读入Excel文件" class="headerlink" title="2. 读入Excel文件"></a>2. 读入Excel文件</h4><p>例如我在Github的Chen_Qiang_DataSets存储库里存放了grilic_small.xls文件，文件的地址为：<code>https://github.com/czxa/Chen_Qiang_DataSets/raw/master/grilic_small.xls</code>，这其实是一个老版的Excel文件，新版的Excel文件的后缀名是.xlsx的。这个文件是长这个样子的：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-089d434e966f8882.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>第一行是变量名。读入命令为：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> excel using https:<span class="comment">//github.com/czxa/Chen_Qiang_DataSets/raw/master/grilic_small.xls, first clear //设置第一行为表头</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-读入制表符分隔的txt文件："><a href="#3-读入制表符分隔的txt文件：" class="headerlink" title="3. 读入制表符分隔的txt文件："></a>3. 读入制表符分隔的txt文件：</h4><ul>
+<li>我把上面的那个excel文件另存为了制表符分隔的txt文件，然后上传到了Github上，文件地址为：<code>https://github.com/czxa/Chen_Qiang_DataSets/raw/master/grilic_small.txt</code>，这个文件的读入命令为：</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insheet</span> using https:<span class="comment">//github.com/czxa/Chen_Qiang_DataSets/raw/master/grilic_small.txt, clear</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>另外如果所需要读入的数据文件没有变量名，可以使用下面的命令读入并命名，但是如果该变量为字符型变量需要指明变量的类型：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">infile s1 expr1 lnw1 using https:<span class="comment">//github.com/czxa/Chen_Qiang_DataSets/raw/master/grilic_small.txt, clear</span></span><br></pre></td></tr></table></figure>
+<p>这个时候内存中的数据是这样的：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-3ad2f1686485fa36.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>注意这个时候第一组观测值变成了缺失值，因为它们都不是数值型的。读入之后，我们可以用下面的命令删除第一行观测值：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop <span class="keyword">in</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>或者：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop <span class="keyword">if</span> _n == <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>如果我们这样读入：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">infile strL s1 strL expr1 strL lnw1 using https:<span class="comment">//github.com/czxa/Chen_Qiang_DataSets/raw/master/grilic_small.txt, clear</span></span><br></pre></td></tr></table></figure>
+<p>这个时候内存中的数据是这样的：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-57bc822345bf2ff2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>这个时候所有的变量都按照我们的要求作为字符串读入，我们可以通过下面的命令将它们转变为数值型：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">drop <span class="keyword">in</span> <span class="number">1</span></span><br><span class="line">destring, replace</span><br></pre></td></tr></table></figure>
+<h4 id="4-读入固定宽度的数据："><a href="#4-读入固定宽度的数据：" class="headerlink" title="4. 读入固定宽度的数据："></a>4. 读入固定宽度的数据：</h4><ul>
+<li>我造了一下下面这个样子的数据并将它上传到Github上，文件地址为：<br><code>https://github.com/czxa/Chen_Qiang_DataSets/raw/master/temp.txt</code></li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-ea628dd4cf1ddc4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>这个文件的每一个观测值都由五个数字组成，其中第一个数字是ID编号，接下来两个是年龄，最后两个是分数，读入整理该数据的命令如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">infix ID <span class="number">1</span> age <span class="number">2</span><span class="number">-3</span> score <span class="number">4</span><span class="number">-5</span> using https:<span class="comment">//github.com/czxa/Chen_Qiang_DataSets/raw/master/temp.txt, clear</span></span><br></pre></td></tr></table></figure>
+<p>内存中的数据是这样的：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-7f1d2fd7b919f220.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="5-读入dta文件"><a href="#5-读入dta文件" class="headerlink" title="5. 读入dta文件"></a>5. 读入dta文件</h4><ul>
+<li>同样我准备了一个名为Uncleaned-sample.dta的文件放在了Github上，文件网址为：<br><code>https://github.com/czxa/Chen_Qiang_DataSets/raw/master/Uncleaned-sample.dta</code></li>
+<li>读取命令为：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use https:<span class="comment">//github.com/czxa/Chen_Qiang_DataSets/raw/master/Uncleaned-sample.dta, clear</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>内存中的数据是这样的：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-fe11a81c54a94b8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>但是大家是不是发现上面的几句读取命令的文件网址的前面都是一样的，一个个输入好麻烦呀！怎么办呢？我们可以先定义一个全局宏变量path，然后使用$符号引用。下面的命令与上面一句命令等效：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">global path <span class="string">"https://github.com/czxa/Chen_Qiang_DataSets/raw/master"</span></span><br><span class="line">use <span class="string">"$path/Uncleaned-sample.dta"</span>, clear</span><br></pre></td></tr></table></figure>
+<h3 id="五、Stata数据整理"><a href="#五、Stata数据整理" class="headerlink" title="五、Stata数据整理"></a>五、Stata数据整理</h3><ul>
+<li><p>接下来我们将对上面读取的Uncleaned-sample.dta数据进行整理。</p>
+</li>
+<li><p>我们知道原始数据有几个常见的的问题，例如存在重复、确实和不合理的值。在我们进行建模之前首先需要对“不干净的”数据进行“清洗”。</p>
+</li>
+</ul>
+<h4 id="1-找出不应该重复但是重复的重复值"><a href="#1-找出不应该重复但是重复的重复值" class="headerlink" title="1.找出不应该重复但是重复的重复值"></a>1.找出不应该重复但是重复的重复值</h4><ul>
+<li>duplicates report命令：</li>
+</ul>
+<p>我们可以再来回看这个数据集：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-fe11a81c54a94b8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>很容易看出，id这个变量不应该存在重复值。我们来使用duplicates report命令检查这个变量的重复性：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">duplicates report id</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-7a3ba4b3b8ab5862.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>结果显示，有两个观测值存在一个重复值，1个观测值存在两个重复值。我们可以先看一下重复值的情况：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">duplicates list id</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-fde34ecfdc572fce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>可以使用下面的命令查看完全重复的情况：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">duplicates</span> <span class="keyword">list</span> _all</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-71109c9b3c59128e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>这里没有第536和537个观测值，说明第536和第537个观测值不是完全重复，但是看起来差别不大，就一起都删除了吧！</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">duplicate <span class="keyword">drop</span> id, force</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-871a331ab832880a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="2-单变量取值的正确性"><a href="#2-单变量取值的正确性" class="headerlink" title="2. 单变量取值的正确性"></a>2. 单变量取值的正确性</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">codebook</span></span><br></pre></td></tr></table></figure>
+<p>这个命令可以显示每个变量的基本描述信息，我们可以据此来分析每个变量的情况。</p>
+<h4 id="3-其他问题如多变量取值关系的正确性（例如年龄应该和出生的年份想对应，这里不再详述）、每个变量的样本量要统一以及在进行数据清理的时候要认真做好记录。"><a href="#3-其他问题如多变量取值关系的正确性（例如年龄应该和出生的年份想对应，这里不再详述）、每个变量的样本量要统一以及在进行数据清理的时候要认真做好记录。" class="headerlink" title="3. 其他问题如多变量取值关系的正确性（例如年龄应该和出生的年份想对应，这里不再详述）、每个变量的样本量要统一以及在进行数据清理的时候要认真做好记录。"></a>3. 其他问题如多变量取值关系的正确性（例如年龄应该和出生的年份想对应，这里不再详述）、每个变量的样本量要统一以及在进行数据清理的时候要认真做好记录。</h4><h3 id="六、数据审视"><a href="#六、数据审视" class="headerlink" title="六、数据审视"></a>六、数据审视</h3><p>我们再回到书上的例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use $path/grilic_small.dta, clear</span><br></pre></td></tr></table></figure>
+<h4 id="1-使用describe命令（简写为d）查看变量的基本描述"><a href="#1-使用describe命令（简写为d）查看变量的基本描述" class="headerlink" title="1. 使用describe命令（简写为d）查看变量的基本描述:"></a>1. 使用describe命令（简写为d）查看变量的基本描述:</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">d</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-ec35638da0e54432.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="2-使用list命令查看变量的具体情况"><a href="#2-使用list命令查看变量的具体情况" class="headerlink" title="2. 使用list命令查看变量的具体情况"></a>2. 使用list命令查看变量的具体情况</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">list</span></span><br><span class="line"><span class="keyword">list</span> <span class="keyword">in</span> 1/10</span><br><span class="line"><span class="keyword">list</span> s lnw <span class="keyword">in</span> 1/10</span><br><span class="line"><span class="keyword">list</span> s lnw <span class="keyword">if</span> s &gt;= 16</span><br></pre></td></tr></table></figure>
+<h4 id="3-使用drop命令删除命令，注意删除之后不能恢复，因此这个命令一定要谨慎使用。不过在删除前我们先运行一下preserve1命令，在删除之后就可以通过restore恢复："><a href="#3-使用drop命令删除命令，注意删除之后不能恢复，因此这个命令一定要谨慎使用。不过在删除前我们先运行一下preserve1命令，在删除之后就可以通过restore恢复：" class="headerlink" title="3. 使用drop命令删除命令，注意删除之后不能恢复，因此这个命令一定要谨慎使用。不过在删除前我们先运行一下preserve1命令，在删除之后就可以通过restore恢复："></a>3. 使用drop命令删除命令，注意删除之后不能恢复，因此这个命令一定要谨慎使用。不过在删除前我们先运行一下preserve1命令，在删除之后就可以通过restore恢复：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sum s</span><br><span class="line">preserve</span><br><span class="line">drop <span class="keyword">if</span> s &gt;= <span class="number">16</span></span><br><span class="line">sum s</span><br><span class="line">restore</span><br><span class="line">sum s</span><br></pre></td></tr></table></figure>
+<h4 id="4-使用gsort命令排序："><a href="#4-使用gsort命令排序：" class="headerlink" title="4. 使用gsort命令排序："></a>4. 使用gsort命令排序：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gsort s <span class="comment">//正序</span></span><br><span class="line">gsort -s <span class="comment">//逆序</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-画图"><a href="#5-画图" class="headerlink" title="5. 画图"></a>5. 画图</h4><ul>
+<li>直方图：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hist s, width(<span class="number">1</span>) frequency</span><br><span class="line"></span><br><span class="line">    * width选项用于设置组宽，frequency表示将纵坐标设置为频数，默认使用密度</span><br><span class="line"></span><br><span class="line">graph <span class="keyword">export</span> temp.png, <span class="keyword">as</span>(png) replace <span class="comment">//导出png格式的图片</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-9c0a444443a6166c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>散点图：</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">scatter</span> lnw <span class="built_in">s</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>通过刚才的两个图，我们会发现，Stata不能同时显示两个绘图窗口！！！怎么办！！！</p>
+</li>
+<li><p>grss命令！</p>
+</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grss <span class="keyword">hist</span> <span class="built_in">s</span></span><br><span class="line">grss <span class="keyword">scatter</span> s lnw</span><br><span class="line">grss <span class="keyword">clear</span> <span class="comment">//关闭所有窗口</span></span><br></pre></td></tr></table></figure>
+<h3 id="七、统计分析"><a href="#七、统计分析" class="headerlink" title="七、统计分析"></a>七、统计分析</h3><h4 id="1-sum命令-基本统计描述"><a href="#1-sum命令-基本统计描述" class="headerlink" title="1. sum命令 //基本统计描述"></a>1. sum命令 //基本统计描述</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sum</span><br><span class="line">sum s</span><br><span class="line">sum s, d</span><br></pre></td></tr></table></figure>
+<h4 id="2-tab命令-显示经验累计分布函数"><a href="#2-tab命令-显示经验累计分布函数" class="headerlink" title="2. tab命令 //显示经验累计分布函数"></a>2. tab命令 //显示经验累计分布函数</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tab</span> <span class="built_in">s</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-pwcorr命令-输出相关系数矩阵"><a href="#3-pwcorr命令-输出相关系数矩阵" class="headerlink" title="3. pwcorr命令 //输出相关系数矩阵"></a>3. pwcorr命令 //输出相关系数矩阵</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pwcorr</span> lnw s expr, sig star(.05) <span class="comment">//显示相关系数的显著性水平并给所有显著性水平小于或等于5%的相关系数打上星号</span></span><br></pre></td></tr></table></figure>
+<h3 id="八、-生成新的变量"><a href="#八、-生成新的变量" class="headerlink" title="八、 生成新的变量"></a>八、 生成新的变量</h3><h4 id="1-gen命令"><a href="#1-gen命令" class="headerlink" title="1. gen命令"></a>1. gen命令</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">gen</span> lns = <span class="built_in">log</span>(s)</span><br><span class="line"><span class="keyword">gen</span> s2 = s^2</span><br><span class="line"><span class="keyword">gen</span> w = <span class="built_in">exp</span>(lnw)</span><br><span class="line"></span><br><span class="line"><span class="keyword">gen</span> collage = (s&gt;16) <span class="comment">//生成虚拟变量</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-egen命令，这个命令非常强大，我只在这里给大家举几个例子，详细用法，大家可以参考help文档。"><a href="#2-egen命令，这个命令非常强大，我只在这里给大家举几个例子，详细用法，大家可以参考help文档。" class="headerlink" title="2. egen命令，这个命令非常强大，我只在这里给大家举几个例子，详细用法，大家可以参考help文档。"></a>2. egen命令，这个命令非常强大，我只在这里给大家举几个例子，详细用法，大家可以参考help文档。</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">clear</span><br><span class="line">set obs <span class="number">10</span></span><br><span class="line">gen A = _n <span class="comment">//生成1-10的连续序列</span></span><br><span class="line">gen num = _N <span class="comment">//生成的是总的观测值数</span></span><br><span class="line">egen avg = mean(A) <span class="comment">//得到变量A的均值</span></span><br><span class="line">list</span><br><span class="line"></span><br><span class="line">clear</span><br><span class="line">set obs <span class="number">10</span></span><br><span class="line">gen a1 = _n</span><br><span class="line">egen a2 = seq() <span class="comment">//生成1-10</span></span><br><span class="line">list</span><br><span class="line"></span><br><span class="line">clear</span><br><span class="line">set obs <span class="number">10</span></span><br><span class="line">egen a = fill(<span class="number">1</span> <span class="number">3</span> <span class="number">5</span>)</span><br><span class="line">egen b = fill(<span class="number">1</span> <span class="number">2</span>)</span><br><span class="line">egen c = fill(<span class="number">6</span>(<span class="number">-3</span>)<span class="number">3</span>)</span><br><span class="line">egen d = fill(<span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span>)</span><br><span class="line">egen e = fill(<span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">1</span> <span class="number">1</span> <span class="number">2</span>)</span><br><span class="line">egen f = fill(<span class="number">-3</span>(<span class="number">3</span>)<span class="number">6</span> <span class="number">-3</span>(<span class="number">3</span>)<span class="number">6</span>)</span><br><span class="line">egen g = fill(<span class="number">10</span> <span class="number">20</span> to <span class="number">50</span> <span class="number">10</span> <span class="number">20</span> to <span class="number">50</span>)</span><br><span class="line">list</span><br></pre></td></tr></table></figure>
+<h3 id="九、Stata命令库的更新"><a href="#九、Stata命令库的更新" class="headerlink" title="九、Stata命令库的更新"></a>九、Stata命令库的更新</h3><ul>
+<li>大家可以在Stata官网上下载离线更新包然后使用下面的命令进行更新，具体参见我的上一篇推文。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db update</span><br></pre></td></tr></table></figure>
+<h3 id="十、更多绘图命令"><a href="#十、更多绘图命令" class="headerlink" title="十、更多绘图命令"></a>十、更多绘图命令</h3><ul>
+<li>我们使用书上的文件grilic.dta，文件网址为：<code>https://github.com/czxa/Chen_Qiang_DataSets/raw/master/grilic.dta</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">use https:<span class="comment">//github.com/czxa/Chen_Qiang_DataSets/raw/master/grilic.dta, clear</span></span><br><span class="line">d</span><br><span class="line">sum</span><br><span class="line">hist lnw, width(<span class="number">0.1</span>) <span class="comment">//出错了！因为这个数据集里的lnw被写成了lw</span></span><br><span class="line">rename lw lnw <span class="comment">//注意到这个时候横坐标显示的是LW，这个是变量的标签，我们可以更换变量的标签</span></span><br><span class="line">label <span class="keyword">var</span> lnw <span class="string">"log(w)"</span></span><br><span class="line">hist lnw, width(<span class="number">0.1</span>)</span><br></pre></td></tr></table></figure>
+<p>我们还可以通过核密度估计来获得连续的密度曲线：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kdensity lnw, normal normop(lp(dash))</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-1e2ebe5acd13e699.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>已经很接近正态分布了，刚刚画的是对数工资额度图，我们再来看一下工资的核密度分布图：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">gen</span> w = <span class="built_in">exp</span>(lnw)</span><br><span class="line"><span class="keyword">kdensity</span> w, normal normop(lp(dash))</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-28f5d5379ac38d3d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>这样我们可以看出，取对数的一个作用就是可以把不够正态的变量变得趋向于正态。</p>
+<p>我们还可以查看受教育年限大于等于16年的工资对数的条件密度曲线：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">kdensity</span> lnw <span class="keyword">if</span> s &gt;= 16, normal normop(lp(dash))</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-d71aaec885fd0776.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>略微左偏。</p>
+<ul>
+<li>如果我们想把工资对数的密度曲线和频率分布直方图画在一起：</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">twoway</span> <span class="keyword">hist</span> lnw, width(0.1) || <span class="keyword">kdensity</span> lnw</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-dfe258578987ee82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">twoway</span> <span class="keyword">kdensity</span> lnw <span class="keyword">if</span> s == 12 || <span class="keyword">kdensity</span> lnw <span class="keyword">if</span> s == 16, lp(dash)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-f3850d3d48a31fb0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="十一、验证迭代期望定律"><a href="#十一、验证迭代期望定律" class="headerlink" title="十一、验证迭代期望定律"></a>十一、验证迭代期望定律</h3><p>迭代期望定律：<br> E(Y) = E_x[E(Y|x)]</p>
+<p>使用数据集grilic.dta来验证该定律：<br>E(lnw) = E_rns[E(lnw|rns)]</p>
+<ul>
+<li>rns是一个虚拟变量，首先我们计算[E(lnw|rns=1)]和[E(lnw|rns=0)]</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-26d0267c47846f0e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>那么E_rns[E(lnw|rns)]等于两者的加权平均：</li>
+<li>先别急着算，均值这么长，抄起来多累，我们重新开始，这一次使用局部宏来记录每一次的均值。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sum lnw <span class="keyword">if</span> rns == <span class="number">1</span></span><br><span class="line"><span class="keyword">return</span> list</span><br><span class="line">local a = r(mean)</span><br><span class="line">sum lnw <span class="keyword">if</span> rns == <span class="number">0</span></span><br><span class="line"><span class="keyword">return</span> list</span><br><span class="line">local b = r(mean)</span><br><span class="line">di (`a<span class="string">'*204+`b'</span>*<span class="number">554</span>)/(<span class="number">204</span>+<span class="number">554</span>)</span><br></pre></td></tr></table></figure>
+<p>结果是5.6867388</p>
+<p>另一方面，E(lnw)为：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum lnw</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-3d00e97691d12e59.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>忽略舍入误差，两者完全相等。从而得证。</p>
+<h3 id="十二、绘制常见分布的pdf和CDF曲线"><a href="#十二、绘制常见分布的pdf和CDF曲线" class="headerlink" title="十二、绘制常见分布的pdf和CDF曲线"></a>十二、绘制常见分布的pdf和CDF曲线</h3><h4 id="1-正态分布"><a href="#1-正态分布" class="headerlink" title="1. 正态分布"></a>1. 正态分布</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">di normal(<span class="number">1.96</span>) //计算标准正态变量小于<span class="number">1.96</span>的概率</span><br><span class="line">twoway function y = normalden(x), range(<span class="number">-5</span> <span class="number">5</span>) xline(<span class="number">0</span>) ytitle(pdf)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-47404a1d9abb75bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">twoway function y = normalden(x), range(<span class="number">-5</span> <span class="number">10</span>) xline(<span class="number">0</span>) ytitle(pdf) || function y = normalden(x, <span class="number">1</span>, <span class="number">2</span>), range(<span class="number">-5</span> <span class="number">10</span>) xline(<span class="number">1</span>) lp(dash)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-778a3eb194538fae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="2-卡方分布"><a href="#2-卡方分布" class="headerlink" title="2. 卡方分布"></a>2. 卡方分布</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">twoway function y1 = chi2den(<span class="number">3</span>,x), range(<span class="number">0</span> <span class="number">20</span>) || function y2 = chi2den(<span class="number">5</span>,x), range(<span class="number">0</span> <span class="number">20</span>) lp(dash) ytitle(pdf)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-eaeaaeff2b71a80a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="3-t分布"><a href="#3-t分布" class="headerlink" title="3. t分布"></a>3. t分布</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">twoway function y1 = tden(<span class="number">1</span>,x), range(<span class="number">-5</span> <span class="number">5</span>) || function y2 = tden(<span class="number">5</span>,x), range(<span class="number">-5</span> <span class="number">5</span>) lp(dash) ytitle(pdf)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-d260467df5004afc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="十三、一元线性回归"><a href="#十三、一元线性回归" class="headerlink" title="十三、一元线性回归"></a>十三、一元线性回归</h3><ul>
+<li>使用grilic.dta文件，将工资对数对教育年限进行一元回归：</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">use https://github.com/czxa/Chen_Qiang_DataSets/raw/master/grilic.dta, clear</span><br><span class="line">rename lw lnw</span><br><span class="line">reg lnw s</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-0c8c3912acf50f9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>如果要进行无常数项的回归：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-71d4da1f14141169.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><p>Stata返回值的应用：</p>
+</li>
+<li><p>所有的Stata命令分为两种，一种是r-class命令，运行结果都储存在r()中，可以使用return list来显示，比如sum；另一类是e-class命令，运行结果都储存在e()中，可以使用ereturn list来显示，比如reg。</p>
+</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">qui sum s</span><br><span class="line"><span class="keyword">return</span> list</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-3d035cbc8fd4b799.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>假如我们要计算变异系数：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-8b5f0dedd700dbc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">qui reg lnw s</span><br><span class="line">ereturn list</span><br><span class="line">scalars:</span><br><span class="line">                  e(N) =  <span class="number">758</span></span><br><span class="line">               e(df_m) =  <span class="number">1</span></span><br><span class="line">               e(df_r) =  <span class="number">756</span></span><br><span class="line">                  e(F) =  <span class="number">255.7039662336321</span></span><br><span class="line">                 e(r2) =  <span class="number">.2527458374860049</span></span><br><span class="line">               e(rmse) =  <span class="number">.3710455612613365</span></span><br><span class="line">                e(mss) =  <span class="number">35.20399459202187</span></span><br><span class="line">                e(rss) =  <span class="number">104.0821552499956</span></span><br><span class="line">               e(r2_a) =  <span class="number">.2517574060541081</span></span><br><span class="line">                 e(ll) =  <span class="number">-323.0498302841153</span></span><br><span class="line">               e(ll_0) =  <span class="number">-433.4714451849194</span></span><br><span class="line">               e(rank) =  <span class="number">2</span></span><br><span class="line"></span><br><span class="line">macros:</span><br><span class="line">            e(cmdline) : <span class="string">"regress lnw s"</span></span><br><span class="line">              e(title) : <span class="string">"Linear regression"</span></span><br><span class="line">          e(marginsok) : <span class="string">"XB default"</span></span><br><span class="line">                e(vce) : <span class="string">"ols"</span></span><br><span class="line">             e(depvar) : <span class="string">"lnw"</span></span><br><span class="line">                e(cmd) : <span class="string">"regress"</span></span><br><span class="line">         e(properties) : <span class="string">"b V"</span></span><br><span class="line">            e(predict) : <span class="string">"regres_p"</span></span><br><span class="line">              e(model) : <span class="string">"ols"</span></span><br><span class="line">          e(estat_cmd) : <span class="string">"regress_estat"</span></span><br><span class="line"></span><br><span class="line">matrices:</span><br><span class="line">                  e(b) :  <span class="number">1</span> x <span class="number">2</span></span><br><span class="line">                  e(V) :  <span class="number">2</span> x <span class="number">2</span></span><br><span class="line"></span><br><span class="line">functions:</span><br><span class="line">             e(sample)</span><br></pre></td></tr></table></figure>
+<h3 id="十四、从“上帝的视角”看一元线性回归"><a href="#十四、从“上帝的视角”看一元线性回归" class="headerlink" title="十四、从“上帝的视角”看一元线性回归"></a>十四、从“上帝的视角”看一元线性回归</h3><ul>
+<li>从上帝的视角看就意味着我们知道回归的一切，也就是说PRF、DGP&amp;SRF我们都知道，那么怎么才能实现这一切呢？Monte Carlo Methods。</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">clear</span><br><span class="line">set obs <span class="number">1000</span></span><br><span class="line">set seed <span class="number">23456</span></span><br><span class="line">gen x = rnormal(<span class="number">3</span>,<span class="number">4</span>) //均值为<span class="number">3</span>，方差为<span class="number">4</span></span><br><span class="line">gen e = rnormal(<span class="number">0</span>,<span class="number">9</span>)</span><br><span class="line">gen y = <span class="number">1</span> + <span class="number">2</span>*x + e</span><br><span class="line">reg y x</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-d534a6d70f224d40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>我们还可以画出这个过程：</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">twoway</span> <span class="keyword">scatter</span> y x || function y = 1 + 2*x, <span class="keyword">range</span>(-10 15) ||<span class="keyword">lfit</span> y x, lp(dash)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-fbf99c0aebfeca26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="十五、多元线性回归"><a href="#十五、多元线性回归" class="headerlink" title="十五、多元线性回归"></a>十五、多元线性回归</h3><h4 id="1-二元线性回归"><a href="#1-二元线性回归" class="headerlink" title="1. 二元线性回归"></a>1. 二元线性回归</h4><ul>
+<li>使用cobb_douglas.dta数据文件：</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use https://github.com/czxa/Chen_Qiang_DataSets/raw/master/cobb_douglas.dta, clear</span><br><span class="line">reg lny lnk lnl</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-766021eb74f185c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">predict lny1 //将lny的拟合值记为lny1</span><br><span class="line">predict e, r //将残差记为e</span><br></pre></td></tr></table></figure>
+<p>我们可以将产出对数及其拟合值画在一起：</p>
+<blockquote>
+<p>line lny lny1 year, lp(solid dash)</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-b1ee5fd92ae0eb76.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>我们还可以画出预测值的95%置信区间：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gen upper = lny1 + <span class="number">1.96</span>*e</span><br><span class="line">gen lower = lny1 - <span class="number">1.96</span>*e</span><br><span class="line">twoway line lny lny1 year, color(red green) lp(solid solid) || line upper lower year, color(blue blue) lp(dash dash)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-73cd7b31ad6fc126.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="2-多元线性回归"><a href="#2-多元线性回归" class="headerlink" title="2. 多元线性回归"></a>2. 多元线性回归</h4><ul>
+<li>使用grilic.dta数据集：</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use https://github.com/czxa/Chen_Qiang_DataSets/raw/master/grilic.dta, clear</span><br><span class="line">rename lw lnw</span><br><span class="line">reg lnw s expr tenure smsa rns</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-e46c603005774cca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>下面给大家介绍一个超级好用的命令，regcheck命令——一次性检验六个古典线性回归模型的假定：</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">regcheck</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-b9a664da734ce6dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<blockquote>
+<p>第一个检验是针对异方差问题的BP检验，原假设为同方差；<br>第二个检验是针对于多重共线性计算的方差膨胀因子VIF，判断是否存在多重共线性的一个经验法则是，所有的VIF的最大值不应该超过10，表中给出的参考标准是5；<br>第三个检验是检验残差是否服从正态分布，采用的是Shapiro-Wilk 检验，原假设是残差服从正态分布。<br>第四个检验是否正确设定了模型：Link检验<br>第五个检验是是否选择了适当的函数形式：F检验<br>第六个检验是是否离群值影响：Cook距离</p>
+</blockquote>
+<ul>
+<li>显示回归系数的协方差矩阵：</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vce</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-e894888f5cdab57f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>只对南方居民的子样本进行回归：</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> lnw s expr tenure smsa <span class="keyword">if</span> rns</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-2135ec96244b552d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>只对北方居民的子样本进行回归：</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> lnw s expr tenure smsa <span class="keyword">if</span> ~rns</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-24dc143cb4719ed1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="3-进行一些检验："><a href="#3-进行一些检验：" class="headerlink" title="3. 进行一些检验："></a>3. 进行一些检验：</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> lnw s expr tenure smsa rns</span><br></pre></td></tr></table></figure>
+<ul>
+<li>系数显著性的检验——检验s的系数等于0</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test s = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-7880207dd62ea24e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>在5%的显著性水平上拒绝原假设。</p>
+<ul>
+<li>双系数联合检验——检验expr和tenure的系数是否相等：</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test expr = tenure</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-426ef93aec852efd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>在任何显著性水平上均无法拒绝原假设。</p>
+<ul>
+<li>多系数关系联合检验</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test expr + tenure = s</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-c07bc2f6a2ef502b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>在5%的显著性水平上拒绝原假设。</p>
+<h3 id="十六、提取统计结果到word文档"><a href="#十六、提取统计结果到word文档" class="headerlink" title="十六、提取统计结果到word文档"></a>十六、提取统计结果到word文档</h3><ul>
+<li><p>在论文写作中，我们经常会需要给出所用到的数据的描述性统计表，一个个复制粘贴是非常麻烦的！！！幸好我们有logout命令！</p>
+</li>
+<li><p>例如我们使用系统数据集auto.dta</p>
+</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sysuse</span> auto.dta,<span class="keyword">clear</span></span><br><span class="line"><span class="keyword">tabstat</span>  price mpg rep78 headroom trunk weight length ,stat(<span class="keyword">mean</span> sd p5 p50 p95 max <span class="keyword">N</span>) <span class="keyword">format</span>(%6.2f)</span><br><span class="line"><span class="keyword">global</span> v price mpg rep78 headroom trunk weight <span class="built_in">length</span></span><br><span class="line">logout, <span class="keyword">save</span>(<span class="keyword">d</span>:/desktop/temp) word <span class="keyword">replace</span>: <span class="keyword">tabstat</span> <span class="variable">$v</span> , <span class="built_in">s</span>(<span class="keyword">mean</span> p50 sd min max <span class="keyword">N</span>) <span class="keyword">format</span>(%6.3f) c(s)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-a07552c1598d0ccb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><p>然后复制粘贴到自己的word文档中即可。</p>
+</li>
+<li><p>另外我们经常会需要把很多回归汇总到一个表格里输出到word里面，该怎么做呢？幸好我们有outreg2！</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sysuse auto, clear</span><br><span class="line">cd d:<span class="regexp">/desktop/</span>Stata_temp</span><br><span class="line">reg price weight</span><br><span class="line">est store m1</span><br><span class="line">reg price mpg rep78 weight</span><br><span class="line">est store m2</span><br><span class="line">reg price rep78 weight</span><br><span class="line">est store m3</span><br><span class="line">outreg2 [m1 m2 m3] using temp.doc, see stats(coef, pval) addstat(Adjusted R2, <span class="string">`e(r2_a)') replace</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-a563da0be80f49d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><p>然后复制粘贴到自己的word文档中即可。</p>
+</li>
+<li><p>细心的同学会发现，logout命令的输出结果去了rtf文件，outreg2命令的输出结果去了doc文件，而最新的word文件的格式是docx。这两个命令都不能很好的兼容。实际上最新版的Stata15中有相同作用的sum2docx和<br>reg2docx命令非常好用，另外结合强大的putdocx等命令，Stata15真正做到了从数据导入到整篇论文自动生成全部由Stata实现。有兴趣的同学欢迎安装Stata15探索。</p>
+</li>
+</ul>
+<h3 id="十七、数据获取"><a href="#十七、数据获取" class="headerlink" title="十七、数据获取"></a>十七、数据获取</h3><h4 id="1-cnstock命令：下载中国最新上市公司的代码名称和代码"><a href="#1-cnstock命令：下载中国最新上市公司的代码名称和代码" class="headerlink" title="1. cnstock命令：下载中国最新上市公司的代码名称和代码"></a>1. cnstock命令：下载中国最新上市公司的代码名称和代码</h4><ul>
+<li>语法格式：cnstock exchange[, option]<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//其中exchange为股票交易市场的缩写：</span><br><span class="line">/*</span><br><span class="line">SHA: 上海A股市场</span><br><span class="line">SZM: 深圳主板市场</span><br><span class="line">SZSM: 深圳中小板市场</span><br><span class="line">SZGE：深圳创业板市场</span><br><span class="line">SHB: 上海B股市场</span><br><span class="line">SZB：深圳B股市场</span><br><span class="line">*/</span><br><span class="line">//option: path(<span class="string">"路径"</span>):定义下载路径，默认为当前工作路径。</span><br><span class="line">cnstock SHA</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2-cntrade命令：下载中国上市公司股票和指数交易数据"><a href="#2-cntrade命令：下载中国上市公司股票和指数交易数据" class="headerlink" title="2. cntrade命令：下载中国上市公司股票和指数交易数据"></a>2. cntrade命令：下载中国上市公司股票和指数交易数据</h4><ul>
+<li>语法：cntrade <ticker symbols="">, [path()] [index] [stock]</ticker></li>
+<li>1:index: 指定我们输入的代码为股票指数代码</li>
+<li>2:stock: 指定我们输入的代码为股票代码，这也是默认情况</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cntrade <span class="number">1</span>, stock //<span class="number">000001</span>股票数据</span><br><span class="line">cntrade <span class="number">1</span> //<span class="number">000001</span>股票数据</span><br><span class="line">cntrade <span class="number">1</span>, index //上证指数历史市场报价数据</span><br><span class="line">cntrade <span class="number">1</span> <span class="number">300</span> <span class="number">399001</span>, index //上证指数、沪深<span class="number">300</span>、深圳成指指数数据</span><br><span class="line">cntrade <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> //会自动在前面补五个<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-chinafin命令：下载上市公司财务数据"><a href="#3-chinafin命令：下载上市公司财务数据" class="headerlink" title="3. chinafin命令：下载上市公司财务数据"></a>3. chinafin命令：下载上市公司财务数据</h4><ul>
+<li>语法格式：chinafin codelist [, options]</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chinafin <span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-wbopendata命令从世界银行获取经济数据"><a href="#4-wbopendata命令从世界银行获取经济数据" class="headerlink" title="4. wbopendata命令从世界银行获取经济数据"></a>4. wbopendata命令从世界银行获取经济数据</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db wbopendata</span><br></pre></td></tr></table></figure>
+<p>然后就会打开一个窗口进行操作</p>
+<h4 id="5-eurostatuse命令从欧盟统计局下载数据"><a href="#5-eurostatuse命令从欧盟统计局下载数据" class="headerlink" title="5. eurostatuse命令从欧盟统计局下载数据"></a>5. eurostatuse命令从欧盟统计局下载数据</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db eurostatuse</span><br></pre></td></tr></table></figure>
+<p>然后就会打开一个窗口进行操作<br>不过数据表的名字需要到欧盟统计局网站查找。</p>
+<h4 id="6-freduse命令获取美联储经济数据"><a href="#6-freduse命令获取美联储经济数据" class="headerlink" title="6. freduse命令获取美联储经济数据"></a>6. freduse命令获取美联储经济数据</h4><ul>
+<li>语法： freduse series_1 [series_2 … series_k] [if] [in] [, file clear]</li>
+<li>其中series为数据表的缩写，需要到美联储官网上查找，例如可以找到Real Gross Domestic Product的缩写是GDPC1</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">freduse GDPC1，clear</span><br></pre></td></tr></table></figure>
+<h4 id="7-gsdata命令从网易财经下载上海或深圳的股票的高频数据"><a href="#7-gsdata命令从网易财经下载上海或深圳的股票的高频数据" class="headerlink" title="7. gsdata命令从网易财经下载上海或深圳的股票的高频数据"></a>7. gsdata命令从网易财经下载上海或深圳的股票的高频数据</h4><ul>
+<li>语法：gsdata <ticker symbol="">, y(year) m(month) d(day)</ticker></li>
+<li>ticker symbol: 一个股票代码</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gsdata <span class="number">000001</span>, y(<span class="number">2017</span>) m(<span class="number">08</span>) d(<span class="number">22</span>)</span><br><span class="line">/*注意一定要选择交易日*/</span><br><span class="line">use <span class="number">000001.</span>dta</span><br></pre></td></tr></table></figure>
+<h3 id="十八、结束语"><a href="#十八、结束语" class="headerlink" title="十八、结束语"></a>十八、结束语</h3><h4 id="更多惊喜尽在Stata15，有兴趣的同学欢迎安装Stata15，探索putdocx、putexcel、putpdf、sum2docx、reg2docx等命令。"><a href="#更多惊喜尽在Stata15，有兴趣的同学欢迎安装Stata15，探索putdocx、putexcel、putpdf、sum2docx、reg2docx等命令。" class="headerlink" title="更多惊喜尽在Stata15，有兴趣的同学欢迎安装Stata15，探索putdocx、putexcel、putpdf、sum2docx、reg2docx等命令。"></a>更多惊喜尽在Stata15，有兴趣的同学欢迎安装Stata15，探索putdocx、putexcel、putpdf、sum2docx、reg2docx等命令。</h4>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../21100/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          倾向匹配得分的Stata示例
+        
+      </div>
+    </a>
+  
+  
+    <a href="../6032/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">使用Sublime写Stata代码</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、了解Stata"><span class="nav-text">一、了解Stata</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Stata的窗口："><span class="nav-text">1. Stata的窗口：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、定制自己的Stata"><span class="nav-text">二、定制自己的Stata</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、养成使用Do-file-Editor的习惯："><span class="nav-text">三、养成使用Do-file Editor的习惯：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、Stata数据读入"><span class="nav-text">四、Stata数据读入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、键盘输入"><span class="nav-text">1、键盘输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-读入Excel文件"><span class="nav-text">2. 读入Excel文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-读入制表符分隔的txt文件："><span class="nav-text">3. 读入制表符分隔的txt文件：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-读入固定宽度的数据："><span class="nav-text">4. 读入固定宽度的数据：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-读入dta文件"><span class="nav-text">5. 读入dta文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、Stata数据整理"><span class="nav-text">五、Stata数据整理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-找出不应该重复但是重复的重复值"><span class="nav-text">1.找出不应该重复但是重复的重复值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-单变量取值的正确性"><span class="nav-text">2. 单变量取值的正确性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-其他问题如多变量取值关系的正确性（例如年龄应该和出生的年份想对应，这里不再详述）、每个变量的样本量要统一以及在进行数据清理的时候要认真做好记录。"><span class="nav-text">3. 其他问题如多变量取值关系的正确性（例如年龄应该和出生的年份想对应，这里不再详述）、每个变量的样本量要统一以及在进行数据清理的时候要认真做好记录。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、数据审视"><span class="nav-text">六、数据审视</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-使用describe命令（简写为d）查看变量的基本描述"><span class="nav-text">1. 使用describe命令（简写为d）查看变量的基本描述:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-使用list命令查看变量的具体情况"><span class="nav-text">2. 使用list命令查看变量的具体情况</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-使用drop命令删除命令，注意删除之后不能恢复，因此这个命令一定要谨慎使用。不过在删除前我们先运行一下preserve1命令，在删除之后就可以通过restore恢复："><span class="nav-text">3. 使用drop命令删除命令，注意删除之后不能恢复，因此这个命令一定要谨慎使用。不过在删除前我们先运行一下preserve1命令，在删除之后就可以通过restore恢复：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-使用gsort命令排序："><span class="nav-text">4. 使用gsort命令排序：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-画图"><span class="nav-text">5. 画图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、统计分析"><span class="nav-text">七、统计分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-sum命令-基本统计描述"><span class="nav-text">1. sum命令 //基本统计描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-tab命令-显示经验累计分布函数"><span class="nav-text">2. tab命令 //显示经验累计分布函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-pwcorr命令-输出相关系数矩阵"><span class="nav-text">3. pwcorr命令 //输出相关系数矩阵</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八、-生成新的变量"><span class="nav-text">八、 生成新的变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-gen命令"><span class="nav-text">1. gen命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-egen命令，这个命令非常强大，我只在这里给大家举几个例子，详细用法，大家可以参考help文档。"><span class="nav-text">2. egen命令，这个命令非常强大，我只在这里给大家举几个例子，详细用法，大家可以参考help文档。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九、Stata命令库的更新"><span class="nav-text">九、Stata命令库的更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十、更多绘图命令"><span class="nav-text">十、更多绘图命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十一、验证迭代期望定律"><span class="nav-text">十一、验证迭代期望定律</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十二、绘制常见分布的pdf和CDF曲线"><span class="nav-text">十二、绘制常见分布的pdf和CDF曲线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-正态分布"><span class="nav-text">1. 正态分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-卡方分布"><span class="nav-text">2. 卡方分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-t分布"><span class="nav-text">3. t分布</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十三、一元线性回归"><span class="nav-text">十三、一元线性回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十四、从“上帝的视角”看一元线性回归"><span class="nav-text">十四、从“上帝的视角”看一元线性回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十五、多元线性回归"><span class="nav-text">十五、多元线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-二元线性回归"><span class="nav-text">1. 二元线性回归</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-多元线性回归"><span class="nav-text">2. 多元线性回归</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-进行一些检验："><span class="nav-text">3. 进行一些检验：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十六、提取统计结果到word文档"><span class="nav-text">十六、提取统计结果到word文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十七、数据获取"><span class="nav-text">十七、数据获取</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-cnstock命令：下载中国最新上市公司的代码名称和代码"><span class="nav-text">1. cnstock命令：下载中国最新上市公司的代码名称和代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-cntrade命令：下载中国上市公司股票和指数交易数据"><span class="nav-text">2. cntrade命令：下载中国上市公司股票和指数交易数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-chinafin命令：下载上市公司财务数据"><span class="nav-text">3. chinafin命令：下载上市公司财务数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-wbopendata命令从世界银行获取经济数据"><span class="nav-text">4. wbopendata命令从世界银行获取经济数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-eurostatuse命令从欧盟统计局下载数据"><span class="nav-text">5. eurostatuse命令从欧盟统计局下载数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-freduse命令获取美联储经济数据"><span class="nav-text">6. freduse命令获取美联储经济数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-gsdata命令从网易财经下载上海或深圳的股票的高频数据"><span class="nav-text">7. gsdata命令从网易财经下载上海或深圳的股票的高频数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十八、结束语"><span class="nav-text">十八、结束语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#更多惊喜尽在Stata15，有兴趣的同学欢迎安装Stata15，探索putdocx、putexcel、putpdf、sum2docx、reg2docx等命令。"><span class="nav-text">更多惊喜尽在Stata15，有兴趣的同学欢迎安装Stata15，探索putdocx、putexcel、putpdf、sum2docx、reg2docx等命令。</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/166/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-保险学——第一章：风险与保险"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/58417/">风险与保险</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/58417/" class="article-date">
+	  <time datetime="2017-11-19T05:12:32.000Z" itemprop="datePublished">2017-11-19</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/零散笔记/">零散笔记</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>陈鹭老师保险学课程笔记</p>
+</blockquote>
+<h3 id="第一节：风险管理与保险"><a href="#第一节：风险管理与保险" class="headerlink" title="第一节：风险管理与保险"></a>第一节：风险管理与保险</h3><h4 id="一、风险的概念及其特征"><a href="#一、风险的概念及其特征" class="headerlink" title="一、风险的概念及其特征"></a>一、风险的概念及其特征</h4><ol>
+<li>客观的看待风险含义：有正负两个方面的影响；</li>
+<li>现实中人们一般倾向于负面影响：风险是导致损失发生的可能性（概率）。</li>
+</ol>
+<h4 id="二、风险的特征"><a href="#二、风险的特征" class="headerlink" title="二、风险的特征"></a>二、风险的特征</h4><p>根据风险的内在本质和外在表现形态，可概括风险的特征：</p>
+<ol>
+<li>客观性：不以人的主观意识为转移的，不可被消灭的，但是人们可以通过一定方法降低风险发生的频率，或者风险发生时，通过一定方式方法减少风险发生的损失。正是风险的客观存在性，决定了保险经济的必要性；
+        <!-- 
+陈鹭老师保险学课程笔记
+
+第一节：风险管理与保险一、风险的概念及其特征
+客观的看待风险含义：有正负两个方面的影响；
+现实中人们一般倾向于负面影响：风险是导致损失发生的可能性（概率）。
+
+二、风险的特征根据风险的内在本质和外在表现形态，可概括风险的特征：
+
+客观性：不以人的主观意识为转移的，不可被消灭的，但是人们可以通过一定方法降低风险发生的频率，或者风险发生时，通过一定方式方法减少风险发生......  -->
+        <p class="article-more-link">
+          <a href="../../posts/58417/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Stata速成篇——数据分析"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/12236/">Stata速成篇——数据分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/12236/" class="article-date">
+	  <time datetime="2017-11-17T15:31:32.000Z" itemprop="datePublished">2017-11-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/数据分析/">数据分析</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Github资源学习</p>
+</blockquote>
+<h4 id="数据描述"><a href="#数据描述" class="headerlink" title="数据描述"></a>数据描述</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">*数据描述</span></span><br><span class="line"><span class="keyword">clear</span> all</span><br><span class="line"><span class="keyword">sysuse</span> auto, <span class="keyword">clear</span></span><br><span class="line"><span class="comment">//带有箱线图的描述性统计表</span></span><br><span class="line">univar price mpg, boxplot</span><br></pre></td></tr></table></figure>
+        <!-- 
+Github资源学习
+
+数据描述12345*数据描述clear allsysuse auto, clear//带有箱线图的描述性统计表univar price mpg, boxplot
+
+12//茎叶图stem mpg
+123sum price mpg, d//计算标准误和置信区间ci mean price mpg, level(99)
+12345678910111213141516171......  -->
+        <p class="article-more-link">
+          <a href="../../posts/12236/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-ggplot2是如何通过颜色信号来对多边形进行填充的？"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/11306/">ggplot2是如何通过颜色信号来对多边形进行填充的？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/11306/" class="article-date">
+	  <time datetime="2017-11-17T04:38:12.000Z" itemprop="datePublished">2017-11-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>R语言中文社区推文学习笔记</p>
+</blockquote>
+<p><strong>脚本下载👇</strong><br><a href="https://github.com/czxa/Web_data_Source/raw/master/ggplot2是如何通过颜色信号来对多边形进行填充的？.R" target="_blank" rel="noopener"><strong><code>ggplot2是如何通过颜色信号来对多边形进行填充的？.R</code></strong></a></p>
+<h4 id="geom-ploygon-图层"><a href="#geom-ploygon-图层" class="headerlink" title="geom_ploygon()图层"></a>geom_ploygon()图层</h4><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##ggplot2是如何通过颜色信号来对多边形进行填充的？</span></span><br><span class="line"><span class="comment">##geom_ploygon()图层</span></span><br><span class="line"><span class="comment">##geom_polygon()需要显式声明的参数至少需要四个：</span></span><br><span class="line"><span class="comment">#data(地理信息数据框)</span></span><br><span class="line"><span class="comment">#long(经度简写)</span></span><br><span class="line"><span class="comment">#lat(纬度简写)</span></span><br><span class="line"><span class="comment">#group(多边形分组变量)</span></span><br><span class="line"><span class="comment">##即该图层至少需要这四个参数才能保证可以输出一张具有完整地理信息的地图出来（注意：完整的地理信息边界并不代表行政边界，地理信息边界仅仅描述了实际存在的地理轮廓）。</span></span><br><span class="line"><span class="comment">#国界线则是需要在group的基础上，施加id。</span></span><br><span class="line"><span class="keyword">library</span>(maps)</span><br><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line"><span class="keyword">library</span>(ggthemes)</span><br><span class="line"><span class="keyword">library</span>(RColorBrewer)</span><br><span class="line">world_map = map_data(<span class="string">"world"</span>)</span><br><span class="line">head(world_map)</span><br><span class="line">ggplot(world_map) + geom_polygon(aes(x = long, y = lat))</span><br></pre></td></tr></table></figure>
+        <!-- 
+R语言中文社区推文学习笔记
+
+脚本下载👇ggplot2是如何通过颜色信号来对多边形进行填充的？.R
+geom_ploygon()图层12345678910111213141516##ggplot2是如何通过颜色信号来对多边形进行填充的？##geom_ploygon()图层##geom_polygon()需要显式声明的参数至少需要四个：#data(地理信息数据框)#long(经度简写)#l......  -->
+        <p class="article-more-link">
+          <a href="../../posts/11306/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/R/">R</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-ggedit：交互式ggplot图形参数修改"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/46674/">ggedit：交互式ggplot图形参数修改</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/46674/" class="article-date">
+	  <time datetime="2017-11-16T02:29:12.000Z" itemprop="datePublished">2017-11-16</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>R语言中文社区推文学习笔记</p>
+</blockquote>
+<p><strong>脚本和数据集下载👇</strong><br><a href="![](https://github.com/czxa/Web_data_Source/raw/master/ggedit：交互式ggplot图形参数修改.R"><strong><code>ggedit：交互式ggplot图形参数修改.R</code></strong></a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#ggedit：交互式ggplot图形参数修改</span></span><br><span class="line"><span class="comment">## 查看最近一天下载量top10包</span></span><br><span class="line">install.packages(<span class="string">"cranlogs"</span>)</span><br><span class="line"><span class="keyword">library</span>(cranlogs)</span><br><span class="line">cran_top_downloads()</span><br><span class="line">cran_ggplot2 &lt;- cran_downloads(packages = <span class="string">"ggplot2"</span>, from = <span class="string">"2012-11-17"</span>, to = <span class="string">"2017-11-17"</span>)</span><br><span class="line">sum(cran_ggplot2) <span class="comment">#查看五年来的累计下载量（似乎这两句无法运行）</span></span><br><span class="line"><span class="comment">## ggedit是一款交互式调整图形参数的ggplot2扩展包工具</span></span><br><span class="line">install.packages(<span class="string">"ggedit"</span>)</span><br><span class="line"><span class="keyword">library</span>(ggedit)</span><br><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line">p &lt;- ggplot(mtcars, aes(hp, wt)) + geom_point() + geom_smooth()</span><br><span class="line">p2 &lt;- ggedit(p)</span><br><span class="line"><span class="comment">##然后就会调出交互式界面</span></span><br></pre></td></tr></table></figure>
+        <!-- 
+R语言中文社区推文学习笔记
+
+脚本和数据集下载👇ggedit：交互式ggplot图形参数修改.R
+1234567891011121314#ggedit：交互式ggplot图形参数修改## 查看最近一天下载量top10包install.packages("cranlogs")library(cranlogs)cran_top_downloads()cran_ggplot2 &lt;- cr......  -->
+        <p class="article-more-link">
+          <a href="../../posts/46674/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/R/">R</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-magick包：图像处理扩展包"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/54279/">magick包：图像处理扩展包</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/54279/" class="article-date">
+	  <time datetime="2017-11-15T12:29:12.000Z" itemprop="datePublished">2017-11-15</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>R语言中文社区推文学习笔记</p>
+</blockquote>
+<p><strong>脚本下载👇</strong><br><a href="https://github.com/czxa/Web_data_Source/raw/master/magick包：图像处理扩展包.R" target="_blank" rel="noopener"><strong><code>magick包：图像处理扩展包.R</code></strong></a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(magick)</span><br><span class="line">str(magick::magick_config()) <span class="comment">#查看该包支持的图片格式</span></span><br><span class="line">tiger &lt;- image_read(<span class="string">'https://jeroen.github.io/images/tiger.svg'</span>)</span><br><span class="line">tiger</span><br></pre></td></tr></table></figure>
+        <!-- 
+R语言中文社区推文学习笔记
+
+脚本下载👇magick包：图像处理扩展包.R
+1234library(magick)str(magick::magick_config()) #查看该包支持的图片格式tiger &lt;- image_read('https://jeroen.github.io/images/tiger.svg')tiger
+
+
+剪裁和编辑123image_info(tig......  -->
+        <p class="article-more-link">
+          <a href="../../posts/54279/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/R/">R</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../165/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../164/">164</a><a class="page-number" href="../165/">165</a><span class="page-number current">166</span><a class="page-number" href="../167/">167</a><a class="page-number" href="../168/">168</a><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../167/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

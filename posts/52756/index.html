@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>面板数据 | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Stata" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="面板数据的特点：面板分类 T小 n大：短面板；反之则为长面板； 解释变量中包含被解释变量的滞后项：动态面板；反之则为静态面板； 如果每个时期在样本中的个体完全一样：平衡面板；贩子则为非平衡面板；  面板数据的优点 可以解决遗漏变量问题； 提供了更多个体动态行为的信息； 样本容量较大。">
+<meta name="keywords" content="Stata">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面板数据">
+<meta property="og:url" content="http://www.czxa.top/posts/52756/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="面板数据的特点：面板分类 T小 n大：短面板；反之则为长面板； 解释变量中包含被解释变量的滞后项：动态面板；反之则为静态面板； 如果每个时期在样本中的个体完全一样：平衡面板；贩子则为非平衡面板；  面板数据的优点 可以解决遗漏变量问题； 提供了更多个体动态行为的信息； 样本容量较大。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.czxa.top/posts/52756/![](https://github.com/czxa/Web_data_Source/raw/master/xtline.png">
+<meta property="og:updated_time" content="2018-02-13T09:46:00.012Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面板数据">
+<meta name="twitter:description" content="面板数据的特点：面板分类 T小 n大：短面板；反之则为长面板； 解释变量中包含被解释变量的滞后项：动态面板；反之则为静态面板； 如果每个时期在样本中的个体完全一样：平衡面板；贩子则为非平衡面板；  面板数据的优点 可以解决遗漏变量问题； 提供了更多个体动态行为的信息； 样本容量较大。">
+<meta name="twitter:image" content="http://www.czxa.top/posts/52756/![](https://github.com/czxa/Web_data_Source/raw/master/xtline.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-面板数据" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      面板数据
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2018-01-08T11:03:23.000Z" itemprop="datePublished">2018-01-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/计量经济学/">计量经济学</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="面板数据的特点："><a href="#面板数据的特点：" class="headerlink" title="面板数据的特点："></a>面板数据的特点：</h4><h5 id="面板分类"><a href="#面板分类" class="headerlink" title="面板分类"></a>面板分类</h5><ul>
+<li>T小 n大：短面板；反之则为长面板；</li>
+<li>解释变量中包含被解释变量的滞后项：动态面板；反之则为静态面板；</li>
+<li>如果每个时期在样本中的个体完全一样：平衡面板；贩子则为非平衡面板；</li>
+</ul>
+<h5 id="面板数据的优点"><a href="#面板数据的优点" class="headerlink" title="面板数据的优点"></a>面板数据的优点</h5><ul>
+<li>可以解决遗漏变量问题；</li>
+<li>提供了更多个体动态行为的信息；</li>
+<li>样本容量较大。<a id="more"></a>
+<h5 id="面板数据的缺点"><a href="#面板数据的缺点" class="headerlink" title="面板数据的缺点"></a>面板数据的缺点</h5></li>
+<li>样本数据通常不满足iid假设，因为同一个体在不同期的扰动项一般存在自相关；</li>
+<li>数据搜集成本最高。</li>
+</ul>
+<h4 id="面板数据的估计策略："><a href="#面板数据的估计策略：" class="headerlink" title="面板数据的估计策略："></a>面板数据的估计策略：</h4><h5 id="极端策略："><a href="#极端策略：" class="headerlink" title="极端策略："></a>极端策略：</h5><ul>
+<li>混合回归：忽略了个体间不可观测的异质性；</li>
+<li>分别回归：忽略了个体的共性，而且可能没有足够大的样本容量，特别是对于短面板。</li>
+</ul>
+<h5 id="折中策略："><a href="#折中策略：" class="headerlink" title="折中策略："></a>折中策略：</h5><ul>
+<li><p>个体效应模型：假定个体的回归方程拥有相同的斜率，但可有不同的截距项，以捕捉异质性；</p>
+$$y_{it} = x^{'}_{it}\beta+z^{'}_{i}\delta+u_{i}+\epsilon_{it}$$
+</li>
+<li><p>其中，$z_{i}$为不随时间而变的个体特征，比如性别；$u_{i}$是代表个体异质性的截距项，即个体效应。</p>
+</li>
+<li>如果$u_{i}$与某个解释变量相关，则称为固定效应模型，反之则称为随机效应模型。</li>
+</ul>
+<h4 id="混合回归"><a href="#混合回归" class="headerlink" title="混合回归"></a>混合回归</h4><ul>
+<li>每个个体的个体效应均为$\alpha$</li>
+</ul>
+$$y_{it} = \alpha +  x^{'}_{it}\beta+u_{i}+\epsilon_{it}$$
+<ul>
+<li>每个个体不同时期的所有观测值即构成一个聚类。</li>
+<li>聚类稳健标准误更适用于短面板。</li>
+</ul>
+<h4 id="固定效应模型：组内估计量"><a href="#固定效应模型：组内估计量" class="headerlink" title="固定效应模型：组内估计量"></a>固定效应模型：组内估计量</h4><ul>
+<li>也就是通过时间均值离差消除个体效应，得到固定效应估计量（组内估计量）。</li>
+</ul>
+<h4 id="固定效应模型：LSDV法"><a href="#固定效应模型：LSDV法" class="headerlink" title="固定效应模型：LSDV法"></a>固定效应模型：LSDV法</h4><ul>
+<li>在回归方程中添加n-1个虚拟变量，使得每个个体可以拥有不同的截距项。</li>
+<li>LSDV法的估计结果与上述组内估计量FE完全相同。然而如果做完LSDV后发现某些个体的虚拟变量不显著而删去，则LSDV法的结果就不会与FE相同。</li>
+</ul>
+<h4 id="固定效应模型：一阶差分法"><a href="#固定效应模型：一阶差分法" class="headerlink" title="固定效应模型：一阶差分法"></a>固定效应模型：一阶差分法</h4><ul>
+<li>只要求扰动项的一阶差分与解释变量的一阶差分不相关，此一致性条件比保证$\beta_{FE}$一致的严格外生性假定更弱。</li>
+</ul>
+<h4 id="时间固定效应"><a href="#时间固定效应" class="headerlink" title="时间固定效应"></a>时间固定效应</h4><ul>
+<li>个体固定效应模型解决了不随时间而变但随个体而异的遗漏变量问题。但是还可能存在不随个体而变，但是随着时间变化的遗漏变量问题。为此，在个体固定效应模型中加入时间固定效应（$\lambda_{t}$）</li>
+<li>对于时间固定效应，可以使用LSDV法估计。</li>
+<li>如果即考虑了个体的固定效应、又考虑了时间的固定效应，则称为双向固定效应模型：</li>
+</ul>
+$$y_{it} = x^{'}_{it}\beta+z^{'}_{i}\delta+ \sum^{T}_{t=2}{\gamma_{t}D_{t}} +u_{i}+\epsilon_{it}$$
+<h4 id="随机效应模型"><a href="#随机效应模型" class="headerlink" title="随机效应模型"></a>随机效应模型</h4><h4 id="组间估计量"><a href="#组间估计量" class="headerlink" title="组间估计量"></a>组间估计量</h4><ul>
+<li>对每个个体取时间均值，然后用平均值进行截面回归。</li>
+</ul>
+<h4 id="拟合优度的衡量"><a href="#拟合优度的衡量" class="headerlink" title="拟合优度的衡量"></a>拟合优度的衡量</h4><ul>
+<li>整体$R^2$</li>
+<li>组内$R^2$</li>
+<li>组间$R^2$</li>
+</ul>
+<h4 id="面板模型的Stata命令及示例"><a href="#面板模型的Stata命令及示例" class="headerlink" title="面板模型的Stata命令及示例"></a>面板模型的Stata命令及示例</h4><h5 id="面板数据的设定"><a href="#面板数据的设定" class="headerlink" title="面板数据的设定"></a>面板数据的设定</h5><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">xtset</span> panelvar timevar</span><br><span class="line"><span class="comment">*将字符串变量转化为数值型变量</span></span><br><span class="line"><span class="keyword">encode</span> country, <span class="keyword">gen</span>(cntry)</span><br><span class="line"><span class="comment">*显示面板数据的结构，是否为平衡面板</span></span><br><span class="line"><span class="keyword">xtdes</span></span><br><span class="line"><span class="comment">*显示组间、组内和整体指标</span></span><br><span class="line"><span class="keyword">xtsum</span></span><br><span class="line"><span class="comment">*对每位个体分别显示该变量的时间序列图；如果希望所有个体的时间序列图叠放在一起，可加上选择项overlay</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">. <span class="keyword">clear</span> all</span><br><span class="line"></span><br><span class="line">. <span class="keyword">cd</span> <span class="string">"~/Documents/Chen_Qiang_DataSets-master"</span></span><br><span class="line">/Users/mr.cheng/Documents/Chen_Qiang_DataSets-master</span><br><span class="line"></span><br><span class="line">. <span class="keyword">use</span> lin_1992.dta, <span class="keyword">clear</span></span><br><span class="line"></span><br><span class="line">. <span class="keyword">xtset</span> province <span class="built_in">year</span></span><br><span class="line">       panel variable:  province (strongly balanced)</span><br><span class="line">        time variable:  year, 70 to 87</span><br><span class="line">                delta:  1 unit</span><br><span class="line"></span><br><span class="line">. <span class="keyword">xtdes</span></span><br><span class="line"></span><br><span class="line">province:  1, 2, ..., 28                                     <span class="keyword">n</span> =         28</span><br><span class="line">    year:  70, 71, ..., 87                                   T =         18</span><br><span class="line">           Delta(year) = 1 unit</span><br><span class="line">           Span(year)  = 18 periods</span><br><span class="line">           (province*year uniquely identifies each observation)</span><br><span class="line"></span><br><span class="line">Distribution of T_i:   min      5%     25%       50%       75%     95%     <span class="built_in">max</span></span><br><span class="line">                        18      18      18        18        18      18      18</span><br><span class="line"></span><br><span class="line">     Freq.  Percent    Cum. |  Pattern</span><br><span class="line"> ---------------------------+--------------------</span><br><span class="line">       28    100.00  100.00 |  111111111111111111</span><br><span class="line"> ---------------------------+--------------------</span><br><span class="line">       28    100.00         |  XXXXXXXXXXXXXXXXXX</span><br><span class="line"></span><br><span class="line">. <span class="keyword">global</span> v = <span class="string">"ltvfo ltlan ltwlab ltpow ltfer hrs mipric1 mci ngca giprice"</span></span><br><span class="line"></span><br><span class="line">. <span class="keyword">xtsum</span> <span class="variable">$v</span></span><br><span class="line"></span><br><span class="line">Variable         |      <span class="keyword">Mean</span>   Std. Dev.       Min        Max |    Observations</span><br><span class="line">-----------------+--------------------------------------------+----------------</span><br><span class="line">ltvfo    overall |  7.647758   .5331999       5.51       9.33 |     <span class="keyword">N</span> =     504</span><br><span class="line">         between |             .4611992   6.982222   8.977222 |     <span class="keyword">n</span> =      28</span><br><span class="line">         within  |             .2806888    5.61498   8.471647 |     T =      18</span><br><span class="line">                 |                                            |</span><br><span class="line">ltlan    overall |  5.837877   .8084866       4.57       7.76 |     <span class="keyword">N</span> =     504</span><br><span class="line">         between |             .8143036   4.617222   7.697778 |     <span class="keyword">n</span> =      28</span><br><span class="line">         within  |             .1138892   4.758988   6.163988 |     T =      18</span><br><span class="line">                 |                                            |</span><br><span class="line">ltwlab   overall |   3.19752   .4193496        .98       3.86 |     <span class="keyword">N</span> =     504</span><br><span class="line">         between |             .3195715   2.303889   3.646111 |     <span class="keyword">n</span> =      28</span><br><span class="line">         within  |             .2778123   1.618631   4.053631 |     T =      18</span><br><span class="line">                 |                                            |</span><br><span class="line">ltpow    overall |  2.692778   .9463811         .2       5.04 |     <span class="keyword">N</span> =     504</span><br><span class="line">         between |             .7702036      1.475   4.180556 |     <span class="keyword">n</span> =      28</span><br><span class="line">         within  |             .5678668        .31   3.909444 |     T =      18</span><br><span class="line">                 |                                            |</span><br><span class="line">ltfer    overall |   2.15119   .7903761       -.23       3.98 |     <span class="keyword">N</span> =     504</span><br><span class="line">         between |             .5624935   1.081111   3.649444 |     <span class="keyword">n</span> =      28</span><br><span class="line">         within  |              .564791   .4173016   3.510079 |     T =      18</span><br><span class="line">                 |                                            |</span><br><span class="line">hrs      overall |  .3497479   .4526283          0          1 |     <span class="keyword">N</span> =     476</span><br><span class="line">         between |             .0453814   .2123529   .4094118 |     <span class="keyword">n</span> =      28</span><br><span class="line">         within  |             .4504245  -.0596639   1.053866 |     T =      17</span><br><span class="line">                 |                                            |</span><br><span class="line">mipric1  overall |  2.248889   .2431379       1.76       2.73 |     <span class="keyword">N</span> =     504</span><br><span class="line">         between |                    0   2.248889   2.248889 |     <span class="keyword">n</span> =      28</span><br><span class="line">         within  |             .2431379       1.76       2.73 |     T =      18</span><br><span class="line">                 |                                            |</span><br><span class="line">mci      overall |  1.538452   .4931854        .85       2.55 |     <span class="keyword">N</span> =     504</span><br><span class="line">         between |             .4972044   .8666667   2.487222 |     <span class="keyword">n</span> =      28</span><br><span class="line">         within  |             .0661412   1.323452   1.880119 |     T =      18</span><br><span class="line">                 |                                            |</span><br><span class="line">ngca     overall |   .199623    .076145        .06        .91 |     <span class="keyword">N</span> =     504</span><br><span class="line">         between |             .0631671   .1144444   .3466667 |     <span class="keyword">n</span> =      28</span><br><span class="line">         within  |             .0440777   .1151786   .8951786 |     T =      18</span><br><span class="line">                 |                                            |</span><br><span class="line">giprice  overall |  2.858889   .4537578       2.39       3.56 |     <span class="keyword">N</span> =     504</span><br><span class="line">         between |                    0   2.858889   2.858889 |     <span class="keyword">n</span> =      28</span><br><span class="line">         within  |             .4537578       2.39       3.56 |     T =      18</span><br><span class="line">. <span class="keyword">xtline</span> ltvfo</span><br></pre></td></tr></table></figure>
+<p><img src="![](https://github.com/czxa/Web_data_Source/raw/master/xtline.png" width="60%"></p>
+<h5 id="混合回归-1"><a href="#混合回归-1" class="headerlink" title="混合回归"></a>混合回归</h5><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">. <span class="keyword">reg</span> <span class="variable">$v</span>, <span class="keyword">vce</span>(<span class="keyword">cluster</span> province)</span><br><span class="line"></span><br><span class="line">Linear regression                               Number of obs     =        476</span><br><span class="line">                                                <span class="built_in">F</span>(9, 27)          =      81.39</span><br><span class="line">                                                <span class="keyword">Prob</span> &gt; F          =     0.0000</span><br><span class="line">                                                R-squared         =     0.8685</span><br><span class="line">                                                Root MSE          =     .19689</span><br><span class="line"></span><br><span class="line">                              (Std. <span class="keyword">Err</span>. adjusted <span class="keyword">for</span> 28 clusters <span class="keyword">in</span> province)</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">             |               Robust</span><br><span class="line">       ltvfo |      Coef.   Std. <span class="keyword">Err</span>.      t    P&gt;|t|     [95% <span class="keyword">Conf</span>. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">       ltlan |    .693795    .115024     6.03   0.000     .4577853    .9298048</span><br><span class="line">      ltwlab |   .2650224   .0566294     4.68   0.000     .1488285    .3812164</span><br><span class="line">       ltpow |  -.0291884   .0670385    -0.44   0.667    -.1667401    .1083633</span><br><span class="line">       ltfer |   .3110617   .0531318     5.85   0.000     .2020443    .4200792</span><br><span class="line">         hrs |   .2286926   .0489458     4.67   0.000     .1282642     .329121</span><br><span class="line">     mipric1 |   .0122048   .0547799     0.22   0.825    -.1001943    .1246039</span><br><span class="line">         mci |   .6949202   .1689692     4.11   0.000     .3482241    1.041616</span><br><span class="line">        ngca |   .3053056   .5222639     0.58   0.564    -.7662914    1.376903</span><br><span class="line">     giprice |  -.0538892   .0274468    -1.96   0.060    -.1102054     .002427</span><br><span class="line">       _cons |   1.080587   .8269888     1.31   0.202    -.6162544    2.777427</span><br><span class="line">------------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+<h5 id="固定效应"><a href="#固定效应" class="headerlink" title="固定效应"></a>固定效应</h5><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">. <span class="keyword">xtreg</span> <span class="variable">$v</span>, fe <span class="built_in">r</span></span><br><span class="line"></span><br><span class="line">Fixed-effects (within) regression               Number of obs     =        476</span><br><span class="line">Group variable: province                        Number of groups  =         28</span><br><span class="line"></span><br><span class="line">R-sq:                                           Obs per group:</span><br><span class="line">     within  = 0.8746                                         min =         17</span><br><span class="line">     between = 0.6483                                         avg =       17.0</span><br><span class="line">     overall = 0.6993                                         max =         17</span><br><span class="line"></span><br><span class="line">                                                <span class="built_in">F</span>(9,27)           =     274.25</span><br><span class="line"><span class="built_in">corr</span>(u_i, Xb)  = -0.3877                        <span class="keyword">Prob</span> &gt; F          =     0.0000</span><br><span class="line"></span><br><span class="line">                              (Std. <span class="keyword">Err</span>. adjusted <span class="keyword">for</span> 28 clusters <span class="keyword">in</span> province)</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">             |               Robust</span><br><span class="line">       ltvfo |      Coef.   Std. <span class="keyword">Err</span>.      t    P&gt;|t|     [95% <span class="keyword">Conf</span>. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">       ltlan |   .6370234   .1681335     3.79   0.001     .2920421    .9820048</span><br><span class="line">      ltwlab |   .1387786   .0624585     2.22   0.035     .0106242    .2669329</span><br><span class="line">       ltpow |   .0577152   .0755568     0.76   0.452    -.0973146    .2127451</span><br><span class="line">       ltfer |   .1826281    .043592     4.19   0.000     .0931846    .2720716</span><br><span class="line">         hrs |   .2134022   .0391104     5.46   0.000     .1331542    .2936501</span><br><span class="line">     mipric1 |   .0543577   .0590331     0.92   0.365    -.0667682    .1754837</span><br><span class="line">         mci |   .1943697   .0770515     2.52   0.018     .0362731    .3524663</span><br><span class="line">        ngca |   .7562031   .3821261     1.98   0.058    -.0278549    1.540261</span><br><span class="line">     giprice |  -.0151451   .0245968    -0.62   0.543    -.0656135    .0353233</span><br><span class="line">       _cons |   2.337895   .8552224     2.73   0.011      .583124    4.092667</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">     sigma_u |  .30549743</span><br><span class="line">     sigma_e |  .10589274</span><br><span class="line">         rho |  .89273901   (fraction of variance due to u_i)</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">. <span class="keyword">est</span> store FE_robust</span><br><span class="line">. * 是否存在个体固定效应的检验</span><br><span class="line"></span><br><span class="line">. <span class="keyword">xtreg</span> <span class="variable">$v</span>, fe</span><br><span class="line"></span><br><span class="line">Fixed-effects (within) regression               Number of obs     =        476</span><br><span class="line">Group variable: province                        Number of groups  =         28</span><br><span class="line"></span><br><span class="line">R-sq:                                           Obs per group:</span><br><span class="line">     within  = 0.8746                                         min =         17</span><br><span class="line">     between = 0.6483                                         avg =       17.0</span><br><span class="line">     overall = 0.6993                                         max =         17</span><br><span class="line"></span><br><span class="line">                                                <span class="built_in">F</span>(9,439)          =     340.20</span><br><span class="line"><span class="built_in">corr</span>(u_i, Xb)  = -0.3877                        <span class="keyword">Prob</span> &gt; F          =     0.0000</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">       ltvfo |      Coef.   Std. <span class="keyword">Err</span>.      t    P&gt;|t|     [95% <span class="keyword">Conf</span>. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">       ltlan |   .6370234   .0673191     9.46   0.000     .5047156    .7693312</span><br><span class="line">      ltwlab |   .1387786   .0261554     5.31   0.000     .0873732     .190184</span><br><span class="line">       ltpow |   .0577152   .0332508     1.74   0.083    -.0076352    .1230657</span><br><span class="line">       ltfer |   .1826281   .0219921     8.30   0.000     .1394053     .225851</span><br><span class="line">         hrs |   .2134022   .0223886     9.53   0.000        .1694    .2574043</span><br><span class="line">     mipric1 |   .0543577   .0421659     1.29   0.198    -.0285145    .1372299</span><br><span class="line">         mci |   .1943697   .0876884     2.22   0.027     .0220285     .366711</span><br><span class="line">        ngca |   .7562031   .2168141     3.49   0.001     .3300804    1.182326</span><br><span class="line">     giprice |  -.0151451   .0187457    -0.81   0.420    -.0519876    .0216975</span><br><span class="line">       _cons |   2.337895    .385253     6.07   0.000     1.580726    3.095065</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">     sigma_u |  .30549743</span><br><span class="line">     sigma_e |  .10589274</span><br><span class="line">         rho |  .89273901   (fraction of variance due to u_i)</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">F <span class="keyword">test</span> that all u_i=0: <span class="built_in">F</span>(27, 439) = 43.41                    <span class="keyword">Prob</span> &gt; F = 0.0000</span><br></pre></td></tr></table></figure>
+<ul>
+<li>上面的F检验的原假设所有的个体效应均为0，即混合回归是可以接受的。</li>
+<li><p>LSDV法：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">. <span class="keyword">reg</span> <span class="variable">$v</span> i.province, <span class="keyword">vce</span>(<span class="keyword">cluster</span> province)</span><br><span class="line"></span><br><span class="line">Linear regression                               Number of obs     =        476</span><br><span class="line">                                                <span class="built_in">F</span>(8, 27)          =          .</span><br><span class="line">                                                <span class="keyword">Prob</span> &gt; F          =          .</span><br><span class="line">                                                R-squared         =     0.9642</span><br><span class="line">                                                Root MSE          =     .10589</span><br><span class="line"></span><br><span class="line">                               (Std. <span class="keyword">Err</span>. adjusted <span class="keyword">for</span> 28 clusters <span class="keyword">in</span> province)</span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">              |               Robust</span><br><span class="line">        ltvfo |      Coef.   Std. <span class="keyword">Err</span>.      t    P&gt;|t|     [95% <span class="keyword">Conf</span>. Interval]</span><br><span class="line">--------------+----------------------------------------------------------------</span><br><span class="line">        ltlan |   .6370234   .1732267     3.68   0.001     .2815916    .9924553</span><br><span class="line">       ltwlab |   .1387786   .0643506     2.16   0.040     .0067421    .2708151</span><br><span class="line">        ltpow |   .0577152   .0778457     0.74   0.465    -.1020109    .2174414</span><br><span class="line">        ltfer |   .1826281   .0449126     4.07   0.000     .0904751    .2747811</span><br><span class="line">          hrs |   .2134022   .0402952     5.30   0.000     .1307233     .296081</span><br><span class="line">      mipric1 |   .0543577   .0608214     0.89   0.379    -.0704375    .1791529</span><br><span class="line">          mci |   .1943697   .0793856     2.45   0.021     .0314839    .3572555</span><br><span class="line">         ngca |   .7562031   .3937018     1.92   0.065    -.0516063    1.564013</span><br><span class="line">      giprice |  -.0151451   .0253419    -0.60   0.555    -.0671423    .0368522</span><br><span class="line">              |</span><br><span class="line">     province |</span><br><span class="line">     beijing  |  -.1816498   .1247829    -1.46   0.157    -.4376832    .0743835</span><br><span class="line">      fujian  |    .051657   .0501916     1.03   0.313    -.0513277    .1546418</span><br><span class="line">       gansu  |  -.8165674   .1380808    -5.91   0.000    -1.099886   -.5332489</span><br><span class="line">   guangdong  |   -.010488    .055811    -0.19   0.852    -.1250028    .1040268</span><br><span class="line">     guangxi  |  -.2304637   .0570853    -4.04   0.000    -.3475932   -.1133342</span><br><span class="line">     guizhou  |  -.2350768   .0615353    -3.82   0.001    -.3613369   -.1088167</span><br><span class="line">       hebei  |  -.2923854   .0997217    -2.93   0.007    -.4969974   -.0877733</span><br><span class="line">heilongjiang  |  -.1410195   .2892268    -0.49   0.630    -.7344638    .4524249</span><br><span class="line">       henan  |  -.0904581   .0435714    -2.08   0.048    -.1798593   -.0010569</span><br><span class="line">       hubei  |   .1118905   .0340584     3.29   0.003     .0420085    .1817725</span><br><span class="line">       hunan  |  -.0373775   .0607647    -0.62   0.544    -.1620563    .0873014</span><br><span class="line">     jiangsu  |   .1150954   .0342058     3.36   0.002     .0449109      .18528</span><br><span class="line">     jiangxi  |  -.1352577   .0579781    -2.33   0.027    -.2542188   -.0162965</span><br><span class="line">       jilin  |  -.2220282   .2253552    -0.99   0.333    -.6844189    .2403624</span><br><span class="line">    liaoning  |  -.2789811    .172656    -1.62   0.118    -.6332419    .0752797</span><br><span class="line">     neimong  |  -.9288069   .2561317    -3.63   0.001    -1.454346    -.403268</span><br><span class="line">     ningxia  |  -.8813594   .1975659    -4.46   0.000    -1.286731   -.4759877</span><br><span class="line">     qinghai  |  -.7062497   .1521719    -4.64   0.000    -1.018481   -.3940187</span><br><span class="line">     shaanxi  |  -.3342067   .0925991    -3.61   0.001    -.5242045    -.144209</span><br><span class="line">   shangdong  |  -.0049215   .0581511    -0.08   0.933    -.1242377    .1143947</span><br><span class="line">    shanghai  |    .113901   .0648627     1.76   0.090    -.0191862    .2469882</span><br><span class="line">      shanxi  |  -.5312338   .1514863    -3.51   0.002    -.8420581   -.2204095</span><br><span class="line">     sichuan  |   .0251618   .0320732     0.78   0.440     -.040647    .0909707</span><br><span class="line">     tianjin  |  -.3047612   .1190042    -2.56   0.016    -.5489376   -.0605848</span><br><span class="line">    xinjiang  |  -.4007117   .2397817    -1.67   0.106    -.8927032    .0912797</span><br><span class="line">      yunnan  |  -.2774542   .0632713    -4.39   0.000    -.4072763   -.1476321</span><br><span class="line">    zhejiang  |   .1764445   .0822195     2.15   0.041      .007744     .345145</span><br><span class="line">              |</span><br><span class="line">        _cons |   2.568156   .8279625     3.10   0.004     .8693177    4.266995</span><br><span class="line">-------------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>FD法</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">. xtserial <span class="variable">$v</span>, output</span><br><span class="line"></span><br><span class="line">Linear regression                               Number of obs     =        420</span><br><span class="line">                                                <span class="built_in">F</span>(9, 27)          =     902.61</span><br><span class="line">                                                <span class="keyword">Prob</span> &gt; F          =     0.0000</span><br><span class="line">                                                R-squared         =     0.5797</span><br><span class="line">                                                Root MSE          =     .11179</span><br><span class="line"></span><br><span class="line">                              (Std. <span class="keyword">Err</span>. adjusted <span class="keyword">for</span> 28 clusters <span class="keyword">in</span> province)</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">             |               Robust</span><br><span class="line">     <span class="keyword">D</span>.ltvfo |      Coef.   Std. <span class="keyword">Err</span>.      t    P&gt;|t|     [95% <span class="keyword">Conf</span>. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">       ltlan |</span><br><span class="line">         D1. |   .9807158   .0926143    10.59   0.000      .790687    1.170745</span><br><span class="line">             |</span><br><span class="line">      ltwlab |</span><br><span class="line">         D1. |   .2420082   .0734117     3.30   0.003     .0913798    .3926366</span><br><span class="line">             |</span><br><span class="line">       ltpow |</span><br><span class="line">         D1. |  -.0171023   .0747984    -0.23   0.821     -.170576    .1363714</span><br><span class="line">             |</span><br><span class="line">       ltfer |</span><br><span class="line">         D1. |   .2768317   .0589799     4.69   0.000      .155815    .3978485</span><br><span class="line">             |</span><br><span class="line">         hrs |</span><br><span class="line">         D1. |   .2427773   .0372382     6.52   0.000     .1663709    .3191837</span><br><span class="line">             |</span><br><span class="line">     mipric1 |</span><br><span class="line">         D1. |   .0250908   .0357935     0.70   0.489    -.0483513    .0985329</span><br><span class="line">             |</span><br><span class="line">         mci |</span><br><span class="line">         D1. |   .1314675   .1260309     1.04   0.306    -.1271266    .3900616</span><br><span class="line">             |</span><br><span class="line">        ngca |</span><br><span class="line">         D1. |  -.0260777   .4846049    -0.05   0.957    -1.020405    .9682494</span><br><span class="line">             |</span><br><span class="line">     giprice |</span><br><span class="line">         D1. |  -.0157708    .021774    -0.72   0.475    -.0604473    .0289057</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Wooldridge <span class="keyword">test</span> <span class="keyword">for</span> autocorrelation <span class="keyword">in</span> panel data</span><br><span class="line">H0: <span class="keyword">no</span> first-<span class="keyword">order</span> autocorrelation</span><br><span class="line">    <span class="built_in">F</span>(  1,      27) =     12.511</span><br><span class="line">           <span class="keyword">Prob</span> &gt; F =      0.0015</span><br><span class="line"><span class="keyword">est</span> store FD</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>双向固定效应模型</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line">. * 双向固定效应</span><br><span class="line"></span><br><span class="line">. * 首先考虑加入时间趋势项</span><br><span class="line"></span><br><span class="line">. <span class="keyword">xtreg</span> <span class="variable">$v</span> t, fe <span class="built_in">r</span></span><br><span class="line"></span><br><span class="line">Fixed-effects (within) regression               Number of obs     =        476</span><br><span class="line">Group variable: province                        Number of groups  =         28</span><br><span class="line"></span><br><span class="line">R-sq:                                           Obs per group:</span><br><span class="line">     within  = 0.8749                                         min =         17</span><br><span class="line">     between = 0.6490                                         avg =       17.0</span><br><span class="line">     overall = 0.7006                                         max =         17</span><br><span class="line"></span><br><span class="line">                                                <span class="built_in">F</span>(10,27)          =     247.93</span><br><span class="line"><span class="built_in">corr</span>(u_i, Xb)  = -0.3767                        <span class="keyword">Prob</span> &gt; F          =     0.0000</span><br><span class="line"></span><br><span class="line">                              (Std. <span class="keyword">Err</span>. adjusted <span class="keyword">for</span> 28 clusters <span class="keyword">in</span> province)</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">             |               Robust</span><br><span class="line">       ltvfo |      Coef.   Std. <span class="keyword">Err</span>.      t    P&gt;|t|     [95% <span class="keyword">Conf</span>. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">       ltlan |   .6517195   .1843858     3.53   0.001     .2733911    1.030048</span><br><span class="line">      ltwlab |   .1431791   .0589267     2.43   0.022     .0222716    .2640866</span><br><span class="line">       ltpow |   .0366317   .0991178     0.37   0.715    -.1667413    .2400047</span><br><span class="line">       ltfer |    .180359   .0428995     4.20   0.000     .0923365    .2683816</span><br><span class="line">         hrs |   .1916276   .0295596     6.48   0.000     .1309763    .2522789</span><br><span class="line">     mipric1 |   .0198772   .0515121     0.39   0.703    -.0858168    .1255713</span><br><span class="line">         mci |   .2014685    .078794     2.56   0.016     .0397965    .3631404</span><br><span class="line">        ngca |   .6761116    .421738     1.60   0.121    -.1892234    1.541447</span><br><span class="line">     giprice |   -.026268   .0226875    -1.16   0.257    -.0728189    .0202829</span><br><span class="line">           t |   .0063068   .0106492     0.59   0.559    -.0155436    .0281572</span><br><span class="line">       _cons |    2.36174   .8262751     2.86   0.008     .6663633    4.057116</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">     sigma_u |  .30327958</span><br><span class="line">     sigma_e |  .10589784</span><br><span class="line">         rho |  .89132628   (fraction of variance due to u_i)</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">. <span class="keyword">est</span> store FE_trend</span><br><span class="line"></span><br><span class="line">. * 其次考虑加入年度虚拟变量</span><br><span class="line"></span><br><span class="line">. <span class="keyword">tab</span> year, <span class="keyword">gen</span>(year)</span><br><span class="line"></span><br><span class="line">       year |      Freq.     Percent        Cum.</span><br><span class="line">------------+-----------------------------------</span><br><span class="line">         70 |         28        5.56        5.56</span><br><span class="line">         71 |         28        5.56       11.11</span><br><span class="line">         72 |         28        5.56       16.67</span><br><span class="line">         73 |         28        5.56       22.22</span><br><span class="line">         74 |         28        5.56       27.78</span><br><span class="line">         75 |         28        5.56       33.33</span><br><span class="line">         76 |         28        5.56       38.89</span><br><span class="line">         77 |         28        5.56       44.44</span><br><span class="line">         78 |         28        5.56       50.00</span><br><span class="line">         79 |         28        5.56       55.56</span><br><span class="line">         80 |         28        5.56       61.11</span><br><span class="line">         81 |         28        5.56       66.67</span><br><span class="line">         82 |         28        5.56       72.22</span><br><span class="line">         83 |         28        5.56       77.78</span><br><span class="line">         84 |         28        5.56       83.33</span><br><span class="line">         85 |         28        5.56       88.89</span><br><span class="line">         86 |         28        5.56       94.44</span><br><span class="line">         87 |         28        5.56      100.00</span><br><span class="line">------------+-----------------------------------</span><br><span class="line">      <span class="keyword">Total</span> |        504      100.00</span><br><span class="line">variable year1 already defined</span><br><span class="line"><span class="built_in">r</span>(110);</span><br><span class="line"></span><br><span class="line">. <span class="keyword">xtreg</span> <span class="variable">$v</span> year2-year18, fe <span class="built_in">r</span></span><br><span class="line"><span class="keyword">note</span>: year11 omitted because of collinearity</span><br><span class="line"><span class="keyword">note</span>: year17 omitted because of collinearity</span><br><span class="line"><span class="keyword">note</span>: year18 omitted because of collinearity</span><br><span class="line"></span><br><span class="line">Fixed-effects (within) regression               Number of obs     =        476</span><br><span class="line">Group variable: province                        Number of groups  =         28</span><br><span class="line"></span><br><span class="line">R-sq:                                           Obs per group:</span><br><span class="line">     within  = 0.8932                                         min =         17</span><br><span class="line">     between = 0.6596                                         avg =       17.0</span><br><span class="line">     overall = 0.7156                                         max =         17</span><br><span class="line"></span><br><span class="line">                                                <span class="built_in">F</span>(23,27)          =     949.82</span><br><span class="line"><span class="built_in">corr</span>(u_i, Xb)  = -0.3425                        <span class="keyword">Prob</span> &gt; F          =     0.0000</span><br><span class="line"></span><br><span class="line">                              (Std. <span class="keyword">Err</span>. adjusted <span class="keyword">for</span> 28 clusters <span class="keyword">in</span> province)</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">             |               Robust</span><br><span class="line">       ltvfo |      Coef.   Std. <span class="keyword">Err</span>.      t    P&gt;|t|     [95% <span class="keyword">Conf</span>. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">       ltlan |   .5833594   .1745834     3.34   0.002     .2251439    .9415749</span><br><span class="line">      ltwlab |   .1514909   .0585107     2.59   0.015     .0314368     .271545</span><br><span class="line">       ltpow |   .0971114    .090911     1.07   0.295    -.0894225    .2836453</span><br><span class="line">       ltfer |   .1693346   .0438098     3.87   0.001     .0794444    .2592248</span><br><span class="line">         hrs |   .1503752   .0587581     2.56   0.016     .0298136    .2709368</span><br><span class="line">     mipric1 |   .0949449    .144798     0.66   0.518     -.202156    .3920458</span><br><span class="line">         mci |   .1978373   .0810587     2.44   0.022     .0315186     .364156</span><br><span class="line">        ngca |   .7784081   .4016301     1.94   0.063    -.0456688    1.602485</span><br><span class="line">     giprice |  -.1724163   .1110247    -1.55   0.132    -.4002202    .0553876</span><br><span class="line">       year2 |  -.0146449   .0200958    -0.73   0.472    -.0558781    .0265883</span><br><span class="line">       year3 |  -.1366087   .0483199    -2.83   0.009    -.2357529   -.0374644</span><br><span class="line">       year4 |  -.0598446   .0402719    -1.49   0.149    -.1424758    .0227866</span><br><span class="line">       year5 |  -.0259249   .0438259    -0.59   0.559    -.1158483    .0639985</span><br><span class="line">       year6 |  -.0259049   .0439103    -0.59   0.560    -.1160014    .0641916</span><br><span class="line">       year7 |  -.0883212    .050208    -1.76   0.090    -.1913395     .014697</span><br><span class="line">       year8 |  -.1344292   .0634058    -2.12   0.043    -.2645272   -.0043312</span><br><span class="line">       year9 |  -.0743194    .048482    -1.53   0.137    -.1737962    .0251574</span><br><span class="line">      year10 |   .1398995    .118707     1.18   0.249    -.1036672    .3834661</span><br><span class="line">      year11 |          0  (omitted)</span><br><span class="line">      year12 |   .0702701   .0917245     0.77   0.450    -.1179331    .2584732</span><br><span class="line">      year13 |   .0964498   .0758485     1.27   0.214    -.0591784     .252078</span><br><span class="line">      year14 |   .1039959   .0713188     1.46   0.156    -.0423383      .25033</span><br><span class="line">      year15 |   .1440106    .053249     2.70   0.012     .0347527    .2532685</span><br><span class="line">      year16 |    .035049   .0413379     0.85   0.404    -.0497693    .1198673</span><br><span class="line">      year17 |          0  (omitted)</span><br><span class="line">      year18 |          0  (omitted)</span><br><span class="line">       _cons |   2.896258   1.098288     2.64   0.014     .6427571    5.149759</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">     sigma_u |  .29344594</span><br><span class="line">     sigma_e |  .09930555</span><br><span class="line">         rho |  .89724523   (fraction of variance due to u_i)</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">. <span class="keyword">est</span> store FE_TW</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检验所有年份虚拟变量的联合显著性</p>
+</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">. <span class="keyword">test</span> year2 year3 year4 year5 year6 year7 year8 year9 year10 year11 year12 year13 year14 year15 year16 year17 year18</span><br><span class="line"></span><br><span class="line"> ( 1)  year2 = 0</span><br><span class="line"> ( 2)  year3 = 0</span><br><span class="line"> ( 3)  year4 = 0</span><br><span class="line"> ( 4)  year5 = 0</span><br><span class="line"> ( 5)  year6 = 0</span><br><span class="line"> ( 6)  year7 = 0</span><br><span class="line"> ( 7)  year8 = 0</span><br><span class="line"> ( 8)  year9 = 0</span><br><span class="line"> ( 9)  year10 = 0</span><br><span class="line"> (10)  o.year11 = 0</span><br><span class="line"> (11)  year12 = 0</span><br><span class="line"> (12)  year13 = 0</span><br><span class="line"> (13)  year14 = 0</span><br><span class="line"> (14)  year15 = 0</span><br><span class="line"> (15)  year16 = 0</span><br><span class="line"> (16)  o.year17 = 0</span><br><span class="line"> (17)  o.year18 = 0</span><br><span class="line">       <span class="keyword">Constraint</span> 10 dropped</span><br><span class="line">       <span class="keyword">Constraint</span> 16 dropped</span><br><span class="line">       <span class="keyword">Constraint</span> 17 dropped</span><br><span class="line"></span><br><span class="line">       <span class="built_in">F</span>( 14,    27) =   11.87</span><br><span class="line">            <span class="keyword">Prob</span> &gt; F =    0.0000</span><br></pre></td></tr></table></figure>
+<ul>
+<li>还可以使用下面的命令估计双向固定效应模型<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">. <span class="keyword">xtreg</span> <span class="variable">$v</span> i.year, fe <span class="built_in">r</span></span><br><span class="line"><span class="keyword">note</span>: 86.year omitted because of collinearity</span><br><span class="line"><span class="keyword">note</span>: 87.year omitted because of collinearity</span><br><span class="line"></span><br><span class="line">Fixed-effects (within) regression               Number of obs     =        476</span><br><span class="line">Group variable: province                        Number of groups  =         28</span><br><span class="line"></span><br><span class="line">R-sq:                                           Obs per group:</span><br><span class="line">     within  = 0.8932                                         min =         17</span><br><span class="line">     between = 0.6596                                         avg =       17.0</span><br><span class="line">     overall = 0.7156                                         max =         17</span><br><span class="line"></span><br><span class="line">                                                <span class="built_in">F</span>(23,27)          =     949.82</span><br><span class="line"><span class="built_in">corr</span>(u_i, Xb)  = -0.3425                        <span class="keyword">Prob</span> &gt; F          =     0.0000</span><br><span class="line"></span><br><span class="line">                              (Std. <span class="keyword">Err</span>. adjusted <span class="keyword">for</span> 28 clusters <span class="keyword">in</span> province)</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">             |               Robust</span><br><span class="line">       ltvfo |      Coef.   Std. <span class="keyword">Err</span>.      t    P&gt;|t|     [95% <span class="keyword">Conf</span>. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">       ltlan |   .5833594   .1745834     3.34   0.002     .2251439    .9415749</span><br><span class="line">      ltwlab |   .1514909   .0585107     2.59   0.015     .0314368     .271545</span><br><span class="line">       ltpow |   .0971114    .090911     1.07   0.295    -.0894225    .2836453</span><br><span class="line">       ltfer |   .1693346   .0438098     3.87   0.001     .0794444    .2592248</span><br><span class="line">         hrs |   .1503752   .0587581     2.56   0.016     .0298136    .2709368</span><br><span class="line">     mipric1 |   .0949449    .144798     0.66   0.518     -.202156    .3920458</span><br><span class="line">         mci |   .1978373   .0810587     2.44   0.022     .0315186     .364156</span><br><span class="line">        ngca |   .7784081   .4016301     1.94   0.063    -.0456688    1.602485</span><br><span class="line">     giprice |  -.1724163   .1110247    -1.55   0.132    -.4002202    .0553876</span><br><span class="line">             |</span><br><span class="line">        year |</span><br><span class="line">         71  |  -.0146449   .0200958    -0.73   0.472    -.0558781    .0265883</span><br><span class="line">         72  |  -.1366087   .0483199    -2.83   0.009    -.2357529   -.0374644</span><br><span class="line">         73  |  -.0598446   .0402719    -1.49   0.149    -.1424758    .0227866</span><br><span class="line">         74  |  -.0259249   .0438259    -0.59   0.559    -.1158483    .0639985</span><br><span class="line">         75  |  -.0259049   .0439103    -0.59   0.560    -.1160014    .0641916</span><br><span class="line">         76  |  -.0883212    .050208    -1.76   0.090    -.1913395     .014697</span><br><span class="line">         77  |  -.1344292   .0634058    -2.12   0.043    -.2645272   -.0043312</span><br><span class="line">         78  |  -.0743194    .048482    -1.53   0.137    -.1737962    .0251574</span><br><span class="line">         79  |   .1398995    .118707     1.18   0.249    -.1036672    .3834661</span><br><span class="line">         81  |   .0702701   .0917245     0.77   0.450    -.1179331    .2584732</span><br><span class="line">         82  |   .0964498   .0758485     1.27   0.214    -.0591784     .252078</span><br><span class="line">         83  |   .1039959   .0713188     1.46   0.156    -.0423383      .25033</span><br><span class="line">         84  |   .1440106    .053249     2.70   0.012     .0347527    .2532685</span><br><span class="line">         85  |    .035049   .0413379     0.85   0.404    -.0497693    .1198673</span><br><span class="line">         86  |          0  (omitted)</span><br><span class="line">         87  |          0  (omitted)</span><br><span class="line">             |</span><br><span class="line">       _cons |   2.896258   1.098288     2.64   0.014     .6427571    5.149759</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">     sigma_u |  .29344594</span><br><span class="line">     sigma_e |  .09930555</span><br><span class="line">         rho |  .89724523   (fraction of variance due to u_i)</span><br><span class="line">------------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="随机效应模型-1"><a href="#随机效应模型-1" class="headerlink" title="随机效应模型"></a>随机效应模型</h5><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">. <span class="keyword">xtreg</span> <span class="variable">$v</span>, re r theta</span><br><span class="line"></span><br><span class="line">Random-effects GLS regression                   Number of obs     =        476</span><br><span class="line">Group variable: province                        Number of groups  =         28</span><br><span class="line"></span><br><span class="line">R-sq:                                           Obs per group:</span><br><span class="line">     within  = 0.8709                                         min =         17</span><br><span class="line">     between = 0.8138                                         avg =       17.0</span><br><span class="line">     overall = 0.8267                                         max =         17</span><br><span class="line"></span><br><span class="line">                                                Wald <span class="built_in">chi2</span>(9)      =    3625.34</span><br><span class="line"><span class="built_in">corr</span>(u_i, X)   = 0 (assumed)                    <span class="keyword">Prob</span> &gt; chi2       =     0.0000</span><br><span class="line">theta          = .81076281</span><br><span class="line"></span><br><span class="line">                              (Std. <span class="keyword">Err</span>. adjusted <span class="keyword">for</span> 28 clusters <span class="keyword">in</span> province)</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">             |               Robust</span><br><span class="line">       ltvfo |      Coef.   Std. <span class="keyword">Err</span>.      z    P&gt;|z|     [95% <span class="keyword">Conf</span>. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">       ltlan |   .5523679   .1193705     4.63   0.000     .3184061    .7863297</span><br><span class="line">      ltwlab |    .155434   .0478204     3.25   0.001     .0617077    .2491602</span><br><span class="line">       ltpow |   .0542192   .0659917     0.82   0.411    -.0751221    .1835606</span><br><span class="line">       ltfer |   .1946427   .0404149     4.82   0.000     .1154309    .2738544</span><br><span class="line">         hrs |   .2212185   .0406958     5.44   0.000     .1414563    .3009808</span><br><span class="line">     mipric1 |   .0256686   .0541063     0.47   0.635    -.0803777    .1317149</span><br><span class="line">         mci |   .4372767   .0831643     5.26   0.000     .2742776    .6002758</span><br><span class="line">        ngca |   .6691774   .3688299     1.81   0.070     -.053716    1.392071</span><br><span class="line">     giprice |  -.0196081   .0223153    -0.88   0.380    -.0633454    .0241291</span><br><span class="line">       _cons |   2.480645   .6786122     3.66   0.000     1.150589      3.8107</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">     sigma_u |  .13326508</span><br><span class="line">     sigma_e |  .10589274</span><br><span class="line">         rho |  .61297316   (fraction of variance due to u_i)</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">. <span class="keyword">est</span> store RE_robust</span><br></pre></td></tr></table></figure>
+<ul>
+<li>究竟是使用个体随机效应模型还是使用混合回归的LM检验</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">. <span class="keyword">xttest0</span></span><br><span class="line"></span><br><span class="line">Breusch and Pagan Lagrangian multiplier <span class="keyword">test</span> <span class="keyword">for</span> random effects</span><br><span class="line"></span><br><span class="line">        ltvfo[province,t] = Xb + <span class="keyword">u</span>[province] + <span class="keyword">e</span>[province,t]</span><br><span class="line"></span><br><span class="line">        Estimated results:</span><br><span class="line">                         |       <span class="keyword">Var</span>     sd = <span class="built_in">sqrt</span>(<span class="keyword">Var</span>)</span><br><span class="line">                ---------+-----------------------------</span><br><span class="line">                   ltvfo |   .2893078       .5378734</span><br><span class="line">                       <span class="keyword">e</span> |   .0112133       .1058927</span><br><span class="line">                       <span class="keyword">u</span> |   .0177596       .1332651</span><br><span class="line"></span><br><span class="line">        <span class="keyword">Test</span>:   <span class="keyword">Var</span>(<span class="keyword">u</span>) = 0</span><br><span class="line">                             chibar2(01) =  1245.98</span><br><span class="line">                          <span class="keyword">Prob</span> &gt; chibar2 =   0.0000</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用普通标准误进行的随机效应估计</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">. <span class="keyword">xtreg</span> <span class="variable">$v</span>, re</span><br><span class="line"></span><br><span class="line">Random-effects GLS regression                   Number of obs     =        476</span><br><span class="line">Group variable: province                        Number of groups  =         28</span><br><span class="line"></span><br><span class="line">R-sq:                                           Obs per group:</span><br><span class="line">     within  = 0.8709                                         min =         17</span><br><span class="line">     between = 0.8138                                         avg =       17.0</span><br><span class="line">     overall = 0.8267                                         max =         17</span><br><span class="line"></span><br><span class="line">                                                Wald <span class="built_in">chi2</span>(9)      =    2991.63</span><br><span class="line"><span class="built_in">corr</span>(u_i, X)   = 0 (assumed)                    <span class="keyword">Prob</span> &gt; chi2       =     0.0000</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">       ltvfo |      Coef.   Std. <span class="keyword">Err</span>.      z    P&gt;|z|     [95% <span class="keyword">Conf</span>. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">       ltlan |   .5523679   .0518116    10.66   0.000      .450819    .6539167</span><br><span class="line">      ltwlab |    .155434   .0242298     6.41   0.000     .1079444    .2029235</span><br><span class="line">       ltpow |   .0542192   .0331647     1.63   0.102    -.0107825    .1192209</span><br><span class="line">       ltfer |   .1946427   .0214633     9.07   0.000     .1525754    .2367099</span><br><span class="line">         hrs |   .2212185   .0226013     9.79   0.000     .1769208    .2655163</span><br><span class="line">     mipric1 |   .0256686    .042209     0.61   0.543    -.0570596    .1083967</span><br><span class="line">         mci |   .4372767   .0673772     6.49   0.000     .3052198    .5693337</span><br><span class="line">        ngca |   .6691774   .2119964     3.16   0.002      .253672    1.084683</span><br><span class="line">     giprice |  -.0196081   .0190026    -1.03   0.302    -.0568525    .0176363</span><br><span class="line">       _cons |   2.480645    .341489     7.26   0.000     1.811339    3.149951</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">     sigma_u |  .13326508</span><br><span class="line">     sigma_e |  .10589274</span><br><span class="line">         rho |  .61297316   (fraction of variance due to u_i)</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">. <span class="keyword">est</span> store RE</span><br></pre></td></tr></table></figure>
+<ul>
+<li>对随机效应模型进行MLE估计</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">. * 对随机效应模型进行MLE估计</span><br><span class="line"></span><br><span class="line">. <span class="keyword">xtreg</span> <span class="variable">$v</span>, mle nolog</span><br><span class="line"></span><br><span class="line">Random-effects <span class="keyword">ML</span> regression                    Number of obs     =        476</span><br><span class="line">Group variable: province                        Number of groups  =         28</span><br><span class="line"></span><br><span class="line">Random effects u_i ~ Gaussian                   Obs per group:</span><br><span class="line">                                                              min =         17</span><br><span class="line">                                                              avg =       17.0</span><br><span class="line">                                                              max =         17</span><br><span class="line"></span><br><span class="line">                                                LR <span class="built_in">chi2</span>(9)        =     964.50</span><br><span class="line"><span class="keyword">Log</span> likelihood  =  334.64947                    <span class="keyword">Prob</span> &gt; chi2       =     0.0000</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">       ltvfo |      Coef.   Std. <span class="keyword">Err</span>.      z    P&gt;|z|     [95% <span class="keyword">Conf</span>. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">       ltlan |   .5548161   .0556058     9.98   0.000     .4458308    .6638014</span><br><span class="line">      ltwlab |   .1534287   .0244206     6.28   0.000     .1055652    .2012923</span><br><span class="line">       ltpow |   .0595358   .0324456     1.83   0.067    -.0040563     .123128</span><br><span class="line">       ltfer |   .1827471   .0212502     8.60   0.000     .1410975    .2243968</span><br><span class="line">         hrs |   .2194042   .0219403    10.00   0.000     .1764021    .2624063</span><br><span class="line">     mipric1 |   .0381588   .0413197     0.92   0.356    -.0428264     .119144</span><br><span class="line">         mci |   .3633492   .0753732     4.82   0.000     .2156203     .511078</span><br><span class="line">        ngca |   .7047296   .2098697     3.36   0.001     .2933926    1.116067</span><br><span class="line">     giprice |  -.0158735   .0184265    -0.86   0.389    -.0519887    .0202417</span><br><span class="line">       _cons |   2.552513   .3521262     7.25   0.000     1.862358    3.242668</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">    /sigma_u |   .2165912   .0326507                      .1611847    .2910434</span><br><span class="line">    /sigma_e |   .1056133   .0035544                      .0988717    .1128146</span><br><span class="line">         rho |   .8079049   .0485106                      .6992266    .8884309</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">LR <span class="keyword">test</span> of sigma_u=0: chibar2(01) = 462.93             <span class="keyword">Prob</span> &gt;= chibar2 = 0.000</span><br><span class="line"></span><br><span class="line">. <span class="keyword">est</span> store MLE</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../36837/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          工具变量法
+        
+      </div>
+    </a>
+  
+  
+    <a href="../33544/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">一元线性回归</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#面板数据的特点："><span class="nav-text">面板数据的特点：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#面板分类"><span class="nav-text">面板分类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#面板数据的优点"><span class="nav-text">面板数据的优点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#面板数据的缺点"><span class="nav-text">面板数据的缺点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面板数据的估计策略："><span class="nav-text">面板数据的估计策略：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#极端策略："><span class="nav-text">极端策略：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#折中策略："><span class="nav-text">折中策略：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#混合回归"><span class="nav-text">混合回归</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#固定效应模型：组内估计量"><span class="nav-text">固定效应模型：组内估计量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#固定效应模型：LSDV法"><span class="nav-text">固定效应模型：LSDV法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#固定效应模型：一阶差分法"><span class="nav-text">固定效应模型：一阶差分法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间固定效应"><span class="nav-text">时间固定效应</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#随机效应模型"><span class="nav-text">随机效应模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组间估计量"><span class="nav-text">组间估计量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拟合优度的衡量"><span class="nav-text">拟合优度的衡量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面板模型的Stata命令及示例"><span class="nav-text">面板模型的Stata命令及示例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#面板数据的设定"><span class="nav-text">面板数据的设定</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#混合回归-1"><span class="nav-text">混合回归</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#固定效应"><span class="nav-text">固定效应</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#随机效应模型-1"><span class="nav-text">随机效应模型</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

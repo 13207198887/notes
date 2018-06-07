@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/82/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-Mata基础"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/39727/">Mata基础</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/39727/" class="article-date">
+	  <time datetime="2018-02-20T13:35:23.000Z" itemprop="datePublished">2018-02-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata编程导论/">Stata编程导论</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">mata</span><br><span class="line">mata clear</span><br><span class="line">// 行向量</span><br><span class="line">r1 = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">r1</span><br><span class="line">r1 = (<span class="number">1.</span><span class="number">.3</span>)</span><br><span class="line">r1</span><br><span class="line">// 列向量</span><br><span class="line">c1 = (<span class="number">1</span>\<span class="number">2</span>\<span class="number">3</span>)</span><br><span class="line">c1</span><br><span class="line">c1 = (<span class="number">1</span>::<span class="number">3</span>)</span><br><span class="line">c1</span><br><span class="line"></span><br><span class="line">//矩阵</span><br><span class="line">m1 = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>\<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>\<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>)</span><br><span class="line">m1</span><br><span class="line"></span><br><span class="line">//运算</span><br><span class="line">r3 = r1, c1<span class="string">'</span></span><br><span class="line"><span class="string">r3</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">g = r1'</span> + c1</span><br><span class="line">g</span><br><span class="line">h = r1 * c1</span><br><span class="line">h</span><br><span class="line">j = c1 * r1</span><br><span class="line">j</span><br><span class="line"></span><br><span class="line">// 对应元素相加减乘除</span><br><span class="line">k = r1<span class="string">' :* c1</span></span><br><span class="line"><span class="string">k</span></span><br><span class="line"><span class="string">r4 = (1,2,3)</span></span><br><span class="line"><span class="string">m2 = (1,2,3\4,5,6\7,8,9)</span></span><br><span class="line"><span class="string">m3 = r4 :+ m2</span></span><br><span class="line"><span class="string">m3</span></span><br><span class="line"><span class="string">m1 = (1,2,3\4,5,6\7,8,9)</span></span><br><span class="line"><span class="string">r1 = (1,2,3)</span></span><br><span class="line"><span class="string">m4 = m1:/ r1</span></span><br><span class="line"><span class="string">m4</span></span><br><span class="line"><span class="string">// 对每一个元素开根号</span></span><br><span class="line"><span class="string">m5 = sqrt(m4)</span></span><br><span class="line"><span class="string">m5</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">m1 = J(7,3, (0.25,0.5,0.75))</span></span><br><span class="line"><span class="string">m1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">// 3行2x3列均值分别为1，5，10、标准差为1的矩阵</span></span><br><span class="line"><span class="string">m2 = rnormal(3,2, (1,5,10), 1)</span></span><br><span class="line"><span class="string">m2</span></span><br><span class="line"><span class="string">end</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-mata中的循环"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/55562/">mata中的循环</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/55562/" class="article-date">
+	  <time datetime="2018-02-20T13:33:23.000Z" itemprop="datePublished">2018-02-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata编程导论/">Stata编程导论</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">mata</span><br><span class="line">mata clear</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;=<span class="number">10</span>; i++)&#123;</span><br><span class="line">	printf(<span class="string">"%g squared is %g \n"</span>, i, i^<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">10</span>; i &gt; <span class="number">0</span>; i = i - <span class="number">2</span>)&#123;</span><br><span class="line">	printf(<span class="string">"%g squared is %g \n"</span>, i, i^<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line">i = <span class="number">1</span></span><br><span class="line">do&#123;</span><br><span class="line">	printf(<span class="string">"%g squared is %g \n"</span>, i, i^<span class="number">2</span>)</span><br><span class="line">	i++</span><br><span class="line">&#125; <span class="keyword">while</span>(i &lt;= <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">i = <span class="number">1</span></span><br><span class="line"><span class="keyword">if</span>(i == <span class="number">1</span>)&#123;</span><br><span class="line">	printf(<span class="string">"%g equals 1."</span>, i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">	printf(<span class="string">"%g don't equal 1 "</span>, i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">n = <span class="number">10</span></span><br><span class="line">k = <span class="number">5</span></span><br><span class="line"><span class="keyword">if</span> (k == <span class="number">0</span>) dof = n - <span class="number">1</span></span><br><span class="line"><span class="keyword">else</span> dof = n - k</span><br><span class="line">dof</span><br><span class="line"></span><br><span class="line">// 上面一段代码等价于下面的代码</span><br><span class="line">dof = (k == 0 ? n - 1 : n - k)</span><br><span class="line">dof</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-muxyplot——多个y和多个x的散点图"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/45567/">muxyplot——多个y和多个x的散点图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/45567/" class="article-date">
+	  <time datetime="2018-02-20T13:33:23.000Z" itemprop="datePublished">2018-02-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">muxyplot produces a scatter <span class="keyword">or</span> twoway plot <span class="keyword">for</span> yvars versus xvars,</span><br><span class="line">all of which xvars are measured on comparable scales. The number of</span><br><span class="line">yvars must equal the number of xvars. For example,</span><br><span class="line"></span><br><span class="line">muxyplot y1 y2 y3 x1 x2 x3</span><br><span class="line"></span><br><span class="line">plots y1 versus x1, y2 versus x2 <span class="keyword">and</span> y3 versus x3, all on the same</span><br><span class="line">scatter plot.</span><br><span class="line">*/</span><br><span class="line">sysuse auto, clear</span><br><span class="line">muxyplot price weight  rep78 headroom</span><br><span class="line">gre muxyplot</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/muxyplot.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-将命令的结果按照表格的形式输出"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/46417/">将命令的结果按照表格的形式输出</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/46417/" class="article-date">
+	  <time datetime="2018-02-20T13:10:23.000Z" itemprop="datePublished">2018-02-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata编程导论/">Stata编程导论</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">cap prog drop mytable</span><br><span class="line">prog mytable</span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">" &#123;txt&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c TLC&#125;&#123;hline 4&#125;&#123;c -&#125;&#123;hline 4&#125;&#123;c TRC&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; x    y &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c LT&#125;&#123;hline 4&#125;&#123;c -&#125;&#123;hline 4&#125;&#123;c RT&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125;12   12 &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; 4    4 &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; .    4 &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; .    4 &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; .    4 &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; 3    3 &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; .    3 &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; 7    7 &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; .    7 &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; .    7 &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c BLC&#125;&#123;hline 4&#125;&#123;c -&#125;&#123;hline 4&#125;&#123;c BRC&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">""</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"  &#123;txt&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c TLC&#125;&#123;hline 4&#125;&#123;c -&#125;&#123;hline 4&#125;&#123;c -&#125;&#123;hline 4&#125;&#123;c -&#125;&#123;hline 4&#125;&#123;c TRC&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; x   c1    y    z &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c LT&#125;&#123;hline 4&#125;&#123;c -&#125;&#123;hline 4&#125;&#123;c -&#125;&#123;hline 4&#125;&#123;c -&#125;&#123;hline 4&#125;&#123;c RT&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125;12    1   12   12 &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; 4    1    4    4 &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; .    1    4    4 &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; .    0    .    . &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; .    1    .    . &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; 3    1    3    3 &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; .    1    3    3 &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; 7    0    7    7 &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; .    1    7    . &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c |&#125; &#123;res&#125; .    1    7    . &#123;txt&#125;&#123;c |&#125;"</span></span><br><span class="line">	di <span class="keyword">in</span> smcl <span class="string">"    &#123;c BLC&#125;&#123;hline 4&#125;&#123;c -&#125;&#123;hline 4&#125;&#123;c -&#125;&#123;hline 4&#125;&#123;c -&#125;&#123;hline 4&#125;&#123;c BRC&#125;"</span></span><br><span class="line">end</span><br><span class="line">mytable</span><br></pre></td></tr></table></figure>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">. mytable</span><br><span class="line"></span><br><span class="line">    +---------+</span><br><span class="line">    |  x    y |</span><br><span class="line">    |---------|</span><br><span class="line">    | <span class="number">12</span>   <span class="number">12</span> |</span><br><span class="line">    |  <span class="number">4</span>    <span class="number">4</span> |</span><br><span class="line">    |  .    <span class="number">4</span> |</span><br><span class="line">    |  .    <span class="number">4</span> |</span><br><span class="line">    |  .    <span class="number">4</span> |</span><br><span class="line">    |  <span class="number">3</span>    <span class="number">3</span> |</span><br><span class="line">    |  .    <span class="number">3</span> |</span><br><span class="line">    |  <span class="number">7</span>    <span class="number">7</span> |</span><br><span class="line">    |  .    <span class="number">7</span> |</span><br><span class="line">    |  .    <span class="number">7</span> |</span><br><span class="line">    +---------+</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    +-------------------+</span><br><span class="line">    |  x   c1    y    z |</span><br><span class="line">    |-------------------|</span><br><span class="line">    | <span class="number">12</span>    <span class="number">1</span>   <span class="number">12</span>   <span class="number">12</span> |</span><br><span class="line">    |  <span class="number">4</span>    <span class="number">1</span>    <span class="number">4</span>    <span class="number">4</span> |</span><br><span class="line">    |  .    <span class="number">1</span>    <span class="number">4</span>    <span class="number">4</span> |</span><br><span class="line">    |  .    <span class="number">0</span>    .    . |</span><br><span class="line">    |  .    <span class="number">1</span>    .    . |</span><br><span class="line">    |  <span class="number">3</span>    <span class="number">1</span>    <span class="number">3</span>    <span class="number">3</span> |</span><br><span class="line">    |  .    <span class="number">1</span>    <span class="number">3</span>    <span class="number">3</span> |</span><br><span class="line">    |  <span class="number">7</span>    <span class="number">0</span>    <span class="number">7</span>    <span class="number">7</span> |</span><br><span class="line">    |  .    <span class="number">1</span>    <span class="number">7</span>    . |</span><br><span class="line">    |  .    <span class="number">1</span>    <span class="number">7</span>    . |</span><br><span class="line">    +-------------------+</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-使用矩阵存储数据"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/55245/">使用矩阵存储数据</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/55245/" class="article-date">
+	  <time datetime="2018-02-20T07:17:23.000Z" itemprop="datePublished">2018-02-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata编程导论/">Stata编程导论</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">. use grunfeldavg, clear</span><br><span class="line"></span><br><span class="line">. levelsof company, local(colist)</span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span></span><br><span class="line"></span><br><span class="line">. local ncomp: word count `colist<span class="string">'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. di "`ncomp'</span><span class="string">"</span></span><br><span class="line"><span class="string">10</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. matrix table1 = J(`ncomp', 7, 0)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. matrix list table1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">table1[10,7]</span></span><br><span class="line"><span class="string">     c1  c2  c3  c4  c5  c6  c7</span></span><br><span class="line"><span class="string"> r1   0   0   0   0   0   0   0</span></span><br><span class="line"><span class="string"> r2   0   0   0   0   0   0   0</span></span><br><span class="line"><span class="string"> r3   0   0   0   0   0   0   0</span></span><br><span class="line"><span class="string"> r4   0   0   0   0   0   0   0</span></span><br><span class="line"><span class="string"> r5   0   0   0   0   0   0   0</span></span><br><span class="line"><span class="string"> r6   0   0   0   0   0   0   0</span></span><br><span class="line"><span class="string"> r7   0   0   0   0   0   0   0</span></span><br><span class="line"><span class="string"> r8   0   0   0   0   0   0   0</span></span><br><span class="line"><span class="string"> r9   0   0   0   0   0   0   0</span></span><br><span class="line"><span class="string">r10   0   0   0   0   0   0   0</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. local i 0</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. foreach c of local colist&#123;</span></span><br><span class="line"><span class="string">  2. qui&#123;</span></span><br><span class="line"><span class="string">  3. local ++i</span></span><br><span class="line"><span class="string">  4. sum invest if company == `c', d</span></span><br><span class="line"><span class="string">  5. matrix table1[`i', 1] = r(p25)</span></span><br><span class="line"><span class="string">  6. matrix table1[`i', 2] = r(p50)</span></span><br><span class="line"><span class="string">  7. matrix table1[`i', 3] = r(p75)</span></span><br><span class="line"><span class="string">  8. correlate invest invavg if company == `c'</span></span><br><span class="line"><span class="string">  9. matrix table1[`i', 4] = r(rho)</span></span><br><span class="line"><span class="string"> 10. correlate kstock kapavg if company == `c'</span></span><br><span class="line"><span class="string"> 11. matrix table1[`i', 5] = r(rho)</span></span><br><span class="line"><span class="string"> 12. reg invest L.kstock L.kapavg if company == `c'</span></span><br><span class="line"><span class="string"> 13. matrix table1[`i', 6] = _b["</span>L.kstock<span class="string">"]</span></span><br><span class="line"><span class="string"> 14. matrix table1[`i', 7] = _se["</span>L.kstock<span class="string">"]</span></span><br><span class="line"><span class="string"> 15. &#125;</span></span><br><span class="line"><span class="string"> 16. &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. matrix rownames table1 = `colist'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. matrix colnames table1 = p25 p50 p75 rinvest rkap betak sek</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">. matrix list table1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">table1[10,7]</span></span><br><span class="line"><span class="string">           p25         p50         p75     rinvest        rkap       betak         sek</span></span><br><span class="line"><span class="string"> 1       429.3   538.35001       665.5   .96355661   .98464086   .14971282   .36146776</span></span><br><span class="line"><span class="string"> 2      321.75   419.54999   471.34999   .80775991   .89819793  -.62648164   .29878812</span></span><br><span class="line"><span class="string"> 3   59.049999   93.549999      146.75   .89941256   .99063942   -.1804446   .24927241</span></span><br><span class="line"><span class="string"> 4       55.99   71.085003   95.010002   .92792669    .9570222   .29802565   .16047287</span></span><br><span class="line"><span class="string"> 5      51.525      60.385   72.289997    .8478581   .96597103  -.01904298   .05948012</span></span><br><span class="line"><span class="string"> 6      27.685   43.110001       72.75    .9593111   .98986261  -.28145697   .26466183</span></span><br><span class="line"><span class="string"> 7   33.244999   44.199999   57.679998   .87604314    .9442384   .04509232   .05995572</span></span><br><span class="line"><span class="string"> 8      30.305   38.540001       53.92   .92841638   .96329808  -.13167999     .176705</span></span><br><span class="line"><span class="string"> 9      29.715   38.109999   55.405001    .7234149   .97467447    .3501322   .11761613</span></span><br><span class="line"><span class="string">10       1.925       2.215   4.4400001   .79690054   .88652247   .11318377    .1823479</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../81/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../80/">80</a><a class="page-number" href="../81/">81</a><span class="page-number current">82</span><a class="page-number" href="../83/">83</a><a class="page-number" href="../84/">84</a><span class="space">&hellip;</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../83/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

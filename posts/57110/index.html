@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>模型设定与数据问题 | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Stata" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="遗漏变量问题 遗漏变量与解释变量之间没有相关关系，则OLS依然是一致的，但是被遗漏的变量放入扰动项中会增大扰动项的方差，从而影响OLS的精度。 如果两者之间有相关关系，则会产生遗漏变量偏差。解决遗漏变量偏差的方法有：   加入尽可能多的控制变量； 随机实验或自然实验； IV法； 使用面板数据。  无关变量 无关变量的引入会增大$\widehat{\beta}$的方差。  建模策略：“由小到大”还是">
+<meta name="keywords" content="Stata">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模型设定与数据问题">
+<meta property="og:url" content="http://www.czxa.top/posts/57110/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="遗漏变量问题 遗漏变量与解释变量之间没有相关关系，则OLS依然是一致的，但是被遗漏的变量放入扰动项中会增大扰动项的方差，从而影响OLS的精度。 如果两者之间有相关关系，则会产生遗漏变量偏差。解决遗漏变量偏差的方法有：   加入尽可能多的控制变量； 随机实验或自然实验； IV法； 使用面板数据。  无关变量 无关变量的引入会增大$\widehat{\beta}$的方差。  建模策略：“由小到大”还是">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-2e7ecc207443804f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-02-13T09:45:53.411Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模型设定与数据问题">
+<meta name="twitter:description" content="遗漏变量问题 遗漏变量与解释变量之间没有相关关系，则OLS依然是一致的，但是被遗漏的变量放入扰动项中会增大扰动项的方差，从而影响OLS的精度。 如果两者之间有相关关系，则会产生遗漏变量偏差。解决遗漏变量偏差的方法有：   加入尽可能多的控制变量； 随机实验或自然实验； IV法； 使用面板数据。  无关变量 无关变量的引入会增大$\widehat{\beta}$的方差。  建模策略：“由小到大”还是">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/8103632-2e7ecc207443804f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-模型设定与数据问题" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      模型设定与数据问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2018-01-08T14:33:23.000Z" itemprop="datePublished">2018-01-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/计量经济学/">计量经济学</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="遗漏变量问题"><a href="#遗漏变量问题" class="headerlink" title="遗漏变量问题"></a>遗漏变量问题</h4><ul>
+<li>遗漏变量与解释变量之间没有相关关系，则OLS依然是一致的，但是被遗漏的变量放入扰动项中会增大扰动项的方差，从而影响OLS的精度。</li>
+<li>如果两者之间有相关关系，则会产生遗漏变量偏差。解决遗漏变量偏差的方法有：</li>
+</ul>
+<ol>
+<li>加入尽可能多的控制变量；</li>
+<li>随机实验或自然实验；</li>
+<li>IV法；</li>
+<li>使用面板数据。</li>
+</ol>
+<h4 id="无关变量"><a href="#无关变量" class="headerlink" title="无关变量"></a>无关变量</h4><ul>
+<li>无关变量的引入会增大$\widehat{\beta}$的方差。</li>
+</ul>
+<h4 id="建模策略：“由小到大”还是“由大到小”"><a href="#建模策略：“由小到大”还是“由大到小”" class="headerlink" title="建模策略：“由小到大”还是“由大到小”"></a>建模策略：“由小到大”还是“由大到小”</h4><a id="more"></a>
+<h4 id="解释变量个数的选择"><a href="#解释变量个数的选择" class="headerlink" title="解释变量个数的选择"></a>解释变量个数的选择</h4><ul>
+<li>AIC</li>
+<li>BIC</li>
+</ul>
+<blockquote>
+<p>BIC准则可能导致模型过小。</p>
+</blockquote>
+<h4 id="对函数形式的检验"><a href="#对函数形式的检验" class="headerlink" title="对函数形式的检验"></a>对函数形式的检验</h4><h4 id="多重共线性"><a href="#多重共线性" class="headerlink" title="多重共线性"></a>多重共线性</h4><ul>
+<li>VIF：判断多重共线性的一个经验规则是，最大的VIF不应该超过10。</li>
+<li>多重共线性的处理方法：</li>
+</ul>
+<ol>
+<li>如果不关心具体的回归系数，而只关心整个方程预测被解释变量的预测能力， 则通常可不必理会多重共线性（假设整个方程是显著的）。这是因为多重共线性的主要后果是使得对单个被解释变量的贡献估计不准确，但是对所有变量的整体效应仍可准确地估计。</li>
+<li>如果关心具体的回归系数，但多重共线性并不影响所关系变量的显著性，则也可不必理会。</li>
+<li>如果多重共线性影响到所关心变量的显著性，则应设法处理。比如，增大样本容量，剔除导致严重共线性的变量，将变量标准化，或对模型的设定进行修改。</li>
+</ol>
+<h4 id="极端数据"><a href="#极端数据" class="headerlink" title="极端数据"></a>极端数据</h4><h4 id="虚拟变量"><a href="#虚拟变量" class="headerlink" title="虚拟变量"></a>虚拟变量</h4><h4 id="经济结构变动的检验"><a href="#经济结构变动的检验" class="headerlink" title="经济结构变动的检验"></a>经济结构变动的检验</h4><h4 id="第九章练习题"><a href="#第九章练习题" class="headerlink" title="第九章练习题"></a>第九章练习题</h4><h5 id="9-3"><a href="#9-3" class="headerlink" title="9.3"></a>9.3</h5><h6 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">. clear all</span><br><span class="line"></span><br><span class="line">. cd <span class="string">"/Users/mr.cheng/Documents/Chen_Qiang_DataSets-master"</span></span><br><span class="line">/Users/mr.cheng/Documents/Chen_Qiang_DataSets-master</span><br><span class="line"></span><br><span class="line">. use nerlove, clear</span><br><span class="line">(Nerlove <span class="number">1963</span> paper)</span><br><span class="line">. global v <span class="string">"lntc lnq lnpl lnpk lnpf"</span></span><br><span class="line">. reg $v, r</span><br><span class="line"></span><br><span class="line">Linear regression                               <span class="built_in">Number</span> <span class="keyword">of</span> obs     =        <span class="number">145</span></span><br><span class="line">                                                F(<span class="number">4</span>, <span class="number">140</span>)         =     <span class="number">177.19</span></span><br><span class="line">                                                Prob &gt; F          =     <span class="number">0.0000</span></span><br><span class="line">                                                R-squared         =     <span class="number">0.9260</span></span><br><span class="line">                                                Root MSE          =     <span class="number">.39227</span></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">             |               Robust</span><br><span class="line">        lntc |      Coef.   Std. Err.      t    P&gt;|t|     [<span class="number">95</span>% Conf. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">         lnq |   <span class="number">.7209135</span>   <span class="number">.0325376</span>    <span class="number">22.16</span>   <span class="number">0.000</span>      <span class="number">.656585</span>     <span class="number">.785242</span></span><br><span class="line">        lnpl |   <span class="number">.4559645</span>    <span class="number">.260326</span>     <span class="number">1.75</span>   <span class="number">0.082</span>    <span class="number">-.0587139</span>    <span class="number">.9706429</span></span><br><span class="line">        lnpk |  <span class="number">-.2151476</span>   <span class="number">.3233711</span>    <span class="number">-0.67</span>   <span class="number">0.507</span>    <span class="number">-.8544698</span>    <span class="number">.4241745</span></span><br><span class="line">        lnpf |   <span class="number">.4258137</span>   <span class="number">.0740741</span>     <span class="number">5.75</span>   <span class="number">0.000</span>     <span class="number">.2793653</span>    <span class="number">.5722622</span></span><br><span class="line">       _cons |  <span class="number">-3.566513</span>   <span class="number">1.718304</span>    <span class="number">-2.08</span>   <span class="number">0.040</span>    <span class="number">-6.963693</span>   <span class="number">-.1693331</span></span><br><span class="line">------------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+<h6 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">. estat vif</span><br><span class="line"></span><br><span class="line">    Variable |       VIF       <span class="number">1</span>/VIF  </span><br><span class="line">-------------+----------------------</span><br><span class="line">        lnpf |      <span class="number">1.21</span>    <span class="number">0.824250</span></span><br><span class="line">        lnpl |      <span class="number">1.21</span>    <span class="number">0.829013</span></span><br><span class="line">        lnpk |      <span class="number">1.09</span>    <span class="number">0.918113</span></span><br><span class="line">         lnq |      <span class="number">1.04</span>    <span class="number">0.960914</span></span><br><span class="line">-------------+----------------------</span><br><span class="line">    Mean VIF |      <span class="number">1.14</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>VIF的最大值仅为1.21，因此认为不存在多重共线性；</li>
+</ul>
+<h6 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">. estat ovtest</span><br><span class="line"></span><br><span class="line">Ramsey RESET test using powers <span class="keyword">of</span> the fitted values <span class="keyword">of</span> lntc</span><br><span class="line">       Ho:  model has no omitted variables</span><br><span class="line">                 F(<span class="number">3</span>, <span class="number">137</span>) =     <span class="number">32.72</span></span><br><span class="line">                  Prob &gt; F =      <span class="number">0.0000</span></span><br><span class="line">. estat ovtest, rhs</span><br><span class="line"></span><br><span class="line">Ramsey RESET test using powers <span class="keyword">of</span> the independent variables</span><br><span class="line">       Ho:  model has no omitted variables</span><br><span class="line">                F(<span class="number">12</span>, <span class="number">128</span>) =      <span class="number">8.96</span></span><br><span class="line">                  Prob &gt; F =      <span class="number">0.0000</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>拒绝原假设，认为遗漏了高次项。</li>
+</ul>
+<h6 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">. gen lnq2 = lnq^<span class="number">2</span></span><br><span class="line"></span><br><span class="line">. reg $v lnq2, r</span><br><span class="line"></span><br><span class="line">Linear regression                               <span class="built_in">Number</span> <span class="keyword">of</span> obs     =        <span class="number">145</span></span><br><span class="line">                                                F(<span class="number">5</span>, <span class="number">139</span>)         =     <span class="number">517.53</span></span><br><span class="line">                                                Prob &gt; F          =     <span class="number">0.0000</span></span><br><span class="line">                                                R-squared         =     <span class="number">0.9573</span></span><br><span class="line">                                                Root MSE          =     <span class="number">.29911</span></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">             |               Robust</span><br><span class="line">        lntc |      Coef.   Std. Err.      t    P&gt;|t|     [<span class="number">95</span>% Conf. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">         lnq |   <span class="number">.1166562</span>   <span class="number">.1233211</span>     <span class="number">0.95</span>   <span class="number">0.346</span>    <span class="number">-.1271716</span>    <span class="number">.3604841</span></span><br><span class="line">        lnpl |   <span class="number">.0206146</span>   <span class="number">.2184556</span>     <span class="number">0.09</span>   <span class="number">0.925</span>    <span class="number">-.4113109</span>    <span class="number">.4525401</span></span><br><span class="line">        lnpk |   <span class="number">-.568725</span>   <span class="number">.2472987</span>    <span class="number">-2.30</span>   <span class="number">0.023</span>    <span class="number">-1.057679</span>   <span class="number">-.0797715</span></span><br><span class="line">        lnpf |   <span class="number">.4804816</span>    <span class="number">.073537</span>     <span class="number">6.53</span>   <span class="number">0.000</span>     <span class="number">.3350859</span>    <span class="number">.6258772</span></span><br><span class="line">        lnq2 |   <span class="number">.0536124</span>   <span class="number">.0092867</span>     <span class="number">5.77</span>   <span class="number">0.000</span>      <span class="number">.035251</span>    <span class="number">.0719738</span></span><br><span class="line">       _cons |  <span class="number">-.1627064</span>   <span class="number">1.318238</span>    <span class="number">-0.12</span>   <span class="number">0.902</span>    <span class="number">-2.769097</span>    <span class="number">2.443684</span></span><br><span class="line">------------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+<h6 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">. estat ovtest</span><br><span class="line"></span><br><span class="line">Ramsey RESET test using powers <span class="keyword">of</span> the fitted values <span class="keyword">of</span> lntc</span><br><span class="line">       Ho:  model has no omitted variables</span><br><span class="line">                 F(<span class="number">3</span>, <span class="number">136</span>) =      <span class="number">1.19</span></span><br><span class="line">                  Prob &gt; F =      <span class="number">0.3165</span></span><br><span class="line"></span><br><span class="line">. estat ovtest, rhs（这个仅作示例）</span><br><span class="line">(note:  lnq2 dropped because <span class="keyword">of</span> collinearity)</span><br><span class="line">(note:  lnq2^<span class="number">2</span> dropped because <span class="keyword">of</span> collinearity)</span><br><span class="line"></span><br><span class="line">Ramsey RESET test using powers <span class="keyword">of</span> the independent variables</span><br><span class="line">       Ho:  model has no omitted variables</span><br><span class="line">                F(<span class="number">14</span>, <span class="number">126</span>) =      <span class="number">8.66</span></span><br><span class="line">                  Prob &gt; F =      <span class="number">0.0000</span></span><br></pre></td></tr></table></figure>
+<h6 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">. estat vif</span><br><span class="line"></span><br><span class="line">    Variable |       VIF       1/VIF  </span><br><span class="line">-------------+----------------------</span><br><span class="line">        lnq2 |     22.21    0.045030</span><br><span class="line">         lnq |     22.17    0.045114</span><br><span class="line">        lnpl |      1.25    0.800491</span><br><span class="line">        lnpf |      1.22    0.820135</span><br><span class="line">        lnpk |      1.11    0.901621</span><br><span class="line">-------------+----------------------</span><br><span class="line">    Mean VIF |      9.59</span><br></pre></td></tr></table></figure>
+<ul>
+<li>最大的VIF为22.21，远远超过了10，认为存在多重共线性。</li>
+</ul>
+<h6 id="7"><a href="#7" class="headerlink" title="7."></a>7.</h6><ul>
+<li>第一个是根据成本函数推导出来的，当然是第一个了。</li>
+</ul>
+<h5 id="9-4"><a href="#9-4" class="headerlink" title="9.4"></a>9.4</h5><h6 id="1-1"><a href="#1-1" class="headerlink" title="1."></a>1.</h6><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">clear</span> all</span><br><span class="line"><span class="keyword">use</span> Growth, <span class="keyword">clear</span></span><br><span class="line"><span class="keyword">tw</span> <span class="keyword">scatter</span> growth tradeshare || <span class="keyword">lfit</span> growth tradeshare</span><br></pre></td></tr></table></figure>
+<ul>
+<li>有的。</li>
+</ul>
+<h6 id="2-1"><a href="#2-1" class="headerlink" title="2."></a>2.</h6><ul>
+<li>Malta：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-2e7ecc207443804f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h6 id="3-1"><a href="#3-1" class="headerlink" title="3."></a>3.</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">. reg growth tradeshare</span><br><span class="line"></span><br><span class="line">      Source |       SS           df       MS      <span class="built_in">Number</span> <span class="keyword">of</span> obs   =        <span class="number">65</span></span><br><span class="line">-------------+----------------------------------   F(<span class="number">1</span>, <span class="number">63</span>)        =      <span class="number">8.89</span></span><br><span class="line">       Model |  <span class="number">28.4885066</span>         <span class="number">1</span>  <span class="number">28.4885066</span>   Prob &gt; F        =    <span class="number">0.0041</span></span><br><span class="line">    Residual |  <span class="number">201.851551</span>        <span class="number">63</span>  <span class="number">3.20399287</span>   R-squared       =    <span class="number">0.1237</span></span><br><span class="line">-------------+----------------------------------   Adj R-squared   =    <span class="number">0.1098</span></span><br><span class="line">       Total |  <span class="number">230.340057</span>        <span class="number">64</span>  <span class="number">3.59906339</span>   Root MSE        =      <span class="number">1.79</span></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">      growth |      Coef.   Std. Err.      t    P&gt;|t|     [<span class="number">95</span>% Conf. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">  tradeshare |   <span class="number">2.306434</span>    <span class="number">.773485</span>     <span class="number">2.98</span>   <span class="number">0.004</span>     <span class="number">.7607473</span>     <span class="number">3.85212</span></span><br><span class="line">       _cons |   <span class="number">.6402653</span>   <span class="number">.4899767</span>     <span class="number">1.31</span>   <span class="number">0.196</span>    <span class="number">-.3388749</span>    <span class="number">1.619405</span></span><br><span class="line">------------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+<h6 id="4-1"><a href="#4-1" class="headerlink" title="4."></a>4.</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">. predict lev, leverage</span><br><span class="line"></span><br><span class="line">. gsort -lev</span><br><span class="line"></span><br><span class="line">. sum lev</span><br><span class="line"></span><br><span class="line">    Variable |        Obs        Mean    Std. Dev.       Min        Max</span><br><span class="line">-------------+---------------------------------------------------------</span><br><span class="line">         lev |         <span class="number">65</span>    <span class="number">.0307692</span>    <span class="number">.0480627</span>   <span class="number">.0153857</span>   <span class="number">.3961133</span></span><br><span class="line"></span><br><span class="line">. di r(max)/r(mean)</span><br><span class="line"><span class="number">12.873682</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>存在。</li>
+</ul>
+<h6 id="5-1"><a href="#5-1" class="headerlink" title="5."></a>5.</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">. drop <span class="keyword">in</span> <span class="number">1</span></span><br><span class="line">(<span class="number">1</span> observation deleted)</span><br><span class="line"></span><br><span class="line">. reg growth tradeshare</span><br><span class="line"></span><br><span class="line">      Source |       SS           df       MS      <span class="built_in">Number</span> <span class="keyword">of</span> obs   =        <span class="number">64</span></span><br><span class="line">-------------+----------------------------------   F(<span class="number">1</span>, <span class="number">62</span>)        =      <span class="number">2.90</span></span><br><span class="line">       Model |  <span class="number">9.28031557</span>         <span class="number">1</span>  <span class="number">9.28031557</span>   Prob &gt; F        =    <span class="number">0.0937</span></span><br><span class="line">    Residual |  <span class="number">198.527844</span>        <span class="number">62</span>  <span class="number">3.20206201</span>   R-squared       =    <span class="number">0.0447</span></span><br><span class="line">-------------+----------------------------------   Adj R-squared   =    <span class="number">0.0292</span></span><br><span class="line">       Total |   <span class="number">207.80816</span>        <span class="number">63</span>  <span class="number">3.29854222</span>   Root MSE        =    <span class="number">1.7894</span></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">      growth |      Coef.   Std. Err.      t    P&gt;|t|     [<span class="number">95</span>% Conf. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">  tradeshare |   <span class="number">1.680905</span>   <span class="number">.9873624</span>     <span class="number">1.70</span>   <span class="number">0.094</span>    <span class="number">-.2928046</span>    <span class="number">3.654614</span></span><br><span class="line">       _cons |   <span class="number">.9574107</span>   <span class="number">.5803727</span>     <span class="number">1.65</span>   <span class="number">0.104</span>    <span class="number">-.2027378</span>    <span class="number">2.117559</span></span><br><span class="line">------------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+<h6 id="6-1"><a href="#6-1" class="headerlink" title="6."></a>6.</h6><ul>
+<li>马耳他共和国（马耳他语：Repubblika ta’ Malta，英语：Republic of Malta），简称马耳他，位于南欧的共和制的一个微型国家，是一个位于地中海中心的岛国，有“地中海心脏”，“欧洲的乡村”之称“。官方语言为马耳他语和英语，首都瓦莱塔（Valletta）。居民多信奉天主教，少数人信奉基督新教和东正教。</li>
+<li>马耳他是一个高度发达的资本主义国家，经济以服务业和金融业为主，旅游业是马耳他主要的外汇来源。马耳他同100多个国家和地区有贸易关系，欧盟是马耳他最重要的贸易伙伴。另外，马耳他社会保障体系较为完备，实行免费教育，免费医疗及退休保险制。</li>
+</ul>
+<h6 id="7-1"><a href="#7-1" class="headerlink" title="7."></a>7.</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">. reg growth tradeshare rgdp60 yearsschool rev_coups assasinations</span><br><span class="line"></span><br><span class="line">      Source |       SS           df       MS      <span class="built_in">Number</span> <span class="keyword">of</span> obs   =        <span class="number">64</span></span><br><span class="line">-------------+----------------------------------   F(<span class="number">5</span>, <span class="number">58</span>)        =      <span class="number">4.76</span></span><br><span class="line">       Model |  <span class="number">60.4973376</span>         <span class="number">5</span>  <span class="number">12.0994675</span>   Prob &gt; F        =    <span class="number">0.0010</span></span><br><span class="line">    Residual |  <span class="number">147.310822</span>        <span class="number">58</span>  <span class="number">2.53984176</span>   R-squared       =    <span class="number">0.2911</span></span><br><span class="line">-------------+----------------------------------   Adj R-squared   =    <span class="number">0.2300</span></span><br><span class="line">       Total |   <span class="number">207.80816</span>        <span class="number">63</span>  <span class="number">3.29854222</span>   Root MSE        =    <span class="number">1.5937</span></span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">       growth |      Coef.   Std. Err.      t    P&gt;|t|     [<span class="number">95</span>% Conf. Interval]</span><br><span class="line">--------------+----------------------------------------------------------------</span><br><span class="line">   tradeshare |   <span class="number">1.340819</span>   <span class="number">.9600631</span>     <span class="number">1.40</span>   <span class="number">0.168</span>    <span class="number">-.5809558</span>    <span class="number">3.262594</span></span><br><span class="line">       rgdp60 |  <span class="number">-.0004613</span>   <span class="number">.0001508</span>    <span class="number">-3.06</span>   <span class="number">0.003</span>    <span class="number">-.0007631</span>   <span class="number">-.0001594</span></span><br><span class="line">  yearsschool |   <span class="number">.5642445</span>   <span class="number">.1431131</span>     <span class="number">3.94</span>   <span class="number">0.000</span>     <span class="number">.2777726</span>    <span class="number">.8507165</span></span><br><span class="line">    rev_coups |  <span class="number">-2.150426</span>    <span class="number">1.11859</span>    <span class="number">-1.92</span>   <span class="number">0.059</span>    <span class="number">-4.389527</span>    <span class="number">.0886756</span></span><br><span class="line">assasinations |   <span class="number">.3225844</span>   <span class="number">.4880043</span>     <span class="number">0.66</span>   <span class="number">0.511</span>    <span class="number">-.6542624</span>    <span class="number">1.299431</span></span><br><span class="line">        _cons |   <span class="number">.6268915</span>    <span class="number">.783028</span>     <span class="number">0.80</span>   <span class="number">0.427</span>    <span class="number">-.9405093</span>    <span class="number">2.194292</span></span><br><span class="line">-------------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>系数符号</th>
+<th>显著性</th>
+<th>经济意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tradeshare</td>
+<td>+</td>
+<td>不显著</td>
+<td>平均贸易开放程度每增加一个单位，平均增长率平均上升1.34个单位，但是把握不大</td>
+</tr>
+<tr>
+<td>rgdp60</td>
+<td>-</td>
+<td>显著</td>
+<td>1960年的人均GDP每增加一个单位，平均增长率平均下降-0.00046个单位</td>
+</tr>
+<tr>
+<td>yearsschool</td>
+<td>+</td>
+<td>显著</td>
+<td>1960年的平均受教育年限每增加一个单位，平均增长率平均上升0.56个单位</td>
+</tr>
+<tr>
+<td>rev_coups</td>
+<td>-</td>
+<td>显著</td>
+<td>1960-1995年的平均政变次数每增加一，平均增长率平均下降2.15个单位</td>
+</tr>
+<tr>
+<td>assasinations</td>
+<td>+</td>
+<td>不显著</td>
+<td>1960-1995年的平均政治暗杀次数每增加一，平均增长率平均上升0.322个单位，但是把握不大</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>因为经济增长速度受期初人均资本量和教育水平的影响，所以要把期初的人均GDP和平均受教育年限加入尽量控制住。另外使用期初的人均GDP和平均受教育年限可以避免双向因果关系。例如，如果使用1970年的人均GDP或平均受教育年限，那么就会有双向因果关系，经济发展也会影响1970年的人均GDP和平均受教育年限，但是1960年之后的经济发展不会影响1960年的人均GDP和平均受教育年限。因此避免了双向因果的问题。</li>
+</ul>
+<h5 id="9-5"><a href="#9-5" class="headerlink" title="9.5"></a>9.5</h5><h6 id="1-趋势图、是否存在结构变动"><a href="#1-趋势图、是否存在结构变动" class="headerlink" title="1. 趋势图、是否存在结构变动"></a>1. 趋势图、是否存在结构变动</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">use gasoline, clear</span><br><span class="line">tsset year</span><br><span class="line">tw connect lgasp year, msymbol(circle) yaxis(<span class="number">1</span>) || connect lgasq year, msymbol(triangle) yaxis(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<h6 id="2-OLS估计"><a href="#2-OLS估计" class="headerlink" title="2. OLS估计"></a>2. OLS估计</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">. global v <span class="string">"lgasq L.lgasq lincome lgasp lpnc lpuc"</span></span><br><span class="line"></span><br><span class="line">. reg $v</span><br><span class="line"></span><br><span class="line">      Source |       SS           df       MS      <span class="built_in">Number</span> <span class="keyword">of</span> obs   =        <span class="number">51</span></span><br><span class="line">-------------+----------------------------------   F(<span class="number">5</span>, <span class="number">45</span>)        =   <span class="number">1830.77</span></span><br><span class="line">       Model |  <span class="number">2.59056415</span>         <span class="number">5</span>   <span class="number">.51811283</span>   Prob &gt; F        =    <span class="number">0.0000</span></span><br><span class="line">    Residual |  <span class="number">.012735088</span>        <span class="number">45</span>  <span class="number">.000283002</span>   R-squared       =    <span class="number">0.9951</span></span><br><span class="line">-------------+----------------------------------   Adj R-squared   =    <span class="number">0.9946</span></span><br><span class="line">       Total |  <span class="number">2.60329924</span>        <span class="number">50</span>  <span class="number">.052065985</span>   Root MSE        =    <span class="number">.01682</span></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">       lgasq |      Coef.   Std. Err.      t    P&gt;|t|     [<span class="number">95</span>% Conf. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">       lgasq |</span><br><span class="line">         L1. |   <span class="number">.8309713</span>   <span class="number">.0457633</span>    <span class="number">18.16</span>   <span class="number">0.000</span>     <span class="number">.7387994</span>    <span class="number">.9231433</span></span><br><span class="line">             |</span><br><span class="line">     lincome |   <span class="number">.1640462</span>   <span class="number">.0550263</span>     <span class="number">2.98</span>   <span class="number">0.005</span>     <span class="number">.0532175</span>    <span class="number">.2748748</span></span><br><span class="line">       lgasp |  <span class="number">-.0695317</span>   <span class="number">.0147326</span>    <span class="number">-4.72</span>   <span class="number">0.000</span>    <span class="number">-.0992047</span>   <span class="number">-.0398587</span></span><br><span class="line">        lpnc |  <span class="number">-.1783946</span>   <span class="number">.0551726</span>    <span class="number">-3.23</span>   <span class="number">0.002</span>    <span class="number">-.2895179</span>   <span class="number">-.0672714</span></span><br><span class="line">        lpuc |   <span class="number">.1270093</span>   <span class="number">.0357704</span>     <span class="number">3.55</span>   <span class="number">0.001</span>      <span class="number">.054964</span>    <span class="number">.1990546</span></span><br><span class="line">       _cons |   <span class="number">-3.12318</span>   <span class="number">.9958266</span>    <span class="number">-3.14</span>   <span class="number">0.003</span>    <span class="number">-5.128878</span>   <span class="number">-1.117483</span></span><br><span class="line">------------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+<h6 id="异方差检验"><a href="#异方差检验" class="headerlink" title=". 异方差检验"></a>. 异方差检验</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">. estat hettest, iid</span><br><span class="line"></span><br><span class="line">Breusch-Pagan / Cook-Weisberg test <span class="keyword">for</span> heteroskedasticity</span><br><span class="line">         Ho: Constant variance</span><br><span class="line">         Variables: fitted values <span class="keyword">of</span> lgasq</span><br><span class="line"></span><br><span class="line">         chi2(<span class="number">1</span>)      =     <span class="number">0.31</span></span><br><span class="line">         Prob &gt; chi2  =   <span class="number">0.5788</span></span><br><span class="line"></span><br><span class="line">. estat hettest, iid rhs</span><br><span class="line"></span><br><span class="line">Breusch-Pagan / Cook-Weisberg test <span class="keyword">for</span> heteroskedasticity</span><br><span class="line">         Ho: Constant variance</span><br><span class="line">         Variables: L.lgasq lincome lgasp lpnc lpuc</span><br><span class="line"></span><br><span class="line">         chi2(<span class="number">5</span>)      =     <span class="number">7.46</span></span><br><span class="line">         Prob &gt; chi2  =   <span class="number">0.1884</span></span><br><span class="line"></span><br><span class="line">. estat hettest</span><br><span class="line"></span><br><span class="line">Breusch-Pagan / Cook-Weisberg test <span class="keyword">for</span> heteroskedasticity</span><br><span class="line">         Ho: Constant variance</span><br><span class="line">         Variables: fitted values <span class="keyword">of</span> lgasq</span><br><span class="line"></span><br><span class="line">         chi2(<span class="number">1</span>)      =     <span class="number">0.48</span></span><br><span class="line">         Prob &gt; chi2  =   <span class="number">0.4867</span></span><br><span class="line"></span><br><span class="line">. estat imtest, white</span><br><span class="line"></span><br><span class="line">White<span class="string">'s test for Ho: homoskedasticity</span></span><br><span class="line"><span class="string">         against Ha: unrestricted heteroskedasticity</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">         chi2(20)     =     33.20</span></span><br><span class="line"><span class="string">         Prob &gt; chi2  =    0.0321</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Cameron &amp; Trivedi'</span>s decomposition <span class="keyword">of</span> IM-test</span><br><span class="line"></span><br><span class="line">---------------------------------------------------</span><br><span class="line">              Source |       chi2     df      p</span><br><span class="line">---------------------+-----------------------------</span><br><span class="line">  Heteroskedasticity |      <span class="number">33.20</span>     <span class="number">20</span>    <span class="number">0.0321</span></span><br><span class="line">            Skewness |       <span class="number">9.58</span>      <span class="number">5</span>    <span class="number">0.0881</span></span><br><span class="line">            Kurtosis |       <span class="number">0.61</span>      <span class="number">1</span>    <span class="number">0.4356</span></span><br><span class="line">---------------------+-----------------------------</span><br><span class="line">               Total |      <span class="number">43.38</span>     <span class="number">26</span>    <span class="number">0.0176</span></span><br><span class="line">---------------------------------------------------</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>无法拒绝同方差原假设，认为不存在异方差问题。</p>
+</blockquote>
+<h6 id="4-自相关检验"><a href="#4-自相关检验" class="headerlink" title="4. 自相关检验"></a>4. 自相关检验</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">. estat bgo</span><br><span class="line"></span><br><span class="line">Breusch-Godfrey LM test <span class="keyword">for</span> autocorrelation</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">    lags(p)  |          chi2               df                 Prob &gt; chi2</span><br><span class="line">-------------+-------------------------------------------------------------</span><br><span class="line">       <span class="number">1</span>     |          <span class="number">0.545</span>               <span class="number">1</span>                   <span class="number">0.4603</span></span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">                        H0: no serial correlation</span><br><span class="line"></span><br><span class="line">. predict e1, r</span><br><span class="line">(<span class="number">1</span> missing value generated)</span><br><span class="line"></span><br><span class="line">. wntestq e1</span><br><span class="line"></span><br><span class="line">Portmanteau test <span class="keyword">for</span> white noise</span><br><span class="line">---------------------------------------</span><br><span class="line"> Portmanteau (Q) statistic =    <span class="number">25.2413</span></span><br><span class="line"> Prob &gt; chi2(<span class="number">23</span>)           =     <span class="number">0.3380</span></span><br><span class="line"></span><br><span class="line">. corrgram e1</span><br><span class="line"></span><br><span class="line">                                          <span class="number">-1</span>       <span class="number">0</span>       <span class="number">1</span> <span class="number">-1</span>       <span class="number">0</span>       <span class="number">1</span></span><br><span class="line"> LAG       AC       PAC      Q     Prob&gt;Q  [Autocorrelation]  [Partial Autocor]</span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line"><span class="number">1</span>        <span class="number">0.0962</span>   <span class="number">0.0962</span>   <span class="number">.50043</span>  <span class="number">0.4793</span>          |                  |        </span><br><span class="line"><span class="number">2</span>       <span class="number">-0.0638</span>  <span class="number">-0.0797</span>   <span class="number">.72528</span>  <span class="number">0.6958</span>          |                  |        </span><br><span class="line"><span class="number">3</span>       <span class="number">-0.0795</span>  <span class="number">-0.0669</span>   <span class="number">1.0814</span>  <span class="number">0.7816</span>          |                  |        </span><br><span class="line"><span class="number">4</span>       <span class="number">-0.1445</span>  <span class="number">-0.1360</span>   <span class="number">2.2824</span>  <span class="number">0.6840</span>         -|                 -|        </span><br><span class="line"><span class="number">5</span>       <span class="number">-0.0093</span>   <span class="number">0.0041</span>   <span class="number">2.2875</span>  <span class="number">0.8081</span>          |                  |        </span><br><span class="line"><span class="number">6</span>        <span class="number">0.0455</span>   <span class="number">0.0202</span>   <span class="number">2.4117</span>  <span class="number">0.8782</span>          |                  |        </span><br><span class="line"><span class="number">7</span>       <span class="number">-0.1263</span>  <span class="number">-0.1735</span>   <span class="number">3.3919</span>  <span class="number">0.8465</span>         -|                 -|        </span><br><span class="line"><span class="number">8</span>       <span class="number">-0.1991</span>  <span class="number">-0.2043</span>   <span class="number">5.8834</span>  <span class="number">0.6603</span>         -|                 -|        </span><br><span class="line"><span class="number">9</span>       <span class="number">-0.1148</span>  <span class="number">-0.1104</span>    <span class="number">6.731</span>  <span class="number">0.6651</span>          |                  |        </span><br><span class="line"><span class="number">10</span>       <span class="number">0.0792</span>   <span class="number">0.0776</span>   <span class="number">7.1447</span>  <span class="number">0.7117</span>          |                  |        </span><br><span class="line"><span class="number">11</span>       <span class="number">0.2559</span>   <span class="number">0.1990</span>   <span class="number">11.571</span>  <span class="number">0.3968</span>          |--                |-       </span><br><span class="line"><span class="number">12</span>      <span class="number">-0.0156</span>  <span class="number">-0.1350</span>   <span class="number">11.587</span>  <span class="number">0.4794</span>          |                 -|        </span><br><span class="line"><span class="number">13</span>       <span class="number">0.1980</span>   <span class="number">0.2980</span>   <span class="number">14.376</span>  <span class="number">0.3479</span>          |-                 |--      </span><br><span class="line"><span class="number">14</span>      <span class="number">-0.0634</span>  <span class="number">-0.0658</span>   <span class="number">14.669</span>  <span class="number">0.4011</span>          |                  |        </span><br><span class="line"><span class="number">15</span>      <span class="number">-0.0529</span>   <span class="number">0.0278</span>   <span class="number">14.879</span>  <span class="number">0.4602</span>          |                  |        </span><br><span class="line"><span class="number">16</span>      <span class="number">-0.0004</span>  <span class="number">-0.0944</span>   <span class="number">14.879</span>  <span class="number">0.5335</span>          |                  |        </span><br><span class="line"><span class="number">17</span>       <span class="number">0.0720</span>   <span class="number">0.1448</span>   <span class="number">15.291</span>  <span class="number">0.5745</span>          |                  |-       </span><br><span class="line"><span class="number">18</span>      <span class="number">-0.2075</span>  <span class="number">-0.3104</span>   <span class="number">18.818</span>  <span class="number">0.4031</span>         -|                --|        </span><br><span class="line"><span class="number">19</span>      <span class="number">-0.2649</span>  <span class="number">-0.4250</span>   <span class="number">24.748</span>  <span class="number">0.1690</span>        --|               ---|        </span><br><span class="line"><span class="number">20</span>       <span class="number">0.0425</span>   <span class="number">0.1576</span>   <span class="number">24.905</span>  <span class="number">0.2051</span>          |                  |-       </span><br><span class="line"><span class="number">21</span>      <span class="number">-0.0337</span>  <span class="number">-0.2348</span>   <span class="number">25.007</span>  <span class="number">0.2468</span>          |                 -|        </span><br><span class="line"><span class="number">22</span>      <span class="number">-0.0309</span>  <span class="number">-0.2519</span>   <span class="number">25.097</span>  <span class="number">0.2925</span>          |                --|        </span><br><span class="line"><span class="number">23</span>       <span class="number">0.0387</span>   <span class="number">0.0317</span>   <span class="number">25.241</span>  <span class="number">0.3380</span>          |                  |</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>从检验结果可以发现，无法拒绝无自相关的原假设。</p>
+</blockquote>
+<h6 id="5-结构性变动检验"><a href="#5-结构性变动检验" class="headerlink" title="5. 结构性变动检验"></a>5. 结构性变动检验</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">. reg $v lgaspd d</span><br><span class="line"></span><br><span class="line">      Source |       SS           df       MS      <span class="built_in">Number</span> <span class="keyword">of</span> obs   =        <span class="number">51</span></span><br><span class="line">-------------+----------------------------------   F(<span class="number">7</span>, <span class="number">43</span>)        =   <span class="number">1692.61</span></span><br><span class="line">       Model |  <span class="number">2.59388545</span>         <span class="number">7</span>  <span class="number">.370555065</span>   Prob &gt; F        =    <span class="number">0.0000</span></span><br><span class="line">    Residual |  <span class="number">.009413787</span>        <span class="number">43</span>  <span class="number">.000218925</span>   R-squared       =    <span class="number">0.9964</span></span><br><span class="line">-------------+----------------------------------   Adj R-squared   =    <span class="number">0.9958</span></span><br><span class="line">       Total |  <span class="number">2.60329924</span>        <span class="number">50</span>  <span class="number">.052065985</span>   Root MSE        =     <span class="number">.0148</span></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">       lgasq |      Coef.   Std. Err.      t    P&gt;|t|     [<span class="number">95</span>% Conf. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">       lgasq |</span><br><span class="line">         L1. |   <span class="number">.5497199</span>   <span class="number">.0888964</span>     <span class="number">6.18</span>   <span class="number">0.000</span>     <span class="number">.3704432</span>    <span class="number">.7289966</span></span><br><span class="line">             |</span><br><span class="line">     lincome |   <span class="number">.2734083</span>   <span class="number">.0633604</span>     <span class="number">4.32</span>   <span class="number">0.000</span>     <span class="number">.1456298</span>    <span class="number">.4011868</span></span><br><span class="line">       lgasp |   <span class="number">.3742783</span>   <span class="number">.1147774</span>     <span class="number">3.26</span>   <span class="number">0.002</span>     <span class="number">.1428077</span>    <span class="number">.6057489</span></span><br><span class="line">        lpnc |  <span class="number">-.0648005</span>   <span class="number">.0572199</span>    <span class="number">-1.13</span>   <span class="number">0.264</span>    <span class="number">-.1801954</span>    <span class="number">.0505943</span></span><br><span class="line">        lpuc |   <span class="number">.0595486</span>    <span class="number">.037056</span>     <span class="number">1.61</span>   <span class="number">0.115</span>    <span class="number">-.0151819</span>     <span class="number">.134279</span></span><br><span class="line">      lgaspd |  <span class="number">-.4627977</span>   <span class="number">.1197836</span>    <span class="number">-3.86</span>   <span class="number">0.000</span>    <span class="number">-.7043643</span>    <span class="number">-.221231</span></span><br><span class="line">           d |   <span class="number">1.453796</span>   <span class="number">.3781787</span>     <span class="number">3.84</span>   <span class="number">0.000</span>     <span class="number">.6911262</span>    <span class="number">2.216466</span></span><br><span class="line">       _cons |  <span class="number">-9.201845</span>    <span class="number">1.92268</span>    <span class="number">-4.79</span>   <span class="number">0.000</span>     <span class="number">-13.0793</span>   <span class="number">-5.324392</span></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">. test lgaspd d</span><br><span class="line"></span><br><span class="line"> ( <span class="number">1</span>)  lgaspd = <span class="number">0</span></span><br><span class="line"> ( <span class="number">2</span>)  d = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">       F(  <span class="number">2</span>,    <span class="number">43</span>) =    <span class="number">7.59</span></span><br><span class="line">            Prob &gt; F =    <span class="number">0.0015</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>发生了结构变动。<br>从三四问的结果来看，该模型存在异方差问题，但是不存在自相关问题，因此需要使用异方差稳健的标准误</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">. reg $v, r</span><br><span class="line"></span><br><span class="line">Linear regression                               <span class="built_in">Number</span> <span class="keyword">of</span> obs     =         <span class="number">51</span></span><br><span class="line">                                                F(<span class="number">5</span>, <span class="number">45</span>)          =    <span class="number">2048.51</span></span><br><span class="line">                                                Prob &gt; F          =     <span class="number">0.0000</span></span><br><span class="line">                                                R-squared         =     <span class="number">0.9951</span></span><br><span class="line">                                                Root MSE          =     <span class="number">.01682</span></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">             |               Robust</span><br><span class="line">       lgasq |      Coef.   Std. Err.      t    P&gt;|t|     [<span class="number">95</span>% Conf. Interval]</span><br><span class="line">-------------+----------------------------------------------------------------</span><br><span class="line">       lgasq |</span><br><span class="line">         L1. |   <span class="number">.8309713</span>    <span class="number">.050718</span>    <span class="number">16.38</span>   <span class="number">0.000</span>     <span class="number">.7288201</span>    <span class="number">.9331226</span></span><br><span class="line">             |</span><br><span class="line">     lincome |   <span class="number">.1640462</span>   <span class="number">.0457195</span>     <span class="number">3.59</span>   <span class="number">0.001</span>     <span class="number">.0719623</span>      <span class="number">.25613</span></span><br><span class="line">       lgasp |  <span class="number">-.0695317</span>   <span class="number">.0171852</span>    <span class="number">-4.05</span>   <span class="number">0.000</span>    <span class="number">-.1041444</span>    <span class="number">-.034919</span></span><br><span class="line">        lpnc |  <span class="number">-.1783946</span>   <span class="number">.0431421</span>    <span class="number">-4.14</span>   <span class="number">0.000</span>    <span class="number">-.2652873</span>    <span class="number">-.091502</span></span><br><span class="line">        lpuc |   <span class="number">.1270093</span>   <span class="number">.0270928</span>     <span class="number">4.69</span>   <span class="number">0.000</span>     <span class="number">.0724416</span>    <span class="number">.1815769</span></span><br><span class="line">       _cons |   <span class="number">-3.12318</span>    <span class="number">.975496</span>    <span class="number">-3.20</span>   <span class="number">0.003</span>     <span class="number">-5.08793</span>    <span class="number">-1.15843</span></span><br><span class="line">------------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../4149/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          随机实验与自然实验
+        
+      </div>
+    </a>
+  
+  
+    <a href="../36837/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">工具变量法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#遗漏变量问题"><span class="nav-text">遗漏变量问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无关变量"><span class="nav-text">无关变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#建模策略：“由小到大”还是“由大到小”"><span class="nav-text">建模策略：“由小到大”还是“由大到小”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解释变量个数的选择"><span class="nav-text">解释变量个数的选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对函数形式的检验"><span class="nav-text">对函数形式的检验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多重共线性"><span class="nav-text">多重共线性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#极端数据"><span class="nav-text">极端数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟变量"><span class="nav-text">虚拟变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#经济结构变动的检验"><span class="nav-text">经济结构变动的检验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第九章练习题"><span class="nav-text">第九章练习题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#9-3"><span class="nav-text">9.3</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1"><span class="nav-text">1.</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2"><span class="nav-text">2.</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3"><span class="nav-text">3.</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4"><span class="nav-text">4.</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5"><span class="nav-text">5.</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#6"><span class="nav-text">6.</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#7"><span class="nav-text">7.</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-4"><span class="nav-text">9.4</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-1"><span class="nav-text">1.</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-1"><span class="nav-text">2.</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-1"><span class="nav-text">3.</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-1"><span class="nav-text">4.</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-1"><span class="nav-text">5.</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#6-1"><span class="nav-text">6.</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#7-1"><span class="nav-text">7.</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-5"><span class="nav-text">9.5</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-趋势图、是否存在结构变动"><span class="nav-text">1. 趋势图、是否存在结构变动</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-OLS估计"><span class="nav-text">2. OLS估计</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#异方差检验"><span class="nav-text">. 异方差检验</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-自相关检验"><span class="nav-text">4. 自相关检验</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-结构性变动检验"><span class="nav-text">5. 结构性变动检验</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

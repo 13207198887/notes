@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/163/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+<link rel="stylesheet" href="/notes/assets/css/APlayer.min.css" class="aplayer-style-marker">
+<script src="/notes/assets/js/APlayer.min.js" class="aplayer-script-marker"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/DPlayer.min.css"><script src="/assets/js/DPlayer.min.js"></script></head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-多重共线性的判断——辅助回归的方法：auxreg命令"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/24739/">多重共线性的判断——辅助回归的方法：auxreg命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/24739/" class="article-date">
+	  <time datetime="2017-12-04T17:45:32.000Z" itemprop="datePublished">2017-12-05</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>该命令用于进行检验多重共线性的辅助回归，也就是做每一个数值型变量对其余所有数值型变量的回归，返回所有辅助回归的拟合优度、校正拟合优度或F值。注意运行该命令前需要先导入数据。</p>
+</blockquote>
+<h3 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h3><h4 id="首先你需要安装github命令，这个命令是用来安装github上的命令的："><a href="#首先你需要安装github命令，这个命令是用来安装github上的命令的：" class="headerlink" title="首先你需要安装github命令，这个命令是用来安装github上的命令的："></a>首先你需要安装github命令，这个命令是用来安装github上的命令的：</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">net</span> install github, from(<span class="string">"https://haghish.github.io/github/"</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="然后就可以安装这个命令了："><a href="#然后就可以安装这个命令了：" class="headerlink" title="然后就可以安装这个命令了："></a>然后就可以安装这个命令了：</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">github install czxa/auxreg, <span class="keyword">replace</span></span><br></pre></td></tr></table></figure>
+        <!-- 
+该命令用于进行检验多重共线性的辅助回归，也就是做每一个数值型变量对其余所有数值型变量的回归，返回所有辅助回归的拟合优度、校正拟合优度或F值。注意运行该命令前需要先导入数据。
+
+安装：首先你需要安装github命令，这个命令是用来安装github上的命令的：1net install github, from("https://haghish.github.io/github/")
+然后就可以......  -->
+        <p class="article-more-link">
+          <a href="../../posts/24739/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-markdown进阶教程"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/6964/">Markdown进阶教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/6964/" class="article-date">
+	  <time datetime="2017-12-01T16:14:32.000Z" itemprop="datePublished">2017-12-02</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/排版语言/">排版语言</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>这篇文章是一个名为Markdown的App的欢迎界面给出的markdown介绍。</p>
+</blockquote>
+<h2 id="The-Basics"><a href="#The-Basics" class="headerlink" title="The Basics"></a>The Basics</h2><p>Before I tell you about all the extra syntaxes and capabilities I have, I’ll introduce you to the basics of standard markdown. If you already know markdown, and want to jump straight to learning about the fancier things I can do, I suggest you skip to the <a href="#markdown-pane"><strong>Markdown</strong> preference pane</a>. Lets jump right in.  </p>
+<h3 id="Line-Breaks"><a href="#Line-Breaks" class="headerlink" title="Line Breaks"></a>Line Breaks</h3><p>To force a line break, put two spaces and a newline (return) at the end of the line.</p>
+<ul>
+<li><p>This two-line bullet<br>won’t break</p>
+</li>
+<li><p>This two-line bullet<br>will break</p>
+</li>
+</ul>
+<p>Here is the code:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* This two-line bullet</span><br><span class="line">won&apos;t break</span><br><span class="line"></span><br><span class="line">* This two-line bullet  </span><br><span class="line">will break</span><br></pre></td></tr></table></figure>
+        <!-- 
+这篇文章是一个名为Markdown的App的欢迎界面给出的markdown介绍。
+
+The BasicsBefore I tell you about all the extra syntaxes and capabilities I have, I’ll introduce you to the basics of standard markdown. If you already kn......  -->
+        <p class="article-more-link">
+          <a href="../../posts/6964/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Markdown/">Markdown</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-原创Stata命令：multigraph"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/48286/">原创Stata命令：multigraph</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/48286/" class="article-date">
+	  <time datetime="2017-11-30T12:10:23.000Z" itemprop="datePublished">2017-11-30</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>该项目Github地址👇<br><a href="https://github.com/czxa/multigraph" target="_blank" rel="noopener"><code>czxa/multigraph</code></a></strong><br><strong>该项目主页👇<br><a href="http://czxa.top/multigraph" target="_blank" rel="noopener"><code>multigraph</code></a></strong></p>
+<h3 id="这个命令的作用是获取内存中的变量，筛选出数值型变量，然后绘制出每个变量的直方图或者核密度图并合并到一张图上。这个命令的帮助文档完全使用中文书写，希望这样能方便我的朋友们使用。"><a href="#这个命令的作用是获取内存中的变量，筛选出数值型变量，然后绘制出每个变量的直方图或者核密度图并合并到一张图上。这个命令的帮助文档完全使用中文书写，希望这样能方便我的朋友们使用。" class="headerlink" title="这个命令的作用是获取内存中的变量，筛选出数值型变量，然后绘制出每个变量的直方图或者核密度图并合并到一张图上。这个命令的帮助文档完全使用中文书写，希望这样能方便我的朋友们使用。"></a>这个命令的作用是获取内存中的变量，筛选出数值型变量，然后绘制出每个变量的直方图或者核密度图并合并到一张图上。这个命令的帮助文档完全使用中文书写，希望这样能方便我的朋友们使用。</h3><h3 id="示例图片："><a href="#示例图片：" class="headerlink" title="示例图片："></a>示例图片：</h3><p><img src="https://github.com/czxa/multigraph/raw/master/hist.png" alt=""></p>
+<h3 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h3><h4 id="首先你需要安装github命令，这个命令是用来安装github上的命令的："><a href="#首先你需要安装github命令，这个命令是用来安装github上的命令的：" class="headerlink" title="首先你需要安装github命令，这个命令是用来安装github上的命令的："></a>首先你需要安装github命令，这个命令是用来安装github上的命令的：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net install github, <span class="keyword">from</span>(<span class="string">"https://haghish.github.io/github/"</span>)</span><br></pre></td></tr></table></figure>
+        <!-- 该项目Github地址👇czxa/multigraph该项目主页👇multigraph
+这个命令的作用是获取内存中的变量，筛选出数值型变量，然后绘制出每个变量的直方图或者核密度图并合并到一张图上。这个命令的帮助文档完全使用中文书写，希望这样能方便我的朋友们使用。示例图片：
+安装：首先你需要安装github命令，这个命令是用来安装github上的命令的：1net install githu......  -->
+        <p class="article-more-link">
+          <a href="../../posts/48286/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Stata的help文件格式总结"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/18594/">Stata的help文件格式总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/18594/" class="article-date">
+	  <time datetime="2017-11-27T12:14:32.000Z" itemprop="datePublished">2017-11-27</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/排版语言/">排版语言</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h4><ul>
+<li>hlp</li>
+<li>sthlp</li>
+</ul>
+<h4 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h4><ul>
+<li><p>help文件的开头是带有上下两条线的”help 命令名”:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;smcl&#125;</span><br><span class="line">&#123;* 2017年11月27日&#125;</span><br><span class="line">&#123;hline&#125;</span><br><span class="line">help for &#123;hi:命令名&#125;</span><br><span class="line">&#123;hline&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这里的日期是不会显示出来的，推测应该只是作者自己标记书写日期的时候使用的。</p>
+</li>
+</ul>
+<h4 id="引入标题：对命令进行简单的介绍。"><a href="#引入标题：对命令进行简单的介绍。" class="headerlink" title="引入标题：对命令进行简单的介绍。"></a>引入标题：对命令进行简单的介绍。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;title: 命令名：一个对命令的简单介绍。&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;title: 语法：&#125;</span><br><span class="line">&#123;p 8 18 2&#125;</span><br><span class="line">&#123;cmd: 命令名&#125;</span><br><span class="line">&#123;it:varlist&#125; [&#123;cmd:if&#125; &#123;it:exp&#125;] [&#123;cmd:in&#125; &#123;it:range&#125;]&#123;cmd:, &#125;&#123;c -(&#125;&#123;cmd:gen(&#125;&#123;it:newvarlist1&#125;&#123;cmd:)&#125; | &#123;cmd:replace&#125;&#123;c )-&#125;</span><br><span class="line">[&#123;cmd:cfindic(&#125;&#123;it:newvarlist2&#125;&#123;cmd:) back carryalong(&#125;&#123;it:varlist2&#125;&#123;cmd:)&#125; &#123;cmd:strict&#125; &#123;cmd:nonotes&#125;</span><br><span class="line">&#123;cmd:dynamic_condition(&#125;&#123;it:dyncond&#125;&#123;cmd:)&#125; &#123;cmd:extmiss&#125;]</span><br></pre></td></tr></table></figure>
+        <!-- 格式
+hlp
+sthlp
+
+开头
+help文件的开头是带有上下两条线的”help 命令名”:
+12345&#123;smcl&#125;&#123;* 2017年11月27日&#125;&#123;hline&#125;help for &#123;hi:命令名&#125;&#123;hline&#125;
+
+这里的日期是不会显示出来的，推测应该只是作者自己标记书写日期的时候使用的。
+
+
+引......  -->
+        <p class="article-more-link">
+          <a href="../../posts/18594/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-清风恰似故人来"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/45726/">清风恰似故人来</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/45726/" class="article-date">
+	  <time datetime="2017-11-26T07:10:35.000Z" itemprop="datePublished">2017-11-26</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/音乐电影/">音乐电影</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="十年一品温如故"><a href="#十年一品温如故" class="headerlink" title="十年一品温如故"></a>十年一品温如故</h4><ul>
+<li>想把这两首歌挂在这里，第一首是2012年高一的时候班里一个非常可爱的妹子发给我的，与原唱不同，她把歌词中的弟弟都改成了哥哥。这么多年一直保存着这段录音作为高中生活的一种回忆。</li>
+</ul>
+
+        <div id="aplayer-qwUhWzgi" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+            <pre class="aplayer-lrc-content"></pre>
+        </div>
+        <script>
+          var ap = new APlayer({
+            element: document.getElementById("aplayer-qwUhWzgi"),
+            narrow: false,
+            autoplay: false,
+            showlrc: false,
+            music: {
+              title: "同手同脚",
+              author: "王亚楠",
+              url: "https://github.com/czxa/Web_data_Source/raw/master/同手同脚.mp3",
+              pic: "https://github.com/czxa/Web_data_Source/raw/master/WechatIMG22.jpeg",
+              lrc: ""
+            }
+          });
+          window.aplayers || (window.aplayers = []);
+          window.aplayers.push(ap);
+        </script>
+<h4 id="清风恰似故人来"><a href="#清风恰似故人来" class="headerlink" title="清风恰似故人来"></a>清风恰似故人来</h4><ul>
+<li>第二首歌是今年10月13号她突然发给我的，然后那天晚上跟她聊了很久，话题不多，但是回忆满满，有一种清风袭来的感觉。</li>
+</ul>
+<center><br><div id="dplayer3" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px; width:400px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer3"),"theme":"#FADFA3","loop":true,"video":{"url":"https://github.com/czxa/Web_data_Source/raw/master/我要你.mp4","pic":"https://github.com/czxa/Web_data_Source/raw/master/WechatIMG22.jpeg"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script><br></center>
+
+<p><strong>全民K歌☞ <a href="https://kg.qq.com/node/play?s=wCfdkzwkrgNyMw4x&amp;lang=zh_Hans" target="_blank" rel="noopener"><strong><code>我要你</code></strong></a></strong></p>
+<p><strong>下载☞ <a href="https://github.com/czxa/Web_data_Source/raw/master/我要你.mp4" target="_blank" rel="noopener"><strong><code>我要你</code></strong></a></strong></p>
+<p><strong>下载☞ <a href="https://github.com/czxa/Web_data_Source/raw/master/同手同脚.mp3" target="_blank" rel="noopener"><strong><code>同手同脚</code></strong></a></strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../162/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../161/">161</a><a class="page-number" href="../162/">162</a><span class="page-number current">163</span><a class="page-number" href="../164/">164</a><a class="page-number" href="../165/">165</a><span class="space">&hellip;</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../164/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

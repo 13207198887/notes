@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/148/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-带标题的分块图"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/20786/">带标题的分块图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/20786/" class="article-date">
+	  <time datetime="2018-01-25T12:06:23.000Z" itemprop="datePublished">2018-01-25</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/Web_data_Source/raw/master/添加标题的分块图.png" alt=""></p>
+<ul>
+<li>fillin adds observations with missing data so that all interactions of varlist exist, thus making a complete rectangularization of varlist.  fillin also adds the variable _fillin to the dataset.  _fillin is 1 for observations created by using fillin and 0 for previously existing observations.</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sysuse auto, clear</span><br><span class="line">fillin rep78 foreign</span><br><span class="line"></span><br><span class="line">tw sc price mpg, by(foreign rep78, cols(<span class="number">5</span>) compact)</span><br><span class="line">gr export 分块图.png, replace</span><br></pre></td></tr></table></figure>
+        <!-- 
+
+fillin adds observations with missing data so that all interactions of varlist exist, thus making a complete rectangularization of varlist.  fillin also adds the variable _fillin to the dataset. ......  -->
+        <p class="article-more-link">
+          <a href="../../posts/20786/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-一幅密度图"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/54030/">一幅密度图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/54030/" class="article-date">
+	  <time datetime="2018-01-25T10:33:23.000Z" itemprop="datePublished">2018-01-25</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/Web_data_Source/raw/master/一幅密度图.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">cap which spgrid</span><br><span class="line"><span class="keyword">if</span> _rc != <span class="number">0</span>&#123;</span><br><span class="line">	ssc install spgrid</span><br><span class="line">&#125;</span><br><span class="line">cap which spkde</span><br><span class="line"><span class="keyword">if</span> _rc != <span class="number">0</span>&#123;</span><br><span class="line">	ssc install spkde</span><br><span class="line">&#125;</span><br><span class="line">cap which mylabels</span><br><span class="line"><span class="keyword">if</span> _rc != <span class="number">0</span>&#123;</span><br><span class="line">	ssc install mylabels</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sysuse auto, clear</span><br><span class="line"></span><br><span class="line">su price mpg</span><br><span class="line">clonevar x = mpg</span><br><span class="line">* clonevar比起gen的好吃是可以连标签一并克隆</span><br><span class="line">clonevar y = price</span><br><span class="line">replace x = (x<span class="number">-0</span>)/(<span class="number">50</span><span class="number">-0</span>)</span><br><span class="line">replace y = (y<span class="number">-0</span>)/(<span class="number">20000</span><span class="number">-0</span>)</span><br><span class="line">* 定义自己的label</span><br><span class="line">mylabels <span class="number">0</span>(<span class="number">10</span>)<span class="number">50</span>, myscale((@<span class="number">-0</span>)/(<span class="number">50</span><span class="number">-0</span>)) local(XLAB)</span><br><span class="line">mylabels <span class="number">0</span>(<span class="number">5000</span>)<span class="number">20000</span>, myscale((@<span class="number">-0</span>)/(<span class="number">20000</span><span class="number">-0</span>)) local(YLAB)</span><br><span class="line">keep x y</span><br><span class="line">save xy, replace</span><br><span class="line"></span><br><span class="line">* 生成<span class="number">100</span>x100的格点</span><br><span class="line">spgrid, shape(hexagonal) xdim(<span class="number">100</span>) 	///</span><br><span class="line">xrange(<span class="number">0</span> <span class="number">1</span>) yrange(<span class="number">0</span> <span class="number">1</span>) 			///</span><br><span class="line">dots replace						///</span><br><span class="line">cells(<span class="string">"2D-GridCells.dta"</span>) 			///</span><br><span class="line">points(<span class="string">"2D-GridPoints.dta"</span>)</span><br><span class="line"></span><br><span class="line">spkde using <span class="string">"2D-GridPoints.dta"</span>, 	///</span><br><span class="line">xcoord(x) ycoord(y)					///</span><br><span class="line">bandwidth(fbw) fbw(<span class="number">0.1</span>) dots 		///</span><br><span class="line">saving(<span class="string">"2D-Kde.dta"</span>, replace)</span><br><span class="line"></span><br><span class="line">use <span class="string">"2D-Kde.dta"</span>, clear</span><br><span class="line"></span><br><span class="line">merge <span class="number">1</span>:<span class="number">1</span> _n using xy.dta</span><br><span class="line"></span><br><span class="line">tw contour p spgrid_ycoord spgrid_xcoord ///</span><br><span class="line"><span class="keyword">if</span> p != <span class="number">0</span>, levels(<span class="number">15</span>) 				||	 ///</span><br><span class="line">sc y x, mcolor(black) msize(small)  ||,  ///</span><br><span class="line">xla(`XLAB<span class="string">', nogrid) xti("里程数")			 ///</span></span><br><span class="line"><span class="string">yla(`YLAB'</span>, nogrid) yti(<span class="string">"价格"</span>)			 ///</span><br><span class="line">plotregion(color(blue)) scheme(s1color)	 ///</span><br><span class="line">zla(, format(%<span class="number">6.2</span>f))</span><br><span class="line">gr export 一幅密度图.png, replace</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-等高线绘制——contour命令"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/20851/">等深线/等高线绘制</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/20851/" class="article-date">
+	  <time datetime="2018-01-25T09:49:23.000Z" itemprop="datePublished">2018-01-25</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/Web_data_Source/raw/master/等深线.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">sysuse sandstone, clear</span><br><span class="line">tw contour depth northing easting, scheme(s1color) levels(10) zla(#7, format(%9.1f)) yla(#7, ang(0)) crule(linear) scolor(green) ecolor(blue)</span><br><span class="line">graph <span class="keyword">export</span> 等深线.png, replace</span><br></pre></td></tr></table></figure>
+<ul>
+<li>scolor：设定起始颜色；</li>
+<li>ecolor：设定终止颜色；</li>
+<li>crule：设定颜色变化的规则：hue, chue, intensity, and linear.  The default is crule(hue).</li>
+<li>levels：设定颜色的等级数量；</li>
+</ul>
+        <!-- 
+1234clear allsysuse sandstone, cleartw contour depth northing easting, scheme(s1color) levels(10) zla(#7, format(%9.1f)) yla(#7, ang(0)) crule(linear) scolor(green) ecolor(blue)graph export 等深线.pn......  -->
+        <p class="article-more-link">
+          <a href="../../posts/20851/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Mandelbrot集合"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/24434/">Mandelbrot集合</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/24434/" class="article-date">
+	  <time datetime="2018-01-25T09:49:23.000Z" itemprop="datePublished">2018-01-25</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/Web_data_Source/raw/master/Mandelbrot集合.png" alt=""></p>
+<blockquote>
+<p>注意：这幅图片的绘制在我的电脑上花了大约1.25小时。</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">* Mandelbrot集合</span><br><span class="line">clear all</span><br><span class="line">mata:</span><br><span class="line">real scalar escape(complex scalar Z, C, real scalar R, maxiter)</span><br><span class="line">&#123;</span><br><span class="line">	real scalar i</span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; maxiter; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span> (norm(Z) &lt;= R)&#123;</span><br><span class="line">			Z = Z * Z + C</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">return</span>(i)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>(i)</span><br><span class="line">&#125;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">mata:</span><br><span class="line">mandelbrot_set = J(<span class="number">201</span>*<span class="number">201</span>, <span class="number">3</span>, .)</span><br><span class="line">cnt = <span class="number">1</span></span><br><span class="line">C = <span class="number">-0.8</span> + <span class="number">0.156</span>i</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt;= <span class="number">200</span>; i++)&#123;</span><br><span class="line">	<span class="keyword">for</span>(j = <span class="number">0</span>; j &lt;= <span class="number">200</span>; j++)&#123;</span><br><span class="line">		Z = C(<span class="number">-2</span>+i*<span class="number">4</span>/<span class="number">200</span>, <span class="number">-2</span>+j*<span class="number">4</span>/<span class="number">200</span>)</span><br><span class="line">		n = escape(Z, C, <span class="number">100</span>, <span class="number">400</span>)</span><br><span class="line">		mandelbrot_set[cnt, .] = (i, j, n)</span><br><span class="line">		cnt++</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">getmata (x y escape) = mandelbrot_set</span><br><span class="line">qui sum escape</span><br><span class="line">local min = r(min) - <span class="number">1</span></span><br><span class="line">local max = r(max) + <span class="number">1</span></span><br><span class="line">tw contour escape y x, ccuts(`min<span class="string">'(1)`max'</span>) ///</span><br><span class="line">clegend(off) graphr(m(zero)) xsc(off) ///</span><br><span class="line">xlab(, nogrid) ysc(off) yla(, nogrid) scheme(s2color)</span><br><span class="line">gr export Mandelbrot集合.png, replace</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-使用两个数据集生成生存曲线"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/50719/">使用两个数据集生成生存曲线</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/50719/" class="article-date">
+	  <time datetime="2018-01-25T06:30:23.000Z" itemprop="datePublished">2018-01-25</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/Web_data_Source/raw/master/使用两个数据集生成生存曲线.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">use <span class="string">"http://www.stata-press.com/data/r12/drug2"</span>, clear</span><br><span class="line">* Declare data to be survival-time data</span><br><span class="line">stset</span><br><span class="line">sts, name(a1, replace)</span><br><span class="line">sts gen newvar = s</span><br><span class="line">set obs `=_N+<span class="number">1</span><span class="string">'</span></span><br><span class="line"><span class="string">* 把newvar的最后一个值换成1，l表示last，f表示first</span></span><br><span class="line"><span class="string">replace newvar = 1 in l</span></span><br><span class="line"><span class="string">replace _t = 0 in l</span></span><br><span class="line"><span class="string">replace died = 0 in l</span></span><br><span class="line"><span class="string">replace s = 1 in l</span></span><br><span class="line"><span class="string">keep newvar _t</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">save s1, replace</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">use "http://www.stata-press.com/data/r11/stan3.dta", clear</span></span><br><span class="line"><span class="string">replace t1 = t1/40</span></span><br><span class="line"><span class="string">stset t1, id(id) failure(died)</span></span><br><span class="line"><span class="string">sts, name(a1a, replace)</span></span><br><span class="line"><span class="string">sts gen newvar1 = s</span></span><br><span class="line"><span class="string">set obs `=_N+1'</span></span><br><span class="line">replace newvar1 = <span class="number">1</span> <span class="keyword">in</span> l</span><br><span class="line">replace _t = <span class="number">0</span> <span class="keyword">in</span> l</span><br><span class="line">keep newvar1 _t</span><br><span class="line">ren _t _t1</span><br><span class="line"></span><br><span class="line">merge <span class="number">1</span>:<span class="number">1</span> _n using s1</span><br><span class="line"></span><br><span class="line">tw ///</span><br><span class="line">line newvar1 _t1, sort c(stairstep) lc(black) || ///</span><br><span class="line">line newvar _t, sort c(stairstep) lc(gs12) || ///</span><br><span class="line">, yla(<span class="number">0</span>(<span class="number">0.2</span>)<span class="number">1</span>, ang(<span class="number">0</span>) nogrid) name(a2, replace) yti(<span class="string">""</span>) ///</span><br><span class="line">leg(label(<span class="number">1</span> data set <span class="number">1</span>) label(<span class="number">2</span> data set <span class="number">2</span>)) scheme(s1mono)</span><br><span class="line"></span><br><span class="line">gr export 使用两个数据集生成生存曲线.png, replace</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../147/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../146/">146</a><a class="page-number" href="../147/">147</a><span class="page-number current">148</span><a class="page-number" href="../149/">149</a><a class="page-number" href="../150/">150</a><span class="space">&hellip;</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../149/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

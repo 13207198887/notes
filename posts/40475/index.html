@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>stata绘图主题2 | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Stata" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="blindschemes安装123//ssc install blindschemes, replace all* 这个包里有两个主题，plottig和plotplainblindsysuse sp500, clear plottig12line close date, sort sch(plottig)gr export scheme1.png, replace">
+<meta name="keywords" content="Stata">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stata绘图主题2">
+<meta property="og:url" content="http://www.czxa.top/posts/40475/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="blindschemes安装123//ssc install blindschemes, replace all* 这个包里有两个主题，plottig和plotplainblindsysuse sp500, clear plottig12line close date, sort sch(plottig)gr export scheme1.png, replace">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme1.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme2.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme3.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme4.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme5.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme6.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme7.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme8.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme9.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme10.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme11.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme12.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme13.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme14.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme15.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme16.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme17.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme18.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme19.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme20.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme21.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme22.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme23.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme24.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme25.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme26.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme27.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme28.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme29.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme30.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme31.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme32.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme33.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme34.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme35.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme36.png">
+<meta property="og:updated_time" content="2018-02-13T09:23:13.294Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Stata绘图主题2">
+<meta name="twitter:description" content="blindschemes安装123//ssc install blindschemes, replace all* 这个包里有两个主题，plottig和plotplainblindsysuse sp500, clear plottig12line close date, sort sch(plottig)gr export scheme1.png, replace">
+<meta name="twitter:image" content="https://github.com/czxa/Web_data_Source/raw/master/scheme1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Stata绘图主题2" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Stata绘图主题2
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2018-01-31T14:30:23.000Z" itemprop="datePublished">2018-01-31</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="blindschemes"><a href="#blindschemes" class="headerlink" title="blindschemes"></a>blindschemes</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ssc install blindschemes, replace all</span></span><br><span class="line">* 这个包里有两个主题，plottig和plotplainblind</span><br><span class="line">sysuse sp500, clear</span><br></pre></td></tr></table></figure>
+<h2 id="plottig"><a href="#plottig" class="headerlink" title="plottig"></a>plottig</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">line close date, sort sch(plottig)</span><br><span class="line">gr <span class="keyword">export</span> scheme1.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme1.png" alt=""><br><a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hist close, sch(plottig)</span><br><span class="line">gr <span class="keyword">export</span> scheme2.png, replace</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme2.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tw sc close date, sort mc(red) || <span class="comment">///</span></span><br><span class="line">	sc open date, sort mc(green) ||, <span class="comment">///</span></span><br><span class="line">	sch(plottig)</span><br><span class="line">gr <span class="keyword">export</span> scheme3.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme3.png" alt=""></p>
+<h2 id="plottigblind"><a href="#plottigblind" class="headerlink" title="plottigblind"></a>plottigblind</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">line close date, sort sch(plottigblind)</span><br><span class="line">gr <span class="keyword">export</span> scheme4.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme4.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hist close, sch(plottigblind)</span><br><span class="line">gr <span class="keyword">export</span> scheme5.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme5.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tw sc close date, sort mc(red) || <span class="comment">///</span></span><br><span class="line">	sc open date, sort mc(green) ||, <span class="comment">///</span></span><br><span class="line">	sch(plottigblind)</span><br><span class="line">gr <span class="keyword">export</span> scheme6.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme6.png" alt=""></p>
+<h2 id="plotplain"><a href="#plotplain" class="headerlink" title="plotplain"></a>plotplain</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">line close date, sort sch(plotplain)</span><br><span class="line">gr <span class="keyword">export</span> scheme7.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme7.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hist close, sch(plotplain)</span><br><span class="line">gr <span class="keyword">export</span> scheme8.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme8.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tw sc close date, sort mc(red) || <span class="comment">///</span></span><br><span class="line">	sc open date, sort mc(green) ||, <span class="comment">///</span></span><br><span class="line">	sch(plotplain)</span><br><span class="line">gr <span class="keyword">export</span> scheme9.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme9.png" alt=""></p>
+<h2 id="plotplainblind"><a href="#plotplainblind" class="headerlink" title="plotplainblind"></a>plotplainblind</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">line close date, sort sch(plotplainblind)</span><br><span class="line">gr <span class="keyword">export</span> scheme10.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme10.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hist close, sch(plotplainblind)</span><br><span class="line">gr <span class="keyword">export</span> scheme11.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme11.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tw sc close date, sort mc(red) || <span class="comment">///</span></span><br><span class="line">	sc open date, sort mc(green) ||, <span class="comment">///</span></span><br><span class="line">	sch(plotplainblind)</span><br><span class="line">gr <span class="keyword">export</span> scheme12.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme12.png" alt=""></p>
+<h1 id="scheme-tfl"><a href="#scheme-tfl" class="headerlink" title="scheme-tfl"></a>scheme-tfl</h1><h2 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ssc install scheme-tfl, replace</span></span><br><span class="line">line close date, sort sch(tfl)</span><br><span class="line">gr <span class="keyword">export</span> scheme13.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme13.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hist close, sch(tfl)</span><br><span class="line">gr <span class="keyword">export</span> scheme14.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme14.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tw sc close date, sort mc(red) || <span class="comment">///</span></span><br><span class="line">	sc open date, sort mc(green) ||, <span class="comment">///</span></span><br><span class="line">	sch(tfl)</span><br><span class="line">gr <span class="keyword">export</span> scheme15.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme15.png" alt=""></p>
+<h1 id="burd-burd3-burd11"><a href="#burd-burd3-burd11" class="headerlink" title="burd/burd3-burd11"></a>burd/burd3-burd11</h1><h2 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ssc install scheme-burd, replace</span></span><br><span class="line">sysuse auto, clear</span><br><span class="line">spineplot foreign rep78, sch(burd)</span><br><span class="line">gr <span class="keyword">export</span> scheme16.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme16.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spineplot rep78 foreign, sch(burd6)</span><br><span class="line">gr <span class="keyword">export</span> scheme17.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme17.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tw sc price weight, sch(burd10)</span><br><span class="line">gr <span class="keyword">export</span> scheme18.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme18.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr matrix price weight rep78, sch(burd8)</span><br><span class="line">gr <span class="keyword">export</span> scheme19.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme19.png" alt=""></p>
+<h1 id="virdis"><a href="#virdis" class="headerlink" title="virdis"></a>virdis</h1><h2 id="安装-3"><a href="#安装-3" class="headerlink" title="安装"></a>安装</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//net install scheme_virdis, from(https://raw.github.com/vikjam/stata-scheme-virdis/master/) replace</span></span><br><span class="line"></span><br><span class="line">sysuse sp500, clear</span><br><span class="line">line close date, sort sch(virdis)</span><br><span class="line">gr <span class="keyword">export</span> scheme20.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme20.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hist close, sch(virdis)</span><br><span class="line">gr <span class="keyword">export</span> scheme21.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme21.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tw sc close date, sort mc(red) || <span class="comment">///</span></span><br><span class="line">	sc open date, sort mc(green) ||, <span class="comment">///</span></span><br><span class="line">	sch(virdis)</span><br><span class="line">gr <span class="keyword">export</span> scheme22.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme22.png" alt=""></p>
+<h1 id="michigan"><a href="#michigan" class="headerlink" title="michigan"></a>michigan</h1><h2 id="安装-4"><a href="#安装-4" class="headerlink" title="安装"></a>安装</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//net install michigan, from("http://www-personal.umich.edu/~agrogan/stata/programs")</span></span><br><span class="line">sysuse sp500, clear</span><br><span class="line">line close date, sort sch(michigan)</span><br><span class="line">gr <span class="keyword">export</span> scheme23.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme23.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hist close, sch(michigan)</span><br><span class="line">gr <span class="keyword">export</span> scheme24.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme24.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tw sc close date, sort mc(red) || <span class="comment">///</span></span><br><span class="line">	sc open date, sort mc(green) ||, <span class="comment">///</span></span><br><span class="line">	sch(michigan)</span><br><span class="line">gr <span class="keyword">export</span> scheme25.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme25.png" alt=""></p>
+<h1 id="mrc"><a href="#mrc" class="headerlink" title="mrc"></a>mrc</h1><h2 id="安装-5"><a href="#安装-5" class="headerlink" title="安装"></a>安装</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//net install scheme-mrc.pkg</span></span><br><span class="line">sysuse sp500, clear</span><br><span class="line">line close date, sort sch(mrc)</span><br><span class="line">gr <span class="keyword">export</span> scheme26.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme26.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hist close, sch(mrc)</span><br><span class="line">gr <span class="keyword">export</span> scheme27.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme27.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tw sc close date, sort mc(red) || <span class="comment">///</span></span><br><span class="line">	sc open date, sort mc(green) ||, <span class="comment">///</span></span><br><span class="line">	sch(mrc)</span><br><span class="line">gr <span class="keyword">export</span> scheme28.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme28.png" alt=""></p>
+<h1 id="tufte"><a href="#tufte" class="headerlink" title="tufte"></a>tufte</h1><h2 id="安装-6"><a href="#安装-6" class="headerlink" title="安装"></a>安装</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//net install scheme_tufte.pkg</span></span><br><span class="line">sysuse sp500, clear</span><br><span class="line">line close date, sort sch(tufte)</span><br><span class="line">gr <span class="keyword">export</span> scheme29.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme29.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hist close, sch(tufte)</span><br><span class="line">gr <span class="keyword">export</span> scheme30.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme30.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tw sc close date, sort mc(red) || <span class="comment">///</span></span><br><span class="line">	sc open date, sort mc(green) ||, <span class="comment">///</span></span><br><span class="line">	sch(tufte)</span><br><span class="line">gr <span class="keyword">export</span> scheme31.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme31.png" alt=""></p>
+<h1 id="scheme-rbn1mono-pkg"><a href="#scheme-rbn1mono-pkg" class="headerlink" title="scheme_rbn1mono.pkg"></a>scheme_rbn1mono.pkg</h1><h2 id="rbn1mono-rbn4mono"><a href="#rbn1mono-rbn4mono" class="headerlink" title="rbn1mono-rbn4mono"></a>rbn1mono-rbn4mono</h2><h2 id="安装-7"><a href="#安装-7" class="headerlink" title="安装"></a>安装</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">net install scheme_rbn1mono.pkg, <span class="keyword">from</span>(<span class="string">"http://fmwww.bc.edu/RePEc/bocode/s/"</span>)</span><br><span class="line"></span><br><span class="line">sysuse sp500, clear</span><br><span class="line">line close date, sort sch(rbn1mono)</span><br><span class="line">gr <span class="keyword">export</span> scheme32.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme32.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hist close, sch(rbn1mono)</span><br><span class="line">gr <span class="keyword">export</span> scheme33.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme33.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tw sc close date, sort mc(red) || <span class="comment">///</span></span><br><span class="line">	sc open date, sort mc(green) ||, <span class="comment">///</span></span><br><span class="line">	sch(rbn1mono)</span><br><span class="line">gr <span class="keyword">export</span> scheme34.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme34.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">line close date, sort sch(rbn2mono)</span><br><span class="line">hist close, sch(rbn2mono)</span><br><span class="line">gr <span class="keyword">export</span> scheme35.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme35.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tw sc close date, sort mc(red) || <span class="comment">///</span></span><br><span class="line">	sc open date, sort mc(green) ||, <span class="comment">///</span></span><br><span class="line">	sch(rbn2mono)</span><br><span class="line">gr <span class="keyword">export</span> scheme36.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/scheme36.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../53535/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          The sixplot
+        
+      </div>
+    </a>
+  
+  
+    <a href="../52947/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">脊柱图</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#blindschemes"><span class="nav-text">blindschemes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#plottig"><span class="nav-text">plottig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#plottigblind"><span class="nav-text">plottigblind</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#plotplain"><span class="nav-text">plotplain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#plotplainblind"><span class="nav-text">plotplainblind</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#scheme-tfl"><span class="nav-text">scheme-tfl</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-1"><span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#burd-burd3-burd11"><span class="nav-text">burd/burd3-burd11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-2"><span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#virdis"><span class="nav-text">virdis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-3"><span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#michigan"><span class="nav-text">michigan</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-4"><span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mrc"><span class="nav-text">mrc</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-5"><span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tufte"><span class="nav-text">tufte</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-6"><span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#scheme-rbn1mono-pkg"><span class="nav-text">scheme_rbn1mono.pkg</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rbn1mono-rbn4mono"><span class="nav-text">rbn1mono-rbn4mono</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-7"><span class="nav-text">安装</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

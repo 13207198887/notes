@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/110/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-Python爬取好友列表+Stata可视化分析"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/6795/">Python爬取好友列表+Stata+ECharts可视化分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/6795/" class="article-date">
+	  <time datetime="2018-02-06T03:47:23.000Z" itemprop="datePublished">2018-02-06</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata-ECharts/">Stata+ECharts</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>注意，本文里面使用到了我的百度地图密钥，请勿滥用</p>
+</blockquote>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzIyNzAxNTAzMQ==&amp;mid=2247488410&amp;idx=1&amp;sn=1c469aae21d3f0503e0e4a4b157361c3&amp;chksm=e866f382df117a949d147f9f93f6c29c2e0ff8d211512e2e18583562d3dbaebc782937671e16#rd" target="_blank" rel="noopener"><strong><code>微信推文</code></strong></a></p>
+<p><a href="https://github.com/czxa/Web_data_Source/raw/master/js.zip" target="_blank" rel="noopener"><strong><code>ECharts绘图需要的js文件，需要解压到工作目录里面</code></strong></a></p>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/微信好友地域分布.png" alt=""></p>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/每个微信好友的地域分布.png" alt=""></p>
+        <!-- 
+注意，本文里面使用到了我的百度地图密钥，请勿滥用
+
+微信推文
+ECharts绘图需要的js文件，需要解压到工作目录里面
+
+
+
+首先是用Python的itchat包爬取好友列表并导出为csv文件：123456789101112131415161718192021222324252627import itchatitchat.login()friends = itchat.get_friend......  -->
+        <p class="article-more-link">
+          <a href="../../posts/6795/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/ECharts/">ECharts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Mac应用程序、软件以及工具搜集"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/13094/">Mac应用程序、软件以及工具搜集</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/13094/" class="article-date">
+	  <time datetime="2018-02-05T09:28:32.000Z" itemprop="datePublished">2018-02-05</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/零散笔记/">零散笔记</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>这篇文章来自于<a href="https://github.com/jaywcjlove/awesome-mac/blob/master/README-zh.md" target="_blank" rel="noopener"><strong><code>Awesome Mac</code></strong></a></p>
+</blockquote>
+<h1 id="Awesome-Mac"><a href="#Awesome-Mac" class="headerlink" title="Awesome Mac"></a>Awesome Mac</h1><p><a href="https://github.com/sindresorhus/awesome" target="_blank" rel="noopener"><img src="https://jaywcjlove.github.io/sb/ico/awesome.svg" alt="jaywcjlove/sb"></a> <a href="README.md"><img src="https://jaywcjlove.github.io/sb/lang/english.svg" alt="jaywcjlove/sb"></a> <a href="README-zh.md"><img src="https://jaywcjlove.github.io/sb/lang/chinese.svg" alt="jaywcjlove/sb"></a> <a href="https://gitter.im/awesome-mac/en?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=body_badge" target="_blank" rel="noopener"><img src="https://jaywcjlove.github.io/sb/ico/gitter.svg" alt="Gitter"></a> <a href="https://segmentfault.com/g/1570000010622746" target="_blank" rel="noopener"><img src="https://jaywcjlove.github.io/sb/ico/segmentfault.svg" alt="SegmentFault"></a></p>
+<p> 这个仓库主要是收集非常好用的Mac应用程序、软件以及工具，主要面向开发者和设计师。有这个想法是因为我最近发了一篇较为火爆的涨粉儿微信公众号文章《<a href="http://mp.weixin.qq.com/s?__biz=MzAwNzgxMjYzMA==&amp;mid=2649129466&amp;idx=1&amp;sn=e50f0049b096cf28b7cf707a4b5adb33#rd" target="_blank" rel="noopener">工具武装的前端开发工程师</a>》，于是建了这么一个仓库，持续更新作为补充，搜集更多好用的软件工具。请Star、Pull Request或者使劲搓它 <a href="https://github.com/jaywcjlove/awesome-mac/issues" target="_blank" rel="noopener">issues</a> 给我推荐优秀好用的Mac应用，很显然我是一个资深Mac用户，我需要它们帮助我快乐、高效的工作，同时也分享给你。格式参照<a href="https://github.com/sindresorhus/awesome" target="_blank" rel="noopener">awesome</a>的清单。</p>
+<blockquote>
+<p>在这里非常感谢 <a href="http://weibo.com/GitHubDaily" target="_blank" rel="noopener">@GitHubDaily</a> 的推荐</p>
+</blockquote>
+<p><strong>说明</strong></p>
+<p><a href="README.md">English</a> | <a href="README-zh.md">中文</a>  </p>
+<p><img src="https://jaywcjlove.github.io/sb/ico/min-oss.svg" alt="Open-Source Software" title="开源软件"> 表示 <strong>开源软件</strong> ，点击进入 <strong>开源</strong> 仓库；<br><img src="https://jaywcjlove.github.io/sb/ico/min-free.svg" alt="Freeware" title="免费软件"> 表示 <strong>免费</strong> 使用，或者个人 <strong>免费</strong> ；<br><img src="https://jaywcjlove.github.io/sb/ico/min-hot.svg" alt="hot" title="热门软件"> 表示 <strong>热门</strong> 的软件；<br><img src="https://jaywcjlove.github.io/sb/ico/min-tuijian.svg" alt="tuijian" title="推荐软件"> 表示 <strong>推荐</strong> 的软件；<br><img src="https://jaywcjlove.github.io/sb/ico/min-bibei.svg" alt="必备" title="装机必备软件"> 表示 <strong>装机必备</strong> 的软件；<br><img src="https://jaywcjlove.github.io/sb/ico/min-app-store.svg" alt="App Store" title="苹果应用商店软件"> 表示 <strong>App store</strong> 连接地址;<br><img src="https://jaywcjlove.github.io/sb/star/red.svg" alt="1 star" title="1星推荐软件"> 表示 <strong>强烈推荐</strong> 的必装神器，数量来表达强烈的程度；<br>
+        <!-- 
+这篇文章来自于Awesome Mac
+
+Awesome Mac    
+ 这个仓库主要是收集非常好用的Mac应用程序、软件以及工具，主要面向开发者和设计师。有这个想法是因为我最近发了一篇较为火爆的涨粉儿微信公众号文章《工具武装的前端开发工程师》，于是建了这么一个仓库，持续更新作为补充，搜集更多好用的软件工具。请Star、Pull Request或者使劲搓它 issues 给我推荐优秀好用......  -->
+        <p class="article-more-link">
+          <a href="../../posts/13094/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Mac/">Mac</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-webuse修改方案"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/32544/">webuse修改方案</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/32544/" class="article-date">
+	  <time datetime="2018-02-05T08:27:23.000Z" itemprop="datePublished">2018-02-05</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="改进思路"><a href="#改进思路" class="headerlink" title="改进思路"></a>改进思路</h2><ul>
+<li>这个是是对系统的webuse程序的改进，你可以运行which webuse找到webuse并替换掉它。</li>
+<li>该命令的改进思路是首先在系统文件里面寻找文件，如果查找失败再到网络上查找，最后结束。</li>
+<li>另外可以选择选项s，将查找到的数据保存到本地的系统文件夹里，方便下次查找。</li>
+</ul>
+<h2 id="改进后的代码"><a href="#改进后的代码" class="headerlink" title="改进后的代码"></a>改进后的代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">program webuse</span><br><span class="line">	version <span class="number">8</span></span><br><span class="line">	<span class="keyword">if</span> `<span class="string">"`0'"</span><span class="string">' == "" &#123;</span></span><br><span class="line"><span class="string">		error 198</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">	gettoken sub : 0, parse(" ,") quotes</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">	if `"`sub'</span><span class="string">"'=="</span>set<span class="string">" | `"</span>`su<span class="string">b'"'</span>==<span class="string">"query"</span> &#123;</span><br><span class="line">		gettoken sub <span class="number">0</span> : <span class="number">0</span>, parse(<span class="string">" ,"</span>)</span><br><span class="line">		<span class="keyword">if</span> <span class="string">"`sub'"</span>==<span class="string">"set"</span> &#123;</span><br><span class="line">			Set `<span class="number">0</span><span class="string">'</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">		else	Query `0'</span></span><br><span class="line">		exit</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	local <span class="number">0</span> `<span class="string">"using `0'"</span><span class="string">'</span></span><br><span class="line"><span class="string">	syntax using/ [, CLEAR noLabel Savetosystem]</span></span><br><span class="line"><span class="string">	cap sysuse "`using'</span><span class="string">", `clear' `label'</span></span><br><span class="line"><span class="string">	if _rc == 601&#123;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">		GetDefault prefix</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">		capture noisily use `"</span>`prefix<span class="string">'/`using'</span><span class="string">"', `clear' `label'</span></span><br><span class="line"><span class="string">		if _rc==0 &#123;</span></span><br><span class="line"><span class="string">			capture window menu add_recentfiles `"</span>`prefix<span class="string">'/`using'</span><span class="string">"', rlevel(1)</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">		else&#123;</span></span><br><span class="line"><span class="string">			exit _rc</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">	if "</span>`savetosystem<span class="string">'" != ""&#123;</span></span><br><span class="line"><span class="string">		local prefix = substr("`using'</span><span class="string">", 1, 1)</span></span><br><span class="line"><span class="string">		local syspath "</span>`c(sysdir_plus)<span class="string">'"</span></span><br><span class="line"><span class="string">		save "`syspath'</span>`prefix<span class="string">'/`using'</span><span class="string">", replace</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">end</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">program GetDefault</span></span><br><span class="line"><span class="string">	args d</span></span><br><span class="line"><span class="string">	if `"</span>$S_WEB<span class="string">"'=="</span><span class="string">" &#123;</span></span><br><span class="line"><span class="string">		c_local `d' "</span>http://www.stata-press.com/data/r14<span class="string">"</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">	else	c_local `d' `"</span>$S_WEB<span class="string">"'</span></span><br><span class="line"><span class="string">end</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">program Set</span></span><br><span class="line"><span class="string">	gettoken prefix 0 : 0, parse("</span> <span class="string">")</span></span><br><span class="line"><span class="string">	if `"</span>`<span class="number">0</span><span class="string">'"'</span> != <span class="string">""</span> &#123;</span><br><span class="line">		error <span class="number">198</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> `<span class="string">"`prefix'"</span><span class="string">'=="" &#123;</span></span><br><span class="line"><span class="string">		global S_WEB</span></span><br><span class="line"><span class="string">		Query</span></span><br><span class="line"><span class="string">		exit</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">	if bsubstr(`"`prefix'</span><span class="string">"',-1,1)=="</span>/<span class="string">" &#123;</span></span><br><span class="line"><span class="string">		local prefix = substr(`"</span>`prefix<span class="string">'"'</span>,<span class="number">1</span>,length(`<span class="string">"`prefix'"</span><span class="string">')-1)</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">	if "`prefix'</span><span class="string">"=="</span><span class="string">" &#123;</span></span><br><span class="line"><span class="string">		error 198</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">	if bsubstr(`"</span>`prefix<span class="string">'"'</span>,<span class="number">1</span>,<span class="number">7</span>)!=<span class="string">"http://"</span> 			///</span><br><span class="line">			&amp; bsubstr(`<span class="string">"`prefix'"</span><span class="string">',1,8)!="https://" 	///</span></span><br><span class="line"><span class="string">			&amp; bsubstr(`"`prefix'</span><span class="string">"',1,6)!="</span>ftp://<span class="string">"	&#123;</span></span><br><span class="line"><span class="string">		local prefix `"</span>http://`prefix<span class="string">'"'</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">global</span> S_WEB `<span class="string">"`prefix'"</span><span class="string">'</span></span><br><span class="line"><span class="string">	Query</span></span><br><span class="line"><span class="string">end</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">program Query, rclass</span></span><br><span class="line"><span class="string">	syntax [, return]</span></span><br><span class="line"><span class="string">	GetDefault prefix</span></span><br><span class="line"><span class="string">	di as txt `"(prefix now ""'</span> <span class="keyword">as</span> res `<span class="string">"`prefix'"</span><span class="string">' as txt `"")"'</span></span><br><span class="line">	<span class="keyword">return</span> local prefix `<span class="string">"`prefix'"</span><span class="string">'</span></span><br><span class="line"><span class="string">end</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-g1——在柱条中间添加粗体的柱条标签"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/11030/">g1——在柱条中间添加粗体的柱条标签</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/11030/" class="article-date">
+	  <time datetime="2018-02-05T07:52:23.000Z" itemprop="datePublished">2018-02-05</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">*! 在柱条中间添加粗体的柱条标签</span><br><span class="line">*! 用法：g1 varname, over(varname)</span><br><span class="line">cap prog drop g1</span><br><span class="line">prog define g1</span><br><span class="line">syntax varname, over(varname)</span><br><span class="line">	qui &#123;</span><br><span class="line">		levelsof `ove<span class="string">r', local(kk)</span></span><br><span class="line"><span class="string">		graph bar  `varlist'</span>  , over(`ove<span class="string">r')                 ///</span></span><br><span class="line"><span class="string">		blabel(bar, position(base) gap(*22.5) format(%9.1f)  ///</span></span><br><span class="line"><span class="string">		size(large) color(black))</span></span><br><span class="line"><span class="string">		local x=1</span></span><br><span class="line"><span class="string">		foreach i of local kk &#123;</span></span><br><span class="line"><span class="string">			  summ `varlist'</span> <span class="keyword">if</span> `ove<span class="string">r'==`i'</span></span><br><span class="line">			  local a1=string(r(mean),<span class="string">"%8.0f"</span>)</span><br><span class="line">			gr_edit plotregion1.barlabels[`x<span class="string">'].text = &#123;&#125;</span></span><br><span class="line"><span class="string">			gr_edit plotregion1.barlabels[`x'</span>].text.Arrpush `<span class="string">"&#123;bf: `a1'   &#125;"</span><span class="string">'</span></span><br><span class="line"><span class="string">			local ++x</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">end</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-downpic——下载一个网页内的所有图片"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/31341/">downpic——下载一个网页内的所有图片</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/31341/" class="article-date">
+	  <time datetime="2018-02-05T07:50:23.000Z" itemprop="datePublished">2018-02-05</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">*! 用来下载某个网页页面内的所有图片</span><br><span class="line">cap prog drop _all</span><br><span class="line">prog define downpic</span><br><span class="line">	version <span class="number">14.0</span></span><br><span class="line">	syntax anything(name = urls),[ path(string) First(string) Second(string) Third(string) Ignore(string)]</span><br><span class="line">	clear all</span><br><span class="line">	<span class="keyword">if</span> index(<span class="string">"`path'"</span>, <span class="string">" "</span>)&#123;</span><br><span class="line">		local path = subinstr(<span class="string">"`path'"</span>, <span class="string">" "</span>, <span class="string">"_"</span>)</span><br><span class="line">		cap mkdir `path<span class="string">'</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">	if "`path'</span><span class="string">" != "</span><span class="string">"&#123;</span></span><br><span class="line"><span class="string">		cap mkdir `path'</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">	if "</span>`path<span class="string">'" != ""&#123;</span></span><br><span class="line"><span class="string">		local path = "`c(pwd)'</span><span class="string">"</span></span><br><span class="line"><span class="string">		di "</span>你当前的工作目录为`path<span class="string">'。"</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">	local m = 1</span></span><br><span class="line"><span class="string">	foreach name in `urls'</span>&#123;</span><br><span class="line">		qui&#123;</span><br><span class="line">			cap copy <span class="string">"`name'"</span> temp.txt, replace</span><br><span class="line">			cap unicode encoding set gb18030</span><br><span class="line">			cap unicode translate temp.txt</span><br><span class="line">			cap unicode erasebackups, badidea</span><br><span class="line">			infix strL v <span class="number">1</span><span class="number">-20000</span> using temp.txt, clear</span><br><span class="line">			keep <span class="keyword">if</span> index(v, <span class="string">"https"</span>) &amp; (index(v, <span class="string">"png"</span>) | index(v, <span class="string">"jpeg"</span>) | index(v, <span class="string">"jpg"</span>) | index(v, <span class="string">"gif"</span>) | index(v, <span class="string">"bmp"</span>) | index(v, <span class="string">"svg"</span>) | index(v, <span class="string">"eps"</span>) | index(v, <span class="string">"PNG"</span>) | index(v, <span class="string">"JPEG"</span>) | index(v, <span class="string">"JPG"</span>) | index(v, <span class="string">"GIF"</span>) | index(v, <span class="string">"BMP"</span>) | index(v, <span class="string">"SVG"</span>) | index(v, <span class="string">"EPS"</span>) | index(v, <span class="string">"gph"</span>))</span><br><span class="line">			<span class="keyword">if</span> index(v, `<span class="string">"'http"</span><span class="string">')&#123;</span></span><br><span class="line"><span class="string">				split v, parse(`"'</span><span class="string">"')</span></span><br><span class="line"><span class="string">			&#125;</span></span><br><span class="line"><span class="string">			else&#123;</span></span><br><span class="line"><span class="string">				split v, parse(`"</span><span class="string">""</span><span class="string">')</span></span><br><span class="line"><span class="string">			&#125;</span></span><br><span class="line"><span class="string">			drop v</span></span><br><span class="line"><span class="string">			set obs 1000</span></span><br><span class="line"><span class="string">			gen v = ""</span></span><br><span class="line"><span class="string">			local i = 1</span></span><br><span class="line"><span class="string">			foreach v of varlist _all&#123;</span></span><br><span class="line"><span class="string">				replace v = `v'</span>[<span class="number">1</span>] <span class="keyword">if</span> _n == `i<span class="string">'</span></span><br><span class="line"><span class="string">				local i = `i'</span> + <span class="number">1</span></span><br><span class="line">			&#125;</span><br><span class="line">			keep v</span><br><span class="line">			keep <span class="keyword">if</span> (index(v, `<span class="string">"http"</span><span class="string">')&amp;(index(v, "png")|index(v, "jpeg")|index(v, "jpg")|index(v, "gif")|index(v, "bmp")|index(v, "svg")|index(v, "eps")|index(v, "PNG")|index(v, "JPEG")|index(v, "JPG")|index(v, "GIF")|index(v, "BMP")|index(v, "SVG")|index(v, "EPS")|index(v, "gph")))</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">			forvalue i = 1/`=_N'</span>&#123;</span><br><span class="line">				local a = v[`i<span class="string">']</span></span><br><span class="line"><span class="string">				if index(v[`i'</span>], <span class="string">"="</span>)&#123;</span><br><span class="line">					replace v = subinstr(v, <span class="string">"="</span>, <span class="string">"."</span>, .)</span><br><span class="line">				&#125;</span><br><span class="line">				compress</span><br><span class="line">				local b = length(v[`i<span class="string">'])</span></span><br><span class="line"><span class="string">				local c = substr(v[`i'</span>], `<span class="string">b'-6, `b'</span>)</span><br><span class="line">				local temp = v[`i<span class="string">']</span></span><br><span class="line"><span class="string">				cap copy "`a'</span><span class="string">" "</span>`m<span class="string">'_`first'</span>_`second<span class="string">'_`i'</span>_`c<span class="string">'", replace</span></span><br><span class="line"><span class="string">			&#125;</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">		local m = `m'</span> + <span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">	cap erase temp.txt</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../109/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../108/">108</a><a class="page-number" href="../109/">109</a><span class="page-number current">110</span><a class="page-number" href="../111/">111</a><a class="page-number" href="../112/">112</a><span class="space">&hellip;</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../111/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

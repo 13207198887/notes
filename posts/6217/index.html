@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>zingchart多变量平滑线图 | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="ZingChart" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="ZingChart绘图需要的js及其他文件  ZingChart绘图需要的js及其他文件  成果图">
+<meta name="keywords" content="ZingChart">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ZingChart多变量平滑线图">
+<meta property="og:url" content="http://www.czxa.top/posts/6217/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="ZingChart绘图需要的js及其他文件  ZingChart绘图需要的js及其他文件  成果图">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/czxa/nr/raw/master/多变量平滑线图.png">
+<meta property="og:updated_time" content="2018-05-21T23:51:34.395Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ZingChart多变量平滑线图">
+<meta name="twitter:description" content="ZingChart绘图需要的js及其他文件  ZingChart绘图需要的js及其他文件  成果图">
+<meta name="twitter:image" content="https://github.com/czxa/nr/raw/master/多变量平滑线图.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-ZingChart多变量平滑线图" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      ZingChart多变量平滑线图
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2018-05-21T07:22:23.000Z" itemprop="datePublished">2018-05-21</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>ZingChart绘图需要的js及其他文件</p>
+</blockquote>
+<p><a href="https://github.com/czxa/nr/raw/master/zingchart.zip" target="_blank" rel="noopener">ZingChart绘图需要的js及其他文件</a></p>
+<blockquote>
+<p>成果图</p>
+</blockquote>
+<p><img src="https://github.com/czxa/nr/raw/master/多变量平滑线图.png" alt=""></p>
+<a id="more"></a>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./zingchart/zingchart.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    zingchart.MODULESDIR = <span class="string">"./zingchart/modules/"</span>;</span></span><br><span class="line"><span class="javascript">    ZC.LICENSE = [<span class="string">"569d52cefae586f634c54f86dc99e6a9"</span>, <span class="string">"ee6b7db5b51705a13dc2339db3edaf6d"</span>];</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    html,</span></span><br><span class="line"><span class="undefined">    body &#123;</span></span><br><span class="line"><span class="undefined">      height: 100%;</span></span><br><span class="line"><span class="undefined">      width: 100%;</span></span><br><span class="line"><span class="undefined">      margin: 0;</span></span><br><span class="line"><span class="undefined">      padding: 0;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .zc-ref &#123;</span></span><br><span class="line"><span class="undefined">      display: none;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'myChart'</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"zc-ref"</span> <span class="attr">href</span>=<span class="string">"https://www.zingchart.com/"</span>&gt;</span>Charts by ZingChart<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> myConfig = &#123;</span></span><br><span class="line"><span class="undefined">      gui: &#123;</span></span><br><span class="line"><span class="undefined">        contextMenu: &#123;</span></span><br><span class="line"><span class="javascript">          position: <span class="string">'right'</span>,</span></span><br><span class="line"><span class="javascript">          docked: <span class="literal">true</span>,</span></span><br><span class="line"><span class="undefined">          alpha: 0.9,</span></span><br><span class="line"><span class="undefined">          item: &#123;</span></span><br><span class="line"><span class="undefined">            textAlpha: 1</span></span><br><span class="line"><span class="undefined">          &#125;,</span></span><br><span class="line"><span class="undefined">          button: &#123;</span></span><br><span class="line"><span class="javascript">            visible: <span class="literal">true</span></span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">      &#125;,</span></span><br><span class="line"><span class="undefined">      graphset: [&#123;</span></span><br><span class="line"><span class="javascript">        type: <span class="string">'line'</span>,</span></span><br><span class="line"><span class="javascript">        borderColor: <span class="string">"#cccccc"</span>,</span></span><br><span class="line"><span class="undefined">        borderWidth: 1,</span></span><br><span class="line"><span class="undefined">        borderRadius: 2,</span></span><br><span class="line"><span class="undefined">        plot: &#123;</span></span><br><span class="line"><span class="javascript">          aspect: <span class="string">'spline'</span></span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        plotarea: &#123;</span></span><br><span class="line"><span class="javascript">          margin: <span class="string">'dynamic'</span></span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="javascript">        utc: <span class="literal">true</span>,</span></span><br><span class="line"><span class="undefined">        timezone: 8,</span></span><br><span class="line"><span class="undefined">        title: &#123;</span></span><br><span class="line"><span class="javascript">          text: <span class="string">'Uniform Step Time Series Line Chart'</span>,</span></span><br><span class="line"><span class="javascript">          adjustLayout: <span class="literal">true</span>,</span></span><br><span class="line"><span class="javascript">          align: <span class="string">'left'</span>,</span></span><br><span class="line"><span class="javascript">          marginLeft: <span class="string">'15%'</span></span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        legend: &#123;</span></span><br><span class="line"><span class="javascript">          draggable: <span class="literal">true</span>,</span></span><br><span class="line"><span class="javascript">          backgroundColor: <span class="string">'transparent'</span>,</span></span><br><span class="line"><span class="undefined">          header: &#123;</span></span><br><span class="line"><span class="javascript">            text: <span class="string">"Facility N"</span>,</span></span><br><span class="line"><span class="javascript">            backgroundColor: <span class="string">'#f0f0f0'</span></span></span><br><span class="line"><span class="undefined">          &#125;,</span></span><br><span class="line"><span class="undefined">          marker: &#123;</span></span><br><span class="line"><span class="javascript">            visible: <span class="literal">false</span></span></span><br><span class="line"><span class="undefined">          &#125;,</span></span><br><span class="line"><span class="undefined">          item: &#123;</span></span><br><span class="line"><span class="javascript">            margin: <span class="string">'5 17 2 0'</span>,</span></span><br><span class="line"><span class="javascript">            padding: <span class="string">'3 3 3 3'</span>,</span></span><br><span class="line"><span class="javascript">            fontColor: <span class="string">'#fff'</span>,</span></span><br><span class="line"><span class="javascript">            cursor: <span class="string">'hand'</span></span></span><br><span class="line"><span class="undefined">          &#125;,</span></span><br><span class="line"><span class="javascript">          verticalAlign: <span class="string">'middle'</span>,</span></span><br><span class="line"><span class="undefined">          borderWidth: 0</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        scaleX: &#123;</span></span><br><span class="line"><span class="javascript">          minValue: <span class="number">1484870400000</span>, <span class="comment">//set minValue timestamp</span></span></span><br><span class="line"><span class="javascript">          step: <span class="string">'day'</span>, <span class="comment">//set step for scale</span></span></span><br><span class="line"><span class="undefined">          maxItems: 7,</span></span><br><span class="line"><span class="javascript">          itemsOverlap: <span class="literal">true</span>,</span></span><br><span class="line"><span class="javascript">          zooming: <span class="literal">true</span>,</span></span><br><span class="line"><span class="undefined">          transform: &#123;</span></span><br><span class="line"><span class="javascript">            type: <span class="string">'date'</span>,</span></span><br><span class="line"><span class="javascript">            all: <span class="string">'%D %M %mm&lt;br&gt;%Y'</span></span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        preview: &#123;</span></span><br><span class="line"><span class="javascript">          adjustLayout: <span class="literal">true</span>,</span></span><br><span class="line"><span class="javascript">          live: <span class="literal">true</span></span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        scaleY: &#123;</span></span><br><span class="line"><span class="undefined">          step: 50,</span></span><br><span class="line"><span class="undefined">          label: &#123;</span></span><br><span class="line"><span class="javascript">            text: <span class="string">'Sensor'</span></span></span><br><span class="line"><span class="undefined">          &#125;,</span></span><br><span class="line"><span class="undefined">          guide: &#123;</span></span><br><span class="line"><span class="javascript">            lineStyle: <span class="string">'solid'</span></span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        crosshairX: &#123;</span></span><br><span class="line"><span class="javascript">          lineColor: <span class="string">'#555'</span>,</span></span><br><span class="line"><span class="undefined">          plotLabel: &#123;</span></span><br><span class="line"><span class="javascript">            backgroundColor: <span class="string">'#fff'</span>,</span></span><br><span class="line"><span class="javascript">            multiple: <span class="literal">true</span>,</span></span><br><span class="line"><span class="undefined">            borderWidth: 2,</span></span><br><span class="line"><span class="undefined">            borderRadius: 2,</span></span><br><span class="line"><span class="undefined">          &#125;,</span></span><br><span class="line"><span class="undefined">          marker: &#123;</span></span><br><span class="line"><span class="undefined">            size: 5,</span></span><br><span class="line"><span class="undefined">            borderWidth: 1,</span></span><br><span class="line"><span class="javascript">            borderColor: <span class="string">'#fff'</span></span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        tooltip: &#123;</span></span><br><span class="line"><span class="javascript">          visible: <span class="literal">false</span></span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        series: [&#123;</span></span><br><span class="line"><span class="undefined">          values: [127.99, 156.28, 137.51, 120.33, 133.92, 128.08, 127.56, 133.27, 121.33, 109.9, 165.42, 125.34, 120.5, 105.68, 166.52, 131.37, 131.64, 128.78, 147.09, 103.76, 128, 153.49, 159.48, 156.01, 113.32, 140.45, 157.67, 118.33, 154.86, 158.06, 162.93, 110.63, 103.72, 120.82, 114.85, 158.83, 165.13, 130.5, 118.75, 146.97, 121.44, 164.66, 160.73, 121.21, 151.51, 116.84, 104.64, 104.45, 122.11, 112.81, 163.36, 113.04, 149.81, 136.17, 165.91, 118.64, 123.82, 163.7, 115.87, 119.42, 159.9, 108.34, 157.32, 113.9, 158.88, 121.92, 143.2, 163.1, 114.64, 140.35, 132.28, 128.16, 138.68, 162.51, 151.16, 145.38, 163.64, 144.02, 114.63, 116.29, 114.14, 153.5, 113.88, 115.93, 135.63, 163.41, 112.46, 144.54, 137.86, 154.97],</span></span><br><span class="line"><span class="javascript">          text: <span class="string">'Sensor FC-456'</span>,</span></span><br><span class="line"><span class="undefined">          legendItem: &#123;</span></span><br><span class="line"><span class="javascript">            backgroundColor: <span class="string">'#29A2CC'</span>,</span></span><br><span class="line"><span class="undefined">            borderRadius: 2</span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined">        &#125;, &#123;</span></span><br><span class="line"><span class="undefined">          values: [122.8, 103.9, 90.51, 119.02, 93.6, 133.48, 124.94, 145.59, 109.54, 90.56, 111.22, 115.45, 147.7, 149.89, 105.56, 97.42, 95.96, 139.38, 94.02, 145.45, 88.46, 99.99, 133.19, 94.35, 131.18, 125.98, 148.56, 140.93, 90.68, 139.28, 94.9, 139.3, 119.92, 130.9, 137.82, 127.96, 100.96, 132.06, 94.23, 149.17, 149.95, 117.2, 94.09, 132.4, 140.67, 127.81, 139.46, 108.74, 144.37, 144.28, 149.66, 111.56, 141.35, 141.52, 113.07, 139.56, 123.64, 121.45, 127.76, 102.32, 148.41, 109.29, 139.05, 108.38, 88.76, 147.01, 98.4, 92.04, 96.36, 152.14, 143.2, 111.13, 94.89, 107.69, 139.29, 111.12, 87.83, 124.1, 135.42, 119.65, 127.63, 129, 115.81, 151.21, 142.3, 102.17, 145.29, 89.81, 91.22, 119.67],</span></span><br><span class="line"><span class="javascript">          text: <span class="string">'Sensor AB-265'</span>,</span></span><br><span class="line"><span class="undefined">          legendItem: &#123;</span></span><br><span class="line"><span class="javascript">            backgroundColor: <span class="string">'#D31E1E'</span>,</span></span><br><span class="line"><span class="undefined">            borderRadius: 2</span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined">        &#125;, &#123;</span></span><br><span class="line"><span class="undefined">          values: [35.57, 71.12, 66.41, 70.01, 41.01, 56.49, 47.58, 27.25, 44.3, 70.81, 50.24, 45.49, 50.67, 31.25, 32.22, 39.77, 73.24, 37.68, 50.19, 56.97, 36.2, 44.63, 32.17, 27.39, 39, 30.02, 64.79, 50.78, 38.21, 67.58, 73.15, 45.09, 35.28, 39.49, 32.95, 30.13, 68.86, 32.84, 43.6, 32.73, 26.53, 49.9, 28.27, 57.08, 68.37, 71.86, 28.45, 32.97, 57.7, 59.14, 61.02, 60.78, 31.26, 42.26, 72.44, 47, 65.26, 69.42, 65.5, 33.12, 37.65, 62.38, 67.73, 58.97, 30.17, 41.45, 50.17, 52.76, 29.78, 43.85, 72.29, 56.71, 35.82, 61.88, 51.37, 54.24, 28.63, 45.22, 41.62, 40.19, 65.4, 46, 60.8, 69.98, 37.88, 44.8, 31.94, 38.71, 25.7, 28.58],</span></span><br><span class="line"><span class="javascript">          text: <span class="string">'Sensor DC-445'</span>,</span></span><br><span class="line"><span class="undefined">          legendItem: &#123;</span></span><br><span class="line"><span class="javascript">            backgroundColor: <span class="string">'#7CA82B'</span>,</span></span><br><span class="line"><span class="undefined">            borderRadius: 2</span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined">        &#125;, &#123;</span></span><br><span class="line"><span class="undefined">          values: [187.59, 262.93, 186.9, 219.66, 220.01, 271.44, 204.29, 280.52, 258.79, 187.36, 277.94, 213.11, 253.87, 232.68, 244.67, 281.78, 187.55, 226.6, 240.32, 200.07, 186.11, 210.22, 251.46, 187.13, 228.49, 229.27, 228.83, 220.31, 240.02, 213.57, 208.53, 277.28, 197.21, 239.6, 223.17, 245.9, 194.97, 186.36, 244.08, 233.35, 188.5, 213.63, 266.41, 262.05, 230.92, 267.65, 191.98, 216.9, 268.1, 252.25, 222.39, 201.35, 257.55, 231.08, 245.04, 248.1, 254.01, 196.93, 269.47, 228.28, 221.88, 242.82, 206.36, 258.9, 251.32, 230.18, 202.24, 247.95, 272.25, 188.64, 281.22, 272.13, 222.63, 213.41, 258.74, 186.5, 245.48, 238.3, 258.13, 282.62, 264.78, 271.32, 189.07, 241.33, 248.59, 252.32, 190.36, 200.8, 263.54, 249.44],</span></span><br><span class="line"><span class="javascript">          text: <span class="string">'Sensor ER-985'</span>,</span></span><br><span class="line"><span class="undefined">          legendItem: &#123;</span></span><br><span class="line"><span class="javascript">            backgroundColor: <span class="string">'#EF8535'</span>,</span></span><br><span class="line"><span class="undefined">            borderRadius: 2</span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined">        &#125;]</span></span><br><span class="line"><span class="undefined">      &#125;]</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    zingchart.render(&#123;</span></span><br><span class="line"><span class="javascript">      id: <span class="string">'myChart'</span>,</span></span><br><span class="line"><span class="undefined">      data: myConfig,</span></span><br><span class="line"><span class="javascript">      height: <span class="string">'100%'</span>,</span></span><br><span class="line"><span class="javascript">      width: <span class="string">'100%'</span></span></span><br><span class="line"><span class="undefined">    &#125;);</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/ZingChart/">ZingChart</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../44131/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          ZingChart堆叠柱形图3
+        
+      </div>
+    </a>
+  
+  
+    <a href="../9037/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">ZingChart多变量折线图</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav">无</ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

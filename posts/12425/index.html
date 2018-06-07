@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>bar plot | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Stata" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="Y变量12* Y变量vguse nlsw.dta, clear 12gr bar ttl_expgr export bar1a.png, replace">
+<meta name="keywords" content="Stata">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bar plot">
+<meta property="og:url" content="http://www.czxa.top/posts/12425/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="Y变量12* Y变量vguse nlsw.dta, clear 12gr bar ttl_expgr export bar1a.png, replace">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar1a.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar2.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar3.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar4.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar5.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar6.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar7.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar8.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar9.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar10.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar11.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar12.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar13.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar14.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar15.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar16.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar17.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar18.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar19.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar20.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar21.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar22.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar23.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar24.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar25.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar26.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar27.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar28.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar29.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar30.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar31.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar32.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar33.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar34.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar35.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar36.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar37.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar38.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar39.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar40.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar41.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar42.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar43.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar44.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar45.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar46.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar47.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar48.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar49.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar50.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar51.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar52.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar53.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar54.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar55.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar56.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar56a.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar57.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar58.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar59.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar60.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar61.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar62.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar63.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar64.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar65.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar66.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar67.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar68.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar69.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar70.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar71.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar72.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar73.png">
+<meta property="og:updated_time" content="2018-02-13T09:21:05.426Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bar plot">
+<meta name="twitter:description" content="Y变量12* Y变量vguse nlsw.dta, clear 12gr bar ttl_expgr export bar1a.png, replace">
+<meta name="twitter:image" content="https://github.com/czxa/Web_data_Source/raw/master/bar1a.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-BarPlot" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Bar plot
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2018-01-31T05:48:13.000Z" itemprop="datePublished">2018-01-31</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Y变量"><a href="#Y变量" class="headerlink" title="Y变量"></a>Y变量</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* Y变量</span><br><span class="line">vguse nlsw.dta, clear</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar ttl_exp</span><br><span class="line">gr <span class="keyword">export</span> bar1a.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar1a.png" alt=""></p>
+<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar prev_exp tenure ttl_exp</span><br><span class="line">gr <span class="keyword">export</span> bar2.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar2.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar (median) prev_exp tenure (mean) ttl_exp</span><br><span class="line">gr <span class="keyword">export</span> bar3.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar3.png" alt=""></p>
+<h2 id="ascategory"><a href="#ascategory" class="headerlink" title="ascategory"></a>ascategory</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar prev_exp tenure ttl_exp hours, ascategory</span><br><span class="line">gr <span class="keyword">export</span> bar4.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar4.png" alt=""></p>
+<h2 id="over"><a href="#over" class="headerlink" title="over()"></a>over()</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar prev_exp tenure, over(occ5)</span><br><span class="line">gr <span class="keyword">export</span> bar5.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar5.png" alt=""></p>
+<h2 id="percentages"><a href="#percentages" class="headerlink" title="percentages"></a>percentages</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar prev_exp tenure, over(occ5) percentages</span><br><span class="line">gr <span class="keyword">export</span> bar6.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar6.png" alt=""></p>
+<h2 id="多个over"><a href="#多个over" class="headerlink" title="多个over"></a>多个over</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage, over(occ5) over(collgrad) over(urban2)</span><br><span class="line">gr <span class="keyword">export</span> bar7.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar7.png" alt=""></p>
+<h2 id="asyvars"><a href="#asyvars" class="headerlink" title="asyvars"></a>asyvars</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage, over(occ5) over(union)</span><br><span class="line">gr <span class="keyword">export</span> bar8.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar8.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage, over(occ5) over(union) asyvars</span><br><span class="line">gr <span class="keyword">export</span> bar9.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar9.png" alt=""></p>
+<h2 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage, over(occ5) over(union) asyvars percentages stack</span><br><span class="line">gr <span class="keyword">export</span> bar10.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar10.png" alt=""></p>
+<h2 id="missing"><a href="#missing" class="headerlink" title="missing"></a>missing</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage, over(urban3) over(union)</span><br><span class="line">gr <span class="keyword">export</span> bar11.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar11.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage, over(urban3) over(union) missing</span><br><span class="line">gr <span class="keyword">export</span> bar12.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar12.png" alt=""></p>
+<h2 id="nofill"><a href="#nofill" class="headerlink" title="nofill"></a>nofill</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage, over(grade) over(collgrad)</span><br><span class="line">gr <span class="keyword">export</span> bar13.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar13.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage, over(grade) over(collgrad) nofill</span><br><span class="line">gr <span class="keyword">export</span> bar14.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar14.png" alt=""></p>
+<h2 id="gap-outergap"><a href="#gap-outergap" class="headerlink" title="gap()/outergap()"></a>gap()/outergap()</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage, over(grade4, gap(<span class="number">10</span>)) outergap(<span class="number">200</span>)</span><br><span class="line">gr <span class="keyword">export</span> bar15.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar15.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage, over(grade4, gap(<span class="number">-10</span>))</span><br><span class="line">gr <span class="keyword">export</span> bar16.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar16.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage, over(grade4, gap(<span class="number">10</span>)) over(married, gap(<span class="number">40</span>)) outergap(<span class="number">80</span>)</span><br><span class="line">gr <span class="keyword">export</span> bar17.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar17.png" alt=""></p>
+<h2 id="bargap"><a href="#bargap" class="headerlink" title="bargap()"></a>bargap()</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gr hbar prev_exp ttl_exp, bargap(<span class="number">25</span>) <span class="comment">///</span></span><br><span class="line">	over(married, gap(<span class="number">200</span>)) <span class="comment">///</span></span><br><span class="line">	over(union, gap(<span class="number">400</span>)) <span class="comment">///</span></span><br><span class="line">	outergap(<span class="number">400</span>)</span><br><span class="line">gr <span class="keyword">export</span> bar18.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar18.png" alt=""></p>
+<h2 id="descending"><a href="#descending" class="headerlink" title="descending"></a>descending</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage, over(occ7, gap(<span class="number">-25</span>) descending) sch(vg_outc)</span><br><span class="line">gr <span class="keyword">export</span> bar19.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar19.png" alt=""></p>
+<h2 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage, over(occ7, gap(<span class="number">-25</span>) reverse) sch(vg_outc)</span><br><span class="line">gr <span class="keyword">export</span> bar20.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar20.png" alt=""></p>
+<h2 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage, over(occ7, sort(occ7alpha))</span><br><span class="line">gr <span class="keyword">export</span> bar21.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar21.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage, over(occ7, sort(<span class="number">1</span>))</span><br><span class="line">gr <span class="keyword">export</span> bar22.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar22.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage hours, over(occ7, sort(<span class="number">1</span>))</span><br><span class="line">gr <span class="keyword">export</span> bar23.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar23.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage hours, over(occ7, sort(<span class="number">2</span>))</span><br><span class="line">gr <span class="keyword">export</span> bar24.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar24.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage hours, over(occ7, sort(<span class="number">2</span>)) over(married)</span><br><span class="line">gr <span class="keyword">export</span> bar25.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar25.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar (sum) wage, over(collgrad) over(occ7) asyvars stack</span><br><span class="line">gr <span class="keyword">export</span> bar26.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar26.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar (sum) wage, over(collgrad) over(occ7, sort((sum) wage)) asyvars stack</span><br><span class="line">gr <span class="keyword">export</span> bar27.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar27.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar (sum) wage, over(collgrad) over(occ7, sort((sum) wage) descending) asyvars stack</span><br><span class="line">gr <span class="keyword">export</span> bar28.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar28.png" alt=""></p>
+<h1 id="控制分类轴"><a href="#控制分类轴" class="headerlink" title="控制分类轴"></a>控制分类轴</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage, over(union) over(smsa) over(south) missing</span><br><span class="line">gr <span class="keyword">export</span> bar29.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar29.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage, over(union, relabel(<span class="number">3</span> <span class="string">"missing"</span>)) over(smsa, relabel(<span class="number">1</span> <span class="string">"Nometro"</span> <span class="number">2</span> <span class="string">"Metro"</span>)) over(south, relabel(<span class="number">1</span> <span class="string">"N&amp;W"</span> <span class="number">2</span> <span class="string">"South"</span>)) missing</span><br><span class="line">gr <span class="keyword">export</span> bar30.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar30.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar prev_exp tenure ttl_exp, ascategory</span><br><span class="line">gr <span class="keyword">export</span> bar31.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar31.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gr hbar prev_exp tenure ttl_exp, ascategory <span class="comment">///</span></span><br><span class="line">	yvaroptions(relabel(<span class="number">1</span> <span class="string">"Previous Exp"</span> <span class="number">2</span> <span class="string">"Current exp"</span> <span class="number">3</span> <span class="string">"Total Exp"</span>))</span><br><span class="line">gr <span class="keyword">export</span> bar32.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar32.png" alt=""></p>
+<h2 id="yalternate"><a href="#yalternate" class="headerlink" title="yalternate"></a>yalternate</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gr hbar prev_exp tenure ttl_exp, ascategory <span class="comment">///</span></span><br><span class="line">	yvaroptions(relabel(<span class="number">1</span> <span class="string">"Previous Exp"</span> <span class="number">2</span> <span class="string">"Current exp"</span> <span class="number">3</span> <span class="string">"Total Exp"</span>)) yalternate</span><br><span class="line">gr <span class="keyword">export</span> bar33.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar33.png" alt=""></p>
+<h2 id="label"><a href="#label" class="headerlink" title="label()"></a>label()</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage, over(occ7, label(nolabel)) blabel(group)</span><br><span class="line">gr <span class="keyword">export</span> bar34.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar34.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage, over(occ7, label(ang(<span class="number">45</span>))) over(collgrad)</span><br><span class="line">gr <span class="keyword">export</span> bar35.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar35.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage, over(occ7, label(alternate)) over(collgrad)</span><br><span class="line">gr <span class="keyword">export</span> bar36.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar36.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage hours ttl_exp, ascategory over(collgrad) yvaroptions(label(alternate))</span><br><span class="line">gr <span class="keyword">export</span> bar37.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar37.png" alt=""></p>
+<h2 id="nolabel"><a href="#nolabel" class="headerlink" title="nolabel"></a>nolabel</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage hours ttl_exp, ascategory over(union) nolabel</span><br><span class="line">gr <span class="keyword">export</span> bar38.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar38.png" alt=""></p>
+<h2 id="ticks-label"><a href="#ticks-label" class="headerlink" title="ticks-label"></a>ticks-label</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage, over(age3, label(ticks tlwidth(thick) tlength(medium) tpos(crossing))) over(collgrad)</span><br><span class="line">gr <span class="keyword">export</span> bar39.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar39.png" alt=""></p>
+<h2 id="label-gap"><a href="#label-gap" class="headerlink" title="label-gap"></a>label-gap</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage, over(age3, label(labgap(zero))) over(collgrad)</span><br><span class="line">gr <span class="keyword">export</span> bar40.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar40.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage, over(age3, label(labgap(huge))) over(collgrad)</span><br><span class="line">gr <span class="keyword">export</span> bar41.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar41.png" alt=""></p>
+<h2 id="the-gap-between-label-and-axis"><a href="#the-gap-between-label-and-axis" class="headerlink" title="the gap between label and axis"></a>the gap between label and axis</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage, over(age3) over(collgrad, axis(outergap(*<span class="number">1.20</span>))) asyvars b1ti(<span class="string">"Education Level in Categories"</span>) leg(r(<span class="number">1</span>))</span><br><span class="line">gr <span class="keyword">export</span> bar42.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar42.png" alt=""></p>
+<h2 id="showyvars"><a href="#showyvars" class="headerlink" title="showyvars"></a>showyvars</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage, over(occ7) asyvars</span><br><span class="line">gr <span class="keyword">export</span> bar43.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar43.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage, over(occ7) asyvars showyvars</span><br><span class="line">gr <span class="keyword">export</span> bar44.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar44.png" alt=""></p>
+<h2 id="legend"><a href="#legend" class="headerlink" title="legend"></a>legend</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage, over(occ7) asyvars showyvars leg(r(<span class="number">2</span>) colfirst)</span><br><span class="line">gr <span class="keyword">export</span> bar45.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar45.png" alt=""></p>
+<h2 id="exclude0"><a href="#exclude0" class="headerlink" title="exclude0"></a>exclude0</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage, over(occ7) asyvars exclude0</span><br><span class="line">gr <span class="keyword">export</span> bar46.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar46.png" alt=""></p>
+<h2 id="textfirst"><a href="#textfirst" class="headerlink" title="textfirst"></a>textfirst</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage, over(occ7) asyvars exclude0 leg(r(<span class="number">4</span>) pos(<span class="number">1</span>) ring(<span class="number">0</span>) textfirst)</span><br><span class="line">gr <span class="keyword">export</span> bar47.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar47.png" alt=""></p>
+<h2 id="leg-stack"><a href="#leg-stack" class="headerlink" title="leg(stack)"></a>leg(stack)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage, over(occ7) asyvars leg(c(<span class="number">1</span>) pos(<span class="number">9</span>) stack)</span><br><span class="line">gr <span class="keyword">export</span> bar48.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar48.png" alt=""></p>
+<h2 id="sch-vg-lgndc"><a href="#sch-vg-lgndc" class="headerlink" title="sch(vg_lgndc)"></a>sch(vg_lgndc)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage, over(occ7) asyvars leg(c(<span class="number">1</span>) pos(<span class="number">9</span>) stack) sch(vg_lgndc)</span><br><span class="line">gr <span class="keyword">export</span> bar49.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar49.png" alt=""></p>
+<h2 id="blabel"><a href="#blabel" class="headerlink" title="blabel"></a>blabel</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage hours tenure, over(collgrad) blabel(name) nolabel leg(off)</span><br><span class="line">gr <span class="keyword">export</span> bar50.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar50.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage hours tenure, over(collgrad, label(nolabels)) blabel(group) nolabel leg(off)</span><br><span class="line">gr <span class="keyword">export</span> bar51.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar51.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar tenure, over(occ5, label(nolabels)) exclude0 blabel(group) ysc(range(<span class="number">7.2</span>)) over(union)</span><br><span class="line">gr <span class="keyword">export</span> bar52.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar52.png" alt=""></p>
+<h2 id="blabel-bar-：在柱条上注明数值"><a href="#blabel-bar-：在柱条上注明数值" class="headerlink" title="blabel(bar)：在柱条上注明数值"></a>blabel(bar)：在柱条上注明数值</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar prev_exp tenure ttl_exp, blabel(bar) over(grade4)  </span><br><span class="line">gr <span class="keyword">export</span> bar53.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar53.png" alt=""></p>
+<h2 id="blabel-bar-stack"><a href="#blabel-bar-stack" class="headerlink" title="blabel(bar)-stack"></a>blabel(bar)-stack</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar (sum) prev_exp tenure, stack over(grade4) blabel(bar)</span><br><span class="line">gr <span class="keyword">export</span> bar54.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar54.png" alt=""></p>
+<h2 id="blabel-total-stack"><a href="#blabel-total-stack" class="headerlink" title="blabel(total)-stack"></a>blabel(total)-stack</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar (sum) prev_exp tenure, stack over(grade4) blabel(total)</span><br><span class="line">gr <span class="keyword">export</span> bar55.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar55.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar hours, over(occ7, label(nolabels)) blabel(group, pos(inside))</span><br><span class="line">gr <span class="keyword">export</span> bar56.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar56.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar hours, over(occ7, label(nolabels)) blabel(group, pos(base) gap(huge))</span><br><span class="line">gr <span class="keyword">export</span> bar56a.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar56a.png" alt=""></p>
+<h1 id="控制y轴"><a href="#控制y轴" class="headerlink" title="控制y轴"></a>控制y轴</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage, over(occ5) over(married) asyvars</span><br><span class="line">gr <span class="keyword">export</span> bar57.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar57.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar wage, over(occ5) over(married) asyvars yti(<span class="string">"Average Wages"</span>, size(vlarge) box bexpand) yline(<span class="number">10</span>, lw(thick) lcolor(red) lp(dash))</span><br><span class="line">gr <span class="keyword">export</span> bar58.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar58.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar hours, over(occ7) asyvars yla(<span class="number">30</span>(<span class="number">5</span>)<span class="number">45</span>, ang(<span class="number">20</span>) nogrid) exclude0</span><br><span class="line">gr <span class="keyword">export</span> bar59.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar59.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar prev_exp tenure, over(occ7) ysc(off)</span><br><span class="line">gr <span class="keyword">export</span> bar60.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar60.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar prev_exp tenure, over(occ7) yalternate</span><br><span class="line">gr <span class="keyword">export</span> bar61.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar61.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar prev_exp tenure, over(occ7) yreverse</span><br><span class="line">gr <span class="keyword">export</span> bar62.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar62.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar prev_exp tenure, over(occ7) xalternate yreverse</span><br><span class="line">gr <span class="keyword">export</span> bar63.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar63.png" alt=""></p>
+<h1 id="外观控制"><a href="#外观控制" class="headerlink" title="外观控制"></a>外观控制</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage hours ttl_exp, over(collgrad) intensity(*<span class="number">0.5</span>)</span><br><span class="line">gr <span class="keyword">export</span> bar64.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar64.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage hours ttl_exp, over(collgrad) bar(<span class="number">1</span>, bcolor(dkgreen))</span><br><span class="line">gr <span class="keyword">export</span> bar65.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar65.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage hours ttl_exp, over(collgrad) bar(<span class="number">1</span>, bcolor(dkgreen) fc(ltblue) lc(blue) lw(vthick))</span><br><span class="line">gr <span class="keyword">export</span> bar66.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar66.png" alt=""></p>
+<ul>
+<li>分组绘图</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar wage, over(urban2) over(married) over(union) by(collgrad)</span><br><span class="line">gr <span class="keyword">export</span> bar67.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar67.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar ttl_exp tenure, over(married) over(urban2) by(union, missing total)</span><br><span class="line">gr <span class="keyword">export</span> bar68.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar68.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar ttl_exp tenure, over(married) over(urban2) by(union, cols(<span class="number">1</span>))</span><br><span class="line">gr <span class="keyword">export</span> bar69.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar69.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar ttl_exp tenure, over(married) over(urban2) by(union, cols(<span class="number">1</span>) note(<span class="string">""</span>) leg(pos(<span class="number">3</span>)))</span><br><span class="line">gr <span class="keyword">export</span> bar70.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar70.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar ttl_exp tenure, over(married) over(urban2) by(union, cols(<span class="number">1</span>) note(<span class="string">""</span>) leg(pos(<span class="number">3</span>))) leg(cols(<span class="number">1</span>) stack label(<span class="number">1</span> <span class="string">"Total Exp"</span>) label(<span class="number">2</span> <span class="string">"Current Exp"</span>))</span><br><span class="line">gr <span class="keyword">export</span> bar71.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar71.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr hbar ttl_exp tenure, over(married) over(urban2) by(union, c(<span class="number">1</span>) note(<span class="string">""</span>) leg(pos(<span class="number">3</span>))) leg(c(<span class="number">1</span>) stack label(<span class="number">1</span> <span class="string">"Total Exp"</span>) label(<span class="number">2</span> <span class="string">"Current Exp"</span>)) subtitle(, pos(<span class="number">5</span>) ring(<span class="number">0</span>) nobexpand)</span><br><span class="line">gr <span class="keyword">export</span> bar72.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar72.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gr bar ttl_exp tenure, over(married) over(urban2) by(union collgrad)</span><br><span class="line">gr <span class="keyword">export</span> bar73.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/bar73.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../44585/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          添加平均柱条
+        
+      </div>
+    </a>
+  
+  
+    <a href="../9715/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">矩阵散点图</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Y变量"><span class="nav-text">Y变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ascategory"><span class="nav-text">ascategory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#over"><span class="nav-text">over()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#percentages"><span class="nav-text">percentages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多个over"><span class="nav-text">多个over</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#asyvars"><span class="nav-text">asyvars</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stack"><span class="nav-text">stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#missing"><span class="nav-text">missing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nofill"><span class="nav-text">nofill</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gap-outergap"><span class="nav-text">gap()/outergap()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bargap"><span class="nav-text">bargap()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#descending"><span class="nav-text">descending</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reverse"><span class="nav-text">reverse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sort"><span class="nav-text">sort()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#控制分类轴"><span class="nav-text">控制分类轴</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#yalternate"><span class="nav-text">yalternate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#label"><span class="nav-text">label()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nolabel"><span class="nav-text">nolabel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ticks-label"><span class="nav-text">ticks-label</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#label-gap"><span class="nav-text">label-gap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-gap-between-label-and-axis"><span class="nav-text">the gap between label and axis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#showyvars"><span class="nav-text">showyvars</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#legend"><span class="nav-text">legend</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#exclude0"><span class="nav-text">exclude0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#textfirst"><span class="nav-text">textfirst</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#leg-stack"><span class="nav-text">leg(stack)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sch-vg-lgndc"><span class="nav-text">sch(vg_lgndc)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#blabel"><span class="nav-text">blabel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#blabel-bar-：在柱条上注明数值"><span class="nav-text">blabel(bar)：在柱条上注明数值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#blabel-bar-stack"><span class="nav-text">blabel(bar)-stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#blabel-total-stack"><span class="nav-text">blabel(total)-stack</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#控制y轴"><span class="nav-text">控制y轴</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#外观控制"><span class="nav-text">外观控制</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

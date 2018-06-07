@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/167/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-jiebaR分词包"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/32875/">jiebaR分词包</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/32875/" class="article-date">
+	  <time datetime="2017-11-15T07:55:41.000Z" itemprop="datePublished">2017-11-15</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/R包/">R包</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>R语言中文社区推文学习笔记</p>
+</blockquote>
+<p><strong>脚本和数据集下载👇</strong><br><a href="https://github.com/czxa/Web_data_source/raw/master/jiebaR分词包.R" target="_blank" rel="noopener"><strong><code>jiebaR分词包.R</code></strong></a><br><a href="https://github.com/czxa/Web_data_source/raw/master/dictionary.txt" target="_blank" rel="noopener"><strong><code>dictionary.txt</code></strong></a><br><a href="https://github.com/czxa/Web_data_source/raw/master/stopwords.txt" target="_blank" rel="noopener"><strong><code>stopwords.txt</code></strong></a></p>
+<h4 id="分词函数worker"><a href="#分词函数worker" class="headerlink" title="分词函数worker"></a>分词函数worker</h4><blockquote>
+<p>worker(type = “mix”, dict = DICTPATH, hmm = HMMPATH, user = USERPATH, idf = IDFPATH, stop_word = STOPPATH, write = T, qmax = 20, topn = 5, encoding = “UTF-8”, detect = T, symbol = F, lines = 1e+05, output = NULL, bylines = F, user_weight = “max”)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">type</td>
+<td style="text-align:center">指定分词引擎的类型，这个包包括mix,mp,hmm,full,query,tag,simhash,分别指混合模型、支持最大概率、隐马尔可夫模型、全模式、索引模型、词性标注，文本Simhash相似度比较、关键词提取。</td>
+</tr>
+<tr>
+<td style="text-align:center">dict</td>
+<td style="text-align:center">词库路径，默认为DICTPATH</td>
+</tr>
+<tr>
+<td style="text-align:center">hmm</td>
+<td style="text-align:center">用来指定隐马尔可夫模型的路径，默认值为DICTPATH，当然也可以指定其他分词引擎</td>
+</tr>
+<tr>
+<td style="text-align:center">user</td>
+<td style="text-align:center">用户自定义的词库</td>
+</tr>
+<tr>
+<td style="text-align:center">idf</td>
+<td style="text-align:center">用来指定逆文本频率指数路径，默认为DICTPATH，也可以为simhash和keyword分词引擎</td>
+</tr>
+<tr>
+<td style="text-align:center">stop_word</td>
+<td style="text-align:center">用来指定停用词的路径</td>
+</tr>
+<tr>
+<td style="text-align:center">qmax</td>
+<td style="text-align:center">词的最大查询长度，默认为20，可用于query分词类型。</td>
+</tr>
+<tr>
+<td style="text-align:center">topn</td>
+<td style="text-align:center">关键词的个数，默认为5，可用于simhash和keyword分词类型。</td>
+</tr>
+<tr>
+<td style="text-align:center">symbol</td>
+<td style="text-align:center">输出是否保留符号，默认为F</td>
+</tr>
+<tr>
+<td style="text-align:center">Lines</td>
+<td style="text-align:center">从文件中最大因此读取的行数，默认为1e+05</td>
+</tr>
+<tr>
+<td style="text-align:center">output</td>
+<td style="text-align:center">输出文件，文件名一般时候为系统时间</td>
+</tr>
+<tr>
+<td style="text-align:center">bylines</td>
+<td style="text-align:center">返回输入的文件有多少行</td>
+</tr>
+<tr>
+<td style="text-align:center">user_weight</td>
+<td style="text-align:center">用户词典的权重，有“min”、“max” or “median” 三个选项。</td>
+</tr>
+</tbody>
+</table>
+        <!-- 
+R语言中文社区推文学习笔记
+
+脚本和数据集下载👇jiebaR分词包.Rdictionary.txtstopwords.txt
+分词函数worker
+worker(type = “mix”, dict = DICTPATH, hmm = HMMPATH, user = USERPATH, idf = IDFPATH, stop_word = STOPPATH, write = T, qma......  -->
+        <p class="article-more-link">
+          <a href="../../posts/32875/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/R/">R</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-因果推断简史"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/62664/">因果推断简史</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/62664/" class="article-date">
+	  <time datetime="2017-10-28T11:47:56.000Z" itemprop="datePublished">2017-10-28</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/计量经济学/">计量经济学</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>《赵西亮：基本有用的计量经济学》学习笔记</p>
+</blockquote>
+<h4 id="因果推断之难"><a href="#因果推断之难" class="headerlink" title="因果推断之难"></a>因果推断之难</h4><ul>
+<li>在经济学的研究中，我们非常关心经济变量之间的因果关系，尽管其他关系也很重要，但是在政策评价中，因果关系是更根本的。</li>
+<li>关于因果关系的探讨有两个方向，一个方向是看到结果然后探寻原因，另外一个是看到原因继续调查追寻结果。</li>
+<li>在政策效应评估中通常是由原因到结果，相对而言这一方向更加简单且可操作性更强。事实上两个方向的分析是密切相关的，搞清楚原因的结果才有利于考察结果的原因以及每一种原因在结果中产生的作用。因而在更多的情况下，我们更加关注原因的结果。比如在微观经济学中我们更关系某些措施货干预对个体行为的影响，比如：<ul>
+<li>班级规模对儿童学习效果的影响；</li>
+<li>安全带是否可以增加乘客在交通事故中的幸存概率；</li>
+<li>教育对个人就业以及未来收入的影响等等。</li>
+</ul>
+</li>
+<li>一项干预对结果变量的影响通常被称为因果效应(causal effects)或干预效应(treatment effects)。下面我们通过两个简单的例子来了解因果推断的困难：</li>
+</ul>
+        <!-- 
+《赵西亮：基本有用的计量经济学》学习笔记
+
+因果推断之难
+在经济学的研究中，我们非常关心经济变量之间的因果关系，尽管其他关系也很重要，但是在政策评价中，因果关系是更根本的。
+关于因果关系的探讨有两个方向，一个方向是看到结果然后探寻原因，另外一个是看到原因继续调查追寻结果。
+在政策效应评估中通常是由原因到结果，相对而言这一方向更加简单且可操作性更强。事实上两个方向的分析是密切相关的，搞清楚原......  -->
+        <p class="article-more-link">
+          <a href="../../posts/62664/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-时间序列分析"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/60273/">时间序列分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/60273/" class="article-date">
+	  <time datetime="2017-10-28T11:23:56.000Z" itemprop="datePublished">2017-10-28</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/金融/">金融</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-1-多元时间序列分析"><a href="#1-1-多元时间序列分析" class="headerlink" title="1.1 多元时间序列分析"></a>1.1 多元时间序列分析</h2><h3 id="1-1-1-协整"><a href="#1-1-1-协整" class="headerlink" title="1.1.1 协整"></a>1.1.1 协整</h3><ul>
+<li>如果n*1的时间序列向量中的每一个序列都是d阶单整的（特别是在大多数应用中，这些序列是一阶单整的，这意味着序列时非平稳的单位根过程或者随机游走的过程）。同时存在它们的线性组合是d-1阶单整的，特别是当阶数为0时，序列是一个平稳的过程。那么这些单整序列构成的向量是协整的。</li>
+<li>直观上来看，这个定义意味着经济中存在某些潜藏力量。这种力量使n个看似是相互独立的随机游走过程，但在长期中趋于一致。</li>
+<li>标准统计检验可以严格地展示时间序列向量中的单位根。R的tseries包或者urca包可以实施单位根检验，本文使用后者。下面的R代码模拟了两个长度为1000的序列：</li>
+</ul>
+        <!-- 1.1 多元时间序列分析1.1.1 协整
+如果n*1的时间序列向量中的每一个序列都是d阶单整的（特别是在大多数应用中，这些序列是一阶单整的，这意味着序列时非平稳的单位根过程或者随机游走的过程）。同时存在它们的线性组合是d-1阶单整的，特别是当阶数为0时，序列是一个平稳的过程。那么这些单整序列构成的向量是协整的。
+直观上来看，这个定义意味着经济中存在某些潜藏力量。这种力量使n个看似是相互独立的......  -->
+        <p class="article-more-link">
+          <a href="../../posts/60273/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/R/">R</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-期权组合交易策略损益分析"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/50493/">期权组合交易策略损益分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/50493/" class="article-date">
+	  <time datetime="2017-10-19T07:11:54.000Z" itemprop="datePublished">2017-10-19</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/金融/">金融</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><ul>
+<li>An investor buys for \$3 a call with a strike price of \$30 and sells for \$1 a call with a strike price of \$35. The cost of the strategy is \$3-\$1=\$2. The profit is as follows:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Strike Price Range</th>
+<th style="text-align:center">Payoff from Long Call Option</th>
+<th style="text-align:center">Payoff from Short Call Option</th>
+<th style="text-align:center">Total Payoff</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$S(T)\le30$</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">$30&lt;S(T)\le35$</td>
+<td style="text-align:center">$S(T)-30$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$S(T)-30&gt;0$</td>
+</tr>
+<tr>
+<td style="text-align:center">$S(T)\ge35$</td>
+<td style="text-align:center">$S(T)-30$</td>
+<td style="text-align:center">$35-S(T)$</td>
+<td style="text-align:center">$35-30&gt;0$</td>
+</tr>
+</tbody>
+</table>
+        <!-- Example
+An investor buys for \$3 a call with a strike price of \$30 and sells for \$1 a call with a strike price of \$35. The cost of the strategy is \$3-\$1=\$2. The profit is as follows:
+
+
+
+
+Stri......  -->
+        <p class="article-more-link">
+          <a href="../../posts/50493/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/R/">R</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Stata14——回归表的输出"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/34760/">Stata14——回归表的输出</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/34760/" class="article-date">
+	  <time datetime="2017-10-19T06:58:34.000Z" itemprop="datePublished">2017-10-19</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/计量经济学/">计量经济学</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>大家好，今天给大家带来的是关于Stata14的统计、回归和检验合并结果输出的命令及使用方法，因为篇幅的原因，我无法面面俱到，针对每一个命令的详细作用可以参考help文档，本文中的一些外部命令需要自行安装，例如ssc install outreg2, 这种方式没办法安装的可以通过”search 命令名“来查找安装；如有疑问请联系小编。</li>
+</ul>
+<h4 id="在《Stata14常用操作》那篇文章的后半部分，讲了如何将回归结果输出，我们首先来复习一下："><a href="#在《Stata14常用操作》那篇文章的后半部分，讲了如何将回归结果输出，我们首先来复习一下：" class="headerlink" title="在《Stata14常用操作》那篇文章的后半部分，讲了如何将回归结果输出，我们首先来复习一下："></a>在《Stata14常用操作》那篇文章的后半部分，讲了如何将回归结果输出，我们首先来复习一下：</h4>
+        <!-- 
+大家好，今天给大家带来的是关于Stata14的统计、回归和检验合并结果输出的命令及使用方法，因为篇幅的原因，我无法面面俱到，针对每一个命令的详细作用可以参考help文档，本文中的一些外部命令需要自行安装，例如ssc install outreg2, 这种方式没办法安装的可以通过”search 命令名“来查找安装；如有疑问请联系小编。
+
+在《Stata14常用操作》那篇文章的后半部分，讲了如......  -->
+        <p class="article-more-link">
+          <a href="../../posts/34760/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../166/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../165/">165</a><a class="page-number" href="../166/">166</a><span class="page-number current">167</span><a class="page-number" href="../168/">168</a><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../168/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

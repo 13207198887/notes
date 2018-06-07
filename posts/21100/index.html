@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>倾向匹配得分的stata示例 | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Stata, PSM" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="《陈强：高级计量经济学及Stata应用学习笔记   Stata脚本和数据集：点击即可下载  PSM_Stata操作实例.do ldw_exper.dta 倾向匹配得分可以通过下载psmatch2来实现：1ssc install psmatch2, replace 该命令的一般格式为：psmatch2 D x1 x2 x3, outcome(y) logit ties ate common odd">
+<meta name="keywords" content="Stata, PSM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="倾向匹配得分的Stata示例">
+<meta property="og:url" content="http://www.czxa.top/posts/21100/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="《陈强：高级计量经济学及Stata应用学习笔记   Stata脚本和数据集：点击即可下载  PSM_Stata操作实例.do ldw_exper.dta 倾向匹配得分可以通过下载psmatch2来实现：1ssc install psmatch2, replace 该命令的一般格式为：psmatch2 D x1 x2 x3, outcome(y) logit ties ate common odd">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-b062c1e7662d0cc2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-41e8b7ed5ba7666b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-81fe1b6677780ac5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-634d042133887f1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-4ae29b1c4ba87515.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-c8cd5d1af913d715.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-7661608d7bcb9051.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-02b03f09b0ad8f35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-0d3d0aa9ed1cd417.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-0e2dd798944ecd9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-d2979834a541456a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-cb271499d2bdef0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-33e8c162b3cdff14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-e5134ab5abc65be4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-ce35aa08d3c147f5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8103632-7ff460cf7e4c99a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-02-13T09:45:28.967Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="倾向匹配得分的Stata示例">
+<meta name="twitter:description" content="《陈强：高级计量经济学及Stata应用学习笔记   Stata脚本和数据集：点击即可下载  PSM_Stata操作实例.do ldw_exper.dta 倾向匹配得分可以通过下载psmatch2来实现：1ssc install psmatch2, replace 该命令的一般格式为：psmatch2 D x1 x2 x3, outcome(y) logit ties ate common odd">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/8103632-b062c1e7662d0cc2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-倾向匹配得分的Stata示例" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      倾向匹配得分的Stata示例
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2017-10-16T01:21:40.000Z" itemprop="datePublished">2017-10-16</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/计量经济学/">计量经济学</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>《陈强：高级计量经济学及Stata应用学习笔记</p>
+</blockquote>
+<ul>
+<li>Stata脚本和数据集：点击即可下载</li>
+</ul>
+<p><a href="https://github.com/czxa/Web_data_Source/raw/master/PSM_Stata操作实例.do" target="_blank" rel="noopener"><strong><code>PSM_Stata操作实例.do</code></strong></a></p>
+<p><a href="https://github.com/czxa/Chen_Qiang_DataSets/raw/master/ldw_exper.dta" target="_blank" rel="noopener"><strong><code>ldw_exper.dta</code></strong></a></p>
+<h4 id="倾向匹配得分可以通过下载psmatch2来实现："><a href="#倾向匹配得分可以通过下载psmatch2来实现：" class="headerlink" title="倾向匹配得分可以通过下载psmatch2来实现："></a>倾向匹配得分可以通过下载psmatch2来实现：</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ssc</span> install psmatch2, <span class="keyword">replace</span></span><br></pre></td></tr></table></figure>
+<h5 id="该命令的一般格式为："><a href="#该命令的一般格式为：" class="headerlink" title="该命令的一般格式为："></a>该命令的一般格式为：</h5><p>psmatch2 D x1 x2 x3, outcome(y) logit ties ate common odds pscore(varname) qui</p>
+<ul>
+<li>D: treatment variable</li>
+<li>x1 x2 x3: covariant variables</li>
+<li>outcome(y): indicate y as outcome variable</li>
+<li>logit: indicate use logit to estimate pscore, default method is probit</li>
+<li>ties: indicate that conclude all with same pscore, default method is sorting all data and select one.</li>
+<li>ate: indicate report ATE, ATU, and ATT, default method just report ATT</li>
+<li>common: indicate that just match within common support, default method is match all</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>odds: indicate use odds ratio(p/(1-p)) to match, default method is use pscore</li>
+<li>pscore(varname): indicate use given variable as pscore, default method is x1 x2 x3 to estimate pscore</li>
+<li>qui: do not report the process of psmatch</li>
+</ul>
+<ul>
+<li>针对不同的匹配方法，该命令提供来一系列选择项。<ul>
+<li>psmatch2 D x1 x2 x3, outcome(y) neighbor(k) noreplacement<ul>
+<li>neighbor(k) indicate KNN, default method is 1:1 match</li>
+<li>noreplacement: indicate match with no replacement, default method is with replacement, but this option just for one to one matching</li>
+</ul>
+</li>
+<li>psmatch2 D x1 x2 x3, outcome(y) radius caliper(real)<ul>
+<li>radius: indicate use radius matching</li>
+<li>caliper(real): to indicate caliper $\epsilon$ , it must be real number</li>
+</ul>
+</li>
+<li>psmatch2 D x1 x2 x3, outcome(y) neighbor(k) caliper(real)<ul>
+<li>neighbor(k) &amp; caliper(real): indicate kNN with in caliper</li>
+</ul>
+</li>
+<li>psmatch2 D x1 x2 x3, outcome(y) kernel kerneltype(type) bwidth(real)<ul>
+<li>kernel: indicate kernel matching</li>
+<li>kerneltype(type): indicate which kernel function to use, default method is epan kernel</li>
+<li>bwidth: indicate bandwidth, default is 0.06</li>
+</ul>
+</li>
+<li>psmatch2 D x1 x2 x3, outcome(y) llr kerneltype(type) bwidth(real)<ul>
+<li>llr: indicate local linear regression</li>
+<li>kerneltype(type): default use tricubic kernel</li>
+</ul>
+</li>
+<li>psmatch2 D x1 x2 x3, outcome(y) spline<ul>
+<li>spline: indicate spline matching</li>
+</ul>
+</li>
+<li>psmatch2 D x1 x3 x4, outcome(y) mahal(varlist) ai(m)<ul>
+<li>mahal(varlist): indicate Mahalanobis matching</li>
+<li>ai(m) indicateuse Abadie and Imbens’s method to calculate heteroscedasticity robust std error, this option just for kNN with mahal distance</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="psmatch2还有两个post-estimation-commands，分别用来检验匹配后的数据是否平衡，以及画图显示PSM的共同取值范围。"><a href="#psmatch2还有两个post-estimation-commands，分别用来检验匹配后的数据是否平衡，以及画图显示PSM的共同取值范围。" class="headerlink" title="psmatch2还有两个post-estimation commands，分别用来检验匹配后的数据是否平衡，以及画图显示PSM的共同取值范围。"></a>psmatch2还有两个post-estimation commands，分别用来检验匹配后的数据是否平衡，以及画图显示PSM的共同取值范围。</h5><ul>
+<li>pstest x1 x2 x3, both graph<ul>
+<li>此命令将显示三个变量在匹配后是否平衡，选择项graph表示图示变量匹配前后的平衡情况。</li>
+</ul>
+</li>
+<li>psgraph, bin(#)<ul>
+<li>此命令将绘制直方图，显示pscore的共同取值范围，选择项bin(#)用来指定直方图的分组数，默认20组(处理组和控制组各10组）。</li>
+</ul>
+</li>
+</ul>
+<h5 id="下面将使用数据集ldw-exper-dta进行演示，该数据集包含以下变量：结果变量re78-1978年实际收入-、处理变量t（是否参加就业培训）、协变量age、educ、black、hisp、married、re74、re75、u74（1974年是否就业）、u75。"><a href="#下面将使用数据集ldw-exper-dta进行演示，该数据集包含以下变量：结果变量re78-1978年实际收入-、处理变量t（是否参加就业培训）、协变量age、educ、black、hisp、married、re74、re75、u74（1974年是否就业）、u75。" class="headerlink" title="下面将使用数据集ldw_exper.dta进行演示，该数据集包含以下变量：结果变量re78(1978年实际收入)、处理变量t（是否参加就业培训）、协变量age、educ、black、hisp、married、re74、re75、u74（1974年是否就业）、u75。"></a>下面将使用数据集ldw_exper.dta进行演示，该数据集包含以下变量：结果变量re78(1978年实际收入)、处理变量t（是否参加就业培训）、协变量age、educ、black、hisp、married、re74、re75、u74（1974年是否就业）、u75。</h5><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">clear</span> all</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">more</span> off</span><br><span class="line"><span class="keyword">cd</span> <span class="string">"/Users/mr.cheng/documents/PSM"</span></span><br><span class="line"><span class="keyword">use</span> <span class="string">"https://github.com/czxa/Chen_Qiang_DataSets/raw/master/ldw_exper.dta"</span>, <span class="keyword">clear</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">reg</span> re78 t, r <span class="comment">//作为对照</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-b062c1e7662d0cc2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>上表显示，在未控制任何协变量的情况下，ATE为1.794，而且非常显著。但是由于存在选择偏差，这个结果并不可信，而且拟合优度非常低。</li>
+<li>下面引入协变量进行更为可信的多元回归：</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> re78 t age educ black hisp married re74 re75 u74 u75, <span class="built_in">r</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-41e8b7ed5ba7666b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h5 id="下面进行PSM"><a href="#下面进行PSM" class="headerlink" title="下面进行PSM"></a>下面进行PSM</h5><ul>
+<li>首先对数据进行随机排序</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> seed 123</span><br><span class="line"><span class="keyword">gen</span> ranorder = runiform()</span><br><span class="line"><span class="keyword">sort</span> ranorder</span><br></pre></td></tr></table></figure>
+<ul>
+<li>下面进行1对1的匹配，由于样本容量并不十分大，进行有放回的匹配，且允许并列（如果进行无放回的匹配，将损失约1/5的样本。</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psmatch2 t age educ black hisp married re74 re75 u74 u75, outcome(re78) <span class="keyword">n</span>(1) ate ties <span class="keyword">logit</span> common</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-81fe1b6677780ac5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>上表中部的Note显示，所汇报的标准误并未考虑pscore为估计所得的事实（即假设pscore为真实值，然后推导标准误）；此标准误的另一假设为同方差，也可能不成立。为此，可以考虑使用自助法来得到标准误，尽管自助标准误未必正确。</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bootstrap</span> <span class="built_in">r</span>(att) <span class="built_in">r</span>(atu) <span class="built_in">r</span>(ate), reps(500):psmatch2 t age educ black hisp married re74 re75 u74 u75, outcome(re78) <span class="keyword">n</span>(1) ate ties <span class="keyword">logit</span> common</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-634d042133887f1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>上表显示ATT的自助标准差为0.89。</li>
+<li>下面使用命令pstest来考察此匹配结果是否较好地平衡了数据。</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">qui</span> psmatch2 t age educ black hisp married re74 re75 u74 u75, outcome(re78) <span class="keyword">n</span>(1) ate ties <span class="keyword">logit</span> common</span><br><span class="line">pstest age educ black hisp married re74 re75 u74 u75, both <span class="keyword">graph</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-4ae29b1c4ba87515.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-c8cd5d1af913d715.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><p>从上图中的结果可以看出，匹配后大多数变量的标准化偏差小于10%，只有变量u74例外为11.1%；而且所有的t检验的结果不拒绝处理组与控制组无系统差异的原假设。对比匹配前后的结果，大多数的标准化偏差均大幅缩小，r74和u74例外。</p>
+</li>
+<li><p>下面的命令可以画条形图显示pscore的common support：</p>
+</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psgraph</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-7661608d7bcb9051.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>从上图中可以看出，大多数观测值均在共同取值范围内（on support），故在进行PSM时仅会损失少量样本。</li>
+</ul>
+<h5 id="下面进行kNN匹配，并令k-4。"><a href="#下面进行kNN匹配，并令k-4。" class="headerlink" title="下面进行kNN匹配，并令k=4。"></a>下面进行kNN匹配，并令k=4。</h5><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">global</span> reduce <span class="string">"age educ black hisp married re74 re75 u74 u75"</span></span><br><span class="line">psmatch2 t <span class="variable">$reduce</span>, outcome(re78) <span class="keyword">n</span>(4) ate ties common <span class="keyword">qui</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-02b03f09b0ad8f35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>从上表可知，1:4匹配的结果与1:1的匹配的结果类似，只是ATT的估计值有较大差异，且在5%水平上显著。</li>
+</ul>
+<h5 id="下面进行卡尺内1-4匹配。为此首先计算pscore的标准差然后乘以0-25："><a href="#下面进行卡尺内1-4匹配。为此首先计算pscore的标准差然后乘以0-25：" class="headerlink" title="下面进行卡尺内1:4匹配。为此首先计算pscore的标准差然后乘以0.25："></a>下面进行卡尺内1:4匹配。为此首先计算pscore的标准差然后乘以0.25：</h5><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sum</span> _pscore</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-0d3d0aa9ed1cd417.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>由此可知，$0.25 \hat \sigma_{pscore} \approx 0.02$。为了保险起见，将carliper的范围设置为0.01，这意味着对PSM相差1%的观测值进行1:4的匹配。</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psmatch2 t <span class="variable">$reduce</span>, outcome(re78) <span class="keyword">n</span>(4) cal(0.01) ate ties <span class="keyword">logit</span> common <span class="keyword">qui</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-0e2dd798944ecd9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h5 id="下面进行半径卡尺匹配"><a href="#下面进行半径卡尺匹配" class="headerlink" title="下面进行半径卡尺匹配"></a>下面进行半径卡尺匹配</h5><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psmatch2 t <span class="variable">$reduce</span>, outcome(re78) radius cal(0.01) ate ties <span class="keyword">logit</span> common <span class="keyword">qui</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-d2979834a541456a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h5 id="下面进行核匹配（使用默认的核函数与带宽）"><a href="#下面进行核匹配（使用默认的核函数与带宽）" class="headerlink" title="下面进行核匹配（使用默认的核函数与带宽）"></a>下面进行核匹配（使用默认的核函数与带宽）</h5><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psmatch2 t <span class="variable">$reduce</span>, outcome(re78) kernel ate ties <span class="keyword">logit</span> common <span class="keyword">qui</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-cb271499d2bdef0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h5 id="下面再进行局部线性回归（使用默认的核函数和带宽）"><a href="#下面再进行局部线性回归（使用默认的核函数和带宽）" class="headerlink" title="下面再进行局部线性回归（使用默认的核函数和带宽）"></a>下面再进行局部线性回归（使用默认的核函数和带宽）</h5><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psmatch2 t <span class="variable">$reduce</span>, outcome(re78) llr ate ties <span class="keyword">logit</span> common <span class="keyword">qui</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-33e8c162b3cdff14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>上表并未汇报ATT的标准误；为此，使用自助法以得到标准误（费时较长）</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> seed 112345</span><br><span class="line"><span class="keyword">bootstrap</span> <span class="built_in">r</span>(att) <span class="built_in">r</span>(atu) <span class="built_in">r</span>(ate), reps(500): psmatch2 t <span class="variable">$reduce</span>, outcome(re78) llr ate ties <span class="keyword">logit</span> common <span class="keyword">qui</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-e5134ab5abc65be4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h5 id="下面再进行样条匹配（同样使用自助法计算标准误。"><a href="#下面再进行样条匹配（同样使用自助法计算标准误。" class="headerlink" title="下面再进行样条匹配（同样使用自助法计算标准误。"></a>下面再进行样条匹配（同样使用自助法计算标准误。</h5><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">net</span> install snp7_1.pkg</span><br><span class="line"><span class="keyword">set</span> seed 1234567</span><br><span class="line"><span class="keyword">bootstrap</span> <span class="built_in">r</span>(att) <span class="built_in">r</span>(atu) <span class="built_in">r</span>(ate), reps(500): psmatch2 t <span class="variable">$reduce</span>, outcome(re78) spline ate ties <span class="keyword">logit</span> common <span class="keyword">qui</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-ce35aa08d3c147f5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="估计结果依然类似，总之，以上各种结果表明，参加就业培训的ATE显著为正，不论是经济上还是统计上。"><a href="#估计结果依然类似，总之，以上各种结果表明，参加就业培训的ATE显著为正，不论是经济上还是统计上。" class="headerlink" title="估计结果依然类似，总之，以上各种结果表明，参加就业培训的ATE显著为正，不论是经济上还是统计上。"></a>估计结果依然类似，总之，以上各种结果表明，参加就业培训的ATE显著为正，不论是经济上还是统计上。</h4><h5 id="下面再进行马氏匹配，并使用Adabie-and-Imbens提供的异方差稳健标准误："><a href="#下面再进行马氏匹配，并使用Adabie-and-Imbens提供的异方差稳健标准误：" class="headerlink" title="下面再进行马氏匹配，并使用Adabie and Imbens提供的异方差稳健标准误："></a>下面再进行马氏匹配，并使用Adabie and Imbens提供的异方差稳健标准误：</h5><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psmatch2 t, outcome(re78) mahal(<span class="variable">$reduce</span>) <span class="keyword">n</span>(4) ai(4) ate</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8103632-7ff460cf7e4c99a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>马氏匹配也验证了上述的结论。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../25614/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          金融时间序列及其特征（一）：资产收益率
+        
+      </div>
+    </a>
+  
+  
+    <a href="../23333/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Stata14基本操作</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#倾向匹配得分可以通过下载psmatch2来实现："><span class="nav-text">倾向匹配得分可以通过下载psmatch2来实现：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#该命令的一般格式为："><span class="nav-text">该命令的一般格式为：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#psmatch2还有两个post-estimation-commands，分别用来检验匹配后的数据是否平衡，以及画图显示PSM的共同取值范围。"><span class="nav-text">psmatch2还有两个post-estimation commands，分别用来检验匹配后的数据是否平衡，以及画图显示PSM的共同取值范围。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下面将使用数据集ldw-exper-dta进行演示，该数据集包含以下变量：结果变量re78-1978年实际收入-、处理变量t（是否参加就业培训）、协变量age、educ、black、hisp、married、re74、re75、u74（1974年是否就业）、u75。"><span class="nav-text">下面将使用数据集ldw_exper.dta进行演示，该数据集包含以下变量：结果变量re78(1978年实际收入)、处理变量t（是否参加就业培训）、协变量age、educ、black、hisp、married、re74、re75、u74（1974年是否就业）、u75。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下面进行PSM"><span class="nav-text">下面进行PSM</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下面进行kNN匹配，并令k-4。"><span class="nav-text">下面进行kNN匹配，并令k=4。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下面进行卡尺内1-4匹配。为此首先计算pscore的标准差然后乘以0-25："><span class="nav-text">下面进行卡尺内1:4匹配。为此首先计算pscore的标准差然后乘以0.25：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下面进行半径卡尺匹配"><span class="nav-text">下面进行半径卡尺匹配</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下面进行核匹配（使用默认的核函数与带宽）"><span class="nav-text">下面进行核匹配（使用默认的核函数与带宽）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下面再进行局部线性回归（使用默认的核函数和带宽）"><span class="nav-text">下面再进行局部线性回归（使用默认的核函数和带宽）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下面再进行样条匹配（同样使用自助法计算标准误。"><span class="nav-text">下面再进行样条匹配（同样使用自助法计算标准误。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#估计结果依然类似，总之，以上各种结果表明，参加就业培训的ATE显著为正，不论是经济上还是统计上。"><span class="nav-text">估计结果依然类似，总之，以上各种结果表明，参加就业培训的ATE显著为正，不论是经济上还是统计上。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#下面再进行马氏匹配，并使用Adabie-and-Imbens提供的异方差稳健标准误："><span class="nav-text">下面再进行马氏匹配，并使用Adabie and Imbens提供的异方差稳健标准误：</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

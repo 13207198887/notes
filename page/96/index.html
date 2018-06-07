@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/96/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-post命令——事件研究"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/4021/">post命令——事件研究</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/4021/" class="article-date">
+	  <time datetime="2018-02-13T13:05:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line">clear</span><br><span class="line">cntrade <span class="number">000300</span>, index</span><br><span class="line">keep date rmt</span><br><span class="line">sort date</span><br><span class="line">save index.dta, replace</span><br><span class="line"></span><br><span class="line">clear</span><br><span class="line">cntrade <span class="number">2</span></span><br><span class="line">keep stkcd date rit</span><br><span class="line">sort date</span><br><span class="line">merge <span class="number">1</span>:<span class="number">1</span> date using index.dta</span><br><span class="line">drop <span class="keyword">if</span> _merge == <span class="number">2</span></span><br><span class="line">drop _merge</span><br><span class="line">order stkcd date rit rmt</span><br><span class="line">//获得数据后，我们需要构造一个相对的时间变量time，在事件日等于<span class="number">0</span>，事件前为<span class="number">-1</span>，<span class="number">-2</span>，<span class="number">-3</span>，···，<span class="number">-200</span>，事件后为<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>，······</span><br><span class="line">preserve</span><br><span class="line">local date = date(<span class="string">"2015-10-20"</span>, <span class="string">"YMD"</span>)</span><br><span class="line">keep <span class="keyword">if</span> date &lt; `date<span class="string">'</span></span><br><span class="line"><span class="string">gsort -date</span></span><br><span class="line"><span class="string">gen time = -_n</span></span><br><span class="line"><span class="string">keep if time &gt;= -200</span></span><br><span class="line"><span class="string">save pre_event.dta, replace</span></span><br><span class="line"><span class="string">restore</span></span><br><span class="line"><span class="string">local date = date("2015-10-20", "YMD")</span></span><br><span class="line"><span class="string">keep if date &gt;= `date'</span></span><br><span class="line">sort date</span><br><span class="line">gen time = _n - <span class="number">1</span></span><br><span class="line">keep <span class="keyword">if</span> time &lt;= <span class="number">10</span></span><br><span class="line">append using pre_event.dta</span><br><span class="line"></span><br><span class="line">qui reg rit rmt <span class="keyword">if</span> time &lt;= <span class="number">-10</span></span><br><span class="line">predict AR <span class="keyword">if</span> time &gt;= <span class="number">-3</span>, r</span><br><span class="line">keep <span class="keyword">if</span> time &gt;= <span class="number">-3</span></span><br><span class="line">sort time</span><br><span class="line">gen CAR = sum(AR)</span><br><span class="line"></span><br><span class="line">//下面就开始使用post命令啦：</span><br><span class="line">cap postclose event</span><br><span class="line">postfile event stkcd CAR1 CAR2 CAR3 CAR4 CAR5 CAR6 CAR7 CAR8 CAR9 CAR10 CAR11 CAR12 CAR13 CAR14 using 事件研究.dta, replace</span><br><span class="line">local stkcd = stkcd[<span class="number">1</span>]</span><br><span class="line">forvalues m = <span class="number">1</span> (<span class="number">1</span>) <span class="number">14</span> &#123;</span><br><span class="line">	local CAR`m<span class="string">' = 	CAR[`m'</span>]</span><br><span class="line">&#125;</span><br><span class="line">post event (`stkcd<span class="string">') (`CAR1'</span>) (`CAR2<span class="string">') (`CAR3'</span>) (`CAR4<span class="string">') (`CAR5'</span>) (`CAR6<span class="string">') (`CAR7'</span>) (`CAR8<span class="string">') (`CAR9'</span>) (CAR`<span class="number">10</span><span class="string">') (`CAR11'</span>) (`CAR12<span class="string">') (`CAR13'</span>) (`CAR14<span class="string">')</span></span><br><span class="line"><span class="string">postclose event</span></span><br><span class="line"><span class="string">use 事件研究.dta, clear</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">//多个事件的事件研究</span></span><br><span class="line"><span class="string">clear</span></span><br><span class="line"><span class="string">cntrade 000300, index</span></span><br><span class="line"><span class="string">keep date rmt</span></span><br><span class="line"><span class="string">sort date</span></span><br><span class="line"><span class="string">save index.dta, replace</span></span><br><span class="line"><span class="string">*事件研究</span></span><br><span class="line"><span class="string">clear</span></span><br><span class="line"><span class="string">input stkcd str10 Eventdate</span></span><br><span class="line"><span class="string">2 "2014-04-14"</span></span><br><span class="line"><span class="string">600900 "2015-04-14"</span></span><br><span class="line"><span class="string">28 "2016-04-14"</span></span><br><span class="line"><span class="string">600000 "2016-04-14"</span></span><br><span class="line"><span class="string">601898 "2016-04-14"</span></span><br><span class="line"><span class="string">601988 "2016-04-14"</span></span><br><span class="line"><span class="string">601666 "2016-04-14"</span></span><br><span class="line"><span class="string">end</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set matsize 500</span></span><br><span class="line"><span class="string">cap gen Eventdate1 = date(Eventdate, "YMD")</span></span><br><span class="line"><span class="string">drop Eventdate</span></span><br><span class="line"><span class="string">rename Eventdate1 Eventdate</span></span><br><span class="line"><span class="string">format Eventdate %dCY-N-D</span></span><br><span class="line"><span class="string">sort stkcd Eventdate</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">*Events Matrix</span></span><br><span class="line"><span class="string">local N = _N</span></span><br><span class="line"><span class="string">mkmat stkcd Eventdate, mat(event)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">*save the event into a matrix called event</span></span><br><span class="line"><span class="string">cap postclose event</span></span><br><span class="line"><span class="string">postfile event id stkcd CAR1 CAR2 CAR3 CAR4 CAR5 CAR6 CAR7 CAR8 CAR9 CAR10 CAR11 CAR12 CAR13 CAR14 using 事件研究.dta, replace</span></span><br><span class="line"><span class="string">forvalues i = 1 (1) `N'</span> &#123;</span><br><span class="line">	local date = scalar(event[`i<span class="string">', 2])</span></span><br><span class="line"><span class="string">	local stkcd = scalar(event[`i'</span>, <span class="number">1</span>])</span><br><span class="line">	di `stkcd<span class="string">'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">*计算个股收益率rit</span></span><br><span class="line"><span class="string">clear</span></span><br><span class="line"><span class="string">cntrade 2</span></span><br><span class="line"><span class="string">keep stkcd date rit</span></span><br><span class="line"><span class="string">sort date</span></span><br><span class="line"><span class="string">merge 1:1 date using index.dta</span></span><br><span class="line"><span class="string">drop if _merge == 2</span></span><br><span class="line"><span class="string">drop _merge</span></span><br><span class="line"><span class="string">order stkcd date rit rmt</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">preserve</span></span><br><span class="line"><span class="string">keep if date &lt; `date'</span></span><br><span class="line">gsort -date</span><br><span class="line">gen time = -_n</span><br><span class="line">keep <span class="keyword">if</span> time &gt;= <span class="number">-200</span></span><br><span class="line">save pre_event.dta, replace</span><br><span class="line">restore</span><br><span class="line"></span><br><span class="line">keep <span class="keyword">if</span> date &gt;= `date<span class="string">'</span></span><br><span class="line"><span class="string">sort date</span></span><br><span class="line"><span class="string">gen time = _n - 1</span></span><br><span class="line"><span class="string">keep if time &lt;= 10</span></span><br><span class="line"><span class="string">append using pre_event.dta</span></span><br><span class="line"><span class="string">qui reg rit rmt if time &lt;= -10</span></span><br><span class="line"><span class="string">predict AR if time &gt;= -3, r</span></span><br><span class="line"><span class="string">keep if time &gt;= -3</span></span><br><span class="line"><span class="string">sort time</span></span><br><span class="line"><span class="string">gen CAR = sum(AR)</span></span><br><span class="line"><span class="string">keep stkcd time CAR</span></span><br><span class="line"><span class="string">forvalues m = 1 (1) 14 &#123;</span></span><br><span class="line"><span class="string">	local CAR`m'</span> = CAR[`m<span class="string">']</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">post event (`i'</span>) (`stkcd<span class="string">') (`CAR1'</span>) (`CAR2<span class="string">') (`CAR3'</span>) (`CAR4<span class="string">') (`CAR5'</span>) (`CAR6<span class="string">') (`CAR7'</span>) (`CAR8<span class="string">') (`CAR9'</span>) (CAR`<span class="number">10</span><span class="string">') (`CAR11'</span>) (`CAR12<span class="string">') (`CAR13'</span>) (`CAR14<span class="string">')</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">postclose event</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">use 事件研究.dta, clear</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-使用mergemany命令横向合并多个文件"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/63239/">使用mergemany命令横向合并多个文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/63239/" class="article-date">
+	  <time datetime="2018-02-13T13:04:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">/*使用mergemany命令横向合并多个文件*/</span><br><span class="line">/*程振兴*/</span><br><span class="line">/*<span class="number">2017</span>/<span class="number">9</span>/<span class="number">2</span>*/</span><br><span class="line">	clear all</span><br><span class="line">	<span class="keyword">global</span> PATH <span class="string">"D:\Desktop\Stata笔记\财务报表"</span></span><br><span class="line">	cd $PATH</span><br><span class="line"></span><br><span class="line">//<span class="number">1</span>：列出全部文件名</span><br><span class="line">//语法：mergemany <span class="number">1</span>:<span class="number">1</span> filename1 filename2 ..., match(varlist) [options]</span><br><span class="line">	mergemany <span class="number">1</span>:<span class="number">1</span> 资产负债表 利润表 直接法现金流量表, match(stkcd year)</span><br><span class="line">//还可以通过增加saving(filename)选项来保存合并后的文件</span><br><span class="line">	mergemany <span class="number">1</span>:<span class="number">1</span> 资产负债表 利润表 直接法现金流量表, match(stkcd year) saving(财务报表)</span><br><span class="line"></span><br><span class="line">//<span class="number">2</span>：合并当前目录下的所有文件</span><br><span class="line">	clear all</span><br><span class="line">	<span class="keyword">global</span> PATH <span class="string">"D:\Desktop\Stata笔记\财务报表"</span></span><br><span class="line">	cd $PATH</span><br><span class="line">	mergemany <span class="number">1</span>:<span class="number">1</span> all, match(stkcd year) all saving(财务报表<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">//<span class="number">3</span>:使用文件名的数字后缀(文件名的前缀相同而后缀不同)</span><br><span class="line">	clear all</span><br><span class="line">	<span class="keyword">global</span> PATH <span class="string">"D:\Desktop\Stata笔记"</span></span><br><span class="line">	cd $PATH</span><br><span class="line"></span><br><span class="line">	mkdir auto</span><br><span class="line">	cd auto</span><br><span class="line">	webuse autosize</span><br><span class="line">	save auto1</span><br><span class="line">	webuse autoexpense</span><br><span class="line">	save auto2</span><br><span class="line">	webuse auto</span><br><span class="line">	save auto3</span><br><span class="line">	mergemany <span class="number">1</span>:<span class="number">1</span> auto, match(make) numerical(<span class="number">1</span>(<span class="number">1</span>)<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-蒙特卡洛模拟"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/42052/">蒙特卡洛模拟</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/42052/" class="article-date">
+	  <time datetime="2018-02-13T13:03:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">	dis mod(<span class="number">5</span>,<span class="number">3</span>) //<span class="number">5</span>除以<span class="number">3</span>的余数</span><br><span class="line"></span><br><span class="line">//线性同余法</span><br><span class="line">	clear</span><br><span class="line">	set more off</span><br><span class="line">	set obs <span class="number">1000</span></span><br><span class="line">	local m = <span class="number">9</span>^<span class="number">13</span><span class="number">-9</span></span><br><span class="line">	local a = <span class="number">7</span>^<span class="number">12</span><span class="number">-2</span></span><br><span class="line">	gen int y = <span class="number">1</span> <span class="keyword">if</span> _n == <span class="number">1</span></span><br><span class="line">	gen t = _n</span><br><span class="line">	replace y = mod(`a<span class="string">'*y[_n-1],`m'</span>) <span class="keyword">if</span> _n&gt;<span class="number">1</span></span><br><span class="line">	gen x = y/`m<span class="string">'</span></span><br><span class="line"><span class="string">	sum x</span></span><br><span class="line"><span class="string">	twoway scatter x t</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">//函数法</span></span><br><span class="line"><span class="string">	clear</span></span><br><span class="line"><span class="string">	set obs 1000</span></span><br><span class="line"><span class="string">	set seed 12345</span></span><br><span class="line"><span class="string">	gen x = runiform()</span></span><br><span class="line"><span class="string">	gen t = _n</span></span><br><span class="line"><span class="string">	sum x</span></span><br><span class="line"><span class="string">	twoway scatter x t</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">//生成[0,100]区间上的伪随机整数</span></span><br><span class="line"><span class="string">	clear</span></span><br><span class="line"><span class="string">	set obs 1000</span></span><br><span class="line"><span class="string">	gen a = int(uniform()*10^2)</span></span><br><span class="line"><span class="string">	sum a</span></span><br><span class="line"><span class="string">	gen t = _n</span></span><br><span class="line"><span class="string">	twoway scatter a t</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-用正则表达式揭开回车键的面纱"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/28354/">用正则表达式揭开回车键的面纱</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/28354/" class="article-date">
+	  <time datetime="2018-02-13T13:02:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">//用正则表达式揭开回车键的面纱</span><br><span class="line">//首先是下载<span class="number">600004</span>的年报</span><br><span class="line">clear</span><br><span class="line"><span class="keyword">global</span> ad  <span class="string">"http://www.sse.com.cn/disclosure/listedinfo/announcement/c/"</span></span><br><span class="line">forvalues date = <span class="number">0</span>/<span class="number">364</span>&#123;</span><br><span class="line">	local repdate: di %dCY-N-D mdy(<span class="number">1</span>,<span class="number">1</span>,<span class="number">2017</span>)+`date<span class="string">'</span></span><br><span class="line"><span class="string">	di "`repdate'</span><span class="string">"</span></span><br><span class="line"><span class="string">	cap copy "</span>$ad`repdate<span class="string">'/600004_2016_n.pdf" 600004_2016.pdf,replace</span></span><br><span class="line"><span class="string">	if _rc == 0&#123;</span></span><br><span class="line"><span class="string">			continue, break</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">//然后是通过其他工具将下载的pdf文件转为txt格式读入Stata</span></span><br><span class="line"><span class="string">infix strL v 1-20000 using 600004_2016.txt, clear</span></span><br><span class="line"><span class="string">drop if v == ""</span></span><br><span class="line"><span class="string">//文件出现了乱码，保存然后转码：</span></span><br><span class="line"><span class="string">save 600004_2016.dta, replace</span></span><br><span class="line"><span class="string">clear</span></span><br><span class="line"><span class="string">unicode encoding set gb18030</span></span><br><span class="line"><span class="string">unicode translate 600004_2016.dta,transutf8</span></span><br><span class="line"><span class="string">unicode erasebackups, badidea</span></span><br><span class="line"><span class="string">use 600004_2016.dta, clear</span></span><br><span class="line"><span class="string">//但是这样读取的一个问题是由于分行使得有的词被拆开了，为此我们使用fileread()函数把文本文档读入一个单元格内进行统计“合并”这个词的词频</span></span><br><span class="line"><span class="string">clear</span></span><br><span class="line"><span class="string">cap unicode encoding set gb18030</span></span><br><span class="line"><span class="string">cap unicode translate 600004_2016.txt,transutf8</span></span><br><span class="line"><span class="string">cap unicode erasebackups, badidea</span></span><br><span class="line"><span class="string">set obs 1</span></span><br><span class="line"><span class="string">gen v = fileread("600004_2016.txt")</span></span><br><span class="line"><span class="string">moss v, match("合并")</span></span><br><span class="line"><span class="string">list _count</span></span><br><span class="line"><span class="string">//下面先生成一个txt文件，然后读入</span></span><br><span class="line"><span class="string">tempname temp</span></span><br><span class="line"><span class="string">file open `temp'</span> using file.txt, text write replace</span><br><span class="line">file write `temp<span class="string">' "你好"_n</span></span><br><span class="line"><span class="string">file write `temp'</span> <span class="string">"世界"</span></span><br><span class="line">file close `temp<span class="string">'</span></span><br><span class="line"><span class="string">clear</span></span><br><span class="line"><span class="string">set obs 1</span></span><br><span class="line"><span class="string">gen v = fileread("file.txt")</span></span><br><span class="line"><span class="string">list</span></span><br><span class="line"><span class="string">//按道理这个字符的长度是四，我们来看一下Unicode字符长度</span></span><br><span class="line"><span class="string">di ustrlen(v) //结果是5，说明有一个字符是我们观察不到的</span></span><br><span class="line"><span class="string">//下面我们来了解一下回车符和换行符</span></span><br><span class="line"><span class="string">/*\r表示回车符，\n表示换行符, \r\n匹配一个“回车+换行”组合，Windows系统会把它们的组合用作文本行的结束标签。Mac系统只使用一个\r结束一个文本行。\r的英文是Carriage return，其使光标到行首；\n表示New line，其使光标下移一格*/</span></span><br><span class="line"><span class="string">//因此我们可以用正则表达式将这两个字符替换掉</span></span><br><span class="line"><span class="string">replace v = ustrregexra(v, "\r", "❤️")</span></span><br><span class="line"><span class="string">replace v = ustrregexra(v, "\n", "🐩")</span></span><br><span class="line"><span class="string">list //可见我的电脑里只有\n</span></span><br><span class="line"><span class="string">//再回到开头，我们只要把换行符替换成missing即可</span></span><br><span class="line"><span class="string">clear</span></span><br><span class="line"><span class="string">set obs 1</span></span><br><span class="line"><span class="string">gen v = fileread("600004_2016.txt")</span></span><br><span class="line"><span class="string">replace v = ustrregexra(v, "\r", "")</span></span><br><span class="line"><span class="string">moss v, match("合并")</span></span><br><span class="line"><span class="string">list _count //增加了两个</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-cmogram——断点绘图"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/62945/">cmogram——断点绘图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/62945/" class="article-date">
+	  <time datetime="2018-02-13T13:01:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">clear</span><br><span class="line">set obs <span class="number">100</span></span><br><span class="line">gen x = cond(_n &gt; <span class="number">50</span>, _n*runiform(<span class="number">2</span>,<span class="number">3</span>), _n*runiform(<span class="number">4</span>,<span class="number">5</span>))</span><br><span class="line">/*cond(x,a,b[,c])</span><br><span class="line">a <span class="keyword">if</span> x <span class="keyword">is</span> true <span class="keyword">and</span> nonmissing, b <span class="keyword">if</span> x <span class="keyword">is</span> false, <span class="keyword">and</span> c <span class="keyword">if</span> x <span class="keyword">is</span> missing; a <span class="keyword">if</span> c <span class="keyword">is</span> <span class="keyword">not</span> specified <span class="keyword">and</span> x evaluates to missing</span><br><span class="line">*/</span><br><span class="line">gen y = x^<span class="number">2</span> + x + <span class="number">10</span> + runiform(<span class="number">1</span>,<span class="number">40000</span>)</span><br><span class="line"><span class="keyword">global</span> b = x[<span class="number">50</span>]</span><br><span class="line">rd y x, z0($b) mbw(<span class="number">100</span>) graph //mbw设置床宽</span><br><span class="line"></span><br><span class="line">*一次线性拟合曲线</span><br><span class="line">cmogram y x <span class="keyword">if</span> x &gt; $b<span class="number">-20</span> &amp; x &lt; $b+<span class="number">20</span>, title(<span class="string">"断点回归"</span>) cut($b) scatter lineat($b) lfit histopts(bin(<span class="number">15</span>))</span><br><span class="line">*加上置信区间</span><br><span class="line">cmogram y x <span class="keyword">if</span> x &gt; $b<span class="number">-20</span> &amp; x &lt; $b+<span class="number">20</span>, title(<span class="string">"断点回归"</span>) cut($b) scatter lineat($b) lfitci histopts(bin(<span class="number">15</span>))</span><br><span class="line">*二次拟合</span><br><span class="line">cmogram y x <span class="keyword">if</span> x &gt; $b<span class="number">-20</span> &amp; x &lt; $b+<span class="number">20</span>, title(<span class="string">"断点回归"</span>) cut($b) scatter lineat($b) qfit histopts(bin(<span class="number">15</span>))</span><br><span class="line">*加上置信区间</span><br><span class="line">cmogram y x <span class="keyword">if</span> x &gt; $b<span class="number">-20</span> &amp; x &lt; $b+<span class="number">20</span>, title(<span class="string">"断点回归"</span>) cut($b) scatter lineat($b) qfitci histopts(bin(<span class="number">15</span>))</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../95/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../94/">94</a><a class="page-number" href="../95/">95</a><span class="page-number current">96</span><a class="page-number" href="../97/">97</a><a class="page-number" href="../98/">98</a><span class="space">&hellip;</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../97/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

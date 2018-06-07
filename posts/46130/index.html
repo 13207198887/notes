@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>tabplot | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Stata" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="12345* Stata&apos;s auto data:sysuse auto, cleartabplot rep78gre tabplot">
+<meta name="keywords" content="Stata">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tabplot">
+<meta property="og:url" content="http://www.czxa.top/posts/46130/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="12345* Stata&apos;s auto data:sysuse auto, cleartabplot rep78gre tabplot">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/tabplot.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/tabplot1.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/tabplot2.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/tabplot3.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/tabplot4.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/tabplot5.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/tabplot6.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/tabplot7.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/tabplot8.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/tabplot9.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/tabplot10.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/tabplot11.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/tabplot12.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/tabplot13.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/tabplot14.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/tabplot15.png">
+<meta property="og:updated_time" content="2018-02-13T09:53:10.398Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tabplot">
+<meta name="twitter:description" content="12345* Stata&apos;s auto data:sysuse auto, cleartabplot rep78gre tabplot">
+<meta name="twitter:image" content="https://github.com/czxa/Web_data_Source/raw/master/tabplot.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-tabplot" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      tabplot
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2018-02-04T09:07:23.000Z" itemprop="datePublished">2018-02-04</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* Stata<span class="string">'s auto data:</span></span><br><span class="line"><span class="string">sysuse auto, clear</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">tabplot rep78</span></span><br><span class="line"><span class="string">gre tabplot</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/tabplot.png" alt=""><br><a id="more"></a><br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tabplot rep78, showval</span><br><span class="line">gre tabplot1</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/tabplot1.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tabplot rep78, showval horizontal</span><br><span class="line">gre tabplot2</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/tabplot2.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tabplot <span class="keyword">for</span> rep78</span><br><span class="line">gre tabplot3</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/tabplot3.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tabplot <span class="keyword">for</span> rep78, showval</span><br><span class="line">gre tabplot4</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/tabplot4.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tabplot <span class="keyword">for</span> rep78, percent(foreign) showval(offset(<span class="number">0.05</span>) format(%<span class="number">2.1</span>f))</span><br><span class="line">gre tabplot5</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/tabplot5.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tabplot <span class="keyword">for</span> rep78, percent(foreign) sep(foreign) bar1(bcolor(red*<span class="number">0.5</span>)) bar2(bcolor(blue*<span class="number">0.5</span>)) showval(offset(<span class="number">0.05</span>) format(%<span class="number">2.1</span>f)) subtitle(% by origin)</span><br><span class="line">gre tabplot6</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/tabplot6.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tabplot rep78 mpg, xasis barw(<span class="number">1</span>) bstyle(histogram)</span><br><span class="line">gre tabplot7</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/tabplot7.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">egen mean = mean(mpg), by(rep78)</span><br><span class="line"></span><br><span class="line">gen rep78_2 = <span class="number">6</span> - rep78 - <span class="number">0.05</span></span><br><span class="line"></span><br><span class="line">bysort rep78 : gen byte tag = _n == <span class="number">1</span></span><br><span class="line">tabplot rep78 mpg, xasis barw(<span class="number">1</span>) bstyle(histogram) addplot(scatter rep78_2 mean <span class="keyword">if</span> tag)</span><br><span class="line">gre tabplot8</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/tabplot8.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">egen mean2 = mean(mpg), by(foreign rep78)</span><br><span class="line">egen tag = tag(foreign rep78)</span><br><span class="line">tabplot foreign rep78 <span class="keyword">if</span> tag [iw=mean2], showval(format(%<span class="number">2.1</span>f)) subtitle(mean miles per gallon)</span><br><span class="line">gre tabplot9</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/tabplot9.png" alt=""></p>
+<ul>
+<li>Stata’s radiologist assessment data:<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">webuse rate2, clear s</span><br><span class="line">tabplot rad?, percent showval</span><br><span class="line">gre tabplot10</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/tabplot10.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">count</span><br><span class="line">bysort rada radb : gen show = string(_N) + <span class="string">" "</span> + string(_N * <span class="number">100</span>/<span class="number">85</span>, <span class="string">"%2.1f"</span>) + <span class="string">"%"</span></span><br><span class="line">tabplot rad?, showval(show) subtitle("frequency and %")</span><br><span class="line">gre tabplot11</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/tabplot11.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tabplot rad?, showval(show) xsc(alt) subtitle("frequency and %", pos(7))</span><br><span class="line">gre tabplot12</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/tabplot12.png" alt=""></p>
+<ul>
+<li>Doran and Hodson (1975, p.259) gave these archaeological data:<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">clear</span><br><span class="line">input levels freqcores freqblanks freqtools</span><br><span class="line"> <span class="number">25</span> <span class="number">21</span> <span class="number">32</span> <span class="number">70</span></span><br><span class="line"> <span class="number">24</span> <span class="number">36</span> <span class="number">52</span> <span class="number">115</span></span><br><span class="line"> <span class="number">23</span> <span class="number">126</span> <span class="number">650</span> <span class="number">549</span></span><br><span class="line"> <span class="number">22</span> <span class="number">159</span> <span class="number">2342</span> <span class="number">1633</span></span><br><span class="line"> <span class="number">21</span> <span class="number">75</span> <span class="number">487</span> <span class="number">511</span></span><br><span class="line"> <span class="number">20</span> <span class="number">176</span> <span class="number">1090</span> <span class="number">912</span></span><br><span class="line"> <span class="number">19</span> <span class="number">132</span> <span class="number">713</span> <span class="number">578</span></span><br><span class="line"> <span class="number">18</span> <span class="number">46</span> <span class="number">374</span> <span class="number">266</span></span><br><span class="line"> <span class="number">17</span> <span class="number">550</span> <span class="number">6182</span> <span class="number">1541</span></span><br><span class="line"> <span class="number">16</span> <span class="number">76</span> <span class="number">846</span> <span class="number">349</span></span><br><span class="line"> <span class="number">15</span> <span class="number">17</span> <span class="number">182</span> <span class="number">51</span></span><br><span class="line"> <span class="number">14</span> <span class="number">4</span> <span class="number">51</span> <span class="number">14</span></span><br><span class="line"> <span class="number">13</span> <span class="number">29</span> <span class="number">228</span> <span class="number">130</span></span><br><span class="line"> <span class="number">12</span> <span class="number">135</span> <span class="number">2227</span> <span class="number">729</span></span><br><span class="line">end</span><br><span class="line">reshape long freq, i(levels) j(type) string</span><br><span class="line">tabplot levels type [w=freq], bfcolor(none) horizontal barw(<span class="number">1</span>) percent(levels) subtitle(% at each level) showval(offset(<span class="number">0.45</span>)) xsc(r(<span class="number">0.8</span> .))</span><br><span class="line">gre tabplot13</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/tabplot13.png" alt=""></p>
+<ul>
+<li>Greenacre (2007, p.42) gave these data from the Encuesta Nacional de la Salud (Spanish National Health Survey), 1997:</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">clear</span><br><span class="line">input byte(agegroup health) long freq</span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">243</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">789</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">167</span></span><br><span class="line"><span class="number">1</span> <span class="number">4</span> <span class="number">18</span></span><br><span class="line"><span class="number">1</span> <span class="number">5</span> <span class="number">6</span></span><br><span class="line"><span class="number">2</span> <span class="number">1</span> <span class="number">220</span></span><br><span class="line"><span class="number">2</span> <span class="number">2</span> <span class="number">809</span></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">164</span></span><br><span class="line"><span class="number">2</span> <span class="number">4</span> <span class="number">35</span></span><br><span class="line"><span class="number">2</span> <span class="number">5</span> <span class="number">6</span></span><br><span class="line"><span class="number">3</span> <span class="number">1</span> <span class="number">147</span></span><br><span class="line"><span class="number">3</span> <span class="number">2</span> <span class="number">658</span></span><br><span class="line"><span class="number">3</span> <span class="number">3</span> <span class="number">181</span></span><br><span class="line"><span class="number">3</span> <span class="number">4</span> <span class="number">41</span></span><br><span class="line"><span class="number">3</span> <span class="number">5</span> <span class="number">8</span></span><br><span class="line"><span class="number">4</span> <span class="number">1</span> <span class="number">90</span></span><br><span class="line"><span class="number">4</span> <span class="number">2</span> <span class="number">469</span></span><br><span class="line"><span class="number">4</span> <span class="number">3</span> <span class="number">236</span></span><br><span class="line"><span class="number">4</span> <span class="number">4</span> <span class="number">50</span></span><br><span class="line"><span class="number">4</span> <span class="number">5</span> <span class="number">16</span></span><br><span class="line"><span class="number">5</span> <span class="number">1</span> <span class="number">53</span></span><br><span class="line"><span class="number">5</span> <span class="number">2</span> <span class="number">414</span></span><br><span class="line"><span class="number">5</span> <span class="number">3</span> <span class="number">306</span></span><br><span class="line"><span class="number">5</span> <span class="number">4</span> <span class="number">106</span></span><br><span class="line"><span class="number">5</span> <span class="number">5</span> <span class="number">30</span></span><br><span class="line"><span class="number">6</span> <span class="number">1</span> <span class="number">44</span></span><br><span class="line"><span class="number">6</span> <span class="number">2</span> <span class="number">267</span></span><br><span class="line"><span class="number">6</span> <span class="number">3</span> <span class="number">284</span></span><br><span class="line"><span class="number">6</span> <span class="number">4</span> <span class="number">98</span></span><br><span class="line"><span class="number">6</span> <span class="number">5</span> <span class="number">20</span></span><br><span class="line"><span class="number">7</span> <span class="number">1</span> <span class="number">20</span></span><br><span class="line"><span class="number">7</span> <span class="number">2</span> <span class="number">136</span></span><br><span class="line"><span class="number">7</span> <span class="number">3</span> <span class="number">157</span></span><br><span class="line"><span class="number">7</span> <span class="number">4</span> <span class="number">66</span></span><br><span class="line"><span class="number">7</span> <span class="number">5</span> <span class="number">17</span></span><br><span class="line">end</span><br><span class="line">label values agegroup agegroup</span><br><span class="line">label def agegroup 1 "16-24", modify</span><br><span class="line">label def agegroup 2 "25-34", modify</span><br><span class="line">label def agegroup 3 "35-44", modify</span><br><span class="line">label def agegroup 4 "45-54", modify</span><br><span class="line">label def agegroup 5 "55-64", modify</span><br><span class="line">label def agegroup 6 "65-74", modify</span><br><span class="line">label def agegroup 7 "75+", modify</span><br><span class="line">label values health health</span><br><span class="line">label def health 1 "very good", modify</span><br><span class="line">label def health 2 "good", modify</span><br><span class="line">label def health 3 "regular", modify</span><br><span class="line">label def health 4 "bad", modify</span><br><span class="line">label def health 5 "very bad", modify</span><br><span class="line">tabplot health agegroup [w=freq] , percent(agegroup) showval subtitle(% of age group) xtitle(<span class="string">""</span>) bfcolor(none)</span><br><span class="line">gre tabplot14</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/tabplot14.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">clear</span><br><span class="line">input str6 sex str8 year str1 policy int freq</span><br><span class="line"><span class="string">"male"</span> <span class="string">"1"</span> <span class="string">"A"</span> <span class="number">175</span></span><br><span class="line"><span class="string">"male"</span> <span class="string">"1"</span> <span class="string">"B"</span> <span class="number">116</span></span><br><span class="line"><span class="string">"male"</span> <span class="string">"1"</span> <span class="string">"C"</span> <span class="number">131</span></span><br><span class="line"><span class="string">"male"</span> <span class="string">"1"</span> <span class="string">"D"</span> <span class="number">17</span></span><br><span class="line"><span class="string">"male"</span> <span class="string">"2"</span> <span class="string">"A"</span> <span class="number">160</span></span><br><span class="line"><span class="string">"male"</span> <span class="string">"2"</span> <span class="string">"B"</span> <span class="number">126</span></span><br><span class="line"><span class="string">"male"</span> <span class="string">"2"</span> <span class="string">"C"</span> <span class="number">135</span></span><br><span class="line"><span class="string">"male"</span> <span class="string">"2"</span> <span class="string">"D"</span> <span class="number">21</span></span><br><span class="line"><span class="string">"male"</span> <span class="string">"3"</span> <span class="string">"A"</span> <span class="number">132</span></span><br><span class="line"><span class="string">"male"</span> <span class="string">"3"</span> <span class="string">"B"</span> <span class="number">120</span></span><br><span class="line"><span class="string">"male"</span> <span class="string">"3"</span> <span class="string">"C"</span> <span class="number">154</span></span><br><span class="line"><span class="string">"male"</span> <span class="string">"3"</span> <span class="string">"D"</span> <span class="number">29</span></span><br><span class="line"><span class="string">"male"</span> <span class="string">"4"</span> <span class="string">"A"</span> <span class="number">145</span></span><br><span class="line"><span class="string">"male"</span> <span class="string">"4"</span> <span class="string">"B"</span> <span class="number">95</span></span><br><span class="line"><span class="string">"male"</span> <span class="string">"4"</span> <span class="string">"C"</span> <span class="number">185</span></span><br><span class="line"><span class="string">"male"</span> <span class="string">"4"</span> <span class="string">"D"</span> <span class="number">44</span></span><br><span class="line"><span class="string">"male"</span> <span class="string">"Graduate"</span> <span class="string">"A"</span> <span class="number">118</span></span><br><span class="line"><span class="string">"male"</span> <span class="string">"Graduate"</span> <span class="string">"B"</span> <span class="number">176</span></span><br><span class="line"><span class="string">"male"</span> <span class="string">"Graduate"</span> <span class="string">"C"</span> <span class="number">345</span></span><br><span class="line"><span class="string">"male"</span> <span class="string">"Graduate"</span> <span class="string">"D"</span> <span class="number">141</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"1"</span> <span class="string">"A"</span> <span class="number">13</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"1"</span> <span class="string">"B"</span> <span class="number">19</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"1"</span> <span class="string">"C"</span> <span class="number">40</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"1"</span> <span class="string">"D"</span> <span class="number">5</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"2"</span> <span class="string">"A"</span> <span class="number">5</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"2"</span> <span class="string">"B"</span> <span class="number">9</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"2"</span> <span class="string">"C"</span> <span class="number">33</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"2"</span> <span class="string">"D"</span> <span class="number">3</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"3"</span> <span class="string">"A"</span> <span class="number">22</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"3"</span> <span class="string">"B"</span> <span class="number">29</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"3"</span> <span class="string">"C"</span> <span class="number">110</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"3"</span> <span class="string">"D"</span> <span class="number">6</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"4"</span> <span class="string">"A"</span> <span class="number">12</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"4"</span> <span class="string">"B"</span> <span class="number">21</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"4"</span> <span class="string">"C"</span> <span class="number">58</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"4"</span> <span class="string">"D"</span> <span class="number">10</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"Graduate"</span> <span class="string">"A"</span> <span class="number">19</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"Graduate"</span> <span class="string">"B"</span> <span class="number">27</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"Graduate"</span> <span class="string">"C"</span> <span class="number">128</span></span><br><span class="line"><span class="string">"female"</span> <span class="string">"Graduate"</span> <span class="string">"D"</span> <span class="number">13</span></span><br><span class="line">end</span><br><span class="line">tabplot policy year [w=freq], by(sex, subtitle(% by sex <span class="keyword">and</span> year, place(w)) note(<span class="string">""</span>)) percent(sex year) showval</span><br><span class="line">gre tabplot15</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/tabplot15.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../36226/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          plotbeta——回归结果可视化
+        
+      </div>
+    </a>
+  
+  
+    <a href="../1467/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">sssplot</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav">无</ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

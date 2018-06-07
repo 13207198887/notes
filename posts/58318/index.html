@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>r语言中的数据长宽变换 | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="R" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="先生成一些模拟数据1234567891011121314151617181920&amp;gt; library(data.table)&amp;gt; set.seed(123)&amp;gt; market &amp;lt;- data.table(stkcd = 1:100,+        type = sample(c(0,1), 100, replace = TRUE),+        industry = sam">
+<meta name="keywords" content="R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R语言中的数据长宽变换">
+<meta property="og:url" content="http://www.czxa.top/posts/58318/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="先生成一些模拟数据1234567891011121314151617181920&amp;gt; library(data.table)&amp;gt; set.seed(123)&amp;gt; market &amp;lt;- data.table(stkcd = 1:100,+        type = sample(c(0,1), 100, replace = TRUE),+        industry = sam">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-16T09:16:51.659Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R语言中的数据长宽变换">
+<meta name="twitter:description" content="先生成一些模拟数据1234567891011121314151617181920&amp;gt; library(data.table)&amp;gt; set.seed(123)&amp;gt; market &amp;lt;- data.table(stkcd = 1:100,+        type = sample(c(0,1), 100, replace = TRUE),+        industry = sam">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-R语言中的数据长宽变换" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      R语言中的数据长宽变换
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2018-02-16T07:07:23.000Z" itemprop="datePublished">2018-02-16</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/R包/">R包</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="先生成一些模拟数据"><a href="#先生成一些模拟数据" class="headerlink" title="先生成一些模拟数据"></a>先生成一些模拟数据</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">library</span>(data.table)</span><br><span class="line">&gt; set.seed(<span class="number">123</span>)</span><br><span class="line">&gt; market &lt;- data.table(stkcd = <span class="number">1</span>:<span class="number">100</span>,</span><br><span class="line">+        type = sample(c(<span class="number">0</span>,<span class="number">1</span>), <span class="number">100</span>, replace = <span class="literal">TRUE</span>),</span><br><span class="line">+        industry = sample(letters, <span class="number">100</span>, replace = <span class="literal">TRUE</span>),</span><br><span class="line">+        roa2013 = runif(<span class="number">100</span>, min = <span class="number">0</span>, max = <span class="number">1</span>),</span><br><span class="line">+        roa2014 = runif(<span class="number">100</span>, min = <span class="number">0</span>, max = <span class="number">1</span>),</span><br><span class="line">+        roa2015 = runif(<span class="number">100</span>, min = <span class="number">0</span>, max = <span class="number">1</span>),</span><br><span class="line">+        lev2013 = runif(<span class="number">100</span>, min = <span class="number">0</span>, max = <span class="number">1</span>),</span><br><span class="line">+        lev2014 = runif(<span class="number">100</span>, min = <span class="number">0</span>, max = <span class="number">1</span>),</span><br><span class="line">+        lev2015 = runif(<span class="number">100</span>, min = <span class="number">0</span>, max = <span class="number">1</span>)</span><br><span class="line">+        )</span><br><span class="line">&gt; head(market)</span><br><span class="line">   stkcd type industry   roa2013     roa2014   roa2015    lev2013   lev2014    lev2015</span><br><span class="line"><span class="number">1</span>:     <span class="number">1</span>    <span class="number">0</span>        p <span class="number">0.2387260</span> <span class="number">0.784575267</span> <span class="number">0.9860543</span> <span class="number">0.35360608</span> <span class="number">0.2372297</span> <span class="number">0.84493354</span></span><br><span class="line"><span class="number">2</span>:     <span class="number">2</span>    <span class="number">1</span>        i <span class="number">0.9623589</span> <span class="number">0.009429905</span> <span class="number">0.1370675</span> <span class="number">0.36644144</span> <span class="number">0.6864904</span> <span class="number">0.26013247</span></span><br><span class="line"><span class="number">3</span>:     <span class="number">3</span>    <span class="number">0</span>        m <span class="number">0.6013657</span> <span class="number">0.779065883</span> <span class="number">0.9053096</span> <span class="number">0.28710013</span> <span class="number">0.2258184</span> <span class="number">0.02314449</span></span><br><span class="line"><span class="number">4</span>:     <span class="number">4</span>    <span class="number">1</span>        y <span class="number">0.5150297</span> <span class="number">0.729390652</span> <span class="number">0.5763018</span> <span class="number">0.07997291</span> <span class="number">0.3184946</span> <span class="number">0.86239954</span></span><br><span class="line"><span class="number">5</span>:     <span class="number">5</span>    <span class="number">1</span>        m <span class="number">0.4025733</span> <span class="number">0.630131853</span> <span class="number">0.3954489</span> <span class="number">0.36545427</span> <span class="number">0.1739838</span> <span class="number">0.33458796</span></span><br><span class="line"><span class="number">6</span>:     <span class="number">6</span>    <span class="number">0</span>        x <span class="number">0.8802465</span> <span class="number">0.480910830</span> <span class="number">0.4498025</span> <span class="number">0.17801381</span> <span class="number">0.8014296</span> <span class="number">0.63178887</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="长变宽"><a href="#长变宽" class="headerlink" title="长变宽"></a>长变宽</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; long &lt;- melt(market, measure = patterns(<span class="string">"^roa"</span>, <span class="string">"^lev"</span>), value.name = c(<span class="string">"roa"</span>, <span class="string">"lev"</span>))</span><br><span class="line">&gt; long[, <span class="string">"year"</span>:=as.integer(variable)+<span class="number">2012</span>][, <span class="string">"variable"</span>:=<span class="literal">NULL</span>]</span><br><span class="line">&gt; setorder(long, stkcd, year)</span><br><span class="line">&gt; head(long)</span><br><span class="line">   stkcd type industry         roa       lev year</span><br><span class="line"><span class="number">1</span>:     <span class="number">1</span>    <span class="number">0</span>        p <span class="number">0.238726027</span> <span class="number">0.3536061</span> <span class="number">2013</span></span><br><span class="line"><span class="number">2</span>:     <span class="number">1</span>    <span class="number">0</span>        p <span class="number">0.784575267</span> <span class="number">0.2372297</span> <span class="number">2014</span></span><br><span class="line"><span class="number">3</span>:     <span class="number">1</span>    <span class="number">0</span>        p <span class="number">0.986054297</span> <span class="number">0.8449335</span> <span class="number">2015</span></span><br><span class="line"><span class="number">4</span>:     <span class="number">2</span>    <span class="number">1</span>        i <span class="number">0.962358936</span> <span class="number">0.3664414</span> <span class="number">2013</span></span><br><span class="line"><span class="number">5</span>:     <span class="number">2</span>    <span class="number">1</span>        i <span class="number">0.009429905</span> <span class="number">0.6864904</span> <span class="number">2014</span></span><br><span class="line"><span class="number">6</span>:     <span class="number">2</span>    <span class="number">1</span>        i <span class="number">0.137067471</span> <span class="number">0.2601325</span> <span class="number">2015</span></span><br></pre></td></tr></table></figure>
+<h3 id="上面的方法采用正则表达式来匹配变量，此外上述把变换后的因子变量variable改成来数值型变量year。否侧转化的结果就是下面的样子了："><a href="#上面的方法采用正则表达式来匹配变量，此外上述把变换后的因子变量variable改成来数值型变量year。否侧转化的结果就是下面的样子了：" class="headerlink" title="上面的方法采用正则表达式来匹配变量，此外上述把变换后的因子变量variable改成来数值型变量year。否侧转化的结果就是下面的样子了："></a>上面的方法采用正则表达式来匹配变量，此外上述把变换后的因子变量variable改成来数值型变量year。否侧转化的结果就是下面的样子了：</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt; dta &lt;- melt(market, measure = patterns(<span class="string">"^roa"</span>, <span class="string">"^lev"</span>), value.name = c(<span class="string">"roa"</span>, <span class="string">"lev"</span>))</span><br><span class="line">&gt; dta</span><br><span class="line">     stkcd type industry variable        roa        lev</span><br><span class="line">  <span class="number">1</span>:     <span class="number">1</span>    <span class="number">0</span>        p        <span class="number">1</span> <span class="number">0.23872603</span> <span class="number">0.35360608</span></span><br><span class="line">  <span class="number">2</span>:     <span class="number">2</span>    <span class="number">1</span>        i        <span class="number">1</span> <span class="number">0.96235894</span> <span class="number">0.36644144</span></span><br><span class="line">  <span class="number">3</span>:     <span class="number">3</span>    <span class="number">0</span>        m        <span class="number">1</span> <span class="number">0.60136573</span> <span class="number">0.28710013</span></span><br><span class="line">  <span class="number">4</span>:     <span class="number">4</span>    <span class="number">1</span>        y        <span class="number">1</span> <span class="number">0.51502973</span> <span class="number">0.07997291</span></span><br><span class="line">  <span class="number">5</span>:     <span class="number">5</span>    <span class="number">1</span>        m        <span class="number">1</span> <span class="number">0.40257334</span> <span class="number">0.36545427</span></span><br><span class="line"> ---                                                   </span><br><span class="line"><span class="number">296</span>:    <span class="number">96</span>    <span class="number">0</span>        m        <span class="number">3</span> <span class="number">0.99294402</span> <span class="number">0.40763066</span></span><br><span class="line"><span class="number">297</span>:    <span class="number">97</span>    <span class="number">1</span>        k        <span class="number">3</span> <span class="number">0.25309899</span> <span class="number">0.10371157</span></span><br><span class="line"><span class="number">298</span>:    <span class="number">98</span>    <span class="number">0</span>        r        <span class="number">3</span> <span class="number">0.04953844</span> <span class="number">0.28056517</span></span><br><span class="line"><span class="number">299</span>:    <span class="number">99</span>    <span class="number">0</span>        d        <span class="number">3</span> <span class="number">0.68632495</span> <span class="number">0.36146622</span></span><br><span class="line"><span class="number">300</span>:   <span class="number">100</span>    <span class="number">1</span>        o        <span class="number">3</span> <span class="number">0.78692735</span> <span class="number">0.25924484</span></span><br><span class="line">&gt; class(dta[, variable])</span><br><span class="line">[<span class="number">1</span>] <span class="string">"factor"</span></span><br></pre></td></tr></table></figure>
+<h3 id="另外一种稍微麻烦点的方法"><a href="#另外一种稍微麻烦点的方法" class="headerlink" title="另外一种稍微麻烦点的方法"></a>另外一种稍微麻烦点的方法</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; A = paste(<span class="string">"roa"</span>, <span class="number">2013</span>:<span class="number">2015</span>, sep = <span class="string">""</span>)</span><br><span class="line">&gt; B = paste(<span class="string">"lev"</span>, <span class="number">2013</span>:<span class="number">2015</span>, sep = <span class="string">""</span>)</span><br><span class="line">&gt; long = melt(market, measure = list(A, B), value.name = c(<span class="string">"roa"</span>, <span class="string">"lev"</span>))</span><br><span class="line">&gt; long[, <span class="string">"year"</span>:= as.integer(variable)+<span class="number">2012</span>][, <span class="string">"variable"</span>:=<span class="literal">NULL</span>]</span><br><span class="line">&gt; setorder(long, stkcd, year)</span><br><span class="line">&gt; head(long)</span><br><span class="line">   stkcd type industry         roa       lev year</span><br><span class="line"><span class="number">1</span>:     <span class="number">1</span>    <span class="number">0</span>        p <span class="number">0.238726027</span> <span class="number">0.3536061</span> <span class="number">2013</span></span><br><span class="line"><span class="number">2</span>:     <span class="number">1</span>    <span class="number">0</span>        p <span class="number">0.784575267</span> <span class="number">0.2372297</span> <span class="number">2014</span></span><br><span class="line"><span class="number">3</span>:     <span class="number">1</span>    <span class="number">0</span>        p <span class="number">0.986054297</span> <span class="number">0.8449335</span> <span class="number">2015</span></span><br><span class="line"><span class="number">4</span>:     <span class="number">2</span>    <span class="number">1</span>        i <span class="number">0.962358936</span> <span class="number">0.3664414</span> <span class="number">2013</span></span><br><span class="line"><span class="number">5</span>:     <span class="number">2</span>    <span class="number">1</span>        i <span class="number">0.009429905</span> <span class="number">0.6864904</span> <span class="number">2014</span></span><br><span class="line"><span class="number">6</span>:     <span class="number">2</span>    <span class="number">1</span>        i <span class="number">0.137067471</span> <span class="number">0.2601325</span> <span class="number">2015</span></span><br></pre></td></tr></table></figure>
+<h3 id="宽变长"><a href="#宽变长" class="headerlink" title="宽变长"></a>宽变长</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; short &lt;- dcast(long, stkcd+type+industry~year, value.var = c(<span class="string">"roa"</span>, <span class="string">"lev"</span>))</span><br><span class="line">&gt; head(short)</span><br><span class="line">   stkcd type industry  roa_2013    roa_2014  roa_2015   lev_2013  lev_2014   lev_2015</span><br><span class="line"><span class="number">1</span>:     <span class="number">1</span>    <span class="number">0</span>        p <span class="number">0.2387260</span> <span class="number">0.784575267</span> <span class="number">0.9860543</span> <span class="number">0.35360608</span> <span class="number">0.2372297</span> <span class="number">0.84493354</span></span><br><span class="line"><span class="number">2</span>:     <span class="number">2</span>    <span class="number">1</span>        i <span class="number">0.9623589</span> <span class="number">0.009429905</span> <span class="number">0.1370675</span> <span class="number">0.36644144</span> <span class="number">0.6864904</span> <span class="number">0.26013247</span></span><br><span class="line"><span class="number">3</span>:     <span class="number">3</span>    <span class="number">0</span>        m <span class="number">0.6013657</span> <span class="number">0.779065883</span> <span class="number">0.9053096</span> <span class="number">0.28710013</span> <span class="number">0.2258184</span> <span class="number">0.02314449</span></span><br><span class="line"><span class="number">4</span>:     <span class="number">4</span>    <span class="number">1</span>        y <span class="number">0.5150297</span> <span class="number">0.729390652</span> <span class="number">0.5763018</span> <span class="number">0.07997291</span> <span class="number">0.3184946</span> <span class="number">0.86239954</span></span><br><span class="line"><span class="number">5</span>:     <span class="number">5</span>    <span class="number">1</span>        m <span class="number">0.4025733</span> <span class="number">0.630131853</span> <span class="number">0.3954489</span> <span class="number">0.36545427</span> <span class="number">0.1739838</span> <span class="number">0.33458796</span></span><br><span class="line"><span class="number">6</span>:     <span class="number">6</span>    <span class="number">0</span>        x <span class="number">0.8802465</span> <span class="number">0.480910830</span> <span class="number">0.4498025</span> <span class="number">0.17801381</span> <span class="number">0.8014296</span> <span class="number">0.63178887</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/R/">R</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../11995/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          R语言-绘制不等宽柱形图
+        
+      </div>
+    </a>
+  
+  
+    <a href="../31952/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">创建和控制点的标签</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#先生成一些模拟数据"><span class="nav-text">先生成一些模拟数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#长变宽"><span class="nav-text">长变宽</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上面的方法采用正则表达式来匹配变量，此外上述把变换后的因子变量variable改成来数值型变量year。否侧转化的结果就是下面的样子了："><span class="nav-text">上面的方法采用正则表达式来匹配变量，此外上述把变换后的因子变量variable改成来数值型变量year。否侧转化的结果就是下面的样子了：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#另外一种稍微麻烦点的方法"><span class="nav-text">另外一种稍微麻烦点的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宽变长"><span class="nav-text">宽变长</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

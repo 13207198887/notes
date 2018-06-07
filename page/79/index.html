@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/79/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-esttab命令输出边际效用"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/49443/">esttab命令输出边际效用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/49443/" class="article-date">
+	  <time datetime="2018-02-21T17:03:23.000Z" itemprop="datePublished">2018-02-22</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">//esttab命令输出边际效用</span><br><span class="line">clear all</span><br><span class="line">set more off</span><br><span class="line">cd ~/Desktop/Stata笔记</span><br><span class="line"></span><br><span class="line">//首先我们做一个logit回归</span><br><span class="line">webuse lbw</span><br><span class="line">logit low age lwt i.race smoke ptl ht ui</span><br><span class="line">//然后计算边际效应，使用margin命令。margin命令可以估计指定协变量的边际效应并将其以表格的形式显示，语法：margins [marginlist] [<span class="keyword">if</span>] [<span class="keyword">in</span>] [weight] [,response_options options].</span><br><span class="line">//where marginlist <span class="keyword">is</span> a list of factor variables <span class="keyword">or</span> interactions that appear <span class="keyword">in</span> the current estimation results. The variables may be typed <span class="keyword">with</span> <span class="keyword">or</span> without the i. prefix.</span><br><span class="line"></span><br><span class="line">margins race</span><br><span class="line"></span><br><span class="line">//margins 命令非常强大，但也复杂，参数非常多。我们可以使用dydx(varlist)估计变量的边际效应；eyex(varlist)估计变量的弹性；dyex(varlist)来估计变量的半弹性（dy/d(lnx)）；eydx(varlist)估计变量的半弹性（d(lny)/dx）</span><br><span class="line">//此外，在求边际效应时，我们也可以使用at()选项，指定在某种特定情况下，如指定协变量特定值来求解边际效应。比如：</span><br><span class="line">margins, dydx(smoke) at(age = <span class="number">20</span>)</span><br><span class="line">//over(varlist)用来计算在varlist每一值的情况下求解边际效应：</span><br><span class="line">margins, dydx(smoke) over(race)</span><br><span class="line"></span><br><span class="line">//输出结果到word中：estpost命令</span><br><span class="line">//我们使用命令magins, dydx(*)来求上面的logit模型的所有的变量的边际效应并将边际效应的结果输出：</span><br><span class="line">estpost margins, dydx(*)</span><br><span class="line">esttab using margins.rtf, cell(<span class="string">"b(star fmt(3)) t"</span>) pr2 replace compress nogap star(* <span class="number">0.10</span> ** <span class="number">0.05</span> *** <span class="number">0.01</span>) title(<span class="string">"Marginal Effect"</span>)</span><br><span class="line"></span><br><span class="line">//在实际中，也许我们会想将许多个边际效应结果放在一个表格里。此时我们需要结合eststo命令。</span><br><span class="line">clear</span><br><span class="line">set more off</span><br><span class="line">webuse lbw</span><br><span class="line">logit low age lwt i.race smoke ptl ht ui</span><br><span class="line">eststo: estpost margins, dydx(race)</span><br><span class="line">logit low age lwt i.race smoke ptl ht ui</span><br><span class="line">eststo: estpost margins, dydx(race age)</span><br><span class="line">logit low age lwt i.race smoke ptl ht ui</span><br><span class="line">eststo: estpost margins, dydx(*)</span><br><span class="line">esttab est1 est2 est3 using margins1.rtf, cell(<span class="string">"b(star fmt(3))"</span>) pr2 replace compress nogap star(* <span class="number">0.10</span> ** <span class="number">0.05</span> *** <span class="number">0.01</span>) title(<span class="string">"Marginal Effect"</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-esttab命令输出相关系数到rtf文档"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/52903/">esttab命令输出相关系数到rtf文档</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/52903/" class="article-date">
+	  <time datetime="2018-02-21T17:03:23.000Z" itemprop="datePublished">2018-02-22</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//esttab命令输出相关系数到rtf文档</span><br><span class="line">//esttab&amp;estpost命令输出相关系数表</span><br><span class="line">//理论上e()中储存的估计结果都可以使用esttab命令输出的，但需要一个命令将储存在e()中的结果传输到esttab里面，这就是estpost命令</span><br><span class="line">clear all</span><br><span class="line">set more off</span><br><span class="line">sysuse auto, clear</span><br><span class="line">estpost correlate price weight length, matrix</span><br><span class="line">esttab .,<span class="keyword">not</span> unstack compress noobs replace</span><br><span class="line">esttab using corr.rtf,<span class="keyword">not</span> unstack compress noobs replace</span><br><span class="line">/*</span><br><span class="line">matrix: 输出两两之间的相关系数</span><br><span class="line"><span class="keyword">not</span>: 表示不显示t统计量</span><br><span class="line">unstack: 可以使输出的结果变成我们常见的下三角矩阵的相关系数表输出形式</span><br><span class="line">compress：压缩</span><br><span class="line">noobs：表示不显示观测值的数量</span><br><span class="line">.: 表示输出当前的储存结果</span><br><span class="line">*/</span><br><span class="line">//另外还可以配合eststo命令，实现利用esttab同时导出分组估计结果，具体示例如下：</span><br><span class="line">sysuse auto,clear</span><br><span class="line">cap eststo clear</span><br><span class="line">bysort foreign: eststo: estpost correlate price weight length, matrix</span><br><span class="line">esttab est1 est2, <span class="keyword">not</span> unstack compress noobs</span><br><span class="line"></span><br><span class="line">//相关系数表导入rtf文档：</span><br><span class="line">esttab est1 est2 using corr.rtf, unstack <span class="keyword">not</span> noobs compress replace star(* <span class="number">0.05</span> ** <span class="number">0.01</span>) b(%<span class="number">8.3</span>f)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-蒲松投针"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/15193/">蒲松投针</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/15193/" class="article-date">
+	  <time datetime="2018-02-21T17:02:23.000Z" itemprop="datePublished">2018-02-22</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line">/*利用蒲松投针试验计算圆周率*/</span><br><span class="line">	clear</span><br><span class="line">	set more off</span><br><span class="line">	set obs <span class="number">1000000</span></span><br><span class="line">	gen y = uniform()*<span class="number">100</span></span><br><span class="line">	gen theta = uniform()*c(pi)</span><br><span class="line">	gen d = min(mod(y,<span class="number">1</span>), <span class="number">1</span>-mod(y,<span class="number">1</span>))</span><br><span class="line">	gen sin = <span class="number">0.5</span>*sin(theta)</span><br><span class="line">	gen hit = (d &lt;= sin)</span><br><span class="line">	sum hit</span><br><span class="line">	local temp = r(mean)</span><br><span class="line">	di `temp<span class="string">'</span></span><br><span class="line"><span class="string">	local pi = 2/`temp'</span></span><br><span class="line">	di <span class="string">"Pi = `pi'"</span></span><br><span class="line">//上面的模拟程序存在的问题是使用了三角函数，因此有循环论证的嫌疑，下面我们来进行改进：</span><br><span class="line">	clear all</span><br><span class="line">	set more off</span><br><span class="line">	set seed <span class="number">2345</span></span><br><span class="line">	set obs <span class="number">1000000</span></span><br><span class="line">	gen y0 = uniform()*<span class="number">100</span></span><br><span class="line">	gen x0 = uniform()*<span class="number">100</span></span><br><span class="line">	gen y2 = uniform()*<span class="number">100</span></span><br><span class="line">	gen x2 = uniform()*<span class="number">100</span></span><br><span class="line">	gen x1 = x0 + <span class="number">1</span>/sqrt((x2-x0)^<span class="number">2</span>+(y2-y0)^<span class="number">2</span>)*(x2-x0)</span><br><span class="line">	gen y1 = y0 + <span class="number">1</span>/sqrt((x2-x0)^<span class="number">2</span>+(y2-y0)^<span class="number">2</span>)*(y2-y0)</span><br><span class="line">	gen hit = (int(y0)~=int(y1))</span><br><span class="line">	sum hit</span><br><span class="line">	local temp = r(mean)</span><br><span class="line">	di `temp<span class="string">'</span></span><br><span class="line"><span class="string">	local pi = 2/`temp'</span></span><br><span class="line">	disp <span class="string">"Pi = `pi'"</span></span><br><span class="line"></span><br><span class="line">//如果上面的程序正确，<span class="number">100</span>万次模拟应该可以给出比较准确的pi值，但是结果<span class="number">3.14535</span>显然和pi的真实值有一定的差距。因此我们有理由怀疑以上程序的正确性。是事实上，这一误差的根源在于我们设定的方式不能给出theta的一个均匀分布。笛卡尔坐标系上的均匀分布对应于极坐标系却并非均匀分布。我们再次改进程序：</span><br><span class="line">	clear all</span><br><span class="line">	set more off</span><br><span class="line">	set seed <span class="number">6789</span></span><br><span class="line">	set obs <span class="number">20000000</span></span><br><span class="line">	gen y0 = uniform()</span><br><span class="line">	gen x0 = uniform()</span><br><span class="line">	keep <span class="keyword">if</span> y0^<span class="number">2</span> + x0^<span class="number">2</span> &lt;= <span class="number">1</span></span><br><span class="line">	keep <span class="keyword">if</span> _n &lt;= <span class="number">10000000</span></span><br><span class="line">	gen x1 = uniform()*<span class="number">100</span></span><br><span class="line">	gen y1 = uniform()*<span class="number">100</span></span><br><span class="line">	gen x2 = x1 + x0/sqrt(x0^<span class="number">2</span> + y0^<span class="number">2</span>)</span><br><span class="line">	gen y2 = y1 + y0/sqrt(x0^<span class="number">2</span> + y0^<span class="number">2</span>)</span><br><span class="line">	gen hit = (int(y1)~=int(y2))</span><br><span class="line">	sum hit</span><br><span class="line">	local temp = r(mean)</span><br><span class="line">	local pi = <span class="number">2</span>/`temp<span class="string">'</span></span><br><span class="line"><span class="string">	di "Pi = `pi'</span><span class="string">"</span></span><br><span class="line"><span class="string">/*上面程序一千万次的模拟结果为3.1427，精确度有一定提升，下面我们再重复进行多次模拟</span></span><br><span class="line"><span class="string">simulate命令的格式为：</span></span><br><span class="line"><span class="string">simulate [exp_list], reps(#) [options]: command</span></span><br><span class="line"><span class="string">* exp_list: 执行完冒号后面的命令后，Stata要计算的返回值是什么，如果没有指定，则使用缺省的返回值，也就是计算所有的数值型返回值；</span></span><br><span class="line"><span class="string">* reps(#)：设定simulate执行冒号后面命令的次数*/</span></span><br><span class="line"><span class="string">	clear all</span></span><br><span class="line"><span class="string">	set more off</span></span><br><span class="line"><span class="string">	sysuse auto, clear</span></span><br><span class="line"><span class="string">	simulate, reps(100): sum mpg</span></span><br><span class="line"><span class="string">	sum</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">//多次蒲松投针实验</span></span><br><span class="line"><span class="string">	clear all</span></span><br><span class="line"><span class="string">	set more off</span></span><br><span class="line"><span class="string">	cap program drop buffon //如果内存中已经定义了buffon，则将这一子程序删除</span></span><br><span class="line"><span class="string">	program define buffon, rclass</span></span><br><span class="line"><span class="string">		version 14.2</span></span><br><span class="line"><span class="string">		syntax[, obs(integer 1000), grade(int 100)]</span></span><br><span class="line"><span class="string">		drop _all</span></span><br><span class="line"><span class="string">		local obs2 = int(`obs'*1.5)</span></span><br><span class="line"><span class="string">		set obs `obs2'</span></span><br><span class="line"><span class="string">		tempvar x0 y0 x1 y1 x2 y2</span></span><br><span class="line"><span class="string">		gen `x0' = uniform()</span></span><br><span class="line"><span class="string">		gen `y0' = uniform()</span></span><br><span class="line"><span class="string">		keep if `x0'^2 + `y0'^2 &lt;= 1</span></span><br><span class="line"><span class="string">		keep if _n &lt;= `obs'</span></span><br><span class="line"><span class="string">		gen `x1' = uniform()*100</span></span><br><span class="line"><span class="string">		gen `y1' = uniform()*100</span></span><br><span class="line"><span class="string">		gen `x2' = `x1' + `x0'/sqrt(`x0'^2 + `y0'^2)</span></span><br><span class="line"><span class="string">		gen `y2' = `y1' + `y0'/sqrt(`x0'^2 + `y0'^2)</span></span><br><span class="line"><span class="string">		gen hit = (int(`x1') ~= int(`x2'))</span></span><br><span class="line"><span class="string">		sum hit</span></span><br><span class="line"><span class="string">		local temp = r(mean)</span></span><br><span class="line"><span class="string">		local pi = 2/`temp'</span></span><br><span class="line"><span class="string">		return scalar pi = `pi'</span></span><br><span class="line"><span class="string">	end</span></span><br><span class="line"><span class="string">	simulate pi = r(pi), reps(1000): buffon, obs(1000000)</span></span><br><span class="line"><span class="string">	di "</span>Pi = `pi<span class="string">'"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">//方圆鱼缸实验</span></span><br><span class="line"><span class="string">	clear all</span></span><br><span class="line"><span class="string">	set more off</span></span><br><span class="line"><span class="string">	set seed 34567</span></span><br><span class="line"><span class="string">	set obs 1000000</span></span><br><span class="line"><span class="string">	gen x = uniform()*2-1</span></span><br><span class="line"><span class="string">	gen y = uniform()*2-1</span></span><br><span class="line"><span class="string">	gen inside = (x^2+y^2&lt;=1)</span></span><br><span class="line"><span class="string">	sum inside</span></span><br><span class="line"><span class="string">	local temp = r(mean)</span></span><br><span class="line"><span class="string">	local pi = 4*`temp'</span></span><br><span class="line">	di <span class="string">"Pi = `pi'"</span></span><br><span class="line">//多次方圆鱼缸实验</span><br><span class="line">	clear all</span><br><span class="line">	set more off</span><br><span class="line">	cap program drop circle_square</span><br><span class="line">	program define circle_square, rclass</span><br><span class="line">		version <span class="number">14.2</span></span><br><span class="line">		syntax[, obs(integer <span class="number">1000</span>)]</span><br><span class="line">		drop _all</span><br><span class="line">		set obs `obs<span class="string">'</span></span><br><span class="line"><span class="string">		tempvar x</span></span><br><span class="line"><span class="string">		gen `x'</span> = uniform()*<span class="number">2</span> - <span class="number">1</span></span><br><span class="line">		tempvar y</span><br><span class="line">		gen `y<span class="string">' = uniform()*2 - 1</span></span><br><span class="line"><span class="string">		tempvar inside</span></span><br><span class="line"><span class="string">		gen `inside'</span> = (`x<span class="string">'^2 + `y'</span>^<span class="number">2</span> &lt;= <span class="number">1</span>)</span><br><span class="line">		summarize `inside<span class="string">'</span></span><br><span class="line"><span class="string">		local pi = 4*r(mean)</span></span><br><span class="line"><span class="string">		local Var = 16*r(Var)</span></span><br><span class="line"><span class="string">		return scalar pi = `pi'</span></span><br><span class="line">		<span class="keyword">return</span> scalar Var = `Va<span class="string">r'</span></span><br><span class="line"><span class="string">	end</span></span><br><span class="line"><span class="string">	simulate pi = r(pi) var = r(Var), rep(1000): circle_square, obs(1000)</span></span><br><span class="line"><span class="string">	di "Pi = `pi'</span><span class="string">"</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-local命令之label、type和dir子命令"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/24298/">local命令之label、type和dir子命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/24298/" class="article-date">
+	  <time datetime="2018-02-21T17:00:23.000Z" itemprop="datePublished">2018-02-22</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/*<span class="number">1</span>:使用local命令命名文件*/</span><br><span class="line">clear all</span><br><span class="line">set more off</span><br><span class="line"></span><br><span class="line"><span class="keyword">global</span> PATH <span class="string">"D:\数据库\中国市长市委书记数据库"</span></span><br><span class="line">cd <span class="string">"$PATH"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> excel using <span class="string">".\市委书记.xlsx"</span>,clear firstrow /*firstrow表示第一行是表头*/</span><br><span class="line">des</span><br></pre></td></tr></table></figure>
+        <!-- 123456789/*1:使用local命令命名文件*/clear allset more offglobal PATH "D:\数据库\中国市长市委书记数据库"cd "$PATH"import excel using ".\市委书记.xlsx",clear firstrow /*firstrow表示第一行是表头*/des
+
+123456789101112131415161718192021......  -->
+        <p class="article-more-link">
+          <a href="../../posts/24298/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-线性同余法在Stata中的实现"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/43605/">线性同余法在Stata中的实现</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/43605/" class="article-date">
+	  <time datetime="2018-02-21T16:59:23.000Z" itemprop="datePublished">2018-02-22</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">/*线性同余法在Stata中的实现</span><br><span class="line"><span class="number">1</span>：伪随机数的非随机性</span><br><span class="line"><span class="number">2</span>：参数选取对随机数生成的影响</span><br><span class="line"><span class="number">3</span>：伪随机数具有自然循环的特性</span><br><span class="line">*/</span><br><span class="line">	clear</span><br><span class="line">	set more off</span><br><span class="line">	set obs <span class="number">100</span></span><br><span class="line">	local m = <span class="number">17</span></span><br><span class="line">	local a = <span class="number">13</span></span><br><span class="line">	gen int y = <span class="number">1</span> <span class="keyword">if</span> _n == <span class="number">1</span></span><br><span class="line">	gen t = _n</span><br><span class="line">	replace y = mod(`a<span class="string">'*y[_n-1], `m'</span>) <span class="keyword">if</span> _n &gt; <span class="number">1</span></span><br><span class="line">	gen x = y/`m<span class="string">'</span></span><br><span class="line"><span class="string">	list x</span></span><br><span class="line"><span class="string">	twoway line x t //具有很强的循环性</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">//随机数生成器</span></span><br><span class="line"><span class="string">	clear</span></span><br><span class="line"><span class="string">	set obs 100</span></span><br><span class="line"><span class="string">	local m = 2^13 - 13</span></span><br><span class="line"><span class="string">	local a = 7^10 - 17</span></span><br><span class="line"><span class="string">	gen int y = 1 if _n == 1</span></span><br><span class="line"><span class="string">	gen t = _n</span></span><br><span class="line"><span class="string">	replace y = mod(`a'</span>*y[_n<span class="number">-1</span>], `m<span class="string">') if _n &gt; 1</span></span><br><span class="line"><span class="string">	gen x = y/`m'</span></span><br><span class="line">	list x</span><br><span class="line">	tw line x t //循环性减弱</span><br><span class="line"></span><br><span class="line">//要达到随机模拟的需要，我们需要百万以上的m和a：</span><br><span class="line">	clear</span><br><span class="line">	set obs <span class="number">1000</span></span><br><span class="line">	local m = <span class="number">10</span>^<span class="number">12</span> - <span class="number">11</span></span><br><span class="line">	local a = <span class="number">123450987654</span></span><br><span class="line">	gen int y = <span class="number">1</span> <span class="keyword">if</span> _n == <span class="number">1</span></span><br><span class="line">	gen t = _n</span><br><span class="line">	replace y = mod(`a<span class="string">'*y[_n-1], `m'</span>) <span class="keyword">if</span> _n &gt; <span class="number">1</span></span><br><span class="line">	gen x = y/`m<span class="string">'</span></span><br><span class="line"><span class="string">	tw scatter x t</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../78/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../77/">77</a><a class="page-number" href="../78/">78</a><span class="page-number current">79</span><a class="page-number" href="../80/">80</a><a class="page-number" href="../81/">81</a><span class="space">&hellip;</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../80/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

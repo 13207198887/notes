@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>do-file编程——函数、宏、标量与矩阵(二)——egen/egenmore简介 | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Stata" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="egen命令1234567891011121314151617181920212223cd &quot;~/Desktop/itsp&quot;use census2c, clear* 下面两个是等价的egen nrCensus = rowmean(pop*)egen nrCensus1 = rowmean(pop popurb)list nrCensus nrCensus1 in 1/5* 计算非缺失值的个数ege">
+<meta name="keywords" content="Stata">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Do-file编程——函数、宏、标量与矩阵(二)——egen&#x2F;egenmore简介">
+<meta property="og:url" content="http://www.czxa.top/posts/32042/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="egen命令1234567891011121314151617181920212223cd &quot;~/Desktop/itsp&quot;use census2c, clear* 下面两个是等价的egen nrCensus = rowmean(pop*)egen nrCensus1 = rowmean(pop popurb)list nrCensus nrCensus1 in 1/5* 计算非缺失值的个数ege">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/clock.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/clock2.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/平滑.png">
+<meta property="og:updated_time" content="2018-02-13T09:31:13.399Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Do-file编程——函数、宏、标量与矩阵(二)——egen&#x2F;egenmore简介">
+<meta name="twitter:description" content="egen命令1234567891011121314151617181920212223cd &quot;~/Desktop/itsp&quot;use census2c, clear* 下面两个是等价的egen nrCensus = rowmean(pop*)egen nrCensus1 = rowmean(pop popurb)list nrCensus nrCensus1 in 1/5* 计算非缺失值的个数ege">
+<meta name="twitter:image" content="https://github.com/czxa/Web_data_Source/raw/master/clock.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Do-file编程——函数、宏、标量与矩阵(二)" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Do-file编程——函数、宏、标量与矩阵(二)——egen/egenmore简介
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2018-01-24T07:28:23.000Z" itemprop="datePublished">2018-01-24</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata编程导论/">Stata编程导论</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="egen命令"><a href="#egen命令" class="headerlink" title="egen命令"></a>egen命令</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="string">"~/Desktop/itsp"</span></span><br><span class="line">use census2c, clear</span><br><span class="line"></span><br><span class="line">* 下面两个是等价的</span><br><span class="line">egen nrCensus = rowmean(pop*)</span><br><span class="line">egen nrCensus1 = rowmean(pop popurb)</span><br><span class="line">list nrCensus nrCensus1 <span class="keyword">in</span> <span class="number">1</span>/<span class="number">5</span></span><br><span class="line"></span><br><span class="line">* 计算非缺失值的个数</span><br><span class="line">egen n = rownonmiss(region pop popurb medage marr divr nrCensus nrCensus1)</span><br><span class="line"></span><br><span class="line">* 计算缺失值的个数</span><br><span class="line">egen n1 = rowmiss(region pop popurb medage marr divr nrCensus nrCensus1)</span><br><span class="line"></span><br><span class="line">* 计算行和</span><br><span class="line">egen rowtotal = rowtotal(region pop popurb medage marr divr nrCensus nrCensus1)</span><br><span class="line"></span><br><span class="line">* 计算行标准差</span><br><span class="line">egen rowsd = rowsd(region pop popurb medage marr divr nrCensus nrCensus1)</span><br><span class="line"></span><br><span class="line">* 列出每行的第一个和最后一个非缺失值</span><br><span class="line">egen rowfirst = rowfirst(pop popurb medage marr divr nrCensus nrCensus1)</span><br><span class="line">egen rowlast = rowlast(pop popurb medage marr divr )</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li><p>egen+mean/total/count/min/max···</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">use census2c, clear</span><br><span class="line">* 生成pop的平均值</span><br><span class="line">egen avgpop = mean(pop)</span><br><span class="line"><span class="comment">//把pop分成三组，分点分别为1000, 4000, 8000, 20000</span></span><br><span class="line">gen size = irecode(pop, <span class="number">1000</span>, <span class="number">4000</span>, <span class="number">8000</span>, <span class="number">20000</span>)</span><br><span class="line"><span class="comment">//计算每个区间的均值</span></span><br><span class="line">bysort size: egen avgpop1 = mean(pop)</span><br><span class="line">list pop avgpop avgpop1 size, sep(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>egen的其他用法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//计算内距（iterquartile）</span></span><br><span class="line">use census2c, clear</span><br><span class="line">egen iqr = iqr(pop)</span><br><span class="line"><span class="comment">//计算偏度/峰度</span></span><br><span class="line">egen skew = skew(pop)</span><br><span class="line">egen kurt = kurt(pop)</span><br><span class="line"><span class="comment">//计算绝对中位差 = median(|x-median(x)|):绝对中位差较标准差而言对极端值更加的稳健。</span></span><br><span class="line">egen mad = mad(pop)</span><br><span class="line"><span class="comment">//计算平均绝对偏差 = E(|x-E(x)|)</span></span><br><span class="line">egen mdev = mdev(pop)</span><br><span class="line"><span class="comment">//计算中位数</span></span><br><span class="line">egen median = median(pop)</span><br><span class="line"><span class="comment">//计算排名</span></span><br><span class="line">egen rank = rank(pop)</span><br><span class="line"><span class="comment">//计算占总体百分比</span></span><br><span class="line">egen pc = pc(pop)</span><br><span class="line"><span class="comment">//计算z得分——归一化</span></span><br><span class="line">egen std = std(pop)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="egen扩展："><a href="#egen扩展：" class="headerlink" title="egen扩展："></a>egen扩展：</h4><ul>
+<li>axis函数；</li>
+<li>mlabvpos函数：这个函数对于绘制散点标签非常有用！<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ssc install egenmore <span class="comment">//很难安装成功</span></span><br><span class="line"><span class="comment">//axis: 创建一个分类轴向量</span></span><br><span class="line">sysuse auto, clear</span><br><span class="line">egen meanmpg = mean(-mpg), by(rep78)</span><br><span class="line">egen Rep78 = axis(meanmpg rep78), label(rep78)</span><br><span class="line">tabstat mpg, by(Rep78) s(min mean max)</span><br><span class="line"><span class="comment">//clsst：returns whichever of the numlist in values() isclosest (differs by least, disregarding sign) to the numeric variable varname.</span></span><br><span class="line">egen mpgclass = clsst(mpg), v(<span class="number">10</span>(<span class="number">5</span>)<span class="number">40</span>)</span><br><span class="line"><span class="comment">//mlabvpos(yvar xvar) [ , log polynomial(#) matrix(5x5 matrix) ] automatically generates avariable giving clock positions of marker labels given names of variables yvar and xvar defining the axes of a scatter plot.</span></span><br><span class="line">egen clock = mlabvpos(mpg weight)</span><br><span class="line">scatter mpg weight, mlab(make) mlabvpos(clock) mlabsize(<span class="number">2</span>) yla(, ang(<span class="number">0</span>)) xla(<span class="number">1000</span>(<span class="number">500</span>)<span class="number">6000</span>, alt) scheme(s2mono) msize(small)</span><br><span class="line">gr <span class="keyword">export</span> clock.png, replace</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/clock.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">egen clock2 = mlabvpos(mpg weight), matrix(<span class="number">11</span> <span class="number">1</span> <span class="number">12</span> <span class="number">11</span> <span class="number">1</span> \\ <span class="number">10</span> <span class="number">2</span> <span class="number">12</span> <span class="number">10</span> <span class="number">2</span> \\ <span class="number">9</span> <span class="number">3</span> <span class="number">12</span> <span class="number">9</span> <span class="number">3</span> \\ <span class="number">8</span> <span class="number">4</span> <span class="number">6</span> <span class="number">8</span> <span class="number">4</span> \\ <span class="number">7</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">5</span>)</span><br><span class="line">sc mpg weight, mlab(make) mlabvpos(clock2) mlabsize(<span class="number">2</span>) yla(, ang(<span class="number">0</span>)) xla(<span class="number">1000</span>(<span class="number">500</span>)<span class="number">6000</span>, alt) scheme(s2mono) msize(small)</span><br><span class="line">gr <span class="keyword">export</span> clock2.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/clock2.png" alt=""></p>
+<ul>
+<li>bom函数: 每个月的第一天<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">egen bom = bom(<span class="number">1</span> <span class="number">2018</span>), f(%dd_m_y)</span><br><span class="line">egen bom1 = bom(<span class="number">1</span> <span class="number">2018</span>), f(%dd_m_y) lag(<span class="number">1</span>) <span class="comment">//滞后一个月</span></span><br><span class="line">egen bom2 = bom(<span class="number">1</span> <span class="number">2018</span>), f(%dCY-N-D) work</span><br><span class="line">list bom bom1 bom2 <span class="keyword">in</span> <span class="number">1</span>/<span class="number">5</span>, sep(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">     +----------------------------------+</span><br><span class="line">     |      bom       bom1         bom2 |</span><br><span class="line">     |----------------------------------|</span><br><span class="line">  <span class="number">1.</span> | <span class="number">1</span> Jan <span class="number">18</span>   <span class="number">1</span> Dec <span class="number">17</span>   <span class="number">2018</span><span class="number">-01</span><span class="number">-01</span> |</span><br><span class="line">  <span class="number">2.</span> | <span class="number">1</span> Jan <span class="number">18</span>   <span class="number">1</span> Dec <span class="number">17</span>   <span class="number">2018</span><span class="number">-01</span><span class="number">-01</span> |</span><br><span class="line">  <span class="number">3.</span> | <span class="number">1</span> Jan <span class="number">18</span>   <span class="number">1</span> Dec <span class="number">17</span>   <span class="number">2018</span><span class="number">-01</span><span class="number">-01</span> |</span><br><span class="line">  <span class="number">4.</span> | <span class="number">1</span> Jan <span class="number">18</span>   <span class="number">1</span> Dec <span class="number">17</span>   <span class="number">2018</span><span class="number">-01</span><span class="number">-01</span> |</span><br><span class="line">  <span class="number">5.</span> | <span class="number">1</span> Jan <span class="number">18</span>   <span class="number">1</span> Dec <span class="number">17</span>   <span class="number">2018</span><span class="number">-01</span><span class="number">-01</span> |</span><br><span class="line">     +----------------------------------+</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>work specifies that the last day must also be one of Monday to Friday.</p>
+</blockquote>
+<ul>
+<li>bomd函数: 每个月的第一天</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">set obs <span class="number">5</span></span><br><span class="line">gen date = _n*<span class="number">100</span></span><br><span class="line">egen bomd = bomd(date), f(%dCY-N-D)</span><br><span class="line">list date bomd</span><br><span class="line"></span><br><span class="line">     +-------------------+</span><br><span class="line">     | date         bomd |</span><br><span class="line">     |-------------------|</span><br><span class="line">  <span class="number">1.</span> |  <span class="number">100</span>   <span class="number">1960</span><span class="number">-04</span><span class="number">-01</span> |</span><br><span class="line">  <span class="number">2.</span> |  <span class="number">200</span>   <span class="number">1960</span><span class="number">-07</span><span class="number">-01</span> |</span><br><span class="line">  <span class="number">3.</span> |  <span class="number">300</span>   <span class="number">1960</span><span class="number">-10</span><span class="number">-01</span> |</span><br><span class="line">  <span class="number">4.</span> |  <span class="number">400</span>   <span class="number">1961</span><span class="number">-02</span><span class="number">-01</span> |</span><br><span class="line">  <span class="number">5.</span> |  <span class="number">500</span>   <span class="number">1961</span><span class="number">-05</span><span class="number">-01</span> |</span><br><span class="line">     +-------------------+</span><br></pre></td></tr></table></figure>
+<ul>
+<li>eom函数：每个月的最后一天</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">set obs <span class="number">12</span></span><br><span class="line">gen m = _n</span><br><span class="line">gen y = _n + <span class="number">2010</span></span><br><span class="line">egen eom = eom(m y), f(%dCY-N-D)</span><br><span class="line">list m y eom</span><br><span class="line"></span><br><span class="line">     +------------------------+</span><br><span class="line">     |  m      y          eom |</span><br><span class="line">     |------------------------|</span><br><span class="line">  <span class="number">1.</span> |  <span class="number">1</span>   <span class="number">2011</span>   <span class="number">2011</span><span class="number">-01</span><span class="number">-31</span> |</span><br><span class="line">  <span class="number">2.</span> |  <span class="number">2</span>   <span class="number">2012</span>   <span class="number">2012</span><span class="number">-02</span><span class="number">-29</span> |</span><br><span class="line">  <span class="number">3.</span> |  <span class="number">3</span>   <span class="number">2013</span>   <span class="number">2013</span><span class="number">-03</span><span class="number">-31</span> |</span><br><span class="line">  <span class="number">4.</span> |  <span class="number">4</span>   <span class="number">2014</span>   <span class="number">2014</span><span class="number">-04</span><span class="number">-30</span> |</span><br><span class="line">  <span class="number">5.</span> |  <span class="number">5</span>   <span class="number">2015</span>   <span class="number">2015</span><span class="number">-05</span><span class="number">-31</span> |</span><br><span class="line">     |------------------------|</span><br><span class="line">  <span class="number">6.</span> |  <span class="number">6</span>   <span class="number">2016</span>   <span class="number">2016</span><span class="number">-06</span><span class="number">-30</span> |</span><br><span class="line">  <span class="number">7.</span> |  <span class="number">7</span>   <span class="number">2017</span>   <span class="number">2017</span><span class="number">-07</span><span class="number">-31</span> |</span><br><span class="line">  <span class="number">8.</span> |  <span class="number">8</span>   <span class="number">2018</span>   <span class="number">2018</span><span class="number">-08</span><span class="number">-31</span> |</span><br><span class="line">  <span class="number">9.</span> |  <span class="number">9</span>   <span class="number">2019</span>   <span class="number">2019</span><span class="number">-09</span><span class="number">-30</span> |</span><br><span class="line"> <span class="number">10.</span> | <span class="number">10</span>   <span class="number">2020</span>   <span class="number">2020</span><span class="number">-10</span><span class="number">-31</span> |</span><br><span class="line">     |------------------------|</span><br><span class="line"> <span class="number">11.</span> | <span class="number">11</span>   <span class="number">2021</span>   <span class="number">2021</span><span class="number">-11</span><span class="number">-30</span> |</span><br><span class="line"> <span class="number">12.</span> | <span class="number">12</span>   <span class="number">2022</span>   <span class="number">2022</span><span class="number">-12</span><span class="number">-31</span> |</span><br><span class="line">     +------------------------+</span><br></pre></td></tr></table></figure>
+<ul>
+<li>eomd函数：每个月的最后一天</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">. clear all</span><br><span class="line"></span><br><span class="line">. set obs <span class="number">5</span></span><br><span class="line">number <span class="keyword">of</span> observations (_N) was <span class="number">0</span>, now <span class="number">5</span></span><br><span class="line"></span><br><span class="line">. gen date = _n*<span class="number">100</span></span><br><span class="line"></span><br><span class="line">. egen eomd = eomd(date), f(%dCY-N-D)</span><br><span class="line"></span><br><span class="line">. list date eomd</span><br><span class="line"></span><br><span class="line">     +-------------------+</span><br><span class="line">     | date         eomd |</span><br><span class="line">     |-------------------|</span><br><span class="line">  <span class="number">1.</span> |  <span class="number">100</span>   <span class="number">1960</span><span class="number">-04</span><span class="number">-30</span> |</span><br><span class="line">  <span class="number">2.</span> |  <span class="number">200</span>   <span class="number">1960</span><span class="number">-07</span><span class="number">-31</span> |</span><br><span class="line">  <span class="number">3.</span> |  <span class="number">300</span>   <span class="number">1960</span><span class="number">-10</span><span class="number">-31</span> |</span><br><span class="line">  <span class="number">4.</span> |  <span class="number">400</span>   <span class="number">1961</span><span class="number">-02</span><span class="number">-28</span> |</span><br><span class="line">  <span class="number">5.</span> |  <span class="number">500</span>   <span class="number">1961</span><span class="number">-05</span><span class="number">-31</span> |</span><br><span class="line">     +-------------------+</span><br></pre></td></tr></table></figure>
+<ul>
+<li>其他函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">* corr函数: 计算相关系数</span><br><span class="line">sysuse auto, clear</span><br><span class="line">egen corr = corr(price mpg)</span><br><span class="line">* gmean函数：计算几何平均值</span><br><span class="line">egen gmean = gmean(price)</span><br><span class="line">* hmean函数：计算调和平均值</span><br><span class="line">egen hmean = hmean(price)</span><br><span class="line">* xtile函数：按照百分位数进行分类并生成一个分类变量</span><br><span class="line">egen mpg4 = xtile(mpg), by(foreign) p(<span class="number">25</span>(<span class="number">25</span>)<span class="number">75</span>)</span><br><span class="line">egen mpg10 = xtile(mpg), by(foreign) nq(<span class="number">10</span>)</span><br><span class="line">* ewma(timeseriesvar) , a(#)函数：指数移动平均</span><br><span class="line">* rndint() , max(#) [ min(#) ]：generates random integers from a uniform distribution on min() to max(), inclusive. min(1) is the default.</span><br><span class="line">clear all</span><br><span class="line">set obs <span class="number">5</span></span><br><span class="line">egen inte = rndint(), max(<span class="number">5</span>) min(<span class="number">2</span>)</span><br><span class="line">list inte</span><br><span class="line">* semean():计算均值的标准误</span><br><span class="line">sysuse auto, clear</span><br><span class="line">egen sd = semean(price)</span><br><span class="line">* filter():将一个时间序列进行线性平滑</span><br><span class="line">sysuse sp500, clear</span><br><span class="line">tsset date</span><br><span class="line">format date %dCY-N-D</span><br><span class="line">egen c1 = filter(close), lags(<span class="number">3</span>)</span><br><span class="line">egen c2 = ewma(close), a(<span class="number">0.5</span>)</span><br><span class="line">tsline close, lcolor(black) || tsline c1, lc(red) || tsline c2, lc(blue) || , yla(,ang(<span class="number">0</span>) nogrid) leg(order(<span class="number">1</span> <span class="string">"收盘价"</span> <span class="number">2</span> <span class="string">"线性平滑"</span> <span class="number">3</span> <span class="string">"指数平滑"</span>)) xla(, ang(<span class="number">20</span>)) xti(日期) scheme(s1mono)</span><br><span class="line">gr <span class="keyword">export</span> 平滑.png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/平滑.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../7892/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Do-file编程——函数、宏、标量与矩阵(三)
+        
+      </div>
+    </a>
+  
+  
+    <a href="../27388/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">predictnl命令——在估计后获得非线性预测、标准误等等</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#egen命令"><span class="nav-text">egen命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#egen扩展："><span class="nav-text">egen扩展：</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

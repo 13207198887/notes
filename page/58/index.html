@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/58/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-中财数据每股盈利"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/41481/">中财数据每股盈利</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/41481/" class="article-date">
+	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/网站爬取程序/">网站爬取程序</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">copy <span class="string">"http://data.cfi.cn/cfidata.aspx?sortfd=&amp;sortway=&amp;curpage=1&amp;fr=content&amp;ndk=A0A1934A1939A1959A5249&amp;xztj=&amp;mystock="</span> temp.txt, replace</span><br><span class="line">utrans temp.txt</span><br><span class="line">infix str v <span class="number">1</span><span class="number">-50000</span> using temp.txt, clear</span><br><span class="line">keep <span class="keyword">if</span> index(v, <span class="string">"&lt;tr&gt;&lt;td&gt;"</span>)</span><br><span class="line">split v, parse(&lt;/tr&gt;)</span><br><span class="line">drop v</span><br><span class="line">sxpose, clear</span><br><span class="line">drop <span class="keyword">in</span> <span class="number">-1</span></span><br><span class="line">ren _var1 v</span><br><span class="line">split v, parse(&lt;/td&gt;&lt;td&gt;)</span><br><span class="line">drop v</span><br><span class="line">foreach i of varlist _all&#123;</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;tr&gt;&lt;td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;/td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;/font&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"--"</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;font color=red&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;font color=darkgreen&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = ustrregexs(1) if ustrregexm(`i'</span>, <span class="string">"&gt;(.*)&lt;"</span>)</span><br><span class="line">&#125;</span><br><span class="line">compress</span><br><span class="line">save 每股盈利, replace</span><br><span class="line"></span><br><span class="line">forval i = <span class="number">2</span>/<span class="number">73</span>&#123;</span><br><span class="line">	copy <span class="string">"http://data.cfi.cn/cfidata.aspx?sortfd=&amp;sortway=&amp;curpage=`page'&amp;fr=content&amp;ndk=A0A1934A1939A1959A5249&amp;xztj=&amp;mystock="</span> temp.txt, replace</span><br><span class="line">	utrans temp.txt</span><br><span class="line">	infix str v <span class="number">1</span><span class="number">-50000</span> using temp.txt, clear</span><br><span class="line">	keep <span class="keyword">if</span> index(v, <span class="string">"&lt;tr&gt;&lt;td&gt;"</span>)</span><br><span class="line">	split v, parse(&lt;/tr&gt;)</span><br><span class="line">	drop v</span><br><span class="line">	sxpose, clear</span><br><span class="line">	drop <span class="keyword">in</span> <span class="number">-1</span></span><br><span class="line">	ren _var1 v</span><br><span class="line">	split v, parse(&lt;/td&gt;&lt;td&gt;)</span><br><span class="line">	drop v</span><br><span class="line">	foreach i of varlist _all&#123;</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;tr&gt;&lt;td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;/td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;/font&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"--"</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;font color=red&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;font color=darkgreen&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = ustrregexs(1) if ustrregexm(`i'</span>, <span class="string">"&gt;(.*)&lt;"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	compress</span><br><span class="line">	append using 每股盈利</span><br><span class="line">	save 每股盈利, replace</span><br><span class="line">&#125;</span><br><span class="line">label var v1  <span class="string">"代码"</span></span><br><span class="line">label var v2  <span class="string">"证券简称"</span></span><br><span class="line">label var v3  <span class="string">"截止日期"</span></span><br><span class="line">label var v4  <span class="string">"基本每股收益（元/股）±"</span></span><br><span class="line">label var v5  <span class="string">"稀释每股收益（元/股）±"</span></span><br><span class="line">label var v6  <span class="string">"每股收益_期末股本摊薄（元/股）±"</span></span><br><span class="line">label var v7  <span class="string">"每股收益_TTM（元/股）±"</span></span><br><span class="line">label var v8  <span class="string">"每股净资产（元/股）±"</span></span><br><span class="line">label var v9  <span class="string">"每股营业总收入（元/股）±"</span></span><br><span class="line">label var v10  <span class="string">"每股营业收入（元/股）±"</span></span><br><span class="line">label var v11  <span class="string">"每股营业收入_TTM（元/股）±"</span></span><br><span class="line">label var v12  <span class="string">"每股营业利润（元/股）±"</span></span><br><span class="line">label var v13  <span class="string">"每股息税前利润（元/股）±"</span></span><br><span class="line">label var v14  <span class="string">"每股资本公积金（元/股）±"</span></span><br><span class="line">label var v15  <span class="string">"每股盈余公积（元/股）±"</span></span><br><span class="line">label var v16  <span class="string">"每股公积金（元/股）±"</span></span><br><span class="line">label var v17  <span class="string">"每股未分配利润（元/股）±"</span></span><br><span class="line">label var v18  <span class="string">"每股留存收益（元/股）±"</span></span><br><span class="line">label var v19  <span class="string">"每股经营活动产生的现金流量净额（元/股）±"</span></span><br><span class="line">label var v20  <span class="string">"每股经营活动产生的现金流量净额_TTM（元/股）±"</span></span><br><span class="line">label var v21  <span class="string">"每股现金流量净额（元/股）±"</span></span><br><span class="line">label var v22  <span class="string">"每股现金流量净额_TTM（元/股）±"</span></span><br><span class="line">label var v23  <span class="string">"每股企业自由现金流量（元/股）±"</span></span><br><span class="line">label var v24  <span class="string">"每股股东自由现金流量（元/股）"</span></span><br><span class="line">save 每股盈利, replace</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-爬取1949-2017年年度GDP"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/16887/">爬取1949-2017年年度GDP</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/16887/" class="article-date">
+	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/网站爬取程序/">网站爬取程序</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">copy <span class="string">"http://calendar.hexun.com/area/data/DiQuZhiBiao.ashx?startDate=1949&amp;endDate=2017&amp;codelist=D0010001&amp;citycode=110000"</span> temp.txt, replace</span><br><span class="line">utrans temp.txt</span><br><span class="line">set obs <span class="number">1</span></span><br><span class="line">gen v = <span class="string">""</span></span><br><span class="line">replace v = fileread(<span class="string">"temp.txt"</span>)</span><br><span class="line">split v, parse(`<span class="string">"Callback(&#123;"</span>国内生产总值<span class="string">":&#123;"</span>Id<span class="string">":"</span>D0010001<span class="string">","</span>Table<span class="string">":["</span>Date<span class="string">","</span>Value<span class="string">"],"</span>Data<span class="string">":[["</span><span class="string">' "],[" "]]&#125;&#125;)")</span></span><br><span class="line"><span class="string">drop v1 v</span></span><br><span class="line"><span class="string">sxpose, clear</span></span><br><span class="line"><span class="string">split _var1, parse(`"""'</span> <span class="string">","</span>)</span><br><span class="line">drop _var1 _var11 _var13 _var14</span><br><span class="line">ren _var12 date1</span><br><span class="line">ren _var15 GDP</span><br><span class="line">replace GDP = subinstr(GDP, <span class="string">"亿元"</span>, <span class="string">""</span>, .)</span><br><span class="line">destring GDP, replace</span><br><span class="line">label var GDP <span class="string">"单位：亿元"</span></span><br><span class="line">gen date = date(date1, <span class="string">"YMD"</span>)</span><br><span class="line">format date %dCY-N-D</span><br><span class="line">order date</span><br><span class="line">drop date1</span><br><span class="line">label data <span class="string">"1949-2017年GDP"</span></span><br><span class="line">save GDP19492017, replace</span><br><span class="line">* 后来发现数据可以直接下载：http://calendar.hexun.com/area/dqzb_110000.shtml</span><br><span class="line"><span class="keyword">import</span> delimited /Users/mr.cheng/Desktop/<span class="number">1949</span><span class="number">-2017</span>年GDP.csv, encoding(GBK) clear</span><br><span class="line">gsort 年份</span><br><span class="line">save GDP19492017_annual, replace</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-labeldup——报告和选择性的移除重复的数值标签"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/372/">labeldup——报告和选择性的移除重复的数值标签</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/372/" class="article-date">
+	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">* 报告和选择性的移除重复的数值标签</span><br><span class="line">sysuse auto, clear</span><br><span class="line">* 制作两个重复的数值标签</span><br><span class="line">label <span class="function"><span class="keyword">def</span> <span class="title">rep1</span> 1 "1" 2 "2" 3 "3" 4 "4" 5 "5"</span></span><br><span class="line"><span class="function"><span class="title">label</span> <span class="title">def</span> <span class="title">rep2</span> 1 "1" 2 "2" 3 "3" 4 "4" 5 "5"</span></span><br><span class="line"><span class="function">* 报告所有的重复的数值标签</span></span><br><span class="line"><span class="function"><span class="title">labeldup</span></span></span><br><span class="line">labeldup rep1, select</span><br><span class="line">labelbook</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-regen"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/42045/">regen</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/42045/" class="article-date">
+	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">* Install</span><br><span class="line">ssc install regen</span><br><span class="line">sysuse auto, clear</span><br><span class="line">* 在生成新变量的同时添加标签</span><br><span class="line">regen mpg2 <span class="string">"Milage squared"</span> = mpg^<span class="number">2</span></span><br><span class="line"></span><br><span class="line">gen mpgid = <span class="number">1</span></span><br><span class="line">replace mpgid = <span class="number">0</span> <span class="keyword">if</span> inrange(mpg, <span class="number">22</span>, <span class="number">25</span>)</span><br><span class="line">* 生成所有 mpgid = <span class="number">1</span> 的国产车的虚拟变量</span><br><span class="line">regen byte id = anymatch(mpgid) <span class="keyword">if</span> (foreign == <span class="number">0</span>), values(<span class="number">1</span>)</span><br><span class="line">regen byte id = anymatch(mpgid) <span class="keyword">if</span> (foreign == <span class="number">1</span>), values(<span class="number">1</span>) replace</span><br><span class="line">regen byte id = anymatch(mpgid) <span class="keyword">if</span> (foreign == <span class="number">1</span>), values(<span class="number">1</span>) replace <span class="keyword">else</span>(.)</span><br><span class="line"></span><br><span class="line">* 使用表达式作为变量标签</span><br><span class="line">regen ln_weight <span class="string">"\`s(expr)'"</span> = ln(weight)</span><br><span class="line">regen ln_weight <span class="string">"\`s(if)'"</span> = ln(weight) <span class="keyword">if</span> foreign == <span class="number">0</span>, replace</span><br><span class="line">regen ln_weight <span class="string">"\`s(in)'"</span> = ln(weight) <span class="keyword">in</span> <span class="number">1</span>/<span class="number">20</span>, replace</span><br><span class="line">bysort foreign: regen ln_weight <span class="string">"\`s(by)'"</span> = ln(weight), replace</span><br></pre></td></tr></table></figure>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">. sysuse auto, clear</span><br><span class="line">(<span class="number">1978</span> Automobile Data)</span><br><span class="line"></span><br><span class="line">. * 在生成新变量的同时添加标签</span><br><span class="line"></span><br><span class="line">. regen mpg2 <span class="string">"Milage squared"</span> = mpg^<span class="number">2</span></span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. gen mpgid = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">. replace mpgid = <span class="number">0</span> <span class="keyword">if</span> inrange(mpg, <span class="number">22</span>, <span class="number">25</span>)</span><br><span class="line">(<span class="number">17</span> real changes made)</span><br><span class="line"></span><br><span class="line">. * 生成所有 mpgid = <span class="number">1</span> 的国产车的虚拟变量</span><br><span class="line"></span><br><span class="line">. regen byte id = anymatch(mpgid) <span class="keyword">if</span> (foreign == <span class="number">0</span>), values(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">. regen byte id = anymatch(mpgid) <span class="keyword">if</span> (foreign == <span class="number">1</span>), values(<span class="number">1</span>) replace</span><br><span class="line">(<span class="number">57</span> real changes made)</span><br><span class="line"></span><br><span class="line">. regen byte id = anymatch(mpgid) <span class="keyword">if</span> (foreign == <span class="number">1</span>), values(<span class="number">1</span>) replace <span class="keyword">else</span>(.)</span><br><span class="line">(<span class="number">52</span> real changes made, <span class="number">52</span> to missing)</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. * 使用表达式作为变量标签</span><br><span class="line"></span><br><span class="line">. regen ln_weight <span class="string">"\s(if)'"</span> = ln(weight) <span class="keyword">if</span> foreign == <span class="number">0</span>, replace</span><br><span class="line">(<span class="number">22</span> missing values generated)</span><br><span class="line"></span><br><span class="line">. regen ln_weight <span class="string">"\s(by)'"</span> = ln(weight), replace</span><br><span class="line">(<span class="number">22</span> real changes made)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-证券之星股票交易数据爬取程序"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/12945/">证券之星股票交易数据爬取程序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/12945/" class="article-date">
+	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/网站爬取程序/">网站爬取程序</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br></pre></td><td class="code"><pre><span class="line">*========================================================*</span><br><span class="line">*				证券之星股票交易数据爬取程序					 *</span><br><span class="line">*--------------------------------------------------------*</span><br><span class="line">* view browse <span class="string">"http://quote.stockstar.com/				 *</span></span><br><span class="line"><span class="string">* 				stock/_index.html"</span>						 *</span><br><span class="line">* 月数据：http://cq.ssajax.cn/interact/getTradedata.ashx?	 *</span><br><span class="line">*				pic=qmpic_600000_1_8&amp;t=<span class="number">241618</span>			 *</span><br><span class="line">* 日数据：http://cq.ssajax.cn/interact/getTradedata.ashx?	 *</span><br><span class="line">*				pic=qmpic_600000_1_6&amp;t=<span class="number">241618</span>			 *</span><br><span class="line">* 周数据：http://cq.ssajax.cn/interact/getTradedata.ashx?	 *</span><br><span class="line">*				pic=qmpic_600000_1_7&amp;t=<span class="number">241618</span>			 *</span><br><span class="line">* 分钟数据：http://cq.ssajax.cn/interact/getTradedata.ashx?*</span><br><span class="line">*				pic=qmpic_600000_1_1_1&amp;t=<span class="number">241618</span>			 *</span><br><span class="line">*========================================================*</span><br><span class="line"></span><br><span class="line">*========================================================*</span><br><span class="line">* 						分钟数据							 *</span><br><span class="line">*========================================================*</span><br><span class="line"></span><br><span class="line">clear all</span><br><span class="line">set obs <span class="number">1</span></span><br><span class="line">gen y = <span class="string">""</span></span><br><span class="line">copy <span class="string">"http://cq.ssajax.cn/interact/getTradedata.ashx?pic=qmpic0_600000_1_1&amp;t=241532"</span> temp.txt, replace</span><br><span class="line">utrans temp.txt</span><br><span class="line">replace y = fileread(<span class="string">"temp.text"</span>)</span><br><span class="line">split y, parse(<span class="string">"],["</span> <span class="string">"[["</span>)</span><br><span class="line">sxpose, clear</span><br><span class="line">drop <span class="keyword">in</span> <span class="number">1</span>/<span class="number">2</span></span><br><span class="line">ren _var1 v</span><br><span class="line">split v, parse(`<span class="string">"','"</span><span class="string">')</span></span><br><span class="line"><span class="string">drop v v8</span></span><br><span class="line"><span class="string">replace v1 = subinstr(v1, `"'</span><span class="string">"', "</span><span class="string">", .)</span></span><br><span class="line"><span class="string">replace v1 = subinstr(v1, `"</span><span class="string">'"'</span>, <span class="string">""</span>, .)</span><br><span class="line">gen clock = clock(v1, <span class="string">"YMDhm"</span>)</span><br><span class="line">order clock</span><br><span class="line">format clock %tcCCYY-NN-DD_HH:MM</span><br><span class="line">destring, replace</span><br><span class="line">ren v1 string_clock</span><br><span class="line">label var clock <span class="string">"时刻"</span></span><br><span class="line">label var string_clock <span class="string">"字符串时刻"</span></span><br><span class="line">ren v2 price</span><br><span class="line">label var price <span class="string">"成交价"</span></span><br><span class="line">ren v3 volume</span><br><span class="line">label var volume <span class="string">"成交量"</span></span><br><span class="line">ren v4 volume_in_price</span><br><span class="line">label volume_in_price <span class="string">"成交额"</span></span><br><span class="line">label var v5 <span class="string">"涨跌幅"</span></span><br><span class="line">ren v5 raise_and_fall_in_percent</span><br><span class="line">label var v6 <span class="string">"涨跌额"</span></span><br><span class="line">ren v6 aise_and_fall_in_price</span><br><span class="line">label var v7 <span class="string">"均价"</span></span><br><span class="line">ren v7 mean_price</span><br><span class="line">drm bak.stunicode</span><br><span class="line">erase temp.text</span><br><span class="line"></span><br><span class="line">*========================================================*</span><br><span class="line">* 						周数据							 *</span><br><span class="line">*========================================================*</span><br><span class="line">clear all</span><br><span class="line">set obs <span class="number">1</span></span><br><span class="line">gen y = <span class="string">""</span></span><br><span class="line">copy <span class="string">"http://cq.ssajax.cn/interact/getTradedata.ashx?pic=qmpic_600000_1_7&amp;t=241618"</span> temp.txt, replace</span><br><span class="line">utrans temp.txt</span><br><span class="line">replace y = fileread(<span class="string">"temp.text"</span>)</span><br><span class="line">split y, parse(<span class="string">"],["</span> <span class="string">"[["</span>)</span><br><span class="line">sxpose, clear</span><br><span class="line">drop <span class="keyword">in</span> <span class="number">1</span>/<span class="number">2</span></span><br><span class="line">ren _var1 v</span><br><span class="line">split v, parse(`<span class="string">"','"</span><span class="string">')</span></span><br><span class="line"><span class="string">drop v</span></span><br><span class="line"><span class="string">replace v1 = subinstr(v1, `"'</span><span class="string">"', "</span><span class="string">", .)</span></span><br><span class="line"><span class="string">replace v1 = subinstr(v1, `"</span><span class="string">'"'</span>, <span class="string">""</span>, .)</span><br><span class="line">gen date = date(v1, <span class="string">"YMD"</span>)</span><br><span class="line">order date</span><br><span class="line">format date %dCY-N-D</span><br><span class="line">drop v1</span><br><span class="line">drop v10</span><br><span class="line">destring, replace</span><br><span class="line">label var date <span class="string">"日期"</span></span><br><span class="line">ren v2 open</span><br><span class="line">label var open <span class="string">"开盘价"</span></span><br><span class="line">ren v3 high</span><br><span class="line">label var high <span class="string">"最高价"</span></span><br><span class="line">ren v4 low</span><br><span class="line">label var low 最低价</span><br><span class="line">label var v5 <span class="string">"收盘价"</span></span><br><span class="line">ren v5 close</span><br><span class="line">label var v6 <span class="string">"涨跌额"</span></span><br><span class="line">ren v6 aise_and_fall_in_price</span><br><span class="line">label var v7 <span class="string">"涨跌幅"</span></span><br><span class="line">ren v7 aise_and_fall_in_percent</span><br><span class="line">ren v8 volume</span><br><span class="line">label var volume <span class="string">"交易量"</span></span><br><span class="line">ren v9 volume_in_price</span><br><span class="line">label var volume_in_price <span class="string">"交易额"</span></span><br><span class="line">drm bak.stunicode</span><br><span class="line">erase temp.text</span><br><span class="line">*========================================================*</span><br><span class="line">* 						日数据							 *</span><br><span class="line">*========================================================*</span><br><span class="line">clear all</span><br><span class="line">set obs <span class="number">1</span></span><br><span class="line">gen y = <span class="string">""</span></span><br><span class="line">copy <span class="string">"http://cq.ssajax.cn/interact/getTradedata.ashx?pic=qmpic_600000_1_6&amp;t=241618"</span> temp.txt, replace</span><br><span class="line">utrans temp.txt</span><br><span class="line">replace y = fileread(<span class="string">"temp.text"</span>)</span><br><span class="line">split y, parse(<span class="string">"],["</span> <span class="string">"[["</span>)</span><br><span class="line">sxpose, clear</span><br><span class="line">drop <span class="keyword">in</span> <span class="number">1</span>/<span class="number">2</span></span><br><span class="line">ren _var1 v</span><br><span class="line">split v, parse(`<span class="string">"','"</span><span class="string">')</span></span><br><span class="line"><span class="string">drop v</span></span><br><span class="line"><span class="string">replace v1 = subinstr(v1, `"'</span><span class="string">"', "</span><span class="string">", .)</span></span><br><span class="line"><span class="string">replace v1 = subinstr(v1, `"</span><span class="string">'"'</span>, <span class="string">""</span>, .)</span><br><span class="line">gen date = date(v1, <span class="string">"YMD"</span>)</span><br><span class="line">order date</span><br><span class="line">format date %dCY-N-D</span><br><span class="line">drop v1</span><br><span class="line">drop v10</span><br><span class="line">destring, replace</span><br><span class="line">label var date <span class="string">"日期"</span></span><br><span class="line">ren v2 open</span><br><span class="line">label var open <span class="string">"开盘价"</span></span><br><span class="line">ren v3 high</span><br><span class="line">label var high <span class="string">"最高价"</span></span><br><span class="line">ren v4 low</span><br><span class="line">label var low 最低价</span><br><span class="line">label var v5 <span class="string">"收盘价"</span></span><br><span class="line">ren v5 close</span><br><span class="line">label var v6 <span class="string">"涨跌额"</span></span><br><span class="line">ren v6 aise_and_fall_in_price</span><br><span class="line">label var v7 <span class="string">"涨跌幅"</span></span><br><span class="line">ren v7 aise_and_fall_in_percent</span><br><span class="line">ren v8 volume</span><br><span class="line">label var volume <span class="string">"交易量"</span></span><br><span class="line">ren v9 volume_in_price</span><br><span class="line">label var volume_in_price <span class="string">"交易额"</span></span><br><span class="line">drm bak.stunicode</span><br><span class="line">erase temp.text</span><br><span class="line"></span><br><span class="line">*========================================================*</span><br><span class="line">* 						月数据							 *</span><br><span class="line">*========================================================*</span><br><span class="line">clear all</span><br><span class="line">set obs <span class="number">1</span></span><br><span class="line">gen y = <span class="string">""</span></span><br><span class="line">copy <span class="string">"http://cq.ssajax.cn/interact/getTradedata.ashx?pic=qmpic_600000_1_8&amp;t=241618"</span> temp.txt, replace</span><br><span class="line">utrans temp.txt</span><br><span class="line">replace y = fileread(<span class="string">"temp.text"</span>)</span><br><span class="line">split y, parse(<span class="string">"],["</span> <span class="string">"[["</span>)</span><br><span class="line">sxpose, clear</span><br><span class="line">drop <span class="keyword">in</span> <span class="number">1</span>/<span class="number">2</span></span><br><span class="line">ren _var1 v</span><br><span class="line">split v, parse(`<span class="string">"','"</span><span class="string">')</span></span><br><span class="line"><span class="string">drop v</span></span><br><span class="line"><span class="string">replace v1 = subinstr(v1, `"'</span><span class="string">"', "</span><span class="string">", .)</span></span><br><span class="line"><span class="string">replace v1 = subinstr(v1, `"</span><span class="string">'"'</span>, <span class="string">""</span>, .)</span><br><span class="line">gen date = date(v1, <span class="string">"YMD"</span>)</span><br><span class="line">order date</span><br><span class="line">format date %dCY-N-D</span><br><span class="line">drop v1</span><br><span class="line">drop v10</span><br><span class="line">destring, replace</span><br><span class="line">label var date <span class="string">"日期"</span></span><br><span class="line">ren v2 open</span><br><span class="line">label var open <span class="string">"开盘价"</span></span><br><span class="line">ren v3 high</span><br><span class="line">label var high <span class="string">"最高价"</span></span><br><span class="line">ren v4 low</span><br><span class="line">label var low 最低价</span><br><span class="line">label var v5 <span class="string">"收盘价"</span></span><br><span class="line">ren v5 close</span><br><span class="line">label var v6 <span class="string">"涨跌额"</span></span><br><span class="line">ren v6 aise_and_fall_in_price</span><br><span class="line">label var v7 <span class="string">"涨跌幅"</span></span><br><span class="line">ren v7 aise_and_fall_in_percent</span><br><span class="line">ren v8 volume</span><br><span class="line">label var volume <span class="string">"交易量"</span></span><br><span class="line">ren v9 volume_in_price</span><br><span class="line">label var volume_in_price <span class="string">"交易额"</span></span><br><span class="line">drm bak.stunicode</span><br><span class="line">erase temp.text</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../57/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../56/">56</a><a class="page-number" href="../57/">57</a><span class="page-number current">58</span><a class="page-number" href="../59/">59</a><a class="page-number" href="../60/">60</a><span class="space">&hellip;</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../59/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

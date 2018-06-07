@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>wball命令——可视化百分比数据 | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="StataECharts" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="这是一个绘制水球图的Stata命令，你只需要给出一列数据即可绘制出非常炫酷的水球图。一个最简单的示例如下：   代码1wball 0.6 0.5 0.4 0.3  目录   1.安装  2.语法  3.示例  3.1.主题  3.2.水球上的文字  3.3.文件名称  3.4.外观  3.5.水球空白区域的颜色  3.6水波的波峰高度  3.7水波的颜色  3.7.1使用颜色的名称  3.7.2">
+<meta name="keywords" content="Stata,ECharts">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wball命令——可视化百分比数据">
+<meta property="og:url" content="http://www.czxa.top/posts/59750/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="这是一个绘制水球图的Stata命令，你只需要给出一列数据即可绘制出非常炫酷的水球图。一个最简单的示例如下：   代码1wball 0.6 0.5 0.4 0.3  目录   1.安装  2.语法  3.示例  3.1.主题  3.2.水球上的文字  3.3.文件名称  3.4.外观  3.5.水球空白区域的颜色  3.6水波的波峰高度  3.7水波的颜色  3.7.1使用颜色的名称  3.7.2">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewball.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewball.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballroma.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballvintage.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballmacarons.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballinfographic.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballshine.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballtext1.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballtext2.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballtax.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballwechat.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballtrunk.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballweibo.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballalipay.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballbaidu.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballwechat1.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballdiamond.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballrect.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballroundRect.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballpin.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballcircle.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballecharts.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballcup.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballarrow.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballman3star.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballtriangle.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballwomen1.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballwomen3.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballlight.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballpen.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballcontainer.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballmail.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballfolder.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballbattery.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballqq.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballwechatmoments.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballapple.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballchinamap.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballgreen.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballa60.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballcolor.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballcolorcard2.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballcolorcard3.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballcolorcard4.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballcolorcard4.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballcolorcard5.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballcolorcard6.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballcolorcard7.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballcolor16c.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewballcolor16d.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/svg1.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/svg2.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/svg3.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/svg4.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/svg5.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/svg6.png">
+<meta property="og:updated_time" content="2018-03-02T08:15:43.717Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="wball命令——可视化百分比数据">
+<meta name="twitter:description" content="这是一个绘制水球图的Stata命令，你只需要给出一列数据即可绘制出非常炫酷的水球图。一个最简单的示例如下：   代码1wball 0.6 0.5 0.4 0.3  目录   1.安装  2.语法  3.示例  3.1.主题  3.2.水球上的文字  3.3.文件名称  3.4.外观  3.5.水球空白区域的颜色  3.6水波的波峰高度  3.7水波的颜色  3.7.1使用颜色的名称  3.7.2">
+<meta name="twitter:image" content="https://github.com/czxa/Web_data_Source/raw/master/ewball.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-wball" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      wball命令——可视化百分比数据
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2018-03-02T07:22:23.000Z" itemprop="datePublished">2018-03-02</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>这是一个绘制水球图的Stata命令，你只需要给出一列数据即可绘制出非常炫酷的水球图。一个最简单的示例如下：</p>
+</blockquote>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewball.png" alt=""></p>
+<p><code>代码</code><br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="目录"><a href="#目录" class="headerlink" title=" 目录 "></a><center> 目录 </center></h3><ul>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#安装"><strong><code>1.安装</code></strong></a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#语法"><strong><code>2.语法</code></strong></a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#示例"><strong><code>3.示例</code></strong></a><ul>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#主题"><strong><code>3.1.主题</code></strong></a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#水球上的文字"><strong><code>3.2.水球上的文字</code></strong></a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#文件名称"><strong><code>3.3.文件名称</code></strong></a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#外观"><strong><code>3.4.外观</code></strong></a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#水球空白区域的颜色"><strong><code>3.5.水球空白区域的颜色</code></strong></a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#水波的波峰高度"><strong><code>3.6水波的波峰高度</code></strong></a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#水波的颜色"><strong><code>3.7水波的颜色</code></strong></a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#使用颜色的名称"><strong><code>3.7.1使用颜色的名称</code></strong></a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#使用色卡"><strong><code>3.7.2使用色卡</code></strong></a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#使用16进制色号"><strong><code>3.7.3使用16进制色号</code></strong></a></li>
+</ul>
+</li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#自定义水球外观"><strong><code>4.自定义水球外观</code></strong></a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#更多配置正在探索中"><strong><code>5.更多配置正在探索中</code></strong></a></li>
+</ul>
+<a id="more"></a>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><h5 id="安装方式一："><a href="#安装方式一：" class="headerlink" title="安装方式一："></a><center>安装方式一：</center></h5><blockquote>
+<p>第一种安装是使用github命令安装本命令：<br>首先你需要安装github命令，这个命令来源Haghish.</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net install github, <span class="keyword">from</span>(<span class="string">"https://haghish.github.io/github/"</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>然后使用github命令安装wball命令：</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">github install czxa/wball, replace</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>推荐使用这种安装方法，<code>因为github安装Stata外部命令的最后会运行一个dependency.do</code>，这里面有该外部命令依赖的其它外部命令的安装代码。</p>
+</blockquote>
+<h5 id="安装方法二："><a href="#安装方法二：" class="headerlink" title="安装方法二："></a><center>安装方法二：</center></h5><blockquote>
+<p>第二种安装方法是直接使用net命令安装：</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net install wball, <span class="keyword">from</span>(http://www.czxa.top/wball)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>但是由于这个命令还依赖了我的另外一些命令，所以需要再安装这些依赖的命令：</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net install fw, <span class="keyword">from</span>(http://www.czxa.top/fw)</span><br></pre></td></tr></table></figure>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><blockquote>
+<p>这个命令使用了很多的选择项，使得你能够通过选择项来自定义自己的水球图。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">wball arg1 arg2 arg3 ···</span><br><span class="line">      [,</span><br><span class="line">      text(string)</span><br><span class="line">      htmlname(numeric)</span><br><span class="line">      radius(numeric)</span><br><span class="line">      scheme(string)</span><br><span class="line">      shape(string)</span><br><span class="line">      waveanimation(string)</span><br><span class="line">      bordercolor(string)</span><br><span class="line">      borderwidth(numeric)</span><br><span class="line">      shadowcolor(string)</span><br><span class="line">      shadowblur(numeric)</span><br><span class="line">      color(string)</span><br><span class="line">      outline(string)</span><br><span class="line">      amplitude(numeric)</span><br><span class="line">      animationduration(numeric)</span><br><span class="line">      direction(string)</span><br><span class="line">      animationduration(numeric)</span><br><span class="line">      wavecolor(string)]</span><br></pre></td></tr></table></figure>
+<h5 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h5><p><code>arg1</code> <code>arg2</code> <code>arg3</code> ··· 是一列要可视化的数据，将会被反映在水球的每层波浪的高度上。取值范围建议为<code>0-1</code>，建议<code>从大到小排列</code>。理论上来说，你可以使用任意数量的参数，当然必须要有的。</p>
+<h5 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h5><ul>
+<li><span style="color:green;">冒号表明该选择项可以简写为冒号前面的部分。</span><br><strong><code>t:ext(string)</code></strong>: 控制水球上的文字，换行使用<code>\n</code>，事实上可以通过换行和空格控制文字的位置，默认为最大的数据的对应的百分数；<br><strong><code>html:name(string)</code></strong>:设置html文件的名称，默认值为<span style="color:blue;">fw_example.html</span>；<br><strong><code>r:adius(numeric)</code></strong>: 控制水球的大小，默认值为<span style="color:blue;">80</span>；<br><strong><code>sch:eme(string)</code></strong>: 控制绘图的主题，有<code>dark</code>/<code>roma</code>/<code>vintage</code>/<code>macarons</code>/<code>infographic</code>/<code>shine</code>六种可选，默认<span style="color:blue;">dark</span>主题；<br><strong><code>sha:pe(string)</code></strong>: 控制水球的形状，支持自定义，系统形状有<code>github</code>/<code>tax</code>/<code>wechat</code>/<code>trunk</code>/<code>weibo</code>/<code>alipay</code>/<code>baidu</code>/<code>wechat1</code>/<code>diamond</code>/<code>rect</code>/<code>roundRect</code>/<code>pin</code>/<code>circle</code>/<code>echarts</code>/<code>cup</code>/<code>arrow</code>/<code>cylinder</code>/<code>man3star</code>/<code>triangle</code>/<code>women1-women5</code>/<code>light</code>/<code>pen</code>/<code>container</code>/<code>mail</code>/<code>folder</code>/<code>battery</code>/<code>qq</code>/<code>wechatmoments</code>/<code>apple</code>/<code>chinamap</code>可选，如果你想自定义形状可以点击文末的链接跳转到项目主页查看如何自定义水球的形状，默认形状为<span style="color:blue;">章鱼猫</span>；<br><strong><code>wavea:nimation(string)</code></strong>: 控制水球内的水波是否波动，可以取值true/false，默认<span style="color:blue;">true</span>；<br><strong><code>borderc:olor(string)</code></strong>: 控制水球的边界颜色，支持各种颜色系统；<br><strong><code>borderw:idth(numeric)</code></strong>: 控制水球的边界宽度，默认值为<span style="color:blue;">3</span>；<br><strong><code>shadowc:olor(string)</code></strong>: 控制水球的边界阴影颜色， 默认值为<span style="color:blue;">grey</span>；<br><strong><code>shadowb:lur(numeric)</code></strong>: 控制水球光晕的大小，默认取值<span style="color:blue;">20</span>；<br><strong><code>color(string)</code></strong>: 控制水球空白区域的颜色， 默认值为<span style="color:blue;">grey</span>；<br><strong><code>outl:ine(string)</code></strong>: 控制是否显示水球的轮廓，可以选择true/false， 默认值为<span style="color:blue;">false</span>；<br><strong><code>a:mplitude(numeric)</code></strong>: 控制水球内水波的波峰高度，默认取值<span style="color:blue;">30</span>；<br><strong><code>d:irection(string)</code></strong>: 控制水球内水波流动的方向，取值right/left， 默认值为<span style="color:blue;">right</span>；<br><strong><code>animationd:uration(numeric)</code></strong>: 控制水球内水波波动的快慢，默认取值<span style="color:blue;">2000</span>；<br><strong><code>wavec:olor(string)</code></strong>: 根据给定的颜色列表控制水波的颜色，颜色列表的颜色数目如果少于水波的数目，颜色将会循环使用。同时支持使用色卡<code>card1-card7</code>，默认取值<span style="color:blue;">card1</span>。</li>
+</ul>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><h5 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h5><ul>
+<li><code>dark</code>:</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewball.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(dark)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>roma</code>:</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballroma.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(roma)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>vintage</code>:</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballvintage.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>macarons</code>:</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballmacarons.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(macarons)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>infographic</code>:</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballinfographic.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(infographic)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>shine</code>:</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballshine.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(shine)</span><br></pre></td></tr></table></figure>
+<h5 id="水球上的文字"><a href="#水球上的文字" class="headerlink" title="水球上的文字"></a>水球上的文字</h5><ul>
+<li>基本文字添加</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballtext1.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) text(你好\n章鱼猫)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用 \n 和空格控制文字的位置</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballtext2.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) text(你  好\n\n章  鱼  猫)</span><br></pre></td></tr></table></figure>
+<h5 id="文件名称"><a href="#文件名称" class="headerlink" title="文件名称"></a>文件名称</h5><ul>
+<li><p>代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">. wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) text(你  好\n\n章  鱼  猫) html(章鱼猫)</span><br><span class="line">点击章鱼猫.html即可打开结果文件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>结果</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">. wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) text(你  好\n\n章  鱼  猫) html(章鱼猫)</span><br><span class="line">点击章鱼猫.html即可打开结果文件</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="外观"><a href="#外观" class="headerlink" title="外观"></a>外观</h5><ul>
+<li>tax</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballtax.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) text(你好\n\水球) shape(tax)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>wechat</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballwechat.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) text(你好\n\水球) shape(wechat)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>trunk</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballtrunk.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) text(你好\n\水球) shape(trunk)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>weibo</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballweibo.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) text(你好\n\水球) shape(weibo)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>alipay</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballalipay.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(alipay)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>baidu</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballbaidu.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(baidu)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>wechat1</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballwechat1.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(wechat1)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>diamond</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballdiamond.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(diamond)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>rect</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballrect.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(rect)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>roundRect</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballroundRect.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(roundRect)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>pin</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballpin.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(pin)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>circle</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballcircle.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(circle)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>echarts</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballecharts.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(echarts)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>cup</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballcup.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(cup)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>arrow</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballarrow.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(arrow)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>man3star</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballman3star.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(man3star)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>triangle</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballtriangle.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(triangle)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>women1</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballwomen1.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(women1)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>women3</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballwomen3.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(women3)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>light</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballlight.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(light)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>pen</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballpen.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(pen)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>container</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballcontainer.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(container)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>mail</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballmail.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(mail)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>folder</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballfolder.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(folder)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>battery</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballbattery.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(battery)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>qq</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballqq.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(qq)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>wechatmoments</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballwechatmoments.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(wechatmoments)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>apple</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballapple.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(apple)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>chinamap</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballchinamap.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(chinamap)</span><br></pre></td></tr></table></figure>
+<h5 id="水球空白区域的颜色"><a href="#水球空白区域的颜色" class="headerlink" title="水球空白区域的颜色"></a>水球空白区域的颜色</h5><p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballgreen.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(qq) color(green)</span><br></pre></td></tr></table></figure>
+<h5 id="水波的波峰高度"><a href="#水波的波峰高度" class="headerlink" title="水波的波峰高度"></a>水波的波峰高度</h5><p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballa60.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(cup) a(<span class="number">60</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="水波的颜色"><a href="#水波的颜色" class="headerlink" title="水波的颜色"></a>水波的颜色</h5><h6 id="使用颜色的名称"><a href="#使用颜色的名称" class="headerlink" title="使用颜色的名称"></a>使用颜色的名称</h6><p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballcolor.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(cup)  wavec(red blue green yellow)</span><br></pre></td></tr></table></figure>
+<h6 id="使用色卡"><a href="#使用色卡" class="headerlink" title="使用色卡"></a>使用色卡</h6><ul>
+<li>色卡2</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballcolorcard2.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(chinamap)  wavec(card2)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>色卡3</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballcolorcard3.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(chinamap)  wavec(card3)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>色卡4</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballcolorcard4.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(chinamap)  wavec(card4)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>色卡4</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballcolorcard4.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(chinamap)  wavec(card4)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>色卡5</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballcolorcard5.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(chinamap)  wavec(card5)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>色卡6</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballcolorcard6.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(chinamap)  wavec(card6)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>色卡7</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballcolorcard7.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball <span class="number">0.6</span> <span class="number">0.5</span> <span class="number">0.4</span> <span class="number">0.3</span>, sch(vintage) shape(chinamap)  wavec(card7)</span><br></pre></td></tr></table></figure>
+<h6 id="使用16进制色号"><a href="#使用16进制色号" class="headerlink" title="使用16进制色号"></a>使用16进制色号</h6><p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballcolor16c.png" alt=""></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball 0.6 0.5 0.4 0.3, sch(vintage) shape(chinamap)  wavec(#E8B647 #BA9132 #DCB879 #F98f45)</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/ewballcolor16d.png" alt=""></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wball 0.6 0.5 0.4 0.3, sch(vintage) shape(chinamap)  wavec(#5DAC81 #36563C #A8D8B9 #24936E)</span><br></pre></td></tr></table></figure>
+<h4 id="自定义水球外观"><a href="#自定义水球外观" class="headerlink" title="自定义水球外观"></a>自定义水球外观</h4><ul>
+<li>虽然该命令内置了很多外观，但是这可能依然不够使用，下面将会介绍如何定制自己的外观。</li>
+<li>首先百度一下找一个提供svg图形素材的网站，例如<a href="http://www.sfont.cn/" target="_blank" rel="noopener">http://www.sfont.cn/</a></li>
+<li>进入这个网站：</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/svg1.png" alt=""></p>
+<ul>
+<li>找到一个自己喜欢的外观：</li>
+<li>例如这个：</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/svg2.png" alt=""></p>
+<ul>
+<li>下载svg文件：</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/svg3.png" alt=""></p>
+<ul>
+<li>选择本地下载</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/svg4.png" alt=""></p>
+<ul>
+<li>然后用<code>文本编辑器</code>打开这个svg文件:</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="comment">&lt;!-- Svg Vector Icons : http://www.sfont.cn --&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">version</span>=<span class="string">"1.1"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">xmlns:xlink</span>=<span class="string">"http://www.w3.org/1999/xlink"</span> <span class="attr">x</span>=<span class="string">"0px"</span> <span class="attr">y</span>=<span class="string">"0px"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 1000 1000"</span> <span class="attr">enable-background</span>=<span class="string">"new 0 0 1000 1000"</span> <span class="attr">xml:space</span>=<span class="string">"preserve"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">metadata</span>&gt;</span> Svg Vector Icons : http://www.sfont.cn <span class="tag">&lt;/<span class="name">metadata</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"M839.1,513c-0.5,0-0.9,0.3-1.5,0.3l-29.6-51.2c1.9-2.6,3.3-5.6,3.3-9.2c0-8.6-7-15.7-15.7-15.7c-6.3,0-11.7,3.8-14.2,9.2h-59.1c-2.5-5.4-7.8-9.2-14.2-9.2c-8.6,0-15.7,7-15.7,15.7c0,3,1,5.6,2.5,7.9l-11.3,19.6l-10.6-18.4c1.9-2.6,3.3-5.6,3.3-9.2c0-8.6-7-15.7-15.6-15.7c-6.3,0-11.7,3.8-14.2,9.2h-59.1c-2.5-5.4-7.8-9.2-14.2-9.2c-8.6,0-15.7,7-15.7,15.7c0,2.9,1,5.6,2.5,7.9l-30.2,52.2c-8.5,0.2-15.3,7.1-15.3,15.6c0,8.3,6.5,14.9,14.6,15.4l30.2,52.3c-1.1,2.1-1.9,4.5-1.9,7c0,8.6,7,15.6,15.7,15.6c5.4,0,9.9-2.9,12.8-7.1h19l-7.7,13.3c-8.4,0.2-15.3,7.1-15.3,15.6c0,8.3,6.5,14.8,14.6,15.4l30.2,52.3c-1.1,2.2-1.9,4.5-1.9,7c0,8.6,7,15.7,15.7,15.7c5.4,0,10-3,12.8-7.2h61.8c2.8,4.2,7.3,7.2,12.8,7.2c8.6,0,15.7-7,15.7-15.7c0-3-1.1-5.7-2.6-8.2l29.5-51.1c0.4,0,0.7,0.2,1,0.2c8.6,0,15.6-7,15.6-15.7c0-8.7-7-15.7-15.6-15.7c-0.5,0-1,0.2-1.5,0.3l-7.9-13.5h20.5c2.8,4.2,7.4,7.2,12.8,7.2c8.6,0,15.7-7,15.7-15.7c0-3.1-1.1-5.8-2.7-8.2l29.5-51.1c0.4,0,0.7,0.2,1,0.2c8.6,0,15.7-7,15.7-15.7C854.8,520,847.8,513,839.1,513z M683.8,504.7l8.4,14.5c-2.1,2.6-3.5,5.8-3.5,9.5c0,3.8,1.5,7.3,3.9,10l-8.6,15l-7.9-13.6c3.1-2.8,5-6.8,5-11.4c0-4.4-1.7-8.3-4.6-11.1L683.8,504.7z M588.4,599.9c-1.7-6.8-7.6-12-14.9-12c-1.5,0-2.9,0.5-4.3,0.9l-28-48.6c3.1-2.8,5.1-6.8,5.1-11.4c0-4.3-1.8-8.3-4.6-11.1l28.7-49.7c1.1,0.3,2.1,0.6,3.3,0.6c6.6,0,12.2-4.2,14.5-10h58.4c2.3,5.9,7.8,10,14.5,10c0.7,0,1.3-0.3,1.9-0.4l14.1,24.4L665,513.1c-8.4,0.2-15.3,7.1-15.3,15.6c0,8.3,6.5,14.9,14.6,15.4l8.3,14.5h-17.6c-2.5-5.4-7.9-9.2-14.2-9.2c-8.6,0-15.7,7-15.7,15.6c0,3,1,5.6,2.5,8L612.3,600L588.4,599.9L588.4,599.9L588.4,599.9z M674,570.7l-10.2,17.7c-1-0.2-1.9-0.6-2.9-0.6c-7.4,0-13.3,5.2-14.9,12h-19.7l11.5-19.7c1.1,0.2,2.1,0.6,3.2,0.6c6.7,0,12.2-4.2,14.5-10L674,570.7L674,570.7L674,570.7z M731.2,700.6c-1-0.2-1.9-0.6-3-0.6c-7.4,0-13.3,5.2-14.9,12h-57.5c-1.6-6.8-7.6-12-14.9-12c-1.5,0-2.9,0.5-4.3,0.9l-28-48.6c3.1-2.9,5.1-6.9,5.1-11.4c0-4.4-1.7-8.3-4.6-11.1l10.3-17.8h28.8c2.8,4.2,7.4,7.1,12.8,7.1c8.6,0,15.7-7,15.7-15.7c0-3.1-1.1-5.8-2.6-8.2l10-17.3l10.7,18.5c-1.1,2.1-1.9,4.5-1.9,7c0,8.6,7,15.7,15.7,15.7c5.4,0,10-2.9,12.8-7.1h27.3l11.2,19.3c-2.1,2.6-3.5,5.9-3.5,9.6c0,3.8,1.5,7.2,3.8,10L731.2,700.6z M693.6,570.7h20.1c2.3,5.9,7.9,10,14.5,10c0.7,0,1.2-0.3,1.9-0.4l11.3,19.6h-18.2c-1.6-6.9-7.6-12.1-14.9-12.1c-1.5,0-2.9,0.5-4.3,0.9L693.6,570.7z M798.7,588.4c-1-0.2-1.9-0.6-3-0.6c-7.4,0-13.3,5.2-14.9,12h-25.4l-14.8-25.6c1.9-2.6,3.3-5.6,3.3-9.2c0-8.6-7-15.6-15.6-15.6c-6.3,0-11.7,3.7-14.2,9.2H695l8.3-14.5c0.4,0.1,0.6,0.2,1,0.2c8.6,0,15.7-7,15.7-15.7c0-8.7-7-15.7-15.7-15.7c-0.5,0-1,0.3-1.5,0.3l-12-20.8l14.2-24.7c1.1,0.3,2.1,0.7,3.3,0.7c6.6,0,12.3-4.2,14.5-10h58.4c2.3,5.8,7.9,10,14.5,10c0.6,0,1.2-0.3,1.9-0.4l29.4,51c-2.1,2.6-3.6,5.8-3.6,9.5c0,3.8,1.5,7.3,3.8,10L798.7,588.4z M300.1,629.2c6.2,4.2,14.9,7.3,24.7,8.7c4.1,0.6,8.3,1,12.7,1c4.4,0,8.7-0.4,12.7-1c9.8-1.5,18.5-4.6,24.7-8.7c-2.2,3.4-5.8,6.2-10,8.7c-7.2,4.3-16.7,7.1-27.4,7.1c-10.7,0-20.2-2.8-27.4-7.1C305.9,635.3,302.3,632.5,300.1,629.2z M375.3,558.7c0-2.2,0.6-4.3,1.4-6.2c2.4-5.2,7.5-8.8,13.6-8.8c6.1,0,11.2,3.6,13.6,8.8c0.8,1.9,1.4,3.9,1.4,6.2c0,8.3-6.7,15-15,15C382,573.7,375.3,567,375.3,558.7z M269.7,558.7c0-2.2,0.5-4.3,1.4-6.2c2.4-5.2,7.5-8.8,13.5-8.8c6.1,0,11.3,3.6,13.6,8.8c0.9,1.9,1.4,3.9,1.4,6.2c0,8.3-6.7,15-15,15C276.5,573.7,269.7,567,269.7,558.7z M955.2,887.9V296h-430L782.6,38.6L754,10L500,264L246.1,10l-28.5,28.6L474.9,296H44.8v591.9h332.2v43.8h-83.4V990h412.7v-58.4H623v-43.8L955.2,887.9L955.2,887.9z M217,548.3c1.6-6.4,20.8-38.9,76.7-38.9c10.2,0,21.3,1.1,32.8,3.3c22.8,4.3,41.5-6.1,53-28.4c0.6,3.6,3.9,21.8,9.6,29.8c14.3,20.2,37.3,17.8,42.6,16.3c4.2-1.2,7.7-3,10.7-5.3c6.6,10.5,9.5,19.6,10,22.8l-4.6,5.4h8.4c0.8,0,1.8,0,2.9-1.4l0,0c0.3-0.4,0.5-0.7,0.8-1.3c1.2-2.3,2.6-6.5,3.9-14.3c7.7,3.3,13.1,12.9,13.1,24.3c0,14.4-8.3,26-18.2,26c0,0,0,0,0,0c-0.4-0.2-1-0.4-1.8-0.5l-3.2-0.4l-1.1,3.1c-3.9,11.6-9.6,22.1-16.4,31.7c-12.7,17.7-30,31.6-49.9,40.3c-15.1,6.6-31.6,10.6-48.8,10.6c-18.5,0-36.2-4.3-52.1-11.9c-18.5-8.8-34.6-22.1-46.6-39c-6.8-9.6-12.5-20.2-16.4-31.7l-1-3.1l-3.2,0.5l-1.5,0.5c-10.2,0-18.5-11.6-18.5-26c0-7.9,2.6-15,7-19.8c1.7,5.6,3.2,8.6,4.5,10.3c0,0,0,0.2,0,0.2h0.1c1.6,1.9,3,1.9,4.2,1.9l5.3-1.1L217,548.3z M304.5,729L288,669.2c15.4,6.4,32.1,10.2,49.5,10.2c16.2,0,31.7-3.4,46.2-8.9L367.6,729L352,785.8h-31.9L304.5,729z M548.6,785.8c-5.1-47.1-25.5-89.4-56.1-122.2V543.4c0-95.3-69.4-172.7-155-172.7c-85.5,0-154.9,77.4-154.9,172.7v120.2c-30.7,32.8-51.1,75.1-56.2,122.2h-21V356.5h789.2v429.3L548.6,785.8L548.6,785.8z"</span>/&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>我们把这段：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path d=&quot;M839.1,513c-0.5,0-0.9,0.3-1.5,0.3l-29.6-51.2c1.9-2.6,3.3-5.6,3.3-9.2c0-8.6-7-15.7-15.7-15.7c-6.3,0-11.7,3.8-14.2,9.2h-59.1c-2.5-5.4-7.8-9.2-14.2-9.2c-8.6,0-15.7,7-15.7,15.7c0,3,1,5.6,2.5,7.9l-11.3,19.6l-10.6-18.4c1.9-2.6,3.3-5.6,3.3-9.2c0-8.6-7-15.7-15.6-15.7c-6.3,0-11.7,3.8-14.2,9.2h-59.1c-2.5-5.4-7.8-9.2-14.2-9.2c-8.6,0-15.7,7-15.7,15.7c0,2.9,1,5.6,2.5,7.9l-30.2,52.2c-8.5,0.2-15.3,7.1-15.3,15.6c0,8.3,6.5,14.9,14.6,15.4l30.2,52.3c-1.1,2.1-1.9,4.5-1.9,7c0,8.6,7,15.6,15.7,15.6c5.4,0,9.9-2.9,12.8-7.1h19l-7.7,13.3c-8.4,0.2-15.3,7.1-15.3,15.6c0,8.3,6.5,14.8,14.6,15.4l30.2,52.3c-1.1,2.2-1.9,4.5-1.9,7c0,8.6,7,15.7,15.7,15.7c5.4,0,10-3,12.8-7.2h61.8c2.8,4.2,7.3,7.2,12.8,7.2c8.6,0,15.7-7,15.7-15.7c0-3-1.1-5.7-2.6-8.2l29.5-51.1c0.4,0,0.7,0.2,1,0.2c8.6,0,15.6-7,15.6-15.7c0-8.7-7-15.7-15.6-15.7c-0.5,0-1,0.2-1.5,0.3l-7.9-13.5h20.5c2.8,4.2,7.4,7.2,12.8,7.2c8.6,0,15.7-7,15.7-15.7c0-3.1-1.1-5.8-2.7-8.2l29.5-51.1c0.4,0,0.7,0.2,1,0.2c8.6,0,15.7-7,15.7-15.7C854.8,520,847.8,513,839.1,513z M683.8,504.7l8.4,14.5c-2.1,2.6-3.5,5.8-3.5,9.5c0,3.8,1.5,7.3,3.9,10l-8.6,15l-7.9-13.6c3.1-2.8,5-6.8,5-11.4c0-4.4-1.7-8.3-4.6-11.1L683.8,504.7z M588.4,599.9c-1.7-6.8-7.6-12-14.9-12c-1.5,0-2.9,0.5-4.3,0.9l-28-48.6c3.1-2.8,5.1-6.8,5.1-11.4c0-4.3-1.8-8.3-4.6-11.1l28.7-49.7c1.1,0.3,2.1,0.6,3.3,0.6c6.6,0,12.2-4.2,14.5-10h58.4c2.3,5.9,7.8,10,14.5,10c0.7,0,1.3-0.3,1.9-0.4l14.1,24.4L665,513.1c-8.4,0.2-15.3,7.1-15.3,15.6c0,8.3,6.5,14.9,14.6,15.4l8.3,14.5h-17.6c-2.5-5.4-7.9-9.2-14.2-9.2c-8.6,0-15.7,7-15.7,15.6c0,3,1,5.6,2.5,8L612.3,600L588.4,599.9L588.4,599.9L588.4,599.9z M674,570.7l-10.2,17.7c-1-0.2-1.9-0.6-2.9-0.6c-7.4,0-13.3,5.2-14.9,12h-19.7l11.5-19.7c1.1,0.2,2.1,0.6,3.2,0.6c6.7,0,12.2-4.2,14.5-10L674,570.7L674,570.7L674,570.7z M731.2,700.6c-1-0.2-1.9-0.6-3-0.6c-7.4,0-13.3,5.2-14.9,12h-57.5c-1.6-6.8-7.6-12-14.9-12c-1.5,0-2.9,0.5-4.3,0.9l-28-48.6c3.1-2.9,5.1-6.9,5.1-11.4c0-4.4-1.7-8.3-4.6-11.1l10.3-17.8h28.8c2.8,4.2,7.4,7.1,12.8,7.1c8.6,0,15.7-7,15.7-15.7c0-3.1-1.1-5.8-2.6-8.2l10-17.3l10.7,18.5c-1.1,2.1-1.9,4.5-1.9,7c0,8.6,7,15.7,15.7,15.7c5.4,0,10-2.9,12.8-7.1h27.3l11.2,19.3c-2.1,2.6-3.5,5.9-3.5,9.6c0,3.8,1.5,7.2,3.8,10L731.2,700.6z M693.6,570.7h20.1c2.3,5.9,7.9,10,14.5,10c0.7,0,1.2-0.3,1.9-0.4l11.3,19.6h-18.2c-1.6-6.9-7.6-12.1-14.9-12.1c-1.5,0-2.9,0.5-4.3,0.9L693.6,570.7z M798.7,588.4c-1-0.2-1.9-0.6-3-0.6c-7.4,0-13.3,5.2-14.9,12h-25.4l-14.8-25.6c1.9-2.6,3.3-5.6,3.3-9.2c0-8.6-7-15.6-15.6-15.6c-6.3,0-11.7,3.7-14.2,9.2H695l8.3-14.5c0.4,0.1,0.6,0.2,1,0.2c8.6,0,15.7-7,15.7-15.7c0-8.7-7-15.7-15.7-15.7c-0.5,0-1,0.3-1.5,0.3l-12-20.8l14.2-24.7c1.1,0.3,2.1,0.7,3.3,0.7c6.6,0,12.3-4.2,14.5-10h58.4c2.3,5.8,7.9,10,14.5,10c0.6,0,1.2-0.3,1.9-0.4l29.4,51c-2.1,2.6-3.6,5.8-3.6,9.5c0,3.8,1.5,7.3,3.8,10L798.7,588.4z M300.1,629.2c6.2,4.2,14.9,7.3,24.7,8.7c4.1,0.6,8.3,1,12.7,1c4.4,0,8.7-0.4,12.7-1c9.8-1.5,18.5-4.6,24.7-8.7c-2.2,3.4-5.8,6.2-10,8.7c-7.2,4.3-16.7,7.1-27.4,7.1c-10.7,0-20.2-2.8-27.4-7.1C305.9,635.3,302.3,632.5,300.1,629.2z M375.3,558.7c0-2.2,0.6-4.3,1.4-6.2c2.4-5.2,7.5-8.8,13.6-8.8c6.1,0,11.2,3.6,13.6,8.8c0.8,1.9,1.4,3.9,1.4,6.2c0,8.3-6.7,15-15,15C382,573.7,375.3,567,375.3,558.7z M269.7,558.7c0-2.2,0.5-4.3,1.4-6.2c2.4-5.2,7.5-8.8,13.5-8.8c6.1,0,11.3,3.6,13.6,8.8c0.9,1.9,1.4,3.9,1.4,6.2c0,8.3-6.7,15-15,15C276.5,573.7,269.7,567,269.7,558.7z M955.2,887.9V296h-430L782.6,38.6L754,10L500,264L246.1,10l-28.5,28.6L474.9,296H44.8v591.9h332.2v43.8h-83.4V990h412.7v-58.4H623v-43.8L955.2,887.9L955.2,887.9z M217,548.3c1.6-6.4,20.8-38.9,76.7-38.9c10.2,0,21.3,1.1,32.8,3.3c22.8,4.3,41.5-6.1,53-28.4c0.6,3.6,3.9,21.8,9.6,29.8c14.3,20.2,37.3,17.8,42.6,16.3c4.2-1.2,7.7-3,10.7-5.3c6.6,10.5,9.5,19.6,10,22.8l-4.6,5.4h8.4c0.8,0,1.8,0,2.9-1.4l0,0c0.3-0.4,0.5-0.7,0.8-1.3c1.2-2.3,2.6-6.5,3.9-14.3c7.7,3.3,13.1,12.9,13.1,24.3c0,14.4-8.3,26-18.2,26c0,0,0,0,0,0c-0.4-0.2-1-0.4-1.8-0.5l-3.2-0.4l-1.1,3.1c-3.9,11.6-9.6,22.1-16.4,31.7c-12.7,17.7-30,31.6-49.9,40.3c-15.1,6.6-31.6,10.6-48.8,10.6c-18.5,0-36.2-4.3-52.1-11.9c-18.5-8.8-34.6-22.1-46.6-39c-6.8-9.6-12.5-20.2-16.4-31.7l-1-3.1l-3.2,0.5l-1.5,0.5c-10.2,0-18.5-11.6-18.5-26c0-7.9,2.6-15,7-19.8c1.7,5.6,3.2,8.6,4.5,10.3c0,0,0,0.2,0,0.2h0.1c1.6,1.9,3,1.9,4.2,1.9l5.3-1.1L217,548.3z M304.5,729L288,669.2c15.4,6.4,32.1,10.2,49.5,10.2c16.2,0,31.7-3.4,46.2-8.9L367.6,729L352,785.8h-31.9L304.5,729z M548.6,785.8c-5.1-47.1-25.5-89.4-56.1-122.2V543.4c0-95.3-69.4-172.7-155-172.7c-85.5,0-154.9,77.4-154.9,172.7v120.2c-30.7,32.8-51.1,75.1-56.2,122.2h-21V356.5h789.2v429.3L548.6,785.8L548.6,785.8z</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>把开头：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path d=&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>改成</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path://</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后我们打开一个html文件，找到41行的shape，把我们修改好的这段替换进去：</li>
+</ul>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/svg5.png" alt=""></p>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/svg6.png" alt=""></p>
+<h4 id="更多配置正在探索中···"><a href="#更多配置正在探索中···" class="headerlink" title="更多配置正在探索中···"></a>更多配置正在探索中···</h4><ul>
+<li>敬请期待</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/ECharts/">ECharts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../61169/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          2018年政府工作报告词云绘制
+        
+      </div>
+    </a>
+  
+  
+    <a href="../47504/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">在Stata中查询人民币重要利率——pzrate命令</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-text"> 目录 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装方式一："><span class="nav-text">安装方式一：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装方法二："><span class="nav-text">安装方法二：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#参数"><span class="nav-text">参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#选项"><span class="nav-text">选项</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例"><span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#主题"><span class="nav-text">主题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#水球上的文字"><span class="nav-text">水球上的文字</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#文件名称"><span class="nav-text">文件名称</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#外观"><span class="nav-text">外观</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#水球空白区域的颜色"><span class="nav-text">水球空白区域的颜色</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#水波的波峰高度"><span class="nav-text">水波的波峰高度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#水波的颜色"><span class="nav-text">水波的颜色</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#使用颜色的名称"><span class="nav-text">使用颜色的名称</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#使用色卡"><span class="nav-text">使用色卡</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#使用16进制色号"><span class="nav-text">使用16进制色号</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义水球外观"><span class="nav-text">自定义水球外观</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更多配置正在探索中···"><span class="nav-text">更多配置正在探索中···</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>3d中国地图+柱形图 | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="StataECharts" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="成果图   第一步：使用itchat包爬取自己的微信好友列表 这个部分在以往的文章中有详细步骤  第二步：数据处理1234567use 我的微信好友列表, clearcontract provincedrop if ustrregexm(province, &quot;[a-z]&quot;)drop if province == &quot;&quot;ren _freq numchinagcode,baidukey(tXvh2UT">
+<meta name="keywords" content="Stata,ECharts">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3D中国地图+柱形图">
+<meta property="og:url" content="http://www.czxa.top/posts/64518/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="成果图   第一步：使用itchat包爬取自己的微信好友列表 这个部分在以往的文章中有详细步骤  第二步：数据处理1234567use 我的微信好友列表, clearcontract provincedrop if ustrregexm(province, &quot;[a-z]&quot;)drop if province == &quot;&quot;ren _freq numchinagcode,baidukey(tXvh2UT">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/3dbarmap.png">
+<meta property="og:updated_time" content="2018-03-27T18:18:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="3D中国地图+柱形图">
+<meta name="twitter:description" content="成果图   第一步：使用itchat包爬取自己的微信好友列表 这个部分在以往的文章中有详细步骤  第二步：数据处理1234567use 我的微信好友列表, clearcontract provincedrop if ustrregexm(province, &quot;[a-z]&quot;)drop if province == &quot;&quot;ren _freq numchinagcode,baidukey(tXvh2UT">
+<meta name="twitter:image" content="https://github.com/czxa/Web_data_Source/raw/master/3dbarmap.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-3D中国地图+柱形图" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      3D中国地图+柱形图
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2018-03-20T09:43:23.000Z" itemprop="datePublished">2018-03-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata-ECharts/">Stata+ECharts</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>成果图</p>
+</blockquote>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/3dbarmap.png" alt=""></p>
+<h4 id="第一步：使用itchat包爬取自己的微信好友列表"><a href="#第一步：使用itchat包爬取自己的微信好友列表" class="headerlink" title="第一步：使用itchat包爬取自己的微信好友列表"></a>第一步：使用itchat包爬取自己的微信好友列表</h4><ul>
+<li>这个部分在以往的文章中有详细步骤</li>
+</ul>
+<h4 id="第二步：数据处理"><a href="#第二步：数据处理" class="headerlink" title="第二步：数据处理"></a>第二步：数据处理</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">use 我的微信好友列表, clear</span><br><span class="line">contract province</span><br><span class="line">drop <span class="keyword">if</span> ustrregexm(province, <span class="string">"[a-z]"</span>)</span><br><span class="line">drop <span class="keyword">if</span> province == <span class="string">""</span></span><br><span class="line">ren _freq num</span><br><span class="line">chinagcode,baidukey(tXvh2UTmo4z0zq5t41XLPTm1kQbMHjYl) province(province)</span><br><span class="line">save 每个省的好友数量, replace</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="第三步：绘图"><a href="#第三步：绘图" class="headerlink" title="第三步：绘图"></a>第三步：绘图</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="string">"/Users/mr.cheng/Desktop/3D中国地图"</span></span><br><span class="line">use 每个省的好友数量, clear</span><br><span class="line">* 因为广东和安徽的人太多了，画出来的图不好看，所以就减为<span class="number">20</span>吧</span><br><span class="line">replace num = <span class="number">20</span> <span class="keyword">if</span> inlist(province, <span class="string">"广东"</span>, <span class="string">"安徽"</span>)</span><br><span class="line">jscopy</span><br><span class="line">fw, s h(带柱形图的<span class="number">3</span>D中国地图)</span><br><span class="line">lib, b s(dark)</span><br><span class="line"></span><br><span class="line">fw `<span class="string">"let geoCoordMap = &#123;"</span><span class="string">'</span></span><br><span class="line"><span class="string">forval i = 1/`=_N'</span>&#123;</span><br><span class="line">	local var = `<span class="string">" "</span>`=province[`i<span class="string">']'</span><span class="string">": [`=longitude[`i']', `=latitude[`i']'], "</span><span class="string">'</span></span><br><span class="line"><span class="string">	fw `"`var'</span><span class="string">"'</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">fw `"</span> &#125;;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>var convertData = function(data) &#123;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>     var res = [];<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>     <span class="keyword">for</span> (var i = <span class="number">0</span>; i &lt; data.length; i++) &#123;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         var geoCoord = geoCoordMap[data[i].name];<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         <span class="keyword">if</span> (geoCoord) &#123;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>             res.push(&#123;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>                 name: data[i].name,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>                 value: geoCoord.concat(data[i].value)<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>             &#125;);<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         &#125;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>     &#125;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>    // console.log(res)<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>     <span class="keyword">return</span> res;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span> &#125;;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span> myChart.setOption(&#123;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>       geo3D: &#123;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         map: <span class="string">'china'</span>,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         roam: true,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         itemStyle: &#123;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>             areaColor: <span class="string">'#1d5e98'</span>,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>             opacity: <span class="number">1</span>,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>             borderWidth: <span class="number">0.4</span>,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>             borderColor: <span class="string">'#000'</span><span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         &#125;,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         label: &#123;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>             show: true,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>             textStyle: &#123;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>                 color: <span class="string">'#000'</span>, //地图初始化区域字体颜色<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>                 fontSize: <span class="number">8</span>,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>                 opacity: <span class="number">1</span>,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>                 backgroundColor: <span class="string">'rgba(0,23,11,0)'</span><span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>             &#125;,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         &#125;,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         emphasis: &#123; //当鼠标放上去  地区区域是否显示名称<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>             label: &#123;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>                 show: true,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>                 textStyle: &#123;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>                     color: <span class="string">'#fff'</span>,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>                     fontSize: <span class="number">3</span>,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>                     backgroundColor: <span class="string">'rgba(0,23,11,0)'</span><span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>                 &#125;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>             &#125;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         &#125;,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         //shading: <span class="string">'lambert'</span>,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         light: &#123; //光照阴影<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>             main: &#123;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>                 color: <span class="string">'#fff'</span>, //光照颜色<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>                 intensity: <span class="number">1.2</span>, //光照强度<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>                 //shadowQuality: <span class="string">'high'</span>, //阴影亮度<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>                 shadow: false, //是否显示阴影<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>                 alpha:<span class="number">55</span>,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>                 beta:<span class="number">10</span><span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>             &#125;,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>              ambient: &#123;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>                 intensity: <span class="number">0.3</span><span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>             &#125;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         &#125;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>     &#125;,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>        series: [<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>            //柱状图<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>            &#123;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         name: <span class="string">'bar3D'</span>,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         type: <span class="string">"bar3D"</span>,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         coordinateSystem: <span class="string">'geo3D'</span>,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         barSize: <span class="number">1</span>, //柱子粗细<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         shading: <span class="string">'lambert'</span>,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         opacity: <span class="number">1</span>,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         bevelSize:<span class="number">0.3</span>,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         label: &#123;<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>             show: false,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>             formatter: <span class="string">'&#123;b&#125;'</span><span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         &#125;,<span class="string">"'</span></span><br><span class="line"><span class="string">fw `"</span>         data: convertData([<span class="string">"'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">forval i = 1/`=_N'&#123;</span></span><br><span class="line"><span class="string">	local var = `"</span> &#123;name: <span class="string">"`=province[`i']'"</span>, value: `=num[`i<span class="string">']'</span>&#125;, <span class="string">"'</span></span><br><span class="line"><span class="string">	fw `"</span>`va<span class="string">r'"'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fw `<span class="string">"         ]),"</span><span class="string">'</span></span><br><span class="line"><span class="string">fw `"     &#125;,"'</span></span><br><span class="line">fw `<span class="string">"        ]"</span><span class="string">'</span></span><br><span class="line"><span class="string">fw `"    &#125;);"'</span></span><br><span class="line"></span><br><span class="line">fw, e t</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/ECharts/">ECharts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../44754/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          每天每节课番禺校区的选课人数——3D柱形图
+        
+      </div>
+    </a>
+  
+  
+    <a href="../12670/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">cpyxplot——散点图数组</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步：使用itchat包爬取自己的微信好友列表"><span class="nav-text">第一步：使用itchat包爬取自己的微信好友列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二步：数据处理"><span class="nav-text">第二步：数据处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三步：绘图"><span class="nav-text">第三步：绘图</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

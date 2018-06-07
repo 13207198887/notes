@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>mata语言 | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Stata" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="12345678910111213141516//数值与字符输入	mata	mata clear	2+2	x=4	x	y=x+2	y	z=x+y	z	a=&quot;Ma&quot;	a	b=&quot;ta&quot;	c=a+b	c	end">
+<meta name="keywords" content="Stata">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mata语言">
+<meta property="og:url" content="http://www.czxa.top/posts/25949/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="12345678910111213141516//数值与字符输入	mata	mata clear	2+2	x=4	x	y=x+2	y	z=x+y	z	a=&quot;Ma&quot;	a	b=&quot;ta&quot;	c=a+b	c	end">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-13T13:34:52.494Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mata语言">
+<meta name="twitter:description" content="12345678910111213141516//数值与字符输入	mata	mata clear	2+2	x=4	x	y=x+2	y	z=x+y	z	a=&quot;Ma&quot;	a	b=&quot;ta&quot;	c=a+b	c	end">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Mata语言" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Mata语言
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2018-02-13T13:31:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//数值与字符输入</span><br><span class="line">	mata</span><br><span class="line">	mata clear</span><br><span class="line">	<span class="number">2</span>+<span class="number">2</span></span><br><span class="line">	x=<span class="number">4</span></span><br><span class="line">	x</span><br><span class="line">	y=x+<span class="number">2</span></span><br><span class="line">	y</span><br><span class="line">	z=x+y</span><br><span class="line">	z</span><br><span class="line">	a=<span class="string">"Ma"</span></span><br><span class="line">	a</span><br><span class="line">	b=<span class="string">"ta"</span></span><br><span class="line">	c=a+b</span><br><span class="line">	c</span><br><span class="line">	end</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br></pre></td><td class="code"><pre><span class="line">//矩阵的输入</span><br><span class="line">	mata</span><br><span class="line">	mata clear</span><br><span class="line">	A = (<span class="number">1</span>,<span class="number">2</span>\<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">	A</span><br><span class="line">	B = (<span class="number">3</span>/<span class="number">2</span>,<span class="number">2</span>\<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">	B</span><br><span class="line">	AB1 = (A\B)</span><br><span class="line">	AB1</span><br><span class="line">	a = (<span class="number">1</span>+<span class="number">1</span>i,<span class="number">1</span><span class="number">-1</span>i\<span class="number">2</span><span class="number">-4</span>i,<span class="number">3</span>+<span class="number">6</span>i)</span><br><span class="line">	a</span><br><span class="line">	b = (<span class="number">-1</span>+<span class="number">1</span>i,<span class="number">1</span>+<span class="number">1</span>i\<span class="number">2</span><span class="number">-4</span>i,<span class="number">3</span>+<span class="number">6</span>i)</span><br><span class="line">	b</span><br><span class="line">	ab=(a,b)</span><br><span class="line">	ab</span><br><span class="line">	ab1=(a\b)</span><br><span class="line">	ab1</span><br><span class="line">	Alpha = (<span class="string">"a"</span>,<span class="string">"b"</span>\<span class="string">"c"</span>,<span class="string">"d"</span>)</span><br><span class="line">	Alpha</span><br><span class="line">	Beta = (<span class="string">"A"</span>,<span class="string">"B"</span>\<span class="string">"C"</span>,<span class="string">"D"</span>)</span><br><span class="line">	Beta</span><br><span class="line">	AlphaBeta = (Alpha,Beta)</span><br><span class="line">	AlphaBeta</span><br><span class="line">	AlphaBeta1 = (Alpha\Beta)</span><br><span class="line">	AlphaBeta1</span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line">//Mata的基本运算</span><br><span class="line">	mata</span><br><span class="line">	mata clear</span><br><span class="line">	<span class="number">2</span>+<span class="number">2</span></span><br><span class="line">	(<span class="number">2</span>+<span class="number">2</span>&lt;<span class="number">3</span>)&amp;(<span class="number">3</span>+<span class="number">5</span>&gt;=<span class="number">10</span>)</span><br><span class="line">	(<span class="number">2</span>+<span class="number">2</span>&lt;<span class="number">3</span>)|(<span class="number">3</span>+<span class="number">5</span>&lt;<span class="number">10</span>)</span><br><span class="line">	!(<span class="number">2</span>+<span class="number">2</span>&lt;<span class="number">3</span>)</span><br><span class="line">	~(<span class="number">2</span>+<span class="number">2</span>&lt;<span class="number">3</span>)</span><br><span class="line">	x=<span class="number">2</span>+<span class="number">2</span></span><br><span class="line">	x</span><br><span class="line">	x~=<span class="number">3</span></span><br><span class="line">	<span class="number">2</span><span class="number">-4</span>i+<span class="number">3</span>+<span class="number">6</span>i</span><br><span class="line">	a=<span class="number">2</span><span class="number">-4</span>i</span><br><span class="line">	a</span><br><span class="line">	<span class="string">"matrix"</span>+<span class="string">" praogramming"</span></span><br><span class="line">	e=<span class="string">"matrix"</span></span><br><span class="line">	f=<span class="string">" programming"</span></span><br><span class="line">	g=e+f</span><br><span class="line">	g</span><br><span class="line">	end</span><br><span class="line">//矩阵的运算</span><br><span class="line">	mata</span><br><span class="line">	mata clear</span><br><span class="line">	A=(<span class="number">1</span>,<span class="number">2</span>\<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">	B=(<span class="number">3</span>,<span class="number">4</span>\<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">	A+B</span><br><span class="line">	A*B //矩阵相乘，要求A的行数等于B的列数</span><br><span class="line">	A<span class="comment">#B //克罗内克积，即aij*B</span></span><br><span class="line">	A<span class="string">' //转置</span></span><br><span class="line"><span class="string">	a=2</span></span><br><span class="line"><span class="string">	a*A</span></span><br><span class="line"><span class="string">	A*a</span></span><br><span class="line"><span class="string">	A/a</span></span><br><span class="line"><span class="string">	end</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">//矩阵函数</span></span><br><span class="line"><span class="string">/*从Stata数据集中导入数据生成矩阵，在Mata中主要有以下两个函数：</span></span><br><span class="line"><span class="string">1：st_data(real matrix i,rowvector j)</span></span><br><span class="line"><span class="string">2: st_view(mat=.,real matrix i,rowvector j)</span></span><br><span class="line"><span class="string">A1=st_data(.,.) 所有变量的所有观测值。</span></span><br><span class="line"><span class="string">A2=st_data(1,.) 所有变量的所有第一个观测值</span></span><br><span class="line"><span class="string">A3=st_data((1,3),.) 所有变量的第一个到第三个观测值</span></span><br><span class="line"><span class="string">A4=st_data((1\3),.) 所有变量的第一个和第三个观测值</span></span><br><span class="line"><span class="string">A5=st_data((1,3\4,6),.) 所有变量的第一到第三个观测值和第四到第六个观测值</span></span><br><span class="line"><span class="string">B1=st_data(.,1) 第一个变量的所有观测值</span></span><br><span class="line"><span class="string">B2=st_data(.,(1,3)) 第一到第三变量的所有观测值</span></span><br><span class="line"><span class="string">B3=st_data(.,("v","v2")) 变量"v"和"v2"的所有观测值</span></span><br><span class="line"><span class="string">*/</span></span><br><span class="line"><span class="string">	use mata_input.dta,clear</span></span><br><span class="line"><span class="string">	list</span></span><br><span class="line"><span class="string">	mata</span></span><br><span class="line"><span class="string">	mata clear</span></span><br><span class="line"><span class="string">	A1B1 = st_data(.,.)</span></span><br><span class="line"><span class="string">	A1B1</span></span><br><span class="line"><span class="string">	A2 = st_data(1,.)</span></span><br><span class="line"><span class="string">	A2</span></span><br><span class="line"><span class="string">	B2 = st_data(.,1)</span></span><br><span class="line"><span class="string">	B2</span></span><br><span class="line"><span class="string">	A3 = st_data((1,3),.)</span></span><br><span class="line"><span class="string">	A3</span></span><br><span class="line"><span class="string">	i=(1,3)</span></span><br><span class="line"><span class="string">	i</span></span><br><span class="line"><span class="string">	A3 = st_data(i,.)</span></span><br><span class="line"><span class="string">	A3</span></span><br><span class="line"><span class="string">	B2 = st_data(.,(1,3))</span></span><br><span class="line"><span class="string">	B2</span></span><br><span class="line"><span class="string">	B3 = st_data(.,i)</span></span><br><span class="line"><span class="string">	B3</span></span><br><span class="line"><span class="string">	B3 = st_data(.,("var1","var3"))</span></span><br><span class="line"><span class="string">	B3</span></span><br><span class="line"><span class="string">	j = ("var1","var3")</span></span><br><span class="line"><span class="string">	j</span></span><br><span class="line"><span class="string">	B3 = st_data(.,j)</span></span><br><span class="line"><span class="string">	B3</span></span><br><span class="line"><span class="string">	A4 = st_data((1\3),.)</span></span><br><span class="line"><span class="string">	A4</span></span><br><span class="line"><span class="string">	i=(1\3)</span></span><br><span class="line"><span class="string">	A4 = st_data(i,.)</span></span><br><span class="line"><span class="string">	A4</span></span><br><span class="line"><span class="string">	A5 = st_data((1,3\4,5),.)</span></span><br><span class="line"><span class="string">	A5</span></span><br><span class="line"><span class="string">	i = (1,3\4,5)</span></span><br><span class="line"><span class="string">	i</span></span><br><span class="line"><span class="string">	A5 = st_data(i,.)</span></span><br><span class="line"><span class="string">	A5</span></span><br><span class="line"><span class="string">	end</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">/*st_data()与st_view()的区别在于：</span></span><br><span class="line"><span class="string">st_data()函数生成的矩阵与原始矩阵没有联系；</span></span><br><span class="line"><span class="string">st_view()函数生成的矩阵只是以一种特殊的过滤方式来查看和操作Stata数据集中的数据，与原始数据</span></span><br><span class="line"><span class="string">集是相互关联的。*/</span></span><br><span class="line"><span class="string">	use mata_input.dta,clear</span></span><br><span class="line"><span class="string">	list</span></span><br><span class="line"><span class="string">	mata</span></span><br><span class="line"><span class="string">	A1 = st_data(.,.)</span></span><br><span class="line"><span class="string">	st_view(A=.,(1,2),(1,2))</span></span><br><span class="line"><span class="string">	A</span></span><br><span class="line"><span class="string">	st_view(A2,.,.)</span></span><br><span class="line"><span class="string">	A2</span></span><br><span class="line"><span class="string">	end</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">/*矩阵求逆：luinv()函数*/</span></span><br><span class="line"><span class="string">	clear</span></span><br><span class="line"><span class="string">	mata</span></span><br><span class="line"><span class="string">	mata clear</span></span><br><span class="line"><span class="string">	b = (3,2,1\2,2,0\1,0,2)</span></span><br><span class="line"><span class="string">	b</span></span><br><span class="line"><span class="string">	invb=luinv(b)</span></span><br><span class="line"><span class="string">	invb</span></span><br><span class="line"><span class="string">	cholinv(b) //其他求逆函数</span></span><br><span class="line"><span class="string">	invsym(b)</span></span><br><span class="line"><span class="string">	b*invb</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">	e=(3,2,2\2,1,2\0,2,1)</span></span><br><span class="line"><span class="string">	e</span></span><br><span class="line"><span class="string">	inve=luinv(e)</span></span><br><span class="line"><span class="string">	inve</span></span><br><span class="line"><span class="string">	f=(3,2,2\2,1,2\4,2,4) //奇异阵的逆是一个由缺失值构成的矩阵</span></span><br><span class="line"><span class="string">	luinv(f)</span></span><br><span class="line"><span class="string">	end</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">/*生成特定格式的矩阵*/</span></span><br><span class="line"><span class="string">//1：I(): 单位矩阵</span></span><br><span class="line"><span class="string">	mata</span></span><br><span class="line"><span class="string">	mata clear</span></span><br><span class="line"><span class="string">	I(3)</span></span><br><span class="line"><span class="string">	I(3,4)</span></span><br><span class="line"><span class="string">	end</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">//2：J(n,m,#)：生成一个n行m列且每个元素都为#的矩阵</span></span><br><span class="line"><span class="string">	mata</span></span><br><span class="line"><span class="string">	mata clear</span></span><br><span class="line"><span class="string">	J(3,3,"#")</span></span><br><span class="line"><span class="string">	J(2,2,2)</span></span><br><span class="line"><span class="string">	end</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">//3: diag(A): 根据矩阵或向量A产生一个对角阵</span></span><br><span class="line"><span class="string">	mata</span></span><br><span class="line"><span class="string">	mata clear</span></span><br><span class="line"><span class="string">	A=(1,2,3)</span></span><br><span class="line"><span class="string">	diag(A)</span></span><br><span class="line"><span class="string">	B=(1,2,3\4,5,6)</span></span><br><span class="line"><span class="string">	diag(B)</span></span><br><span class="line"><span class="string">	C=(1\2\3)</span></span><br><span class="line"><span class="string">	diag(C)</span></span><br><span class="line"><span class="string">	D=(1,2,3\4,5,6\7,8,9)</span></span><br><span class="line"><span class="string">	diag(D)</span></span><br><span class="line"><span class="string">	end</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">/*lowertriangle(A)：从矩阵中提取下三角阵</span></span><br><span class="line"><span class="string">uppertriangle(A)：从矩阵中提取上三角阵</span></span><br><span class="line"><span class="string">lowertriangle(A,i)：从矩阵中提取下三角阵并用标量i替换主对角线</span></span><br><span class="line"><span class="string">uppertriangle(A,i)</span></span><br><span class="line"><span class="string">*/</span></span><br><span class="line"><span class="string">	mata</span></span><br><span class="line"><span class="string">	mata clear</span></span><br><span class="line"><span class="string">	A=(1,2\3,4)</span></span><br><span class="line"><span class="string">	B=(1,2,3\4,5,6)</span></span><br><span class="line"><span class="string">	A</span></span><br><span class="line"><span class="string">	lowertriangle(A)</span></span><br><span class="line"><span class="string">	uppertriangle(A)</span></span><br><span class="line"><span class="string">	lowertriangle(A,0)</span></span><br><span class="line"><span class="string">	uppertriangle(A,"A")</span></span><br><span class="line"><span class="string">	B</span></span><br><span class="line"><span class="string">	lowertriangle(B)</span></span><br><span class="line"><span class="string">	B'</span></span><br><span class="line">	lowertriangle(B<span class="string">') //注意对行向量和列向量的处理是不一样的</span></span><br><span class="line"><span class="string">	C=(1,2,3\4,5,6\7,8,9)</span></span><br><span class="line"><span class="string">	_lowertriangle(C) //在函数前面加一条下横线产生的矩阵会取代原矩阵</span></span><br><span class="line"><span class="string">	C</span></span><br><span class="line"><span class="string">	E=(1,2,3\4,5,6\7,8,7)</span></span><br><span class="line"><span class="string">	_luinv(E)</span></span><br><span class="line"><span class="string">	E</span></span><br><span class="line"><span class="string">	end</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">//e(i,n)生成第i个元素为1，其余元素均为0的1*n向量</span></span><br><span class="line"><span class="string">	mata</span></span><br><span class="line"><span class="string">	mata clear</span></span><br><span class="line"><span class="string">	e(4,5)</span></span><br><span class="line"><span class="string">	e(4,5)'</span></span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line">//diagonal(A)：从矩阵A中提取主对角元素组成列向量</span><br><span class="line">	mata</span><br><span class="line">	mata clear</span><br><span class="line">	a=(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>\<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)</span><br><span class="line">	diagonal(a)</span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line">//sqrt(A)：求矩阵中每个元素的平方根组成一个新的矩阵</span><br><span class="line">	mata</span><br><span class="line">	mata clear</span><br><span class="line">	a=(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>\<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>\<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>)</span><br><span class="line">	sqrt(a)</span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line">/*mean()：矩阵求列均值得到一个行向量</span><br><span class="line">mean(X,w)：以w为权值对X求列加权平均值并得到一个行向量</span><br><span class="line">variance(X,w)</span><br><span class="line">correlation(X,w)</span><br><span class="line">*/</span><br><span class="line">	mata</span><br><span class="line">	mata clear</span><br><span class="line">	a=(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>\<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>\<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>)</span><br><span class="line">	mean(a)</span><br><span class="line">	X=select(a,(<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>))</span><br><span class="line">	X</span><br><span class="line">	w=select(a,(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>))</span><br><span class="line">	w</span><br><span class="line">	mean(X,w)</span><br><span class="line">	variance(X)</span><br><span class="line">	variance(X,w)</span><br><span class="line">	correlation(X)</span><br><span class="line">	correlation(X,w)</span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line">/*rowsum(X)：对行元素求和，得到一个列向量</span><br><span class="line">colsum(X)：对列元素求和，得到一个行向量</span><br><span class="line">sum()：对矩阵中的所有元素求和</span><br><span class="line">rowsum(X,missing)，可以设置缺失值取非零值，缺失值会作为缺失值对待，如果不设置，默认缺失值为<span class="number">0</span></span><br><span class="line">*/</span><br><span class="line">	mata</span><br><span class="line">	mata clear</span><br><span class="line">	X = (<span class="number">1</span>,<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>\<span class="number">2</span>,.,<span class="number">50</span>,<span class="number">60</span>)</span><br><span class="line">	X</span><br><span class="line">	rowsum(X)</span><br><span class="line">	rowsum(X,missing=<span class="number">10</span>)</span><br><span class="line">	X = (X\<span class="number">3</span>,<span class="number">70</span>,<span class="number">80</span>,<span class="number">90</span>)</span><br><span class="line">	X</span><br><span class="line">	colsum(X)</span><br><span class="line">	colsum(X,missing=<span class="number">10</span>)</span><br><span class="line">	sum(X)</span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line">/*rows(A)：返回矩阵A的行数</span><br><span class="line">cols(A)：返回矩阵A的列数</span><br><span class="line">length(A)：返回矩阵A行数与列数的乘积值</span><br><span class="line">*/</span><br><span class="line">	mata</span><br><span class="line">	mata clear</span><br><span class="line">	b=(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>\<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)</span><br><span class="line">	rows(b)</span><br><span class="line">	cols(b)</span><br><span class="line">	length(b)</span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line">/*select(X,V)：从矩阵X中提取向量V所指定的行或列组成矩阵</span><br><span class="line">st_select(A,X,V)：从矩阵X中提取向量V所指定的行或列组成矩阵，并替换A(A已存在)</span><br><span class="line">st_select(A=.,X,V)：A不存在的时候。</span><br><span class="line">*/</span><br><span class="line">	clear all</span><br><span class="line">	use mata_input.dta,clear</span><br><span class="line">	mata</span><br><span class="line">	mata clear</span><br><span class="line">	X=st_data(.,.)</span><br><span class="line">	X</span><br><span class="line">	select(X,(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>))</span><br><span class="line">	select(X,(<span class="number">1</span>\<span class="number">0</span>\<span class="number">1</span>\<span class="number">0</span>\<span class="number">1</span>))</span><br><span class="line">	end</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../38428/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          给陈海妍同学的新年礼物——三联日历表
+        
+      </div>
+    </a>
+  
+  
+    <a href="../5425/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">新浪网上市公司公告整理</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav">无</ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

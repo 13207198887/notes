@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="A messy notebook.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:url" content="http://www.czxa.top/page/35/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="A messy notebook.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:description" content="A messy notebook.">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/notes/css/home.css" >
+  
+
+  
+
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body>
+
+
+  
+    <header id="header">
+
+	<!-- 背景图模式 -->
+	
+
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
+          </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
+            <h3>A messy notebook.</h3>
+            <h5>程振兴</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-ZingChart排名图2（需要使用谷歌浏览器打开）"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/36413/">ZingChart排名图2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/36413/" class="article-date">
+	  <time datetime="2018-05-22T07:22:23.000Z" itemprop="datePublished">2018-05-22</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>ZingChart绘图需要的js及其他文件</p>
+</blockquote>
+<p><a href="https://github.com/czxa/nr/raw/master/zingchart.zip" target="_blank" rel="noopener">ZingChart绘图需要的js及其他文件</a></p>
+<blockquote>
+<p>成果图</p>
+</blockquote>
+<p><img src="https://github.com/czxa/mr/raw/master/排名图2.png" alt=""></p>
+        <!-- 
+ZingChart绘图需要的js及其他文件
+
+ZingChart绘图需要的js及其他文件
+
+成果图
+
+
+
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576......  -->
+        <p class="article-more-link">
+          <a href="../../posts/36413/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/ZingChart/">ZingChart</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-使用终端查询比特币价格"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/6052/">使用终端查询比特币价格</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/6052/" class="article-date">
+	  <time datetime="2018-05-21T12:57:23.000Z" itemprop="datePublished">2018-05-21</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/零散笔记/">零散笔记</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/mr/raw/master/btcoin.png" alt=""></p>
+        <!-- 
+
+12345678910111213141516171819202122232425262728# installnpm install bitcoin-chart-cli -g# run defaultbitcoin-chart-clichengzhenxingdeMacBook:~ mr.cheng$ bitcoin-chart-cli 11497 ┤            ╭╮ 11......  -->
+        <p class="article-more-link">
+          <a href="../../posts/6052/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Shell/">Shell</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-使用终端查询天气"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/47471/">使用终端查询天气</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/47471/" class="article-date">
+	  <time datetime="2018-05-21T12:56:23.000Z" itemprop="datePublished">2018-05-21</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/零散笔记/">零散笔记</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/mr/raw/master/wttr.png" alt=""><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl wttr.in</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>GiHub:</p>
+</blockquote>
+<p><a href="https://github.com/chubin/wttr.in" target="_blank" rel="noopener">https://github.com/chubin/wttr.in</a></p>
+<blockquote>
+<p>查看帮助：</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">chengzhenxingdeMacBook:~ mr.cheng$ curl wttr.in/:help</span><br><span class="line">Usage:</span><br><span class="line"></span><br><span class="line">    $ curl wttr.in          # current location</span><br><span class="line">    $ curl wttr.in/muc      # weather in the Munic airport</span><br><span class="line"></span><br><span class="line">Supported location types:</span><br><span class="line"></span><br><span class="line">    /paris                  # city name</span><br><span class="line">    /~Eiffel+tower          # any location</span><br><span class="line">    /Москва                 # Unicode name of any location in any language</span><br><span class="line">    /muc                    # airport code (3 letters)</span><br><span class="line">    /@stackoverflow.com     # domain name</span><br><span class="line">    /94107                  # area codes</span><br><span class="line">    /-78.46,106.79          # GPS coordinates</span><br><span class="line"></span><br><span class="line">Special locations:</span><br><span class="line"></span><br><span class="line">    /moon                   # Moon phase (add ,+US or ,+France for these cities)</span><br><span class="line">    /moon@2016-10-25        # Moon phase for the date (@2016-10-25)</span><br><span class="line"></span><br><span class="line">Units:</span><br><span class="line"></span><br><span class="line">    ?m                      # metric (SI) (used by default everywhere except US)</span><br><span class="line">    ?u                      # USCS (used by default in US)</span><br><span class="line">    ?M                      # show wind speed in m/s</span><br><span class="line"></span><br><span class="line">View options:</span><br><span class="line"></span><br><span class="line">    ?0                      # only current weather</span><br><span class="line">    ?1                      # current weather + 1 day</span><br><span class="line">    ?2                      # current weather + 2 days</span><br><span class="line">    ?n                      # narrow version (only day and night)</span><br><span class="line">    ?q                      # quiet version (no "Weather report" text)</span><br><span class="line">    ?Q                      # superquiet version (no "Weather report", no city name)</span><br><span class="line">    ?T                      # switch terminal sequences off (no colors)</span><br><span class="line"></span><br><span class="line">PNG options:</span><br><span class="line"></span><br><span class="line">    /paris.png              # generate a PNG file</span><br><span class="line">    ?p                      # add frame arond the output</span><br><span class="line">    ?t                      # transparency 150</span><br><span class="line">    transparency=...        # transparency from 0 to 255 (255 = not transparent)</span><br><span class="line"></span><br><span class="line">Options can be combined:</span><br><span class="line"></span><br><span class="line">    /Paris?0pq</span><br><span class="line">    /Paris?0pq&amp;lang=fr</span><br><span class="line">    /Paris_0pq.png          # in PNG the file mode are specified after _</span><br><span class="line">    /Rome_0pq_lang=it.png   # long options are separated with underscore</span><br><span class="line"></span><br><span class="line">Localization:</span><br><span class="line"></span><br><span class="line">    $ curl fr.wttr.in/Paris</span><br><span class="line">    $ curl wttr.in/paris?lang=fr</span><br><span class="line">    $ curl -H "Accept-Language: fr" wttr.in/paris</span><br><span class="line"></span><br><span class="line">Supported languages:</span><br><span class="line"></span><br><span class="line">    de fr id it nb ru (supported)</span><br><span class="line">    ar az be bg bs ca cy cs da el eo es et fi hi hr hu hy is ja jv ka kk ko ky lt lv mk ml nl nn pt pl ro sk sl sr sr-lat sv sw th tr uk uz vi zh zu he (in progress)</span><br><span class="line"></span><br><span class="line">Special URLs:</span><br><span class="line"></span><br><span class="line">    /:help                  # show this page</span><br><span class="line">    /:bash.function         # show recommended bash function wttr()</span><br><span class="line">    /:translation           # show the information about the translators</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查询广州的天气</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">chengzhenxingdeMacBook:~ mr.cheng$ curl wttr.in/广州</span><br><span class="line">Weather report: 广州</span><br><span class="line"></span><br><span class="line">    \  /       Partly cloudy</span><br><span class="line">  _ /"".-.     38-41 °C</span><br><span class="line">    \_(   ).   ↑ 14 km/h</span><br><span class="line">    /(___(__)  20 km</span><br><span class="line">               0.0 mm</span><br><span class="line">                                                       ┌─────────────┐</span><br><span class="line">┌──────────────────────────────┬───────────────────────┤  Mon 21 May ├───────────────────────┬──────────────────────────────┐</span><br><span class="line">│            Morning           │             Noon      └──────┬──────┘     Evening           │             Night            │</span><br><span class="line">├──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┤</span><br><span class="line">│     \   /     Sunny          │    \  /       Partly cloudy  │    \  /       Partly cloudy  │    \  /       Partly cloudy  │</span><br><span class="line">│      .-.      33-37 °C       │  _ /"".-.     37-42 °C       │  _ /"".-.     37-40 °C       │  _ /"".-.     33-37 °C       │</span><br><span class="line">│   ― (   ) ―   ↑ 8-9 km/h     │    \_(   ).   ↑ 9-11 km/h    │    \_(   ).   ↑ 15-18 km/h   │    \_(   ).   ↑ 18-21 km/h   │</span><br><span class="line">│      `-’      13 km          │    /(___(__)  20 km          │    /(___(__)  20 km          │    /(___(__)  20 km          │</span><br><span class="line">│     /   \     0.0 mm | 0%    │               0.0 mm | 0%    │               0.0 mm | 0%    │               0.0 mm | 0%    │</span><br><span class="line">└──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┘</span><br><span class="line">                                                       ┌─────────────┐</span><br><span class="line">┌──────────────────────────────┬───────────────────────┤  Tue 22 May ├───────────────────────┬──────────────────────────────┐</span><br><span class="line">│            Morning           │             Noon      └──────┬──────┘     Evening           │             Night            │</span><br><span class="line">├──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┤</span><br><span class="line">│     \   /     Sunny          │    \  /       Partly cloudy  │    \  /       Partly cloudy  │    \  /       Partly cloudy  │</span><br><span class="line">│      .-.      33-37 °C       │  _ /"".-.     37-41 °C       │  _ /"".-.     37-40 °C       │  _ /"".-.     34-38 °C       │</span><br><span class="line">│   ― (   ) ―   ↑ 8-9 km/h     │    \_(   ).   ↑ 9-10 km/h    │    \_(   ).   ↑ 12-14 km/h   │    \_(   ).   ↑ 15-17 km/h   │</span><br><span class="line">│      `-’      20 km          │    /(___(__)  20 km          │    /(___(__)  20 km          │    /(___(__)  20 km          │</span><br><span class="line">│     /   \     0.0 mm | 0%    │               0.0 mm | 0%    │               0.0 mm | 0%    │               0.0 mm | 0%    │</span><br><span class="line">└──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┘</span><br><span class="line">                                                       ┌─────────────┐</span><br><span class="line">┌──────────────────────────────┬───────────────────────┤  Wed 23 May ├───────────────────────┬──────────────────────────────┐</span><br><span class="line">│            Morning           │             Noon      └──────┬──────┘     Evening           │             Night            │</span><br><span class="line">├──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┤</span><br><span class="line">│    \  /       Partly cloudy  │    \  /       Partly cloudy  │    \  /       Partly cloudy  │    \  /       Partly cloudy  │</span><br><span class="line">│  _ /"".-.     33-37 °C       │  _ /"".-.     37-42 °C       │  _ /"".-.     38-42 °C       │  _ /"".-.     36-39 °C       │</span><br><span class="line">│    \_(   ).   ↘ 6 km/h       │    \_(   ).   ↘ 5-6 km/h     │    \_(   ).   → 5-6 km/h     │    \_(   ).   ↑ 9-10 km/h    │</span><br><span class="line">│    /(___(__)  20 km          │    /(___(__)  20 km          │    /(___(__)  20 km          │    /(___(__)  20 km          │</span><br><span class="line">│               0.0 mm | 0%    │               0.0 mm | 0%    │               0.0 mm | 0%    │               0.0 mm | 0%    │</span><br><span class="line">└──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┘</span><br><span class="line">Location: 广州市, 天河区 (Tianhe), 广州市 / Guangzhou, 广东省, 中国 [23.1387267,113.319321]</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Shell/">Shell</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post- ZingChart峰图"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/5713/">ZingChart峰图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/5713/" class="article-date">
+	  <time datetime="2018-05-21T07:22:23.000Z" itemprop="datePublished">2018-05-21</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>ZingChart绘图需要的js及其他文件</p>
+</blockquote>
+<p><a href="https://github.com/czxa/nr/raw/master/zingchart.zip" target="_blank" rel="noopener">ZingChart绘图需要的js及其他文件</a></p>
+<blockquote>
+<p>成果图</p>
+</blockquote>
+<p><img src="https://github.com/czxa/mr/raw/master/峰图.png" alt=""></p>
+        <!-- 
+ZingChart绘图需要的js及其他文件
+
+ZingChart绘图需要的js及其他文件
+
+成果图
+
+
+
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576......  -->
+        <p class="article-more-link">
+          <a href="../../posts/5713/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/ZingChart/">ZingChart</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-ZingChart科学计数法折线图"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/59659/">ZingChart科学计数法折线图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/59659/" class="article-date">
+	  <time datetime="2018-05-21T07:22:23.000Z" itemprop="datePublished">2018-05-21</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>ZingChart绘图需要的js及其他文件</p>
+</blockquote>
+<p><a href="https://github.com/czxa/nr/raw/master/zingchart.zip" target="_blank" rel="noopener">ZingChart绘图需要的js及其他文件</a></p>
+<blockquote>
+<p>成果图</p>
+</blockquote>
+<p><img src="https://github.com/czxa/mr/raw/master/科学计数法折线图.png" alt=""></p>
+        <!-- 
+ZingChart绘图需要的js及其他文件
+
+ZingChart绘图需要的js及其他文件
+
+成果图
+
+
+
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576......  -->
+        <p class="article-more-link">
+          <a href="../../posts/59659/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/ZingChart/">ZingChart</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../34/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../33/">33</a><a class="page-number" href="../34/">34</a><span class="page-number current">35</span><a class="page-number" href="../36/">36</a><a class="page-number" href="../37/">37</a><span class="space">&hellip;</span><a class="page-number" href="../169/">169</a><a class="extend next" rel="next" href="../36/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+</body>
+</html>

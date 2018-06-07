@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>r——图形初阶 | Mr.Cheng&#39;s Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="R" />
+  
+  
+    <meta name="google-site-verification" content="true" />
+  
+  
+    <meta name="baidu-site-verification" content="true" />
+  
+  
+  <meta name="description" content="图形初阶12345678## 使用图形attach(mtcars)png(&quot;txcj1.png&quot;)plot(wt, mpg)abline(lm(mpg~wt))title(&quot;Regression of MPG on Weight&quot;)dev.off()detach(mtcars)">
+<meta name="keywords" content="R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R——图形初阶">
+<meta property="og:url" content="http://www.czxa.top/posts/57456/index.html">
+<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:description" content="图形初阶12345678## 使用图形attach(mtcars)png(&quot;txcj1.png&quot;)plot(wt, mpg)abline(lm(mpg~wt))title(&quot;Regression of MPG on Weight&quot;)dev.off()detach(mtcars)">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/txcj1.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/txcj2.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/txcj3.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/txcj4.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/txcj5.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/txcj6.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/txcj7.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/txcj8.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/txcj9.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/txcj10.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/txcj11.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/txcj12.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/txcj13.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/txcj14.png">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/txcj15.png">
+<meta property="og:updated_time" content="2018-02-13T09:21:42.263Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R——图形初阶">
+<meta name="twitter:description" content="图形初阶12345678## 使用图形attach(mtcars)png(&quot;txcj1.png&quot;)plot(wt, mpg)abline(lm(mpg~wt))title(&quot;Regression of MPG on Weight&quot;)dev.off()detach(mtcars)">
+<meta name="twitter:image" content="https://github.com/czxa/Web_data_Source/raw/master/txcj1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="../../js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/notes/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="程振兴" src="/notes/css/images/1.png">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../developer">创作</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../mybooks">书架</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-R——图形初阶" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      R——图形初阶
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2018-01-30T09:00:13.000Z" itemprop="datePublished">2018-01-30</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/R语言实战/">R语言实战</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="图形初阶"><a href="#图形初阶" class="headerlink" title="图形初阶"></a>图形初阶</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 使用图形</span></span><br><span class="line"><span class="keyword">attach</span>(mtcars)</span><br><span class="line">png(<span class="string">"txcj1.png"</span>)</span><br><span class="line">plot(wt, mpg)</span><br><span class="line">abline(lm(mpg~wt))</span><br><span class="line">title(<span class="string">"Regression of MPG on Weight"</span>)</span><br><span class="line">dev.off()</span><br><span class="line"><span class="keyword">detach</span>(mtcars)</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/txcj1.png" alt=""></p>
+<a id="more"></a>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出为pdf</span></span><br><span class="line"><span class="keyword">attach</span>(mtcars)</span><br><span class="line">pdf(<span class="string">"txcj1.pdf"</span>)</span><br><span class="line">plot(wt, mpg)</span><br><span class="line">abline(lm(mpg~wt))</span><br><span class="line">title(<span class="string">"Regression of MPG on Weight"</span>)</span><br><span class="line">dev.off()</span><br><span class="line"><span class="keyword">detach</span>(mtcars)</span><br><span class="line"><span class="comment"># 除此之外，还可以使用win.metafile()/jpeg()/bmp()/tiff()/xfig()/postscript()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开图形窗口</span></span><br><span class="line">dev.new()</span><br><span class="line">plot(wt, mpg)</span><br><span class="line">dev.off</span><br></pre></td></tr></table></figure>
+<h3 id="一个简单的例子"><a href="#一个简单的例子" class="headerlink" title="一个简单的例子"></a>一个简单的例子</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dose &lt;- c(<span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">45</span>, <span class="number">60</span>)</span><br><span class="line">drugA &lt;- c(<span class="number">16</span>, <span class="number">20</span>, <span class="number">27</span>, <span class="number">40</span>, <span class="number">60</span>)</span><br><span class="line">drugB &lt;- c(<span class="number">15</span>, <span class="number">18</span>,<span class="number">25</span>, <span class="number">31</span>, <span class="number">40</span>)</span><br><span class="line"></span><br><span class="line">plot(dose, drugA, type = <span class="string">"b"</span>)</span><br><span class="line"><span class="comment"># type = "b"：同时绘制点和线</span></span><br></pre></td></tr></table></figure>
+<h3 id="图形参数"><a href="#图形参数" class="headerlink" title="图形参数"></a>图形参数</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用虚线(lty = 2)和实心三角形(pch = 17)作为点的符号</span></span><br><span class="line">opar &lt;- par(no.readonly = <span class="literal">T</span>) <span class="comment">##复制当前图形参数设置</span></span><br><span class="line">par(lty = <span class="number">2</span>, pch = <span class="number">17</span>) <span class="comment">##设置虚线和实心三角</span></span><br><span class="line">plot(dose, drugA, type = <span class="string">"b"</span>)</span><br><span class="line">par(opar)</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">plot(dose, drugA, type = <span class="string">"b"</span>, lty = <span class="number">2</span>, pch = <span class="number">17</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="符号和线条"><a href="#符号和线条" class="headerlink" title="符号和线条"></a>符号和线条</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pch: 点型</span></span><br><span class="line"><span class="comment"># cex：指定符号的大小，其值为默认值的倍数</span></span><br><span class="line"><span class="comment"># lty：线型</span></span><br><span class="line"><span class="comment"># lwd：线宽</span></span><br><span class="line">png(<span class="string">"txcj2.png"</span>)</span><br><span class="line">plot(dose, drugA, type = <span class="string">"b"</span>, lty = <span class="number">3</span>, lwd = <span class="number">3</span>, pch = <span class="number">12</span>, cex = <span class="number">2</span>)</span><br><span class="line">dev.off()</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/txcj2.png" alt=""></p>
+<h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># col：默认的绘图颜色，可以为一个向量</span></span><br><span class="line"><span class="comment"># col.axis：坐标轴刻度文字的颜色</span></span><br><span class="line"><span class="comment"># col.lab：坐标轴标签/名称的颜色</span></span><br><span class="line"><span class="comment"># col.main：标题的颜色</span></span><br><span class="line"><span class="comment"># col.sub：副标题的颜色</span></span><br><span class="line"><span class="comment"># fg：图形的前景色</span></span><br><span class="line"><span class="comment"># bg：图形的背景色</span></span><br></pre></td></tr></table></figure>
+<h3 id="rainbow-：创建彩虹色"><a href="#rainbow-：创建彩虹色" class="headerlink" title="rainbow()：创建彩虹色"></a>rainbow()：创建彩虹色</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">n &lt;- <span class="number">10</span></span><br><span class="line">mycolors &lt;- rainbow(n)</span><br><span class="line">png(<span class="string">"txcj3.png"</span>)</span><br><span class="line">pie(rep(<span class="number">1</span>, <span class="number">10</span>), labels = mycolors, col = mycolors)</span><br><span class="line">dev.off()</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/txcj3.png" alt=""></p>
+<h3 id="gray-：创建多阶灰度"><a href="#gray-：创建多阶灰度" class="headerlink" title="gray()：创建多阶灰度"></a>gray()：创建多阶灰度</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">n &lt;- <span class="number">10</span></span><br><span class="line">mycolors &lt;- gray(<span class="number">0</span>:n/n)</span><br><span class="line">png(<span class="string">"txcj4.png"</span>)</span><br><span class="line">pie(rep(<span class="number">1</span>, <span class="number">10</span>), labels = mycolors, col = mycolors)</span><br><span class="line">dev.off()</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/txcj4.png" alt=""></p>
+<h3 id="文本属性"><a href="#文本属性" class="headerlink" title="文本属性"></a>文本属性</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cex：默认字体大小的倍数</span></span><br><span class="line"><span class="comment"># cex.axis：坐标轴刻度文字大小</span></span><br><span class="line"><span class="comment"># cex.lab：坐标轴标签大小</span></span><br><span class="line"><span class="comment"># cex.main：标题大小</span></span><br><span class="line"><span class="comment"># cex.sub：副标题dax</span></span><br><span class="line"><span class="comment"># font：绘图中使用的字体样式，1常规2粗体3斜体4粗斜体5符号字体</span></span><br><span class="line"><span class="comment"># font.axis</span></span><br><span class="line"><span class="comment"># font.lab</span></span><br><span class="line"><span class="comment"># font.main</span></span><br><span class="line"><span class="comment"># font.sub</span></span><br><span class="line"><span class="comment"># ps：字体磅值，文本的最终大小为ps*cex</span></span><br><span class="line"><span class="comment"># family</span></span><br><span class="line">par(font.lab = <span class="number">3</span>, cex.lab = <span class="number">1.5</span>, font.main = <span class="number">4</span>, cex.main = <span class="number">2</span>)</span><br><span class="line"><span class="comment"># 创建字体映射(Mac)</span></span><br><span class="line">quartzFonts(</span><br><span class="line">  sans = quartzFont(rep(<span class="string">"AppleGothic"</span>, <span class="number">4</span>)),</span><br><span class="line">  serif = quartzFont(rep(<span class="string">"AppleMyungjp"</span>, <span class="number">4</span>))</span><br><span class="line">  )</span><br><span class="line"><span class="comment"># 然后就可以使用sans/serif作为family的取值。</span></span><br></pre></td></tr></table></figure>
+<h3 id="图形尺寸与边界尺寸"><a href="#图形尺寸与边界尺寸" class="headerlink" title="图形尺寸与边界尺寸"></a>图形尺寸与边界尺寸</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pin：以英寸表示的图形尺寸（宽和高）</span></span><br><span class="line"><span class="comment"># mai：以数值向量表示的边界大小（下左上右，英寸）</span></span><br><span class="line"><span class="comment"># mar：以数值向量表示的边界大小（下左上右，英分）</span></span><br><span class="line">opar &lt;- par(no.readonly = <span class="literal">T</span>)</span><br><span class="line">png(<span class="string">"txcj5.png"</span>)</span><br><span class="line">par(pin = c(<span class="number">2</span>,<span class="number">3</span>))</span><br><span class="line">par(lwd = <span class="number">2</span>, cex = <span class="number">1.5</span>)</span><br><span class="line">par(cex.axis = <span class="number">.75</span>, font.axis = <span class="number">3</span>)</span><br><span class="line">plot(dose, drugA, type = <span class="string">"b"</span>, pch = <span class="number">19</span>, lty = <span class="number">2</span>, col = <span class="string">"red"</span>)</span><br><span class="line">par(opar)</span><br><span class="line">dev.off()</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/txcj5.png" alt=""></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">png(<span class="string">"txcj6.png"</span>)</span><br><span class="line">plot(dose, drugB, type = <span class="string">"b"</span>, pch = <span class="number">23</span>, lty = <span class="number">6</span>, col = <span class="string">"blue"</span>, bg = <span class="string">"green"</span>)</span><br><span class="line">par(opar)</span><br><span class="line">dev.off()</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/txcj6.png" alt=""></p>
+<h3 id="添加文本，自定义坐标轴和图例"><a href="#添加文本，自定义坐标轴和图例" class="headerlink" title="添加文本，自定义坐标轴和图例"></a>添加文本，自定义坐标轴和图例</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">png(<span class="string">"txcj7.png"</span>)</span><br><span class="line">plot(dose, drugA, type = <span class="string">"b"</span>,</span><br><span class="line">     pch = <span class="number">2</span>, lwd = <span class="number">2</span>,</span><br><span class="line">     main = <span class="string">"Clinical Trial for drug A"</span>,</span><br><span class="line">     sub = <span class="string">"This is hypothetical data"</span>,</span><br><span class="line">     xlab = <span class="string">"Dosage"</span>, ylab = <span class="string">"Drug Response"</span>,</span><br><span class="line">     xlim = c(<span class="number">0</span>, <span class="number">60</span>), ylim = c(<span class="number">0</span>, <span class="number">70</span>)</span><br><span class="line">     )</span><br><span class="line">dev.off()</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/txcj7.png" alt=""></p>
+<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title(</span><br><span class="line">  main = <span class="string">""</span>,</span><br><span class="line">  sub = <span class="string">""</span>,</span><br><span class="line">  xlab = <span class="string">""</span>,</span><br><span class="line">  ylab = <span class="string">""</span>,</span><br><span class="line">  col.lab = <span class="string">"green"</span>, cex.lab = <span class="number">0.75</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="坐标轴"><a href="#坐标轴" class="headerlink" title="坐标轴"></a>坐标轴</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">axis(side, at = , labels = , pos = ,....)</span><br><span class="line"><span class="comment"># side：坐标轴的位置1下2左3上4右</span></span><br><span class="line"><span class="comment"># at：一个数值向量，表示需要绘制刻度线的位置</span></span><br><span class="line"><span class="comment"># labels：一个字符向量，表示置于刻度线旁边的文字标签</span></span><br><span class="line"><span class="comment"># pos：与另一坐标轴相交位置的值</span></span><br><span class="line"><span class="comment"># lty：线条类型</span></span><br><span class="line"><span class="comment"># col: 线条和刻度线颜色</span></span><br><span class="line"><span class="comment"># las：标签是否平行(=0)或垂直(=2)与坐标轴</span></span><br><span class="line"><span class="comment"># tck：刻度线的长度，正值表示在图形内侧，0表示禁用，1表示绘制网格线，默认值为-0.01.</span></span><br><span class="line">png(<span class="string">"txcj8.png"</span>)</span><br><span class="line">x &lt;- c(<span class="number">0</span>:<span class="number">10</span>)</span><br><span class="line">y &lt;- x</span><br><span class="line">z &lt;- <span class="number">10</span>/x</span><br><span class="line"></span><br><span class="line">opar &lt;- par(no.readonly = <span class="literal">T</span>)</span><br><span class="line"><span class="comment"># 增加边界大小</span></span><br><span class="line">par(mar = c(<span class="number">5</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">8</span>) + <span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line">plot(x, y, type = <span class="string">"b"</span>,</span><br><span class="line">     pch = <span class="number">21</span>,</span><br><span class="line">     col = <span class="string">"red"</span>,</span><br><span class="line">     yaxt = <span class="string">"n"</span>,</span><br><span class="line">     lty = <span class="number">3</span>,</span><br><span class="line">     ann = <span class="literal">F</span></span><br><span class="line">     )</span><br><span class="line"><span class="comment"># ann = F：移除坐标轴</span></span><br><span class="line">lines(x, z, type = <span class="string">"b"</span>, pch = <span class="number">22</span>, col = <span class="string">"blue"</span>, lty = <span class="number">2</span>)</span><br><span class="line">axis(<span class="number">2</span>, at = x, labels = x, col.axis = <span class="string">"red"</span>, las = <span class="number">2</span>)</span><br><span class="line">axis(<span class="number">4</span>, at = z, labels = round(z, digits = <span class="number">2</span>), col.axis = <span class="string">"blue"</span>, las = <span class="number">2</span>, cex.axis = <span class="number">0.7</span>, tck = -<span class="number">0.01</span>)</span><br><span class="line">mtext(<span class="string">"y = 1/x"</span>, side = <span class="number">4</span>, line = <span class="number">3</span>, cex.lab = <span class="number">1</span>, las = <span class="number">2</span>, col = <span class="string">"blue"</span>)</span><br><span class="line">title(<span class="string">"An Example of Creative Axes"</span>, xlab = <span class="string">"X values"</span>, ylab = <span class="string">"Y = X"</span>)</span><br><span class="line">dev.off()</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/txcj8.png" alt=""></p>
+<h3 id="次要刻度线"><a href="#次要刻度线" class="headerlink" title="次要刻度线"></a>次要刻度线</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install.packages("Hmisc")</span></span><br><span class="line"><span class="keyword">library</span>(Hmisc)</span><br><span class="line">minor.tick(nx = n1, ny = n2, tick.ratio = n3)</span><br><span class="line"><span class="comment"># n1/n2表示在主刻度线之间划分区间的个数，n3表示相对于主刻度线的大小。</span></span><br></pre></td></tr></table></figure>
+<h3 id="参考线"><a href="#参考线" class="headerlink" title="参考线"></a>参考线</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">abline(h = yvalues, v = xvalues)</span><br><span class="line">abline(v = seq(<span class="number">1</span>,<span class="number">10</span>,<span class="number">2</span>), lty = <span class="number">2</span>, col = <span class="string">"blue"</span>)</span><br><span class="line"><span class="comment"># 上面的代码表示在x的1，3，5，7，9处添加竖直的蓝色虚线</span></span><br></pre></td></tr></table></figure>
+<h3 id="图例"><a href="#图例" class="headerlink" title="图例"></a>图例</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">legend(location, title, legend...)</span><br><span class="line"><span class="comment"># location：bottom/bottomleft/left/topleft/top/topright/right/bottomright/center</span></span><br><span class="line"><span class="comment"># title：图例标题</span></span><br><span class="line"><span class="comment"># legend：图例标签组成的字符串向量</span></span><br><span class="line">png(<span class="string">"txcj9.png"</span>)</span><br><span class="line">par(lwd = <span class="number">2</span>, cex = <span class="number">1.5</span>, font.lab = <span class="number">2</span>)</span><br><span class="line">plot(dose, drugA, type = <span class="string">"b"</span>,</span><br><span class="line">     pch = <span class="number">15</span>, lty = <span class="number">1</span>, col = <span class="string">"red"</span>,</span><br><span class="line">     ylim = c(<span class="number">0</span>, <span class="number">60</span>),</span><br><span class="line">     main = <span class="string">"Drug A vs. Drug B"</span>,</span><br><span class="line">     xlab = <span class="string">"Drug Dosage"</span>, ylab = <span class="string">"Drug Response"</span></span><br><span class="line">     )</span><br><span class="line">lines(dose, drugB, type = <span class="string">"b"</span>,</span><br><span class="line">      pch = <span class="number">17</span>, lty = <span class="number">2</span>, col = <span class="string">"blue"</span>)</span><br><span class="line">abline(h = c(<span class="number">30</span>), lwd = <span class="number">1.5</span>, lty = <span class="number">2</span>, col = <span class="string">"gray"</span>)</span><br><span class="line"><span class="keyword">library</span>(Hmisc)</span><br><span class="line">minor.tick(nx = <span class="number">3</span>, ny = <span class="number">3</span>, tick.ratio = <span class="number">0.5</span>)</span><br><span class="line">legend(<span class="string">"topleft"</span>, inset = <span class="number">0.05</span>,</span><br><span class="line">       title = <span class="string">"Drug Type"</span>,</span><br><span class="line">       c(<span class="string">"A"</span>, <span class="string">"B"</span>), lty = c(<span class="number">1</span>,<span class="number">2</span>),</span><br><span class="line">       col = c(<span class="string">"red"</span>, <span class="string">"blue"</span>))</span><br><span class="line">par(opar)</span><br><span class="line">dev.off()</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/txcj9.png" alt=""></p>
+<h3 id="文本标注"><a href="#文本标注" class="headerlink" title="文本标注"></a>文本标注</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">text(location, <span class="string">"text to place"</span>, pos, <span class="keyword">...</span>)</span><br><span class="line">mtext(<span class="string">"Text to place"</span>, side, line = n, <span class="keyword">...</span>)</span><br><span class="line"><span class="comment"># location：文本位置参数，可以为一对坐标，也可以通过指定location为locator(1)使用鼠标交互式的确定摆放位置。</span></span><br><span class="line"><span class="comment"># pos：文本相对于位置参数的位置，1下2左3上4右。</span></span><br><span class="line"><span class="comment"># side：指定用来放置文本的边。1下2左3上4右。也可以指定参数line来内移或者外移文本，随着值的增加，文本将外移。也可以使用adj=0将文本左下对齐，或使用adj = 1右上对齐。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加散点标签</span></span><br><span class="line"><span class="keyword">attach</span>(mtcars)</span><br><span class="line">png(<span class="string">"txcj10.png"</span>)</span><br><span class="line">plot(wt, mpg,</span><br><span class="line">     main = <span class="string">"Mileage vs. Car Weight"</span>,</span><br><span class="line">     xlab = <span class="string">"Weight"</span>, ylab = <span class="string">"Mileage"</span>,</span><br><span class="line">     pch = <span class="number">18</span>, col = <span class="string">"blue"</span>)</span><br><span class="line">text(wt, mpg, row.names(mtcars),</span><br><span class="line">     cex = <span class="number">0.6</span>, pos = <span class="number">4</span>, col = <span class="string">"red"</span>)</span><br><span class="line">dev.off()</span><br><span class="line"><span class="keyword">detach</span>(mtcars)</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/txcj10.png" alt=""></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 展示不同字体族</span></span><br><span class="line">png(<span class="string">"txcj11.png"</span>)</span><br><span class="line">opar &lt;- par(no.readonly = <span class="literal">T</span>)</span><br><span class="line">par(cex = <span class="number">1.5</span>)</span><br><span class="line">plot(<span class="number">1</span>:<span class="number">7</span>, <span class="number">1</span>:<span class="number">7</span>, type = <span class="string">"n"</span>)</span><br><span class="line">text(<span class="number">3</span>, <span class="number">3</span>, <span class="string">"Example of default text"</span>)</span><br><span class="line">text(<span class="number">4</span>, <span class="number">4</span>, family = <span class="string">"mono"</span>, <span class="string">"Example of mono-spaced text"</span>)</span><br><span class="line">text(<span class="number">5</span>, <span class="number">5</span>, family = <span class="string">"serif"</span>, <span class="string">"Example of  serif text"</span>)</span><br><span class="line">dev.off()</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/txcj11.png" alt=""></p>
+<h3 id="图形的组合"><a href="#图形的组合" class="headerlink" title="图形的组合"></a>图形的组合</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">png(<span class="string">"txcj12.png"</span>)</span><br><span class="line"><span class="keyword">attach</span>(mtcars)</span><br><span class="line">opar &lt;- par(no.readonly = <span class="literal">T</span>)</span><br><span class="line">par(mfrow = c(<span class="number">2</span>,<span class="number">2</span>))</span><br><span class="line">plot(wt, mpg, main = <span class="string">"Scatterplot of wt vs. mpg"</span>)</span><br><span class="line">plot(wt, disp, main = <span class="string">"Scatterplot of wt vs. disp"</span>)</span><br><span class="line">hist(wt, main = <span class="string">"Histogram of wt"</span>)</span><br><span class="line">boxplot(wt, main = <span class="string">"Boxplot of wt"</span>)</span><br><span class="line">par(opar)</span><br><span class="line"><span class="keyword">detach</span>(mtcars)</span><br><span class="line">dev.off()</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/txcj12.png" alt=""></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">png(<span class="string">"txcj13.png"</span>)</span><br><span class="line"><span class="keyword">attach</span>(mtcars)</span><br><span class="line">opar &lt;- par(no.readonly = <span class="literal">T</span>)</span><br><span class="line">par(mfrow = c(<span class="number">3</span>,<span class="number">1</span>))</span><br><span class="line">hist(wt)</span><br><span class="line">hist(mpg)</span><br><span class="line">hist(disp)</span><br><span class="line">par(opar)</span><br><span class="line"><span class="keyword">detach</span>(mtcars)</span><br><span class="line">dev.off()</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/txcj13.png" alt=""></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">png(<span class="string">"txcj14.png"</span>)</span><br><span class="line"><span class="keyword">attach</span>(mtcars)</span><br><span class="line">layout(matrix(c(<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>), <span class="number">2</span>, <span class="number">2</span>, byrow = <span class="literal">TRUE</span>))</span><br><span class="line">hist(wt)</span><br><span class="line">hist(mpg)</span><br><span class="line">hist(disp)</span><br><span class="line"><span class="keyword">detach</span>(mtcars)</span><br><span class="line">dev.off()</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/txcj14.png" alt=""></p>
+<h3 id="图形布局的精细控制"><a href="#图形布局的精细控制" class="headerlink" title="图形布局的精细控制"></a>图形布局的精细控制</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">png(<span class="string">"txcj15.png"</span>)</span><br><span class="line">opar &lt;- par(no.readonly = <span class="literal">T</span>)</span><br><span class="line">par(fig = c(<span class="number">0</span>, <span class="number">0.8</span>, <span class="number">0</span>, <span class="number">0.8</span>))</span><br><span class="line">plot(mtcars$wt, mtcars$mpg,</span><br><span class="line">     xlab = <span class="string">"Miles Per Gallon"</span>,</span><br><span class="line">     ylab = <span class="string">"Car Weight"</span>)</span><br><span class="line">par(fig = c(<span class="number">0</span>, <span class="number">0.8</span>, <span class="number">0.55</span>, <span class="number">1</span>), new = <span class="literal">T</span>)</span><br><span class="line">boxplot(mtcars$wt, horizontal = <span class="literal">T</span>, axes = <span class="literal">F</span>)</span><br><span class="line">par(fig = c(<span class="number">0.65</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0.8</span>), new = <span class="literal">T</span>)</span><br><span class="line">boxplot(mtcars$wt, horizontal = <span class="literal">F</span>, axes = <span class="literal">F</span>)</span><br><span class="line"></span><br><span class="line">mtext(<span class="string">"Enhanced Scatterplot"</span>, side = <span class="number">3</span>, outer = <span class="literal">TRUE</span>, line = -<span class="number">3</span>)</span><br><span class="line">par(opar)</span><br><span class="line">dev.off()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 参数 fig = 的取值为由四个值组成的两个区间，前两个数为横向区间，后两个书为纵向区间。</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/txcj15.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章非常有趣，请随意打赏。另外您也可以扫描下面的微信公众号二维码关注我的微信公众号订阅我的微信推文!', // 可选参数，打赏标题
+  btnText: '赞赏与订阅', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/czxa/Web_data_source/raw/master/Wechat.jpeg',
+  wechatGZHImage: 'https://github.com/czxa/Web_data_source/raw/master/WechatGZH.jpg'
+});
+</script>
+
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU2My84MTI3">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/R/">R</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../46564/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          蜡烛图的绘制
+        
+      </div>
+    </a>
+  
+  
+    <a href="../51118/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">R——创建数据集</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#图形初阶"><span class="nav-text">图形初阶</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个简单的例子"><span class="nav-text">一个简单的例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图形参数"><span class="nav-text">图形参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符号和线条"><span class="nav-text">符号和线条</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#颜色"><span class="nav-text">颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rainbow-：创建彩虹色"><span class="nav-text">rainbow()：创建彩虹色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gray-：创建多阶灰度"><span class="nav-text">gray()：创建多阶灰度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本属性"><span class="nav-text">文本属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图形尺寸与边界尺寸"><span class="nav-text">图形尺寸与边界尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加文本，自定义坐标轴和图例"><span class="nav-text">添加文本，自定义坐标轴和图例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标题"><span class="nav-text">标题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#坐标轴"><span class="nav-text">坐标轴</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#次要刻度线"><span class="nav-text">次要刻度线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考线"><span class="nav-text">参考线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图例"><span class="nav-text">图例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本标注"><span class="nav-text">文本标注</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图形的组合"><span class="nav-text">图形的组合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图形布局的精细控制"><span class="nav-text">图形布局的精细控制</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../developer" class="mobile-nav-link">创作</a>
+  
+    <a href="../../mybooks" class="mobile-nav-link">书架</a>
+  
+    <a href="../../categories" class="mobile-nav-link">分类</a>
+  
+    <a href="../../tags" class="mobile-nav-link">标签</a>
+  
+    <a href="../../about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/scripts.js"></script>
+
+
+
+
+  <script src="../../js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Mr.Cheng&#39;s Notebook
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 程振兴 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
