@@ -29,8 +29,8 @@
 
   
 
-  <link rel="icon" href="/css/images/1.png">
-  <link rel="apple-touch-icon" href="/css/images/1.png">
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
@@ -48,20 +48,20 @@
   <script src="../../js/bootstrap.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/home.css" >
-  
-
-  
-
+    <link rel="stylesheet" href="/notes/css/home.css" >
   
 
   
+
+  
+
   
   
-    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
   
 
 </head>
@@ -202,10 +202,6 @@
           <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
         
           <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
-        
-          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
-        
-          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
         
           <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
         
@@ -409,7 +405,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-蒙特卡洛模拟_simulate"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-char——产生副变量名"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -417,7 +413,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/40741/">蒙特卡洛模拟_simulate</a>
+      <a class="article-title" href="../../posts/27871/">char——产生副变量名</a>
     </h1>
   
 
@@ -425,7 +421,7 @@
     
     <div class="article-meta">
       
-	<a href="../../posts/40741/" class="article-date">
+	<a href="../../posts/27871/" class="article-date">
 	  <time datetime="2018-02-20T07:10:23.000Z" itemprop="datePublished">2018-02-20</time>
 	</a>
 
@@ -436,11 +432,8 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">. * 蒙特卡洛模拟</span><br><span class="line"></span><br><span class="line">. cap prog drop simpctile</span><br><span class="line"></span><br><span class="line">. prog simpctile, rclass</span><br><span class="line">  <span class="number">1.</span> version <span class="number">14.0</span></span><br><span class="line">  <span class="number">2.</span> drop _all</span><br><span class="line">  <span class="number">3.</span> set obs <span class="number">200</span></span><br><span class="line">  <span class="number">4.</span> gen z = invnormal(runiform())</span><br><span class="line">  <span class="number">5.</span> sum z, d</span><br><span class="line">  <span class="number">6.</span> ret scalar p25 = r(p25)</span><br><span class="line">  <span class="number">7.</span> ret scalar p50 = r(p50)</span><br><span class="line">  <span class="number">8.</span> ret scalar p75 = r(p75)</span><br><span class="line">  <span class="number">9.</span> end</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. set seed <span class="number">234567</span></span><br><span class="line"></span><br><span class="line">. simulate p25 = r(p25) p50 = r(p50) p75 = r(p75), reps(<span class="number">1000</span>) nodots saving(pctile</span><br><span class="line">&gt; s, replace): simpctile</span><br><span class="line"></span><br><span class="line">      command:  simpctile</span><br><span class="line">          p25:  r(p25)</span><br><span class="line">          p50:  r(p50)</span><br><span class="line">          p75:  r(p75)</span><br></pre></td></tr></table></figure>
-        <!-- 1234567891011121314151617181920212223242526. * 蒙特卡洛模拟. cap prog drop simpctile. prog simpctile, rclass  1. version 14.0  2. drop _all  3. set obs 200  4. gen z = invnormal(runiform())  5. sum z, d ......  -->
-        <p class="article-more-link">
-          <a href="../../posts/40741/#more">阅读全文</a>
-        </p>
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">. sysuse auto, clear</span><br><span class="line">(<span class="number">1978</span> Automobile Data)</span><br><span class="line"></span><br><span class="line">. char make[varname] <span class="string">"变量1"</span></span><br><span class="line"></span><br><span class="line">. char price[varname] <span class="string">"变量2"</span></span><br><span class="line"></span><br><span class="line">. char weight[varname] <span class="string">"变量3"</span></span><br><span class="line"></span><br><span class="line">. list make price weight <span class="keyword">in</span> <span class="number">1</span>/<span class="number">10</span>, sep(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">     +---------------------------------+</span><br><span class="line">     | make             price   weight |</span><br><span class="line">     |---------------------------------|</span><br><span class="line">  <span class="number">1.</span> | AMC Concord      <span class="number">4</span>,<span class="number">099</span>    <span class="number">2</span>,<span class="number">930</span> |</span><br><span class="line">  <span class="number">2.</span> | AMC Pacer        <span class="number">4</span>,<span class="number">749</span>    <span class="number">3</span>,<span class="number">350</span> |</span><br><span class="line">  <span class="number">3.</span> | AMC Spirit       <span class="number">3</span>,<span class="number">799</span>    <span class="number">2</span>,<span class="number">640</span> |</span><br><span class="line">  <span class="number">4.</span> | Buick Century    <span class="number">4</span>,<span class="number">816</span>    <span class="number">3</span>,<span class="number">250</span> |</span><br><span class="line">  <span class="number">5.</span> | Buick Electra    <span class="number">7</span>,<span class="number">827</span>    <span class="number">4</span>,<span class="number">080</span> |</span><br><span class="line">  <span class="number">6.</span> | Buick LeSabre    <span class="number">5</span>,<span class="number">788</span>    <span class="number">3</span>,<span class="number">670</span> |</span><br><span class="line">  <span class="number">7.</span> | Buick Opel       <span class="number">4</span>,<span class="number">453</span>    <span class="number">2</span>,<span class="number">230</span> |</span><br><span class="line">  <span class="number">8.</span> | Buick Regal      <span class="number">5</span>,<span class="number">189</span>    <span class="number">3</span>,<span class="number">280</span> |</span><br><span class="line">  <span class="number">9.</span> | Buick Riviera   <span class="number">10</span>,<span class="number">372</span>    <span class="number">3</span>,<span class="number">880</span> |</span><br><span class="line"> <span class="number">10.</span> | Buick Skylark    <span class="number">4</span>,<span class="number">082</span>    <span class="number">3</span>,<span class="number">400</span> |</span><br><span class="line">     +---------------------------------+</span><br><span class="line"></span><br><span class="line">. list make price weight <span class="keyword">in</span> <span class="number">1</span>/<span class="number">10</span>, sep(<span class="number">0</span>) subvarname</span><br><span class="line"></span><br><span class="line">     +--------------------------------+</span><br><span class="line">     | 变量<span class="number">1</span>            变量<span class="number">2</span>   变量<span class="number">3</span> |</span><br><span class="line">     |--------------------------------|</span><br><span class="line">  <span class="number">1.</span> | AMC Concord      <span class="number">4</span>,<span class="number">099</span>   <span class="number">2</span>,<span class="number">930</span> |</span><br><span class="line">  <span class="number">2.</span> | AMC Pacer        <span class="number">4</span>,<span class="number">749</span>   <span class="number">3</span>,<span class="number">350</span> |</span><br><span class="line">  <span class="number">3.</span> | AMC Spirit       <span class="number">3</span>,<span class="number">799</span>   <span class="number">2</span>,<span class="number">640</span> |</span><br><span class="line">  <span class="number">4.</span> | Buick Century    <span class="number">4</span>,<span class="number">816</span>   <span class="number">3</span>,<span class="number">250</span> |</span><br><span class="line">  <span class="number">5.</span> | Buick Electra    <span class="number">7</span>,<span class="number">827</span>   <span class="number">4</span>,<span class="number">080</span> |</span><br><span class="line">  <span class="number">6.</span> | Buick LeSabre    <span class="number">5</span>,<span class="number">788</span>   <span class="number">3</span>,<span class="number">670</span> |</span><br><span class="line">  <span class="number">7.</span> | Buick Opel       <span class="number">4</span>,<span class="number">453</span>   <span class="number">2</span>,<span class="number">230</span> |</span><br><span class="line">  <span class="number">8.</span> | Buick Regal      <span class="number">5</span>,<span class="number">189</span>   <span class="number">3</span>,<span class="number">280</span> |</span><br><span class="line">  <span class="number">9.</span> | Buick Riviera   <span class="number">10</span>,<span class="number">372</span>   <span class="number">3</span>,<span class="number">880</span> |</span><br><span class="line"> <span class="number">10.</span> | Buick Skylark    <span class="number">4</span>,<span class="number">082</span>   <span class="number">3</span>,<span class="number">400</span> |</span><br><span class="line">     +--------------------------------+</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
@@ -511,10 +504,6 @@
     <a href="../../index.html" class="mobile-nav-link">Home</a>
   
     <a href="../../archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="../../developer" class="mobile-nav-link">创作</a>
-  
-    <a href="../../mybooks" class="mobile-nav-link">书架</a>
   
     <a href="../../categories" class="mobile-nav-link">分类</a>
   

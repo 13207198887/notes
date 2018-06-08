@@ -29,8 +29,8 @@
 
   
 
-  <link rel="icon" href="/css/images/1.png">
-  <link rel="apple-touch-icon" href="/css/images/1.png">
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
@@ -48,20 +48,20 @@
   <script src="../../js/bootstrap.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/home.css" >
-  
-
-  
-
+    <link rel="stylesheet" href="/notes/css/home.css" >
   
 
   
+
+  
+
   
   
-    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
   
 
 </head>
@@ -203,10 +203,6 @@
         
           <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
         
-          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
-        
-          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
-        
           <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
         
           <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
@@ -272,52 +268,6 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-对不同的柱体填充不同的颜色"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/42862/">对不同的柱体填充不同的颜色</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/42862/" class="article-date">
-	  <time datetime="2018-01-24T15:27:23.000Z" itemprop="datePublished">2018-01-24</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="https://github.com/czxa/Web_data_Source/raw/master/对不同的柱体填充不同的颜色.png" alt=""></p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">sysuse auto, clear</span><br><span class="line">twoway__histogram_gen mpg, gen(h y, replace) freq bin(<span class="number">10</span>)</span><br><span class="line">tw ///</span><br><span class="line">hist y [fw = h] <span class="keyword">if</span> inrange(y, <span class="number">19</span>, <span class="number">35</span>), color(green*<span class="number">0.8</span>) lcolor(red*<span class="number">0.8</span>) freq discrete || ///</span><br><span class="line">hist y [fw = h], color(none) lcolor(red*<span class="number">0.8</span>) freq name(a1, replace) xla(<span class="number">10</span>(<span class="number">5</span>)<span class="number">40</span>) yla(, ang(<span class="number">0</span>) nogrid) scheme(s1mono) leg(off) discrete</span><br><span class="line"></span><br><span class="line">tw ///</span><br><span class="line">hist y [fw = h] <span class="keyword">if</span> inrange(y, <span class="number">19</span>, <span class="number">35</span>), discrete color(green*<span class="number">0.8</span>) lcolor(red*<span class="number">0.8</span>) freq name(a2, replace) xla(<span class="number">10</span>(<span class="number">5</span>)<span class="number">40</span>) yla(, ang(<span class="number">0</span>) nogrid) scheme(s1mono) leg(off)</span><br><span class="line">gr combine a1 a2, xcommon cols(<span class="number">1</span>)</span><br><span class="line">gr export 对不同的柱体填充不同的颜色.png, replace</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-在直方图柱条的中间添加x轴标签"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -347,6 +297,52 @@
       
         <h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="https://github.com/czxa/Web_data_Source/raw/master/在直方图柱条的中间添加x轴标签.png" alt=""></p>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sysuse auto, clear</span><br><span class="line">twoway__histogram_gen mpg, bin(<span class="number">6</span>) gen(h x, replace)</span><br><span class="line">count <span class="keyword">if</span> !missing(x)</span><br><span class="line"><span class="keyword">return</span> list</span><br><span class="line">forval i = <span class="number">1</span>/<span class="string">`=r(N)'&#123;</span></span><br><span class="line"><span class="string">	local label `</span>label<span class="string">' `=string(x[`i'</span>], <span class="string">"%8.2f"</span>)<span class="string">'</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">hist mpg, bin(6) xla(`label'</span>) yla(, ang(<span class="number">0</span>) nogrid) yti(频率) xti(里程数) scheme(s1mono) bfcolor(blue*<span class="number">0.4</span>)</span><br><span class="line">gr <span class="keyword">export</span> 在直方图柱条的中间添加x轴标签.png, replace</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-对不同的柱体填充不同的颜色"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/42862/">对不同的柱体填充不同的颜色</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/42862/" class="article-date">
+	  <time datetime="2018-01-24T15:27:23.000Z" itemprop="datePublished">2018-01-24</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="https://github.com/czxa/Web_data_Source/raw/master/对不同的柱体填充不同的颜色.png" alt=""></p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">sysuse auto, clear</span><br><span class="line">twoway__histogram_gen mpg, gen(h y, replace) freq bin(<span class="number">10</span>)</span><br><span class="line">tw ///</span><br><span class="line">hist y [fw = h] <span class="keyword">if</span> inrange(y, <span class="number">19</span>, <span class="number">35</span>), color(green*<span class="number">0.8</span>) lcolor(red*<span class="number">0.8</span>) freq discrete || ///</span><br><span class="line">hist y [fw = h], color(none) lcolor(red*<span class="number">0.8</span>) freq name(a1, replace) xla(<span class="number">10</span>(<span class="number">5</span>)<span class="number">40</span>) yla(, ang(<span class="number">0</span>) nogrid) scheme(s1mono) leg(off) discrete</span><br><span class="line"></span><br><span class="line">tw ///</span><br><span class="line">hist y [fw = h] <span class="keyword">if</span> inrange(y, <span class="number">19</span>, <span class="number">35</span>), discrete color(green*<span class="number">0.8</span>) lcolor(red*<span class="number">0.8</span>) freq name(a2, replace) xla(<span class="number">10</span>(<span class="number">5</span>)<span class="number">40</span>) yla(, ang(<span class="number">0</span>) nogrid) scheme(s1mono) leg(off)</span><br><span class="line">gr combine a1 a2, xcommon cols(<span class="number">1</span>)</span><br><span class="line">gr export 对不同的柱体填充不同的颜色.png, replace</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -513,10 +509,6 @@
     <a href="../../index.html" class="mobile-nav-link">Home</a>
   
     <a href="../../archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="../../developer" class="mobile-nav-link">创作</a>
-  
-    <a href="../../mybooks" class="mobile-nav-link">书架</a>
   
     <a href="../../categories" class="mobile-nav-link">分类</a>
   

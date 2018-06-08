@@ -29,8 +29,8 @@
 
   
 
-  <link rel="icon" href="/css/images/1.png">
-  <link rel="apple-touch-icon" href="/css/images/1.png">
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
@@ -48,20 +48,20 @@
   <script src="../../js/bootstrap.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/home.css" >
-  
-
-  
-
+    <link rel="stylesheet" href="/notes/css/home.css" >
   
 
   
+
+  
+
   
   
-    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
   
 
 </head>
@@ -203,10 +203,6 @@
         
           <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
         
-          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
-        
-          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
-        
           <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
         
           <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
@@ -226,7 +222,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-egen_vreldif_产生一个可以用了标志纵向合并的数据集的几个合并标志变量的差异程度的变量"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-sliceplot"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -234,7 +230,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/26392/">egen_vreldif_标志纵向合并的数据集的几个合并标志变量的差异程度的变量</a>
+      <a class="article-title" href="../../posts/55356/">sliceplot</a>
     </h1>
   
 
@@ -242,7 +238,7 @@
     
     <div class="article-meta">
       
-	<a href="../../posts/26392/" class="article-date">
+	<a href="../../posts/55356/" class="article-date">
 	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
 	</a>
 
@@ -253,58 +249,12 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">net install _gvreldif.pkg, <span class="keyword">from</span>(<span class="string">"http://fmwww.bc.edu/RePEc/bocode/_/"</span>)</span><br><span class="line">h _gvreldif</span><br><span class="line"></span><br><span class="line">* egen ... = vreldif() creates a variable that contains the relative differences (see mreldif) of the variables <span class="keyword">in</span> varlist1 within the values identified by varlist2. It <span class="keyword">is</span> useful to compare results <span class="keyword">in</span> two appended data sets when some minor numeric discrepancies are expected.</span><br><span class="line"></span><br><span class="line">sysuse auto, clear</span><br><span class="line">keep make weight mpg price weight</span><br><span class="line">set seed <span class="number">10101</span></span><br><span class="line">gen byte replic = ceil(<span class="number">0.5</span>+<span class="number">1.5</span>*uniform())</span><br><span class="line">* 按照replic扩展数据集</span><br><span class="line">expand replic, gen(datacopy)</span><br><span class="line">tabulate datacopy</span><br><span class="line">replace weight = weight + uniform()</span><br><span class="line">egen check1 = vreldif(mpg price), by(make)</span><br><span class="line"></span><br><span class="line">* 上面这句代码的作用和下面几行代码的作用一样</span><br><span class="line">*=============================================================*</span><br><span class="line">generate check1_newvar = <span class="number">0</span></span><br><span class="line">foreach x of varlist mpg price &#123;</span><br><span class="line">	bysort make: replace check1_newvar = check1_newvar + reldif( `x<span class="string">'[1], `x'</span>[_N] )</span><br><span class="line">&#125;</span><br><span class="line">* reldif(x,y): the <span class="string">"relative"</span> difference |x-y|/(|y|+<span class="number">1</span>);</span><br><span class="line">* <span class="number">0</span> <span class="keyword">if</span> both arguments are the same type of extended missing value; missing <span class="keyword">if</span> only one argument <span class="keyword">is</span> missing <span class="keyword">or</span> <span class="keyword">if</span> the two arguments are two different types of missing</span><br><span class="line">bysort make: replace check1_newvar = . <span class="keyword">if</span> _N == <span class="number">1</span></span><br><span class="line">*=============================================================*</span><br><span class="line">gsort make</span><br><span class="line">egen check2 = vreldif(mpg weight), by(make)</span><br><span class="line">order make mpg weight check2</span><br><span class="line">* 这个函数产生的变量可以用了标志纵向合并的数据集的几个合并标志变量的差异程度</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-诊断图的一些命令"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/1/">诊断图的一些命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/1/" class="article-date">
-	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://github.com/czxa/nr/raw/master/symplot.png" alt=""></p>
+        <p><img src="https://github.com/czxa/nr/raw/master/sliceplot.png" alt=""></p>
         <!-- 
 
-12345678* 诊断图的一些命令* Setupsysuse auto, clear* 对称图symplot pricegre symplot
-123* 该图的绘制方法是首先将所有的价格进行排序，symplot绘制yi = median-z(i) 和xi = z(N+1-i)-median的散点图，如果所有的散点都在参考线上说明数据呈对称分布，如果大多数散点分布在参考线的上方，说明数据......  -->
+1234567* Install* ssc install sliceplot* net get gr0025.pkg, from("http://www.stata-journal.com/software/sj6-3/")cuse maunaloa, clearsliceplot line res date, slices(6) ytitle(residual (ppm)) yla(......  -->
         <p class="article-more-link">
-          <a href="../../posts/1/#more">阅读全文</a>
+          <a href="../../posts/55356/#more">阅读全文</a>
         </p>
       
     </div>
@@ -322,7 +272,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-egen_rndraw_从GB2（广义Beta分布）,Singh-Maddala,Dagum,Fisk和Pareto分布里面生成随机数"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-chernoff_脸谱图"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -330,7 +280,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/42169/">egen_rndraw_从GB2&amp;Singh-Maddala&amp;Dagum,&amp;Fisk和Pareto分布里面生成随机数</a>
+      <a class="article-title" href="../../posts/19693/">chernoff_脸谱图</a>
     </h1>
   
 
@@ -338,7 +288,7 @@
     
     <div class="article-meta">
       
-	<a href="../../posts/42169/" class="article-date">
+	<a href="../../posts/19693/" class="article-date">
 	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
 	</a>
 
@@ -349,12 +299,12 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://github.com/czxa/nr/raw/master/rndraw.png" alt=""></p>
+        <p><img src="https://github.com/czxa/nr/raw/master/chernoff9.png" alt=""></p>
         <!-- 
 
-1234567891011121314* 从GB2（广义Beta分布）, Singh-Maddala, Dagum, Fisk 和 Pareto分布里面生成随机数* net install _grndraw.pkg, from("http://fmwww.bc.edu/RePEc/bocode/_/")* h _grndrawclearset obs 1000egen double ys......  -->
+12345678910111213141516171819202122232425262728293031* 安装// net install gr0038.pkg, from("http://www.stata-journal.com/software/sj9-3/")* 面部特征* isize(exp)                    眼睛的大小* iangle(exp)   ......  -->
         <p class="article-more-link">
-          <a href="../../posts/42169/#more">阅读全文</a>
+          <a href="../../posts/19693/#more">阅读全文</a>
         </p>
       
     </div>
@@ -372,7 +322,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-regen"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-full_palette"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -380,7 +330,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/42045/">regen</a>
+      <a class="article-title" href="../../posts/14360/">full_palette</a>
     </h1>
   
 
@@ -388,7 +338,7 @@
     
     <div class="article-meta">
       
-	<a href="../../posts/42045/" class="article-date">
+	<a href="../../posts/14360/" class="article-date">
 	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
 	</a>
 
@@ -399,8 +349,59 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">* Install</span><br><span class="line">ssc install regen</span><br><span class="line">sysuse auto, clear</span><br><span class="line">* 在生成新变量的同时添加标签</span><br><span class="line">regen mpg2 <span class="string">"Milage squared"</span> = mpg^<span class="number">2</span></span><br><span class="line"></span><br><span class="line">gen mpgid = <span class="number">1</span></span><br><span class="line">replace mpgid = <span class="number">0</span> <span class="keyword">if</span> inrange(mpg, <span class="number">22</span>, <span class="number">25</span>)</span><br><span class="line">* 生成所有 mpgid = <span class="number">1</span> 的国产车的虚拟变量</span><br><span class="line">regen byte id = anymatch(mpgid) <span class="keyword">if</span> (foreign == <span class="number">0</span>), values(<span class="number">1</span>)</span><br><span class="line">regen byte id = anymatch(mpgid) <span class="keyword">if</span> (foreign == <span class="number">1</span>), values(<span class="number">1</span>) replace</span><br><span class="line">regen byte id = anymatch(mpgid) <span class="keyword">if</span> (foreign == <span class="number">1</span>), values(<span class="number">1</span>) replace <span class="keyword">else</span>(.)</span><br><span class="line"></span><br><span class="line">* 使用表达式作为变量标签</span><br><span class="line">regen ln_weight <span class="string">"\`s(expr)'"</span> = ln(weight)</span><br><span class="line">regen ln_weight <span class="string">"\`s(if)'"</span> = ln(weight) <span class="keyword">if</span> foreign == <span class="number">0</span>, replace</span><br><span class="line">regen ln_weight <span class="string">"\`s(in)'"</span> = ln(weight) <span class="keyword">in</span> <span class="number">1</span>/<span class="number">20</span>, replace</span><br><span class="line">bysort foreign: regen ln_weight <span class="string">"\`s(by)'"</span> = ln(weight), replace</span><br></pre></td></tr></table></figure>
-<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">. sysuse auto, clear</span><br><span class="line">(<span class="number">1978</span> Automobile Data)</span><br><span class="line"></span><br><span class="line">. * 在生成新变量的同时添加标签</span><br><span class="line"></span><br><span class="line">. regen mpg2 <span class="string">"Milage squared"</span> = mpg^<span class="number">2</span></span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. gen mpgid = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">. replace mpgid = <span class="number">0</span> <span class="keyword">if</span> inrange(mpg, <span class="number">22</span>, <span class="number">25</span>)</span><br><span class="line">(<span class="number">17</span> real changes made)</span><br><span class="line"></span><br><span class="line">. * 生成所有 mpgid = <span class="number">1</span> 的国产车的虚拟变量</span><br><span class="line"></span><br><span class="line">. regen byte id = anymatch(mpgid) <span class="keyword">if</span> (foreign == <span class="number">0</span>), values(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">. regen byte id = anymatch(mpgid) <span class="keyword">if</span> (foreign == <span class="number">1</span>), values(<span class="number">1</span>) replace</span><br><span class="line">(<span class="number">57</span> real changes made)</span><br><span class="line"></span><br><span class="line">. regen byte id = anymatch(mpgid) <span class="keyword">if</span> (foreign == <span class="number">1</span>), values(<span class="number">1</span>) replace <span class="keyword">else</span>(.)</span><br><span class="line">(<span class="number">52</span> real changes made, <span class="number">52</span> to missing)</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. * 使用表达式作为变量标签</span><br><span class="line"></span><br><span class="line">. regen ln_weight <span class="string">"\s(if)'"</span> = ln(weight) <span class="keyword">if</span> foreign == <span class="number">0</span>, replace</span><br><span class="line">(<span class="number">22</span> missing values generated)</span><br><span class="line"></span><br><span class="line">. regen ln_weight <span class="string">"\s(by)'"</span> = ln(weight), replace</span><br><span class="line">(<span class="number">22</span> real changes made)</span><br></pre></td></tr></table></figure>
+        <p><img src="https://github.com/czxa/nr/raw/master/full_palette.png" alt=""></p>
+        <!-- 
+
+12345678* 安装* ssc install full_palette* 绘制颜色地图，并且会生成一个颜色值的数据集full_palettegre full_palette* 另外一个绘制颜色地图的命令vgcolormapgre vgcolormap
+
+...  -->
+        <p class="article-more-link">
+          <a href="../../posts/14360/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-证券之星CPI数据爬取"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/22971/">证券之星CPI数据爬取</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/22971/" class="article-date">
+	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/网站爬取程序/">网站爬取程序</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">cpd</span><br><span class="line">copy <span class="string">"http://finance.stockstar.com/finance/macrodata/cpilist.aspx?page=1&amp;order=1&amp;by=1"</span> temp.txt, replace</span><br><span class="line">utrans temp.txt</span><br><span class="line">drm bak.stunicode</span><br><span class="line">infix str v <span class="number">1</span><span class="number">-20000</span> using temp.txt, clear</span><br><span class="line">keep <span class="keyword">if</span> index(v, <span class="string">"&lt;td&gt;"</span>)</span><br><span class="line">split v, parse(v, <span class="string">"&lt;/td&gt;"</span>)</span><br><span class="line">drop v</span><br><span class="line">foreach i of varlist _all&#123;</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;/td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">	replace `i'</span> = subinstr(`i<span class="string">', `"&lt;/span&gt;"'</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">compress</span></span><br><span class="line"><span class="string">save month_CPI, replace</span></span><br><span class="line"><span class="string">forval page = 2/7&#123;</span></span><br><span class="line"><span class="string">	copy "http://finance.stockstar.com/finance/macrodata/cpilist.aspx?page=`page'</span>&amp;order=<span class="number">1</span>&amp;by=<span class="number">1</span><span class="string">" temp.txt, replace</span></span><br><span class="line"><span class="string">	utrans temp.txt</span></span><br><span class="line"><span class="string">	drm bak.stunicode</span></span><br><span class="line"><span class="string">	infix str v 1-20000 using temp.txt, clear</span></span><br><span class="line"><span class="string">	keep if index(v, "</span>&lt;td&gt;<span class="string">")</span></span><br><span class="line">	split v, parse(v, "&lt;/td&gt;")</span><br><span class="line">	drop v</span><br><span class="line">	foreach i of varlist _all&#123;</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;/td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">		replace `i'</span> = subinstr(`i<span class="string">', `"&lt;/span&gt;"'</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">		replace `i'</span> = subinstr(`i<span class="string">', `"&lt;span class="green_color"&gt;"'</span>, <span class="string">""</span>, .)</span><br><span class="line">	&#125;</span><br><span class="line">	compress</span><br><span class="line">	append using month_CPI</span><br><span class="line">	save month_CPI, replace</span><br><span class="line">&#125;</span><br><span class="line">foreach i of varlist _all&#123;</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"-"</span>, <span class="string">""</span>, .)</span><br><span class="line">&#125;</span><br><span class="line">gen date = date(v1, <span class="string">"YM"</span>)</span><br><span class="line">format date %dCY-N</span><br><span class="line">order date</span><br><span class="line">drop v1</span><br><span class="line">destring, replace</span><br><span class="line">gsort date</span><br><span class="line">label var date <span class="string">"数据日期"</span></span><br><span class="line">label var v2 <span class="string">"全国(去年同月=100点)"</span></span><br><span class="line">label var v3 <span class="string">"同比增减(去年同月=100点)"</span></span><br><span class="line">label var v4 <span class="string">"城市(去年同月=100点)"</span></span><br><span class="line">label var v5 <span class="string">"农村(去年同月=100点)"</span></span><br><span class="line">label var v6 <span class="string">"全国(去年同期=100点)"</span></span><br><span class="line">label var v7 <span class="string">"同比增减(去年同期=100点)"</span></span><br><span class="line">label var v8 <span class="string">"城市(去年同期=100点)"</span></span><br><span class="line">label var v9 <span class="string">"农村(去年同期=100点)"</span></span><br><span class="line">ren date 数据日期</span><br><span class="line">ren v2 全国_去年同月_100点</span><br><span class="line">ren v3 同比增减_去年同月_100点</span><br><span class="line">ren v4 城市_去年同月_100点</span><br><span class="line">ren v5 农村_去年同月_100点</span><br><span class="line">ren v6 全国_去年同期_100点</span><br><span class="line">ren v7 同比增减_去年同期_100点</span><br><span class="line">ren v8 城市_去年同期_100点</span><br><span class="line">ren v9 农村_去年同期_100点</span><br><span class="line">save month_CPI, replace</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -418,7 +419,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-egen_peers函数：产生一个同辈均值的变量，这个变量是除了自己的其他成员的均值"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-证券之星PPI爬取"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -426,7 +427,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/59439/">egen_peers_产生一个同辈均值的变量，这个变量是除了自己的其他成员的均值</a>
+      <a class="article-title" href="../../posts/19396/">证券之星PPI爬取</a>
     </h1>
   
 
@@ -434,18 +435,18 @@
     
     <div class="article-meta">
       
-	<a href="../../posts/59439/" class="article-date">
+	<a href="../../posts/19396/" class="article-date">
 	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
 	</a>
 
       
-    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+    <a class="article-category-link" href="../../categories/网站爬取程序/">网站爬取程序</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">* peers函数：产生一个同辈均值的变量，这个变量是除了自己的其他成员的均值。</span><br><span class="line">net install _peers.pkg, <span class="keyword">from</span>(<span class="string">"http://fmwww.bc.edu/RePEc/bocode/_/"</span>)</span><br><span class="line">h _gpeers</span><br><span class="line"></span><br><span class="line">sysuse auto, clear</span><br><span class="line">keep weight foreign</span><br><span class="line">egen peers = peers(weight), by(foreign)</span><br><span class="line">gsort foreign</span><br></pre></td></tr></table></figure>
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">cpd</span><br><span class="line">copy <span class="string">"http://finance.stockstar.com/finance/macrodata/ppilist.aspx?page=1&amp;order=1&amp;by=1"</span> temp.txt, replace</span><br><span class="line">utrans temp.txt</span><br><span class="line">drm bak.stunicode</span><br><span class="line">infix str v <span class="number">1</span><span class="number">-20000</span> using temp.txt, clear</span><br><span class="line">keep <span class="keyword">if</span> index(v, <span class="string">"&lt;td&gt;"</span>)</span><br><span class="line">split v, parse(v, <span class="string">"&lt;/td&gt;"</span>)</span><br><span class="line">drop v</span><br><span class="line">foreach i of varlist _all&#123;</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;/td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">	replace `i'</span> = subinstr(`i<span class="string">', `"&lt;/span&gt;"'</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">compress</span></span><br><span class="line"><span class="string">save month_PPI, replace</span></span><br><span class="line"><span class="string">forval page = 2/7&#123;</span></span><br><span class="line"><span class="string">	copy "http://finance.stockstar.com/finance/macrodata/ppilist.aspx?page=`page'</span>&amp;order=<span class="number">1</span>&amp;by=<span class="number">1</span><span class="string">" temp.txt, replace</span></span><br><span class="line"><span class="string">	utrans temp.txt</span></span><br><span class="line"><span class="string">	drm bak.stunicode</span></span><br><span class="line"><span class="string">	infix str v 1-20000 using temp.txt, clear</span></span><br><span class="line"><span class="string">	keep if index(v, "</span>&lt;td&gt;<span class="string">")</span></span><br><span class="line">	split v, parse(v, "&lt;/td&gt;")</span><br><span class="line">	drop v</span><br><span class="line">	foreach i of varlist _all&#123;</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;/td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">		replace `i'</span> = subinstr(`i<span class="string">', `"&lt;/span&gt;"'</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">		replace `i'</span> = subinstr(`i<span class="string">', `"&lt;span class="green_color"&gt;"'</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">","</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">	compress</span></span><br><span class="line"><span class="string">	append using month_PPI</span></span><br><span class="line"><span class="string">	save month_PPI, replace</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">foreach i of varlist _all&#123;</span></span><br><span class="line"><span class="string">	replace `i'</span> = subinstr(`i<span class="string">', "-", "", .)</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">gen date = date(v1, "YM")</span></span><br><span class="line"><span class="string">format date %dCY-N</span></span><br><span class="line"><span class="string">order date</span></span><br><span class="line"><span class="string">drop v1</span></span><br><span class="line"><span class="string">destring, replace</span></span><br><span class="line"><span class="string">gsort date</span></span><br><span class="line"><span class="string">label var date "数据日期"</span></span><br><span class="line"><span class="string">label var v2 "工业品出厂价格指数（当月）(去年同月=100点)"</span></span><br><span class="line"><span class="string">label var v3 "同比增长(去年同月=100点)"</span></span><br><span class="line"><span class="string">label var v4 "工业品出厂价格指数（当期）(去年同期=100点)"</span></span><br><span class="line"><span class="string">label var v5 "同比增长(去年同期=100点)"</span></span><br><span class="line"><span class="string">ren date 数据日期</span></span><br><span class="line"><span class="string">ren v2 工业品出厂价格指数_当月_去年同月_100点</span></span><br><span class="line"><span class="string">ren v3 同比增减_去年同月_100点</span></span><br><span class="line"><span class="string">ren v4 工业品出厂价格指数_当期_去年同期=100点</span></span><br><span class="line"><span class="string">ren v5 同比增长_去年同期_100点</span></span><br><span class="line"><span class="string">findname, type(string)</span></span><br><span class="line"><span class="string">foreach i in `r(varlist)'</span>&#123;</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>green_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">compress</span></span><br><span class="line"><span class="string">gsort 数据日期</span></span><br><span class="line"><span class="string">save month_PPI, replace</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -517,10 +518,6 @@
     <a href="../../index.html" class="mobile-nav-link">Home</a>
   
     <a href="../../archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="../../developer" class="mobile-nav-link">创作</a>
-  
-    <a href="../../mybooks" class="mobile-nav-link">书架</a>
   
     <a href="../../categories" class="mobile-nav-link">分类</a>
   

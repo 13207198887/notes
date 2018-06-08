@@ -29,8 +29,8 @@
 
   
 
-  <link rel="icon" href="/css/images/1.png">
-  <link rel="apple-touch-icon" href="/css/images/1.png">
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
@@ -48,20 +48,20 @@
   <script src="../../js/bootstrap.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/home.css" >
-  
-
-  
-
+    <link rel="stylesheet" href="/notes/css/home.css" >
   
 
   
+
+  
+
   
   
-    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
   
 
 </head>
@@ -203,10 +203,6 @@
         
           <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
         
-          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
-        
-          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
-        
           <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
         
           <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
@@ -225,51 +221,6 @@
       <div id="content" class="outer">
         
           <section id="main" style="float:none;">
-  
-    <article id="post-retainlbl—存储变量标签"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/11858/">retainlbl—存储变量标签</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/11858/" class="article-date">
-	  <time datetime="2018-05-26T08:53:23.000Z" itemprop="datePublished">2018-05-26</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">* 存储变量标签</span></span><br><span class="line"><span class="comment">* Some STATA operations, especially the collapse and reshape commands, alter or destroy variable labels during execution.  retainlbl stores the variable labels of the varlist variables in global macros and then, after the Stata command is executed, re-attaches those variable labels to variables with identical or only slightly modified variable names.</span></span><br><span class="line"><span class="keyword">webuse</span> college, <span class="keyword">clear</span></span><br><span class="line"><span class="keyword">des</span></span><br><span class="line">retainlbl gpa hour year, store</span><br><span class="line"><span class="keyword">des</span></span><br><span class="line"><span class="keyword">collapse</span> (<span class="keyword">mean</span>) gpa hour [fw=number], <span class="keyword">by</span>(year)</span><br><span class="line">retainlbl gpa hour, <span class="keyword">restore</span> addprefix(<span class="string">"mean: "</span>)</span><br><span class="line"><span class="built_in">d</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
   
     <article id="post-egen_clsort仅对某个变量进行排序而不影响其他变量的顺序"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
@@ -361,7 +312,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-AmChart多变量走势图"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-retainlbl—存储变量标签"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -369,7 +320,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/48658/">AmChart多变量走势图</a>
+      <a class="article-title" href="../../posts/11858/">retainlbl—存储变量标签</a>
     </h1>
   
 
@@ -377,7 +328,52 @@
     
     <div class="article-meta">
       
-	<a href="../../posts/48658/" class="article-date">
+	<a href="../../posts/11858/" class="article-date">
+	  <time datetime="2018-05-26T08:53:23.000Z" itemprop="datePublished">2018-05-26</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">* 存储变量标签</span></span><br><span class="line"><span class="comment">* Some STATA operations, especially the collapse and reshape commands, alter or destroy variable labels during execution.  retainlbl stores the variable labels of the varlist variables in global macros and then, after the Stata command is executed, re-attaches those variable labels to variables with identical or only slightly modified variable names.</span></span><br><span class="line"><span class="keyword">webuse</span> college, <span class="keyword">clear</span></span><br><span class="line"><span class="keyword">des</span></span><br><span class="line">retainlbl gpa hour year, store</span><br><span class="line"><span class="keyword">des</span></span><br><span class="line"><span class="keyword">collapse</span> (<span class="keyword">mean</span>) gpa hour [fw=number], <span class="keyword">by</span>(year)</span><br><span class="line">retainlbl gpa hour, <span class="keyword">restore</span> addprefix(<span class="string">"mean: "</span>)</span><br><span class="line"><span class="built_in">d</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-AmChart带图例的饼图"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/25719/">AmChart带图例的饼图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/25719/" class="article-date">
 	  <time datetime="2018-05-26T07:42:23.000Z" itemprop="datePublished">2018-05-26</time>
 	</a>
 
@@ -395,7 +391,7 @@
 <blockquote>
 <p>成果图</p>
 </blockquote>
-<p><img src="https://github.com/czxa/mr/raw/master/多变量走势图.png" alt=""></p>
+<p><img src="https://github.com/czxa/mr/raw/master/带图例的饼图.png" alt=""></p>
         <!-- 
 AmChart绘图需要的js及其他文件
 
@@ -405,10 +401,9 @@ AmChart绘图需要的js及其他文件
 
 
 
-12
-...  -->
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778......  -->
         <p class="article-more-link">
-          <a href="../../posts/48658/#more">阅读全文</a>
+          <a href="../../posts/25719/#more">阅读全文</a>
         </p>
       
     </div>
@@ -544,10 +539,6 @@ AmChart绘图需要的js及其他文件
     <a href="../../index.html" class="mobile-nav-link">Home</a>
   
     <a href="../../archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="../../developer" class="mobile-nav-link">创作</a>
-  
-    <a href="../../mybooks" class="mobile-nav-link">书架</a>
   
     <a href="../../categories" class="mobile-nav-link">分类</a>
   

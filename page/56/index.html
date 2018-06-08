@@ -29,8 +29,8 @@
 
   
 
-  <link rel="icon" href="/css/images/1.png">
-  <link rel="apple-touch-icon" href="/css/images/1.png">
+  <link rel="icon" href="/notes/css/images/1.png">
+  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
@@ -48,20 +48,20 @@
   <script src="../../js/bootstrap.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/home.css" >
-  
-
-  
-
+    <link rel="stylesheet" href="/notes/css/home.css" >
   
 
   
+
+  
+
   
   
-    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+    <link rel="stylesheet" href="/notes/css/vdonate.css" >
   
 
 </head>
@@ -202,10 +202,6 @@
           <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
         
           <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
-        
-          <a id="beautifont" class="main-nav-link" href="../../developer">创作</a>
-        
-          <a id="beautifont" class="main-nav-link" href="../../mybooks">书架</a>
         
           <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
         
@@ -414,7 +410,7 @@ Stata绘制代码123456789101112131415161718192021222324252627282930313233343536
 <!-- Table of Contents -->
 
   
-    <article id="post-cvxhull"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-egen_vreldif_产生一个可以用了标志纵向合并的数据集的几个合并标志变量的差异程度的变量"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -422,7 +418,7 @@ Stata绘制代码123456789101112131415161718192021222324252627282930313233343536
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/52696/">cvxhull</a>
+      <a class="article-title" href="../../posts/26392/">egen_vreldif_标志纵向合并的数据集的几个合并标志变量的差异程度的变量</a>
     </h1>
   
 
@@ -430,7 +426,7 @@ Stata绘制代码123456789101112131415161718192021222324252627282930313233343536
     
     <div class="article-meta">
       
-	<a href="../../posts/52696/" class="article-date">
+	<a href="../../posts/26392/" class="article-date">
 	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
 	</a>
 
@@ -441,13 +437,8 @@ Stata绘制代码123456789101112131415161718192021222324252627282930313233343536
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://github.com/czxa/nr/raw/master/cvxhull.png" alt=""></p>
-        <!-- 
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">net install _gvreldif.pkg, <span class="keyword">from</span>(<span class="string">"http://fmwww.bc.edu/RePEc/bocode/_/"</span>)</span><br><span class="line">h _gvreldif</span><br><span class="line"></span><br><span class="line">* egen ... = vreldif() creates a variable that contains the relative differences (see mreldif) of the variables <span class="keyword">in</span> varlist1 within the values identified by varlist2. It <span class="keyword">is</span> useful to compare results <span class="keyword">in</span> two appended data sets when some minor numeric discrepancies are expected.</span><br><span class="line"></span><br><span class="line">sysuse auto, clear</span><br><span class="line">keep make weight mpg price weight</span><br><span class="line">set seed <span class="number">10101</span></span><br><span class="line">gen byte replic = ceil(<span class="number">0.5</span>+<span class="number">1.5</span>*uniform())</span><br><span class="line">* 按照replic扩展数据集</span><br><span class="line">expand replic, gen(datacopy)</span><br><span class="line">tabulate datacopy</span><br><span class="line">replace weight = weight + uniform()</span><br><span class="line">egen check1 = vreldif(mpg price), by(make)</span><br><span class="line"></span><br><span class="line">* 上面这句代码的作用和下面几行代码的作用一样</span><br><span class="line">*=============================================================*</span><br><span class="line">generate check1_newvar = <span class="number">0</span></span><br><span class="line">foreach x of varlist mpg price &#123;</span><br><span class="line">	bysort make: replace check1_newvar = check1_newvar + reldif( `x<span class="string">'[1], `x'</span>[_N] )</span><br><span class="line">&#125;</span><br><span class="line">* reldif(x,y): the <span class="string">"relative"</span> difference |x-y|/(|y|+<span class="number">1</span>);</span><br><span class="line">* <span class="number">0</span> <span class="keyword">if</span> both arguments are the same type of extended missing value; missing <span class="keyword">if</span> only one argument <span class="keyword">is</span> missing <span class="keyword">or</span> <span class="keyword">if</span> the two arguments are two different types of missing</span><br><span class="line">bysort make: replace check1_newvar = . <span class="keyword">if</span> _N == <span class="number">1</span></span><br><span class="line">*=============================================================*</span><br><span class="line">gsort make</span><br><span class="line">egen check2 = vreldif(mpg weight), by(make)</span><br><span class="line">order make mpg weight check2</span><br><span class="line">* 这个函数产生的变量可以用了标志纵向合并的数据集的几个合并标志变量的差异程度</span><br></pre></td></tr></table></figure>
 
-12345678* ssc install cvxhullsysuse auto, cleargen foreign1 = foreignlabel def for 1 For 0 Domlabel val foreign1 forcvxhull mpg weight, group(foreign) hulls(2) ///	scat(mlab(foreign1) mlabpos(c) ......  -->
-        <p class="article-more-link">
-          <a href="../../posts/52696/#more">阅读全文</a>
-        </p>
       
     </div>
     <footer class="article-footer">
@@ -518,10 +509,6 @@ Stata绘制代码123456789101112131415161718192021222324252627282930313233343536
     <a href="../../index.html" class="mobile-nav-link">Home</a>
   
     <a href="../../archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="../../developer" class="mobile-nav-link">创作</a>
-  
-    <a href="../../mybooks" class="mobile-nav-link">书架</a>
   
     <a href="../../categories" class="mobile-nav-link">分类</a>
   
