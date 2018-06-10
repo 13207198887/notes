@@ -222,6 +222,51 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-Stata大小写转换"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/24366/">Stata大小写转换</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/24366/" class="article-date">
+	  <time datetime="2018-02-04T08:06:23.000Z" itemprop="datePublished">2018-02-04</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">. clear all</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. set obs <span class="number">3</span></span><br><span class="line">number of observations (_N) was <span class="number">0</span>, now <span class="number">3</span></span><br><span class="line"></span><br><span class="line">. input str20 var1 str20 name</span><br><span class="line"></span><br><span class="line">                     var1                  name</span><br><span class="line">  <span class="number">1.</span> <span class="string">"WEIBO"</span> <span class="string">"hua zeng"</span></span><br><span class="line">  <span class="number">2.</span> <span class="string">"QQ"</span> <span class="string">"zijian xu"</span></span><br><span class="line">  <span class="number">3.</span> <span class="string">"wechat"</span> <span class="string">"jie su"</span></span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. gen name_proper = proper(name)</span><br><span class="line"></span><br><span class="line">. list</span><br><span class="line"></span><br><span class="line">     +--------------------------------+</span><br><span class="line">     |   var1        name   name_pr~r |</span><br><span class="line">     |--------------------------------|</span><br><span class="line">  <span class="number">1.</span> |  WEIBO    hua zeng    Hua Zeng |</span><br><span class="line">  <span class="number">2.</span> |     QQ   zijian xu   Zijian Xu |</span><br><span class="line">  <span class="number">3.</span> | wechat      jie su      Jie Su |</span><br><span class="line">     +--------------------------------+</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. gen var1_lower = lower(var1)</span><br><span class="line"></span><br><span class="line">. gen var2_upper = upper(var1_lower)</span><br><span class="line"></span><br><span class="line">. list</span><br><span class="line"></span><br><span class="line">     +------------------------------------------------------+</span><br><span class="line">     |   var1        name   name_pr~r   var1_l~r   var2_u~r |</span><br><span class="line">     |------------------------------------------------------|</span><br><span class="line">  <span class="number">1.</span> |  WEIBO    hua zeng    Hua Zeng      weibo      WEIBO |</span><br><span class="line">  <span class="number">2.</span> |     QQ   zijian xu   Zijian Xu         qq         QQ |</span><br><span class="line">  <span class="number">3.</span> | wechat      jie su      Jie Su     wechat     WECHAT |</span><br><span class="line">     +------------------------------------------------------+</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-statplot"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -264,51 +309,6 @@ statplot plots summary statistics for varlist.
         <p class="article-more-link">
           <a href="../../posts/17980/#more">阅读全文</a>
         </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Stata大小写转换"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/24366/">Stata大小写转换</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/24366/" class="article-date">
-	  <time datetime="2018-02-04T08:06:23.000Z" itemprop="datePublished">2018-02-04</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">. clear all</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. set obs <span class="number">3</span></span><br><span class="line">number of observations (_N) was <span class="number">0</span>, now <span class="number">3</span></span><br><span class="line"></span><br><span class="line">. input str20 var1 str20 name</span><br><span class="line"></span><br><span class="line">                     var1                  name</span><br><span class="line">  <span class="number">1.</span> <span class="string">"WEIBO"</span> <span class="string">"hua zeng"</span></span><br><span class="line">  <span class="number">2.</span> <span class="string">"QQ"</span> <span class="string">"zijian xu"</span></span><br><span class="line">  <span class="number">3.</span> <span class="string">"wechat"</span> <span class="string">"jie su"</span></span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. gen name_proper = proper(name)</span><br><span class="line"></span><br><span class="line">. list</span><br><span class="line"></span><br><span class="line">     +--------------------------------+</span><br><span class="line">     |   var1        name   name_pr~r |</span><br><span class="line">     |--------------------------------|</span><br><span class="line">  <span class="number">1.</span> |  WEIBO    hua zeng    Hua Zeng |</span><br><span class="line">  <span class="number">2.</span> |     QQ   zijian xu   Zijian Xu |</span><br><span class="line">  <span class="number">3.</span> | wechat      jie su      Jie Su |</span><br><span class="line">     +--------------------------------+</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. gen var1_lower = lower(var1)</span><br><span class="line"></span><br><span class="line">. gen var2_upper = upper(var1_lower)</span><br><span class="line"></span><br><span class="line">. list</span><br><span class="line"></span><br><span class="line">     +------------------------------------------------------+</span><br><span class="line">     |   var1        name   name_pr~r   var1_l~r   var2_u~r |</span><br><span class="line">     |------------------------------------------------------|</span><br><span class="line">  <span class="number">1.</span> |  WEIBO    hua zeng    Hua Zeng      weibo      WEIBO |</span><br><span class="line">  <span class="number">2.</span> |     QQ   zijian xu   Zijian Xu         qq         QQ |</span><br><span class="line">  <span class="number">3.</span> | wechat      jie su      Jie Su     wechat     WECHAT |</span><br><span class="line">     +------------------------------------------------------+</span><br></pre></td></tr></table></figure>
-
       
     </div>
     <footer class="article-footer">

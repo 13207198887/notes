@@ -266,50 +266,6 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-C++函数定义实例"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/18285/">C++函数定义实例</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/18285/" class="article-date">
-	  <time datetime="2018-04-05T15:52:23.000Z" itemprop="datePublished">2018-04-05</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/编程/">编程</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断用户的成绩，要么为Pass要么为Fail；</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">grade</span><span class="params">(<span class="keyword">int</span> received_par, <span class="keyword">int</span> min_score_par)</span></span>;</span><br><span class="line"><span class="comment">// 上面的括号内部的是形参</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> score, need_to_pass;</span><br><span class="line">    <span class="keyword">char</span> letter_grade;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Enter your score"</span></span><br><span class="line">         &lt;&lt; <span class="string">" and the minimum needed to pass: \n"</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; score &gt;&gt; need_to_pass;</span><br><span class="line">    <span class="comment">// 下面的括号里面的是实参</span></span><br><span class="line">    letter_grade = grade(score, need_to_pass);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"You received a score of "</span> &lt;&lt; score &lt;&lt; <span class="built_in">endl</span></span><br><span class="line">         &lt;&lt; <span class="string">"Minimum to pass is  "</span> &lt;&lt; need_to_pass &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">if</span>(letter_grade == <span class="string">'P'</span>)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"You Passed. Congratulations!\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Sorry. You failed.\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; letter_grade</span><br><span class="line">         &lt;&lt; <span class="string">" will be entered in your record.\n"</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">grade</span><span class="params">(<span class="keyword">int</span> received_par, <span class="keyword">int</span> min_score_par)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(received_par &gt;= min_score_par)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'P'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'F'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数语法定义小结：</span></span><br><span class="line"><span class="comment">// 在调用每个函数之前，都必须出现该函数的函数声明或该函数的定义。</span></span><br><span class="line"><span class="comment">// 例如，假定将所有的函数定义都放在main部分之前，就不需要包含任何函数声明。</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/C/">C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-C++使用函数的嵌套循环"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -338,6 +294,50 @@
     <div class="article-entry" itemprop="articleBody">
       
         <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 计算秃鹰产卵总数</span></span><br><span class="line"><span class="comment">// 由保护区的所有动物保护者统计</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get_one_total</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">// 前提条件：用户输入一组鸟蛋数量；</span></span><br><span class="line"><span class="comment">// 最后一个以负数结束；</span></span><br><span class="line"><span class="comment">// 后条件：总数等于所有鸟蛋计数的总和。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> number_of_reports;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"How many conservationist reports are there? "</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; number_of_reports;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> grand_total = <span class="number">0</span>, subtotal, count;</span><br><span class="line">    <span class="keyword">for</span>(count = <span class="number">1</span>; count &lt;= number_of_reports; count++)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span> &lt;&lt; <span class="string">"Enter the report of "</span></span><br><span class="line">             &lt;&lt; <span class="string">"conservationist number "</span> &lt;&lt; count &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        subtotal = get_one_total();</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Total egg count for conservationist "</span></span><br><span class="line">             &lt;&lt; <span class="string">"number "</span> &lt;&lt; count &lt;&lt; <span class="string">" is "</span></span><br><span class="line">             &lt;&lt; subtotal &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        grand_total += subtotal;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span> &lt;&lt; <span class="string">"Total egg count for all reports = "</span></span><br><span class="line">                 &lt;&lt; grand_total &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用iostream</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get_one_total</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> total;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Enter the number of eggs in each nest. \n"</span></span><br><span class="line">         &lt;&lt; <span class="string">"Place a negative integer"</span></span><br><span class="line">         &lt;&lt; <span class="string">" at the end of your list.\n"</span>;</span><br><span class="line">    total = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> next;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; next;</span><br><span class="line">    <span class="keyword">while</span>(next &gt; <span class="number">0</span>)&#123;</span><br><span class="line">        total = total + next;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> total;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/C/">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-C++函数定义实例"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/18285/">C++函数定义实例</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/18285/" class="article-date">
+	  <time datetime="2018-04-05T15:52:23.000Z" itemprop="datePublished">2018-04-05</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/编程/">编程</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断用户的成绩，要么为Pass要么为Fail；</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">grade</span><span class="params">(<span class="keyword">int</span> received_par, <span class="keyword">int</span> min_score_par)</span></span>;</span><br><span class="line"><span class="comment">// 上面的括号内部的是形参</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> score, need_to_pass;</span><br><span class="line">    <span class="keyword">char</span> letter_grade;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Enter your score"</span></span><br><span class="line">         &lt;&lt; <span class="string">" and the minimum needed to pass: \n"</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; score &gt;&gt; need_to_pass;</span><br><span class="line">    <span class="comment">// 下面的括号里面的是实参</span></span><br><span class="line">    letter_grade = grade(score, need_to_pass);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"You received a score of "</span> &lt;&lt; score &lt;&lt; <span class="built_in">endl</span></span><br><span class="line">         &lt;&lt; <span class="string">"Minimum to pass is  "</span> &lt;&lt; need_to_pass &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">if</span>(letter_grade == <span class="string">'P'</span>)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"You Passed. Congratulations!\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Sorry. You failed.\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; letter_grade</span><br><span class="line">         &lt;&lt; <span class="string">" will be entered in your record.\n"</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">grade</span><span class="params">(<span class="keyword">int</span> received_par, <span class="keyword">int</span> min_score_par)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(received_par &gt;= min_score_par)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'P'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'F'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数语法定义小结：</span></span><br><span class="line"><span class="comment">// 在调用每个函数之前，都必须出现该函数的函数声明或该函数的定义。</span></span><br><span class="line"><span class="comment">// 例如，假定将所有的函数定义都放在main部分之前，就不需要包含任何函数声明。</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">

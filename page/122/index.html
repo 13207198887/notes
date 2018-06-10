@@ -373,6 +373,52 @@
 <!-- Table of Contents -->
 
   
+    <article id="post-zmap"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/45472/">zmap</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/45472/" class="article-date">
+	  <time datetime="2018-02-04T03:32:23.000Z" itemprop="datePublished">2018-02-04</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/Web_data_Source/raw/master/zmap.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">webuse nlswork, clear</span><br><span class="line">egen mean = mean(ln_wage), by(age grade)</span><br><span class="line">egen tag = tag(age grade)</span><br><span class="line">order age grade tag</span><br><span class="line">gsort age grade</span><br><span class="line">* tag()函数的作用是识别age和grade的奇异组(也就是相同组只有一组为<span class="number">1</span>)</span><br><span class="line">label var mean <span class="string">"mean ln wage"</span></span><br><span class="line">su ln_wage <span class="keyword">if</span> !missing(age, grade), detail</span><br><span class="line">zmap mean grade age <span class="keyword">if</span> tag, breaks(<span class="number">.993</span> <span class="number">1.166</span> <span class="number">1.361</span> <span class="number">1.641</span> <span class="number">1.964</span> <span class="number">2.275</span> <span class="number">2.456</span>) ms(S ..) ysc(on) xsc(on) legend(on pos(<span class="number">3</span>) col(<span class="number">1</span>)) yla(<span class="number">0</span>/<span class="number">18</span>, ang(h)) ytitle(`: var label grade<span class="string">') xla(15(5)45) note("") mc(blue)</span></span><br><span class="line"><span class="string">gre zmap</span></span><br><span class="line"><span class="string">* 这种图也可以很容易的应用与相关系数的可视化</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-vioplot——绘制小提琴图"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -411,52 +457,6 @@
         <p class="article-more-link">
           <a href="../../posts/35378/#more">阅读全文</a>
         </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-zmap"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/45472/">zmap</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/45472/" class="article-date">
-	  <time datetime="2018-02-04T03:32:23.000Z" itemprop="datePublished">2018-02-04</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://github.com/czxa/Web_data_Source/raw/master/zmap.png" alt=""></p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">webuse nlswork, clear</span><br><span class="line">egen mean = mean(ln_wage), by(age grade)</span><br><span class="line">egen tag = tag(age grade)</span><br><span class="line">order age grade tag</span><br><span class="line">gsort age grade</span><br><span class="line">* tag()函数的作用是识别age和grade的奇异组(也就是相同组只有一组为<span class="number">1</span>)</span><br><span class="line">label var mean <span class="string">"mean ln wage"</span></span><br><span class="line">su ln_wage <span class="keyword">if</span> !missing(age, grade), detail</span><br><span class="line">zmap mean grade age <span class="keyword">if</span> tag, breaks(<span class="number">.993</span> <span class="number">1.166</span> <span class="number">1.361</span> <span class="number">1.641</span> <span class="number">1.964</span> <span class="number">2.275</span> <span class="number">2.456</span>) ms(S ..) ysc(on) xsc(on) legend(on pos(<span class="number">3</span>) col(<span class="number">1</span>)) yla(<span class="number">0</span>/<span class="number">18</span>, ang(h)) ytitle(`: var label grade<span class="string">') xla(15(5)45) note("") mc(blue)</span></span><br><span class="line"><span class="string">gre zmap</span></span><br><span class="line"><span class="string">* 这种图也可以很容易的应用与相关系数的可视化</span></span><br></pre></td></tr></table></figure>
-
       
     </div>
     <footer class="article-footer">

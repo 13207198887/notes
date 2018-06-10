@@ -267,51 +267,6 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-使用eurostatuse命令从欧盟统计局下载数据"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/60454/">使用eurostatuse命令从欧盟统计局下载数据</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/60454/" class="article-date">
-	  <time datetime="2018-02-13T13:20:23.000Z" itemprop="datePublished">2018-02-13</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//语法：eurouse eurostat_code [ , clear ]</span><br><span class="line">//eurouse eurostat_code可以根据自己需要的数据在这个网站中直接找到：</span><br><span class="line">//http://ec.europa.eu/eurostat/data/database,这个网站可以在help文档中点击“here”进入</span><br><span class="line">//例如Consumers - monthly data (ei_bsco_m),这表明消费者月度数据的代码是ei_bsco_m</span><br><span class="line"></span><br><span class="line">eurouse env_watres_rb, clear</span><br><span class="line">/*多次尝试表明，这个命令很不好用，虽然出现错误，但是会下载一个tsv格式的数据文件，因此推荐使用另外一个命令eurostatuse命令*/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//使用eurostatuse命令从欧盟统计局下载数据</span><br><span class="line">db eurostatuse</span><br><span class="line">//上述命令可以打开一个窗口进行操作</span><br><span class="line">//tablename可以按照help文档中的指示到欧盟统计局网站进行查找。</span><br><span class="line">eurostatuse ei_bsco_m, clear noerase geo() keepdim() start() end()</span><br><span class="line">//这个命令第一次运行需要按照指示下载一个<span class="number">7</span>-zip软件安装到指定位置，然后</span><br><span class="line">//再次运行就可以自动下载并读取数据了。</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-chinaaddress命令从经纬度获取地址"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -343,6 +298,51 @@
 <p>请不要滥用我的百度密钥</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* chinaaddress命令从经纬度获取地址 */</span></span><br><span class="line">clear</span><br><span class="line">input str15 prov str15 city1 str15 dist str60 addr str100 fulladdr</span><br><span class="line"><span class="string">"广东省"</span> <span class="string">"广州市"</span> <span class="string">""</span> <span class="string">"暨南大学番禺校区"</span> <span class="string">""</span></span><br><span class="line">end</span><br><span class="line">chinagcode, baidukey(tXvh2UTmo4z0zq5t41XLPTm1kQbMHjYl) <span class="comment">///</span></span><br><span class="line">province(prov) city(city1) district(dist) address(addr) <span class="comment">///</span></span><br><span class="line">fulladdress(fulladdr) ffirst long(<span class="number">123</span>) lat(<span class="number">25</span>)</span><br><span class="line">list</span><br><span class="line">chinaaddress, baidukey(tXvh2UTmo4z0zq5t41XLPTm1kQbMHjYl) long(<span class="number">123</span>) lat(<span class="number">113</span>)</span><br><span class="line">list</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-使用eurostatuse命令从欧盟统计局下载数据"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/60454/">使用eurostatuse命令从欧盟统计局下载数据</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/60454/" class="article-date">
+	  <time datetime="2018-02-13T13:20:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//语法：eurouse eurostat_code [ , clear ]</span><br><span class="line">//eurouse eurostat_code可以根据自己需要的数据在这个网站中直接找到：</span><br><span class="line">//http://ec.europa.eu/eurostat/data/database,这个网站可以在help文档中点击“here”进入</span><br><span class="line">//例如Consumers - monthly data (ei_bsco_m),这表明消费者月度数据的代码是ei_bsco_m</span><br><span class="line"></span><br><span class="line">eurouse env_watres_rb, clear</span><br><span class="line">/*多次尝试表明，这个命令很不好用，虽然出现错误，但是会下载一个tsv格式的数据文件，因此推荐使用另外一个命令eurostatuse命令*/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//使用eurostatuse命令从欧盟统计局下载数据</span><br><span class="line">db eurostatuse</span><br><span class="line">//上述命令可以打开一个窗口进行操作</span><br><span class="line">//tablename可以按照help文档中的指示到欧盟统计局网站进行查找。</span><br><span class="line">eurostatuse ei_bsco_m, clear noerase geo() keepdim() start() end()</span><br><span class="line">//这个命令第一次运行需要按照指示下载一个<span class="number">7</span>-zip软件安装到指定位置，然后</span><br><span class="line">//再次运行就可以自动下载并读取数据了。</span><br></pre></td></tr></table></figure>
 
       
     </div>
