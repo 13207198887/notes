@@ -410,7 +410,7 @@ Stata绘制代码123456789101112131415161718192021222324252627282930313233343536
 <!-- Table of Contents -->
 
   
-    <article id="post-融资融券日度数据爬取"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-cvxhull"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -418,7 +418,7 @@ Stata绘制代码123456789101112131415161718192021222324252627282930313233343536
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/33595/">融资融券日度数据爬取</a>
+      <a class="article-title" href="../../posts/52696/">cvxhull</a>
     </h1>
   
 
@@ -426,19 +426,24 @@ Stata绘制代码123456789101112131415161718192021222324252627282930313233343536
     
     <div class="article-meta">
       
-	<a href="../../posts/33595/" class="article-date">
+	<a href="../../posts/52696/" class="article-date">
 	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
 	</a>
 
       
-    <a class="article-category-link" href="../../categories/网站爬取程序/">网站爬取程序</a>
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">cpd</span><br><span class="line">!curl <span class="string">'http://query.sse.com.cn/marketdata/tradedata/queryMargin.do?jsonCallBack=jsonpCallback6079&amp;isPagination=true&amp;beginDate=20100101&amp;endDate=20180428&amp;tabType=&amp;stockCode=&amp;pageHelp.pageSize=10000&amp;pageHelp.pageNo=1&amp;pageHelp.beginPage=1&amp;pageHelp.cacheSize=1&amp;pageHelp.endPage=5&amp;_=1524928602618'</span> -H <span class="string">'Accept-Encoding: gzip, deflate'</span> -H <span class="string">'Accept-Language: zh-CN,zh;q=0.9,en;q=0.8'</span> -H <span class="string">'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36'</span> -H <span class="string">'Referer: http://www.sse.com.cn/market/othersdata/margin/sum/'</span> -H <span class="string">'Cookie: yfx_c_g_u_id_10000042=_ck18042715133614816272843237555; yfx_mr_10000042=%3A%3Amarket_type_free_search%3A%3A%3A%3Abaidu%3A%3A%3A%3A%3A%3A%3A%3Awww.baidu.com%3A%3A%3A%3Apmf_from_free_search; yfx_mr_f_10000042=%3A%3Amarket_type_free_search%3A%3A%3A%3Abaidu%3A%3A%3A%3A%3A%3A%3A%3Awww.baidu.com%3A%3A%3A%3Apmf_from_free_search; yfx_key_10000042=; VISITED_MENU=%5B%228451%22%2C%228419%22%2C%229807%22%5D; yfx_f_l_v_t_10000042=f_t_1524813216474__r_t_1524901305066__v_t_1524928574505__r_c_1'</span> -H <span class="string">'Connection: keep-alive'</span> --compressed -o temp.txt</span><br><span class="line">clear all</span><br><span class="line">* 为了便于读取可以先进行简单的处理</span><br><span class="line">infix str v <span class="number">1</span><span class="number">-20000</span> using temp.txt, clear</span><br><span class="line">split v, parse(,)</span><br><span class="line">drop v v1 v3 v7 v12 v13 v14-v36</span><br><span class="line">foreach i of varlist _all&#123;</span><br><span class="line">	replace `i<span class="string">' = ustrregexs(1) if ustrregexm(`i'</span>, <span class="string">":(.*)"</span>)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"""', "", .)</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">compress</span></span><br><span class="line"><span class="string">a5 v2, s("")</span></span><br><span class="line"><span class="string">ren v2 日期</span></span><br><span class="line"><span class="string">ren v11 融资余额_元</span></span><br><span class="line"><span class="string">ren v4 融券卖出量</span></span><br><span class="line"><span class="string">ren v5 融券余量</span></span><br><span class="line"><span class="string">ren v6 融券余量金额_元</span></span><br><span class="line"><span class="string">ren v9 融资买入额_元</span></span><br><span class="line"><span class="string">ren v10 融资融券余额_元</span></span><br><span class="line"><span class="string">ren v8 融资偿还额_元</span></span><br><span class="line"><span class="string">destring, replace</span></span><br><span class="line"><span class="string">duplicates drop 日期, force</span></span><br><span class="line"><span class="string">save 上交所融资融券日度数据, replace</span></span><br><span class="line"><span class="string">export excel using "/Users/mr.cheng/Desktop/上交所融资融券日度数据.xlsx", firstrow(variables) replace</span></span><br><span class="line"><span class="string">* * 沪深300指数</span></span><br><span class="line"><span class="string">* stkpv 000300, index c</span></span><br><span class="line"><span class="string">* export excel using "/Users/mr.cheng/Desktop/沪深300.xlsx", firstrow(varlabels) replace</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">* stkpv 1, index c</span></span><br><span class="line"><span class="string">* export excel using "/Users/mr.cheng/Desktop/上证指数.xlsx", firstrow(varlabels) replace</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">* stkpv 399001, index c</span></span><br><span class="line"><span class="string">* export excel using "/Users/mr.cheng/Desktop/深证成指.xlsx", firstrow(varlabels) replace</span></span><br></pre></td></tr></table></figure>
+        <p><img src="https://github.com/czxa/nr/raw/master/cvxhull.png" alt=""></p>
+        <!-- 
 
+12345678* ssc install cvxhullsysuse auto, cleargen foreign1 = foreignlabel def for 1 For 0 Domlabel val foreign1 forcvxhull mpg weight, group(foreign) hulls(2) ///	scat(mlab(foreign1) mlabpos(c) ......  -->
+        <p class="article-more-link">
+          <a href="../../posts/52696/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">

@@ -270,51 +270,6 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-statsby_从Stata命令中搜集统计量"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/20986/">statsby_从Stata命令中搜集统计量</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/20986/" class="article-date">
-	  <time datetime="2018-02-20T06:37:23.000Z" itemprop="datePublished">2018-02-20</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/Stata编程导论/">Stata编程导论</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">. * Collect statistics <span class="keyword">for</span> a command across a by list.</span><br><span class="line"></span><br><span class="line">. use bpress, clear</span><br><span class="line">(fictional blood-pressure data)</span><br><span class="line"></span><br><span class="line">. statsby mean = r(mean) sd = r(sd) n = r(N), by(agegrp sex)  saving(bpstats, repl</span><br><span class="line">&gt; ace): sum bp</span><br><span class="line">(running summarize on estimation sample)</span><br><span class="line"></span><br><span class="line">      command:  summarize bp</span><br><span class="line">         mean:  r(mean)</span><br><span class="line">           sd:  r(sd)</span><br><span class="line">            n:  r(N)</span><br><span class="line">           by:  agegrp sex</span><br><span class="line"></span><br><span class="line">Statsby groups</span><br><span class="line">----+--- <span class="number">1</span> ---+--- <span class="number">2</span> ---+--- <span class="number">3</span> ---+--- <span class="number">4</span> ---+--- <span class="number">5</span></span><br><span class="line">......</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. use bpstats, clear</span><br><span class="line">(statsby: summarize)</span><br><span class="line"></span><br><span class="line">. list</span><br><span class="line"></span><br><span class="line">     +-------------------------------------------+</span><br><span class="line">     | agegrp      sex      mean         sd    n |</span><br><span class="line">     |-------------------------------------------|</span><br><span class="line">  <span class="number">1.</span> |  <span class="number">30</span><span class="number">-45</span>     Male    <span class="number">149.95</span>   <span class="number">12.53498</span>   <span class="number">40</span> |</span><br><span class="line">  <span class="number">2.</span> |  <span class="number">30</span><span class="number">-45</span>   Female    <span class="number">146.05</span>   <span class="number">9.483994</span>   <span class="number">40</span> |</span><br><span class="line">  <span class="number">3.</span> |  <span class="number">46</span><span class="number">-59</span>     Male    <span class="number">158.15</span>   <span class="number">13.90914</span>   <span class="number">40</span> |</span><br><span class="line">  <span class="number">4.</span> |  <span class="number">46</span><span class="number">-59</span>   Female   <span class="number">147.725</span>   <span class="number">10.10201</span>   <span class="number">40</span> |</span><br><span class="line">  <span class="number">5.</span> |    <span class="number">60</span>+     Male   <span class="number">164.075</span>   <span class="number">10.27665</span>   <span class="number">40</span> |</span><br><span class="line">     |-------------------------------------------|</span><br><span class="line">  <span class="number">6.</span> |    <span class="number">60</span>+   Female   <span class="number">157.475</span>   <span class="number">12.02985</span>   <span class="number">40</span> |</span><br><span class="line">     +-------------------------------------------+</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-margins_计算边际效应及绘图"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -347,6 +302,51 @@
         <p class="article-more-link">
           <a href="../../posts/50913/#more">阅读全文</a>
         </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-statsby_从Stata命令中搜集统计量"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/20986/">statsby_从Stata命令中搜集统计量</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/20986/" class="article-date">
+	  <time datetime="2018-02-20T06:37:23.000Z" itemprop="datePublished">2018-02-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata编程导论/">Stata编程导论</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">. * Collect statistics <span class="keyword">for</span> a command across a by list.</span><br><span class="line"></span><br><span class="line">. use bpress, clear</span><br><span class="line">(fictional blood-pressure data)</span><br><span class="line"></span><br><span class="line">. statsby mean = r(mean) sd = r(sd) n = r(N), by(agegrp sex)  saving(bpstats, repl</span><br><span class="line">&gt; ace): sum bp</span><br><span class="line">(running summarize on estimation sample)</span><br><span class="line"></span><br><span class="line">      command:  summarize bp</span><br><span class="line">         mean:  r(mean)</span><br><span class="line">           sd:  r(sd)</span><br><span class="line">            n:  r(N)</span><br><span class="line">           by:  agegrp sex</span><br><span class="line"></span><br><span class="line">Statsby groups</span><br><span class="line">----+--- <span class="number">1</span> ---+--- <span class="number">2</span> ---+--- <span class="number">3</span> ---+--- <span class="number">4</span> ---+--- <span class="number">5</span></span><br><span class="line">......</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. use bpstats, clear</span><br><span class="line">(statsby: summarize)</span><br><span class="line"></span><br><span class="line">. list</span><br><span class="line"></span><br><span class="line">     +-------------------------------------------+</span><br><span class="line">     | agegrp      sex      mean         sd    n |</span><br><span class="line">     |-------------------------------------------|</span><br><span class="line">  <span class="number">1.</span> |  <span class="number">30</span><span class="number">-45</span>     Male    <span class="number">149.95</span>   <span class="number">12.53498</span>   <span class="number">40</span> |</span><br><span class="line">  <span class="number">2.</span> |  <span class="number">30</span><span class="number">-45</span>   Female    <span class="number">146.05</span>   <span class="number">9.483994</span>   <span class="number">40</span> |</span><br><span class="line">  <span class="number">3.</span> |  <span class="number">46</span><span class="number">-59</span>     Male    <span class="number">158.15</span>   <span class="number">13.90914</span>   <span class="number">40</span> |</span><br><span class="line">  <span class="number">4.</span> |  <span class="number">46</span><span class="number">-59</span>   Female   <span class="number">147.725</span>   <span class="number">10.10201</span>   <span class="number">40</span> |</span><br><span class="line">  <span class="number">5.</span> |    <span class="number">60</span>+     Male   <span class="number">164.075</span>   <span class="number">10.27665</span>   <span class="number">40</span> |</span><br><span class="line">     |-------------------------------------------|</span><br><span class="line">  <span class="number">6.</span> |    <span class="number">60</span>+   Female   <span class="number">157.475</span>   <span class="number">12.02985</span>   <span class="number">40</span> |</span><br><span class="line">     +-------------------------------------------+</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">

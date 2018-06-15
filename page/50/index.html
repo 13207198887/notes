@@ -222,7 +222,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-pieplot更方便的绘制分类数据的饼图"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-linkplot"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -230,7 +230,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/17665/">pieplot更方便的绘制分类数据的饼图</a>
+      <a class="article-title" href="../../posts/13861/">linkplot</a>
     </h1>
   
 
@@ -238,7 +238,7 @@
     
     <div class="article-meta">
       
-	<a href="../../posts/17665/" class="article-date">
+	<a href="../../posts/13861/" class="article-date">
 	  <time datetime="2018-05-18T07:01:23.000Z" itemprop="datePublished">2018-05-18</time>
 	</a>
 
@@ -249,10 +249,10 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://github.com/czxa/nr/raw/master/pieplot.png" alt=""><br>
-        <!-- 12345678* 更方便的绘制分类数据的饼图sysuse auto, clearpieplot rep78 foreign, sum plabelsubopts(size(*2)) ///	pie(1, color(red*2)) pie(2, color(red)) ///	pie(3, color(red*0.7)) pie(4, color(red*0.5)) ///	pie(5, ......  -->
+        <p><img src="https://github.com/czxa/nr/raw/master/linkplot.png" alt=""><br>
+        <!-- 1234567891011121314151617181920212223* 双类别数据对比图clearinput ///A 		B 		id13.2 	14.0 	18.2 	8.8 	210.9 	11.2 	314.3 	14.2 	410.7 	11.8 	56.6 	6.4 	69.5 	9.8 	710.8 	11.3 	88.8 	9.3 	913.3 	13.6 	10end......  -->
         <p class="article-more-link">
-          <a href="../../posts/17665/#more">阅读全文</a>
+          <a href="../../posts/13861/#more">阅读全文</a>
         </p>
       
     </div>
@@ -270,7 +270,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-mm_plot——一个mata绘制Mata矩阵的命令"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-hmap_绘制热力图"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -278,7 +278,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/43792/">mm_plot——一个mata绘制Mata矩阵的命令</a>
+      <a class="article-title" href="../../posts/14178/">hmap_绘制热力图</a>
     </h1>
   
 
@@ -286,7 +286,7 @@
     
     <div class="article-meta">
       
-	<a href="../../posts/43792/" class="article-date">
+	<a href="../../posts/14178/" class="article-date">
 	  <time datetime="2018-05-18T07:01:23.000Z" itemprop="datePublished">2018-05-18</time>
 	</a>
 
@@ -297,12 +297,10 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://github.com/czxa/nr/raw/master/mm_plot1.png" alt=""></p>
-        <!-- 
-
-123456789101112131415161718192021* install* ssc install morematamata:	for(i = 0; i &lt; 2 * pi() * 1000; i ++ )&#123;		a = (i / 1000) * cos(i / 1000)		a1 = (i / 1000) * sin(i / 1000)		if(i == 0)&......  -->
+        <p><img src="https://github.com/czxa/nr/raw/master/hmap2.png" alt=""><br>
+        <!-- 123456789101112clear allset obs 64g n=int(uniform()*10)g x=1+int((_n-1)/8)g y=1+mod((_n-1),8)la def xlab 1 "one" 2 "two" 7 "seven" 8 "eight"la def ylab 3 "three" 4 "four" 5 "five" 6 "six"la val x x......  -->
         <p class="article-more-link">
-          <a href="../../posts/43792/#more">阅读全文</a>
+          <a href="../../posts/14178/#more">阅读全文</a>
         </p>
       
     </div>
@@ -320,7 +318,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-radar_绘制雷达图"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-grcomb合并图"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -328,7 +326,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/22996/">radar_绘制雷达图</a>
+      <a class="article-title" href="../../posts/38786/">grcomb合并图</a>
     </h1>
   
 
@@ -336,7 +334,7 @@
     
     <div class="article-meta">
       
-	<a href="../../posts/22996/" class="article-date">
+	<a href="../../posts/38786/" class="article-date">
 	  <time datetime="2018-05-18T07:01:23.000Z" itemprop="datePublished">2018-05-18</time>
 	</a>
 
@@ -347,11 +345,11 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://github.com/czxa/nr/raw/master/radar.png" alt=""><br>
-        <!-- 123456* ssc install radarsysuse auto, clearradar make turn mpg trunk if for, ///	lc(red*0.6 blue*0.6 green*0.6) ///	lw(*1 *2 *3) r(0 12 14 18 50) ///	leg(pos(6) row(1)) note("")
+        <p><img src="https://github.com/czxa/nr/raw/master/grcomb.png" alt=""><br>
+        <!-- 123456* 合并图* ssc install grcombwebuse nhanes2f, clear sgrcomb graph box copper zinc iron, v(1)gre grcomb
 ...  -->
         <p class="article-more-link">
-          <a href="../../posts/22996/#more">阅读全文</a>
+          <a href="../../posts/38786/#more">阅读全文</a>
         </p>
       
     </div>
@@ -369,7 +367,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-missingplot_可视化缺失值"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-trellis"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -377,7 +375,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/16586/">missingplot_可视化缺失值</a>
+      <a class="article-title" href="../../posts/9664/">trellis</a>
     </h1>
   
 
@@ -385,7 +383,7 @@
     
     <div class="article-meta">
       
-	<a href="../../posts/16586/" class="article-date">
+	<a href="../../posts/9664/" class="article-date">
 	  <time datetime="2018-05-18T07:01:23.000Z" itemprop="datePublished">2018-05-18</time>
 	</a>
 
@@ -396,59 +394,59 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://github.com/czxa/nr/raw/master/missingplot.png" alt=""><br>
-        <!-- 12345ssc install missingplotwebuse nlsw88, c smissingplot, var labels mlabcolor(blue*0.4 ..)* 标签表示该缺失位置的行号gre missingplot
+        <p><img src="https://github.com/czxa/nr/raw/master/trellis.png" alt=""><br>
+        <!-- 1234567891011* 棚架图* ssc install trelliswebuse nhanes2f, clear strellis, by(health region) f(graph box copper zinc iron) fopt(leg(off) ylab(50 175 300) ysc(r(50 310))) sr(2) sc(2) ///	singleopt(leg(......  -->
+        <p class="article-more-link">
+          <a href="../../posts/9664/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-ellip绘制置信椭圆"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/38759/">ellip绘制置信椭圆</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/38759/" class="article-date">
+	  <time datetime="2018-05-18T07:01:23.000Z" itemprop="datePublished">2018-05-18</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/nr/raw/master/ellip.png" alt=""><br>
+        <!-- 123456* 绘制置信椭圆* ssc install ellipsysuse auto, clearellip mpg weight, by(for, total leg(off)) ///	total tlabel(Total as a by-group) plot(scatter mpg weight)gre ellip
 ...  -->
         <p class="article-more-link">
-          <a href="../../posts/16586/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-regaxis"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/1643/">regaxis_帮助确定坐标轴的尺度、范围和刻度标签</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/1643/" class="article-date">
-	  <time datetime="2018-05-18T07:01:23.000Z" itemprop="datePublished">2018-05-18</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://github.com/czxa/nr/raw/master/regaxis.png" alt=""><br>
-        <!-- 12345678* ssc install regaxissysuse auto, clearregaxis rep78, cycle(0.5) singleok margin(0.5) ///	lrange(yrange) lticks(ylabs)regaxis weight, include(0) lticks(xlabs)sc rep78 weight, ysc(range(`yra......  -->
-        <p class="article-more-link">
-          <a href="../../posts/1643/#more">阅读全文</a>
+          <a href="../../posts/38759/#more">阅读全文</a>
         </p>
       
     </div>

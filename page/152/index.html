@@ -222,7 +222,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-area:rarea命令"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-正则表达式"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -230,7 +230,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/64429/">area/rarea命令</a>
+      <a class="article-title" href="../../posts/46563/">正则表达式</a>
     </h1>
   
 
@@ -238,7 +238,7 @@
     
     <div class="article-meta">
       
-	<a href="../../posts/64429/" class="article-date">
+	<a href="../../posts/46563/" class="article-date">
 	  <time datetime="2018-01-24T04:06:23.000Z" itemprop="datePublished">2018-01-24</time>
 	</a>
 
@@ -249,18 +249,16 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>area所绘图形是曲线和平行于x轴的直线</li>
-<li>rarea所绘图形是曲线和曲线、曲线和任意直线所围成的</li>
+        <h4 id="贪婪模式"><a href="#贪婪模式" class="headerlink" title="贪婪模式"></a>贪婪模式</h4><ul>
+<li>贪婪模式：首先看整个字符串是否能与正则表达式匹配，如果匹配<br>不成功，会去掉该字符串的最后一个字符,并尝试再次匹配，如果匹配<br>还是不成功，那么再去掉此时的最后一个字符直到发现匹配或者全部<br>尝试过后仍然无法匹配。</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">set obs <span class="number">5000</span></span><br><span class="line">gen x = uniform()*<span class="number">8</span></span><br><span class="line">replace x = . if x &lt; <span class="number">1</span></span><br><span class="line">gen y = x^<span class="number">2</span></span><br><span class="line">tw area y x, sort base(<span class="number">10</span>) cmissing(y|n) fcolor(green*<span class="number">0.4</span>) lcolor(red*<span class="number">0.8</span>) title(<span class="string">"y = x&#123;superscript:2&#125;的函数图像"</span>) ytitle(<span class="string">"y"</span>, angle(<span class="number">0</span>)) xtitle() xlabel(<span class="number">0</span>(<span class="number">2</span>)<span class="number">8</span> <span class="number">5</span>) ylabel(<span class="number">0</span>(<span class="number">20</span>)<span class="number">60</span> <span class="number">10</span> <span class="number">27</span>, ang(<span class="number">0</span>)) legend(off) text(<span class="number">27</span> <span class="number">5</span> <span class="string">"y = x&#123;superscript:2&#125;"</span>) scheme(s1color)</span><br><span class="line">graph <span class="keyword">export</span> 函数图像.png, replace</span><br></pre></td></tr></table></figure>
-        <!-- 
-area所绘图形是曲线和平行于x轴的直线
-rarea所绘图形是曲线和曲线、曲线和任意直线所围成的
+        <!-- 贪婪模式
+贪婪模式：首先看整个字符串是否能与正则表达式匹配，如果匹配不成功，会去掉该字符串的最后一个字符,并尝试再次匹配，如果匹配还是不成功，那么再去掉此时的最后一个字符直到发现匹配或者全部尝试过后仍然无法匹配。
 
-1234567clear allset obs 5000gen x = uniform()*8replace x = . if x &lt; 1gen y = x^2tw area y x, sort base(10) cmissing(y|n) fcolor(green*0.4) lcol......  -->
+
+123456789101112131415161718192021222324252627set obs 10gen v = "A"+"B"*(_n-1)gen v1 = us......  -->
         <p class="article-more-link">
-          <a href="../../posts/64429/#more">阅读全文</a>
+          <a href="../../posts/46563/#more">阅读全文</a>
         </p>
       
     </div>

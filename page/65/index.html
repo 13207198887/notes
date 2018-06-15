@@ -385,50 +385,6 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-matrix_accum——计算交叉乘积"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/62679/">matrix_accum——计算交叉乘积</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/62679/" class="article-date">
-	  <time datetime="2018-04-05T16:16:02.000Z" itemprop="datePublished">2018-04-06</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">sysuse auto, clear </span><br><span class="line">matrix accum A = price weight mpg</span><br><span class="line">matlist A</span><br><span class="line"></span><br><span class="line">* 省略首行首列</span><br><span class="line">* A = (y, X)<span class="string">'(y, X) = (y'</span>y y<span class="string">'X \ X'</span>y X<span class="string">'X)</span></span><br><span class="line"><span class="string">matrix XX = A[2..., 2...]</span></span><br><span class="line"><span class="string">matlist XX</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">matrix Xy = A[2..., 1]</span></span><br><span class="line"><span class="string">matrix list Xy</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">matrix b = syminv(XX) * Xy</span></span><br><span class="line"><span class="string">matrix list b</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">matrix b = invsym(A[2..., 2...]) * A[2..., 1]</span></span><br><span class="line"><span class="string">matlist b</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-矩阵的定义"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -457,6 +413,50 @@
     <div class="article-entry" itemprop="articleBody">
       
         <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">mat A = (<span class="number">1</span>, <span class="number">2</span> \ <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">mat B = (<span class="number">5</span>, <span class="number">7</span> \ <span class="number">9</span>, <span class="number">2</span>)</span><br><span class="line">mat C = A + B</span><br><span class="line">mat list C</span><br><span class="line"></span><br><span class="line">mat B = A - B</span><br><span class="line">matlist B</span><br><span class="line"></span><br><span class="line">mat X = (<span class="number">1</span>, <span class="number">1</span> \ <span class="number">2</span>, <span class="number">5</span> \ <span class="number">8</span>, <span class="number">0</span> \ <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line">mat C = <span class="number">3</span> * X * A<span class="string">' * B</span></span><br><span class="line"><span class="string">mat l C</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">mat D = (X'</span>*X - A<span class="string">'*A)/4</span></span><br><span class="line"><span class="string">mat rownames D = dog cat</span></span><br><span class="line"><span class="string">mat colnames D = bark meow</span></span><br><span class="line"><span class="string">mat l D </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">mat rownames A = aa bb</span></span><br><span class="line"><span class="string">mat colnames A = alpha beta </span></span><br><span class="line"><span class="string">mat l A</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">* kronecker product</span></span><br><span class="line"><span class="string">mat D = A#D</span></span><br><span class="line"><span class="string">mat l D</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">mat G = A, B \ D</span></span><br><span class="line"><span class="string">mat l G</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">mat Z = (B - A)'</span> * (B + A<span class="string">' * -B)/4</span></span><br><span class="line"><span class="string">mat l Z</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">* 一些特殊的矩阵函数</span></span><br><span class="line"><span class="string">* 单位对角矩阵</span></span><br><span class="line"><span class="string">mat A = I(4)</span></span><br><span class="line"><span class="string">matlist A</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">* r行c列全是k的矩阵</span></span><br><span class="line"><span class="string">mat A = J(3, 4 ,5)</span></span><br><span class="line"><span class="string">matlist A </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">* cholesky分解</span></span><br><span class="line"><span class="string">mat A = (1, 2 \ 2, 5)</span></span><br><span class="line"><span class="string">mat L = cholesky(4*I(2) + A'</span>*A)</span><br><span class="line">mat l L</span><br><span class="line"></span><br><span class="line">* 逆矩阵</span><br><span class="line">mat Ainv = invsym(A)</span><br><span class="line">mat l Ainv</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-matrix_accum——计算交叉乘积"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/62679/">matrix_accum——计算交叉乘积</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/62679/" class="article-date">
+	  <time datetime="2018-04-05T16:16:02.000Z" itemprop="datePublished">2018-04-06</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">sysuse auto, clear </span><br><span class="line">matrix accum A = price weight mpg</span><br><span class="line">matlist A</span><br><span class="line"></span><br><span class="line">* 省略首行首列</span><br><span class="line">* A = (y, X)<span class="string">'(y, X) = (y'</span>y y<span class="string">'X \ X'</span>y X<span class="string">'X)</span></span><br><span class="line"><span class="string">matrix XX = A[2..., 2...]</span></span><br><span class="line"><span class="string">matlist XX</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">matrix Xy = A[2..., 1]</span></span><br><span class="line"><span class="string">matrix list Xy</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">matrix b = syminv(XX) * Xy</span></span><br><span class="line"><span class="string">matrix list b</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">matrix b = invsym(A[2..., 2...]) * A[2..., 1]</span></span><br><span class="line"><span class="string">matlist b</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">

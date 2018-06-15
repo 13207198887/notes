@@ -266,50 +266,6 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-AppleScript-在桌面建立含有100个字文件夹的文件夹"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/48296/">AppleScript-在桌面建立含有100个字文件夹的文件夹</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/48296/" class="article-date">
-	  <time datetime="2018-04-05T16:30:23.000Z" itemprop="datePublished">2018-04-06</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/编程/">编程</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"Finder"</span></span><br><span class="line">	make new folder <span class="keyword">at</span> desktop <span class="keyword">with</span> properties &#123;<span class="built_in">name</span>:<span class="string">"Test"</span>&#125;</span><br><span class="line">	<span class="keyword">repeat</span> <span class="keyword">with</span> a <span class="keyword">from</span> <span class="number">0</span> <span class="keyword">to</span> <span class="number">100</span></span><br><span class="line">		make new folder <span class="keyword">at</span> folder <span class="string">"Test"</span> <span class="keyword">of</span> desktop <span class="keyword">with</span> properties &#123;<span class="built_in">name</span>:a <span class="keyword">as</span> <span class="built_in">string</span>&#125;</span><br><span class="line">	<span class="keyword">end</span> <span class="keyword">repeat</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">tell</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/AppleScript/">AppleScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-AppleScript语言初步"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -338,6 +294,50 @@
     <div class="article-entry" itemprop="articleBody">
       
         <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--AppleScript语言初步</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- Record型的数据可以使用of关键字得到想要的数据</span></span><br><span class="line">firstName <span class="keyword">of</span> &#123;firstName:<span class="string">"A"</span>, lastName:<span class="string">"B"</span>&#125; <span class="comment">-- "A"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--确定数据类型</span></span><br><span class="line"><span class="built_in">class</span> <span class="keyword">of</span> <span class="string">"string"</span> <span class="comment">--text</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--强制数据类型转换</span></span><br><span class="line"><span class="comment">--文本类型转化为数字类型</span></span><br><span class="line"><span class="string">"1.99"</span> <span class="keyword">as</span> <span class="built_in">real</span> <span class="comment">-- 1.99</span></span><br><span class="line"><span class="string">"1.99"</span> <span class="keyword">as</span> <span class="built_in">integer</span> <span class="comment">--2</span></span><br><span class="line"><span class="string">"1"</span> <span class="keyword">as</span> <span class="built_in">real</span> <span class="comment">--1.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--转换成list类型</span></span><br><span class="line"><span class="string">"text"</span> <span class="keyword">as</span> <span class="built_in">list</span> <span class="comment">--&#123;"text"&#125;</span></span><br><span class="line"><span class="number">1.99</span> <span class="keyword">as</span> <span class="built_in">list</span> <span class="comment">--&#123;1.99&#125;</span></span><br><span class="line">&#123;a:<span class="number">1</span>, b:<span class="number">2</span>&#125; <span class="keyword">as</span> <span class="built_in">list</span> <span class="comment">--&#123;1,2&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--逻辑运算</span></span><br><span class="line"><span class="string">"Text"</span> &amp; <span class="number">1</span> <span class="comment">-- "Text1"</span></span><br><span class="line"><span class="number">1</span> &amp; <span class="string">"Text"</span> <span class="comment">--&#123;1, "Text"&#125;</span></span><br><span class="line">&#123;<span class="built_in">number</span>:<span class="string">"a"</span>&#125; &amp; <span class="string">"b"</span> <span class="comment">--&#123;number:"a", «class ktxt»:"b"&#125;</span></span><br><span class="line"><span class="number">3</span> &amp; &#123;<span class="built_in">name</span>:<span class="string">"a"</span>&#125; <span class="comment">--&#123;3, "a"&#125;</span></span><br><span class="line">&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125; &amp; &#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125; <span class="comment">--&#123;1, 2, 3, 4, 5, 6&#125;</span></span><br><span class="line">&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125; &amp; <span class="number">4</span> &amp; <span class="number">5</span> &amp; <span class="number">6</span> <span class="comment">--&#123;1, 2, 3, 4, 5, 6&#125;</span></span><br><span class="line">&#123;a:<span class="number">1</span>, b:<span class="number">2</span>&#125; &amp; &#123;c:<span class="number">3</span>&#125; <span class="comment">--&#123;a:1, b:2, c:3&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--提取对象中的元素</span></span><br><span class="line"><span class="keyword">every</span> <span class="built_in">character</span> <span class="keyword">of</span> <span class="string">"一个字符串"</span> <span class="comment">--&#123;"一", "个", "字", "符", "串"&#125;</span></span><br><span class="line"><span class="built_in">characters</span> <span class="keyword">of</span> <span class="string">"A String"</span> <span class="comment">--&#123;"A", " ", "S", "t", "r", "i", "n", "g"&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">words</span> <span class="keyword">of</span> <span class="string">"A string"</span> <span class="comment">--&#123;"A", "string"&#125;</span></span><br><span class="line"><span class="keyword">every</span> <span class="built_in">word</span> <span class="keyword">of</span> <span class="string">"我的名字是张三"</span> <span class="comment">--&#123;"我", "的", "名字", "是", "张三"&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--提取指定位置中的几个字符或单词，结果为list型</span></span><br><span class="line"><span class="built_in">characters</span> <span class="number">3</span> <span class="keyword">through</span> <span class="number">5</span> <span class="keyword">of</span> <span class="string">"A string"</span> <span class="comment">--&#123;"s", "t", "r"&#125;</span></span><br><span class="line"><span class="built_in">words</span> <span class="number">3</span> <span class="keyword">through</span> <span class="number">5</span> <span class="keyword">of</span> <span class="string">"我的名字叫张三"</span> <span class="comment">--&#123;"名字", "叫", "张三"&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">word</span> <span class="number">2</span> <span class="keyword">of</span> <span class="string">"This is a text"</span> <span class="comment">--"is"</span></span><br><span class="line"><span class="built_in">character</span> <span class="number">3</span> <span class="keyword">of</span> <span class="string">"This is a text"</span> <span class="comment">--"i"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">sixth</span> <span class="built_in">character</span> <span class="keyword">of</span> <span class="string">"This is a text"</span> <span class="comment">--"i"</span></span><br><span class="line"><span class="comment">-- 注意：第一个字符的位置是1</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/AppleScript/">AppleScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-AppleScript-提取Finder文件列表"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/37647/">AppleScript-提取Finder文件列表</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/37647/" class="article-date">
+	  <time datetime="2018-04-05T16:30:23.000Z" itemprop="datePublished">2018-04-06</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/编程/">编程</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"Finder"</span></span><br><span class="line">	<span class="keyword">every</span> <span class="built_in">file</span> <span class="keyword">of</span> desktop <span class="comment">--获取所有文件名称（很详细，包括具体位置、格式等）</span></span><br><span class="line">	files <span class="keyword">of</span> desktop <span class="comment">--作用同上</span></span><br><span class="line">	<span class="keyword">every</span> folder <span class="keyword">of</span> desktop <span class="comment">--获取所有文件夹名称（很详细）</span></span><br><span class="line">	folders <span class="keyword">of</span> desktop <span class="comment">--作用同上</span></span><br><span class="line">	<span class="built_in">name</span> <span class="keyword">of</span> <span class="keyword">every</span> <span class="built_in">file</span> <span class="keyword">of</span> desktop <span class="comment">--获取桌面所有文件夹名称</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">tell</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
@@ -398,7 +398,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-AppleScript-提取Finder文件列表"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-AppleScript-在桌面建立含有100个字文件夹的文件夹"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -406,7 +406,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/37647/">AppleScript-提取Finder文件列表</a>
+      <a class="article-title" href="../../posts/48296/">AppleScript-在桌面建立含有100个字文件夹的文件夹</a>
     </h1>
   
 
@@ -414,7 +414,7 @@
     
     <div class="article-meta">
       
-	<a href="../../posts/37647/" class="article-date">
+	<a href="../../posts/48296/" class="article-date">
 	  <time datetime="2018-04-05T16:30:23.000Z" itemprop="datePublished">2018-04-06</time>
 	</a>
 
@@ -425,7 +425,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"Finder"</span></span><br><span class="line">	<span class="keyword">every</span> <span class="built_in">file</span> <span class="keyword">of</span> desktop <span class="comment">--获取所有文件名称（很详细，包括具体位置、格式等）</span></span><br><span class="line">	files <span class="keyword">of</span> desktop <span class="comment">--作用同上</span></span><br><span class="line">	<span class="keyword">every</span> folder <span class="keyword">of</span> desktop <span class="comment">--获取所有文件夹名称（很详细）</span></span><br><span class="line">	folders <span class="keyword">of</span> desktop <span class="comment">--作用同上</span></span><br><span class="line">	<span class="built_in">name</span> <span class="keyword">of</span> <span class="keyword">every</span> <span class="built_in">file</span> <span class="keyword">of</span> desktop <span class="comment">--获取桌面所有文件夹名称</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">tell</span></span><br></pre></td></tr></table></figure>
+        <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"Finder"</span></span><br><span class="line">	make new folder <span class="keyword">at</span> desktop <span class="keyword">with</span> properties &#123;<span class="built_in">name</span>:<span class="string">"Test"</span>&#125;</span><br><span class="line">	<span class="keyword">repeat</span> <span class="keyword">with</span> a <span class="keyword">from</span> <span class="number">0</span> <span class="keyword">to</span> <span class="number">100</span></span><br><span class="line">		make new folder <span class="keyword">at</span> folder <span class="string">"Test"</span> <span class="keyword">of</span> desktop <span class="keyword">with</span> properties &#123;<span class="built_in">name</span>:a <span class="keyword">as</span> <span class="built_in">string</span>&#125;</span><br><span class="line">	<span class="keyword">end</span> <span class="keyword">repeat</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">tell</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">

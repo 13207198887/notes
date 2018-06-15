@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>分块图 | Mr.Cheng&#39;s Notebook</title>
+  <title>生成预测值与绘制预测结果 | Mr.Cheng&#39;s Notebook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="Stata" />
@@ -15,20 +15,20 @@
     <meta name="baidu-site-verification" content="true" />
   
   
-  <meta name="description" content="1234567891011121314151617sysuse auto, clearforval i = 10(10)40&amp;#123;	local m`i&apos; = string(`i&apos;*0.4251437, &quot;%6.2f&quot;)&amp;#125;tw sc mpg weight, yaxis(1 2) xla(, ang(45)) ///ysc(axis(2, alt))							///yla(">
+  <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344sysuse auto, clearreg price c.mpg##c.weight##c.weight i.foreignqui sum mpglocal m = r(mean)local sd = r(sd)preserverepla">
 <meta name="keywords" content="Stata">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分块图">
+<meta property="og:title" content="生成预测值与绘制预测结果">
 <meta property="og:url" content="http://www.czxa.top/posts/45109/index.html">
 <meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
-<meta property="og:description" content="1234567891011121314151617sysuse auto, clearforval i = 10(10)40&amp;#123;	local m`i&apos; = string(`i&apos;*0.4251437, &quot;%6.2f&quot;)&amp;#125;tw sc mpg weight, yaxis(1 2) xla(, ang(45)) ///ysc(axis(2, alt))							///yla(">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344sysuse auto, clearreg price c.mpg##c.weight##c.weight i.foreignqui sum mpglocal m = r(mean)local sd = r(sd)preserverepla">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/分块图1.png">
-<meta property="og:updated_time" content="2018-02-13T09:26:43.848Z">
+<meta property="og:image" content="https://github.com/czxa/Web_data_Source/raw/master/predictions.png">
+<meta property="og:updated_time" content="2018-04-19T23:37:50.895Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分块图">
-<meta name="twitter:description" content="1234567891011121314151617sysuse auto, clearforval i = 10(10)40&amp;#123;	local m`i&apos; = string(`i&apos;*0.4251437, &quot;%6.2f&quot;)&amp;#125;tw sc mpg weight, yaxis(1 2) xla(, ang(45)) ///ysc(axis(2, alt))							///yla(">
-<meta name="twitter:image" content="https://github.com/czxa/Web_data_Source/raw/master/分块图1.png">
+<meta name="twitter:title" content="生成预测值与绘制预测结果">
+<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344sysuse auto, clearreg price c.mpg##c.weight##c.weight i.foreignqui sum mpglocal m = r(mean)local sd = r(sd)preserverepla">
+<meta name="twitter:image" content="https://github.com/czxa/Web_data_Source/raw/master/predictions.png">
   
     <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
   
@@ -168,7 +168,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-分块图" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-生成预测值与绘制预测结果" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -176,7 +176,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      分块图
+      生成预测值与绘制预测结果
     </h1>
   
 
@@ -201,8 +201,8 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://github.com/czxa/Web_data_Source/raw/master/分块图1.png" alt=""></p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">sysuse auto, clear</span><br><span class="line">forval i = <span class="number">10</span>(<span class="number">10</span>)<span class="number">40</span>&#123;</span><br><span class="line">	local m`i<span class="string">' = string(`i'</span>*<span class="number">0.4251437</span>, <span class="string">"%6.2f"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tw sc mpg weight, yaxis(<span class="number">1</span> <span class="number">2</span>) xla(, ang(<span class="number">45</span>)) ///</span><br><span class="line">ysc(axis(<span class="number">2</span>, alt))							///</span><br><span class="line">yla(										///</span><br><span class="line"><span class="number">10</span> <span class="string">"`m10'"</span>									///</span><br><span class="line"><span class="number">20</span> <span class="string">"`m20'"</span>									///</span><br><span class="line"><span class="number">30</span> <span class="string">"`m30'"</span>									///</span><br><span class="line"><span class="number">40</span> <span class="string">"`m40'"</span>									///</span><br><span class="line">, axis(<span class="number">2</span>)) ||,								///</span><br><span class="line">by(foreign, title(<span class="string">"km/L"</span>, orientation(vertical) ///</span><br><span class="line">size(med) pos(<span class="number">3</span>)) xrescale compact) note(<span class="string">""</span>) ///</span><br><span class="line">yla(, ang(<span class="number">0</span>) nogrid) scheme(s1mono)</span><br><span class="line">gr export 分块图<span class="number">1.</span>png, replace</span><br></pre></td></tr></table></figure>
+        <p><img src="https://github.com/czxa/Web_data_Source/raw/master/predictions.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">sysuse auto, clear</span><br><span class="line">reg price c.mpg<span class="comment">##c.weight##c.weight i.foreign</span></span><br><span class="line">qui sum mpg</span><br><span class="line">local m = r(mean)</span><br><span class="line">local sd = r(sd)</span><br><span class="line"></span><br><span class="line">preserve</span><br><span class="line">replace foreign = <span class="number">0</span></span><br><span class="line">replace mpg = `m<span class="string">'</span></span><br><span class="line"><span class="string">predict yhatm</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">replace mpg = `m'</span> - `sd<span class="string">'</span></span><br><span class="line"><span class="string">predict yhatl</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">replace mpg = `m'</span> - <span class="number">2</span>*`sd<span class="string">'</span></span><br><span class="line"><span class="string">predict yhatll</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">replace mpg = `m'</span> + `sd<span class="string">'</span></span><br><span class="line"><span class="string">predict yhath</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">replace mpg = `m'</span> + <span class="number">2</span>*`sd<span class="string">'</span></span><br><span class="line"><span class="string">predict yhathh</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">format yhat* %8.0gc</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">sort weight</span></span><br><span class="line"><span class="string">tw line yhatll yhatl yhatm yhath yhathh weight, ///</span></span><br><span class="line"><span class="string">   title("Predicted price for US cars")			///</span></span><br><span class="line"><span class="string">   yti("Predicted price (US &#123;c S|&#125;)")			///</span></span><br><span class="line"><span class="string">   lp(solid solid solid solid solid)			///</span></span><br><span class="line"><span class="string">   lc("255 255 204"								///</span></span><br><span class="line"><span class="string">   	  "161 218 180"								///</span></span><br><span class="line"><span class="string">   	  " 65 182 196"								///</span></span><br><span class="line"><span class="string">   	  " 44 127 184"								///</span></span><br><span class="line"><span class="string">   	  " 37  52 148")							///</span></span><br><span class="line"><span class="string">   leg(order( - "mpg"							///</span></span><br><span class="line"><span class="string">   			  1 "mean - 2*sd"					///</span></span><br><span class="line"><span class="string">   			  2 "mean - 1*sd"					///</span></span><br><span class="line"><span class="string">   			  3 "mean"							///</span></span><br><span class="line"><span class="string">   			  4 "mean + 1*sd"					///</span></span><br><span class="line"><span class="string">   			  5 "mean + 2*sd"))					///</span></span><br><span class="line"><span class="string">   	sch(vg_rose)</span></span><br><span class="line"><span class="string">restore</span></span><br><span class="line"><span class="string">gr export predictions.png, replace</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -262,7 +262,7 @@ var a = new Donate({
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          生成预测值与绘制预测结果
+          分块图
         
       </div>
     </a>

@@ -267,51 +267,6 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-format命令"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/62746/">format命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/62746/" class="article-date">
-	  <time datetime="2018-02-13T13:10:23.000Z" itemprop="datePublished">2018-02-13</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">clear</span><br><span class="line">set obs <span class="number">1</span></span><br><span class="line">gen v = <span class="string">"程振兴"</span></span><br><span class="line">gen v1 = v</span><br><span class="line">format %<span class="number">20</span>s v</span><br><span class="line">format v1 %<span class="number">20</span>s</span><br><span class="line">format v1 %<span class="number">-20</span>s</span><br><span class="line"></span><br><span class="line">clear</span><br><span class="line">input v1</span><br><span class="line"><span class="number">0.0023562</span></span><br><span class="line"><span class="number">0.0345645</span></span><br><span class="line"><span class="number">0.2345676</span></span><br><span class="line"><span class="number">3.1234565</span></span><br><span class="line"><span class="number">12.234566</span></span><br><span class="line"><span class="number">123.12344</span></span><br><span class="line"><span class="number">3456.4566</span></span><br><span class="line"><span class="number">34566.456</span></span><br><span class="line"><span class="number">345674.42</span></span><br><span class="line"><span class="number">1234567.4</span></span><br><span class="line">end</span><br><span class="line">gen v2 = v1</span><br><span class="line">gen v3 = v1</span><br><span class="line">gen v4 = v1</span><br><span class="line">gen v5 = -v1</span><br><span class="line">format v2 %<span class="number">4.2</span>f //四个字节、两个小数</span><br><span class="line">format v3 %<span class="number">4.2</span>f</span><br><span class="line">format v4 %<span class="number">8.3</span>g //八个字节、三位有效数字</span><br><span class="line">format v5 %<span class="number">8.0</span>g</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-三维图形绘制"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -340,6 +295,51 @@
     <div class="article-entry" itemprop="articleBody">
       
         <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//命令安装：</span><br><span class="line">//	ssc install surface, replace</span><br><span class="line">//	ssc install scat3, replace</span><br><span class="line"></span><br><span class="line">//随机生成用于画图的命令</span><br><span class="line">	clear</span><br><span class="line">	set obs <span class="number">600</span></span><br><span class="line">	gen x = int((_n-mod(_n<span class="number">-1</span>,<span class="number">30</span>)<span class="number">-1</span>)/<span class="number">30</span>)</span><br><span class="line">	gen y = mod(_n<span class="number">-1</span>,<span class="number">30</span>)</span><br><span class="line">	gen z = normalden(x,<span class="number">10</span>,<span class="number">3</span>)*normalden(y,<span class="number">15</span>,<span class="number">5</span>)*<span class="number">10000</span></span><br><span class="line"></span><br><span class="line">//surface命令的语法：</span><br><span class="line">// surface [var1 var2 var3][,options twoway_options]</span><br><span class="line">	grss clear</span><br><span class="line">	grss surface x y z</span><br><span class="line">//调整大小，设置主题</span><br><span class="line">	grss surface x y z, nowire scale(<span class="number">0.8</span>) sch(s1color)</span><br><span class="line">//增加坐标轴表签、图形题目等等</span><br><span class="line">	grss surface x y z, ylabel(<span class="number">0</span> <span class="number">13</span> <span class="number">20</span> <span class="number">29</span>) labelround(<span class="number">1</span>) xtitle(X) ztitle(Z) ytitle(Y) title(<span class="number">3</span>Dplot) nowire sch(sj) scale(<span class="number">0.8</span>)</span><br><span class="line"></span><br><span class="line">//scat3命令的语法：</span><br><span class="line">//scat3 xvar yvar zvar [<span class="keyword">if</span> exp][<span class="keyword">in</span> range][,rotate(<span class="comment">#) elevate(#) axistype(axis_type) axes(line_options) shadow[(scatter_options)] spikes(rspike_options) titlex([title_text][,maker_label_options]) titley([title_text][,marker_label_options]) titlez([title_text][,marker_label_options]) varnames separate(varname) graph_options]</span></span><br><span class="line">	scat3 x y z, sch(economist) scale(<span class="number">0.29</span>) titlez(, mlabang(<span class="number">0</span>) mlabs(vhuge)) titlex(, mlabs(vhuge)) titley(,mlabs(vhuge))</span><br><span class="line">	scat3 x y z, rot(<span class="number">45</span>) elev(<span class="number">45</span>) titlez(Z, mlabang(<span class="number">0</span>) mlabpos(<span class="number">0</span>) mlabs(vhuge)) titlex(X, mlabpos(<span class="number">7</span>) mlabs(vhuge)) titley(Y, mlabpos(<span class="number">7</span>) mlabs(vhuge)) title(<span class="string">"myplot"</span>, size(tenth) pos(<span class="number">12</span>)) sch(economist) scale(<span class="number">0.3333</span>)</span><br><span class="line">//rot()、elev():分别用来指定旋转角度、仰角角度，默认都是<span class="number">45</span>度；常用的视觉效果较好的组合为：<span class="number">30</span><span class="number">-60</span>、<span class="number">45</span><span class="number">-45</span>、<span class="number">60</span><span class="number">-30</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-format命令"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/62746/">format命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/62746/" class="article-date">
+	  <time datetime="2018-02-13T13:10:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">clear</span><br><span class="line">set obs <span class="number">1</span></span><br><span class="line">gen v = <span class="string">"程振兴"</span></span><br><span class="line">gen v1 = v</span><br><span class="line">format %<span class="number">20</span>s v</span><br><span class="line">format v1 %<span class="number">20</span>s</span><br><span class="line">format v1 %<span class="number">-20</span>s</span><br><span class="line"></span><br><span class="line">clear</span><br><span class="line">input v1</span><br><span class="line"><span class="number">0.0023562</span></span><br><span class="line"><span class="number">0.0345645</span></span><br><span class="line"><span class="number">0.2345676</span></span><br><span class="line"><span class="number">3.1234565</span></span><br><span class="line"><span class="number">12.234566</span></span><br><span class="line"><span class="number">123.12344</span></span><br><span class="line"><span class="number">3456.4566</span></span><br><span class="line"><span class="number">34566.456</span></span><br><span class="line"><span class="number">345674.42</span></span><br><span class="line"><span class="number">1234567.4</span></span><br><span class="line">end</span><br><span class="line">gen v2 = v1</span><br><span class="line">gen v3 = v1</span><br><span class="line">gen v4 = v1</span><br><span class="line">gen v5 = -v1</span><br><span class="line">format v2 %<span class="number">4.2</span>f //四个字节、两个小数</span><br><span class="line">format v3 %<span class="number">4.2</span>f</span><br><span class="line">format v4 %<span class="number">8.3</span>g //八个字节、三位有效数字</span><br><span class="line">format v5 %<span class="number">8.0</span>g</span><br></pre></td></tr></table></figure>
 
       
     </div>
