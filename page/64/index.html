@@ -354,50 +354,6 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-AppleScript-变量和属性"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/25691/">AppleScript-变量和属性</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/25691/" class="article-date">
-	  <time datetime="2018-04-05T16:30:23.000Z" itemprop="datePublished">2018-04-06</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/编程/">编程</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> message <span class="keyword">to</span> <span class="string">"最先定义的"</span> <span class="comment">-- 定义局部变量message</span></span><br><span class="line"><span class="built_in">run</span> aNewScript <span class="comment">--运行脚本对象</span></span><br><span class="line">displayA(<span class="string">"作为形式参数定义的"</span>) <span class="comment">--激活事件处理器displayA，并传递参数</span></span><br><span class="line"><span class="comment">--事件处理器相当于其它语言中的方法或函数。它可以拥有形参。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--脚本定义从此开始--</span></span><br><span class="line"><span class="keyword">script</span> aNewScript</span><br><span class="line">	<span class="keyword">set</span> message <span class="keyword">to</span> <span class="string">"在脚本对象中定义的"</span> <span class="comment">--重定义局部变量message（重载）</span></span><br><span class="line">	<span class="built_in">display dialog</span> message <span class="comment">--显示一个包含内容message的对话框</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">script</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--事件处理器从此开始--</span></span><br><span class="line"><span class="keyword">on</span> displayA(message)</span><br><span class="line">	<span class="built_in">display dialog</span> message</span><br><span class="line"><span class="keyword">end</span> displayA</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 下一节</span></span><br><span class="line"><span class="comment">--数据共享机制--</span></span><br><span class="line"><span class="keyword">set</span> a <span class="keyword">to</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">set</span> b <span class="keyword">to</span> a <span class="comment">--把b赋值为变量a的值</span></span><br><span class="line"><span class="built_in">display dialog</span> <span class="string">"赋值的结果：a = "</span> &amp; a &amp; <span class="string">"; b = "</span> &amp; b</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> b <span class="keyword">to</span> <span class="number">0</span></span><br><span class="line"><span class="built_in">display dialog</span> <span class="string">"赋值的结果：a = "</span> &amp; a &amp; <span class="string">"; b = "</span> &amp; b</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> a <span class="keyword">to</span> &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line"><span class="keyword">set</span> b <span class="keyword">to</span> a &amp; <span class="number">6</span></span><br><span class="line"><span class="comment">-- 把b的第一个元素变成0</span></span><br><span class="line"><span class="keyword">set</span> <span class="built_in">item</span> <span class="number">1</span> <span class="keyword">of</span> b <span class="keyword">to</span> <span class="number">0</span></span><br><span class="line"><span class="built_in">display dialog</span> <span class="string">"修改变量b之后：a="</span> &amp; a &amp; <span class="string">"; b="</span> &amp; b <span class="comment">--修改变量b之后：a=12345; b=023456</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- copy关键字</span></span><br><span class="line"><span class="keyword">set</span> a <span class="keyword">to</span> &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line"><span class="keyword">set</span> b <span class="keyword">to</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">copy</span> a <span class="keyword">to</span> b</span><br><span class="line"><span class="built_in">display dialog</span> <span class="string">"赋值的结果：a = "</span> &amp; a &amp; <span class="string">"; b = "</span> &amp; b</span><br><span class="line"><span class="keyword">set</span> <span class="built_in">item</span> <span class="number">1</span> <span class="keyword">of</span> b <span class="keyword">to</span> <span class="number">0</span></span><br><span class="line"><span class="built_in">display dialog</span> <span class="string">"修改变量b之后：a="</span> &amp; a &amp; <span class="string">"; b="</span> &amp; b <span class="comment">--修改变量b之后：a=12345; b=023456</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--属性</span></span><br><span class="line"><span class="comment">--属性和变量的根本区别在于其稳固性。即脚本退出后其值保持不变，属性在脚本退出后，仍然记录下它最后的值，</span></span><br><span class="line"><span class="comment">--并且下一次运行时可以被调出。因此属性的一个用途就是记录一个脚本运行的次数</span></span><br><span class="line"><span class="keyword">property</span> countTimes : <span class="number">0</span></span><br><span class="line"><span class="keyword">set</span> countTimes <span class="keyword">to</span> countTimes + <span class="number">1</span></span><br><span class="line"><span class="built_in">display dialog</span> <span class="string">"这是第"</span> &amp; countTimes &amp; <span class="string">"次运行本脚本"</span></span><br><span class="line"><span class="comment">-- 属性的另外一个特点是没有全局和局部之分，所有的属性都是全局的。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--预定义变量</span></span><br><span class="line"><span class="comment">--result: 记录最近一个命令的执行结果，如果命令没有结果，那么将会的得到错误</span></span><br><span class="line"><span class="comment">--it: 指代最近的一个tell对象</span></span><br><span class="line"><span class="comment">--me: 这指代段脚本，用法举例：path to me返回本脚本的绝对路径</span></span><br><span class="line"><span class="comment">--tab: 用于string，一个制表位</span></span><br><span class="line"><span class="comment">--return: 用于string，一个换行</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/AppleScript/">AppleScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-AppleScript-在桌面建立含有100个字文件夹的文件夹"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -426,6 +382,50 @@
     <div class="article-entry" itemprop="articleBody">
       
         <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"Finder"</span></span><br><span class="line">	make new folder <span class="keyword">at</span> desktop <span class="keyword">with</span> properties &#123;<span class="built_in">name</span>:<span class="string">"Test"</span>&#125;</span><br><span class="line">	<span class="keyword">repeat</span> <span class="keyword">with</span> a <span class="keyword">from</span> <span class="number">0</span> <span class="keyword">to</span> <span class="number">100</span></span><br><span class="line">		make new folder <span class="keyword">at</span> folder <span class="string">"Test"</span> <span class="keyword">of</span> desktop <span class="keyword">with</span> properties &#123;<span class="built_in">name</span>:a <span class="keyword">as</span> <span class="built_in">string</span>&#125;</span><br><span class="line">	<span class="keyword">end</span> <span class="keyword">repeat</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">tell</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/AppleScript/">AppleScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-AppleScript-变量和属性"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/25691/">AppleScript-变量和属性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/25691/" class="article-date">
+	  <time datetime="2018-04-05T16:30:23.000Z" itemprop="datePublished">2018-04-06</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/编程/">编程</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> message <span class="keyword">to</span> <span class="string">"最先定义的"</span> <span class="comment">-- 定义局部变量message</span></span><br><span class="line"><span class="built_in">run</span> aNewScript <span class="comment">--运行脚本对象</span></span><br><span class="line">displayA(<span class="string">"作为形式参数定义的"</span>) <span class="comment">--激活事件处理器displayA，并传递参数</span></span><br><span class="line"><span class="comment">--事件处理器相当于其它语言中的方法或函数。它可以拥有形参。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--脚本定义从此开始--</span></span><br><span class="line"><span class="keyword">script</span> aNewScript</span><br><span class="line">	<span class="keyword">set</span> message <span class="keyword">to</span> <span class="string">"在脚本对象中定义的"</span> <span class="comment">--重定义局部变量message（重载）</span></span><br><span class="line">	<span class="built_in">display dialog</span> message <span class="comment">--显示一个包含内容message的对话框</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">script</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--事件处理器从此开始--</span></span><br><span class="line"><span class="keyword">on</span> displayA(message)</span><br><span class="line">	<span class="built_in">display dialog</span> message</span><br><span class="line"><span class="keyword">end</span> displayA</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 下一节</span></span><br><span class="line"><span class="comment">--数据共享机制--</span></span><br><span class="line"><span class="keyword">set</span> a <span class="keyword">to</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">set</span> b <span class="keyword">to</span> a <span class="comment">--把b赋值为变量a的值</span></span><br><span class="line"><span class="built_in">display dialog</span> <span class="string">"赋值的结果：a = "</span> &amp; a &amp; <span class="string">"; b = "</span> &amp; b</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> b <span class="keyword">to</span> <span class="number">0</span></span><br><span class="line"><span class="built_in">display dialog</span> <span class="string">"赋值的结果：a = "</span> &amp; a &amp; <span class="string">"; b = "</span> &amp; b</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> a <span class="keyword">to</span> &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line"><span class="keyword">set</span> b <span class="keyword">to</span> a &amp; <span class="number">6</span></span><br><span class="line"><span class="comment">-- 把b的第一个元素变成0</span></span><br><span class="line"><span class="keyword">set</span> <span class="built_in">item</span> <span class="number">1</span> <span class="keyword">of</span> b <span class="keyword">to</span> <span class="number">0</span></span><br><span class="line"><span class="built_in">display dialog</span> <span class="string">"修改变量b之后：a="</span> &amp; a &amp; <span class="string">"; b="</span> &amp; b <span class="comment">--修改变量b之后：a=12345; b=023456</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- copy关键字</span></span><br><span class="line"><span class="keyword">set</span> a <span class="keyword">to</span> &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line"><span class="keyword">set</span> b <span class="keyword">to</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">copy</span> a <span class="keyword">to</span> b</span><br><span class="line"><span class="built_in">display dialog</span> <span class="string">"赋值的结果：a = "</span> &amp; a &amp; <span class="string">"; b = "</span> &amp; b</span><br><span class="line"><span class="keyword">set</span> <span class="built_in">item</span> <span class="number">1</span> <span class="keyword">of</span> b <span class="keyword">to</span> <span class="number">0</span></span><br><span class="line"><span class="built_in">display dialog</span> <span class="string">"修改变量b之后：a="</span> &amp; a &amp; <span class="string">"; b="</span> &amp; b <span class="comment">--修改变量b之后：a=12345; b=023456</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--属性</span></span><br><span class="line"><span class="comment">--属性和变量的根本区别在于其稳固性。即脚本退出后其值保持不变，属性在脚本退出后，仍然记录下它最后的值，</span></span><br><span class="line"><span class="comment">--并且下一次运行时可以被调出。因此属性的一个用途就是记录一个脚本运行的次数</span></span><br><span class="line"><span class="keyword">property</span> countTimes : <span class="number">0</span></span><br><span class="line"><span class="keyword">set</span> countTimes <span class="keyword">to</span> countTimes + <span class="number">1</span></span><br><span class="line"><span class="built_in">display dialog</span> <span class="string">"这是第"</span> &amp; countTimes &amp; <span class="string">"次运行本脚本"</span></span><br><span class="line"><span class="comment">-- 属性的另外一个特点是没有全局和局部之分，所有的属性都是全局的。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--预定义变量</span></span><br><span class="line"><span class="comment">--result: 记录最近一个命令的执行结果，如果命令没有结果，那么将会的得到错误</span></span><br><span class="line"><span class="comment">--it: 指代最近的一个tell对象</span></span><br><span class="line"><span class="comment">--me: 这指代段脚本，用法举例：path to me返回本脚本的绝对路径</span></span><br><span class="line"><span class="comment">--tab: 用于string，一个制表位</span></span><br><span class="line"><span class="comment">--return: 用于string，一个换行</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">

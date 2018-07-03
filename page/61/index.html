@@ -222,7 +222,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-证券之星PPI爬取"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-sliceplot"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -230,7 +230,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/19396/">证券之星PPI爬取</a>
+      <a class="article-title" href="../../posts/55356/">sliceplot</a>
     </h1>
   
 
@@ -238,52 +238,7 @@
     
     <div class="article-meta">
       
-	<a href="../../posts/19396/" class="article-date">
-	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/网站爬取程序/">网站爬取程序</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">cpd</span><br><span class="line">copy <span class="string">"http://finance.stockstar.com/finance/macrodata/ppilist.aspx?page=1&amp;order=1&amp;by=1"</span> temp.txt, replace</span><br><span class="line">utrans temp.txt</span><br><span class="line">drm bak.stunicode</span><br><span class="line">infix str v <span class="number">1</span><span class="number">-20000</span> using temp.txt, clear</span><br><span class="line">keep <span class="keyword">if</span> index(v, <span class="string">"&lt;td&gt;"</span>)</span><br><span class="line">split v, parse(v, <span class="string">"&lt;/td&gt;"</span>)</span><br><span class="line">drop v</span><br><span class="line">foreach i of varlist _all&#123;</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;/td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">	replace `i'</span> = subinstr(`i<span class="string">', `"&lt;/span&gt;"'</span>, <span class="string">""</span>, .)</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">compress</span></span><br><span class="line"><span class="string">save month_PPI, replace</span></span><br><span class="line"><span class="string">forval page = 2/7&#123;</span></span><br><span class="line"><span class="string">	copy "http://finance.stockstar.com/finance/macrodata/ppilist.aspx?page=`page'</span>&amp;order=<span class="number">1</span>&amp;by=<span class="number">1</span><span class="string">" temp.txt, replace</span></span><br><span class="line"><span class="string">	utrans temp.txt</span></span><br><span class="line"><span class="string">	drm bak.stunicode</span></span><br><span class="line"><span class="string">	infix str v 1-20000 using temp.txt, clear</span></span><br><span class="line"><span class="string">	keep if index(v, "</span>&lt;td&gt;<span class="string">")</span></span><br><span class="line">	split v, parse(v, "&lt;/td&gt;")</span><br><span class="line">	drop v</span><br><span class="line">	foreach i of varlist _all&#123;</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, <span class="string">"&lt;/td&gt;"</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">		replace `i'</span> = subinstr(`i<span class="string">', `"&lt;/span&gt;"'</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">		replace `i'</span> = subinstr(`i<span class="string">', `"&lt;span class="green_color"&gt;"'</span>, <span class="string">""</span>, .)</span><br><span class="line">		replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">","</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">	compress</span></span><br><span class="line"><span class="string">	append using month_PPI</span></span><br><span class="line"><span class="string">	save month_PPI, replace</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">foreach i of varlist _all&#123;</span></span><br><span class="line"><span class="string">	replace `i'</span> = subinstr(`i<span class="string">', "-", "", .)</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">gen date = date(v1, "YM")</span></span><br><span class="line"><span class="string">format date %dCY-N</span></span><br><span class="line"><span class="string">order date</span></span><br><span class="line"><span class="string">drop v1</span></span><br><span class="line"><span class="string">destring, replace</span></span><br><span class="line"><span class="string">gsort date</span></span><br><span class="line"><span class="string">label var date "数据日期"</span></span><br><span class="line"><span class="string">label var v2 "工业品出厂价格指数（当月）(去年同月=100点)"</span></span><br><span class="line"><span class="string">label var v3 "同比增长(去年同月=100点)"</span></span><br><span class="line"><span class="string">label var v4 "工业品出厂价格指数（当期）(去年同期=100点)"</span></span><br><span class="line"><span class="string">label var v5 "同比增长(去年同期=100点)"</span></span><br><span class="line"><span class="string">ren date 数据日期</span></span><br><span class="line"><span class="string">ren v2 工业品出厂价格指数_当月_去年同月_100点</span></span><br><span class="line"><span class="string">ren v3 同比增减_去年同月_100点</span></span><br><span class="line"><span class="string">ren v4 工业品出厂价格指数_当期_去年同期=100点</span></span><br><span class="line"><span class="string">ren v5 同比增长_去年同期_100点</span></span><br><span class="line"><span class="string">findname, type(string)</span></span><br><span class="line"><span class="string">foreach i in `r(varlist)'</span>&#123;</span><br><span class="line">	replace `i<span class="string">' = subinstr(`i'</span>, `<span class="string">"&lt;span class="</span>green_colo<span class="string">r"&gt;"</span><span class="string">', "", .)</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">compress</span></span><br><span class="line"><span class="string">gsort 数据日期</span></span><br><span class="line"><span class="string">save month_PPI, replace</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-egen_vreldif_产生一个可以用了标志纵向合并的数据集的几个合并标志变量的差异程度的变量"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/26392/">egen_vreldif_标志纵向合并的数据集的几个合并标志变量的差异程度的变量</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/26392/" class="article-date">
+	<a href="../../posts/55356/" class="article-date">
 	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
 	</a>
 
@@ -294,102 +249,12 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">net install _gvreldif.pkg, <span class="keyword">from</span>(<span class="string">"http://fmwww.bc.edu/RePEc/bocode/_/"</span>)</span><br><span class="line">h _gvreldif</span><br><span class="line"></span><br><span class="line">* egen ... = vreldif() creates a variable that contains the relative differences (see mreldif) of the variables <span class="keyword">in</span> varlist1 within the values identified by varlist2. It <span class="keyword">is</span> useful to compare results <span class="keyword">in</span> two appended data sets when some minor numeric discrepancies are expected.</span><br><span class="line"></span><br><span class="line">sysuse auto, clear</span><br><span class="line">keep make weight mpg price weight</span><br><span class="line">set seed <span class="number">10101</span></span><br><span class="line">gen byte replic = ceil(<span class="number">0.5</span>+<span class="number">1.5</span>*uniform())</span><br><span class="line">* 按照replic扩展数据集</span><br><span class="line">expand replic, gen(datacopy)</span><br><span class="line">tabulate datacopy</span><br><span class="line">replace weight = weight + uniform()</span><br><span class="line">egen check1 = vreldif(mpg price), by(make)</span><br><span class="line"></span><br><span class="line">* 上面这句代码的作用和下面几行代码的作用一样</span><br><span class="line">*=============================================================*</span><br><span class="line">generate check1_newvar = <span class="number">0</span></span><br><span class="line">foreach x of varlist mpg price &#123;</span><br><span class="line">	bysort make: replace check1_newvar = check1_newvar + reldif( `x<span class="string">'[1], `x'</span>[_N] )</span><br><span class="line">&#125;</span><br><span class="line">* reldif(x,y): the <span class="string">"relative"</span> difference |x-y|/(|y|+<span class="number">1</span>);</span><br><span class="line">* <span class="number">0</span> <span class="keyword">if</span> both arguments are the same type of extended missing value; missing <span class="keyword">if</span> only one argument <span class="keyword">is</span> missing <span class="keyword">or</span> <span class="keyword">if</span> the two arguments are two different types of missing</span><br><span class="line">bysort make: replace check1_newvar = . <span class="keyword">if</span> _N == <span class="number">1</span></span><br><span class="line">*=============================================================*</span><br><span class="line">gsort make</span><br><span class="line">egen check2 = vreldif(mpg weight), by(make)</span><br><span class="line">order make mpg weight check2</span><br><span class="line">* 这个函数产生的变量可以用了标志纵向合并的数据集的几个合并标志变量的差异程度</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-证券之星GDP爬取"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/34215/">证券之星GDP爬取</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/34215/" class="article-date">
-	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/网站爬取程序/">网站爬取程序</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">* 证券之星网站提供的GDP从<span class="number">1952</span>年开始，时间范围非常好，所以就爬一下，为以后做准备</span><br><span class="line">clear all</span><br><span class="line">copy <span class="string">"http://finance.stockstar.com/finance/macrodata/gdplist.aspx?page=3&amp;order=1&amp;by=1"</span> temp.txt, replace</span><br><span class="line">utrans temp.txt</span><br><span class="line">drm bak.stunicode</span><br><span class="line">infix strL v <span class="number">1</span><span class="number">-20000</span> using temp.txt, clear</span><br><span class="line">keep <span class="keyword">if</span> index(v, <span class="string">"&lt;td&gt;"</span>)</span><br><span class="line">split v, parse(<span class="string">"&lt;/td&gt;"</span> `<span class="string">"&lt;td align="</span>Right<span class="string">"&gt;"</span><span class="string">' "&lt;td&gt;" `"&lt;span class="red_color"&gt;"'</span> `<span class="string">"&lt;span class="</span>green_colo<span class="string">r"&gt;"</span><span class="string">' "&lt;/span&gt;")</span></span><br><span class="line"><span class="string">replace v10 = "342.90" in 1</span></span><br><span class="line"><span class="string">replace v16 = "141.80" in 1</span></span><br><span class="line"><span class="string">replace v22 = "194.30" in 1</span></span><br><span class="line"><span class="string">keep v2 v4 v7 v10 v13 v16 v19 v22 v25</span></span><br><span class="line"><span class="string">save seasonal_GDP, replace</span></span><br><span class="line"><span class="string">clear</span></span><br><span class="line"><span class="string">copy "http://finance.stockstar.com/finance/macrodata/gdplist.aspx?page=2&amp;order=1&amp;by=1" temp.txt, replace</span></span><br><span class="line"><span class="string">utrans temp.txt</span></span><br><span class="line"><span class="string">infix strL v 1-20000 using temp.txt, clear</span></span><br><span class="line"><span class="string">keep if index(v, "&lt;td&gt;")</span></span><br><span class="line"><span class="string">split v, parse("&lt;/td&gt;" `"&lt;td align="Right"&gt;"'</span> <span class="string">"&lt;td&gt;"</span> `<span class="string">"&lt;span class="</span>red_colo<span class="string">r"&gt;"</span><span class="string">' `"&lt;span class="green_color"&gt;"'</span> <span class="string">"&lt;/span&gt;"</span>)</span><br><span class="line">keep v2 v4 v7 v10 v13 v16 v19 v22 v25</span><br><span class="line">append using seasonal_GDP</span><br><span class="line">clear</span><br><span class="line">copy <span class="string">"http://finance.stockstar.com/finance/macrodata/gdplist.aspx?page=1&amp;order=1&amp;by=1"</span> temp.txt, replace</span><br><span class="line">utrans temp.txt</span><br><span class="line">drm bak.stunicode</span><br><span class="line">infix strL v <span class="number">1</span><span class="number">-20000</span> using temp.txt, clear</span><br><span class="line">keep <span class="keyword">if</span> index(v, <span class="string">"&lt;td&gt;"</span>)</span><br><span class="line">split v, parse(<span class="string">"&lt;/td&gt;"</span> `<span class="string">"&lt;td align="</span>Right<span class="string">"&gt;"</span><span class="string">' "&lt;td&gt;" `"&lt;span class="red_color"&gt;"'</span> `<span class="string">"&lt;span class="</span>green_colo<span class="string">r"&gt;"</span><span class="string">' "&lt;/span&gt;")</span></span><br><span class="line"><span class="string">keep v2 v4 v7 v10 v13 v16 v19 v22 v25</span></span><br><span class="line"><span class="string">append using seasonal_GDP</span></span><br><span class="line"><span class="string">foreach i of varlist _all&#123;</span></span><br><span class="line"><span class="string">	replace `i'</span> = subinstr(`i<span class="string">', ",", "", .)</span></span><br><span class="line"><span class="string">	replace `i'</span> = <span class="string">""</span> <span class="keyword">if</span> `i<span class="string">' == "-"</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">destring, replace</span></span><br><span class="line"><span class="string">gsort v2</span></span><br><span class="line"><span class="string">label var v2 "数据日期"</span></span><br><span class="line"><span class="string">ren v2 数据日期</span></span><br><span class="line"><span class="string">label var v4 "GDP(绝对值)"</span></span><br><span class="line"><span class="string">ren v4 GDP_绝对值</span></span><br><span class="line"><span class="string">label var v7 "GDP(同比增减)"</span></span><br><span class="line"><span class="string">ren v7 GDP_同比增减</span></span><br><span class="line"><span class="string">label var v10 "第一产业(绝对值)"</span></span><br><span class="line"><span class="string">ren v10 第一产业_绝对值</span></span><br><span class="line"><span class="string">label var v16 "第一产业(同比增减)"</span></span><br><span class="line"><span class="string">ren v16 第一产业_同比增减</span></span><br><span class="line"><span class="string">label var v13 "第二产业(绝对值)"</span></span><br><span class="line"><span class="string">ren v13 第二产业_绝对值</span></span><br><span class="line"><span class="string">label var v19 "第二产业(同比增减)"</span></span><br><span class="line"><span class="string">ren v19 第二产业_同比增减</span></span><br><span class="line"><span class="string">label var v22 "第三产业(绝对值)"</span></span><br><span class="line"><span class="string">ren v22 第三产业_绝对值</span></span><br><span class="line"><span class="string">label var v25 "第三产业(同比增减)"</span></span><br><span class="line"><span class="string">ren v25 第三产业_同比增减</span></span><br><span class="line"><span class="string">label data "1952-2018第一季度国内生产总值"</span></span><br><span class="line"><span class="string">save seasonal_GDP, replace</span></span><br><span class="line"><span class="string">erase temp.txt</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-egen_rndraw_从GB2（广义Beta分布）,Singh-Maddala,Dagum,Fisk和Pareto分布里面生成随机数"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/42169/">egen_rndraw_从GB2&amp;Singh-Maddala&amp;Dagum,&amp;Fisk和Pareto分布里面生成随机数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/42169/" class="article-date">
-	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://github.com/czxa/nr/raw/master/rndraw.png" alt=""></p>
+        <p><img src="https://github.com/czxa/nr/raw/master/sliceplot.png" alt=""></p>
         <!-- 
 
-1234567891011121314* 从GB2（广义Beta分布）, Singh-Maddala, Dagum, Fisk 和 Pareto分布里面生成随机数* net install _grndraw.pkg, from("http://fmwww.bc.edu/RePEc/bocode/_/")* h _grndrawclearset obs 1000egen double ys......  -->
+1234567* Install* ssc install sliceplot* net get gr0025.pkg, from("http://www.stata-journal.com/software/sj6-3/")cuse maunaloa, clearsliceplot line res date, slices(6) ytitle(residual (ppm)) yla(......  -->
         <p class="article-more-link">
-          <a href="../../posts/42169/#more">阅读全文</a>
+          <a href="../../posts/55356/#more">阅读全文</a>
         </p>
       
     </div>
@@ -407,7 +272,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-regen"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-hangroot"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -415,7 +280,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/42045/">regen</a>
+      <a class="article-title" href="../../posts/48204/">hangroot</a>
     </h1>
   
 
@@ -423,7 +288,7 @@
     
     <div class="article-meta">
       
-	<a href="../../posts/42045/" class="article-date">
+	<a href="../../posts/48204/" class="article-date">
 	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
 	</a>
 
@@ -434,9 +299,156 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">* Install</span><br><span class="line">ssc install regen</span><br><span class="line">sysuse auto, clear</span><br><span class="line">* 在生成新变量的同时添加标签</span><br><span class="line">regen mpg2 <span class="string">"Milage squared"</span> = mpg^<span class="number">2</span></span><br><span class="line"></span><br><span class="line">gen mpgid = <span class="number">1</span></span><br><span class="line">replace mpgid = <span class="number">0</span> <span class="keyword">if</span> inrange(mpg, <span class="number">22</span>, <span class="number">25</span>)</span><br><span class="line">* 生成所有 mpgid = <span class="number">1</span> 的国产车的虚拟变量</span><br><span class="line">regen byte id = anymatch(mpgid) <span class="keyword">if</span> (foreign == <span class="number">0</span>), values(<span class="number">1</span>)</span><br><span class="line">regen byte id = anymatch(mpgid) <span class="keyword">if</span> (foreign == <span class="number">1</span>), values(<span class="number">1</span>) replace</span><br><span class="line">regen byte id = anymatch(mpgid) <span class="keyword">if</span> (foreign == <span class="number">1</span>), values(<span class="number">1</span>) replace <span class="keyword">else</span>(.)</span><br><span class="line"></span><br><span class="line">* 使用表达式作为变量标签</span><br><span class="line">regen ln_weight <span class="string">"\`s(expr)'"</span> = ln(weight)</span><br><span class="line">regen ln_weight <span class="string">"\`s(if)'"</span> = ln(weight) <span class="keyword">if</span> foreign == <span class="number">0</span>, replace</span><br><span class="line">regen ln_weight <span class="string">"\`s(in)'"</span> = ln(weight) <span class="keyword">in</span> <span class="number">1</span>/<span class="number">20</span>, replace</span><br><span class="line">bysort foreign: regen ln_weight <span class="string">"\`s(by)'"</span> = ln(weight), replace</span><br></pre></td></tr></table></figure>
-<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">. sysuse auto, clear</span><br><span class="line">(<span class="number">1978</span> Automobile Data)</span><br><span class="line"></span><br><span class="line">. * 在生成新变量的同时添加标签</span><br><span class="line"></span><br><span class="line">. regen mpg2 <span class="string">"Milage squared"</span> = mpg^<span class="number">2</span></span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. gen mpgid = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">. replace mpgid = <span class="number">0</span> <span class="keyword">if</span> inrange(mpg, <span class="number">22</span>, <span class="number">25</span>)</span><br><span class="line">(<span class="number">17</span> real changes made)</span><br><span class="line"></span><br><span class="line">. * 生成所有 mpgid = <span class="number">1</span> 的国产车的虚拟变量</span><br><span class="line"></span><br><span class="line">. regen byte id = anymatch(mpgid) <span class="keyword">if</span> (foreign == <span class="number">0</span>), values(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">. regen byte id = anymatch(mpgid) <span class="keyword">if</span> (foreign == <span class="number">1</span>), values(<span class="number">1</span>) replace</span><br><span class="line">(<span class="number">57</span> real changes made)</span><br><span class="line"></span><br><span class="line">. regen byte id = anymatch(mpgid) <span class="keyword">if</span> (foreign == <span class="number">1</span>), values(<span class="number">1</span>) replace <span class="keyword">else</span>(.)</span><br><span class="line">(<span class="number">52</span> real changes made, <span class="number">52</span> to missing)</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">. * 使用表达式作为变量标签</span><br><span class="line"></span><br><span class="line">. regen ln_weight <span class="string">"\s(if)'"</span> = ln(weight) <span class="keyword">if</span> foreign == <span class="number">0</span>, replace</span><br><span class="line">(<span class="number">22</span> missing values generated)</span><br><span class="line"></span><br><span class="line">. regen ln_weight <span class="string">"\s(by)'"</span> = ln(weight), replace</span><br><span class="line">(<span class="number">22</span> real changes made)</span><br></pre></td></tr></table></figure>
+        <p><img src="https://github.com/czxa/nr/raw/master/hangroot1.png" alt=""></p>
+        <!-- 
 
+12345678* Install* ssc install hangrootsysuse nlsw88, cleargen lnw = ln(wage)reg lnw grade age ttl_exp tenurepredict resi, rhangroot resigre hangroot
+12hangroot resi, bargre hangroot1
+
+...  -->
+        <p class="article-more-link">
+          <a href="../../posts/48204/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-爬取1949-2017年年度GDP"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/16887/">爬取1949-2017年年度GDP</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/16887/" class="article-date">
+	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/网站爬取程序/">网站爬取程序</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">copy <span class="string">"http://calendar.hexun.com/area/data/DiQuZhiBiao.ashx?startDate=1949&amp;endDate=2017&amp;codelist=D0010001&amp;citycode=110000"</span> temp.txt, replace</span><br><span class="line">utrans temp.txt</span><br><span class="line">set obs <span class="number">1</span></span><br><span class="line">gen v = <span class="string">""</span></span><br><span class="line">replace v = fileread(<span class="string">"temp.txt"</span>)</span><br><span class="line">split v, parse(`<span class="string">"Callback(&#123;"</span>国内生产总值<span class="string">":&#123;"</span>Id<span class="string">":"</span>D0010001<span class="string">","</span>Table<span class="string">":["</span>Date<span class="string">","</span>Value<span class="string">"],"</span>Data<span class="string">":[["</span><span class="string">' "],[" "]]&#125;&#125;)")</span></span><br><span class="line"><span class="string">drop v1 v</span></span><br><span class="line"><span class="string">sxpose, clear</span></span><br><span class="line"><span class="string">split _var1, parse(`"""'</span> <span class="string">","</span>)</span><br><span class="line">drop _var1 _var11 _var13 _var14</span><br><span class="line">ren _var12 date1</span><br><span class="line">ren _var15 GDP</span><br><span class="line">replace GDP = subinstr(GDP, <span class="string">"亿元"</span>, <span class="string">""</span>, .)</span><br><span class="line">destring GDP, replace</span><br><span class="line">label var GDP <span class="string">"单位：亿元"</span></span><br><span class="line">gen date = date(date1, <span class="string">"YMD"</span>)</span><br><span class="line">format date %dCY-N-D</span><br><span class="line">order date</span><br><span class="line">drop date1</span><br><span class="line">label data <span class="string">"1949-2017年GDP"</span></span><br><span class="line">save GDP19492017, replace</span><br><span class="line">* 后来发现数据可以直接下载：http://calendar.hexun.com/area/dqzb_110000.shtml</span><br><span class="line"><span class="keyword">import</span> delimited /Users/mr.cheng/Desktop/<span class="number">1949</span><span class="number">-2017</span>年GDP.csv, encoding(GBK) clear</span><br><span class="line">gsort 年份</span><br><span class="line">save GDP19492017_annual, replace</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-insheetjson_读取json文件"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/50408/">insheetjson_读取json文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/50408/" class="article-date">
+	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">* 查看json格式的数据</span><br><span class="line">insheetjson using <span class="string">"http://finance.stockstar.com/finance/industrialdata/ajax/GetData.ashx?tablename=V_BS_IND_SPRIDXB70LMSC_M&amp;filters=UNICNATRG-int=120000&amp;pricecolumns=GRYOYSPRIDXRBNC,GRAPSPRIDXRBNC,GRYOYSPINCCRB,GRAPSPINCCRB,GRYOYSPRIDXSHRB,GRAPSPRIDXSHRB&amp;orderby=STCYR,STCM"</span>, showresponse</span><br><span class="line">* 加入flatten选项可以以键值对的形式查看数据</span><br><span class="line">insheetjson using <span class="string">"http://finance.stockstar.com/finance/industrialdata/ajax/GetData.ashx?tablename=V_BS_IND_SPRIDXB70LMSC_M&amp;filters=UNICNATRG-int=120000&amp;pricecolumns=GRYOYSPRIDXRBNC,GRAPSPRIDXRBNC,GRYOYSPINCCRB,GRAPSPINCCRB,GRYOYSPRIDXSHRB,GRAPSPRIDXSHRB&amp;orderby=STCYR,STCM"</span>, showresponse flatten</span><br><span class="line">* 转换成数据集</span><br><span class="line">gen str80 EDATE = <span class="string">""</span></span><br><span class="line">gen str80 PriceList = <span class="string">""</span></span><br><span class="line">insheetjson EDATE PriceList using <span class="string">"http://finance.stockstar.com/finance/industrialdata/ajax/GetData.ashx?tablename=V_BS_IND_SPRIDXB70LMSC_M&amp;filters=UNICNATRG-int=120000&amp;pricecolumns=GRYOYSPRIDXRBNC,GRAPSPRIDXRBNC,GRYOYSPINCCRB,GRAPSPINCCRB,GRYOYSPRIDXSHRB,GRAPSPRIDXSHRB&amp;orderby=STCYR,STCM"</span>, table(Prices) col(EDATE PriceList)</span><br><span class="line"><span class="string">"http://finance.stockstar.com/finance/industrialdata/ajax/GetData.ashx?tablename=V_BS_IND_SPRIDXB70LMSC_M&amp;filters=UNICNATRG-int=110000&amp;pricecolumns=GRYOYSPRIDXRBNC,GRAPSPRIDXRBNC,GRYOYSPINCCRB,GRAPSPINCCRB,GRYOYSPRIDXSHRB,GRAPSPRIDXSHRB&amp;orderby=STCYR,STCM"</span></span><br><span class="line">compress</span><br><span class="line">gen clock = clock(EDATE, <span class="string">"YMDhms"</span>)</span><br><span class="line">drop EDATE</span><br><span class="line">order clock</span><br><span class="line">format clock %tcCCYY-NN-DD</span><br><span class="line">split PriceList, parse(,)</span><br><span class="line">drop PriceList</span><br><span class="line">ren PriceList1 新建住宅价格指数同比</span><br><span class="line">ren PriceList2 新建住宅价格指数环比</span><br><span class="line">ren PriceList3 新新建商品住宅价格指数同比</span><br><span class="line">ren PriceList4 新建商品住宅价格指数环比</span><br><span class="line">ren PriceList5 二手住宅价格指数同比</span><br><span class="line">ren PriceList6 二手住宅价格指数环比</span><br><span class="line">foreach i of varlist _all&#123;</span><br><span class="line">	label var `i<span class="string">' "`i'</span><span class="string">"</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">label data "</span><span class="number">70</span>个大中城市住宅销售价格指数_北京<span class="string">"</span></span><br><span class="line"><span class="string">gen city = "</span>北京<span class="string">"</span></span><br><span class="line"><span class="string">order clock city</span></span><br><span class="line"><span class="string">save 70个大中城市住宅销售价格指数_北京, replace</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-niceloglabels_产生对数坐标轴刻度"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/42916/">niceloglabels_产生对数坐标轴刻度</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/42916/" class="article-date">
+	  <time datetime="2018-05-17T05:48:23.000Z" itemprop="datePublished">2018-05-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/nr/raw/master/niceloglabels.png" alt=""></p>
+        <!-- 
+
+12345678* 产生对数坐标轴刻度* ssc install niceloglabelssysuse census, clearsummarizeniceloglabels pop, local(yla) style(125)quantile pop, yscale(log) ylabel(`yla', angle(horizontal)) rlopts(lcolor(none))g......  -->
+        <p class="article-more-link">
+          <a href="../../posts/42916/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">

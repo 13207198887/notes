@@ -406,7 +406,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-改变柱条标签"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-在条形图中间添加间隔"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -414,7 +414,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/31046/">改变柱条标签</a>
+      <a class="article-title" href="../../posts/46049/">在条形图中间添加间隔</a>
     </h1>
   
 
@@ -422,7 +422,7 @@
     
     <div class="article-meta">
       
-	<a href="../../posts/31046/" class="article-date">
+	<a href="../../posts/46049/" class="article-date">
 	  <time datetime="2018-01-29T09:48:23.000Z" itemprop="datePublished">2018-01-29</time>
 	</a>
 
@@ -433,8 +433,9 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://github.com/czxa/Web_data_Source/raw/master/改变柱条标签.png" alt=""></p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sysuse auto, clear</span><br><span class="line">gr bar mpg gear_ratio, showyvars ///</span><br><span class="line">yvaroptions(relabel(<span class="number">1</span> <span class="string">"MPG"</span> <span class="number">2</span> <span class="string">"GEAR RATIO"</span>)) ///</span><br><span class="line">leg(off)</span><br><span class="line">gr export 改变柱条标签.png, replace</span><br></pre></td></tr></table></figure>
+        <p><img src="https://github.com/czxa/Web_data_Source/raw/master/在条形图中间添加间隔2.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sysuse auto, clear</span><br><span class="line">set scheme vg_rose, permanently</span><br><span class="line">gr bar (mean) price turn mpg weight, over(rep78)</span><br><span class="line">gr export 在条形图中间添加间隔<span class="number">1.</span>png, replace</span><br><span class="line">set obs <span class="number">75</span></span><br><span class="line">replace rep78 = <span class="number">2.5</span> <span class="keyword">in</span> <span class="number">75</span></span><br><span class="line"></span><br><span class="line">gr bar (mean) price turn mpg weight, over(rep78, relabel( <span class="number">3</span> <span class="string">" "</span>))</span><br><span class="line">gr export 在条形图中间添加间隔<span class="number">2.</span>png, replace</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/czxa/Web_data_Source/raw/master/在条形图中间添加间隔1.png" alt=""></p>
 
       
     </div>

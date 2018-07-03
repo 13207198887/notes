@@ -317,6 +317,54 @@
 <!-- Table of Contents -->
 
   
+    <article id="post-使用chinagcode命令获取中文地址经纬度"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/53141/">使用chinagcode命令获取中文地址经纬度</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/53141/" class="article-date">
+	  <time datetime="2018-02-13T13:21:23.000Z" itemprop="datePublished">2018-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>请不要滥用我的百度密钥</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">/* 使用chinagcode命令获取中文地址经纬度 */</span><br><span class="line">clear</span><br><span class="line">//方式<span class="number">1</span>：定义省市区和地址的组合提取经纬度</span><br><span class="line">input str10 prov str10 city str10 dist str60 addr</span><br><span class="line"><span class="string">"广东省"</span> <span class="string">"广州市"</span> <span class="string">"番禺区"</span> <span class="string">"暨南大学番禺校区"</span></span><br><span class="line"><span class="string">"广东省"</span> <span class="string">""</span> <span class="string">""</span> <span class="string">"暨南大学番禺校区"</span></span><br><span class="line"><span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">"暨南大学番禺校区"</span></span><br><span class="line">end</span><br><span class="line">chinagcode,baidukey(tXvh2UTmo4z0zq5t41XLPTm1kQbMHjYl) province(prov) city(city) district(dist) address(addr)</span><br><span class="line">list</span><br><span class="line">/*百度密钥需要到百度申请*/</span><br><span class="line"></span><br><span class="line">//方式<span class="number">2</span>：定义一个完整地址fulladdress选项 来获得经纬度：</span><br><span class="line">clear all</span><br><span class="line"></span><br><span class="line">input str60 fulladdr</span><br><span class="line"><span class="string">"广东省广州市番禺区暨南大学番禺校区"</span></span><br><span class="line"><span class="string">"广州市暨南大学番禺校区"</span></span><br><span class="line"><span class="string">"广州市暨南大学"</span>  //这个定位的是校本部</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">chinagcode, baidukey(tXvh2UTmo4z0zq5t41XLPTm1kQbMHjYl) fulladdress(fulladdr)</span><br><span class="line">list</span><br><span class="line">//最好定义地址的方式是xx省xx市xx区xx路xx号，当同时使用上述两种格式定义地址时，会优先从省市区的组合提取经纬度，如果提取不到才会从完整的地址中提取</span><br><span class="line">//如果加入了ffirst选项则会优先从完整地址中提取经纬度：</span><br><span class="line">clear all</span><br><span class="line">set more off</span><br><span class="line"><span class="keyword">global</span> PATH <span class="string">"D:\Desktop\Stata笔记"</span></span><br><span class="line">cd $PATH</span><br><span class="line">input str15 prov str15 city str15 dist str60 addr str100 fulladdr</span><br><span class="line"><span class="string">"广东省"</span> <span class="string">"广州市"</span> <span class="string">""</span> <span class="string">"暨南大学番禺校区"</span> <span class="string">""</span></span><br><span class="line"><span class="string">""</span> <span class="string">"广州市"</span> <span class="string">"番禺区"</span> <span class="string">"暨南大学番禺校区"</span> <span class="string">"广东省广州市暨南大学"</span></span><br><span class="line"><span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">"广东省广州市暨南大学"</span></span><br><span class="line">end</span><br><span class="line">chinagcode, baidukey(tXvh2UTmo4z0zq5t41XLPTm1kQbMHjYl) province(prov) city(city) district(dist) address(addr) fulladdress(fulladdr)</span><br><span class="line">list</span><br><span class="line"></span><br><span class="line">//加上ffirst选项</span><br><span class="line">clear all</span><br><span class="line">input str15 prov str15 city str15 dist str60 addr str100 fulladdr</span><br><span class="line"><span class="string">"广东省"</span> <span class="string">"广州市"</span> <span class="string">""</span> <span class="string">"暨南大学番禺校区"</span> <span class="string">""</span></span><br><span class="line"><span class="string">""</span> <span class="string">"广州市"</span> <span class="string">"番禺区"</span> <span class="string">"暨南大学番禺校区"</span> <span class="string">"广东省广州市暨南大学"</span></span><br><span class="line"><span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">"广东省广州市暨南大学"</span></span><br><span class="line">end</span><br><span class="line">chinagcode, baidukey(tXvh2UTmo4z0zq5t41XLPTm1kQbMHjYl) province(prov) city(city) district(dist) address(addr) fulladdress(fulladdr) ffirst</span><br><span class="line">list</span><br><span class="line"></span><br><span class="line">//还可以通过long()和lat()两个选项定义新生成的变量名</span><br><span class="line">clear all</span><br><span class="line">input str15 prov str15 city str15 dist str60 addr str100 fulladdr</span><br><span class="line"><span class="string">"广东省"</span> <span class="string">"广州市"</span> <span class="string">""</span> <span class="string">"暨南大学番禺校区"</span> <span class="string">""</span></span><br><span class="line"><span class="string">""</span> <span class="string">"广州市"</span> <span class="string">"番禺区"</span> <span class="string">"暨南大学番禺校区"</span> <span class="string">"广东省广州市暨南大学"</span></span><br><span class="line"><span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">"广东省广州市暨南大学"</span></span><br><span class="line">end</span><br><span class="line">chinagcode, baidukey(tXvh2UTmo4z0zq5t41XLPTm1kQbMHjYl) ///</span><br><span class="line">province(prov) city(city) district(dist) address(addr) ///</span><br><span class="line">fulladdress(fulladdr) ffirst long(long1) lat(lat1)</span><br><span class="line">list</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-数据合并"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -390,54 +438,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/*批量提取统计检验的结果*/</span><br><span class="line"></span><br><span class="line">	sysuse auto, clear</span><br><span class="line">	mat a = J(<span class="number">6</span>,<span class="number">2</span>,<span class="number">0</span>)</span><br><span class="line">	local i = <span class="number">1</span></span><br><span class="line">	foreach v of varlist price mpg rep78 headroom trunk weight&#123;</span><br><span class="line">		qui ttest `v<span class="string">' == 0</span></span><br><span class="line"><span class="string">		mat a[`i'</span>,<span class="number">1</span>] = r(t)</span><br><span class="line">		mat a[`i<span class="string">',2] = r(p_u)</span></span><br><span class="line"><span class="string">		local i = `i'</span> + <span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">	mat list a</span><br><span class="line">	svmat a, names(col) //这个命令可以将矩阵转化成dta文件里的变量,同时使用矩阵中的列名命名新变量</span><br><span class="line">	rename c1 t</span><br><span class="line">	rename c2 p_value</span><br><span class="line">	list t p_value <span class="keyword">in</span> <span class="number">1</span>/<span class="number">6</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-使用chinagcode命令获取中文地址经纬度"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/53141/">使用chinagcode命令获取中文地址经纬度</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/53141/" class="article-date">
-	  <time datetime="2018-02-13T13:21:23.000Z" itemprop="datePublished">2018-02-13</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/Stata命令/">Stata命令</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>请不要滥用我的百度密钥</p>
-</blockquote>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">/* 使用chinagcode命令获取中文地址经纬度 */</span><br><span class="line">clear</span><br><span class="line">//方式<span class="number">1</span>：定义省市区和地址的组合提取经纬度</span><br><span class="line">input str10 prov str10 city str10 dist str60 addr</span><br><span class="line"><span class="string">"广东省"</span> <span class="string">"广州市"</span> <span class="string">"番禺区"</span> <span class="string">"暨南大学番禺校区"</span></span><br><span class="line"><span class="string">"广东省"</span> <span class="string">""</span> <span class="string">""</span> <span class="string">"暨南大学番禺校区"</span></span><br><span class="line"><span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">"暨南大学番禺校区"</span></span><br><span class="line">end</span><br><span class="line">chinagcode,baidukey(tXvh2UTmo4z0zq5t41XLPTm1kQbMHjYl) province(prov) city(city) district(dist) address(addr)</span><br><span class="line">list</span><br><span class="line">/*百度密钥需要到百度申请*/</span><br><span class="line"></span><br><span class="line">//方式<span class="number">2</span>：定义一个完整地址fulladdress选项 来获得经纬度：</span><br><span class="line">clear all</span><br><span class="line"></span><br><span class="line">input str60 fulladdr</span><br><span class="line"><span class="string">"广东省广州市番禺区暨南大学番禺校区"</span></span><br><span class="line"><span class="string">"广州市暨南大学番禺校区"</span></span><br><span class="line"><span class="string">"广州市暨南大学"</span>  //这个定位的是校本部</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">chinagcode, baidukey(tXvh2UTmo4z0zq5t41XLPTm1kQbMHjYl) fulladdress(fulladdr)</span><br><span class="line">list</span><br><span class="line">//最好定义地址的方式是xx省xx市xx区xx路xx号，当同时使用上述两种格式定义地址时，会优先从省市区的组合提取经纬度，如果提取不到才会从完整的地址中提取</span><br><span class="line">//如果加入了ffirst选项则会优先从完整地址中提取经纬度：</span><br><span class="line">clear all</span><br><span class="line">set more off</span><br><span class="line"><span class="keyword">global</span> PATH <span class="string">"D:\Desktop\Stata笔记"</span></span><br><span class="line">cd $PATH</span><br><span class="line">input str15 prov str15 city str15 dist str60 addr str100 fulladdr</span><br><span class="line"><span class="string">"广东省"</span> <span class="string">"广州市"</span> <span class="string">""</span> <span class="string">"暨南大学番禺校区"</span> <span class="string">""</span></span><br><span class="line"><span class="string">""</span> <span class="string">"广州市"</span> <span class="string">"番禺区"</span> <span class="string">"暨南大学番禺校区"</span> <span class="string">"广东省广州市暨南大学"</span></span><br><span class="line"><span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">"广东省广州市暨南大学"</span></span><br><span class="line">end</span><br><span class="line">chinagcode, baidukey(tXvh2UTmo4z0zq5t41XLPTm1kQbMHjYl) province(prov) city(city) district(dist) address(addr) fulladdress(fulladdr)</span><br><span class="line">list</span><br><span class="line"></span><br><span class="line">//加上ffirst选项</span><br><span class="line">clear all</span><br><span class="line">input str15 prov str15 city str15 dist str60 addr str100 fulladdr</span><br><span class="line"><span class="string">"广东省"</span> <span class="string">"广州市"</span> <span class="string">""</span> <span class="string">"暨南大学番禺校区"</span> <span class="string">""</span></span><br><span class="line"><span class="string">""</span> <span class="string">"广州市"</span> <span class="string">"番禺区"</span> <span class="string">"暨南大学番禺校区"</span> <span class="string">"广东省广州市暨南大学"</span></span><br><span class="line"><span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">"广东省广州市暨南大学"</span></span><br><span class="line">end</span><br><span class="line">chinagcode, baidukey(tXvh2UTmo4z0zq5t41XLPTm1kQbMHjYl) province(prov) city(city) district(dist) address(addr) fulladdress(fulladdr) ffirst</span><br><span class="line">list</span><br><span class="line"></span><br><span class="line">//还可以通过long()和lat()两个选项定义新生成的变量名</span><br><span class="line">clear all</span><br><span class="line">input str15 prov str15 city str15 dist str60 addr str100 fulladdr</span><br><span class="line"><span class="string">"广东省"</span> <span class="string">"广州市"</span> <span class="string">""</span> <span class="string">"暨南大学番禺校区"</span> <span class="string">""</span></span><br><span class="line"><span class="string">""</span> <span class="string">"广州市"</span> <span class="string">"番禺区"</span> <span class="string">"暨南大学番禺校区"</span> <span class="string">"广东省广州市暨南大学"</span></span><br><span class="line"><span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">"广东省广州市暨南大学"</span></span><br><span class="line">end</span><br><span class="line">chinagcode, baidukey(tXvh2UTmo4z0zq5t41XLPTm1kQbMHjYl) ///</span><br><span class="line">province(prov) city(city) district(dist) address(addr) ///</span><br><span class="line">fulladdress(fulladdr) ffirst long(long1) lat(lat1)</span><br><span class="line">list</span><br></pre></td></tr></table></figure>
 
       
     </div>

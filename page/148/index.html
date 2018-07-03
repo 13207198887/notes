@@ -322,55 +322,6 @@ fillin adds observations with missing data so that all interactions of varlist e
 <!-- Table of Contents -->
 
   
-    <article id="post-Mandelbrot集合"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../posts/24434/">Mandelbrot集合</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../posts/24434/" class="article-date">
-	  <time datetime="2018-01-25T09:49:23.000Z" itemprop="datePublished">2018-01-25</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://github.com/czxa/Web_data_Source/raw/master/Mandelbrot集合.png" alt=""></p>
-<blockquote>
-<p>注意：这幅图片的绘制在我的电脑上花了大约1.25小时。</p>
-</blockquote>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">* Mandelbrot集合</span><br><span class="line">clear all</span><br><span class="line">mata:</span><br><span class="line">real scalar escape(complex scalar Z, C, real scalar R, maxiter)</span><br><span class="line">&#123;</span><br><span class="line">	real scalar i</span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; maxiter; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span> (norm(Z) &lt;= R)&#123;</span><br><span class="line">			Z = Z * Z + C</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">return</span>(i)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>(i)</span><br><span class="line">&#125;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">mata:</span><br><span class="line">mandelbrot_set = J(<span class="number">201</span>*<span class="number">201</span>, <span class="number">3</span>, .)</span><br><span class="line">cnt = <span class="number">1</span></span><br><span class="line">C = <span class="number">-0.8</span> + <span class="number">0.156</span>i</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt;= <span class="number">200</span>; i++)&#123;</span><br><span class="line">	<span class="keyword">for</span>(j = <span class="number">0</span>; j &lt;= <span class="number">200</span>; j++)&#123;</span><br><span class="line">		Z = C(<span class="number">-2</span>+i*<span class="number">4</span>/<span class="number">200</span>, <span class="number">-2</span>+j*<span class="number">4</span>/<span class="number">200</span>)</span><br><span class="line">		n = escape(Z, C, <span class="number">100</span>, <span class="number">400</span>)</span><br><span class="line">		mandelbrot_set[cnt, .] = (i, j, n)</span><br><span class="line">		cnt++</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">getmata (x y escape) = mandelbrot_set</span><br><span class="line">qui sum escape</span><br><span class="line">local min = r(min) - <span class="number">1</span></span><br><span class="line">local max = r(max) + <span class="number">1</span></span><br><span class="line">tw contour escape y x, ccuts(`min<span class="string">'(1)`max'</span>) ///</span><br><span class="line">clegend(off) graphr(m(zero)) xsc(off) ///</span><br><span class="line">xlab(, nogrid) ysc(off) yla(, nogrid) scheme(s2color)</span><br><span class="line">gr export Mandelbrot集合.png, replace</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-等高线绘制——contour命令"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -411,6 +362,55 @@ fillin adds observations with missing data so that all interactions of varlist e
         <p class="article-more-link">
           <a href="../../posts/20851/#more">阅读全文</a>
         </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Stata/">Stata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Mandelbrot集合"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../posts/24434/">Mandelbrot集合</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../posts/24434/" class="article-date">
+	  <time datetime="2018-01-25T09:49:23.000Z" itemprop="datePublished">2018-01-25</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/可视化/">可视化</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/czxa/Web_data_Source/raw/master/Mandelbrot集合.png" alt=""></p>
+<blockquote>
+<p>注意：这幅图片的绘制在我的电脑上花了大约1.25小时。</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">* Mandelbrot集合</span><br><span class="line">clear all</span><br><span class="line">mata:</span><br><span class="line">real scalar escape(complex scalar Z, C, real scalar R, maxiter)</span><br><span class="line">&#123;</span><br><span class="line">	real scalar i</span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; maxiter; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span> (norm(Z) &lt;= R)&#123;</span><br><span class="line">			Z = Z * Z + C</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">return</span>(i)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>(i)</span><br><span class="line">&#125;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">mata:</span><br><span class="line">mandelbrot_set = J(<span class="number">201</span>*<span class="number">201</span>, <span class="number">3</span>, .)</span><br><span class="line">cnt = <span class="number">1</span></span><br><span class="line">C = <span class="number">-0.8</span> + <span class="number">0.156</span>i</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt;= <span class="number">200</span>; i++)&#123;</span><br><span class="line">	<span class="keyword">for</span>(j = <span class="number">0</span>; j &lt;= <span class="number">200</span>; j++)&#123;</span><br><span class="line">		Z = C(<span class="number">-2</span>+i*<span class="number">4</span>/<span class="number">200</span>, <span class="number">-2</span>+j*<span class="number">4</span>/<span class="number">200</span>)</span><br><span class="line">		n = escape(Z, C, <span class="number">100</span>, <span class="number">400</span>)</span><br><span class="line">		mandelbrot_set[cnt, .] = (i, j, n)</span><br><span class="line">		cnt++</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">getmata (x y escape) = mandelbrot_set</span><br><span class="line">qui sum escape</span><br><span class="line">local min = r(min) - <span class="number">1</span></span><br><span class="line">local max = r(max) + <span class="number">1</span></span><br><span class="line">tw contour escape y x, ccuts(`min<span class="string">'(1)`max'</span>) ///</span><br><span class="line">clegend(off) graphr(m(zero)) xsc(off) ///</span><br><span class="line">xlab(, nogrid) ysc(off) yla(, nogrid) scheme(s2color)</span><br><span class="line">gr export Mandelbrot集合.png, replace</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
