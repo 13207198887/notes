@@ -1,736 +1,566 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-  <title>Mr.Cheng&#39;s Notebook</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-  
-    <meta name="google-site-verification" content="true" />
-  
-  
-    <meta name="baidu-site-verification" content="true" />
-  
-  
-  <meta name="description" content="A messy notebook.">
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Notebook</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="description" content="A messy notebook.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:title" content="Notebook">
 <meta property="og:url" content="http://www.czxa.top/index.html">
-<meta property="og:site_name" content="Mr.Cheng&#39;s Notebook">
+<meta property="og:site_name" content="Notebook">
 <meta property="og:description" content="A messy notebook.">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mr.Cheng&#39;s Notebook">
+<meta name="twitter:title" content="Notebook">
 <meta name="twitter:description" content="A messy notebook.">
-  
-    <link rel="alternate" href="/atom.xml" title="Mr.Cheng&#39;s Notebook" type="application/atom+xml">
-  
+    
 
-  
+    
 
-  <link rel="icon" href="/notes/css/images/1.png">
-  <link rel="apple-touch-icon" href="/notes/css/images/1.png">
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
-  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-  <style type="text/css">
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
-  <link rel="stylesheet" href="css/style.css">
+    
 
-  <script src="js/jquery-3.1.1.min.js"></script>
-  <script src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="libs/source-code-pro/styles.css">
 
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/notes/css/bootstrap.css" >
+    <link rel="stylesheet" href="css/style.css">
 
-  
-    <link rel="stylesheet" href="/notes/css/home.css" >
-  
+    <script src="libs/jquery/2.2.4/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
 
-  
-
-  
-
-  
-  
-  
-    <link rel="stylesheet" href="/notes/css/vdonate.css" >
-  
 
 </head>
 
-
-
-  <body>
-
-
-  
-    <header id="header">
-
-	<!-- 背景图模式 -->
-	
-
-    
-      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
-
-      <!-- Support rolling -->  
-        
-        <section class="awSlider">
-          <div class="carousel slide carousel-fade " data-ride="carousel">
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-               
-                  
-                    <div class="item active">
-                  
-                    <img id="carousel-img0" src="https://source.unsplash.com/collection/954550/1920x1080">
-                  </div>
-
-                  <!-- 自适应大图 -->
-                  <script>
-                      var img0 = new Image();
-                      var imageTag0 = document.getElementById("carousel-img0");
-                      img0.src = imageTag0.src;
-                      img0.onload=function(){
-                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
-                          imageTag0.style.width = document.body.clientWidth + "px";
-                        } else {
-                          imageTag0.style.height = document.body.clientHeight + "px";
-                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
-                        }
-                      };
-                  </script>
-                
-            </div>
-
-            <!-- Controls -->
-            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-              <span class="sr-only">Geri</span>
-            </a>
-            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-              <span class="sr-only">İleri</span>
-            </a>
-          </div>
-        </section>
-        <script>
-          $('section.awSlider .carousel').carousel({
-              pause: '',
-              interval: 5000
-          });
-          var startImage = $('section.awSlider .item.active > img').attr('src');
-          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
-              var bscn = $(this).find('.item.active > img').attr('src');
-              $('section.awSlider > img').attr('src', bscn);
-          });
-        </script>
-      
-
-    
- 
-
-
-    <canvas width="100%" height="100%"></canvas>
-    <script>
-      var c = document.getElementsByTagName('canvas')[0],
-          x = c.getContext('2d'),
-          w = window.innerWidth,
-          h = window.innerHeight,
-          pr = window.devicePixelRatio || 1,
-          f = 90,
-          q,
-          m = Math,
-          r = 0,
-          u = m.PI*2,
-          v = m.cos,
-          z = m.random
-      c.width = w*pr
-      c.height = h*pr
-      x.scale(pr, pr)
-      x.globalAlpha = 0.6
-
-      <!-- 折线Polyline背景 -->
-      
-    </script>
-    
-
-    
-      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
-    
-
-        
-          <div class="homelogoback"  style="border: 1px solid #404040;" >
-            <h1><a href="#content" id="logo">Mr.Cheng&#39;s Notebook</a></h1>
-            <h3>A messy notebook.</h3>
-            <h5>程振兴</h5>
-            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
-          </div>
-        
-    
-    </div>
-  </div>
-
-  <!-- 自适应主页背景大图 -->
-  
-
- <!-- home_logo_image居中 -->
- 
-    <script>
-        var homelogodiv = document.getElementById("homelogo");
-        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
-          homelogodiv.style.width = document.body.clientWidth + "px";
-          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
-        } else {
-          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
-          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
-        }
-    </script>
-  
-
-  <div class="intro-navigate">
-      <p class="navigater-list">
-        
-          <a id="beautifont" class="main-nav-link" href="index.html">首页</a>
-        
-          <a id="beautifont" class="main-nav-link" href="archives">归档</a>
-        
-          <a id="beautifont" class="main-nav-link" href="categories">分类</a>
-        
-          <a id="beautifont" class="main-nav-link" href="tags">标签</a>
-        
-          <a id="beautifont" class="main-nav-link" href="about">关于</a>
-        
-      </p>
-  </div>
-
-</header>
-  
-  <div id="container">
+<body>
     <div id="wrap">
-      
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="index.html">主页</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/tags">标签</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories">分类</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/favorites">收藏夹</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">联系我</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/books">豆瓣书架</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/movies">豆瓣影院</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <em class="page-title-link" data-url="home">主页</em>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            
+
+    
+    
+        
+        
+        <section class="archives-wrap">
+            <div class="archive-year-wrap">
+                <a href="archives/2018" class="archive-year"><i class="icon fa fa-calendar-o"></i>2018</a>
+            </div>
+            <div class="archives">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="posts/18129/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://github.com/czxa/mr/raw/master/2011年世界各国人口气泡地图.png)" alt="AmChart_2011年世界各国人口气泡地图" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span><a href="http://www.czxa.top/posts/18129/#isso-thread"></a></span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="categories/可视化/">可视化</a>
+            </div>
+            <div class="date"><time datetime="2018-06-06T07:42:23.000Z" itemprop="datePublished">2018-06-06</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="posts/18129/">AmChart_2011年世界各国人口气泡地图</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
             
-      <div id="content" class="outer">
-        
-          <section id="main" style="float:none;">
-  
-    <article id="post-釜山行"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="posts/2307/">釜山行</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="posts/2307/" class="article-date">
-	  <time datetime="2018-06-07T07:22:23.000Z" itemprop="datePublished">2018-06-07</time>
-	</a>
-
-      
-    <a class="article-category-link" href="categories/音乐电影/">音乐电影</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://github.com/czxa/mr/raw/master/釜山行.txt" target="_blank" rel="noopener">釜山行剧本资源</a></p>
-<h3 id="电影简介"><a href="#电影简介" class="headerlink" title="电影简介"></a>电影简介</h3><p>《釜山行》是由延相昊执导，孔刘、郑裕美、金秀安、金义城、马东锡、崔宇植等主演的灾难片，影片于2016年7月20日在韩国上映。影片讲述单亲爸爸石宇与女儿秀安乘坐KTX高速列车往釜山，列车上由一位少女身上带来的僵尸病毒开始肆虐且不断扩散，列车于倾刻间陷入灾难的故事。</p>
-<blockquote>
-<p>点击阅读原文即可观看👇</p>
-</blockquote>
-        <!-- 釜山行剧本资源
-电影简介《釜山行》是由延相昊执导，孔刘、郑裕美、金秀安、金义城、马东锡、崔宇植等主演的灾难片，影片于2016年7月20日在韩国上映。影片讲述单亲爸爸石宇与女儿秀安乘坐KTX高速列车往釜山，列车上由一位少女身上带来的僵尸病毒开始肆虐且不断扩散，列车于倾刻间陷入灾难的故事。
-
-点击阅读原文即可观看👇
-
-
-👉电影
-
-...  -->
-        <p class="article-more-link">
-          <a href="posts/2307/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-免登录下载微博图片"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="posts/39867/">免登录下载微博图片</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="posts/39867/" class="article-date">
-	  <time datetime="2018-06-06T11:42:23.000Z" itemprop="datePublished">2018-06-06</time>
-	</a>
-
-      
-    <a class="article-category-link" href="categories/零散笔记/">零散笔记</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>搜集自：<a href="https://github.com/nondanee/weiboPicDownloader" target="_blank" rel="noopener">https://github.com/nondanee/weiboPicDownloader</a><br>批量下载微博用户图片(CLI)<br>下面的内容也来源于原始作者。</p>
-</blockquote>
-<blockquote>
-<p>脚本：</p>
-</blockquote>
-<p><a href="https://github.com/czxa/mr/raw/master/weiboPicDownloader.py" target="_blank" rel="noopener">weiboPicDownloader.py</a></p>
-<h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pip(pip3) install requests</span><br><span class="line">$ pip(pip3) install colorama <span class="comment">#仅Windows 10.0.14393以下需要</span></span><br><span class="line">$ pip install futures <span class="comment">#仅Python2需要</span></span><br></pre></td></tr></table></figure>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ python weiboPicDownloader.py -h</span><br><span class="line">usage: weiboPicDownloader [-h] [-u user] [-us users [users ...]] [-f file]</span><br><span class="line">                          [-d directory] [-s size] [-r retry] [-v] [-o]</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help            show this help message <span class="keyword">and</span> exit</span><br><span class="line">  -u user               target a weibo use<span class="string">r's nickname or id</span></span><br><span class="line"><span class="string">  -us users [users ...]</span></span><br><span class="line"><span class="string">                        target weibo users'</span> nickname <span class="keyword">or</span> id</span><br><span class="line">  -f file               <span class="keyword">import</span> user list <span class="keyword">from</span> file</span><br><span class="line">  -d directory          set picture saving path</span><br><span class="line">  -s size               set size of thread pool</span><br><span class="line">  -r retry              set maximum number of retries</span><br><span class="line">  -v                    download videos together</span><br><span class="line">  -o                    overwrite existing files</span><br></pre></td></tr></table></figure>
-<p>必需参数（任选一）</p>
-<ul>
-<li><code>-u</code> 用户（昵称或ID）</li>
-<li><code>-us</code> 多个用户（昵称或ID，用空格分隔）</li>
-<li><code>-f</code> 用户列表文件（昵称或ID，用换行分隔）</li>
-</ul>
-<p>可选参数</p>
-<ul>
-<li><code>-d</code> 图片保存路径（默认为工作路径下的weiboPic目录）</li>
-<li><code>-s</code> 线程池大小（默认为20）</li>
-<li><code>-r</code> 最大重试次数（默认为2）</li>
-<li><code>-v</code> 同时下载秒拍视频</li>
-<li><code>-o</code> 重新下载已保存的文件（默认跳过）</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">Created on Fri Sep 15 01:38:07 2017</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">@author: nondanee</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os, sys, locale</span><br><span class="line"><span class="keyword">import</span> json, re, time</span><br><span class="line"><span class="keyword">import</span> concurrent.futures</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    reload(sys)</span><br><span class="line">    sys.setdefaultencoding(<span class="string">'utf8'</span>)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    input = raw_input</span><br><span class="line"><span class="keyword">except</span> NameError:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">IS_PYTHON2 = sys.version[<span class="number">0</span>] == <span class="string">"2"</span></span><br><span class="line">SYSTEM_ENCODE = sys.stdin.encoding <span class="keyword">or</span> locale.getpreferredencoding(<span class="keyword">True</span>)</span><br><span class="line">USER_AGENT = <span class="string">"Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"</span></span><br><span class="line">PIC_AMOUNT = <span class="number">0</span></span><br><span class="line">SAVE_PATH = <span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_fit</span><span class="params">(string,flush=False)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> IS_PYTHON2:</span><br><span class="line">        string = string.encode(SYSTEM_ENCODE)</span><br><span class="line">    <span class="keyword">if</span> flush == <span class="keyword">True</span>:</span><br><span class="line">        sys.stdout.write(<span class="string">"\r"</span>+string)</span><br><span class="line">        sys.stdout.flush()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        sys.stdout.write(string+<span class="string">"\n"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">raw_input_fit</span><span class="params">(string=<span class="string">""</span>)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> IS_PYTHON2:</span><br><span class="line">        <span class="keyword">return</span> input(string.encode(SYSTEM_ENCODE)).decode(SYSTEM_ENCODE)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> input(string)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">requests_retry</span><span class="params">(url,max_retry=<span class="number">0</span>)</span>:</span></span><br><span class="line">    retry = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        <span class="keyword">if</span> retry &gt; max_retry:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            response = requests.request(<span class="string">"GET"</span>,url,headers=&#123;<span class="string">"User-Agent"</span>:USER_AGENT&#125;,timeout=<span class="number">5</span>,verify=<span class="keyword">False</span>)</span><br><span class="line">            <span class="keyword">return</span> response</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            retry = retry + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_img_urls</span><span class="params">(containerid)</span>:</span></span><br><span class="line">    page = <span class="number">1</span></span><br><span class="line">    amount = <span class="number">0</span></span><br><span class="line">    total = <span class="number">0</span></span><br><span class="line">    urls = []</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        url = <span class="string">"https://m.weibo.cn/api/container/getIndex?count=&#123;&#125;&amp;page=&#123;&#125;&amp;containerid=&#123;&#125;"</span>.format(<span class="number">25</span>,page,containerid)</span><br><span class="line">        response = requests_retry(url=url,max_retry=<span class="number">3</span>)</span><br><span class="line">        <span class="keyword">if</span> response == <span class="keyword">None</span>: <span class="keyword">continue</span></span><br><span class="line">        json_data = json.loads(response.text)</span><br><span class="line">        <span class="keyword">if</span> json_data[<span class="string">"ok"</span>] != <span class="number">1</span>: <span class="keyword">break</span></span><br><span class="line">        total = json_data[<span class="string">"data"</span>][<span class="string">"cardlistInfo"</span>][<span class="string">"total"</span>]</span><br><span class="line">        cards = json_data[<span class="string">"data"</span>][<span class="string">"cards"</span>]</span><br><span class="line">        <span class="keyword">for</span> card <span class="keyword">in</span> cards:</span><br><span class="line">            amount = amount + <span class="number">1</span></span><br><span class="line">            print_fit(<span class="string">"分析微博中... &#123;&#125;"</span>.format(amount),flush=<span class="keyword">True</span>)</span><br><span class="line">            <span class="keyword">if</span> <span class="string">"mblog"</span> <span class="keyword">in</span> card:</span><br><span class="line">                <span class="keyword">if</span> <span class="string">"pics"</span> <span class="keyword">in</span> card[<span class="string">"mblog"</span>]:</span><br><span class="line">                    <span class="keyword">for</span> pic <span class="keyword">in</span> card[<span class="string">"mblog"</span>][<span class="string">"pics"</span>]:</span><br><span class="line">                        <span class="keyword">if</span> <span class="string">"large"</span> <span class="keyword">in</span> pic:</span><br><span class="line">                            urls.append(pic[<span class="string">"large"</span>][<span class="string">"url"</span>])</span><br><span class="line">        page = page + <span class="number">1</span></span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    print_fit(<span class="string">"\n分析完毕, 微博总数 &#123;&#125;, 实际获得 &#123;&#125;"</span>.format(total,amount))</span><br><span class="line">    <span class="keyword">return</span> urls</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">uid_to_containerid</span><span class="params">(uid)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> re.search(<span class="string">r'^\d&#123;10&#125;$'</span>,uid):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"107603"</span> + uid</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">nickname_to_containerid</span><span class="params">(nickname)</span>:</span></span><br><span class="line">    url = <span class="string">"https://m.weibo.com/n/&#123;&#125;"</span>.format(nickname)</span><br><span class="line">    response = requests_retry(url=url)</span><br><span class="line">    uid_check = re.search(<span class="string">r'(\d&#123;16&#125;)'</span>,response.url)</span><br><span class="line">    <span class="keyword">if</span> uid_check:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"107603"</span> + uid_check.group(<span class="number">1</span>)[<span class="number">-10</span>:]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_containerid</span><span class="params">(account_type)</span>:</span></span><br><span class="line">    input_tips = [<span class="string">"请输入用户ID: "</span>,<span class="string">"请输入用户昵称: "</span>]</span><br><span class="line">    error_info = [<span class="string">"用户ID无效\n"</span>,<span class="string">"无法找到该用户\n"</span>]</span><br><span class="line">    functions = [uid_to_containerid,nickname_to_containerid]</span><br><span class="line">    input_string = raw_input_fit(input_tips[account_type]).strip()</span><br><span class="line">    <span class="keyword">if</span> input_string == <span class="string">""</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    containerid = functions[account_type](input_string)</span><br><span class="line">    <span class="keyword">if</span> containerid == <span class="keyword">None</span>:</span><br><span class="line">        print_fit(error_info[account_type])</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> containerid</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download_and_save</span><span class="params">(url,index)</span>:</span></span><br><span class="line">    file_type = url[<span class="number">-3</span>:]</span><br><span class="line">    file_name = str(index + <span class="number">1</span>).zfill(len(str(PIC_AMOUNT))) + <span class="string">"."</span> + file_type</span><br><span class="line">    file_path = os.path.join(SAVE_PATH,file_name)</span><br><span class="line"></span><br><span class="line">    response = requests_retry(url=url)</span><br><span class="line">    <span class="keyword">if</span> response == <span class="keyword">None</span>:</span><br><span class="line">        <span class="keyword">return</span> index,<span class="number">0</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        f = open(file_path,<span class="string">"wb"</span>)</span><br><span class="line">        f.write(response.content)</span><br><span class="line">        f.close()</span><br><span class="line">        <span class="keyword">return</span> index,<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_task</span><span class="params">(urls,miss)</span>:</span></span><br><span class="line">    task = []</span><br><span class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> miss:</span><br><span class="line">        task.append(urls[index])</span><br><span class="line">    <span class="keyword">return</span> task</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        home_path = os.path.realpath(raw_input_fit(<span class="string">"请输入图片存储位置: "</span>))</span><br><span class="line">        print_fit(<span class="string">"选择的目录为 &#123;&#125;"</span>.format(home_path))</span><br><span class="line">        <span class="keyword">if</span> os.path.exists(home_path) == <span class="keyword">True</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        confirm = raw_input_fit(<span class="string">"该目录不存在, 是否创建?(Y/n): "</span>).strip()</span><br><span class="line">        <span class="keyword">if</span> confirm == <span class="string">"y"</span> <span class="keyword">or</span> confirm == <span class="string">"Y"</span> <span class="keyword">or</span> confirm == <span class="string">""</span>:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                os.makedirs(home_path)</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                print_fit(<span class="string">"目录创建失败, 请尝试手动创建, 或者更改目录\n"</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                print_fit(<span class="string">"目录已创建"</span>)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print_fit(<span class="string">"请手动创建, 或者更改目录\n"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        print_fit(<span class="string">"请输入要下载的账号类型:\n[1]用户ID [2]用户昵称"</span>)</span><br><span class="line">        choice = raw_input_fit(<span class="string">"(1/2): "</span>)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            choice = int(choice)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            choice = <span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> choice <span class="keyword">not</span> <span class="keyword">in</span> [<span class="number">1</span>,<span class="number">2</span>]:</span><br><span class="line">            choice = <span class="number">2</span></span><br><span class="line">        containerid = get_containerid(choice - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> containerid != <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">global</span> SAVE_PATH</span><br><span class="line">    SAVE_PATH = os.path.join(home_path,containerid[<span class="number">6</span>:])</span><br><span class="line">    <span class="keyword">if</span> os.path.exists(SAVE_PATH) == <span class="keyword">False</span>:</span><br><span class="line">        os.mkdir(SAVE_PATH)</span><br><span class="line"></span><br><span class="line">    urls = get_img_urls(containerid)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">global</span> PIC_AMOUNT</span><br><span class="line">    PIC_AMOUNT = len(urls)</span><br><span class="line">    print_fit(<span class="string">"图片数量 &#123;&#125;"</span>.format(PIC_AMOUNT))</span><br><span class="line"></span><br><span class="line">    max_workers = raw_input_fit(<span class="string">"设置下载线程数(1-20): "</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        max_workers = int(max_workers)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        max_workers = <span class="number">20</span></span><br><span class="line">    <span class="keyword">if</span> max_workers &gt; <span class="number">20</span>:</span><br><span class="line">        max_workers = <span class="number">20</span></span><br><span class="line">    <span class="keyword">elif</span> max_workers &lt; <span class="number">1</span>:</span><br><span class="line">        max_workers = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    miss = range(<span class="number">0</span>,PIC_AMOUNT)</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        task = get_task(urls,miss)</span><br><span class="line">        executor = concurrent.futures.ThreadPoolExecutor(max_workers = max_workers)</span><br><span class="line">        results = executor.map(download_and_save,task,miss)</span><br><span class="line"></span><br><span class="line">        miss = []</span><br><span class="line">        <span class="keyword">for</span> result <span class="keyword">in</span> results:</span><br><span class="line">            index = result[<span class="number">0</span>]</span><br><span class="line">            status = result[<span class="number">1</span>]</span><br><span class="line">            <span class="keyword">if</span> status == <span class="number">0</span>: miss.append(index)</span><br><span class="line">            print_fit(<span class="string">"已处理 &#123;dealt&#125;/&#123;amount&#125;, 下载失败 &#123;failed&#125;/&#123;amount&#125;"</span>.format(dealt=index+<span class="number">1</span>,failed=len(miss),amount=PIC_AMOUNT),flush=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> len(miss) != <span class="number">0</span>:</span><br><span class="line">            confirm = raw_input_fit(<span class="string">"是否继续尝试?(Y/n): "</span>).strip()</span><br><span class="line">            <span class="keyword">if</span> confirm == <span class="string">"y"</span> <span class="keyword">or</span> confirm == <span class="string">"Y"</span> <span class="keyword">or</span> confirm == <span class="string">""</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print_fit(<span class="string">"全部完成"</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> miss:</span><br><span class="line">        print_fit(<span class="string">"图片 &#123;&#125; 下载失败 &#123;&#125;"</span>.format(index + <span class="number">1</span>,urls[index]))</span><br><span class="line"></span><br><span class="line">    print_fit(<span class="string">"下载结束, 路径是 &#123;&#125;"</span>.format(SAVE_PATH))</span><br><span class="line">    sys.stdin.read()</span><br><span class="line">    exit()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Python/">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-AmChart股价事件图"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="posts/22977/">AmChart股价事件图</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="posts/22977/" class="article-date">
-	  <time datetime="2018-06-06T09:42:23.000Z" itemprop="datePublished">2018-06-06</time>
-	</a>
-
-      
-    <a class="article-category-link" href="categories/可视化/">可视化</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>AmChart绘图需要的js及其他文件</p>
-</blockquote>
-<p><a href="https://github.com/czxa/mr/raw/master/ajs.zip" target="_blank" rel="noopener">AmChart绘图需要的js及其他文件</a><br><a href="https://github.com/czxa/mr/raw/master/amstockchart.zip" target="_blank" rel="noopener">AmChart绘制股价图需要的js及其他文件</a></p>
-<blockquote>
-<p>成果图</p>
-</blockquote>
-<p><img src="https://github.com/czxa/mr/raw/master/股价事件图.png" alt=""></p>
-        <!-- 
 AmChart绘图需要的js及其他文件
 
-AmChart绘图需要的js及其他文件AmChart绘制股价图需要的js及其他文件
+AmChart绘图需要的js及其他文件
 
 成果图
 
 
-
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667......  -->
-        <p class="article-more-link">
-          <a href="posts/22977/#more">阅读全文</a>
         </p>
-      
     </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/AmChart/">AmChart</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
+    
 
-<!-- Table of Contents -->
-
-  
-    <article id="post-AmChart可以添加去除某个面板的股价图"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
     
     
-      <header class="article-header">
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
         
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="posts/49478/">AmChart可以添加去除某个面板的股价图</a>
-    </h1>
-  
-
-      </header>
+        <a href="posts/5713/" class="thumbnail">
     
-    <div class="article-meta">
-      
-	<a href="posts/49478/" class="article-date">
-	  <time datetime="2018-06-06T09:42:23.000Z" itemprop="datePublished">2018-06-06</time>
-	</a>
+    
+        <span style="background-image:url(https://github.com/czxa/mr/raw/master/峰图.png)" alt="ZingChart峰图" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span><a href="http://www.czxa.top/posts/5713/#isso-thread"></a></span>
+    
+</span>
 
-      
-    <a class="article-category-link" href="categories/可视化/">可视化</a>
 
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>AmChart绘图需要的js及其他文件</p>
-</blockquote>
-<p><a href="https://github.com/czxa/mr/raw/master/ajs.zip" target="_blank" rel="noopener">AmChart绘图需要的js及其他文件</a><br><a href="https://github.com/czxa/mr/raw/master/amstockchart.zip" target="_blank" rel="noopener">AmChart绘制股价图需要的js及其他文件</a></p>
-<blockquote>
-<p>成果图</p>
-</blockquote>
-<p><img src="https://github.com/czxa/mr/raw/master/可以添加去除某个面板的股价图.png" alt=""></p>
-        <!-- 
-AmChart绘图需要的js及其他文件
+    
+</a>
 
-AmChart绘图需要的js及其他文件AmChart绘制股价图需要的js及其他文件
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="categories/可视化/">可视化</a>
+            </div>
+            <div class="date"><time datetime="2018-05-21T07:22:23.000Z" itemprop="datePublished">2018-05-21</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="posts/5713/">ZingChart峰图</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            
+ZingChart绘图需要的js及其他文件
+
+ZingChart绘图需要的js及其他文件
 
 成果图
 
 
-
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667......  -->
-        <p class="article-more-link">
-          <a href="posts/49478/#more">阅读全文</a>
         </p>
-      
     </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/AmChart/">AmChart</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
+    
+        </div>
+    
 
-<!-- Table of Contents -->
-
-  
-    <article id="post-AmChart多面板股价图"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
     
     
-      <header class="article-header">
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
         
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="posts/9737/">AmChart多面板股价图</a>
-    </h1>
-  
-
-      </header>
+        <a href="posts/64518/" class="thumbnail">
     
-    <div class="article-meta">
-      
-	<a href="posts/9737/" class="article-date">
-	  <time datetime="2018-06-06T09:42:23.000Z" itemprop="datePublished">2018-06-06</time>
-	</a>
+    
+        <span style="background-image:url(https://github.com/czxa/Web_data_Source/raw/master/3dbarmap.png)" alt="3D中国地图+柱形图" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span><a href="http://www.czxa.top/posts/64518/#isso-thread"></a></span>
+    
+</span>
 
-      
-    <a class="article-category-link" href="categories/可视化/">可视化</a>
 
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>AmChart绘图需要的js及其他文件</p>
-</blockquote>
-<p><a href="https://github.com/czxa/mr/raw/master/ajs.zip" target="_blank" rel="noopener">AmChart绘图需要的js及其他文件</a><br><a href="https://github.com/czxa/mr/raw/master/amstockchart.zip" target="_blank" rel="noopener">AmChart绘制股价图需要的js及其他文件</a></p>
-<blockquote>
-<p>成果图</p>
-</blockquote>
-<p><img src="https://github.com/czxa/mr/raw/master/多面板股价图.png" alt=""></p>
-        <!-- 
-AmChart绘图需要的js及其他文件
+    
+</a>
 
-AmChart绘图需要的js及其他文件AmChart绘制股价图需要的js及其他文件
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="categories/Stata-ECharts/">Stata+ECharts</a>
+            </div>
+            <div class="date"><time datetime="2018-03-20T09:43:23.000Z" itemprop="datePublished">2018-03-20</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="posts/64518/">3D中国地图+柱形图</a>
+        </h1>
+    
 
+        <p class="article-excerpt">
+            
 成果图
 
 
+第一步：使用itchat包爬取自己的微信好友列表
+这个部分在以往的文章中有详细步骤
 
-12
-...  -->
-        <p class="article-more-link">
-          <a href="posts/9737/#more">阅读全文</a>
+第二步：数据处理1234567use 我的微信好友列表, clearcontract provincedrop if ustrregexm(province, "[a-z]")drop if province == ""ren _freq numchinagcode,baidukey(tXvh2UTmo4z0zq5t41XLPTm1kQbMHjYl) province(province)save 每个省的好友数量, replace
         </p>
-      
     </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/AmChart/">AmChart</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-<!-- Table of Contents -->
-
-  
-
-
-  <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="page-number" href="page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="page/169/">169</a><a class="extend next" rel="next" href="page/2/">下一页 &raquo;</a>
-  </nav>
+        </div>
+    
 
-</section>
+
+    </div></section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/czxa" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="https://weibo.com/p/1005056084580012/photos?from=page_100505&mod=TAB&pids=plc_main" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+    <div class="widgets-container">
         
-      </div>
-      
-        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
-      
-      <footer id="footer">
-  
+            
+                
 
-  <div class="container">
-      	<div class="row">
-	      <p> Powered by <a href="http://czxa.top" target="_blank">程振兴</a><a href="https://github.com/czxa" target="_blank">  Github主页</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2017 - 2018 Mr.Cheng&#39;s Notebook All Rights Reserved.</p>
-	      
-	      
-    		<p class="busuanzi_uv">
-				访客数 : <span id="busuanzi_value_site_uv"></span> |  
-				访问量 : <span id="busuanzi_value_site_pv"></span>
-		    </p>
-  		   
-		</div>
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="posts/18129/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://github.com/czxa/mr/raw/master/2011年世界各国人口气泡地图.png)" alt="AmChart_2011年世界各国人口气泡地图" class="thumbnail-image"></span>
+    
+    
+</a>
 
-		
-  </div>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="categories/可视化/">可视化</a></p>
+                            <p class="item-title"><a href="posts/18129/" class="title">AmChart_2011年世界各国人口气泡地图</a></p>
+                            <p class="item-date"><time datetime="2018-06-06T07:42:23.000Z" itemprop="datePublished">2018-06-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="posts/5713/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://github.com/czxa/mr/raw/master/峰图.png)" alt="ZingChart峰图" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="categories/可视化/">可视化</a></p>
+                            <p class="item-title"><a href="posts/5713/" class="title">ZingChart峰图</a></p>
+                            <p class="item-date"><time datetime="2018-05-21T07:22:23.000Z" itemprop="datePublished">2018-05-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="posts/64518/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://github.com/czxa/Web_data_Source/raw/master/3dbarmap.png)" alt="3D中国地图+柱形图" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="categories/Stata-ECharts/">Stata+ECharts</a></p>
+                            <p class="item-title"><a href="posts/64518/" class="title">3D中国地图+柱形图</a></p>
+                            <p class="item-date"><time datetime="2018-03-20T09:43:23.000Z" itemprop="datePublished">2018-03-20</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="categories/Stata-ECharts/">Stata+ECharts</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="categories/可视化/">可视化</a><span class="category-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="tags/AmChart/">AmChart</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/ECharts/">ECharts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/Stata/">Stata</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/ZingChart/">ZingChart</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="tags/AmChart/" style="font-size: 10px;">AmChart</a> <a href="tags/ECharts/" style="font-size: 10px;">ECharts</a> <a href="tags/Stata/" style="font-size: 10px;">Stata</a> <a href="tags/ZingChart/" style="font-size: 10px;">ZingChart</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 程振兴</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
 </footer>
 
+        
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#valine-thread' ,
+            notify:true,
+            verify:false,
+            app_id: 'HS0fE2GH92TyPjSpxeuEpr9P-gzGzoHsz',
+            app_key: 'hyvGUifU6e34ODKmahBUtoN6',
+            placeholder: '在这里评论～',
+            pageSize: '10',
+            avatar: 'monsterid',
+            avatar_cdn:  'https://gravatar.loli.net/avatar/'
+        });
+    </script>
 
-<!-- min height -->
 
-<script>
-    var wrapdiv = document.getElementById("wrap");
-    var contentdiv = document.getElementById("content");
-    var allheader = document.getElementById("allheader");
 
-    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
-    if (allheader != null) {
-      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
-    } else {
-      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
-    }
-</script>
-    </div>
-    <!-- <nav id="mobile-nav">
-  
-    <a href="index.html" class="mobile-nav-link">Home</a>
-  
-    <a href="archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="categories" class="mobile-nav-link">分类</a>
-  
-    <a href="tags" class="mobile-nav-link">标签</a>
-  
-    <a href="about" class="mobile-nav-link">关于</a>
-  
-</nav> -->
+
+
+    
+        <script src="libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
     
 
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 
 
-  <link rel="stylesheet" href="fancybox/jquery.fancybox.css">
-  <script src="fancybox/jquery.fancybox.pack.js"></script>
+<!-- Custom Scripts -->
+<script src="js/main.js"></script>
 
-
-<script src="js/scripts.js"></script>
-
-
-  <script src="js/home.js"></script>
-
-
-
-
-
-
-
-
-
-
-	<div style="display: none;">
-    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
-  </div>
-
-
-
-	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-	</script>
-
-
-
-
-
-
-  </div>
-
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title" id="myModalLabel">设置</h2>
-      </div>
-      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
-      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
-
-
-      <div class="modal-body">
-          <div style="margin:6px;">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
-              正文字号大小
-            </a>
-          </div>
-          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-          <div class="panel-body">
-            您已调整页面字体大小
-          </div>
-        </div>
-      
-
-
-          <div style="margin:6px;">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
-              夜间护眼模式
-            </a>
-        </div>
-          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-          <div class="panel-body">
-            夜间模式已经开启，再次单击按钮即可关闭 
-          </div>
-        </div>
-
-        <div>
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-        </div>
-         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-          <div class="panel-body">
-            Mr.Cheng&#39;s Notebook
-          </div>
-          <div class="panel-body">
-            Copyright © 2018 程振兴 All Rights Reserved.
-          </div>
-        </div>
-      </div>
-
-
-      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
-      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
-      <div class="modal-footer">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-      </div>
     </div>
-  </div>
-</div>
-  
-  <a id="rocket" href="#top" class=""></a>
-  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
-  
 </body>
 </html>
