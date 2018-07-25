@@ -6,21 +6,26 @@
     
 
     
-    <title>Notebook</title>
+    <title>Python for Finance——入门到放弃 | Notebook</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="👇我的坐标">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Notebook">
-<meta property="og:url" content="http://www.czxa.top/about/index.html">
+        <meta name="keywords" content="Python" />
+    
+    <meta name="description" content="本文PDF版本下载：Python_for_Finance——入门到放弃.pdf这个是这本书的最后一篇笔记了。。。我看的是第一版的，2013年出的书，太老了，很多代码都运行不下去，所以打算换本新一点的书看。本篇内容是Chapter 8 开头部分。主要介绍了pandas和statsmodels包。">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python for Finance——入门到放弃">
+<meta property="og:url" content="http://www.czxa.top/posts/43149/index.html">
 <meta property="og:site_name" content="Notebook">
-<meta property="og:description" content="👇我的坐标">
+<meta property="og:description" content="本文PDF版本下载：Python_for_Finance——入门到放弃.pdf这个是这本书的最后一篇笔记了。。。我看的是第一版的，2013年出的书，太老了，很多代码都运行不下去，所以打算换本新一点的书看。本篇内容是Chapter 8 开头部分。主要介绍了pandas和statsmodels包。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-12T07:11:15.731Z">
+<meta property="og:image" content="http://www.czxa.top/mr/20180624a1.png">
+<meta property="og:updated_time" content="2018-07-05T02:46:57.334Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Notebook">
-<meta name="twitter:description" content="👇我的坐标">
+<meta name="twitter:title" content="Python for Finance——入门到放弃">
+<meta name="twitter:description" content="本文PDF版本下载：Python_for_Finance——入门到放弃.pdf这个是这本书的最后一篇笔记了。。。我看的是第一版的，2013年出的书，太老了，很多代码都运行不下去，所以打算换本新一点的书看。本篇内容是Chapter 8 开头部分。主要介绍了pandas和statsmodels包。">
+<meta name="twitter:image" content="http://www.czxa.top/mr/20180624a1.png">
     
 
     
@@ -153,28 +158,60 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    Notebook
+    <a class="page-title-link" href="/notes/categories/笔记/">笔记</a>
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-Python_for_Finance——入门到放弃" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Python for Finance——入门到放弃
+        </h1>
+    
+
+            </header>
         
         
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/notes/about/index.html" class="article-date">
-            <time datetime="2018-01-10T05:58:08.000Z" itemprop="datePublished">2018-01-10</time>
+        <a href="/notes/posts/43149/" class="article-date">
+            <time datetime="2018-06-24T06:49:32.000Z" itemprop="datePublished">2018-06-24</time>
         </a>
     </div>
 
                 
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/notes/tags/Python/">Python</a>
+    </div>
+
             </div>
         
         
+<div class="article-gallery">
+    
+    <a class="gallery-item" href="http://www.czxa.top/mr/20180624a1.png" rel="gallery_cjk10z2600006fg8euwkfxh12">
+        <img src="http://www.czxa.top/mr/20180624a1.png" itemprop="image" />
+    </a>
+    
+</div>
+
         <div class="article-entry" itemprop="articleBody">
-            <h2 id="👇我的坐标"><a href="#👇我的坐标" class="headerlink" title="👇我的坐标"></a>👇我的坐标</h2><iframe src="/notes/blogurl/暨南大学位置.html" width="100%" height="400px" frameborder="0" allowfullscreen></iframe>
+            <p>本文PDF版本下载：<br><a href="http://www.czxa.top/blogpdf/Python_for_Finance——入门到放弃.pdf">Python_for_Finance——入门到放弃.pdf</a><br>这个是这本书的最后一篇笔记了。。。我看的是第一版的，2013年出的书，太老了，很多代码都运行不下去，所以打算换本新一点的书看。本篇内容是Chapter 8 开头部分。主要介绍了pandas和statsmodels包。<br><a id="more"></a></p>
+<h2 id="使用pandas和statsmodels"><a href="#使用pandas和statsmodels" class="headerlink" title="使用pandas和statsmodels"></a>使用pandas和statsmodels</h2><h3 id="使用Pandas生成一个数据框"><a href="#使用Pandas生成一个数据框" class="headerlink" title="使用Pandas生成一个数据框"></a>使用Pandas生成一个数据框</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">dates = pd.date_range(<span class="string">'20130101'</span>, periods = <span class="number">5</span>)</span><br><span class="line">dates</span><br><span class="line">np.random.seed(<span class="number">12345</span>)</span><br><span class="line">x = pd.DataFrame(np.random.rand(<span class="number">5</span>, <span class="number">2</span>), index = dates, columns = (<span class="string">'A'</span>, <span class="string">'B'</span>))</span><br><span class="line">x</span><br><span class="line">x.describe() <span class="comment"># 显示x的每一列的描述性统计量</span></span><br><span class="line">y = pd.Series([<span class="number">0.1</span>, <span class="number">0.02</span>, <span class="number">-0.03</span>, np.nan, <span class="number">0.130</span>, <span class="number">0.125</span>]) <span class="comment"># y contains a NA</span></span><br><span class="line">y</span><br><span class="line">y.mean()</span><br><span class="line">y.fillna(y.mean()) <span class="comment"># fillup y's NA with its mean value</span></span><br><span class="line">Out[<span class="number">12</span>]:</span><br><span class="line"><span class="number">0</span>    <span class="number">0.100</span></span><br><span class="line"><span class="number">1</span>    <span class="number">0.020</span></span><br><span class="line"><span class="number">2</span>   <span class="number">-0.030</span></span><br><span class="line"><span class="number">3</span>    <span class="number">0.069</span></span><br><span class="line"><span class="number">4</span>    <span class="number">0.130</span></span><br><span class="line"><span class="number">5</span>    <span class="number">0.125</span></span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure>
+<h3 id="statsmodels使用示例——OLS"><a href="#statsmodels使用示例——OLS" class="headerlink" title="statsmodels使用示例——OLS"></a>statsmodels使用示例——OLS</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> statsmodels.api <span class="keyword">as</span> sm</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">y = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">x = range(<span class="number">1</span>, <span class="number">8</span>) <span class="comment"># x is from 1 to 7</span></span><br><span class="line">x = sm.add_constant(x) <span class="comment"># 给x添加一列全为1的列，同时x又range变成ndarray</span></span><br><span class="line">x</span><br><span class="line">r = sm.OLS(y, x).fit() <span class="comment"># OLS</span></span><br><span class="line">r.params</span><br><span class="line">Out[<span class="number">13</span>]: array([ <span class="number">1.28571429</span>,  <span class="number">0.35714286</span>])</span><br></pre></td></tr></table></figure>
+<h2 id="数据录入"><a href="#数据录入" class="headerlink" title="数据录入"></a>数据录入</h2><h3 id="从剪贴板获取数据"><a href="#从剪贴板获取数据" class="headerlink" title="从剪贴板获取数据"></a>从剪贴板获取数据</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.read_clipboard() <span class="comment"># 从剪贴板上读取数据(在此之前我复制了平安银行的数据)</span></span><br></pre></td></tr></table></figure>
+<h3 id="从txt文件中读取数据"><a href="#从txt文件中读取数据" class="headerlink" title="从txt文件中读取数据"></a>从txt文件中读取数据</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">x = pd.read_table(<span class="string">'ff_month.txt'</span>)</span><br><span class="line">x</span><br></pre></td></tr></table></figure>
+<h3 id="从Excel中读取数据"><a href="#从Excel中读取数据" class="headerlink" title="从Excel中读取数据"></a>从Excel中读取数据</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">infile=pd.ExcelFile(<span class="string">'pingan.xlsx'</span>) <span class="comment"># 这里可能会出错，需要安装xlrd</span></span><br><span class="line">x=infile.parse(<span class="string">'Sheet1'</span>,header=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="从csv中读取数据"><a href="#从csv中读取数据" class="headerlink" title="从csv中读取数据"></a>从csv中读取数据</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">f = pd.read_csv(<span class="string">'pingan.csv'</span>)</span><br></pre></td></tr></table></figure>
+<p>##收益率的计算<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">p = np.array([<span class="number">1</span>, <span class="number">1.1</span>, <span class="number">0.9</span>, <span class="number">1.05</span>])</span><br><span class="line">print(p[<span class="number">1</span>:]) <span class="comment"># 去掉第一个</span></span><br><span class="line">print(p[:<span class="number">-1</span>]) <span class="comment"># 去掉最后一个</span></span><br><span class="line">ret = (p[<span class="number">1</span>:]-p[:<span class="number">-1</span>])/p[:<span class="number">-1</span>]</span><br><span class="line">[ <span class="number">1.1</span>   <span class="number">0.9</span>   <span class="number">1.05</span>]</span><br><span class="line">[ <span class="number">1.</span>   <span class="number">1.1</span>  <span class="number">0.9</span>]</span><br></pre></td></tr></table></figure></p>
+<h2 id="例如绘制平安银行的收益率分布图"><a href="#例如绘制平安银行的收益率分布图" class="headerlink" title="例如绘制平安银行的收益率分布图"></a>例如绘制平安银行的收益率分布图</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> tushare <span class="keyword">as</span> ts</span><br><span class="line"><span class="keyword">from</span> matplotlib.pyplot <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> matplotlib.finance <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> matplotlib.mlab <span class="keyword">as</span> mlab</span><br><span class="line"><span class="keyword">from</span> matplotlib.font_manager <span class="keyword">import</span> *</span><br><span class="line">pingan = ts.get_k_data(<span class="string">'000001'</span>)</span><br><span class="line">close = np.array(pingan.close)</span><br><span class="line">p_ret = (close[<span class="number">1</span>:]-close[:<span class="number">-1</span>])/close[:<span class="number">-1</span>]</span><br><span class="line">myfont = FontProperties(fname=<span class="string">'/Library/Fonts/Songti.ttc'</span>)</span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="keyword">False</span></span><br><span class="line">[n, bins, patches] = hist(p_ret, <span class="number">100</span>)</span><br><span class="line">mu = np.mean(p_ret)</span><br><span class="line">sigma = np.std(p_ret)</span><br><span class="line">x = mlab.normpdf(bins, mu, sigma)</span><br><span class="line">plot(bins, x, color = <span class="string">'red'</span>, lw = <span class="number">2</span>)</span><br><span class="line">title(<span class="string">u"平安银行收益率分布"</span>, fontproperties = myfont)</span><br><span class="line">xlabel(<span class="string">u"收益率"</span>, fontproperties = myfont)</span><br><span class="line">ylabel(<span class="string">u"频率"</span>, fontproperties = myfont)</span><br><span class="line">rcParams[<span class="string">'savefig.dpi'</span>] = <span class="number">800</span></span><br><span class="line">savefig(<span class="string">'20180624a1.png'</span>)</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.czxa.top/mr/20180624a1.png" alt="平安银行股票收益分布"></p>
 
         </div>
         <footer class="article-footer">
@@ -182,7 +219,7 @@
 
 
 
-    <a data-url="http://www.czxa.top/about/index.html" data-id="cjk10z27f000rfg8ehn0ifa08" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.czxa.top/posts/43149/" data-id="cjk10z2600006fg8euwkfxh12" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -283,10 +320,42 @@
         </ul>
     </div>
     
+        
+<nav id="article-nav">
+    
+        <a href="/notes/posts/25036/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            Tushare：Python中的财经数据接口包(一)——数据存储
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/notes/posts/43798/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">Python for Finance Chapter 7</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
     <div class="widgets-container">
         
             
                 
+<div class="widget-wrap widget-list">
+    <h3 class="widget-title">目录</h3>
+    <div class="widget">
+        <div id="toc" class="toc-article">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用pandas和statsmodels"><span class="toc-number">1.</span> <span class="toc-text">使用pandas和statsmodels</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用Pandas生成一个数据框"><span class="toc-number">1.1.</span> <span class="toc-text">使用Pandas生成一个数据框</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#statsmodels使用示例——OLS"><span class="toc-number">1.2.</span> <span class="toc-text">statsmodels使用示例——OLS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据录入"><span class="toc-number">2.</span> <span class="toc-text">数据录入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#从剪贴板获取数据"><span class="toc-number">2.1.</span> <span class="toc-text">从剪贴板获取数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从txt文件中读取数据"><span class="toc-number">2.2.</span> <span class="toc-text">从txt文件中读取数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从Excel中读取数据"><span class="toc-number">2.3.</span> <span class="toc-text">从Excel中读取数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从csv中读取数据"><span class="toc-number">2.4.</span> <span class="toc-text">从csv中读取数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例如绘制平安银行的收益率分布图"><span class="toc-number">3.</span> <span class="toc-text">例如绘制平安银行的收益率分布图</span></a></li></ol>
+        </div>
+    </div>
+</div>
+
 
             
                 

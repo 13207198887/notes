@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Python for Finance Chapter1~3 | Notebook</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Python" />
+    
+    <meta name="description" content="本文PDF版本下载：Python_for_Finance_Chapter1~3.pdf这本书介绍了Python在金融领域的基本应用，非常适合入门。为了保证学习效果，我决定好好记笔记。下面是这本书的下载链接，欢迎一起学习：Python_for_Finance.pdf">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python for Finance Chapter1~3">
+<meta property="og:url" content="http://www.czxa.top/posts/54264/index.html">
+<meta property="og:site_name" content="Notebook">
+<meta property="og:description" content="本文PDF版本下载：Python_for_Finance_Chapter1~3.pdf这本书介绍了Python在金融领域的基本应用，非常适合入门。为了保证学习效果，我决定好好记笔记。下面是这本书的下载链接，欢迎一起学习：Python_for_Finance.pdf">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.czxa.top/mr/20180613_IMG_4497.JPG">
+<meta property="og:updated_time" content="2018-07-05T02:46:57.331Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python for Finance Chapter1~3">
+<meta name="twitter:description" content="本文PDF版本下载：Python_for_Finance_Chapter1~3.pdf这本书介绍了Python在金融领域的基本应用，非常适合入门。为了保证学习效果，我决定好好记笔记。下面是这本书的下载链接，欢迎一起学习：Python_for_Finance.pdf">
+<meta name="twitter:image" content="http://www.czxa.top/mr/20180613_IMG_4497.JPG">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/notes/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/notes/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/notes/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/notes/css/style.css">
+
+    <script src="/notes/libs/jquery/2.2.4/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/notes/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/notes/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/notes/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="http://www.czxa.top">主站</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/">首页</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/tags">标签</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/categories">分类</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/favorites">收藏夹</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/about">联系我</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="http://www.czxa.top/gallery">画廊</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/books">豆瓣书架</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/movies">豆瓣影院</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '/notes/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/notes/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/notes/categories/笔记/">笔记</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-Python_for_Finance_Chapter1~3" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Python for Finance Chapter1~3
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/notes/posts/54264/" class="article-date">
+            <time datetime="2018-06-17T04:49:32.000Z" itemprop="datePublished">2018-06-17</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/notes/tags/Python/">Python</a>
+    </div>
+
+            </div>
+        
+        
+<div class="article-gallery">
+    
+    <a class="gallery-item" href="http://www.czxa.top/mr/20180326_IMG_3836.JPG" rel="gallery_cjk10z25q0001fg8evv7x39ky">
+        <img src="http://www.czxa.top/mr/20180326_IMG_3836.JPG" itemprop="image" />
+    </a>
+    
+</div>
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>本文PDF版本下载：<a href="http://www.czxa.top/blogpdf/Python_for_Finance_Chapter1~3.pdf">Python_for_Finance_Chapter1~3.pdf</a><br>这本书介绍了Python在金融领域的基本应用，非常适合入门。为了保证学习效果，我决定好好记笔记。下面是这本书的下载链接，欢迎一起学习：<br><a href="http://www.czxa.top/nr/Python.for.Finance..pdf">Python_for_Finance.pdf</a><br><a id="more"></a></p>
+<h1 id="Chapter1-Python的安装与介绍"><a href="#Chapter1-Python的安装与介绍" class="headerlink" title="Chapter1: Python的安装与介绍"></a>Chapter1: Python的安装与介绍</h1><h2 id="Python是大小写敏感的"><a href="#Python是大小写敏感的" class="headerlink" title="Python是大小写敏感的"></a>Python是大小写敏感的</h2><h2 id="查看帮助文档"><a href="#查看帮助文档" class="headerlink" title="查看帮助文档"></a>查看帮助文档</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">help()</span><br><span class="line"></span><br><span class="line">👇结果</span><br><span class="line">help&gt; keywords</span><br><span class="line">Here <span class="keyword">is</span> a list of the Python keywords.  Enter any keyword to get more help.</span><br><span class="line"><span class="keyword">False</span>               <span class="function"><span class="keyword">def</span>                 <span class="title">if</span>                  <span class="title">raise</span></span></span><br><span class="line"><span class="function"><span class="title">None</span>                <span class="title">del</span>                 <span class="title">import</span>              <span class="title">return</span></span></span><br><span class="line"><span class="function"><span class="title">True</span>                <span class="title">elif</span>                <span class="title">in</span>                  <span class="title">try</span></span></span><br><span class="line"><span class="function"><span class="title">and</span>                 <span class="title">else</span>                <span class="title">is</span>                  <span class="title">while</span></span></span><br><span class="line"><span class="function"><span class="title">as</span>                  <span class="title">except</span>              <span class="title">lambda</span>              <span class="title">with</span></span></span><br><span class="line"><span class="function"><span class="title">assert</span>              <span class="title">finally</span>             <span class="title">nonlocal</span>            <span class="title">yield</span></span></span><br><span class="line"><span class="function"><span class="title">break</span>               <span class="title">for</span>                 <span class="title">not</span>                 </span></span><br><span class="line"><span class="function"><span class="title">class</span>               <span class="title">from</span>                <span class="title">or</span>                  </span></span><br><span class="line"><span class="function"><span class="title">continue</span>            <span class="title">global</span>              <span class="title">pass</span></span></span><br></pre></td></tr></table></figure>
+<p>在PyCharm中，选中某行代码然后<code>Shift+Alt+E</code>即可逐行运行代码。</p>
+<h2 id="查看和调用Python的版本"><a href="#查看和调用Python的版本" class="headerlink" title="查看和调用Python的版本"></a>查看和调用Python的版本</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.version</span><br><span class="line">👇结果</span><br><span class="line">Out[<span class="number">2</span>]: <span class="string">'3.6.4 (v3.6.4:d48ecebad5, Dec 18 2017, 21:07:28) \n[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)]'</span></span><br></pre></td></tr></table></figure>
+<h1 id="Chapter2-把Python当成普通计算器使用"><a href="#Chapter2-把Python当成普通计算器使用" class="headerlink" title="Chapter2: 把Python当成普通计算器使用"></a>Chapter2: 把Python当成普通计算器使用</h1><h2 id="变量定义不需要事先声明"><a href="#变量定义不需要事先声明" class="headerlink" title="变量定义不需要事先声明"></a>变量定义不需要事先声明</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pv = <span class="number">22</span></span><br><span class="line">pv+<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>##使用dir()查看已有的变量和函数<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">dir()</span><br><span class="line">👇结果</span><br><span class="line">Out[<span class="number">4</span>]:</span><br><span class="line">[<span class="string">'In'</span>,</span><br><span class="line"> <span class="string">'Out'</span>,</span><br><span class="line"> <span class="string">'_'</span>,</span><br><span class="line"> <span class="string">'_2'</span>,</span><br><span class="line"> <span class="string">'_3'</span>,</span><br><span class="line"> <span class="string">'__'</span>,</span><br><span class="line"> <span class="string">'___'</span>,</span><br><span class="line"> <span class="string">'__builtin__'</span>,</span><br><span class="line"> <span class="string">'__builtins__'</span>,</span><br><span class="line"> <span class="string">'__doc__'</span>,</span><br><span class="line"> <span class="string">'__loader__'</span>,</span><br><span class="line"> <span class="string">'__name__'</span>,</span><br><span class="line"> <span class="string">'__package__'</span>,</span><br><span class="line"> <span class="string">'__spec__'</span>,</span><br><span class="line"> <span class="string">'_dh'</span>,</span><br><span class="line"> <span class="string">'_i'</span>,</span><br><span class="line"> <span class="string">'_i1'</span>,</span><br><span class="line"> <span class="string">'_i2'</span>,</span><br><span class="line"> <span class="string">'_i3'</span>,</span><br><span class="line"> <span class="string">'_i4'</span>,</span><br><span class="line"> <span class="string">'_ih'</span>,</span><br><span class="line"> <span class="string">'_ii'</span>,</span><br><span class="line"> <span class="string">'_iii'</span>,</span><br><span class="line"> <span class="string">'_oh'</span>,</span><br><span class="line"> <span class="string">'exit'</span>,</span><br><span class="line"> <span class="string">'get_ipython'</span>,</span><br><span class="line"> <span class="string">'pv'</span>,</span><br><span class="line"> <span class="string">'quit'</span>,</span><br><span class="line"> <span class="string">'sys'</span>]</span><br></pre></td></tr></table></figure></p>
+<h2 id="删除一个变量"><a href="#删除一个变量" class="headerlink" title="删除一个变量"></a>删除一个变量</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> pv</span><br></pre></td></tr></table></figure>
+<h2 id="幂运算"><a href="#幂运算" class="headerlink" title="幂运算"></a>幂运算</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span>**<span class="number">3</span></span><br><span class="line">👇结果</span><br><span class="line">Out[<span class="number">6</span>]: <span class="number">8</span></span><br></pre></td></tr></table></figure>
+<h2 id="真正的幂函数"><a href="#真正的幂函数" class="headerlink" title="真正的幂函数"></a>真正的幂函数</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pow(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">👇结果</span><br><span class="line">Out[<span class="number">7</span>]: <span class="number">8</span></span><br></pre></td></tr></table></figure>
+<h2 id="关于局部变量和全局变量的LEGB规则"><a href="#关于局部变量和全局变量的LEGB规则" class="headerlink" title="关于局部变量和全局变量的LEGB规则"></a>关于局部变量和全局变量的LEGB规则</h2><p>更多内容参考这篇博客：<br><a href="https://www.cnblogs.com/GuoYaxiang/p/6405814.html" target="_blank" rel="noopener">Python中的LEGB规则</a></p>
+<table>
+<thead>
+<tr>
+<th>Items</th>
+<th>meanings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L</td>
+<td>Local refers to names assigned in any way within a function (def) and not declared global in that function.</td>
+</tr>
+<tr>
+<td>E</td>
+<td>Enclosing refers to enclosing function locals, such as names, in the local scope of any and all enclosing function (def).</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Global refers to names such as assigned at the top level of a module or declared as global variable within a function defined by def.</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Build-in refers to names pre-assigned in the build-in-modules, such as open, range, and SyntaxError.</td>
+</tr>
+</tbody>
+</table>
+<p>用中文来说就是：<br>Items|meanings<br>—|—<br>Local |可能是在一个函数或者类方法内部。<br>Enclosed |可能是嵌套函数内，比如说 一个函数包裹在另一个函数内部。<br>Global |代表的是执行脚本自身的最高层次。<br>Built-in |是Python为自身保留的特殊名称。</p>
+<h2 id="pow-函数和-的区别"><a href="#pow-函数和-的区别" class="headerlink" title="pow()函数和**的区别"></a>pow()函数和<code>**</code>的区别</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">help(pow)</span><br><span class="line">👇结果</span><br><span class="line">Help on built-<span class="keyword">in</span> function pow <span class="keyword">in</span> module builtins:</span><br><span class="line">pow(x, y, z=<span class="keyword">None</span>, /)</span><br><span class="line">    Equivalent to x**y (<span class="keyword">with</span> two arguments) <span class="keyword">or</span> x**y % z (<span class="keyword">with</span> three arguments)</span><br><span class="line"></span><br><span class="line">    Some types, such <span class="keyword">as</span> ints, are able to use a more efficient algorithm when</span><br><span class="line">    invoked using the three argument form.</span><br></pre></td></tr></table></figure>
+<p>也就是说pow()函数里面可以使用三个参数，如果使用三个参数:<br>$$<br>pow(x, y, z) = mod(x^y, z)<br>$$</p>
+<h2 id="选择精确度"><a href="#选择精确度" class="headerlink" title="选择精确度"></a>选择精确度</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="number">7</span>/<span class="number">3</span>)</span><br><span class="line">payment = <span class="number">7</span>/<span class="number">3</span></span><br><span class="line">payment1 = round(payment, <span class="number">2</span>)</span><br><span class="line">print(payment)</span><br><span class="line">print(payment1)</span><br><span class="line">👇结果</span><br><span class="line"><span class="number">2.3333333333333335</span></span><br><span class="line"><span class="number">2.3333333333333335</span></span><br><span class="line"><span class="number">2.33</span></span><br></pre></td></tr></table></figure>
+<p>不过需要注意的是，这里的round()函数会事实上改变精确度，因此需要谨慎使用。如果round()没有指定精确度，默认返回一个整数。</p>
+<h2 id="import-mathvs-from-math-import"><a href="#import-mathvs-from-math-import" class="headerlink" title="import mathvs. from math import *"></a><code>import math</code>vs. <code>from math import *</code></h2><p>使用第一种方式后，后面引用该包中的函数仍然需要加上前缀<code>math.</code>，而使用第二种方式之后不再需要。</p>
+<h2 id="判断一个变量的类型——type"><a href="#判断一个变量的类型——type" class="headerlink" title="判断一个变量的类型——type()"></a>判断一个变量的类型——type()</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type(payment)</span><br><span class="line">👇结果</span><br><span class="line">Out[<span class="number">13</span>]: float</span><br></pre></td></tr></table></figure>
+<h2 id="使用下划线表示上一个表达式"><a href="#使用下划线表示上一个表达式" class="headerlink" title="使用下划线表示上一个表达式"></a>使用下划线表示上一个表达式</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">1.56</span></span><br><span class="line">y = <span class="number">5.77</span></span><br><span class="line">x+y</span><br><span class="line">👇结果</span><br><span class="line">Out[<span class="number">21</span>]: <span class="number">7.33</span></span><br><span class="line"></span><br><span class="line"><span class="number">9</span>+_</span><br><span class="line">👇结果</span><br><span class="line">Out[<span class="number">22</span>]: <span class="number">16.33</span></span><br><span class="line"></span><br><span class="line">round(_, <span class="number">1</span>)</span><br><span class="line">👇结果</span><br><span class="line">Out[<span class="number">23</span>]: <span class="number">16.3</span></span><br></pre></td></tr></table></figure>
+<h2 id="大写函数：upper"><a href="#大写函数：upper" class="headerlink" title="大写函数：upper()"></a>大写函数：upper()</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="string">'This is a sentence'</span></span><br><span class="line">x.upper()</span><br><span class="line">👇结果</span><br><span class="line">Out[<span class="number">24</span>]: <span class="string">'THIS IS A SENTENCE'</span></span><br></pre></td></tr></table></figure>
+<h2 id="列示所有的字符串函数"><a href="#列示所有的字符串函数" class="headerlink" title="列示所有的字符串函数"></a>列示所有的字符串函数</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line">dir(<span class="string">''</span>)</span><br><span class="line">Out[<span class="number">25</span>]:</span><br><span class="line">👇结果</span><br><span class="line">[<span class="string">'__add__'</span>,</span><br><span class="line"> <span class="string">'__class__'</span>,</span><br><span class="line"> <span class="string">'__contains__'</span>,</span><br><span class="line"> <span class="string">'__delattr__'</span>,</span><br><span class="line"> <span class="string">'__dir__'</span>,</span><br><span class="line"> <span class="string">'__doc__'</span>,</span><br><span class="line"> <span class="string">'__eq__'</span>,</span><br><span class="line"> <span class="string">'__format__'</span>,</span><br><span class="line"> <span class="string">'__ge__'</span>,</span><br><span class="line"> <span class="string">'__getattribute__'</span>,</span><br><span class="line"> <span class="string">'__getitem__'</span>,</span><br><span class="line"> <span class="string">'__getnewargs__'</span>,</span><br><span class="line"> <span class="string">'__gt__'</span>,</span><br><span class="line"> <span class="string">'__hash__'</span>,</span><br><span class="line"> <span class="string">'__init__'</span>,</span><br><span class="line"> <span class="string">'__init_subclass__'</span>,</span><br><span class="line"> <span class="string">'__iter__'</span>,</span><br><span class="line"> <span class="string">'__le__'</span>,</span><br><span class="line"> <span class="string">'__len__'</span>,</span><br><span class="line"> <span class="string">'__lt__'</span>,</span><br><span class="line"> <span class="string">'__mod__'</span>,</span><br><span class="line"> <span class="string">'__mul__'</span>,</span><br><span class="line"> <span class="string">'__ne__'</span>,</span><br><span class="line"> <span class="string">'__new__'</span>,</span><br><span class="line"> <span class="string">'__reduce__'</span>,</span><br><span class="line"> <span class="string">'__reduce_ex__'</span>,</span><br><span class="line"> <span class="string">'__repr__'</span>,</span><br><span class="line"> <span class="string">'__rmod__'</span>,</span><br><span class="line"> <span class="string">'__rmul__'</span>,</span><br><span class="line"> <span class="string">'__setattr__'</span>,</span><br><span class="line"> <span class="string">'__sizeof__'</span>,</span><br><span class="line"> <span class="string">'__str__'</span>,</span><br><span class="line"> <span class="string">'__subclasshook__'</span>,</span><br><span class="line"> <span class="string">'capitalize'</span>,</span><br><span class="line"> <span class="string">'casefold'</span>,</span><br><span class="line"> <span class="string">'center'</span>,</span><br><span class="line"> <span class="string">'count'</span>,</span><br><span class="line"> <span class="string">'encode'</span>,</span><br><span class="line"> <span class="string">'endswith'</span>,</span><br><span class="line"> <span class="string">'expandtabs'</span>,</span><br><span class="line"> <span class="string">'find'</span>,</span><br><span class="line"> <span class="string">'format'</span>,</span><br><span class="line"> <span class="string">'format_map'</span>,</span><br><span class="line"> <span class="string">'index'</span>,</span><br><span class="line"> <span class="string">'isalnum'</span>,</span><br><span class="line"> <span class="string">'isalpha'</span>,</span><br><span class="line"> <span class="string">'isdecimal'</span>,</span><br><span class="line"> <span class="string">'isdigit'</span>,</span><br><span class="line"> <span class="string">'isidentifier'</span>,</span><br><span class="line"> <span class="string">'islower'</span>,</span><br><span class="line"> <span class="string">'isnumeric'</span>,</span><br><span class="line"> <span class="string">'isprintable'</span>,</span><br><span class="line"> <span class="string">'isspace'</span>,</span><br><span class="line"> <span class="string">'istitle'</span>,</span><br><span class="line"> <span class="string">'isupper'</span>,</span><br><span class="line"> <span class="string">'join'</span>,</span><br><span class="line"> <span class="string">'ljust'</span>,</span><br><span class="line"> <span class="string">'lower'</span>,</span><br><span class="line"> <span class="string">'lstrip'</span>,</span><br><span class="line"> <span class="string">'maketrans'</span>,</span><br><span class="line"> <span class="string">'partition'</span>,</span><br><span class="line"> <span class="string">'replace'</span>,</span><br><span class="line"> <span class="string">'rfind'</span>,</span><br><span class="line"> <span class="string">'rindex'</span>,</span><br><span class="line"> <span class="string">'rjust'</span>,</span><br><span class="line"> <span class="string">'rpartition'</span>,</span><br><span class="line"> <span class="string">'rsplit'</span>,</span><br><span class="line"> <span class="string">'rstrip'</span>,</span><br><span class="line"> <span class="string">'split'</span>,</span><br><span class="line"> <span class="string">'splitlines'</span>,</span><br><span class="line"> <span class="string">'startswith'</span>,</span><br><span class="line"> <span class="string">'strip'</span>,</span><br><span class="line"> <span class="string">'swapcase'</span>,</span><br><span class="line"> <span class="string">'title'</span>,</span><br><span class="line"> <span class="string">'translate'</span>,</span><br><span class="line"> <span class="string">'upper'</span>,</span><br><span class="line"> <span class="string">'zfill'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例如首字母大写函数的帮助文件</span></span><br><span class="line"> help(<span class="string">''</span>.capitalize)</span><br><span class="line"> 👇结果</span><br><span class="line"> Help on built-<span class="keyword">in</span> function capitalize:</span><br><span class="line"> capitalize(...) method of builtins.str instance</span><br><span class="line">     S.capitalize() -&gt; str</span><br><span class="line"></span><br><span class="line">     Return a capitalized version of S, i.e. make the first character</span><br><span class="line">     have upper case <span class="keyword">and</span> the rest lower case.</span><br></pre></td></tr></table></figure>
+<h2 id="元组——tuple"><a href="#元组——tuple" class="headerlink" title="元组——tuple"></a>元组——tuple</h2><p>元组是一个常量，其中的数值不可修改。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">x = (<span class="string">'czx'</span>, <span class="number">21</span>)</span><br><span class="line">len(x)</span><br><span class="line">👇结果</span><br><span class="line">Out[<span class="number">30</span>]: <span class="number">2</span></span><br><span class="line">x[<span class="number">0</span>]</span><br><span class="line">👇结果</span><br><span class="line">Out[<span class="number">31</span>]: <span class="string">'czx'</span></span><br><span class="line">type(x[<span class="number">1</span>])</span><br><span class="line">👇结果</span><br><span class="line">Out[<span class="number">32</span>]: int</span><br><span class="line">z = ()</span><br><span class="line">type(z)</span><br><span class="line">👇结果</span><br><span class="line">Out[<span class="number">34</span>]: tuple</span><br><span class="line">y = (<span class="number">1</span>, )</span><br><span class="line">type(y)</span><br><span class="line">👇结果</span><br><span class="line">Out[<span class="number">36</span>]: tuple</span><br><span class="line">x = (1) ===&gt;这个是作为int的</span><br><span class="line">type(x)</span><br><span class="line">👇结果</span><br><span class="line">Out[<span class="number">38</span>]: int</span><br></pre></td></tr></table></figure></p>
+<p>元组的格式化输出<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = (<span class="string">'czx'</span>, <span class="number">21</span>)</span><br><span class="line">print(<span class="string">'我的名字是 %s, 年龄 %d 岁。'</span> % x)</span><br><span class="line">我的名字是 czx, 年龄 <span class="number">21</span> 岁。</span><br></pre></td></tr></table></figure></p>
+<h1 id="把Python作为一个金融计算器来使用"><a href="#把Python作为一个金融计算器来使用" class="headerlink" title="把Python作为一个金融计算器来使用"></a>把Python作为一个金融计算器来使用</h1><p>首先需要编写一个含各种算式的脚本：<br><a href="/asset/fin101.py">fin101.py</a><br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pv_f</span><span class="params">(fv, r , n)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    现值函数。</span></span><br><span class="line"><span class="string">    :param fv: 终值</span></span><br><span class="line"><span class="string">    :param r: 贴现率</span></span><br><span class="line"><span class="string">    :param n: 期数</span></span><br><span class="line"><span class="string">    :return: 现值</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">return</span> fv/((<span class="number">1</span>+r)**n)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dir2</span><span class="params">(path = <span class="string">'/Users/mr.cheng/Desktop/Python_for_Finance'</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    列示某个路径上的所有文件：</span></span><br><span class="line"><span class="string">    :param path: 路径，默认为'/Users/mr.cheng/Desktop/Python_for_Finance'</span></span><br><span class="line"><span class="string">    :return: 指定路径上的所有文件名的一个列表</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">from</span> os <span class="keyword">import</span> listdir</span><br><span class="line">    print(listdir(path))</span><br><span class="line">    <span class="keyword">return</span> listdir(path)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pv_perpetuity</span><span class="params">(c, r)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    计算永续现金流的现值</span></span><br><span class="line"><span class="string">    :param c: 每期现金流</span></span><br><span class="line"><span class="string">    :param r: 贴现率</span></span><br><span class="line"><span class="string">    :return: 现值</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">return</span> c/r</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pv_growing_perpetuity</span><span class="params">(c, r, g)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    计算增长现金流的现值。</span></span><br><span class="line"><span class="string">    :param c: 第一笔现金流</span></span><br><span class="line"><span class="string">    :param r: 贴现率</span></span><br><span class="line"><span class="string">    :param g: 年金每期增长率</span></span><br><span class="line"><span class="string">    :return: 增长现金流的现值</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">if</span>(r &lt; g):</span><br><span class="line">        print(<span class="string">"r &lt; g !!!"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> (c/(r - g))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pv_annuity</span><span class="params">(c, r, n)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    计算普通年金(期初支付)的现值</span></span><br><span class="line"><span class="string">    :param c: 每期支付</span></span><br><span class="line"><span class="string">    :param r: 贴现率</span></span><br><span class="line"><span class="string">    :param n: 期数</span></span><br><span class="line"><span class="string">    :return: 年金现值</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">return</span> (c/r)(<span class="number">1</span><span class="number">-1</span>/((<span class="number">1</span>+r)**n))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pv_annuity_due</span><span class="params">(c, r, n)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    计算应付年金(期末支付)现值</span></span><br><span class="line"><span class="string">    :param c: 每期支付</span></span><br><span class="line"><span class="string">    :param r: 贴现率</span></span><br><span class="line"><span class="string">    :param n: 期数</span></span><br><span class="line"><span class="string">    :return: 年金现值</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">return</span> (c/r)(<span class="number">1</span><span class="number">-1</span>/((<span class="number">1</span>+r)**n))(<span class="number">1</span>+r)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fv_annuity</span><span class="params">(c, r, n)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    计算普通年金终值</span></span><br><span class="line"><span class="string">    :param c: 每期支付</span></span><br><span class="line"><span class="string">    :param r: 贴现率</span></span><br><span class="line"><span class="string">    :param n: 期数</span></span><br><span class="line"><span class="string">    :return: 年金终值</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">return</span> (c/r)((<span class="number">1</span>+r)**n - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fv_annuity_due</span><span class="params">(c, r, n)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    计算应付年金终值</span></span><br><span class="line"><span class="string">    :param c: 每期支付</span></span><br><span class="line"><span class="string">    :param r: 贴现率</span></span><br><span class="line"><span class="string">    :param n: 期数</span></span><br><span class="line"><span class="string">    :return: 年金终值</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">return</span> (c/r)((<span class="number">1</span>+r)**n - <span class="number">1</span>)(<span class="number">1</span>+r)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pv_growing_annuity</span><span class="params">(c, n, r, g)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    计算增长型年金现值</span></span><br><span class="line"><span class="string">    :param c: 每期支付</span></span><br><span class="line"><span class="string">    :param r: 贴现率</span></span><br><span class="line"><span class="string">    :param n: 期数</span></span><br><span class="line"><span class="string">    :param g: 年金增长率</span></span><br><span class="line"><span class="string">    :return: 年金现值</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">return</span> (c/r)(<span class="number">1</span>-((<span class="number">1</span>+g)/(<span class="number">1</span>+r))**n)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fv_growing_annuity</span><span class="params">(c, n, r, g)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    计算增长型年金终值</span></span><br><span class="line"><span class="string">    :param c: 每期支付</span></span><br><span class="line"><span class="string">    :param r: 贴现率</span></span><br><span class="line"><span class="string">    :param n: 期数</span></span><br><span class="line"><span class="string">    :param g: 年金增长率</span></span><br><span class="line"><span class="string">    :return: 年金终值</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">return</span> (c/r)((<span class="number">1</span>+r)**n - (<span class="number">1</span>+g)**n)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">EAR</span><span class="params">(APR, m)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    年化百分率转换成有效年利率</span></span><br><span class="line"><span class="string">    :param APR: 年化百分率</span></span><br><span class="line"><span class="string">    :param m: 计息频率</span></span><br><span class="line"><span class="string">    :return: EAR</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">return</span> (<span class="number">1</span> + APR/m)**m - <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">continuously_compounded_interest_rate</span><span class="params">(APR, m)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    APR =&gt; 连续负利率。</span></span><br><span class="line"><span class="string">        exp(R_c) = (1+APR/m)^m ==&gt; R_c = ln[(1+APR/m)^m]</span></span><br><span class="line"><span class="string">    :param APR: 年化百分率</span></span><br><span class="line"><span class="string">    :param m: 计息频率</span></span><br><span class="line"><span class="string">    :return: 连续EAR</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">from</span> math <span class="keyword">import</span> log</span><br><span class="line">    <span class="keyword">return</span> log((<span class="number">1</span>+APR/m)^m)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">npv_f</span><span class="params">(rate, cashflows)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    计算给定现金流的净现值</span></span><br><span class="line"><span class="string">    :param rate: 贴现率</span></span><br><span class="line"><span class="string">    :param cashflows: 现金流列表</span></span><br><span class="line"><span class="string">    :return: NPV</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    total = <span class="number">0.0</span></span><br><span class="line">    <span class="comment">## 下面的这种用法非常重要：</span></span><br><span class="line">    <span class="keyword">for</span> i, cashflow <span class="keyword">in</span> enumerate(cashflows):</span><br><span class="line">        total += cashflow/(<span class="number">1</span>+rate)**i</span><br><span class="line">    <span class="keyword">return</span> total</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">payback_period</span><span class="params">(cashflows)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    计算回收期</span></span><br><span class="line"><span class="string">    :param cashflows:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    total = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i, cashflow <span class="keyword">in</span> enumerate(cashflows):</span><br><span class="line">        total += cashflow</span><br><span class="line">        <span class="keyword">if</span> (total &lt; <span class="number">0</span>):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            total_temp = <span class="number">0.0</span></span><br><span class="line">            <span class="comment"># 注意range()函数不包括右边界</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>, i):</span><br><span class="line">                total_temp += cashflows[j]</span><br><span class="line">            total_temp = abs(total_temp)</span><br><span class="line">            <span class="keyword">return</span> i<span class="number">-1</span>+total_temp/cashflows[i]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">IRR_f</span><span class="params">(cashflows, interations = <span class="number">1000</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    计算内部收益率</span></span><br><span class="line"><span class="string">    :param cashflows: 现金流列表</span></span><br><span class="line"><span class="string">    :param interations: 迭代次数，默认为1000</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    rate = <span class="number">1.0</span></span><br><span class="line">    investment = cashflows[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, interations+<span class="number">1</span>):</span><br><span class="line">        rate *= (<span class="number">1</span>-npv_f(rate, cashflows)/investment)</span><br><span class="line">    <span class="keyword">return</span> rate</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fin101</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    基本函数：</span></span><br><span class="line"><span class="string">        1. pv_f(fv, r , n)</span></span><br><span class="line"><span class="string">        2. dir2(path = '/Users/mr.cheng/Desktop/Python_for_Finance')</span></span><br><span class="line"><span class="string">        3. pv_perpetuity(c, r)</span></span><br><span class="line"><span class="string">        4. pv_growing_perpetuity(c, r, g)</span></span><br><span class="line"><span class="string">        5. pv_annuity(c, r, n)</span></span><br><span class="line"><span class="string">        6. pv_annuity_due(c, r, n)</span></span><br><span class="line"><span class="string">        7. fv_annuity(c, r, n)</span></span><br><span class="line"><span class="string">        8. fv_annuity_due(c, r, n)</span></span><br><span class="line"><span class="string">        9. pv_growing_annuity(c, n, r, g)</span></span><br><span class="line"><span class="string">        10. fv_growing_annuity(c, n, r, g)</span></span><br><span class="line"><span class="string">        11. EAR(APR, m)</span></span><br><span class="line"><span class="string">        12. continuously_compounded_interest_rate(APR, m)</span></span><br><span class="line"><span class="string">        13. npv_f(rate, cashflows)</span></span><br><span class="line"><span class="string">        14. payback_period(cashflows)</span></span><br><span class="line"><span class="string">        15. IRR_f(cashflows, interations = 1000)</span></span><br><span class="line"><span class="string">    查看帮助文件：</span></span><br><span class="line"><span class="string">        例如pv_f: &gt;&gt;&gt; help(pv_f)</span></span><br><span class="line"><span class="string">    """</span></span><br></pre></td></tr></table></figure></p>
+<p>上面的脚本中的回收期计算函数是我自己设计的！下面是这个脚本的使用方法：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fin101 <span class="keyword">import</span> *</span><br><span class="line">help(fin101)</span><br></pre></td></tr></table></figure></p>
+<h2 id="把我们的项目添加到系统路径中"><a href="#把我们的项目添加到系统路径中" class="headerlink" title="把我们的项目添加到系统路径中"></a>把我们的项目添加到系统路径中</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">myFolder = <span class="string">'/Users/mr.cheng/Desktop/Python_for_Finance'</span></span><br><span class="line"><span class="keyword">if</span> myFolder <span class="keyword">not</span> <span class="keyword">in</span> sys.path:</span><br><span class="line">    sys.path.append(myFolder)</span><br><span class="line"><span class="keyword">for</span> path <span class="keyword">in</span> sys.path:</span><br><span class="line">    print(path)</span><br><span class="line">👇结果</span><br><span class="line">/Applications/PyCharm.app/Contents/helpers/pydev</span><br><span class="line">/Applications/PyCharm.app/Contents/helpers/pydev</span><br><span class="line">/Library/Frameworks/Python.framework/Versions/<span class="number">3.6</span>/lib/python36.zip</span><br><span class="line">/Library/Frameworks/Python.framework/Versions/<span class="number">3.6</span>/lib/python3<span class="number">.6</span></span><br><span class="line">/Library/Frameworks/Python.framework/Versions/<span class="number">3.6</span>/lib/python3<span class="number">.6</span>/lib-dynload</span><br><span class="line">/Library/Frameworks/Python.framework/Versions/<span class="number">3.6</span>/lib/python3<span class="number">.6</span>/site-packages</span><br><span class="line">/Library/Frameworks/Python.framework/Versions/<span class="number">3.6</span>/lib/python3<span class="number">.6</span>/site-packages/IPython/extensions</span><br><span class="line">/Users/mr.cheng/Desktop/Python_for_Finance</span><br></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://www.czxa.top/posts/54264/" data-id="cjk10z25q0001fg8evv7x39ky" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="valine-thread"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/czxa" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="https://weibo.com/p/1005056084580012/photos?from=page_100505&mod=TAB&pids=plc_main" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/notes/posts/19677/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            Python for Finance Chapter4~6
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+<div class="widget-wrap widget-list">
+    <h3 class="widget-title">目录</h3>
+    <div class="widget">
+        <div id="toc" class="toc-article">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter1-Python的安装与介绍"><span class="toc-number">1.</span> <span class="toc-text">Chapter1: Python的安装与介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python是大小写敏感的"><span class="toc-number">1.1.</span> <span class="toc-text">Python是大小写敏感的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看帮助文档"><span class="toc-number">1.2.</span> <span class="toc-text">查看帮助文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看和调用Python的版本"><span class="toc-number">1.3.</span> <span class="toc-text">查看和调用Python的版本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter2-把Python当成普通计算器使用"><span class="toc-number">2.</span> <span class="toc-text">Chapter2: 把Python当成普通计算器使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量定义不需要事先声明"><span class="toc-number">2.1.</span> <span class="toc-text">变量定义不需要事先声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除一个变量"><span class="toc-number">2.2.</span> <span class="toc-text">删除一个变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#幂运算"><span class="toc-number">2.3.</span> <span class="toc-text">幂运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#真正的幂函数"><span class="toc-number">2.4.</span> <span class="toc-text">真正的幂函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于局部变量和全局变量的LEGB规则"><span class="toc-number">2.5.</span> <span class="toc-text">关于局部变量和全局变量的LEGB规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pow-函数和-的区别"><span class="toc-number">2.6.</span> <span class="toc-text">pow()函数和**的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择精确度"><span class="toc-number">2.7.</span> <span class="toc-text">选择精确度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#import-mathvs-from-math-import"><span class="toc-number">2.8.</span> <span class="toc-text">import mathvs. from math import *</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断一个变量的类型——type"><span class="toc-number">2.9.</span> <span class="toc-text">判断一个变量的类型——type()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用下划线表示上一个表达式"><span class="toc-number">2.10.</span> <span class="toc-text">使用下划线表示上一个表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#大写函数：upper"><span class="toc-number">2.11.</span> <span class="toc-text">大写函数：upper()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列示所有的字符串函数"><span class="toc-number">2.12.</span> <span class="toc-text">列示所有的字符串函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#元组——tuple"><span class="toc-number">2.13.</span> <span class="toc-text">元组——tuple</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#把Python作为一个金融计算器来使用"><span class="toc-number">3.</span> <span class="toc-text">把Python作为一个金融计算器来使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#把我们的项目添加到系统路径中"><span class="toc-number">3.1.</span> <span class="toc-text">把我们的项目添加到系统路径中</span></a></li></ol></li></ol>
+        </div>
+    </div>
+</div>
+
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/null/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180719a1.png)" alt="A machine learning odyssey" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/TensorFlow/">TensorFlow</a></p>
+                            <p class="item-title"><a href="/notes/posts/null/" class="title">A machine learning odyssey</a></p>
+                            <p class="item-date"><time datetime="2018-07-21T15:49:32.000Z" itemprop="datePublished">2018-07-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/31323/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://tushare.org/_images/ts.jpg)" alt="Tushare：Python中的财经数据接口包(二)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/31323/" class="title">Tushare：Python中的财经数据接口包(二)</a></p>
+                            <p class="item-date"><time datetime="2018-07-02T10:41:32.000Z" itemprop="datePublished">2018-07-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/25036/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180626a3.png)" alt="Tushare：Python中的财经数据接口包(一)——数据存储" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/25036/" class="title">Tushare：Python中的财经数据接口包(一)——数据存储</a></p>
+                            <p class="item-date"><time datetime="2018-06-26T02:41:32.000Z" itemprop="datePublished">2018-06-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/43149/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180624a1.png)" alt="Python for Finance——入门到放弃" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/43149/" class="title">Python for Finance——入门到放弃</a></p>
+                            <p class="item-date"><time datetime="2018-06-24T06:49:32.000Z" itemprop="datePublished">2018-06-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/43798/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180623c8.png)" alt="Python for Finance Chapter 7" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/43798/" class="title">Python for Finance Chapter 7</a></p>
+                            <p class="item-date"><time datetime="2018-06-23T17:49:32.000Z" itemprop="datePublished">2018-06-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/notes/categories/TensorFlow/">TensorFlow</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/notes/categories/笔记/">笔记</a><span class="category-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/notes/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/notes/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/notes/tags/Python/">Python</a><span class="tag-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/notes/tags/Python/" style="font-size: 10px;">Python</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://dwla.github.io">JWen</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://www.czxa.top/notes/favorites/">我的收藏</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://unsplash.com/@czxa">Unsplash</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://gallery.echartsjs.com/explore.html?u=bd-2472402526&type=work#sort=rank~timeframe=all~author=all">ECharts</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.zingchart.com/gallery/">Zingchart</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.amcharts.com/demos/">Amcharts</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://antv.alipay.com/zh-cn/gallery/index.html">AntV</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.anychart.com/products/anychart/gallery/">Anychart</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.hcharts.cn/demo/highcharts">Highcharts</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/d3/d3/wiki/Gallery">D3.js</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://music.sonimei.cn/">全网音乐免费下载工具</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://carbon.now.sh/">Carbon</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://cn.knoema.com/">knoema</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://zh.tradingeconomics.com/">tradingeconomics</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/notes/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 程振兴</p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#valine-thread' ,
+            notify:true,
+            verify:false,
+            app_id: 'HS0fE2GH92TyPjSpxeuEpr9P-gzGzoHsz',
+            app_key: 'hyvGUifU6e34ODKmahBUtoN6',
+            placeholder: '在这里评论～',
+            pageSize: '10',
+            avatar: 'monsterid',
+            avatar_cdn:  'https://gravatar.loli.net/avatar/'
+        });
+    </script>
+
+
+
+
+
+    
+        <script src="/notes/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/notes/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/notes/js/main.js"></script>
+
+    </div>
+</body>
+</html>

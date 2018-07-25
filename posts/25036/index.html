@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Tushare：Python中的财经数据接口包(一)——数据存储 | Notebook</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Python" />
+    
+    <meta name="description" content="本文PDF版本下载：tushare.pdftushare包是一个免费的、开源的Python财经数据接口包。刚发现它就被它惊艳了，感觉它几乎搜罗了中国所有的财经数据接口。最重要的是，它是中国人写的，有着非常合中国人口味的中文帮助文档。所以得赶紧学习一下！">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tushare：Python中的财经数据接口包(一)——数据存储">
+<meta property="og:url" content="http://www.czxa.top/posts/25036/index.html">
+<meta property="og:site_name" content="Notebook">
+<meta property="og:description" content="本文PDF版本下载：tushare.pdftushare包是一个免费的、开源的Python财经数据接口包。刚发现它就被它惊艳了，感觉它几乎搜罗了中国所有的财经数据接口。最重要的是，它是中国人写的，有着非常合中国人口味的中文帮助文档。所以得赶紧学习一下！">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.czxa.top/mr/20180626a3.png">
+<meta property="og:updated_time" content="2018-07-05T02:46:57.340Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tushare：Python中的财经数据接口包(一)——数据存储">
+<meta name="twitter:description" content="本文PDF版本下载：tushare.pdftushare包是一个免费的、开源的Python财经数据接口包。刚发现它就被它惊艳了，感觉它几乎搜罗了中国所有的财经数据接口。最重要的是，它是中国人写的，有着非常合中国人口味的中文帮助文档。所以得赶紧学习一下！">
+<meta name="twitter:image" content="http://www.czxa.top/mr/20180626a3.png">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/notes/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/notes/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/notes/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/notes/css/style.css">
+
+    <script src="/notes/libs/jquery/2.2.4/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/notes/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/notes/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/notes/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="http://www.czxa.top">主站</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/">首页</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/tags">标签</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/categories">分类</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/favorites">收藏夹</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/about">联系我</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="http://www.czxa.top/gallery">画廊</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/books">豆瓣书架</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/movies">豆瓣影院</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '/notes/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/notes/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/notes/categories/笔记/">笔记</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-tushare" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Tushare：Python中的财经数据接口包(一)——数据存储
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/notes/posts/25036/" class="article-date">
+            <time datetime="2018-06-26T02:41:32.000Z" itemprop="datePublished">2018-06-26</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/notes/tags/Python/">Python</a>
+    </div>
+
+            </div>
+        
+        
+<div class="article-gallery">
+    
+    <a class="gallery-item" href="http://www.czxa.top/mr/20180626a3.png" rel="gallery_cjk10z2620007fg8ebusdz4ny">
+        <img src="http://www.czxa.top/mr/20180626a3.png" itemprop="image" />
+    </a>
+    
+</div>
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>本文PDF版本下载：<a href="http://www.czxa.top/blogpdf/tushare.pdf">tushare.pdf</a><br>tushare包是一个免费的、开源的Python财经数据接口包。刚发现它就被它惊艳了，感觉它几乎搜罗了中国所有的财经数据接口。最重要的是，它是中国人写的，有着非常合中国人口味的中文帮助文档。所以得赶紧学习一下！<br><a id="more"></a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pip install tushare</span><br><span class="line"><span class="comment"># 安装依赖</span></span><br><span class="line">pip install pandas</span><br><span class="line">pip install lxml</span><br><span class="line"><span class="comment"># 升级</span></span><br><span class="line">pip install tushare --upgrade</span><br><span class="line"><span class="comment"># 查看当前版本的方法</span></span><br><span class="line"><span class="keyword">import</span> tushare</span><br><span class="line">print(tushare.__version__)</span><br></pre></td></tr></table></figure>
+<h2 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h2><h3 id="csv文件"><a href="#csv文件" class="headerlink" title="csv文件"></a>csv文件</h3><p>pandas的DataFrame和Series对象提供了直接保存csv文件格式的方法，通过相关参数设定可以轻松的将数据内容保存为csv文件。<br>常用参数：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">path_or_buf</td>
+<td style="text-align:center">csv文件存放路径或者StringIO对象</td>
+</tr>
+<tr>
+<td style="text-align:center">sep</td>
+<td style="text-align:center">文件分隔符，默认为逗号</td>
+</tr>
+<tr>
+<td style="text-align:center">na.rep</td>
+<td style="text-align:center">缺失值替换，默认为空字符</td>
+</tr>
+<tr>
+<td style="text-align:center">float_format</td>
+<td style="text-align:center">float类型的格式</td>
+</tr>
+<tr>
+<td style="text-align:center">columns</td>
+<td style="text-align:center">需要保存的列，默认为None</td>
+</tr>
+<tr>
+<td style="text-align:center">header</td>
+<td style="text-align:center">是否保存列名，默认为True</td>
+</tr>
+<tr>
+<td style="text-align:center">mode</td>
+<td style="text-align:center">是否保存index，默认为True</td>
+</tr>
+<tr>
+<td style="text-align:center">encoding</td>
+<td style="text-align:center">编码格式</td>
+</tr>
+<tr>
+<td style="text-align:center">date_formate</td>
+<td style="text-align:center">日期格式</td>
+</tr>
+</tbody>
+</table>
+<p>示例：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tushare <span class="keyword">import</span> *</span><br><span class="line">df = get_hist_data(<span class="string">'000001'</span>)</span><br><span class="line">df.to_csv(<span class="string">'000001.csv'</span>)</span><br><span class="line">df.to_csv(<span class="string">'000001_1.csv'</span>, columns = [<span class="string">'open'</span>, <span class="string">'high'</span>, <span class="string">'low'</span>, <span class="string">'close'</span>])</span><br></pre></td></tr></table></figure></p>
+<p>有时候需要将一类数据保存在一个大文件中，这个时候就需要将数据追加在同一个文件里面：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tushare <span class="keyword">as</span> ts</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">filename = <span class="string">"stock.csv"</span></span><br><span class="line"><span class="keyword">for</span> code <span class="keyword">in</span> [<span class="string">'000001'</span>, <span class="string">'600848'</span>, <span class="string">'000981'</span>]:</span><br><span class="line">    df = ts.get_hist_data(code)</span><br><span class="line">    <span class="keyword">if</span> os.path.exists(filename):</span><br><span class="line">        df.to_csv(filename, mode = <span class="string">'a'</span>, header=<span class="keyword">True</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        df.to_csv(filename)</span><br></pre></td></tr></table></figure></p>
+<p>实际上如果不需要考虑header，直接<code>df.to_csv(filename, mode = &#39;a&#39;, header=True)</code>即可，不过每次都会把表头append进去。</p>
+<h3 id="Excel文件"><a href="#Excel文件" class="headerlink" title="Excel文件"></a>Excel文件</h3><p>需要安装openpyxl包。<br>常用参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">excel_writer</td>
+<td style="text-align:center">文件路径or Excel Writer对象</td>
+</tr>
+<tr>
+<td style="text-align:center">sheet_name</td>
+<td style="text-align:center">sheet的名称，默认为sheet1</td>
+</tr>
+<tr>
+<td style="text-align:center">sep</td>
+<td style="text-align:center">文件内容的分隔符，默认为逗号</td>
+</tr>
+<tr>
+<td style="text-align:center">na_rep</td>
+<td style="text-align:center">NAN的处理</td>
+</tr>
+<tr>
+<td style="text-align:center">float_format</td>
+<td style="text-align:center">float类型数据的格式</td>
+</tr>
+<tr>
+<td style="text-align:center">columns</td>
+<td style="text-align:center">需要保存的列，默认为None</td>
+</tr>
+<tr>
+<td style="text-align:center">header</td>
+<td style="text-align:center">是否保存表头</td>
+</tr>
+<tr>
+<td style="text-align:center">index</td>
+<td style="text-align:center">是否保存行号</td>
+</tr>
+<tr>
+<td style="text-align:center">mode</td>
+<td style="text-align:center">创建新的文件还是追加现有文件</td>
+</tr>
+<tr>
+<td style="text-align:center">encoding</td>
+<td style="text-align:center">编码格式</td>
+</tr>
+<tr>
+<td style="text-align:center">startrow</td>
+<td style="text-align:center">在数据的头部留出startrow行空行</td>
+</tr>
+<tr>
+<td style="text-align:center">startcol</td>
+<td style="text-align:center">在数据的左边留出startcol列的空列</td>
+</tr>
+</tbody>
+</table>
+<p>示例：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tushare <span class="keyword">as</span> ts</span><br><span class="line">df = ts.get_hist_data(<span class="string">'000001'</span>)</span><br><span class="line">df.to_excel(<span class="string">'000001_2.xlsx'</span>)</span><br><span class="line">df.to_excel(<span class="string">'000001_3.xlsx'</span>, startrow=<span class="number">2</span>, startcol=<span class="number">5</span>)</span><br></pre></td></tr></table></figure></p>
+<p>空行就是这个意思：<br><img src="http://www.czxa.top/mr/20180626a1.png" alt="空行"></p>
+<h3 id="HDF5文件"><a href="#HDF5文件" class="headerlink" title="HDF5文件"></a>HDF5文件</h3><p>Hierarchical Data Format(HDF)是一种针对大量数据进行组织和存储的文件格式。经历了20多年的发展，HDF格式的最新版本是HDF5，它包含了数据模型，库，和文件格式标准。以其便捷有效，移植性强，灵活可扩展的特点受到了广泛的关注和应用。<br>需要安装pytables包。<br>常用参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">path_or_buf</td>
+<td style="text-align:center">文件路径或者HDFStore的对象</td>
+</tr>
+<tr>
+<td style="text-align:center">key</td>
+<td style="text-align:center">HDF5中的group标识</td>
+</tr>
+<tr>
+<td style="text-align:center">mode</td>
+<td style="text-align:center">a（追加，默认）/w（写入）/r（只读）/r+（等同于a，但是文件必须存在）</td>
+</tr>
+<tr>
+<td style="text-align:center">format</td>
+<td style="text-align:center">fixed(f)/table(t)，默认为fixed，f适合快速读写，不能追加数据；t适合从文件中查找和选择数据</td>
+</tr>
+<tr>
+<td style="text-align:center">append</td>
+<td style="text-align:center">适用于table(t)模式追加数据，默认Flase</td>
+</tr>
+<tr>
+<td style="text-align:center">complevel</td>
+<td style="text-align:center">压缩级别，1-9，默认为0</td>
+</tr>
+<tr>
+<td style="text-align:center">complib</td>
+<td style="text-align:center">压缩类型（zip/bzip2/lzo/lzo/blosc/None），默认为None</td>
+</tr>
+</tbody>
+</table>
+<p>示例<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># HDF5文件</span></span><br><span class="line"><span class="keyword">import</span> tushare <span class="keyword">as</span> ts</span><br><span class="line">df.to_hdf(<span class="string">'000001.h5'</span>, <span class="string">'key'</span>)</span><br><span class="line"><span class="comment"># 方法二(没成功)：</span></span><br><span class="line"><span class="keyword">import</span></span><br><span class="line">store = HDFStore(<span class="string">'store.h5'</span>)</span><br><span class="line">store[<span class="string">'000001'</span>] = df</span><br><span class="line">store.close()</span><br></pre></td></tr></table></figure></p>
+<h3 id="JSON文件"><a href="#JSON文件" class="headerlink" title="JSON文件"></a>JSON文件</h3><p>常用参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">path_or_buf</td>
+<td style="text-align:center">json文件存放路径</td>
+</tr>
+<tr>
+<td style="text-align:center">orient</td>
+<td style="text-align:center">json格式顺序，包括columns, records, index, split, values, 默认为columns</td>
+</tr>
+<tr>
+<td style="text-align:center">force_ascii</td>
+<td style="text-align:center">将字符转为ASCII，默认为True</td>
+</tr>
+</tbody>
+</table>
+<p>示例：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># JSON文件</span></span><br><span class="line">df.to_json(<span class="string">'000001.json'</span>, orient = <span class="string">'records'</span>)</span><br><span class="line"><span class="comment"># 或者直接使用</span></span><br><span class="line">df.to_json(orient=<span class="string">'records'</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="MySQL数据库"><a href="#MySQL数据库" class="headerlink" title="MySQL数据库"></a>MySQL数据库</h3><p>常用参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">表名，pandas会自动创建表结构</td>
+</tr>
+<tr>
+<td style="text-align:center">con</td>
+<td style="text-align:center">数据库链接，最好是用sqlalchemy创建engine的方式来代替con</td>
+</tr>
+<tr>
+<td style="text-align:center">flavor</td>
+<td style="text-align:center">数据库的类型，（sqlite/mysql），默认为mysql，如果是engine此项可以忽略</td>
+</tr>
+<tr>
+<td style="text-align:center">schema</td>
+<td style="text-align:center">指定数据库的schema，默认即可</td>
+</tr>
+<tr>
+<td style="text-align:center">if_exists</td>
+<td style="text-align:center">如果表名已存在的处理方式（fail/replace/append），默认为’fail’</td>
+</tr>
+<tr>
+<td style="text-align:center">index</td>
+<td style="text-align:center">将pandas的index作为一列存入数据库</td>
+</tr>
+<tr>
+<td style="text-align:center">index_label</td>
+<td style="text-align:center">index的列名</td>
+</tr>
+<tr>
+<td style="text-align:center">chunksize</td>
+<td style="text-align:center">分批存入数据库，默认为None即一次性全部写入数据库</td>
+</tr>
+<tr>
+<td style="text-align:center">dtype</td>
+<td style="text-align:center">设定columns在数据库里的数据类型，默认为None</td>
+</tr>
+</tbody>
+</table>
+<p>示例：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sqlalchemy <span class="keyword">import</span> create_engine</span><br><span class="line"><span class="keyword">import</span> tushare <span class="keyword">as</span> ts</span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line">df = ts.get_hist_data(<span class="string">'000001'</span>)</span><br><span class="line">df[<span class="string">'date'</span>] = df.index.str.split(<span class="string">' '</span>).str[<span class="number">0</span>]</span><br><span class="line">engine = create_engine(<span class="string">'mysql+pymysql://密码@localhost:3306/MyDataBase?charset=utf8'</span>, echo=<span class="keyword">True</span>)</span><br><span class="line"><span class="comment"># create_engine("数据库类型+数据库驱动://数据库用户名:数据库密码@IP地址:端口/数据库"，其他参数)</span></span><br><span class="line"><span class="comment"># 其中echo=True是开启调试，这样当我们执行文件的时候会提示相应的文字。</span></span><br><span class="line">df.to_sql(<span class="string">'平安股票交易数据'</span>, engine, if_exists=<span class="string">'replace'</span>,</span><br><span class="line">          schema=<span class="string">'财经数据'</span>, index = <span class="keyword">False</span>)</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://www.czxa.top/mr/20180626a2.png" alt=""><br>代码里面我是现将index变成数据框的一列，然后再使用无index导出的，因为日期格式的index直接导出总是出错。</p>
+<h2 id="再把数据从MySQL读回来"><a href="#再把数据从MySQL读回来" class="headerlink" title="再把数据从MySQL读回来"></a>再把数据从MySQL读回来</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">df2 = pd.read_sql_table(<span class="string">'平安股票交易数据'</span>,</span><br><span class="line">        con=engine,</span><br><span class="line">        schema=<span class="string">'财经数据'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.czxa.top/mr/20180626a3.png" alt=""></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://www.czxa.top/posts/25036/" data-id="cjk10z2620007fg8ebusdz4ny" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="valine-thread"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/czxa" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="https://weibo.com/p/1005056084580012/photos?from=page_100505&mod=TAB&pids=plc_main" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/notes/posts/31323/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            Tushare：Python中的财经数据接口包(二)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/notes/posts/43149/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">Python for Finance——入门到放弃</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+<div class="widget-wrap widget-list">
+    <h3 class="widget-title">目录</h3>
+    <div class="widget">
+        <div id="toc" class="toc-article">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据存储"><span class="toc-number">2.</span> <span class="toc-text">数据存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#csv文件"><span class="toc-number">2.1.</span> <span class="toc-text">csv文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Excel文件"><span class="toc-number">2.2.</span> <span class="toc-text">Excel文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HDF5文件"><span class="toc-number">2.3.</span> <span class="toc-text">HDF5文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON文件"><span class="toc-number">2.4.</span> <span class="toc-text">JSON文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL数据库"><span class="toc-number">2.5.</span> <span class="toc-text">MySQL数据库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#再把数据从MySQL读回来"><span class="toc-number">3.</span> <span class="toc-text">再把数据从MySQL读回来</span></a></li></ol>
+        </div>
+    </div>
+</div>
+
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/null/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180719a1.png)" alt="A machine learning odyssey" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/TensorFlow/">TensorFlow</a></p>
+                            <p class="item-title"><a href="/notes/posts/null/" class="title">A machine learning odyssey</a></p>
+                            <p class="item-date"><time datetime="2018-07-21T15:49:32.000Z" itemprop="datePublished">2018-07-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/31323/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://tushare.org/_images/ts.jpg)" alt="Tushare：Python中的财经数据接口包(二)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/31323/" class="title">Tushare：Python中的财经数据接口包(二)</a></p>
+                            <p class="item-date"><time datetime="2018-07-02T10:41:32.000Z" itemprop="datePublished">2018-07-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/25036/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180626a3.png)" alt="Tushare：Python中的财经数据接口包(一)——数据存储" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/25036/" class="title">Tushare：Python中的财经数据接口包(一)——数据存储</a></p>
+                            <p class="item-date"><time datetime="2018-06-26T02:41:32.000Z" itemprop="datePublished">2018-06-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/43149/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180624a1.png)" alt="Python for Finance——入门到放弃" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/43149/" class="title">Python for Finance——入门到放弃</a></p>
+                            <p class="item-date"><time datetime="2018-06-24T06:49:32.000Z" itemprop="datePublished">2018-06-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/43798/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180623c8.png)" alt="Python for Finance Chapter 7" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/43798/" class="title">Python for Finance Chapter 7</a></p>
+                            <p class="item-date"><time datetime="2018-06-23T17:49:32.000Z" itemprop="datePublished">2018-06-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/notes/categories/TensorFlow/">TensorFlow</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/notes/categories/笔记/">笔记</a><span class="category-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/notes/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/notes/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/notes/tags/Python/">Python</a><span class="tag-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/notes/tags/Python/" style="font-size: 10px;">Python</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://dwla.github.io">JWen</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://www.czxa.top/notes/favorites/">我的收藏</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://unsplash.com/@czxa">Unsplash</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://gallery.echartsjs.com/explore.html?u=bd-2472402526&type=work#sort=rank~timeframe=all~author=all">ECharts</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.zingchart.com/gallery/">Zingchart</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.amcharts.com/demos/">Amcharts</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://antv.alipay.com/zh-cn/gallery/index.html">AntV</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.anychart.com/products/anychart/gallery/">Anychart</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.hcharts.cn/demo/highcharts">Highcharts</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/d3/d3/wiki/Gallery">D3.js</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://music.sonimei.cn/">全网音乐免费下载工具</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://carbon.now.sh/">Carbon</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://cn.knoema.com/">knoema</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://zh.tradingeconomics.com/">tradingeconomics</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/notes/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 程振兴</p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#valine-thread' ,
+            notify:true,
+            verify:false,
+            app_id: 'HS0fE2GH92TyPjSpxeuEpr9P-gzGzoHsz',
+            app_key: 'hyvGUifU6e34ODKmahBUtoN6',
+            placeholder: '在这里评论～',
+            pageSize: '10',
+            avatar: 'monsterid',
+            avatar_cdn:  'https://gravatar.loli.net/avatar/'
+        });
+    </script>
+
+
+
+
+
+    
+        <script src="/notes/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/notes/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/notes/js/main.js"></script>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Python for Finance Chapter 7 | Notebook</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Python" />
+    
+    <meta name="description" content="本文PDF版本下载：Python_for_Finance_Chapter_7.pdfChapter介绍了matplotlib包的使用，内容较多，所有单独记作一篇博客。不过因为这本书是第一版，内容很老了，所以很多代码没办法运行了，很多图画不出来了。">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python for Finance Chapter 7">
+<meta property="og:url" content="http://www.czxa.top/posts/43798/index.html">
+<meta property="og:site_name" content="Notebook">
+<meta property="og:description" content="本文PDF版本下载：Python_for_Finance_Chapter_7.pdfChapter介绍了matplotlib包的使用，内容较多，所有单独记作一篇博客。不过因为这本书是第一版，内容很老了，所以很多代码没办法运行了，很多图画不出来了。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.czxa.top/mr/20180623c8.png">
+<meta property="og:updated_time" content="2018-07-05T02:46:57.329Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python for Finance Chapter 7">
+<meta name="twitter:description" content="本文PDF版本下载：Python_for_Finance_Chapter_7.pdfChapter介绍了matplotlib包的使用，内容较多，所有单独记作一篇博客。不过因为这本书是第一版，内容很老了，所以很多代码没办法运行了，很多图画不出来了。">
+<meta name="twitter:image" content="http://www.czxa.top/mr/20180623c8.png">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/notes/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/notes/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/notes/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/notes/css/style.css">
+
+    <script src="/notes/libs/jquery/2.2.4/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/notes/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/notes/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/notes/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="http://www.czxa.top">主站</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/">首页</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/tags">标签</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/categories">分类</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/favorites">收藏夹</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/about">联系我</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="http://www.czxa.top/gallery">画廊</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/books">豆瓣书架</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/movies">豆瓣影院</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '/notes/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/notes/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/notes/categories/笔记/">笔记</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-Python_for_Finance_Chapter_7" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Python for Finance Chapter 7
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/notes/posts/43798/" class="article-date">
+            <time datetime="2018-06-23T17:49:32.000Z" itemprop="datePublished">2018-06-24</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/notes/tags/Python/">Python</a>
+    </div>
+
+            </div>
+        
+        
+<div class="article-gallery">
+    
+    <a class="gallery-item" href="http://www.czxa.top/mr/20180623c8.png" rel="gallery_cjk10z25z0005fg8erte1zqsi">
+        <img src="http://www.czxa.top/mr/20180623c8.png" itemprop="image" />
+    </a>
+    
+</div>
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>本文PDF版本下载：<br><a href="http://www.czxa.top/blogpdf/Python_for_Finance_Chapter_7.pdf">Python_for_Finance_Chapter_7.pdf</a><br>Chapter介绍了matplotlib包的使用，内容较多，所有单独记作一篇博客。不过因为这本书是第一版，内容很老了，所以很多代码没办法运行了，很多图画不出来了。<br><a id="more"></a></p>
+<h2 id="一个简单的示例"><a href="#一个简单的示例" class="headerlink" title="一个简单的示例"></a>一个简单的示例</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> matplotlib.pyplot <span class="keyword">import</span> *</span><br><span class="line">rcParams[<span class="string">'savefig.dpi'</span>] = <span class="number">600</span></span><br><span class="line">rcParams[<span class="string">'figure.dpi'</span>] = <span class="number">600</span></span><br><span class="line">plot([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">10</span>])</span><br><span class="line">xlabel(<span class="string">'x-axis'</span>)</span><br><span class="line">ylabel(<span class="string">'y-axis'</span>)</span><br><span class="line">title(<span class="string">'My figure'</span>)</span><br><span class="line">savefig(<span class="string">'20180623a1.png'</span>)</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.czxa.top/mr/20180623a1.png" alt=""></p>
+<h2 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pylab <span class="keyword">import</span> *</span><br><span class="line">rcParams[<span class="string">'savefig.dpi'</span>] = <span class="number">800</span></span><br><span class="line">rcParams[<span class="string">'figure.dpi'</span>] = <span class="number">800</span></span><br><span class="line">x = np.linspace(-np.pi, np.pi, <span class="number">256</span>, endpoint = <span class="keyword">True</span>)</span><br><span class="line">C, S = np.cos(x), np.sin(x)</span><br><span class="line">plot(x, C), plot(x, S)</span><br><span class="line">savefig(<span class="string">"20180623a2.png"</span>)</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.czxa.top/mr/20180623a2.png" alt=""></p>
+<h2 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">rcParams[<span class="string">'savefig.dpi'</span>] = <span class="number">600</span></span><br><span class="line">rcParams[<span class="string">'figure.dpi'</span>] = <span class="number">600</span></span><br><span class="line">n = <span class="number">1024</span></span><br><span class="line">X = np.random.normal(<span class="number">0</span>, <span class="number">1</span>, size = n)</span><br><span class="line">Y = np.random.normal(<span class="number">0</span>, <span class="number">1</span>, size = n)</span><br><span class="line">scatter(X, Y)</span><br><span class="line">savefig(<span class="string">'20180623a3.png'</span>)</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.czxa.top/mr/20180623a3.png" alt=""></p>
+<h2 id="单利与复利"><a href="#单利与复利" class="headerlink" title="单利与复利"></a>单利与复利</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> matplotlib.font_manager <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> pylab <span class="keyword">import</span> *</span><br><span class="line"><span class="comment"># 定义自定义字体，文件名从查看系统中文字体中来</span></span><br><span class="line">myfont = FontProperties(fname=<span class="string">'/Library/Fonts/Songti.ttc'</span>)</span><br><span class="line"><span class="comment"># 解决负号'-'显示为方块的问题</span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="keyword">False</span></span><br><span class="line">rcParams[<span class="string">'savefig.dpi'</span>] = <span class="number">600</span> <span class="comment"># 图片像素</span></span><br><span class="line">rcParams[<span class="string">'figure.dpi'</span>] = <span class="number">600</span> <span class="comment"># 分辨率</span></span><br><span class="line">pv, n, r = (<span class="number">1000</span>, <span class="number">10</span>, <span class="number">0.08</span>)</span><br><span class="line">t = np.linspace(<span class="number">0</span>, n, n)</span><br><span class="line">y1 = np.ones(len(t))*pv <span class="comment"># 一条水平参考线</span></span><br><span class="line">y2 = pv*(<span class="number">1</span>+r*t)</span><br><span class="line">y3 = pv*(<span class="number">1</span>+r)**t</span><br><span class="line">title(<span class="string">u"单利vs复利"</span>, fontproperties = myfont)</span><br><span class="line">xlabel(<span class="string">u"期数"</span>, fontproperties = myfont)</span><br><span class="line">ylabel(<span class="string">u"值"</span>, fontproperties = myfont)</span><br><span class="line">xlim(<span class="number">0</span>, <span class="number">11</span>)</span><br><span class="line">ylim(<span class="number">800</span>, <span class="number">2200</span>)</span><br><span class="line">plot(t, y1, <span class="string">'b-'</span>)</span><br><span class="line">plot(t, y2, <span class="string">'g--'</span>)</span><br><span class="line">plot(t, y3, <span class="string">'r-'</span>)</span><br><span class="line">savefig(<span class="string">'20180623a4.png'</span>)</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.czxa.top/mr/20180623a4.png" alt=""></p>
+<h2 id="杜邦恒等式"><a href="#杜邦恒等式" class="headerlink" title="杜邦恒等式"></a>杜邦恒等式</h2><p>$$<br>ROE = \frac{Net \ income}{Sales} \times \frac{Sales}{Total \ Assets}\times \frac{Total \ Assets}{Book value of Equity}<br>$$</p>
+<p>IBM、DELL和WMT三家公司的相关数据如下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Ticker</th>
+<th style="text-align:center">Fiscal Year Ending Date</th>
+<th style="text-align:center">ROE</th>
+<th style="text-align:center">Gross Profit Margin</th>
+<th style="text-align:center">Assets Turnover</th>
+<th style="text-align:center">Equity Multiplier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">IBM</td>
+<td style="text-align:center">2012-12-31</td>
+<td style="text-align:center">0.8804</td>
+<td style="text-align:center">0.1589</td>
+<td style="text-align:center">0.8766</td>
+<td style="text-align:center">6.3209</td>
+</tr>
+<tr>
+<td style="text-align:center">DELL</td>
+<td style="text-align:center">2013-02-01</td>
+<td style="text-align:center">0.2221</td>
+<td style="text-align:center">0.0417</td>
+<td style="text-align:center">1.1977</td>
+<td style="text-align:center">4.4513</td>
+</tr>
+<tr>
+<td style="text-align:center">WMT</td>
+<td style="text-align:center">2013-01-31</td>
+<td style="text-align:center">0.2227</td>
+<td style="text-align:center">0.0362</td>
+<td style="text-align:center">2.3099</td>
+<td style="text-align:center">2.6604</td>
+</tr>
+</tbody>
+</table>
+<p>Python代码如下<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib.font_manager <span class="keyword">import</span> *</span><br><span class="line">ind = np.arange(<span class="number">3</span>) <span class="comment"># ind = array([0, 1, 2])</span></span><br><span class="line">myfont = FontProperties(fname = <span class="string">'/Library/Fonts/Songti.ttc'</span>)</span><br><span class="line">rcParams[<span class="string">'savefig.dpi'</span>] = <span class="number">1200</span></span><br><span class="line">rcParams[<span class="string">'figure.dpi'</span>] = <span class="number">1200</span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="keyword">False</span></span><br><span class="line">plt.title(<span class="string">u'杜邦恒等式'</span>, fontproperties = myfont)</span><br><span class="line">plt.xlabel(<span class="string">u'公司'</span>, fontproperties = myfont)</span><br><span class="line">ROE = [<span class="number">0.88</span>, <span class="number">0.22</span>, <span class="number">0.22</span>]</span><br><span class="line">a = [<span class="number">0.16</span>, <span class="number">0.04</span>, <span class="number">0.036</span>]</span><br><span class="line">b = [<span class="number">0.88</span>, <span class="number">1.12</span>, <span class="number">2.31</span>]</span><br><span class="line">c = [<span class="number">6.32</span>, <span class="number">4.45</span>, <span class="number">2.66</span>]</span><br><span class="line">width = <span class="number">0.45</span></span><br><span class="line">p1 = plt.bar(ind, a, width, color = <span class="string">'b'</span>)</span><br><span class="line">p2 = plt.bar(ind, b, width, color = <span class="string">'r'</span>, bottom = a)</span><br><span class="line">p3 = plt.bar(ind, c, width, color = <span class="string">'y'</span>, bottom = b)</span><br><span class="line">plt.xticks(ind, [<span class="string">'IBM'</span>, <span class="string">'DELL'</span>, <span class="string">'WMT'</span>])</span><br><span class="line">plt.figtext(<span class="number">0.2</span>, <span class="number">0.85</span>, <span class="string">'ROE = 0.88'</span>)</span><br><span class="line">plt.figtext(<span class="number">0.5</span>, <span class="number">0.7</span>, <span class="string">'ROE = 0.22'</span>)</span><br><span class="line">plt.figtext(<span class="number">0.8</span>, <span class="number">0.6</span>, <span class="string">'ROE = 0.22'</span>)</span><br><span class="line">plt.figtext(<span class="number">0.2</span>, <span class="number">0.75</span>, <span class="string">'Ptofit Marigin = 0.16'</span>)</span><br><span class="line">plt.figtext(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="string">"0.41"</span>)</span><br><span class="line">plt.figtext(<span class="number">0.8</span>, <span class="number">0.4</span>, <span class="string">"0.036"</span>)</span><br><span class="line">plt.ylim(<span class="number">0</span>, <span class="number">8</span>)</span><br><span class="line">savefig(<span class="string">'20180623c2.png'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://www.czxa.top/mr/20180623c2.png" alt=""><br>需要注意的是，不同于Stata中文本位置的指定，这里的文本位置是用百分比的。</p>
+<h2 id="NPV-amp-IRR"><a href="#NPV-amp-IRR" class="headerlink" title="NPV&amp;IRR"></a>NPV&amp;IRR</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> matplotlib.pyplot <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> matplotlib.font_manager <span class="keyword">import</span> *</span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="keyword">False</span></span><br><span class="line">myfont = FontProperties(fname = <span class="string">'/Library/Fonts/Songti.ttc'</span>)</span><br><span class="line">rcParams[<span class="string">'savefig.dpi'</span>] = <span class="number">1000</span></span><br><span class="line">rcParams[<span class="string">'figure.dpi'</span>] = <span class="number">1000</span></span><br><span class="line">cashFlows = [<span class="number">-100</span>, <span class="number">50</span>, <span class="number">60</span>, <span class="number">70</span>]</span><br><span class="line">rate = []</span><br><span class="line">mynpv = []</span><br><span class="line">x = (<span class="number">0</span>, <span class="number">0.7</span>)</span><br><span class="line">y = (<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">70</span>):</span><br><span class="line">    rate.append(<span class="number">0.01</span>*i)</span><br><span class="line">    mynpv.append(npv(<span class="number">0.01</span>*i, cashFlows[<span class="number">0</span>:]))</span><br><span class="line">plot(rate, mynpv), plot(x, y)</span><br><span class="line">xlabel(<span class="string">u'贴现率'</span>, fontproperties = myfont)</span><br><span class="line">ylabel(<span class="string">'NPV'</span>)</span><br><span class="line">title(<span class="string">u'NPV与折现率'</span>, fontproperties = myfont)</span><br><span class="line">savefig(<span class="string">'20180623c3.png'</span>)</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.czxa.top/mr/20180623c3.png" alt=""></p>
+<h2 id="含两个的IRR的现金流"><a href="#含两个的IRR的现金流" class="headerlink" title="含两个的IRR的现金流"></a>含两个的IRR的现金流</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy <span class="keyword">as</span> sp</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">cashFlows = [<span class="number">504</span>, <span class="number">-432</span>, <span class="number">-432</span>, <span class="number">-432</span>, <span class="number">822</span>]</span><br><span class="line">rate = []</span><br><span class="line">mynpv = []</span><br><span class="line">x = [<span class="number">0</span>, <span class="number">0.3</span>]</span><br><span class="line">y = [<span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">30</span>):</span><br><span class="line">    rate.append(<span class="number">0.01</span>*i)</span><br><span class="line">    mynpv.append(sp.npv(<span class="number">0.01</span>*i, cashFlows[<span class="number">0</span>:]))</span><br><span class="line">plt.plot(x, y), plt.plot(rate, mynpv)</span><br><span class="line">plt.title(<span class="string">'Two IRR'</span>)</span><br><span class="line">plt.xlabel(<span class="string">'Discount rate'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'NPV'</span>)</span><br><span class="line">rcParams[<span class="string">'figure.dpi'</span>] = <span class="number">1000</span></span><br><span class="line">rcParams[<span class="string">'savefig.dpi'</span>] = <span class="number">1000</span></span><br><span class="line">savefig(<span class="string">'20180623c4.png'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.czxa.top/mr/20180623c4.png" alt=""></p>
+<h2 id="颜色选择"><a href="#颜色选择" class="headerlink" title="颜色选择"></a>颜色选择</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">A_EPS = (<span class="number">5.02</span>, <span class="number">4.54</span>, <span class="number">4.18</span>, <span class="number">3.73</span>)</span><br><span class="line">B_EPS = (<span class="number">1.35</span>, <span class="number">1.88</span>, <span class="number">1.35</span>, <span class="number">0.73</span>)</span><br><span class="line">ind = np.arange(len(A_EPS)) <span class="comment"># x的位置</span></span><br><span class="line">width = <span class="number">0.4</span></span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line">A_std = B_std = (<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">rects1 = ax.bar(ind, A_EPS, width, color = <span class="string">'r'</span>, yerr = A_std)</span><br><span class="line">rects2 = ax.bar(ind, B_EPS, width, color = <span class="string">'y'</span>, yerr = B_std)</span><br><span class="line">ax.set_xlabel(<span class="string">'Year'</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'EPS'</span>)</span><br><span class="line">ax.set_title(<span class="string">'Diluted EPS Excluding Extraordinary Iterms'</span>)</span><br><span class="line">ax.set_xticks(ind+width)</span><br><span class="line">ax.set_xticklabels((<span class="string">'2012'</span>, <span class="string">'2013'</span>, <span class="string">'2014'</span>, <span class="string">'2015'</span>))</span><br><span class="line">ax.legend((rects1[<span class="number">0</span>], rects2[<span class="number">0</span>]), (<span class="string">'WMT'</span>, <span class="string">'DELL'</span>))</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">autolabel</span><span class="params">(rects)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> rect <span class="keyword">in</span> rects:</span><br><span class="line">        height = rect.get_height()</span><br><span class="line">        ax.text(rect.get_x() + rect.get_width()/<span class="number">2.</span>,</span><br><span class="line">                <span class="number">1.05</span> * height, <span class="string">'%d'</span> % int(height),</span><br><span class="line">                ha = <span class="string">'center'</span>, va = <span class="string">'center'</span>)</span><br><span class="line">autolabel(rects1)</span><br><span class="line">autolabel(rects2)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.czxa.top/mr/20180623c5.png" alt=""><br>一些颜色代码：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Letters</th>
+<th style="text-align:center">Color</th>
+<th style="text-align:center">Chinese name</th>
+<th style="text-align:center">Letters</th>
+<th style="text-align:center">Color</th>
+<th style="text-align:center">Chinese name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">‘b’</td>
+<td style="text-align:center">Blue</td>
+<td style="text-align:center">蓝色</td>
+<td style="text-align:center">‘m’</td>
+<td style="text-align:center">Magenta</td>
+<td style="text-align:center">品红</td>
+</tr>
+<tr>
+<td style="text-align:center">‘g’</td>
+<td style="text-align:center">Green</td>
+<td style="text-align:center">绿色</td>
+<td style="text-align:center">‘y’</td>
+<td style="text-align:center">Yellow</td>
+<td style="text-align:center">黄色</td>
+</tr>
+<tr>
+<td style="text-align:center">‘r’</td>
+<td style="text-align:center">Red</td>
+<td style="text-align:center">红色</td>
+<td style="text-align:center">‘k’</td>
+<td style="text-align:center">Black</td>
+<td style="text-align:center">黑色</td>
+</tr>
+<tr>
+<td style="text-align:center">‘c’</td>
+<td style="text-align:center">Cyan</td>
+<td style="text-align:center">青色</td>
+<td style="text-align:center">‘w’</td>
+<td style="text-align:center">White</td>
+<td style="text-align:center">白色</td>
+</tr>
+</tbody>
+</table>
+<p>一些形状代码:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Character</th>
+<th style="text-align:center">Chinese name</th>
+<th style="text-align:center">Character</th>
+<th style="text-align:center">Chinese name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">‘-‘</td>
+<td style="text-align:center">实线</td>
+<td style="text-align:center">‘3’</td>
+<td style="text-align:center">向左的三角形</td>
+</tr>
+<tr>
+<td style="text-align:center">‘–’</td>
+<td style="text-align:center">虚线</td>
+<td style="text-align:center">‘4’</td>
+<td style="text-align:center">向右的三角形</td>
+</tr>
+<tr>
+<td style="text-align:center">‘-.’</td>
+<td style="text-align:center">虚线-点</td>
+<td style="text-align:center">‘s’</td>
+<td style="text-align:center">正方形</td>
+</tr>
+<tr>
+<td style="text-align:center">‘:’</td>
+<td style="text-align:center">点线</td>
+<td style="text-align:center">‘p’</td>
+<td style="text-align:center">⭐️(pentagon)</td>
+</tr>
+<tr>
+<td style="text-align:center">‘.’</td>
+<td style="text-align:center">点</td>
+<td style="text-align:center">‘*’</td>
+<td style="text-align:center">*</td>
+</tr>
+<tr>
+<td style="text-align:center">‘,’</td>
+<td style="text-align:center">像素点</td>
+<td style="text-align:center">‘h’</td>
+<td style="text-align:center">六边形(hexagon)</td>
+</tr>
+<tr>
+<td style="text-align:center">‘o’</td>
+<td style="text-align:center">⭕️</td>
+<td style="text-align:center">‘H’</td>
+<td style="text-align:center">六边形(hexagon)</td>
+</tr>
+<tr>
+<td style="text-align:center">‘v’</td>
+<td style="text-align:center">向下的三角形</td>
+<td style="text-align:center">‘+’</td>
+<td style="text-align:center">+</td>
+</tr>
+<tr>
+<td style="text-align:center">‘^’</td>
+<td style="text-align:center">向上的三角形</td>
+<td style="text-align:center">‘x’</td>
+<td style="text-align:center">x</td>
+</tr>
+<tr>
+<td style="text-align:center">‘&lt;’</td>
+<td style="text-align:center">向左的三角形</td>
+<td style="text-align:center">‘D’</td>
+<td style="text-align:center">💎</td>
+</tr>
+<tr>
+<td style="text-align:center">‘&gt;’</td>
+<td style="text-align:center">向右的三角形</td>
+<td style="text-align:center">‘d’</td>
+<td style="text-align:center">Thin 💎</td>
+</tr>
+<tr>
+<td style="text-align:center">‘1’</td>
+<td style="text-align:center">向下的三角形</td>
+<td style="text-align:center">竖线</td>
+<td style="text-align:center">竖线</td>
+</tr>
+<tr>
+<td style="text-align:center">‘2’</td>
+<td style="text-align:center">向上的三角形</td>
+<td style="text-align:center">‘_’</td>
+<td style="text-align:center">_</td>
+</tr>
+</tbody>
+</table>
+<h2 id="投资组合的分散效应"><a href="#投资组合的分散效应" class="headerlink" title="投资组合的分散效应"></a>投资组合的分散效应</h2><h3 id="比较均值方差"><a href="#比较均值方差" class="headerlink" title="比较均值方差"></a>比较均值方差</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">ret_A = [<span class="number">0.102</span>, <span class="number">-0.02</span>, <span class="number">0.213</span>, <span class="number">0.12</span>, <span class="number">0.13</span>]</span><br><span class="line">ret_B = [<span class="number">0.1062</span>, <span class="number">0.23</span>, <span class="number">0.045</span>, <span class="number">0.234</span>, <span class="number">0.113</span>]</span><br><span class="line">p = (np.array(ret_A) + np.array(ret_B))/<span class="number">2</span></span><br><span class="line">round(np.mean(ret_A), <span class="number">3</span>), round(np.mean(ret_B), <span class="number">3</span>), round(p.mean(), <span class="number">3</span>)</span><br><span class="line">Out[<span class="number">16</span>]: (<span class="number">0.109</span>, <span class="number">0.146</span>, <span class="number">0.127</span>)</span><br><span class="line">round(np.std(ret_A), <span class="number">3</span>), round(np.std(ret_B), <span class="number">3</span>), round(p.std(), <span class="number">3</span>)</span><br><span class="line">Out[<span class="number">17</span>]: (<span class="number">0.075</span>, <span class="number">0.074</span>, <span class="number">0.027</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="图示"><a href="#图示" class="headerlink" title="图示"></a>图示</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> rcParams</span><br><span class="line">year = [<span class="number">2009</span>, <span class="number">2010</span>, <span class="number">2011</span>, <span class="number">2012</span>, <span class="number">2013</span>]</span><br><span class="line">ret_A = [<span class="number">0.102</span>, <span class="number">-0.02</span>, <span class="number">0.213</span>, <span class="number">0.12</span>, <span class="number">0.13</span>]</span><br><span class="line">ret_B = [<span class="number">0.1062</span>, <span class="number">0.23</span>, <span class="number">0.045</span>, <span class="number">0.234</span>, <span class="number">0.113</span>]</span><br><span class="line">p = (np.array(ret_A) + np.array(ret_B))/<span class="number">2</span></span><br><span class="line">plt.figtext(<span class="number">0.2</span>, <span class="number">0.65</span>, <span class="string">"Stock A"</span>)</span><br><span class="line">plt.figtext(<span class="number">0.15</span>, <span class="number">0.4</span>, <span class="string">"Stock B"</span>)</span><br><span class="line">plt.xlabel(<span class="string">'Year'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Returns'</span>)</span><br><span class="line">plt.plot(year, ret_A, lw = <span class="number">2</span>)</span><br><span class="line">plt.plot(year, ret_B, lw = <span class="number">2</span>)</span><br><span class="line">plt.plot(year, p, lw = <span class="number">2</span>)</span><br><span class="line">plt.title(<span class="string">'Individual stocks vs. an equal-weighted 2-stock portfolio'</span>)</span><br><span class="line">plt.annotate(<span class="string">'Equal-weighted Portfolio'</span>,</span><br><span class="line">             xy = (<span class="number">2010</span>, <span class="number">0.1</span>),</span><br><span class="line">             xytext = (<span class="number">2011</span>, <span class="number">0</span>),</span><br><span class="line">             arrowprops = dict(facecolor = <span class="string">'black'</span>, shrink = <span class="number">0.05</span>))</span><br><span class="line">plt.ylim(<span class="number">-0.1</span>, <span class="number">0.3</span>)</span><br><span class="line">rcParams[<span class="string">'savefig.dpi'</span>] = <span class="number">1000</span></span><br><span class="line">plt.savefig(<span class="string">'20180623c6.png'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.czxa.top/mr/20180623c6.png" alt=""></p>
+<h2 id="计算相关系数"><a href="#计算相关系数" class="headerlink" title="计算相关系数"></a>计算相关系数</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy <span class="keyword">as</span> sp</span><br><span class="line">sp.corrcoef(ret_A, ret_B)</span><br><span class="line">Out[<span class="number">19</span>]:</span><br><span class="line">array([[ <span class="number">1.</span>        , <span class="number">-0.74583429</span>],</span><br><span class="line">       [<span class="number">-0.74583429</span>,  <span class="number">1.</span>        ]])</span><br></pre></td></tr></table></figure>
+<h2 id="投资组合的分散程度与风险"><a href="#投资组合的分散程度与风险" class="headerlink" title="投资组合的分散程度与风险"></a>投资组合的分散程度与风险</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> matplotlib.pyplot <span class="keyword">import</span> *</span><br><span class="line">n=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">14</span>,<span class="number">16</span>,<span class="number">18</span>,<span class="number">20</span>,<span class="number">25</span>,<span class="number">30</span>,<span class="number">35</span>,<span class="number">40</span>,<span class="number">45</span>,<span class="number">50</span>,<span class="number">75</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">300</span>,<span class="number">400</span>,<span class="number">500</span>,<span class="number">600</span>,<span class="number">700</span>,<span class="number">800</span>,<span class="number">900</span>,<span class="number">1000</span>]</span><br><span class="line">port_sigma=[<span class="number">0.49236</span>,<span class="number">0.37358</span>,<span class="number">0.29687</span>,<span class="number">0.26643</span>,<span class="number">0.24983</span>,<span class="number">0.23932</span>,<span class="number">0.23204</span>,<span class="number">0.22670</span>,</span><br><span class="line"><span class="number">0.22261</span>,<span class="number">0.21939</span>,<span class="number">0.21677</span>,<span class="number">0.21196</span>,<span class="number">0.20870</span>,<span class="number">0.20634</span>,<span class="number">0.20456</span>,<span class="number">0.20316</span>,<span class="number">0.20203</span>,<span class="number">0.19860</span>,</span><br><span class="line"><span class="number">0.19686</span>,<span class="number">0.19432</span>,<span class="number">0.19336</span>,<span class="number">0.19292</span>,<span class="number">0.19265</span>,<span class="number">0.19347</span>,<span class="number">0.19233</span>,<span class="number">0.19224</span>,<span class="number">0.19217</span>,<span class="number">0.19211</span>,<span class="number">0.19158</span>]</span><br><span class="line">xlim(<span class="number">0</span>, <span class="number">50</span>)</span><br><span class="line">ylim(<span class="number">0.1</span>, <span class="number">0.4</span>)</span><br><span class="line">hlines(<span class="number">0.19217</span>, <span class="number">0</span>, <span class="number">50</span>, color = <span class="string">'r'</span>, linestyles = <span class="string">'--'</span>)</span><br><span class="line">annotate(<span class="string">''</span>, xy = (<span class="number">5</span>, <span class="number">0.19</span>),</span><br><span class="line">         xycoords = <span class="string">'data'</span>,</span><br><span class="line">         xytext = (<span class="number">5</span>, <span class="number">0.28</span>),</span><br><span class="line">         textcoords = <span class="string">'data'</span>, arrowprops = &#123;<span class="string">'arrowstyle'</span>:<span class="string">'&lt;-&gt;'</span>&#125;)</span><br><span class="line">annotate(<span class="string">''</span>, xy = (<span class="number">30</span>, <span class="number">0.19</span>),</span><br><span class="line">         xycoords = <span class="string">'data'</span>,</span><br><span class="line">         xytext = (<span class="number">30</span>, <span class="number">0.1</span>),</span><br><span class="line">         textcoords = <span class="string">'data'</span>, arrowprops = &#123;<span class="string">'arrowstyle'</span>:<span class="string">'&lt;-&gt;'</span>&#125;)</span><br><span class="line">annotate(<span class="string">'Total portfolio risk'</span>,</span><br><span class="line">         xy = (<span class="number">5</span>, <span class="number">0.3</span>),</span><br><span class="line">         xytext = (<span class="number">25</span>, <span class="number">0.35</span>),</span><br><span class="line">         arrowprops = dict(facecolor = <span class="string">'black'</span>, shrink = <span class="number">0.02</span>))</span><br><span class="line">figtext(<span class="number">0.15</span>, <span class="number">0.4</span>, <span class="string">"Diversiable risk"</span>)</span><br><span class="line">figtext(<span class="number">0.65</span>, <span class="number">0.25</span>, <span class="string">"Nondiversiable risk"</span>)</span><br><span class="line">plot(n[<span class="number">0</span>:<span class="number">17</span>], port_sigma[<span class="number">0</span>:<span class="number">17</span>])</span><br><span class="line">title(<span class="string">'Relationship between n and portfolio risk'</span>)</span><br><span class="line">xlabel(<span class="string">"Number of stocks in a portfolio"</span>)</span><br><span class="line">ylabel(<span class="string">"Ratio of Portfolio std to std one stock"</span>)</span><br><span class="line">rcParams[<span class="string">'figure.dpi'</span>] = <span class="number">1000</span></span><br><span class="line">rcParams[<span class="string">'savefig.dpi'</span>] = <span class="number">1000</span></span><br><span class="line">savefig(<span class="string">'20180623c7.png'</span>)</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.czxa.top/mr/20180623c7.png" alt=""></p>
+<h2 id="理解货币的时间价值"><a href="#理解货币的时间价值" class="headerlink" title="理解货币的时间价值"></a>理解货币的时间价值</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> matplotlib.pyplot <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> rcParams</span><br><span class="line">fig1 = figure(facecolor=<span class="string">'white'</span>)</span><br><span class="line">ax1 = axes(frameon = <span class="keyword">False</span>)</span><br><span class="line">ax1.set_frame_on(<span class="keyword">False</span>)</span><br><span class="line">ax1.get_xaxis().tick_bottom()</span><br><span class="line">ax1.axes.get_yaxis().set_visible(<span class="keyword">False</span>)</span><br><span class="line">x = range(<span class="number">0</span>, <span class="number">11</span>, <span class="number">2</span>)</span><br><span class="line">x1 = range(len(x), <span class="number">0</span>, <span class="number">-1</span>)</span><br><span class="line">y = [<span class="number">0</span>]*len(x)</span><br><span class="line">annotate(<span class="string">"Today's value of $100 received today"</span>,</span><br><span class="line">         xy = (<span class="number">0</span>, <span class="number">0</span>),</span><br><span class="line">         xytext = (<span class="number">2</span>, <span class="number">0.1</span>),</span><br><span class="line">         arrowprops = dict(facecolor = <span class="string">'black'</span>, shrink = <span class="number">0.02</span>))</span><br><span class="line">annotate(<span class="string">"Today's value of $100 received in 2 years"</span>,</span><br><span class="line">         xy = (<span class="number">2</span>, <span class="number">0.00005</span>),</span><br><span class="line">         xytext = (<span class="number">3.7</span>, <span class="number">0.08</span>),</span><br><span class="line">         arrowprops = dict(facecolor = <span class="string">'black'</span>, shrink = <span class="number">0.02</span>))</span><br><span class="line">annotate(<span class="string">"received in 4 years"</span>,</span><br><span class="line">         xy = (<span class="number">4</span>, <span class="number">0.00005</span>),</span><br><span class="line">         xytext = (<span class="number">5.3</span>, <span class="number">0.06</span>),</span><br><span class="line">         arrowprops = dict(facecolor = <span class="string">'black'</span>, shrink = <span class="number">0.02</span>))</span><br><span class="line">annotate(<span class="string">"received in 10 years"</span>,</span><br><span class="line">         xy = (<span class="number">10</span>, <span class="number">-0.00005</span>),</span><br><span class="line">         xytext = (<span class="number">6</span>, <span class="number">-0.06</span>),</span><br><span class="line">         arrowprops = dict(facecolor = <span class="string">'black'</span>, shrink = <span class="number">0.02</span>))</span><br><span class="line">s = [<span class="number">50</span>*<span class="number">2.5</span>**n <span class="keyword">for</span> n <span class="keyword">in</span> x1];</span><br><span class="line">title(<span class="string">"Time value of money"</span>)</span><br><span class="line">xlim(<span class="number">-2</span>, <span class="number">11</span>)</span><br><span class="line">xlabel(<span class="string">"Time (number of years)"</span>)</span><br><span class="line">scatter(x, y, s = s)</span><br><span class="line">rcParams[<span class="string">'savefig.dpi'</span>] = <span class="number">800</span></span><br><span class="line">savefig(<span class="string">'20180623c8.png'</span>)</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.czxa.top/mr/20180623c8.png" alt=""></p>
+<h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib.cbook <span class="keyword">as</span> cbook</span><br><span class="line">image_file = cbook.get_sample_data(<span class="string">'/Users/mr.cheng/Desktop/Python_for_Finance/20180623c5.png'</span>)</span><br><span class="line">image = plt.imread(image_file)</span><br><span class="line">plt.imshow(image)</span><br><span class="line">plt.savefig(<span class="string">'20180623c9.png'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.czxa.top/mr/20180623c9.png" alt=""></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://www.czxa.top/posts/43798/" data-id="cjk10z25z0005fg8erte1zqsi" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="valine-thread"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/czxa" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="https://weibo.com/p/1005056084580012/photos?from=page_100505&mod=TAB&pids=plc_main" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/notes/posts/43149/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            Python for Finance——入门到放弃
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/notes/posts/19677/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">Python for Finance Chapter4~6</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+<div class="widget-wrap widget-list">
+    <h3 class="widget-title">目录</h3>
+    <div class="widget">
+        <div id="toc" class="toc-article">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一个简单的示例"><span class="toc-number">1.</span> <span class="toc-text">一个简单的示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数学函数"><span class="toc-number">2.</span> <span class="toc-text">数学函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#散点图"><span class="toc-number">3.</span> <span class="toc-text">散点图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单利与复利"><span class="toc-number">4.</span> <span class="toc-text">单利与复利</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#杜邦恒等式"><span class="toc-number">5.</span> <span class="toc-text">杜邦恒等式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NPV-amp-IRR"><span class="toc-number">6.</span> <span class="toc-text">NPV&amp;IRR</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#含两个的IRR的现金流"><span class="toc-number">7.</span> <span class="toc-text">含两个的IRR的现金流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#颜色选择"><span class="toc-number">8.</span> <span class="toc-text">颜色选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#投资组合的分散效应"><span class="toc-number">9.</span> <span class="toc-text">投资组合的分散效应</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#比较均值方差"><span class="toc-number">9.1.</span> <span class="toc-text">比较均值方差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图示"><span class="toc-number">9.2.</span> <span class="toc-text">图示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算相关系数"><span class="toc-number">10.</span> <span class="toc-text">计算相关系数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#投资组合的分散程度与风险"><span class="toc-number">11.</span> <span class="toc-text">投资组合的分散程度与风险</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#理解货币的时间价值"><span class="toc-number">12.</span> <span class="toc-text">理解货币的时间价值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入图片"><span class="toc-number">13.</span> <span class="toc-text">插入图片</span></a></li></ol>
+        </div>
+    </div>
+</div>
+
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/null/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180719a1.png)" alt="A machine learning odyssey" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/TensorFlow/">TensorFlow</a></p>
+                            <p class="item-title"><a href="/notes/posts/null/" class="title">A machine learning odyssey</a></p>
+                            <p class="item-date"><time datetime="2018-07-21T15:49:32.000Z" itemprop="datePublished">2018-07-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/31323/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://tushare.org/_images/ts.jpg)" alt="Tushare：Python中的财经数据接口包(二)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/31323/" class="title">Tushare：Python中的财经数据接口包(二)</a></p>
+                            <p class="item-date"><time datetime="2018-07-02T10:41:32.000Z" itemprop="datePublished">2018-07-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/25036/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180626a3.png)" alt="Tushare：Python中的财经数据接口包(一)——数据存储" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/25036/" class="title">Tushare：Python中的财经数据接口包(一)——数据存储</a></p>
+                            <p class="item-date"><time datetime="2018-06-26T02:41:32.000Z" itemprop="datePublished">2018-06-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/43149/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180624a1.png)" alt="Python for Finance——入门到放弃" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/43149/" class="title">Python for Finance——入门到放弃</a></p>
+                            <p class="item-date"><time datetime="2018-06-24T06:49:32.000Z" itemprop="datePublished">2018-06-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/43798/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180623c8.png)" alt="Python for Finance Chapter 7" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/43798/" class="title">Python for Finance Chapter 7</a></p>
+                            <p class="item-date"><time datetime="2018-06-23T17:49:32.000Z" itemprop="datePublished">2018-06-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/notes/categories/TensorFlow/">TensorFlow</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/notes/categories/笔记/">笔记</a><span class="category-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/notes/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/notes/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/notes/tags/Python/">Python</a><span class="tag-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/notes/tags/Python/" style="font-size: 10px;">Python</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://dwla.github.io">JWen</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://www.czxa.top/notes/favorites/">我的收藏</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://unsplash.com/@czxa">Unsplash</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://gallery.echartsjs.com/explore.html?u=bd-2472402526&type=work#sort=rank~timeframe=all~author=all">ECharts</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.zingchart.com/gallery/">Zingchart</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.amcharts.com/demos/">Amcharts</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://antv.alipay.com/zh-cn/gallery/index.html">AntV</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.anychart.com/products/anychart/gallery/">Anychart</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.hcharts.cn/demo/highcharts">Highcharts</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/d3/d3/wiki/Gallery">D3.js</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://music.sonimei.cn/">全网音乐免费下载工具</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://carbon.now.sh/">Carbon</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://cn.knoema.com/">knoema</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://zh.tradingeconomics.com/">tradingeconomics</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/notes/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 程振兴</p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#valine-thread' ,
+            notify:true,
+            verify:false,
+            app_id: 'HS0fE2GH92TyPjSpxeuEpr9P-gzGzoHsz',
+            app_key: 'hyvGUifU6e34ODKmahBUtoN6',
+            placeholder: '在这里评论～',
+            pageSize: '10',
+            avatar: 'monsterid',
+            avatar_cdn:  'https://gravatar.loli.net/avatar/'
+        });
+    </script>
+
+
+
+
+
+    
+        <script src="/notes/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/notes/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/notes/js/main.js"></script>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,3011 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Tushare：Python中的财经数据接口包(二) | Notebook</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Python" />
+    
+    <meta name="description" content="本文PDF版本下载：tushare2.pdf花了一天的时间看完了这个包的文档，感觉还不错，但还是感觉不够满意。直接使用中文变量名或许效果更好一些，获取数据后自动输出数据来源更有利于将数据应用于研究。果然最适合自己的爬虫程序还是得自己写。此外，有几个函数已经不能使用了，特别是拆借利率那部分的函数全部挂掉了。这里我是直接把获取到的数据框都存入了我的数据框。">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tushare：Python中的财经数据接口包(二)">
+<meta property="og:url" content="http://www.czxa.top/posts/31323/index.html">
+<meta property="og:site_name" content="Notebook">
+<meta property="og:description" content="本文PDF版本下载：tushare2.pdf花了一天的时间看完了这个包的文档，感觉还不错，但还是感觉不够满意。直接使用中文变量名或许效果更好一些，获取数据后自动输出数据来源更有利于将数据应用于研究。果然最适合自己的爬虫程序还是得自己写。此外，有几个函数已经不能使用了，特别是拆借利率那部分的函数全部挂掉了。这里我是直接把获取到的数据框都存入了我的数据框。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://tushare.org/_images/ts.jpg">
+<meta property="og:updated_time" content="2018-07-09T12:17:37.566Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tushare：Python中的财经数据接口包(二)">
+<meta name="twitter:description" content="本文PDF版本下载：tushare2.pdf花了一天的时间看完了这个包的文档，感觉还不错，但还是感觉不够满意。直接使用中文变量名或许效果更好一些，获取数据后自动输出数据来源更有利于将数据应用于研究。果然最适合自己的爬虫程序还是得自己写。此外，有几个函数已经不能使用了，特别是拆借利率那部分的函数全部挂掉了。这里我是直接把获取到的数据框都存入了我的数据框。">
+<meta name="twitter:image" content="http://tushare.org/_images/ts.jpg">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/notes/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/notes/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/notes/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/notes/css/style.css">
+
+    <script src="/notes/libs/jquery/2.2.4/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/notes/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/notes/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/notes/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="http://www.czxa.top">主站</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/">首页</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/tags">标签</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/categories">分类</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/favorites">收藏夹</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/about">联系我</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="http://www.czxa.top/gallery">画廊</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/books">豆瓣书架</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/movies">豆瓣影院</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '/notes/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/notes/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/notes/categories/笔记/">笔记</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-tushare2" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Tushare：Python中的财经数据接口包(二)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/notes/posts/31323/" class="article-date">
+            <time datetime="2018-07-02T10:41:32.000Z" itemprop="datePublished">2018-07-02</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/notes/tags/Python/">Python</a>
+    </div>
+
+            </div>
+        
+        
+<div class="article-gallery">
+    
+    <a class="gallery-item" href="http://tushare.org/_images/main_pic_min.png" rel="gallery_cjk10z27b000qfg8e6xoruns2">
+        <img src="http://tushare.org/_images/main_pic_min.png" itemprop="image" />
+    </a>
+    
+</div>
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>本文PDF版本下载：<a href="http://www.czxa.top/blogpdf/tushare2.pdf">tushare2.pdf</a><br>花了一天的时间看完了这个包的文档，感觉还不错，但还是感觉不够满意。直接使用中文变量名或许效果更好一些，获取数据后自动输出数据来源更有利于将数据应用于研究。果然最适合自己的爬虫程序还是得自己写。此外，有几个函数已经不能使用了，特别是拆借利率那部分的函数全部挂掉了。<br>这里我是直接把获取到的数据框都存入了我的数据框。<br><a id="more"></a></p>
+<h1 id="宏观经济数据"><a href="#宏观经济数据" class="headerlink" title="宏观经济数据"></a>宏观经济数据</h1><h2 id="存款利率"><a href="#存款利率" class="headerlink" title="存款利率"></a>存款利率</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tushare <span class="keyword">as</span> ts</span><br><span class="line"><span class="keyword">from</span> sqlalchemy <span class="keyword">import</span> create_engine</span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line">engine = create_engine(<span class="string">'mysql+pymysql://root:密码@localhost:3306/MyDataBase?charset=UTF8MB4'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 存款利率数据</span></span><br><span class="line">df = ts.get_deposit_rate()</span><br><span class="line">df.to_sql(<span class="string">'存款利率'</span>, engine, if_exists = <span class="string">'replace'</span>,</span><br><span class="line">         schema = <span class="string">'宏观经济数据'</span>, index = <span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">变动日期</td>
+</tr>
+<tr>
+<td style="text-align:center">deposit_type</td>
+<td style="text-align:center">存款种类</td>
+</tr>
+<tr>
+<td style="text-align:center">rate</td>
+<td style="text-align:center">利率（%）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="货币供应量"><a href="#货币供应量" class="headerlink" title="货币供应量"></a>货币供应量</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 货币供应量</span></span><br><span class="line">ts.get_money_supply().to_sql(<span class="string">'货币供应量'</span>, engine, if_exists=<span class="string">'replace'</span>,</span><br><span class="line">                             schema=<span class="string">'宏观经济数据'</span>, index= <span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"> month</td>
+<td style="text-align:center">统计时间</td>
+</tr>
+<tr>
+<td style="text-align:center"> m2</td>
+<td style="text-align:center">货币和准货币（广义货币M2）(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center"> m2_yoy</td>
+<td style="text-align:center">货币和准货币（广义货币M2）同比增长(%)</td>
+</tr>
+<tr>
+<td style="text-align:center"> m1</td>
+<td style="text-align:center">货币(狭义货币M1)(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center"> m1_yoy</td>
+<td style="text-align:center">货币(狭义货币M1)同比增长(%)</td>
+</tr>
+<tr>
+<td style="text-align:center"> m0</td>
+<td style="text-align:center">流通中现金(M0)(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center"> m0_yoy</td>
+<td style="text-align:center">流通中现金(M0)同比增长(%)</td>
+</tr>
+<tr>
+<td style="text-align:center"> cd</td>
+<td style="text-align:center">活期存款(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center"> cd_yoy</td>
+<td style="text-align:center">活期存款同比增长(%)</td>
+</tr>
+<tr>
+<td style="text-align:center"> qm</td>
+<td style="text-align:center">准货币(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center"> qm_yoy</td>
+<td style="text-align:center">准货币同比增长(%)</td>
+</tr>
+<tr>
+<td style="text-align:center"> ftd</td>
+<td style="text-align:center">定期存款(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center"> ftd_yoy</td>
+<td style="text-align:center">定期存款同比增长(%)</td>
+</tr>
+<tr>
+<td style="text-align:center"> sd</td>
+<td style="text-align:center">储蓄存款(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center"> sd_yoy</td>
+<td style="text-align:center">储蓄存款同比增长(%)</td>
+</tr>
+<tr>
+<td style="text-align:center"> rests</td>
+<td style="text-align:center">其他存款(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center"> rests_yoy</td>
+<td style="text-align:center">其他存款同比增长(%)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="贷款利率"><a href="#贷款利率" class="headerlink" title="贷款利率"></a>贷款利率</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ts.get_loan_rate().to_sql(<span class="string">'贷款利率'</span>, engine,</span><br><span class="line">                          if_exists=<span class="string">'replace'</span>,</span><br><span class="line">                          schema=<span class="string">'宏观经济数据'</span>,</span><br><span class="line">                          index=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">执行日期</td>
+</tr>
+<tr>
+<td style="text-align:center">loan_type</td>
+<td style="text-align:center">存款种类</td>
+</tr>
+<tr>
+<td style="text-align:center">rate</td>
+<td style="text-align:center">利率（%）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="存款准备金率"><a href="#存款准备金率" class="headerlink" title="存款准备金率"></a>存款准备金率</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ts.get_rrr().to_sql(<span class="string">'存款准备金率'</span>, engine,</span><br><span class="line">                    if_exists=<span class="string">'replace'</span>,</span><br><span class="line">                    schema=<span class="string">'宏观经济数据'</span>,</span><br><span class="line">                    index=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">变动日期</td>
+</tr>
+<tr>
+<td style="text-align:center">before</td>
+<td style="text-align:center">调整前存款准备金率(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">now</td>
+<td style="text-align:center">调整后存款准备金率(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">changed</td>
+<td style="text-align:center">调整幅度(%)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="年度GDP"><a href="#年度GDP" class="headerlink" title="年度GDP"></a>年度GDP</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ts.get_gdp_year().to_sql(<span class="string">'年度GDP'</span>, engine,</span><br><span class="line">                         if_exists=<span class="string">'replace'</span>,</span><br><span class="line">                         schema=<span class="string">'宏观经济数据'</span>,</span><br><span class="line">                         index=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">year</td>
+<td style="text-align:center">统计年度</td>
+</tr>
+<tr>
+<td style="text-align:center">gdp</td>
+<td style="text-align:center">国内生产总值(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">pc_gdp</td>
+<td style="text-align:center">人均国内生产总值(元)</td>
+</tr>
+<tr>
+<td style="text-align:center">gnp</td>
+<td style="text-align:center">国民生产总值(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">pi</td>
+<td style="text-align:center">第一产业(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">si</td>
+<td style="text-align:center">第二产业(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">industry</td>
+<td style="text-align:center">工业(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">cons_industry</td>
+<td style="text-align:center">建筑业(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">ti</td>
+<td style="text-align:center">第三产业(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">trans_industry</td>
+<td style="text-align:center">交通运输仓储邮电通信业(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">lbdy</td>
+<td style="text-align:center">批发零售贸易及餐饮业(亿元)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="季度GDP"><a href="#季度GDP" class="headerlink" title="季度GDP"></a>季度GDP</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ts.get_gdp_quarter().to_sql(<span class="string">'季度GDP'</span>, engine,</span><br><span class="line">                         if_exists=<span class="string">'replace'</span>,</span><br><span class="line">                         schema=<span class="string">'宏观经济数据'</span>,</span><br><span class="line">                         index=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">quarter</td>
+<td style="text-align:center">季度</td>
+</tr>
+<tr>
+<td style="text-align:center">gdp</td>
+<td style="text-align:center">国内生产总值(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">gdp_yoy</td>
+<td style="text-align:center">国内生产总值同比增长(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">pi</td>
+<td style="text-align:center">第一产业增加值(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">pi_yoy</td>
+<td style="text-align:center">第一产业增加值同比增长(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">si</td>
+<td style="text-align:center">第二产业增加值(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">si_yoy</td>
+<td style="text-align:center">第二产业增加值同比增长(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">ti</td>
+<td style="text-align:center">第三产业增加值(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">ti_yoy</td>
+<td style="text-align:center">第三产业增加值同比增长(%)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="货币供应量-年底余额"><a href="#货币供应量-年底余额" class="headerlink" title="货币供应量(年底余额)"></a>货币供应量(年底余额)</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ts.get_money_supply_bal().to_sql(<span class="string">'货币供应量(年底余额)'</span>, engine,</span><br><span class="line">                                 if_exists=<span class="string">'replace'</span>,</span><br><span class="line">                                 schema=<span class="string">'宏观经济数据'</span>,</span><br><span class="line">                                 index=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">year</td>
+<td style="text-align:center">统计年度</td>
+</tr>
+<tr>
+<td style="text-align:center">m2</td>
+<td style="text-align:center">货币和准货币(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">m1</td>
+<td style="text-align:center">货币(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">m0</td>
+<td style="text-align:center">流通中现金(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">cd</td>
+<td style="text-align:center">活期存款(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">qm</td>
+<td style="text-align:center">准货币(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">ftd</td>
+<td style="text-align:center">定期存款(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">sd</td>
+<td style="text-align:center">储蓄存款(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">rests</td>
+<td style="text-align:center">其他存款(亿元)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三大需求对GDP贡献"><a href="#三大需求对GDP贡献" class="headerlink" title="三大需求对GDP贡献"></a>三大需求对GDP贡献</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ts.get_gdp_for().to_sql(<span class="string">'三大需求对GDP贡献'</span>, engine,</span><br><span class="line">                                 if_exists=<span class="string">'replace'</span>,</span><br><span class="line">                                 schema=<span class="string">'宏观经济数据'</span>,</span><br><span class="line">                                 index=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">year</td>
+<td style="text-align:center">统计年度</td>
+</tr>
+<tr>
+<td style="text-align:center">end_for</td>
+<td style="text-align:center">最终消费支出贡献率(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">for_rate</td>
+<td style="text-align:center">最终消费支出拉动(百分点)</td>
+</tr>
+<tr>
+<td style="text-align:center">asset_for</td>
+<td style="text-align:center">资本形成总额贡献率(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">asset_rate</td>
+<td style="text-align:center">资本形成总额拉动(百分点)</td>
+</tr>
+<tr>
+<td style="text-align:center">goods_for</td>
+<td style="text-align:center">货物和服务净出口贡献率(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">goods_rate</td>
+<td style="text-align:center">货物和服务净出口拉动(百分点)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三大产业贡献率"><a href="#三大产业贡献率" class="headerlink" title="三大产业贡献率"></a>三大产业贡献率</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ts.get_gdp_contrib().to_sql(<span class="string">'三大产业贡献给率'</span>, engine,</span><br><span class="line">                            if_exists=<span class="string">'replace'</span>,</span><br><span class="line">                            schema=<span class="string">'宏观经济数据'</span>,</span><br><span class="line">                            index=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">year</td>
+<td style="text-align:center">统计年度</td>
+</tr>
+<tr>
+<td style="text-align:center">gdp_yoy</td>
+<td style="text-align:center">国内生产总值</td>
+</tr>
+<tr>
+<td style="text-align:center">pi</td>
+<td style="text-align:center">第一产业献率(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">si</td>
+<td style="text-align:center">第二产业献率(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">industry</td>
+<td style="text-align:center">其中工业献率(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">ti</td>
+<td style="text-align:center">第三产业献率(%)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三大产业对GDP拉动"><a href="#三大产业对GDP拉动" class="headerlink" title="三大产业对GDP拉动"></a>三大产业对GDP拉动</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ts.get_gdp_pull().to_sql(<span class="string">'三大产业对GDP拉动'</span>, engine,</span><br><span class="line">                         if_exists=<span class="string">'replace'</span>,</span><br><span class="line">                         schema=<span class="string">'宏观经济数据'</span>,</span><br><span class="line">                         index=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">year</td>
+<td style="text-align:center">统计年度</td>
+</tr>
+<tr>
+<td style="text-align:center">gdp_yoy</td>
+<td style="text-align:center">国内生产总值同比增长(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">pi</td>
+<td style="text-align:center">第一产业拉动率(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">si</td>
+<td style="text-align:center">第二产业拉动率(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">industry</td>
+<td style="text-align:center">其中工业拉动(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">ti</td>
+<td style="text-align:center">第三产业拉动率(%)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="工业品出厂价格指数"><a href="#工业品出厂价格指数" class="headerlink" title="工业品出厂价格指数"></a>工业品出厂价格指数</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ts.get_ppi().to_sql(<span class="string">'工业品出厂价格指数'</span>, engine,</span><br><span class="line">                    schema=<span class="string">'宏观经济数据'</span>,</span><br><span class="line">                    index=<span class="keyword">False</span>,</span><br><span class="line">                    if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">month</td>
+<td style="text-align:center">统计月份</td>
+</tr>
+<tr>
+<td style="text-align:center">ppiip</td>
+<td style="text-align:center">工业品出厂价格指数</td>
+</tr>
+<tr>
+<td style="text-align:center">ppi</td>
+<td style="text-align:center">生产资料价格指数</td>
+</tr>
+<tr>
+<td style="text-align:center">qm</td>
+<td style="text-align:center">采掘工业价格指数</td>
+</tr>
+<tr>
+<td style="text-align:center">rmi</td>
+<td style="text-align:center">原材料工业价格指数</td>
+</tr>
+<tr>
+<td style="text-align:center">pi</td>
+<td style="text-align:center">加工工业价格指数</td>
+</tr>
+<tr>
+<td style="text-align:center">cg</td>
+<td style="text-align:center">生活资料价格指数</td>
+</tr>
+<tr>
+<td style="text-align:center">food</td>
+<td style="text-align:center">食品类价格指数</td>
+</tr>
+<tr>
+<td style="text-align:center">clothing</td>
+<td style="text-align:center">衣着类价格指数</td>
+</tr>
+<tr>
+<td style="text-align:center">roeu</td>
+<td style="text-align:center">一般日用品价格指数</td>
+</tr>
+<tr>
+<td style="text-align:center">dcg</td>
+<td style="text-align:center">耐用消费品价格指数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="月度CPI"><a href="#月度CPI" class="headerlink" title="月度CPI"></a>月度CPI</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ts.get_cpi().to_sql(<span class="string">'月度CPI'</span>, engine,</span><br><span class="line">                    schema=<span class="string">'宏观经济数据'</span>,</span><br><span class="line">                    index=<span class="keyword">False</span>,</span><br><span class="line">                    if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">month</td>
+<td style="text-align:center">统计月份</td>
+</tr>
+<tr>
+<td style="text-align:center">cpi</td>
+<td style="text-align:center">价格指数</td>
+</tr>
+</tbody>
+</table>
+<h1 id="交易数据"><a href="#交易数据" class="headerlink" title="交易数据"></a>交易数据</h1><h2 id="历史行情"><a href="#历史行情" class="headerlink" title="历史行情"></a>历史行情</h2><p>get_hist_data()函数只能获得近三年的日数据，适合搭配均线进行选股和分析<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line">df = ts.get_hist_data(<span class="string">'600848'</span>)</span><br><span class="line">df[<span class="string">'date'</span>] = df.index.str.split(<span class="string">' '</span>).str[<span class="number">0</span>]</span><br><span class="line">df.to_sql(<span class="string">'600848日K'</span>, engine,</span><br><span class="line">         schema=<span class="string">'交易数据'</span>,</span><br><span class="line">         index=<span class="keyword">False</span>,</span><br><span class="line">         if_exists=<span class="string">'replace'</span>)</span><br><span class="line"><span class="comment"># 获取周K线：</span></span><br><span class="line">df = ts.get_hist_data(<span class="string">'600848'</span>, ktype=<span class="string">'W'</span>)</span><br><span class="line">df[<span class="string">'date'</span>] = df.index.str.split(<span class="string">' '</span>).str[<span class="number">0</span>]</span><br><span class="line">df.to_sql(<span class="string">'600848周K'</span>, engine,</span><br><span class="line">         schema=<span class="string">'交易数据'</span>,</span><br><span class="line">         index=<span class="keyword">False</span>,</span><br><span class="line">         if_exists=<span class="string">'replace'</span>)</span><br><span class="line"><span class="comment"># 获取月K线</span></span><br><span class="line">df = ts.get_hist_data(<span class="string">'600848'</span>, ktype=<span class="string">'M'</span>)</span><br><span class="line">df[<span class="string">'date'</span>] = df.index.str.split(<span class="string">' '</span>).str[<span class="number">0</span>]</span><br><span class="line">df.to_sql(<span class="string">'600848月K'</span>, engine,</span><br><span class="line">          schema=<span class="string">'交易数据'</span>,</span><br><span class="line">          index=<span class="keyword">False</span>,</span><br><span class="line">          if_exists=<span class="string">'replace'</span>)</span><br><span class="line"><span class="comment"># 获取5分钟K线</span></span><br><span class="line">df = ts.get_hist_data(<span class="string">'600848'</span>, ktype=<span class="string">'5'</span>)</span><br><span class="line">df[<span class="string">'date'</span>] = df.index.str.split(<span class="string">' '</span>).str[<span class="number">0</span>]</span><br><span class="line">df.to_sql(<span class="string">'600848-5K'</span>, engine,</span><br><span class="line">          schema=<span class="string">'交易数据'</span>,</span><br><span class="line">          index=<span class="keyword">False</span>,</span><br><span class="line">          if_exists=<span class="string">'replace'</span>)</span><br><span class="line"><span class="comment"># 获取15分钟K线</span></span><br><span class="line">df = ts.get_hist_data(<span class="string">'600848'</span>, ktype=<span class="string">'15'</span>)</span><br><span class="line">df[<span class="string">'date'</span>] = df.index.str.split(<span class="string">' '</span>).str[<span class="number">0</span>]</span><br><span class="line">df.to_sql(<span class="string">'600848-15K'</span>, engine,</span><br><span class="line">          schema=<span class="string">'交易数据'</span>,</span><br><span class="line">          index=<span class="keyword">False</span>,</span><br><span class="line">          if_exists=<span class="string">'replace'</span>)</span><br><span class="line"><span class="comment"># 获取30分钟K线</span></span><br><span class="line">df = ts.get_hist_data(<span class="string">'600848'</span>, ktype=<span class="string">'30'</span>)</span><br><span class="line">df[<span class="string">'date'</span>] = df.index.str.split(<span class="string">' '</span>).str[<span class="number">0</span>]</span><br><span class="line">df.to_sql(<span class="string">'600848-30K'</span>, engine,</span><br><span class="line">          schema=<span class="string">'交易数据'</span>,</span><br><span class="line">          index=<span class="keyword">False</span>,</span><br><span class="line">          if_exists=<span class="string">'replace'</span>)</span><br><span class="line"><span class="comment"># 获取60分钟K线</span></span><br><span class="line">df = ts.get_hist_data(<span class="string">'600848'</span>, ktype=<span class="string">'60'</span>)</span><br><span class="line">df[<span class="string">'date'</span>] = df.index.str.split(<span class="string">' '</span>).str[<span class="number">0</span>]</span><br><span class="line">df.to_sql(<span class="string">'600848-60K'</span>, engine,</span><br><span class="line">          schema=<span class="string">'交易数据'</span>,</span><br><span class="line">          index=<span class="keyword">False</span>,</span><br><span class="line">          if_exists=<span class="string">'replace'</span>)</span><br><span class="line"><span class="comment"># 上证指数</span></span><br><span class="line">df = ts.get_hist_data(<span class="string">'sh'</span>)</span><br><span class="line">df[<span class="string">'date'</span>] = df.index.str.split(<span class="string">' '</span>).str[<span class="number">0</span>]</span><br><span class="line">df.to_sql(<span class="string">'上证指数'</span>, engine,</span><br><span class="line">          schema=<span class="string">'指数数据'</span>,</span><br><span class="line">          index=<span class="keyword">False</span>,</span><br><span class="line">          if_exists=<span class="string">'replace'</span>)</span><br><span class="line"><span class="comment"># 深圳成指</span></span><br><span class="line">df = ts.get_hist_data(<span class="string">'sz'</span>)</span><br><span class="line">df[<span class="string">'date'</span>] = df.index.str.split(<span class="string">' '</span>).str[<span class="number">0</span>]</span><br><span class="line">df.to_sql(<span class="string">'深圳成指'</span>, engine,</span><br><span class="line">          schema=<span class="string">'指数数据'</span>,</span><br><span class="line">          index=<span class="keyword">False</span>,</span><br><span class="line">          if_exists=<span class="string">'replace'</span>)</span><br><span class="line"><span class="comment"># 沪深300</span></span><br><span class="line">df = ts.get_hist_data(<span class="string">'hs300'</span>)</span><br><span class="line">df[<span class="string">'date'</span>] = df.index.str.split(<span class="string">' '</span>).str[<span class="number">0</span>]</span><br><span class="line">df.to_sql(<span class="string">'沪深300'</span>, engine,</span><br><span class="line">          schema=<span class="string">'指数数据'</span>,</span><br><span class="line">          index=<span class="keyword">False</span>,</span><br><span class="line">          if_exists=<span class="string">'replace'</span>)</span><br><span class="line"><span class="comment"># 上证50</span></span><br><span class="line">df = ts.get_hist_data(<span class="string">'sz50'</span>)</span><br><span class="line">df[<span class="string">'date'</span>] = df.index.str.split(<span class="string">' '</span>).str[<span class="number">0</span>]</span><br><span class="line">df.to_sql(<span class="string">'上证50'</span>, engine,</span><br><span class="line">          schema=<span class="string">'指数数据'</span>,</span><br><span class="line">          index=<span class="keyword">False</span>,</span><br><span class="line">          if_exists=<span class="string">'replace'</span>)</span><br><span class="line"><span class="comment"># 中小板指数</span></span><br><span class="line">df = ts.get_hist_data(<span class="string">'zxb'</span>)</span><br><span class="line">df[<span class="string">'date'</span>] = df.index.str.split(<span class="string">' '</span>).str[<span class="number">0</span>]</span><br><span class="line">df.to_sql(<span class="string">'中小板指数'</span>, engine,</span><br><span class="line">          schema=<span class="string">'指数数据'</span>,</span><br><span class="line">          index=<span class="keyword">False</span>,</span><br><span class="line">          if_exists=<span class="string">'replace'</span>)</span><br><span class="line"><span class="comment"># 创业板指数</span></span><br><span class="line">df = ts.get_hist_data(<span class="string">'cyb'</span>)</span><br><span class="line">df[<span class="string">'date'</span>] = df.index.str.split(<span class="string">' '</span>).str[<span class="number">0</span>]</span><br><span class="line">df.to_sql(<span class="string">'创业板指数'</span>, engine,</span><br><span class="line">          schema=<span class="string">'指数数据'</span>,</span><br><span class="line">          index=<span class="keyword">False</span>,</span><br><span class="line">          if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">股票代码，即6位数字代码，或者指数代码（sh=上证指数 sz=深圳成指 hs300=沪深300指数 sz50=上证50 zxb=中小板 cyb=创业板）</td>
+</tr>
+<tr>
+<td style="text-align:center">start</td>
+<td style="text-align:center">开始日期，格式YYYY-MM-DD</td>
+</tr>
+<tr>
+<td style="text-align:center">end</td>
+<td style="text-align:center">结束日期，格式YYYY-MM-DD</td>
+</tr>
+<tr>
+<td style="text-align:center">ktype</td>
+<td style="text-align:center">数据类型，D=日k线 W=周 M=月 5=5分钟 15=15分钟 30=30分钟 60=60分钟，默认为D</td>
+</tr>
+<tr>
+<td style="text-align:center">retry_count</td>
+<td style="text-align:center">当网络异常后重试次数，默认为3</td>
+</tr>
+<tr>
+<td style="text-align:center">pause</td>
+<td style="text-align:center">重试时停顿秒数，默认为0</td>
+</tr>
+</tbody>
+</table>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">日期</td>
+</tr>
+<tr>
+<td style="text-align:center">open</td>
+<td style="text-align:center">开盘价</td>
+</tr>
+<tr>
+<td style="text-align:center">high</td>
+<td style="text-align:center">最高价</td>
+</tr>
+<tr>
+<td style="text-align:center">close</td>
+<td style="text-align:center">收盘价</td>
+</tr>
+<tr>
+<td style="text-align:center">low</td>
+<td style="text-align:center">最低价</td>
+</tr>
+<tr>
+<td style="text-align:center">volume</td>
+<td style="text-align:center">成交量</td>
+</tr>
+<tr>
+<td style="text-align:center">price_change</td>
+<td style="text-align:center">价格变动</td>
+</tr>
+<tr>
+<td style="text-align:center">p_change</td>
+<td style="text-align:center">涨跌幅</td>
+</tr>
+<tr>
+<td style="text-align:center">ma5</td>
+<td style="text-align:center">5日均价</td>
+</tr>
+<tr>
+<td style="text-align:center">ma10</td>
+<td style="text-align:center">10日均价</td>
+</tr>
+<tr>
+<td style="text-align:center">ma20</td>
+<td style="text-align:center">20日均价</td>
+</tr>
+<tr>
+<td style="text-align:center">v_ma5</td>
+<td style="text-align:center">5日均量</td>
+</tr>
+<tr>
+<td style="text-align:center">v_ma10</td>
+<td style="text-align:center">10日均量</td>
+</tr>
+<tr>
+<td style="text-align:center">v_ma20</td>
+<td style="text-align:center">20日均量</td>
+</tr>
+<tr>
+<td style="text-align:center">turnover</td>
+<td style="text-align:center">换手率[注：指数无此项]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="获取数据行情的新函数——get-k-data"><a href="#获取数据行情的新函数——get-k-data" class="headerlink" title="获取数据行情的新函数——get_k_data()"></a>获取数据行情的新函数——get_k_data()</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1）获取浦发银行近一年半的前复权日线行情：</span></span><br><span class="line">ts.get_k_data(<span class="string">'600000'</span>).to_sql(<span class="string">'浦发银行前复权日线行情'</span>, engine,</span><br><span class="line">                          schema=<span class="string">'交易数据'</span>,</span><br><span class="line">                          index=<span class="keyword">False</span>,</span><br><span class="line">                          if_exists=<span class="string">'replace'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2）获取浦发银行近6年后复权周线行情：</span></span><br><span class="line">ts.get_k_data(<span class="string">'600000'</span>, ktype=<span class="string">'W'</span>, autype=<span class="string">'hfq'</span>).\</span><br><span class="line">    to_sql(<span class="string">'浦发银行后复权周线行情'</span>, engine,</span><br><span class="line">        schema=<span class="string">'交易数据'</span>,</span><br><span class="line">        index=<span class="keyword">False</span>,</span><br><span class="line">        if_exists=<span class="string">'replace'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3）获取浦发银行近期5分钟行情：</span></span><br><span class="line">ts.get_k_data(<span class="string">'600000'</span>, ktype=<span class="string">'5'</span>).\</span><br><span class="line">    to_sql(<span class="string">'浦发银行5分钟行情'</span>, engine,</span><br><span class="line">        schema=<span class="string">'交易数据'</span>,</span><br><span class="line">        index=<span class="keyword">False</span>,</span><br><span class="line">        if_exists=<span class="string">'replace'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4）获取沪深300指数10月份日线行情：</span></span><br><span class="line">ts.get_k_data(<span class="string">'399300'</span>, index=<span class="keyword">True</span>,start=<span class="string">'2017-10-01'</span>, end=<span class="string">'2017-10-31'</span>).\</span><br><span class="line">    to_sql(<span class="string">'沪深300指数10月份日线行情'</span>, engine,</span><br><span class="line">        schema=<span class="string">'交易数据'</span>,</span><br><span class="line">        index=<span class="keyword">False</span>,</span><br><span class="line">        if_exists=<span class="string">'replace'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5）获取鹏华银行分级B的60分钟行情：</span></span><br><span class="line">ts.get_k_data(<span class="string">'150228'</span>, ktype=<span class="string">'60'</span>).\</span><br><span class="line">    to_sql(<span class="string">'鹏华银行分级B的60分钟行情'</span>, engine,</span><br><span class="line">        schema=<span class="string">'交易数据'</span>,</span><br><span class="line">        index=<span class="keyword">False</span>,</span><br><span class="line">        if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>主要参数说明</p>
+<ol>
+<li><p>code<br>证券代码：<br>支持沪深A、B股<br>支持全部指数<br>支持ETF基金</p>
+</li>
+<li><p>ktype<br>数据类型：<br>默认为D日线数据<br>D=日k线 W=周 M=月<br>5=5分钟 15=15分钟<br>30=30分钟 60=60分钟</p>
+</li>
+<li><p>autype<br>复权类型：<br>qfq-前复权 hfq-后复权 None-不复权，默认为qfq</p>
+</li>
+<li><p>index<br>是否为指数：<br>默认为False<br>设定为True时认为code为指数代码</p>
+</li>
+<li><p>start<br>开始日期<br>format：YYYY-MM-DD 为空时取当前日期</p>
+</li>
+<li><p>end<br>结束日期 ：<br>format：YYYY-MM-DD</p>
+</li>
+</ol>
+<h2 id="复权数据"><a href="#复权数据" class="headerlink" title="复权数据"></a>复权数据</h2><p>分为前复权和后复权数据，该接口提供股票上市以来的所有历史数据，默认为前复权。如果不设定起止日期则返回近一年的复权数据。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取个股的首个上市日期：</span></span><br><span class="line">df = ts.get_stock_basics()</span><br><span class="line">df.to_sql(<span class="string">'个股信息'</span>, engine,</span><br><span class="line">          schema=<span class="string">'交易数据'</span>,</span><br><span class="line">          index=<span class="keyword">False</span>,</span><br><span class="line">          if_exists=<span class="string">'replace'</span>)</span><br><span class="line">df.ix[<span class="string">'600848'</span>][<span class="string">'timeToMarket'</span>]</span><br><span class="line"><span class="comment"># 前复权数据</span></span><br><span class="line">df = ts.get_h_data(<span class="string">'002337'</span>)</span><br><span class="line">df[<span class="string">'date'</span>] = df.index</span><br><span class="line">df.to_sql(<span class="string">'002337前复权数据'</span>, engine,</span><br><span class="line">        schema=<span class="string">'交易数据'</span>,</span><br><span class="line">        index=<span class="keyword">False</span>,</span><br><span class="line">        if_exists=<span class="string">'replace'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 后复权数据</span></span><br><span class="line">df = ts.get_h_data(<span class="string">'002337'</span>, autype=<span class="string">'hfq'</span>)</span><br><span class="line">df[<span class="string">'date'</span>] = df.index</span><br><span class="line">df.to_sql(<span class="string">'002337后复权数据'</span>, engine,</span><br><span class="line">        schema=<span class="string">'交易数据'</span>,</span><br><span class="line">        index=<span class="keyword">False</span>,</span><br><span class="line">        if_exists=<span class="string">'replace'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个接口还提供大盘指数的全部历史数据，调用时需设定index参数为true</span></span><br><span class="line"><span class="comment"># 深圳综合指数</span></span><br><span class="line">df = ts.get_h_data(<span class="string">'399106'</span>, index=<span class="keyword">True</span>)</span><br><span class="line">df[<span class="string">'date'</span>] = df.index</span><br><span class="line">df.to_sql(<span class="string">'深圳综指'</span>, engine,</span><br><span class="line">        schema=<span class="string">'指数数据'</span>,</span><br><span class="line">        index=<span class="keyword">False</span>,</span><br><span class="line">        if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">string,股票代码 e.g. 600848</td>
+</tr>
+<tr>
+<td style="text-align:center">start:</td>
+<td style="text-align:center">string,开始日期 format：YYYY-MM-DD 为空时取当前日期</td>
+</tr>
+<tr>
+<td style="text-align:center">end:</td>
+<td style="text-align:center">string,结束日期 format：YYYY-MM-DD 为空时取去年今日</td>
+</tr>
+<tr>
+<td style="text-align:center">autype:</td>
+<td style="text-align:center">string,复权类型，qfq-前复权 hfq-后复权 None-不复权，默认为qfq</td>
+</tr>
+<tr>
+<td style="text-align:center">index:</td>
+<td style="text-align:center">Boolean，是否是大盘指数，默认为False</td>
+</tr>
+<tr>
+<td style="text-align:center">retry_count</td>
+<td style="text-align:center">int, 默认3,如遇网络等问题重复执行的次数</td>
+</tr>
+<tr>
+<td style="text-align:center">pause</td>
+<td style="text-align:center">int, 默认 0,重复请求数据过程中暂停的秒数，防止请求间隔时间太短出现的问题</td>
+</tr>
+</tbody>
+</table>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">交易日期 (index)</td>
+</tr>
+<tr>
+<td style="text-align:center">open</td>
+<td style="text-align:center">开盘价</td>
+</tr>
+<tr>
+<td style="text-align:center">high</td>
+<td style="text-align:center">最高价</td>
+</tr>
+<tr>
+<td style="text-align:center">close</td>
+<td style="text-align:center">收盘价</td>
+</tr>
+<tr>
+<td style="text-align:center">low</td>
+<td style="text-align:center">最低价</td>
+</tr>
+<tr>
+<td style="text-align:center">volume</td>
+<td style="text-align:center">成交量</td>
+</tr>
+<tr>
+<td style="text-align:center">amount</td>
+<td style="text-align:center">成交金额</td>
+</tr>
+</tbody>
+</table>
+<h2 id="实时行情"><a href="#实时行情" class="headerlink" title="实时行情"></a>实时行情</h2><p>一次性获取当前交易所有股票的行情数据，如果为节假日即为上一交易日的数据。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ts.get_today_all().to_sql(<span class="string">'全部个股当日数据'</span>, engine,</span><br><span class="line">        schema=<span class="string">'交易数据'</span>,</span><br><span class="line">        index=<span class="keyword">False</span>,</span><br><span class="line">        if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">名称</td>
+</tr>
+<tr>
+<td style="text-align:center">changepercent</td>
+<td style="text-align:center">涨跌幅</td>
+</tr>
+<tr>
+<td style="text-align:center">trade</td>
+<td style="text-align:center">现价</td>
+</tr>
+<tr>
+<td style="text-align:center">open</td>
+<td style="text-align:center">开盘价</td>
+</tr>
+<tr>
+<td style="text-align:center">high</td>
+<td style="text-align:center">最高价</td>
+</tr>
+<tr>
+<td style="text-align:center">low</td>
+<td style="text-align:center">最低价</td>
+</tr>
+<tr>
+<td style="text-align:center">settlement</td>
+<td style="text-align:center">昨日收盘价</td>
+</tr>
+<tr>
+<td style="text-align:center">volume</td>
+<td style="text-align:center">成交量</td>
+</tr>
+<tr>
+<td style="text-align:center">turnoverratio</td>
+<td style="text-align:center">换手率</td>
+</tr>
+<tr>
+<td style="text-align:center">amount</td>
+<td style="text-align:center">成交量</td>
+</tr>
+<tr>
+<td style="text-align:center">per</td>
+<td style="text-align:center">市盈率</td>
+</tr>
+<tr>
+<td style="text-align:center">pb</td>
+<td style="text-align:center">市净率</td>
+</tr>
+<tr>
+<td style="text-align:center">mktcap</td>
+<td style="text-align:center">总市值</td>
+</tr>
+<tr>
+<td style="text-align:center">nmc</td>
+<td style="text-align:center">流通市值</td>
+</tr>
+</tbody>
+</table>
+<h2 id="分笔数据"><a href="#分笔数据" class="headerlink" title="分笔数据"></a>分笔数据</h2><h3 id="历史分笔"><a href="#历史分笔" class="headerlink" title="历史分笔"></a>历史分笔</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ts.get_tick_data(<span class="string">'600848'</span>, date = <span class="string">'2014-01-09'</span>)\</span><br><span class="line">    .to_sql(<span class="string">'600848分笔数据'</span>, engine,</span><br><span class="line">        schema=<span class="string">'交易数据'</span>,</span><br><span class="line">        index=<span class="keyword">False</span>,</span><br><span class="line">        if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">股票代码，即6位数字代码</td>
+</tr>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">日期，格式YYYY-MM-DD</td>
+</tr>
+<tr>
+<td style="text-align:center">retry_count</td>
+<td style="text-align:center">int, 默认3,如遇网络等问题重复执行的次数</td>
+</tr>
+<tr>
+<td style="text-align:center">pause</td>
+<td style="text-align:center">int, 默认 0,重复请求数据过程中暂停的秒数，防止请求间隔时间太短出现的问题</td>
+</tr>
+</tbody>
+</table>
+<h3 id="实时分笔"><a href="#实时分笔" class="headerlink" title="实时分笔"></a>实时分笔</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">df = ts.get_realtime_quotes(<span class="string">'000581'</span>)</span><br><span class="line">df[[<span class="string">'code'</span>, <span class="string">'name'</span>, <span class="string">'price'</span>, <span class="string">'bid'</span>, <span class="string">'ask'</span>, <span class="string">'volume'</span>, <span class="string">'amount'</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请求多个股票的实时分笔数据(一次最好不超过10个)</span></span><br><span class="line">df = ts.get_realtime_quotes([<span class="string">'600848'</span>, <span class="string">'000980'</span>, <span class="string">'000981'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取实时指数</span></span><br><span class="line">df = ts.get_realtime_quotes(<span class="string">'sh'</span>)</span><br><span class="line">df = ts.get_realtime_quotes([<span class="string">'sh'</span>, <span class="string">'sz'</span>, <span class="string">'hs300'</span>, <span class="string">'sz50'</span>,</span><br><span class="line">                             <span class="string">'zxb'</span>, <span class="string">'cyb'</span>, <span class="string">'399001'</span>, <span class="string">'399002'</span>,</span><br><span class="line">                             <span class="string">'399003'</span>, <span class="string">'399004'</span>, <span class="string">'399008'</span>,</span><br><span class="line">                             <span class="string">'399100'</span>, <span class="string">'399101'</span>, <span class="string">'399106'</span>,</span><br><span class="line">                             <span class="string">'399107'</span>, <span class="string">'399108'</span>, <span class="string">'399333'</span>,</span><br><span class="line">                             <span class="string">'399606'</span>])</span><br><span class="line">df.to_sql(<span class="string">'实时主要大盘指数'</span>, engine,</span><br><span class="line">        schema=<span class="string">'指数数据'</span>,</span><br><span class="line">        index=<span class="keyword">False</span>,</span><br><span class="line">        if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">symbols</td>
+<td style="text-align:center">6位数字股票代码，或者指数代码（sh=上证指数 sz=深圳成指 hs300=沪深300指数 sz50=上证50 zxb=中小板 cyb=创业板） 可输入的类型：str、list、set或者pandas的Series对象</td>
+</tr>
+</tbody>
+</table>
+<h3 id="当日分笔数据"><a href="#当日分笔数据" class="headerlink" title="当日分笔数据"></a>当日分笔数据</h3><p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">股票代码，即6位数字代码</td>
+</tr>
+<tr>
+<td style="text-align:center">retry_count</td>
+<td style="text-align:center">int, 默认3,如遇网络等问题重复执行的次数</td>
+</tr>
+<tr>
+<td style="text-align:center">pause</td>
+<td style="text-align:center">int, 默认 0,重复请求数据过程中暂停的秒数，防止请求间隔时间太短出现的问题</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ts.get_today_ticks(<span class="string">'601333'</span>).to_sql(<span class="string">'601333当日分笔数据'</span>, engine,</span><br><span class="line">        schema=<span class="string">'交易数据'</span>,</span><br><span class="line">        index=<span class="keyword">False</span>,</span><br><span class="line">        if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="大盘指数行情列表"><a href="#大盘指数行情列表" class="headerlink" title="大盘指数行情列表"></a>大盘指数行情列表</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ts.get_index().to_sql(<span class="string">'大盘指数行情列表'</span>, engine,</span><br><span class="line">        schema=<span class="string">'指数数据'</span>,</span><br><span class="line">        index=<span class="keyword">False</span>,</span><br><span class="line">        if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">指数代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">指数名称</td>
+</tr>
+<tr>
+<td style="text-align:center">change</td>
+<td style="text-align:center">涨跌幅</td>
+</tr>
+<tr>
+<td style="text-align:center">open</td>
+<td style="text-align:center">开盘点位</td>
+</tr>
+<tr>
+<td style="text-align:center">preclose</td>
+<td style="text-align:center">昨日收盘点位</td>
+</tr>
+<tr>
+<td style="text-align:center">close</td>
+<td style="text-align:center">收盘点位</td>
+</tr>
+<tr>
+<td style="text-align:center">high</td>
+<td style="text-align:center">最高点位</td>
+</tr>
+<tr>
+<td style="text-align:center">low</td>
+<td style="text-align:center">最低点位</td>
+</tr>
+<tr>
+<td style="text-align:center">volume</td>
+<td style="text-align:center">成交量(手)</td>
+</tr>
+<tr>
+<td style="text-align:center">amount</td>
+<td style="text-align:center">成交金额（亿元）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="大单交易数据"><a href="#大单交易数据" class="headerlink" title="大单交易数据"></a>大单交易数据</h2><p>获取大单交易数据，默认为大于等于400手，数据来源于新浪财经。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ts.get_sina_dd(<span class="string">'000001'</span>, date = <span class="string">'2018-06-28'</span>)\</span><br><span class="line">    .to_sql(<span class="string">'000001大单交易数据'</span>, engine,</span><br><span class="line">        schema=<span class="string">'交易数据'</span>,</span><br><span class="line">        index=<span class="keyword">False</span>,</span><br><span class="line">        if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">股票代码，即6位数字代码</td>
+</tr>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">日期，格式YYYY-MM-DD</td>
+</tr>
+<tr>
+<td style="text-align:center">vol</td>
+<td style="text-align:center">手数，默认为400手，输入数值型参数</td>
+</tr>
+<tr>
+<td style="text-align:center">retry_count</td>
+<td style="text-align:center">int, 默认3,如遇网络等问题重复执行的次数</td>
+</tr>
+<tr>
+<td style="text-align:center">pause</td>
+<td style="text-align:center">int, 默认 0,重复请求数据过程中暂停的秒数，防止请求间隔时间太短出现的问题</td>
+</tr>
+</tbody>
+</table>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">名称</td>
+</tr>
+<tr>
+<td style="text-align:center">time</td>
+<td style="text-align:center">时间</td>
+</tr>
+<tr>
+<td style="text-align:center">price</td>
+<td style="text-align:center">当前价格</td>
+</tr>
+<tr>
+<td style="text-align:center">volume</td>
+<td style="text-align:center">成交手</td>
+</tr>
+<tr>
+<td style="text-align:center">preprice</td>
+<td style="text-align:center">上一笔价格</td>
+</tr>
+<tr>
+<td style="text-align:center">type</td>
+<td style="text-align:center">买卖类型【买盘、卖盘、中性盘】</td>
+</tr>
+</tbody>
+</table>
+<h1 id="基本面数据"><a href="#基本面数据" class="headerlink" title="基本面数据"></a>基本面数据</h1><h2 id="股票列表"><a href="#股票列表" class="headerlink" title="股票列表"></a>股票列表</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ts.get_stock_basics().\</span><br><span class="line">    to_sql(<span class="string">'股票列表'</span>, engine,</span><br><span class="line">        schema=<span class="string">'基本面数据'</span>,</span><br><span class="line">        index=<span class="keyword">False</span>,</span><br><span class="line">        if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">名称</td>
+</tr>
+<tr>
+<td style="text-align:center">industry</td>
+<td style="text-align:center">所属行业</td>
+</tr>
+<tr>
+<td style="text-align:center">area</td>
+<td style="text-align:center">地区</td>
+</tr>
+<tr>
+<td style="text-align:center">pe</td>
+<td style="text-align:center">市盈率</td>
+</tr>
+<tr>
+<td style="text-align:center">outstanding</td>
+<td style="text-align:center">流通股本(亿)</td>
+</tr>
+<tr>
+<td style="text-align:center">totals</td>
+<td style="text-align:center">总股本(亿)</td>
+</tr>
+<tr>
+<td style="text-align:center">totalAssets</td>
+<td style="text-align:center">总资产(万)</td>
+</tr>
+<tr>
+<td style="text-align:center">liquidAssets</td>
+<td style="text-align:center">流动资产</td>
+</tr>
+<tr>
+<td style="text-align:center">fixedAssets</td>
+<td style="text-align:center">固定资产</td>
+</tr>
+<tr>
+<td style="text-align:center">reserved</td>
+<td style="text-align:center">公积金</td>
+</tr>
+<tr>
+<td style="text-align:center">reservedPerShare</td>
+<td style="text-align:center">每股公积金</td>
+</tr>
+<tr>
+<td style="text-align:center">esp</td>
+<td style="text-align:center">每股收益</td>
+</tr>
+<tr>
+<td style="text-align:center">bvps</td>
+<td style="text-align:center">每股净资</td>
+</tr>
+<tr>
+<td style="text-align:center">pb</td>
+<td style="text-align:center">市净率</td>
+</tr>
+<tr>
+<td style="text-align:center">timeToMarket</td>
+<td style="text-align:center">上市日期</td>
+</tr>
+<tr>
+<td style="text-align:center">undp</td>
+<td style="text-align:center">未分利润</td>
+</tr>
+<tr>
+<td style="text-align:center">perundp</td>
+<td style="text-align:center">每股未分配</td>
+</tr>
+<tr>
+<td style="text-align:center">rev</td>
+<td style="text-align:center">收入同比(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">profit</td>
+<td style="text-align:center">利润同比(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">gpr</td>
+<td style="text-align:center">毛利率(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">npr</td>
+<td style="text-align:center">净利润率(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">holders</td>
+<td style="text-align:center">股东人数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="业绩报告（主表）"><a href="#业绩报告（主表）" class="headerlink" title="业绩报告（主表）"></a>业绩报告（主表）</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取2018年第1季度业绩报表数据</span></span><br><span class="line">ts.get_report_data(<span class="number">2018</span>, <span class="number">1</span>).\</span><br><span class="line">    to_sql(<span class="string">'2018年第1季度业绩报表数据'</span>, engine,</span><br><span class="line">        schema=<span class="string">'基本面数据'</span>,</span><br><span class="line">        index=<span class="keyword">False</span>,</span><br><span class="line">        if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">名称</td>
+</tr>
+<tr>
+<td style="text-align:center">esp</td>
+<td style="text-align:center">每股收益</td>
+</tr>
+<tr>
+<td style="text-align:center">eps_yoy</td>
+<td style="text-align:center">每股收益同比(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">bvps</td>
+<td style="text-align:center">每股净资产</td>
+</tr>
+<tr>
+<td style="text-align:center">roe</td>
+<td style="text-align:center">净资产收益率(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">epcf</td>
+<td style="text-align:center">每股现金流量(元)</td>
+</tr>
+<tr>
+<td style="text-align:center">net_profits</td>
+<td style="text-align:center">净利润(万元)</td>
+</tr>
+<tr>
+<td style="text-align:center">profits_yoy</td>
+<td style="text-align:center">净利润同比(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">distrib</td>
+<td style="text-align:center">分配方案</td>
+</tr>
+<tr>
+<td style="text-align:center">report_date</td>
+<td style="text-align:center">发布日期</td>
+</tr>
+</tbody>
+</table>
+<h2 id="盈利能力"><a href="#盈利能力" class="headerlink" title="盈利能力"></a>盈利能力</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取2018年第1季度盈利能力数据</span></span><br><span class="line">ts.get_profit_data(<span class="number">2018</span>, <span class="number">1</span>).\</span><br><span class="line">    to_sql(<span class="string">'2018年第1季度盈利能力数据'</span>, engine,</span><br><span class="line">        schema=<span class="string">'基本面数据'</span>,</span><br><span class="line">        index=<span class="keyword">False</span>,</span><br><span class="line">        if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">名称</td>
+</tr>
+<tr>
+<td style="text-align:center">roe</td>
+<td style="text-align:center">净资产收益率(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">net_profit_ratio</td>
+<td style="text-align:center">净利率(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">gross_profit_rate</td>
+<td style="text-align:center">毛利率(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">net_profits</td>
+<td style="text-align:center">净利润(万元)</td>
+</tr>
+<tr>
+<td style="text-align:center">esp</td>
+<td style="text-align:center">每股收益</td>
+</tr>
+<tr>
+<td style="text-align:center">business_income</td>
+<td style="text-align:center">营业收入(百万元)</td>
+</tr>
+<tr>
+<td style="text-align:center">bips</td>
+<td style="text-align:center">每股主营业务收入(元)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="营运数据"><a href="#营运数据" class="headerlink" title="营运数据"></a>营运数据</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2018年第1季度营运能力数据</span></span><br><span class="line">ts.get_report_data(<span class="number">2018</span>, <span class="number">1</span>).\</span><br><span class="line">    to_sql(<span class="string">'2018年第1季度营运能力数据'</span>, engine,</span><br><span class="line">           schema=<span class="string">'基本面数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">名称</td>
+</tr>
+<tr>
+<td style="text-align:center">arturnover</td>
+<td style="text-align:center">应收账款周转率(次)</td>
+</tr>
+<tr>
+<td style="text-align:center">arturndays</td>
+<td style="text-align:center">应收账款周转天数(天)</td>
+</tr>
+<tr>
+<td style="text-align:center">inventory_turnover</td>
+<td style="text-align:center">存货周转率(次)</td>
+</tr>
+<tr>
+<td style="text-align:center">inventory_days</td>
+<td style="text-align:center">存货周转天数(天)</td>
+</tr>
+<tr>
+<td style="text-align:center">currentasset_turnover</td>
+<td style="text-align:center">流动资产周转率(次)</td>
+</tr>
+<tr>
+<td style="text-align:center">currentasset_days</td>
+<td style="text-align:center">流动资产周转天数(天)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="成长能力"><a href="#成长能力" class="headerlink" title="成长能力"></a>成长能力</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2018年第1季度成长能力数据</span></span><br><span class="line">ts.get_growth_data(<span class="number">2018</span>, <span class="number">1</span>).\</span><br><span class="line">    to_sql(<span class="string">'2018年第1季度成长能力数据'</span>, engine,</span><br><span class="line">           schema=<span class="string">'基本面数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">名称</td>
+</tr>
+<tr>
+<td style="text-align:center">mbrg</td>
+<td style="text-align:center">主营业务收入增长率(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">nprg</td>
+<td style="text-align:center">净利润增长率(%)</td>
+</tr>
+<tr>
+<td style="text-align:center">nav</td>
+<td style="text-align:center">净资产增长率</td>
+</tr>
+<tr>
+<td style="text-align:center">targ</td>
+<td style="text-align:center">总资产增长率</td>
+</tr>
+<tr>
+<td style="text-align:center">epsg</td>
+<td style="text-align:center">每股收益增长率</td>
+</tr>
+<tr>
+<td style="text-align:center">seg</td>
+<td style="text-align:center">股东权益增长率</td>
+</tr>
+</tbody>
+</table>
+<h2 id="偿债能力"><a href="#偿债能力" class="headerlink" title="偿债能力"></a>偿债能力</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2018年第1季度偿债能力数据</span></span><br><span class="line">ts.get_debtpaying_data(<span class="number">2018</span>, <span class="number">1</span>).\</span><br><span class="line">    to_sql(<span class="string">'2018年第1季度偿债能力数据'</span>, engine,</span><br><span class="line">           schema=<span class="string">'基本面数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">名称</td>
+</tr>
+<tr>
+<td style="text-align:center">currentratio</td>
+<td style="text-align:center">流动比率</td>
+</tr>
+<tr>
+<td style="text-align:center">quickratio</td>
+<td style="text-align:center">速动比率</td>
+</tr>
+<tr>
+<td style="text-align:center">cashratio</td>
+<td style="text-align:center">现金比率</td>
+</tr>
+<tr>
+<td style="text-align:center">icratio</td>
+<td style="text-align:center">利息支付倍数</td>
+</tr>
+<tr>
+<td style="text-align:center">sheqratio</td>
+<td style="text-align:center">股东权益比率</td>
+</tr>
+<tr>
+<td style="text-align:center">adratio</td>
+<td style="text-align:center">股东权益增长率</td>
+</tr>
+</tbody>
+</table>
+<h2 id="现金流量"><a href="#现金流量" class="headerlink" title="现金流量"></a>现金流量</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2018年第1季度现金流量数据</span></span><br><span class="line">ts.get_cashflow_data(<span class="number">2018</span>, <span class="number">1</span>).\</span><br><span class="line">    to_sql(<span class="string">'2018年第1季度现金流量数据'</span>, engine,</span><br><span class="line">           schema=<span class="string">'基本面数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">名称</td>
+</tr>
+<tr>
+<td style="text-align:center">cf_sales</td>
+<td style="text-align:center">经营现金净流量对销售收入比率</td>
+</tr>
+<tr>
+<td style="text-align:center">rateofreturn</td>
+<td style="text-align:center">资产的经营现金流量回报率</td>
+</tr>
+<tr>
+<td style="text-align:center">cf_nm</td>
+<td style="text-align:center">经营现金净流量与净利润的比率</td>
+</tr>
+<tr>
+<td style="text-align:center">cf_liabilities</td>
+<td style="text-align:center">经营现金净流量对负债比率</td>
+</tr>
+<tr>
+<td style="text-align:center">cashflowratio</td>
+<td style="text-align:center">现金流量比率</td>
+</tr>
+</tbody>
+</table>
+<h2 id="股票分类数据"><a href="#股票分类数据" class="headerlink" title="股票分类数据"></a>股票分类数据</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 行业分类</span></span><br><span class="line">ts.get_industry_classified().\</span><br><span class="line">    to_sql(<span class="string">'行业分类'</span>, engine,</span><br><span class="line">           schema=<span class="string">'股票分类数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 概念分类</span></span><br><span class="line">ts.get_concept_classified().\</span><br><span class="line">    to_sql(<span class="string">'概念分类'</span>, engine,</span><br><span class="line">           schema=<span class="string">'股票分类数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 地域分类</span></span><br><span class="line">ts.get_area_classified().\</span><br><span class="line">    to_sql(<span class="string">'地域分类'</span>, engine,</span><br><span class="line">           schema=<span class="string">'股票分类数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 中小板分类</span></span><br><span class="line">ts.get_sme_classified().\</span><br><span class="line">    to_sql(<span class="string">'中小板分类'</span>, engine,</span><br><span class="line">           schema=<span class="string">'股票分类数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创业板分类</span></span><br><span class="line">ts.get_gem_classified().\</span><br><span class="line">    to_sql(<span class="string">'创业板分类'</span>, engine,</span><br><span class="line">           schema=<span class="string">'股票分类数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 风险警示板分类</span></span><br><span class="line">ts.get_st_classified().\</span><br><span class="line">    to_sql(<span class="string">'风险警示板分类'</span>, engine,</span><br><span class="line">           schema=<span class="string">'股票分类数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 沪深300成分股及权重</span></span><br><span class="line">ts.get_hs300s().\</span><br><span class="line">    to_sql(<span class="string">'沪深300成分股及权重'</span>, engine,</span><br><span class="line">           schema=<span class="string">'股票分类数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上证50成分股</span></span><br><span class="line">ts.get_sz50s().\</span><br><span class="line">    to_sql(<span class="string">'上证50成分股'</span>, engine,</span><br><span class="line">           schema=<span class="string">'股票分类数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 中证500成分股</span></span><br><span class="line">ts.get_zz500s().\</span><br><span class="line">    to_sql(<span class="string">'中证500成分股'</span>, engine,</span><br><span class="line">           schema=<span class="string">'股票分类数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="投资参考数据"><a href="#投资参考数据" class="headerlink" title="投资参考数据"></a>投资参考数据</h1><h2 id="分配预案"><a href="#分配预案" class="headerlink" title="分配预案"></a>分配预案</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最新公布的1000条</span></span><br><span class="line">ts.profit_data(top = <span class="number">1000</span>).\</span><br><span class="line">    to_sql(<span class="string">'分配预案'</span>, engine,</span><br><span class="line">           schema=<span class="string">'投资参考数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br><span class="line"><span class="comment"># 2018年分配预案</span></span><br><span class="line">ts.profit_data(year = <span class="number">2018</span>).\</span><br><span class="line">    to_sql(<span class="string">'2018年分配预案'</span>, engine,</span><br><span class="line">           schema=<span class="string">'投资参考数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">year</td>
+<td style="text-align:center">预案公布的年份，默认为2014</td>
+</tr>
+<tr>
+<td style="text-align:center">top</td>
+<td style="text-align:center">取最新n条数据，默认取最近公布的25条</td>
+</tr>
+<tr>
+<td style="text-align:center">retry_count</td>
+<td style="text-align:center">当网络异常后重试次数，默认为3</td>
+</tr>
+<tr>
+<td style="text-align:center">pause</td>
+<td style="text-align:center">重试时停顿秒数，默认为0</td>
+</tr>
+</tbody>
+</table>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">股票代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">股票名称</td>
+</tr>
+<tr>
+<td style="text-align:center">year</td>
+<td style="text-align:center">分配年份</td>
+</tr>
+<tr>
+<td style="text-align:center">report_date</td>
+<td style="text-align:center">公布日期</td>
+</tr>
+<tr>
+<td style="text-align:center">divi</td>
+<td style="text-align:center">分红金额（每10股）</td>
+</tr>
+<tr>
+<td style="text-align:center">shares</td>
+<td style="text-align:center">转增和送股数（每10股）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="业绩预告"><a href="#业绩预告" class="headerlink" title="业绩预告"></a>业绩预告</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2018年第2季度业绩预告</span></span><br><span class="line">ts.forecast_data(<span class="number">2018</span>, <span class="number">2</span>).\</span><br><span class="line">    to_sql(<span class="string">'2018年第2季度业绩预告'</span>, engine,</span><br><span class="line">           schema=<span class="string">'投资参考数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">year</td>
+<td style="text-align:center">int 年度 e.g:2014</td>
+</tr>
+<tr>
+<td style="text-align:center">quarter</td>
+<td style="text-align:center">int 季度 :1、2、3、4，只能输入这4个季度</td>
+</tr>
+</tbody>
+</table>
+<p>结果返回的数据属性说明如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">名称</td>
+</tr>
+<tr>
+<td style="text-align:center">type</td>
+<td style="text-align:center">业绩变动类型【预增、预亏等】</td>
+</tr>
+<tr>
+<td style="text-align:center">report_date</td>
+<td style="text-align:center">发布日期</td>
+</tr>
+<tr>
+<td style="text-align:center">pre_eps</td>
+<td style="text-align:center">上年同期每股收益</td>
+</tr>
+<tr>
+<td style="text-align:center">range</td>
+<td style="text-align:center">业绩变动范围</td>
+</tr>
+</tbody>
+</table>
+<h2 id="限售股解禁"><a href="#限售股解禁" class="headerlink" title="限售股解禁"></a>限售股解禁</h2><p>以月的形式返回限售股解禁情况，通过了解解禁股本的大小，判断股票上行的压力。可通过设定年份和月份参数获取不同时段的数据。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ts.xsg_data().\</span><br><span class="line">    to_sql(<span class="string">'限售股解禁'</span>, engine,</span><br><span class="line">           schema=<span class="string">'投资参考数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">year</td>
+<td style="text-align:center">年份,默认为当前年</td>
+</tr>
+<tr>
+<td style="text-align:center">month</td>
+<td style="text-align:center">解禁月份，默认为当前月</td>
+</tr>
+<tr>
+<td style="text-align:center">retry_count</td>
+<td style="text-align:center">当网络异常后重试次数，默认为3</td>
+</tr>
+<tr>
+<td style="text-align:center">pause</td>
+<td style="text-align:center">重试时停顿秒数，默认为0</td>
+</tr>
+</tbody>
+</table>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">股票代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">股票名称</td>
+</tr>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">解禁日期</td>
+</tr>
+<tr>
+<td style="text-align:center">count</td>
+<td style="text-align:center">解禁数量（万股）</td>
+</tr>
+<tr>
+<td style="text-align:center">ratio</td>
+<td style="text-align:center">占总盘比率</td>
+</tr>
+</tbody>
+</table>
+<h2 id="基金持股"><a href="#基金持股" class="headerlink" title="基金持股"></a>基金持股</h2><p>获取每个季度基金持有上市公司股票的数据。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2018年第1季度基金持股数据</span></span><br><span class="line">ts.fund_holdings(<span class="number">2018</span>, <span class="number">1</span>).\</span><br><span class="line">    to_sql(<span class="string">'2018年第1季度基金持股数据'</span>, engine,</span><br><span class="line">           schema=<span class="string">'投资参考数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">year</td>
+<td style="text-align:center">年份,默认为当前年</td>
+</tr>
+<tr>
+<td style="text-align:center">quarter</td>
+<td style="text-align:center">季度（只能输入1，2，3，4这个四个数字）</td>
+</tr>
+<tr>
+<td style="text-align:center">retry_count</td>
+<td style="text-align:center">当网络异常后重试次数，默认为3</td>
+</tr>
+<tr>
+<td style="text-align:center">pause</td>
+<td style="text-align:center">重试时停顿秒数，默认为0</td>
+</tr>
+</tbody>
+</table>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">股票代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">股票名称</td>
+</tr>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">报告日期</td>
+</tr>
+<tr>
+<td style="text-align:center">nums</td>
+<td style="text-align:center">基金家数</td>
+</tr>
+<tr>
+<td style="text-align:center">nlast</td>
+<td style="text-align:center">与上期相比（增加或减少了）</td>
+</tr>
+<tr>
+<td style="text-align:center">count</td>
+<td style="text-align:center">基金持股数（万股）</td>
+</tr>
+<tr>
+<td style="text-align:center">clast</td>
+<td style="text-align:center">与上期相比</td>
+</tr>
+<tr>
+<td style="text-align:center">amount</td>
+<td style="text-align:center">基金持股市值</td>
+</tr>
+<tr>
+<td style="text-align:center">ratio</td>
+<td style="text-align:center">占流通盘比率</td>
+</tr>
+</tbody>
+</table>
+<h2 id="新股数据"><a href="#新股数据" class="headerlink" title="新股数据"></a>新股数据</h2><p>获取IPO发行和上市的时间列表，包括发行数量、网上发行数量、发行价格已经中签率信息等。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ts.new_stocks().\</span><br><span class="line">    to_sql(<span class="string">'新股数据'</span>, engine,</span><br><span class="line">           schema=<span class="string">'投资参考数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">retry_count</td>
+<td style="text-align:center">当网络异常后重试次数，默认为3</td>
+</tr>
+<tr>
+<td style="text-align:center">pause</td>
+<td style="text-align:center">重试时停顿秒数，默认为0</td>
+</tr>
+</tbody>
+</table>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">股票代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">股票名称</td>
+</tr>
+<tr>
+<td style="text-align:center">ipo_date</td>
+<td style="text-align:center">上网发行日期</td>
+</tr>
+<tr>
+<td style="text-align:center">issue_date</td>
+<td style="text-align:center">上市日期</td>
+</tr>
+<tr>
+<td style="text-align:center">amount</td>
+<td style="text-align:center">发行数量(万股)</td>
+</tr>
+<tr>
+<td style="text-align:center">markets</td>
+<td style="text-align:center">上网发行数量(万股)</td>
+</tr>
+<tr>
+<td style="text-align:center">price</td>
+<td style="text-align:center">发行价格(元)</td>
+</tr>
+<tr>
+<td style="text-align:center">pe</td>
+<td style="text-align:center">发行市盈率</td>
+</tr>
+<tr>
+<td style="text-align:center">limit</td>
+<td style="text-align:center">个人申购上限(万股)</td>
+</tr>
+<tr>
+<td style="text-align:center">funds</td>
+<td style="text-align:center">募集资金(亿元)</td>
+</tr>
+<tr>
+<td style="text-align:center">ballot</td>
+<td style="text-align:center">网上中签率(%)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="融资融券数据-深市"><a href="#融资融券数据-深市" class="headerlink" title="融资融券数据(深市)"></a>融资融券数据(深市)</h2><p>深市的融资融券数据从深圳证券交易所网站直接获取，提供了有记录以来的全部汇总和明细数据。在深交所的网站上，对于融资融券的说明如下：</p>
+<p>本报表基于证券公司报送的融资融券余额数据汇总生成，其中：</p>
+<p>本日融资余额(元)=前日融资余额＋本日融资买入-本日融资偿还额<br>本日融券余量(股)=前日融券余量＋本日融券卖出量-本日融券买入量-本日现券偿还量<br>本日融券余额(元)=本日融券余量×本日收盘价<br>本日融资融券余额(元)=本日融资余额＋本日融券余额；<br>2014年9月22日起，“融资融券交易总量”数据包含调出标的证券名单的证券的融资融券余额。</p>
+<p><code>参数说明</code>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">start</td>
+<td style="text-align:center">开始日期 format：YYYY-MM-DD 为空时取去年今日</td>
+</tr>
+<tr>
+<td style="text-align:center">end</td>
+<td style="text-align:center">结束日期 format：YYYY-MM-DD 为空时取当前日期</td>
+</tr>
+<tr>
+<td style="text-align:center">retry_count</td>
+<td style="text-align:center">当网络异常后重试次数，默认为3</td>
+</tr>
+<tr>
+<td style="text-align:center">pause</td>
+<td style="text-align:center">重试时停顿秒数，默认为0</td>
+</tr>
+</tbody>
+</table>
+<p><code>返回值说明</code>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">opDate</td>
+<td style="text-align:center">信用交易日期(index)</td>
+</tr>
+<tr>
+<td style="text-align:center">rzmre</td>
+<td style="text-align:center">融资买入额(元)</td>
+</tr>
+<tr>
+<td style="text-align:center">rzye</td>
+<td style="text-align:center">融资余额(元)</td>
+</tr>
+<tr>
+<td style="text-align:center">rqmcl</td>
+<td style="text-align:center">融券卖出量</td>
+</tr>
+<tr>
+<td style="text-align:center">rqyl</td>
+<td style="text-align:center">融券余量</td>
+</tr>
+<tr>
+<td style="text-align:center">rqye</td>
+<td style="text-align:center">融券余量(元)</td>
+</tr>
+<tr>
+<td style="text-align:center">rzrqye</td>
+<td style="text-align:center">融资融券余额(元)</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ts.sz_margins().\</span><br><span class="line">    to_sql(<span class="string">'融资融券(深市)'</span>, engine,</span><br><span class="line">           schema=<span class="string">'投资参考数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="融资融券详细数据-深市"><a href="#融资融券详细数据-深市" class="headerlink" title="融资融券详细数据(深市)"></a>融资融券详细数据(深市)</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ts.sz_margin_details().\</span><br><span class="line">    to_sql(<span class="string">'融资融券详细数据(深市)'</span>, engine,</span><br><span class="line">           schema=<span class="string">'投资参考数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p><code>参数说明</code>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">日期 format：YYYY-MM-DD 默认为空’‘,数据返回最近交易日明细数据</td>
+</tr>
+<tr>
+<td style="text-align:center">retry_count</td>
+<td style="text-align:center">当网络异常后重试次数，默认为3</td>
+</tr>
+<tr>
+<td style="text-align:center">pause</td>
+<td style="text-align:center">重试时停顿秒数，默认为0</td>
+</tr>
+</tbody>
+</table>
+<p><code>返回值说明</code>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">stockCode</td>
+<td style="text-align:center">标的证券代码</td>
+</tr>
+<tr>
+<td style="text-align:center">securityAbbr</td>
+<td style="text-align:center">标的证券简称</td>
+</tr>
+<tr>
+<td style="text-align:center">rzmre</td>
+<td style="text-align:center">融资买入额(元)</td>
+</tr>
+<tr>
+<td style="text-align:center">rzye</td>
+<td style="text-align:center">融资余额(元)</td>
+</tr>
+<tr>
+<td style="text-align:center">rqmcl</td>
+<td style="text-align:center">融券卖出量</td>
+</tr>
+<tr>
+<td style="text-align:center">rqyl</td>
+<td style="text-align:center">融券余量</td>
+</tr>
+<tr>
+<td style="text-align:center">rqye</td>
+<td style="text-align:center">融券余量(元)</td>
+</tr>
+<tr>
+<td style="text-align:center">rzrqye</td>
+<td style="text-align:center">融资融券余额(元)</td>
+</tr>
+<tr>
+<td style="text-align:center">opDate</td>
+<td style="text-align:center">信用交易日期</td>
+</tr>
+</tbody>
+</table>
+<h1 id="新闻事件数据"><a href="#新闻事件数据" class="headerlink" title="新闻事件数据"></a>新闻事件数据</h1><h2 id="即时100条新闻"><a href="#即时100条新闻" class="headerlink" title="即时100条新闻"></a>即时100条新闻</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 即时100条新闻</span></span><br><span class="line">ts.get_latest_news().\</span><br><span class="line">    to_sql(<span class="string">'即时100条新闻'</span>, engine,</span><br><span class="line">           schema=<span class="string">'新闻事件数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="信息地雷"><a href="#信息地雷" class="headerlink" title="信息地雷"></a>信息地雷</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ts.get_notices(<span class="string">'000001'</span>).\</span><br><span class="line">    to_sql(<span class="string">'000001相关新闻'</span>, engine,</span><br><span class="line">           schema=<span class="string">'新闻事件数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="新浪股吧"><a href="#新浪股吧" class="headerlink" title="新浪股吧"></a>新浪股吧</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ts.guba_sina(<span class="keyword">True</span>).\</span><br><span class="line">    to_sql(<span class="string">'新浪股吧'</span>, engine,</span><br><span class="line">           schema=<span class="string">'新闻事件数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br><span class="line"><span class="comment"># 查看第三条消息的内容</span></span><br><span class="line">print(ts.guba_sina(<span class="keyword">True</span>).ix[<span class="number">3</span>][<span class="string">'content'</span>])</span><br></pre></td></tr></table></figure>
+<h1 id="龙虎榜"><a href="#龙虎榜" class="headerlink" title="龙虎榜"></a>龙虎榜</h1><h2 id="每日龙虎榜列表"><a href="#每日龙虎榜列表" class="headerlink" title="每日龙虎榜列表"></a>每日龙虎榜列表</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ts.top_list().\</span><br><span class="line">    to_sql(<span class="string">'每日龙虎榜列表'</span>, engine,</span><br><span class="line">           schema=<span class="string">'龙虎榜'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>按日期获取历史当日上榜的个股数据，如果一个股票有多个上榜原因，则会出现该股票多条数据。</p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">日期，格式YYYY-MM-DD</td>
+</tr>
+<tr>
+<td style="text-align:center">retry_count</td>
+<td style="text-align:center">当网络异常后重试次数，默认为3</td>
+</tr>
+<tr>
+<td style="text-align:center">pause</td>
+<td style="text-align:center">重试时停顿秒数，默认为0</td>
+</tr>
+</tbody>
+</table>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">名称</td>
+</tr>
+<tr>
+<td style="text-align:center">pchange</td>
+<td style="text-align:center">当日涨跌幅</td>
+</tr>
+<tr>
+<td style="text-align:center">amount</td>
+<td style="text-align:center">龙虎榜成交额(万)</td>
+</tr>
+<tr>
+<td style="text-align:center">buy</td>
+<td style="text-align:center">买入额(万)</td>
+</tr>
+<tr>
+<td style="text-align:center">bratio</td>
+<td style="text-align:center">买入占总成交比例</td>
+</tr>
+<tr>
+<td style="text-align:center">sell</td>
+<td style="text-align:center">卖出额(万)</td>
+</tr>
+<tr>
+<td style="text-align:center">sratio</td>
+<td style="text-align:center">卖出占总成交比例</td>
+</tr>
+<tr>
+<td style="text-align:center">reason</td>
+<td style="text-align:center">上榜原因</td>
+</tr>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">日期</td>
+</tr>
+</tbody>
+</table>
+<h2 id="个股上榜统计"><a href="#个股上榜统计" class="headerlink" title="个股上榜统计"></a>个股上榜统计</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ts.cap_tops().\</span><br><span class="line">    to_sql(<span class="string">'个股上榜统计'</span>, engine,</span><br><span class="line">           schema=<span class="string">'龙虎榜'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>获取近5、10、30、60日个股上榜统计数据,包括上榜次数、累积购买额、累积卖出额、净额、买入席位数和卖出席位数。</p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">days</td>
+<td style="text-align:center">统计周期5、10、30和60日，默认为5日</td>
+</tr>
+<tr>
+<td style="text-align:center">retry_count</td>
+<td style="text-align:center">当网络异常后重试次数，默认为3</td>
+</tr>
+<tr>
+<td style="text-align:center">pause</td>
+<td style="text-align:center">重试时停顿秒数，默认为0</td>
+</tr>
+</tbody>
+</table>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">名称</td>
+</tr>
+<tr>
+<td style="text-align:center">count</td>
+<td style="text-align:center">上榜次数</td>
+</tr>
+<tr>
+<td style="text-align:center">bamount</td>
+<td style="text-align:center">累积购买额(万)</td>
+</tr>
+<tr>
+<td style="text-align:center">samount</td>
+<td style="text-align:center">累积卖出额(万)</td>
+</tr>
+<tr>
+<td style="text-align:center">net</td>
+<td style="text-align:center">净额(万)</td>
+</tr>
+<tr>
+<td style="text-align:center">bcount</td>
+<td style="text-align:center">买入席位数</td>
+</tr>
+<tr>
+<td style="text-align:center">scount</td>
+<td style="text-align:center">卖出席位数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="营业部上榜统计"><a href="#营业部上榜统计" class="headerlink" title="营业部上榜统计"></a>营业部上榜统计</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ts.broker_tops().\</span><br><span class="line">    to_sql(<span class="string">'个股营业部上榜统计'</span>, engine,</span><br><span class="line">           schema=<span class="string">'龙虎榜'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>获取营业部近5、10、30、60日上榜次数、累积买卖等情况。</p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">days</td>
+<td style="text-align:center">统计周期5、10、30和60日，默认为5日</td>
+</tr>
+<tr>
+<td style="text-align:center">retry_count</td>
+<td style="text-align:center">当网络异常后重试次数，默认为3</td>
+</tr>
+<tr>
+<td style="text-align:center">pause</td>
+<td style="text-align:center">重试时停顿秒数，默认为0</td>
+</tr>
+</tbody>
+</table>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">broker</td>
+<td style="text-align:center">营业部名称</td>
+</tr>
+<tr>
+<td style="text-align:center">count</td>
+<td style="text-align:center">上榜次数</td>
+</tr>
+<tr>
+<td style="text-align:center">bamount</td>
+<td style="text-align:center">累积购买额(万)</td>
+</tr>
+<tr>
+<td style="text-align:center">bcount</td>
+<td style="text-align:center">买入席位数</td>
+</tr>
+<tr>
+<td style="text-align:center">samount</td>
+<td style="text-align:center">累积卖出额(万)</td>
+</tr>
+<tr>
+<td style="text-align:center">scount</td>
+<td style="text-align:center">卖出席位数</td>
+</tr>
+<tr>
+<td style="text-align:center">top3</td>
+<td style="text-align:center">买入前三股票</td>
+</tr>
+</tbody>
+</table>
+<h1 id="机构席位追踪"><a href="#机构席位追踪" class="headerlink" title="机构席位追踪"></a>机构席位追踪</h1><h2 id="获取机构近5、10、30、60日累积买卖次数和金额等情况"><a href="#获取机构近5、10、30、60日累积买卖次数和金额等情况" class="headerlink" title="获取机构近5、10、30、60日累积买卖次数和金额等情况"></a>获取机构近5、10、30、60日累积买卖次数和金额等情况</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ts.inst_tops().\</span><br><span class="line">    to_sql(<span class="string">'机构席位追踪'</span>, engine,</span><br><span class="line">           schema=<span class="string">'龙虎榜'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>获取机构近5、10、30、60日累积买卖次数和金额等情况。</p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">days</td>
+<td style="text-align:center">统计周期5、10、30和60日，默认为5日</td>
+</tr>
+<tr>
+<td style="text-align:center">retry_count</td>
+<td style="text-align:center">当网络异常后重试次数，默认为3</td>
+</tr>
+<tr>
+<td style="text-align:center">pause</td>
+<td style="text-align:center">重试时停顿秒数，默认为0</td>
+</tr>
+</tbody>
+</table>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">名称</td>
+</tr>
+<tr>
+<td style="text-align:center">bamount</td>
+<td style="text-align:center">累积买入额(万)</td>
+</tr>
+<tr>
+<td style="text-align:center">bcount</td>
+<td style="text-align:center">买入次数</td>
+</tr>
+<tr>
+<td style="text-align:center">samount</td>
+<td style="text-align:center">累积卖出额(万)</td>
+</tr>
+<tr>
+<td style="text-align:center">scount</td>
+<td style="text-align:center">卖出次数</td>
+</tr>
+<tr>
+<td style="text-align:center">net</td>
+<td style="text-align:center">净额(万)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="机构成交明细"><a href="#机构成交明细" class="headerlink" title="机构成交明细"></a>机构成交明细</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ts.inst_detail().\</span><br><span class="line">    to_sql(<span class="string">'机构成交明细'</span>, engine,</span><br><span class="line">           schema=<span class="string">'龙虎榜'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>获取最近一个交易日机构席位成交明细统计数据</p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">retry_count</td>
+<td style="text-align:center">当网络异常后重试次数，默认为3</td>
+</tr>
+<tr>
+<td style="text-align:center">pause</td>
+<td style="text-align:center">重试时停顿秒数，默认为0</td>
+</tr>
+</tbody>
+</table>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">名称</td>
+</tr>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">交易日期</td>
+</tr>
+<tr>
+<td style="text-align:center">bamount</td>
+<td style="text-align:center">机构席位买入额(万)</td>
+</tr>
+<tr>
+<td style="text-align:center">samount</td>
+<td style="text-align:center">机构席位卖出额(万)</td>
+</tr>
+<tr>
+<td style="text-align:center">type</td>
+<td style="text-align:center">类型</td>
+</tr>
+</tbody>
+</table>
+<h1 id="电影票房"><a href="#电影票房" class="headerlink" title="电影票房"></a>电影票房</h1><h2 id="实时票房"><a href="#实时票房" class="headerlink" title="实时票房"></a>实时票房</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ts.realtime_boxoffice().\</span><br><span class="line">    to_sql(<span class="string">'实时票房'</span>, engine,</span><br><span class="line">           schema=<span class="string">'电影票房数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<p>获取实时电影票房数据，30分钟更新一次票房数据，可随时调用。</p>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">BoxOffice</td>
+<td style="text-align:center">实时票房（万）</td>
+</tr>
+<tr>
+<td style="text-align:center">Irank</td>
+<td style="text-align:center">排名</td>
+</tr>
+<tr>
+<td style="text-align:center">MovieName</td>
+<td style="text-align:center">影片名</td>
+</tr>
+<tr>
+<td style="text-align:center">boxPer</td>
+<td style="text-align:center">票房占比 （%）</td>
+</tr>
+<tr>
+<td style="text-align:center">movieDay</td>
+<td style="text-align:center">上映天数</td>
+</tr>
+<tr>
+<td style="text-align:center">sumBoxOffice</td>
+<td style="text-align:center">累计票房（万）</td>
+</tr>
+<tr>
+<td style="text-align:center">time</td>
+<td style="text-align:center">数据获取时间</td>
+</tr>
+</tbody>
+</table>
+<h2 id="上一日票房"><a href="#上一日票房" class="headerlink" title="上一日票房"></a>上一日票房</h2><p>获取单日电影票房数据，默认为上一日的电影票房，可输入参数获取指定日期的票房。</p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">date:</td>
+<td style="text-align:center">日期（YYYY-MM-DD）,默认为上一日</td>
+</tr>
+</tbody>
+</table>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">AvgPrice</td>
+<td style="text-align:center">平均票价</td>
+</tr>
+<tr>
+<td style="text-align:center">AvpPeoPle</td>
+<td style="text-align:center">场均人次</td>
+</tr>
+<tr>
+<td style="text-align:center">BoxOffice</td>
+<td style="text-align:center">单日票房（万）</td>
+</tr>
+<tr>
+<td style="text-align:center">BoxOffice_Up</td>
+<td style="text-align:center">环比变化 （%）</td>
+</tr>
+<tr>
+<td style="text-align:center">IRank</td>
+<td style="text-align:center">排名</td>
+</tr>
+<tr>
+<td style="text-align:center">MovieDay</td>
+<td style="text-align:center">上映天数</td>
+</tr>
+<tr>
+<td style="text-align:center">MovieName</td>
+<td style="text-align:center">影片名</td>
+</tr>
+<tr>
+<td style="text-align:center">SumBoxOffice</td>
+<td style="text-align:center">累计票房（万）</td>
+</tr>
+<tr>
+<td style="text-align:center">WomIndex</td>
+<td style="text-align:center">口碑指数</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ts.day_boxoffice().\</span><br><span class="line">    to_sql(<span class="string">'上一日票房'</span>, engine,</span><br><span class="line">           schema=<span class="string">'电影票房数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br><span class="line"><span class="comment"># 2018-06-27票房</span></span><br><span class="line">ts.day_boxoffice(<span class="string">'2018-06-27'</span>).\</span><br><span class="line">    to_sql(<span class="string">'2018-06-27票房'</span>, engine,</span><br><span class="line">           schema=<span class="string">'电影票房数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="月度票房"><a href="#月度票房" class="headerlink" title="月度票房"></a>月度票房</h2><p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">年月(YYYY-MM),默认为上一月</td>
+</tr>
+</tbody>
+</table>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Irank</td>
+<td style="text-align:center">排名</td>
+</tr>
+<tr>
+<td style="text-align:center">MovieName</td>
+<td style="text-align:center">电影名称</td>
+</tr>
+<tr>
+<td style="text-align:center">WomIndex</td>
+<td style="text-align:center">口碑指数</td>
+</tr>
+<tr>
+<td style="text-align:center">avgboxoffice</td>
+<td style="text-align:center">平均票价</td>
+</tr>
+<tr>
+<td style="text-align:center">avgshowcount</td>
+<td style="text-align:center">场均人次</td>
+</tr>
+<tr>
+<td style="text-align:center">box_pro</td>
+<td style="text-align:center">月度占比</td>
+</tr>
+<tr>
+<td style="text-align:center">boxoffice</td>
+<td style="text-align:center">单月票房(万)</td>
+</tr>
+<tr>
+<td style="text-align:center">days</td>
+<td style="text-align:center">月内天数</td>
+</tr>
+<tr>
+<td style="text-align:center">releaseTime</td>
+<td style="text-align:center">上映日期</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 上一月票房</span></span><br><span class="line">ts.month_boxoffice().\</span><br><span class="line">    to_sql(<span class="string">'上一月票房'</span>, engine,</span><br><span class="line">           schema=<span class="string">'电影票房数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2018-06票房</span></span><br><span class="line">ts.month_boxoffice(<span class="string">'2018-06'</span>).\</span><br><span class="line">    to_sql(<span class="string">'2018-06票房'</span>, engine,</span><br><span class="line">           schema=<span class="string">'电影票房数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="影院日度票房"><a href="#影院日度票房" class="headerlink" title="影院日度票房"></a>影院日度票房</h2><p>获取全国影院单日票房排行数据，默认为上一日，可输入日期参数获取指定日期的数据。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 上一日影院日度票房</span></span><br><span class="line">ts.day_cinema().\</span><br><span class="line">    to_sql(<span class="string">'上一日影院日度票房'</span>, engine,</span><br><span class="line">           schema=<span class="string">'电影票房数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2018-06-27影院日度票房</span></span><br><span class="line">ts.day_cinema(<span class="string">'2018-06-27'</span>).\</span><br><span class="line">    to_sql(<span class="string">'2018-06-27影院日度票房'</span>, engine,</span><br><span class="line">           schema=<span class="string">'电影票房数据'</span>,</span><br><span class="line">           index=<span class="keyword">False</span>,</span><br><span class="line">           if_exists=<span class="string">'replace'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">日期(YYYY-MM-DD),默认为上一日</td>
+</tr>
+</tbody>
+</table>
+<p>返回值说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Attendance</td>
+<td style="text-align:center">上座率</td>
+</tr>
+<tr>
+<td style="text-align:center">AvgPeople</td>
+<td style="text-align:center">场均人次</td>
+</tr>
+<tr>
+<td style="text-align:center">CinemaName</td>
+<td style="text-align:center">影院名称</td>
+</tr>
+<tr>
+<td style="text-align:center">RowNum</td>
+<td style="text-align:center">排名</td>
+</tr>
+<tr>
+<td style="text-align:center">TodayAudienceCount</td>
+<td style="text-align:center">当日观众人数</td>
+</tr>
+<tr>
+<td style="text-align:center">TodayBox</td>
+<td style="text-align:center">当日票房</td>
+</tr>
+<tr>
+<td style="text-align:center">TodayShowCount</td>
+<td style="text-align:center">当日场次</td>
+</tr>
+<tr>
+<td style="text-align:center">price</td>
+<td style="text-align:center">场均票价（元）</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://www.czxa.top/posts/31323/" data-id="cjk10z27b000qfg8e6xoruns2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="valine-thread"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/czxa" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="https://weibo.com/p/1005056084580012/photos?from=page_100505&mod=TAB&pids=plc_main" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/notes/posts/null/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            A machine learning odyssey
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/notes/posts/25036/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">Tushare：Python中的财经数据接口包(一)——数据存储</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+<div class="widget-wrap widget-list">
+    <h3 class="widget-title">目录</h3>
+    <div class="widget">
+        <div id="toc" class="toc-article">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#宏观经济数据"><span class="toc-number">1.</span> <span class="toc-text">宏观经济数据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#存款利率"><span class="toc-number">1.1.</span> <span class="toc-text">存款利率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#货币供应量"><span class="toc-number">1.2.</span> <span class="toc-text">货币供应量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#贷款利率"><span class="toc-number">1.3.</span> <span class="toc-text">贷款利率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存款准备金率"><span class="toc-number">1.4.</span> <span class="toc-text">存款准备金率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#年度GDP"><span class="toc-number">1.5.</span> <span class="toc-text">年度GDP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#季度GDP"><span class="toc-number">1.6.</span> <span class="toc-text">季度GDP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#货币供应量-年底余额"><span class="toc-number">1.7.</span> <span class="toc-text">货币供应量(年底余额)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三大需求对GDP贡献"><span class="toc-number">1.8.</span> <span class="toc-text">三大需求对GDP贡献</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三大产业贡献率"><span class="toc-number">1.9.</span> <span class="toc-text">三大产业贡献率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三大产业对GDP拉动"><span class="toc-number">1.10.</span> <span class="toc-text">三大产业对GDP拉动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工业品出厂价格指数"><span class="toc-number">1.11.</span> <span class="toc-text">工业品出厂价格指数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#月度CPI"><span class="toc-number">1.12.</span> <span class="toc-text">月度CPI</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#交易数据"><span class="toc-number">2.</span> <span class="toc-text">交易数据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#历史行情"><span class="toc-number">2.1.</span> <span class="toc-text">历史行情</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取数据行情的新函数——get-k-data"><span class="toc-number">2.2.</span> <span class="toc-text">获取数据行情的新函数——get_k_data()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复权数据"><span class="toc-number">2.3.</span> <span class="toc-text">复权数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实时行情"><span class="toc-number">2.4.</span> <span class="toc-text">实时行情</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分笔数据"><span class="toc-number">2.5.</span> <span class="toc-text">分笔数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#历史分笔"><span class="toc-number">2.5.1.</span> <span class="toc-text">历史分笔</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实时分笔"><span class="toc-number">2.5.2.</span> <span class="toc-text">实时分笔</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#当日分笔数据"><span class="toc-number">2.5.3.</span> <span class="toc-text">当日分笔数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#大盘指数行情列表"><span class="toc-number">2.6.</span> <span class="toc-text">大盘指数行情列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#大单交易数据"><span class="toc-number">2.7.</span> <span class="toc-text">大单交易数据</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本面数据"><span class="toc-number">3.</span> <span class="toc-text">基本面数据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#股票列表"><span class="toc-number">3.1.</span> <span class="toc-text">股票列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#业绩报告（主表）"><span class="toc-number">3.2.</span> <span class="toc-text">业绩报告（主表）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#盈利能力"><span class="toc-number">3.3.</span> <span class="toc-text">盈利能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#营运数据"><span class="toc-number">3.4.</span> <span class="toc-text">营运数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#成长能力"><span class="toc-number">3.5.</span> <span class="toc-text">成长能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#偿债能力"><span class="toc-number">3.6.</span> <span class="toc-text">偿债能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#现金流量"><span class="toc-number">3.7.</span> <span class="toc-text">现金流量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#股票分类数据"><span class="toc-number">3.8.</span> <span class="toc-text">股票分类数据</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#投资参考数据"><span class="toc-number">4.</span> <span class="toc-text">投资参考数据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#分配预案"><span class="toc-number">4.1.</span> <span class="toc-text">分配预案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#业绩预告"><span class="toc-number">4.2.</span> <span class="toc-text">业绩预告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#限售股解禁"><span class="toc-number">4.3.</span> <span class="toc-text">限售股解禁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基金持股"><span class="toc-number">4.4.</span> <span class="toc-text">基金持股</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新股数据"><span class="toc-number">4.5.</span> <span class="toc-text">新股数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#融资融券数据-深市"><span class="toc-number">4.6.</span> <span class="toc-text">融资融券数据(深市)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#融资融券详细数据-深市"><span class="toc-number">4.7.</span> <span class="toc-text">融资融券详细数据(深市)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#新闻事件数据"><span class="toc-number">5.</span> <span class="toc-text">新闻事件数据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#即时100条新闻"><span class="toc-number">5.1.</span> <span class="toc-text">即时100条新闻</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#信息地雷"><span class="toc-number">5.2.</span> <span class="toc-text">信息地雷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新浪股吧"><span class="toc-number">5.3.</span> <span class="toc-text">新浪股吧</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#龙虎榜"><span class="toc-number">6.</span> <span class="toc-text">龙虎榜</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#每日龙虎榜列表"><span class="toc-number">6.1.</span> <span class="toc-text">每日龙虎榜列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#个股上榜统计"><span class="toc-number">6.2.</span> <span class="toc-text">个股上榜统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#营业部上榜统计"><span class="toc-number">6.3.</span> <span class="toc-text">营业部上榜统计</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#机构席位追踪"><span class="toc-number">7.</span> <span class="toc-text">机构席位追踪</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#获取机构近5、10、30、60日累积买卖次数和金额等情况"><span class="toc-number">7.1.</span> <span class="toc-text">获取机构近5、10、30、60日累积买卖次数和金额等情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#机构成交明细"><span class="toc-number">7.2.</span> <span class="toc-text">机构成交明细</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#电影票房"><span class="toc-number">8.</span> <span class="toc-text">电影票房</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实时票房"><span class="toc-number">8.1.</span> <span class="toc-text">实时票房</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上一日票房"><span class="toc-number">8.2.</span> <span class="toc-text">上一日票房</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#月度票房"><span class="toc-number">8.3.</span> <span class="toc-text">月度票房</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#影院日度票房"><span class="toc-number">8.4.</span> <span class="toc-text">影院日度票房</span></a></li></ol></li></ol>
+        </div>
+    </div>
+</div>
+
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/null/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180719a1.png)" alt="A machine learning odyssey" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/TensorFlow/">TensorFlow</a></p>
+                            <p class="item-title"><a href="/notes/posts/null/" class="title">A machine learning odyssey</a></p>
+                            <p class="item-date"><time datetime="2018-07-21T15:49:32.000Z" itemprop="datePublished">2018-07-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/31323/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://tushare.org/_images/ts.jpg)" alt="Tushare：Python中的财经数据接口包(二)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/31323/" class="title">Tushare：Python中的财经数据接口包(二)</a></p>
+                            <p class="item-date"><time datetime="2018-07-02T10:41:32.000Z" itemprop="datePublished">2018-07-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/25036/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180626a3.png)" alt="Tushare：Python中的财经数据接口包(一)——数据存储" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/25036/" class="title">Tushare：Python中的财经数据接口包(一)——数据存储</a></p>
+                            <p class="item-date"><time datetime="2018-06-26T02:41:32.000Z" itemprop="datePublished">2018-06-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/43149/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180624a1.png)" alt="Python for Finance——入门到放弃" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/43149/" class="title">Python for Finance——入门到放弃</a></p>
+                            <p class="item-date"><time datetime="2018-06-24T06:49:32.000Z" itemprop="datePublished">2018-06-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/43798/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180623c8.png)" alt="Python for Finance Chapter 7" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/43798/" class="title">Python for Finance Chapter 7</a></p>
+                            <p class="item-date"><time datetime="2018-06-23T17:49:32.000Z" itemprop="datePublished">2018-06-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/notes/categories/TensorFlow/">TensorFlow</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/notes/categories/笔记/">笔记</a><span class="category-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/notes/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/notes/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/notes/tags/Python/">Python</a><span class="tag-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/notes/tags/Python/" style="font-size: 10px;">Python</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://dwla.github.io">JWen</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://www.czxa.top/notes/favorites/">我的收藏</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://unsplash.com/@czxa">Unsplash</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://gallery.echartsjs.com/explore.html?u=bd-2472402526&type=work#sort=rank~timeframe=all~author=all">ECharts</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.zingchart.com/gallery/">Zingchart</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.amcharts.com/demos/">Amcharts</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://antv.alipay.com/zh-cn/gallery/index.html">AntV</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.anychart.com/products/anychart/gallery/">Anychart</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.hcharts.cn/demo/highcharts">Highcharts</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/d3/d3/wiki/Gallery">D3.js</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://music.sonimei.cn/">全网音乐免费下载工具</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://carbon.now.sh/">Carbon</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://cn.knoema.com/">knoema</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://zh.tradingeconomics.com/">tradingeconomics</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/notes/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 程振兴</p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#valine-thread' ,
+            notify:true,
+            verify:false,
+            app_id: 'HS0fE2GH92TyPjSpxeuEpr9P-gzGzoHsz',
+            app_key: 'hyvGUifU6e34ODKmahBUtoN6',
+            placeholder: '在这里评论～',
+            pageSize: '10',
+            avatar: 'monsterid',
+            avatar_cdn:  'https://gravatar.loli.net/avatar/'
+        });
+    </script>
+
+
+
+
+
+    
+        <script src="/notes/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/notes/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/notes/js/main.js"></script>
+
+    </div>
+</body>
+</html>

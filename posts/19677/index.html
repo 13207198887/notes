@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Python for Finance Chapter4~6 | Notebook</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Python" />
+    
+    <meta name="description" content="Chapter4和Chapter5内容比较简单，Chapter6介绍了Numpy包和Scipy包。从这篇博客开始，以后的博客基本都会提供PDF版本下载：Python_for_Finance_Chapter4~6.pdf">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python for Finance Chapter4~6">
+<meta property="og:url" content="http://www.czxa.top/posts/19677/index.html">
+<meta property="og:site_name" content="Notebook">
+<meta property="og:description" content="Chapter4和Chapter5内容比较简单，Chapter6介绍了Numpy包和Scipy包。从这篇博客开始，以后的博客基本都会提供PDF版本下载：Python_for_Finance_Chapter4~6.pdf">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.czxa.top/mr/mygirl.png">
+<meta property="og:updated_time" content="2018-07-05T02:46:57.332Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python for Finance Chapter4~6">
+<meta name="twitter:description" content="Chapter4和Chapter5内容比较简单，Chapter6介绍了Numpy包和Scipy包。从这篇博客开始，以后的博客基本都会提供PDF版本下载：Python_for_Finance_Chapter4~6.pdf">
+<meta name="twitter:image" content="http://www.czxa.top/mr/mygirl.png">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/notes/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/notes/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/notes/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/notes/css/style.css">
+
+    <script src="/notes/libs/jquery/2.2.4/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/notes/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/notes/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/notes/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="http://www.czxa.top">主站</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/">首页</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/tags">标签</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/categories">分类</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/favorites">收藏夹</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/about">联系我</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="http://www.czxa.top/gallery">画廊</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/books">豆瓣书架</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/movies">豆瓣影院</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '/notes/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/notes/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/notes/categories/笔记/">笔记</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-Python_for_Finance_Chapter4~6" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Python for Finance Chapter4~6
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/notes/posts/19677/" class="article-date">
+            <time datetime="2018-06-21T10:49:32.000Z" itemprop="datePublished">2018-06-21</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/notes/tags/Python/">Python</a>
+    </div>
+
+            </div>
+        
+        
+<div class="article-gallery">
+    
+    <a class="gallery-item" href="http://www.czxa.top/mr/Figure_1.png" rel="gallery_cjk10z265000bfg8e3z0e9aco">
+        <img src="http://www.czxa.top/mr/Figure_1.png" itemprop="image" />
+    </a>
+    
+</div>
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>Chapter4和Chapter5内容比较简单，Chapter6介绍了Numpy包和Scipy包。<br>从这篇博客开始，以后的博客基本都会提供PDF版本下载：<br><a href="http://www.czxa.top/blogpdf/Python_for_Finance_Chapter4~6.pdf">Python_for_Finance_Chapter4~6.pdf</a><br><a id="more"></a></p>
+<h2 id="Chapter4-13-Lines-of-Python-to-Price-a-Call-option"><a href="#Chapter4-13-Lines-of-Python-to-Price-a-Call-option" class="headerlink" title="Chapter4: 13 Lines of Python to Price a Call option"></a>Chapter4: 13 Lines of Python to Price a Call option</h2><h3 id="一个BS看涨期权定价模型"><a href="#一个BS看涨期权定价模型" class="headerlink" title="一个BS看涨期权定价模型"></a>一个BS看涨期权定价模型</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">CND</span><span class="params">(X)</span>:</span></span><br><span class="line">    <span class="keyword">from</span> math <span class="keyword">import</span> sqrt, exp, pi</span><br><span class="line">    (a1, a2, a3, a4, a5) = (<span class="number">0.31938153</span>, <span class="number">-0.356563782</span>, <span class="number">1.781477937</span>, <span class="number">-1.821255978</span>, <span class="number">1.330274429</span>)</span><br><span class="line">    L = abs(X)</span><br><span class="line">    K = <span class="number">1.0</span>/(<span class="number">1.0</span>+<span class="number">0.2316419</span>*L)</span><br><span class="line">    w = <span class="number">1.0</span> - <span class="number">1.0</span>/sqrt(<span class="number">2</span>*pi)*exp(-L*L/<span class="number">2.</span>)*(a1*K+a2*K*K+a3*pow(K,<span class="number">3</span>)+a4*pow(K,<span class="number">4</span>)+a5*pow(K,<span class="number">5</span>))</span><br><span class="line">    <span class="keyword">if</span> X &lt; <span class="number">0</span>:</span><br><span class="line">        w = <span class="number">1.0</span> - w</span><br><span class="line">    <span class="keyword">return</span> w</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bs_call</span><span class="params">(S, X, T, r, sigma)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    BS看涨期权定价模型</span></span><br><span class="line"><span class="string">    :param S: 股票价格</span></span><br><span class="line"><span class="string">    :param X: 期权执行价格</span></span><br><span class="line"><span class="string">    :param T: 到期时间</span></span><br><span class="line"><span class="string">    :param r: 无风险利率</span></span><br><span class="line"><span class="string">    :param sigma: 股价波动率</span></span><br><span class="line"><span class="string">    :return: 看涨期权的理论价格</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">from</span> math <span class="keyword">import</span> sqrt, log, exp</span><br><span class="line">    d1 = (log(S/X) + (r + sigma*sigma/<span class="number">2.</span>)*T)/(sigma*sqrt(T))</span><br><span class="line">    d2 = d1 - sigma * sqrt(T)</span><br><span class="line">    <span class="keyword">return</span> S * CND(d1) - X * exp(-r*T) * CND(d2)</span><br><span class="line"></span><br><span class="line">bs_call(<span class="number">40</span>, <span class="number">42</span>, <span class="number">0.5</span>, <span class="number">0.1</span>, <span class="number">0.2</span>)</span><br><span class="line">Out[<span class="number">3</span>]: <span class="number">2.2777859030683096</span></span><br></pre></td></tr></table></figure>
+<p>更多关于累积正态分布函数计算的方法可以参考上面的一篇博客中的介绍。</p>
+<h2 id="Chapter5-Introduction-to-Modules"><a href="#Chapter5-Introduction-to-Modules" class="headerlink" title="Chapter5: Introduction to Modules"></a>Chapter5: Introduction to Modules</h2><h3 id="调用系统时间"><a href="#调用系统时间" class="headerlink" title="调用系统时间"></a>调用系统时间</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time <span class="keyword">as</span> tt</span><br><span class="line">tt.localtime()</span><br></pre></td></tr></table></figure>
+<h3 id="查看包的位置"><a href="#查看包的位置" class="headerlink" title="查看包的位置"></a>查看包的位置</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">例如查看numpy包的位置：</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">print(np.__file__)</span><br><span class="line"></span><br><span class="line">/Library/Frameworks/Python.framework/Versions/<span class="number">3.6</span>/lib/python3<span class="number">.6</span>/site-packages/numpy/__init__.py</span><br></pre></td></tr></table></figure>
+<h2 id="Chapter6-Introduction-to-NumPy-and-SciPy"><a href="#Chapter6-Introduction-to-NumPy-and-SciPy" class="headerlink" title="Chapter6: Introduction to NumPy and SciPy"></a>Chapter6: Introduction to NumPy and SciPy</h2><h3 id="numpy使用示例"><a href="#numpy使用示例" class="headerlink" title="numpy使用示例"></a>numpy使用示例</h3><p>numpy的数组只能包含相同格式的元素。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]]) <span class="comment"># 两行三列的数组</span></span><br><span class="line">np.size(x) <span class="comment"># x中的元素总个数</span></span><br><span class="line">Out[<span class="number">4</span>]: <span class="number">6</span></span><br><span class="line">np.size(x, <span class="number">1</span>) <span class="comment"># x的列数</span></span><br><span class="line">Out[<span class="number">5</span>]: <span class="number">3</span></span><br><span class="line">np.std(x) <span class="comment"># x中所有元素的标准差</span></span><br><span class="line">Out[<span class="number">6</span>]: <span class="number">1.707825127659933</span></span><br><span class="line">np.std(x, <span class="number">1</span>) <span class="comment"># 每行元素的标准差</span></span><br><span class="line">Out[<span class="number">7</span>]: array([ <span class="number">0.81649658</span>,  <span class="number">0.81649658</span>])</span><br><span class="line">x.sum() <span class="comment"># x中所有元素的和</span></span><br><span class="line">Out[<span class="number">8</span>]: <span class="number">21</span></span><br><span class="line">np.random.rand(<span class="number">50</span>) <span class="comment"># 生成50个均匀分布的[0, 1]的随机数</span></span><br><span class="line">Out[<span class="number">9</span>]:</span><br><span class="line">array([ <span class="number">0.735929</span>  ,  <span class="number">0.48371909</span>,  <span class="number">0.48319465</span>,  <span class="number">0.80330098</span>,  <span class="number">0.71204551</span>,</span><br><span class="line">        <span class="number">0.45927359</span>,  <span class="number">0.21042451</span>,  <span class="number">0.34032225</span>,  <span class="number">0.86585374</span>,  <span class="number">0.9184681</span> ,</span><br><span class="line">        <span class="number">0.25244703</span>,  <span class="number">0.4655904</span> ,  <span class="number">0.573158</span>  ,  <span class="number">0.69078721</span>,  <span class="number">0.28420257</span>,</span><br><span class="line">        <span class="number">0.01175873</span>,  <span class="number">0.37011963</span>,  <span class="number">0.05603916</span>,  <span class="number">0.95709586</span>,  <span class="number">0.95434385</span>,</span><br><span class="line">        <span class="number">0.69367399</span>,  <span class="number">0.4001506</span> ,  <span class="number">0.25661519</span>,  <span class="number">0.81710797</span>,  <span class="number">0.09105194</span>,</span><br><span class="line">        <span class="number">0.71402868</span>,  <span class="number">0.90230726</span>,  <span class="number">0.64391132</span>,  <span class="number">0.14300242</span>,  <span class="number">0.57655021</span>,</span><br><span class="line">        <span class="number">0.56516528</span>,  <span class="number">0.78893125</span>,  <span class="number">0.67095094</span>,  <span class="number">0.14877558</span>,  <span class="number">0.65462795</span>,</span><br><span class="line">        <span class="number">0.82230541</span>,  <span class="number">0.90485454</span>,  <span class="number">0.57629818</span>,  <span class="number">0.64061762</span>,  <span class="number">0.5215908</span> ,</span><br><span class="line">        <span class="number">0.6283539</span> ,  <span class="number">0.31299468</span>,  <span class="number">0.78966549</span>,  <span class="number">0.80825757</span>,  <span class="number">0.22523762</span>,</span><br><span class="line">        <span class="number">0.02748282</span>,  <span class="number">0.26128921</span>,  <span class="number">0.36114289</span>,  <span class="number">0.14665284</span>,  <span class="number">0.68495554</span>])</span><br><span class="line">np.random.normal(size = <span class="number">100</span>) <span class="comment"># 生成100个正态分布的随机数</span></span><br><span class="line">Out[<span class="number">10</span>]:</span><br><span class="line">array([<span class="number">-0.7786169</span> , <span class="number">-0.19875422</span>, <span class="number">-0.40590406</span>, <span class="number">-0.45937584</span>, <span class="number">-0.95609522</span>,</span><br><span class="line">        <span class="number">2.22147808</span>, <span class="number">-0.48074239</span>, <span class="number">-1.13044399</span>, <span class="number">-0.08728271</span>,  <span class="number">0.04701358</span>,</span><br><span class="line">       <span class="number">-0.10057447</span>, <span class="number">-0.00421842</span>, <span class="number">-0.2200504</span> ,  <span class="number">0.00709479</span>,  <span class="number">0.39573333</span>,</span><br><span class="line">        <span class="number">0.04569029</span>, <span class="number">-0.3109542</span> ,  <span class="number">2.09839644</span>, <span class="number">-1.67404649</span>,  <span class="number">1.49882489</span>,</span><br><span class="line">       <span class="number">-0.12399919</span>,  <span class="number">0.51649219</span>,  <span class="number">0.36264737</span>,  <span class="number">1.1300972</span> , <span class="number">-1.7555352</span> ,</span><br><span class="line">       <span class="number">-0.05032842</span>, <span class="number">-0.32048993</span>, <span class="number">-1.18079056</span>, <span class="number">-1.67942396</span>,  <span class="number">0.10823867</span>,</span><br><span class="line">        <span class="number">1.55580051</span>,  <span class="number">0.42273131</span>, <span class="number">-1.77889866</span>, <span class="number">-1.1721452</span> ,  <span class="number">1.06275237</span>,</span><br><span class="line">       <span class="number">-1.02741104</span>,  <span class="number">0.81434569</span>, <span class="number">-0.21687411</span>,  <span class="number">2.00752145</span>, <span class="number">-1.78950106</span>,</span><br><span class="line">       <span class="number">-1.31966175</span>,  <span class="number">1.85773124</span>, <span class="number">-0.01305868</span>,  <span class="number">1.03553374</span>,  <span class="number">0.55989939</span>,</span><br><span class="line">       <span class="number">-1.07668277</span>,  <span class="number">2.52250637</span>, <span class="number">-1.78675082</span>, <span class="number">-0.51463924</span>,  <span class="number">0.84409031</span>,</span><br><span class="line">        <span class="number">0.11243911</span>,  <span class="number">1.85509026</span>, <span class="number">-0.74423967</span>, <span class="number">-0.55736923</span>,  <span class="number">0.0502106</span> ,</span><br><span class="line">       <span class="number">-1.13825231</span>,  <span class="number">0.03538882</span>, <span class="number">-1.19465868</span>, <span class="number">-1.62242723</span>, <span class="number">-1.14388286</span>,</span><br><span class="line">        <span class="number">1.46096833</span>,  <span class="number">1.60316355</span>,  <span class="number">0.16674316</span>, <span class="number">-1.34344703</span>,  <span class="number">0.41835526</span>,</span><br><span class="line">       <span class="number">-0.69601261</span>, <span class="number">-0.19510063</span>, <span class="number">-0.83536413</span>, <span class="number">-0.31742093</span>,  <span class="number">0.564493</span>  ,</span><br><span class="line">        <span class="number">0.94157268</span>, <span class="number">-0.4884695</span> ,  <span class="number">1.43735333</span>,  <span class="number">1.45317239</span>, <span class="number">-1.00098718</span>,</span><br><span class="line">        <span class="number">0.6469232</span> ,  <span class="number">0.56245913</span>, <span class="number">-0.09012203</span>,  <span class="number">0.38660999</span>,  <span class="number">1.64892469</span>,</span><br><span class="line">        <span class="number">0.23480097</span>, <span class="number">-0.59815152</span>,  <span class="number">0.33332819</span>,  <span class="number">0.19106819</span>, <span class="number">-0.53014824</span>,</span><br><span class="line">        <span class="number">0.08541082</span>, <span class="number">-0.2381628</span> ,  <span class="number">2.04182807</span>,  <span class="number">0.69091784</span>, <span class="number">-1.5004019</span> ,</span><br><span class="line">       <span class="number">-0.94285749</span>,  <span class="number">1.70695792</span>, <span class="number">-1.48779331</span>, <span class="number">-1.38634819</span>,  <span class="number">0.14300425</span>,</span><br><span class="line">       <span class="number">-0.60616028</span>,  <span class="number">0.16554427</span>, <span class="number">-0.17268446</span>,  <span class="number">0.17657647</span>,  <span class="number">0.11291312</span>])</span><br><span class="line">np.array(range(<span class="number">0</span>,<span class="number">100</span>), float)/<span class="number">100</span> <span class="comment"># 生成 0.00, 0.01, 0.02 ··· 0.99, 1.00的序列</span></span><br><span class="line">Out[<span class="number">11</span>]:</span><br><span class="line">array([ <span class="number">0.</span>  ,  <span class="number">0.01</span>,  <span class="number">0.02</span>,  <span class="number">0.03</span>,  <span class="number">0.04</span>,  <span class="number">0.05</span>,  <span class="number">0.06</span>,  <span class="number">0.07</span>,  <span class="number">0.08</span>,</span><br><span class="line">        <span class="number">0.09</span>,  <span class="number">0.1</span> ,  <span class="number">0.11</span>,  <span class="number">0.12</span>,  <span class="number">0.13</span>,  <span class="number">0.14</span>,  <span class="number">0.15</span>,  <span class="number">0.16</span>,  <span class="number">0.17</span>,</span><br><span class="line">        <span class="number">0.18</span>,  <span class="number">0.19</span>,  <span class="number">0.2</span> ,  <span class="number">0.21</span>,  <span class="number">0.22</span>,  <span class="number">0.23</span>,  <span class="number">0.24</span>,  <span class="number">0.25</span>,  <span class="number">0.26</span>,</span><br><span class="line">        <span class="number">0.27</span>,  <span class="number">0.28</span>,  <span class="number">0.29</span>,  <span class="number">0.3</span> ,  <span class="number">0.31</span>,  <span class="number">0.32</span>,  <span class="number">0.33</span>,  <span class="number">0.34</span>,  <span class="number">0.35</span>,</span><br><span class="line">        <span class="number">0.36</span>,  <span class="number">0.37</span>,  <span class="number">0.38</span>,  <span class="number">0.39</span>,  <span class="number">0.4</span> ,  <span class="number">0.41</span>,  <span class="number">0.42</span>,  <span class="number">0.43</span>,  <span class="number">0.44</span>,</span><br><span class="line">        <span class="number">0.45</span>,  <span class="number">0.46</span>,  <span class="number">0.47</span>,  <span class="number">0.48</span>,  <span class="number">0.49</span>,  <span class="number">0.5</span> ,  <span class="number">0.51</span>,  <span class="number">0.52</span>,  <span class="number">0.53</span>,</span><br><span class="line">        <span class="number">0.54</span>,  <span class="number">0.55</span>,  <span class="number">0.56</span>,  <span class="number">0.57</span>,  <span class="number">0.58</span>,  <span class="number">0.59</span>,  <span class="number">0.6</span> ,  <span class="number">0.61</span>,  <span class="number">0.62</span>,</span><br><span class="line">        <span class="number">0.63</span>,  <span class="number">0.64</span>,  <span class="number">0.65</span>,  <span class="number">0.66</span>,  <span class="number">0.67</span>,  <span class="number">0.68</span>,  <span class="number">0.69</span>,  <span class="number">0.7</span> ,  <span class="number">0.71</span>,</span><br><span class="line">        <span class="number">0.72</span>,  <span class="number">0.73</span>,  <span class="number">0.74</span>,  <span class="number">0.75</span>,  <span class="number">0.76</span>,  <span class="number">0.77</span>,  <span class="number">0.78</span>,  <span class="number">0.79</span>,  <span class="number">0.8</span> ,</span><br><span class="line">        <span class="number">0.81</span>,  <span class="number">0.82</span>,  <span class="number">0.83</span>,  <span class="number">0.84</span>,  <span class="number">0.85</span>,  <span class="number">0.86</span>,  <span class="number">0.87</span>,  <span class="number">0.88</span>,  <span class="number">0.89</span>,</span><br><span class="line">        <span class="number">0.9</span> ,  <span class="number">0.91</span>,  <span class="number">0.92</span>,  <span class="number">0.93</span>,  <span class="number">0.94</span>,  <span class="number">0.95</span>,  <span class="number">0.96</span>,  <span class="number">0.97</span>,  <span class="number">0.98</span>,  <span class="number">0.99</span>])</span><br><span class="line">np.array([<span class="number">100</span>, <span class="number">0.1</span>, <span class="number">2</span>], float) <span class="comment"># 一个数组中包含的元素应该是同一个格式的</span></span><br><span class="line">Out[<span class="number">12</span>]: array([ <span class="number">100.</span> ,    <span class="number">0.1</span>,    <span class="number">2.</span> ])</span><br><span class="line"><span class="comment"># 改变数组的元素格式</span></span><br><span class="line">y = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">20</span>]</span><br><span class="line">y = np.array(y, dtype = float)</span><br><span class="line">y</span><br><span class="line">Out[<span class="number">15</span>]: array([  <span class="number">1.</span>,   <span class="number">2.</span>,   <span class="number">3.</span>,  <span class="number">20.</span>])</span><br></pre></td></tr></table></figure></p>
+<h3 id="scipy包使用示例"><a href="#scipy包使用示例" class="headerlink" title="scipy包使用示例"></a>scipy包使用示例</h3><h4 id="NPV函数"><a href="#NPV函数" class="headerlink" title="NPV函数"></a>NPV函数</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy <span class="keyword">as</span> sp</span><br><span class="line">cashflows = [<span class="number">-100</span>, <span class="number">50</span>, <span class="number">40</span>, <span class="number">20</span>, <span class="number">10</span>, <span class="number">50</span>]</span><br><span class="line">npv = sp.npv(<span class="number">0.1</span>, cashflows) <span class="comment"># 计算NPV</span></span><br><span class="line">round(npv, <span class="number">2</span>)</span><br><span class="line">Out[<span class="number">75</span>]: <span class="number">31.41</span></span><br><span class="line"><span class="comment"># scipy包中的npv函数是一个真实的NPV函数</span></span><br><span class="line">c = [<span class="number">-100</span>]</span><br><span class="line">sp.npv(<span class="number">0.1</span>, c)</span><br><span class="line">Out[<span class="number">78</span>]: <span class="number">-100.0</span></span><br><span class="line"><span class="comment"># 注意，实际上Excel中的NPV函数是个PV函数</span></span><br></pre></td></tr></table></figure>
+<h4 id="PMT函数"><a href="#PMT函数" class="headerlink" title="PMT函数"></a>PMT函数</h4><p>30年、年息4.5%、总额250000的贷款，月付是多少？<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pmt = sp.pmt(<span class="number">0.045</span>/<span class="number">12</span>, <span class="number">30</span>*<span class="number">12</span>, <span class="number">250000</span>, when = <span class="string">'end'</span>)</span><br><span class="line">round(pmt, <span class="number">2</span>)</span><br><span class="line">Out[<span class="number">83</span>]: <span class="number">-1266.71</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="PV函数和FV函数"><a href="#PV函数和FV函数" class="headerlink" title="PV函数和FV函数"></a>PV函数和FV函数</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sp.pv(<span class="number">0.1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">100</span>) <span class="comment">## 100块1年前的现值，pmt = 0</span></span><br><span class="line">Out[<span class="number">85</span>]: <span class="number">-90.909090909090907</span></span><br><span class="line">sp.fv(<span class="number">0.1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">100</span>) <span class="comment">## 100块1年后的终值，pmt = 0</span></span><br><span class="line">Out[<span class="number">86</span>]: <span class="number">-110.00000000000001</span></span><br><span class="line">sp.pv(<span class="number">0.1</span>, <span class="number">2</span>, <span class="number">100</span>, <span class="number">0</span>, when=<span class="string">'end'</span>) <span class="comment">## 年金现值（默认期末支付）</span></span><br><span class="line">Out[<span class="number">87</span>]: <span class="number">-173.55371900826461</span></span><br><span class="line">sp.pv(<span class="number">0.1</span>, <span class="number">2</span>, <span class="number">100</span>, <span class="number">0</span>, when=<span class="string">'start'</span>) <span class="comment">## 应付年金现值（期初年金）</span></span><br><span class="line">Out[<span class="number">88</span>]: <span class="number">-190.90909090909108</span></span><br></pre></td></tr></table></figure>
+<h4 id="收益率的算术均值和几何均值"><a href="#收益率的算术均值和几何均值" class="headerlink" title="收益率的算术均值和几何均值"></a>收益率的算术均值和几何均值</h4><p>$$<br>Arithmetic\ mean  = \frac{\sum_{i =1}^{n}R_i}{n}<br>$$<br>$$<br>Geometric\ mean = \left[ \prod_{i=1}^{n}(1+R_i) \right]^{1/n} - 1<br>$$<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ret = sp.array([<span class="number">0.1</span>, <span class="number">0.05</span>, <span class="number">-0.02</span>])</span><br><span class="line">sp.mean(ret) <span class="comment"># 算术均值</span></span><br><span class="line">Out[<span class="number">91</span>]: <span class="number">0.043333333333333342</span></span><br><span class="line">pow(sp.prod(ret + <span class="number">1</span>), <span class="number">1.</span>/len(ret)) - <span class="number">1</span> <span class="comment"># 几何均值</span></span><br><span class="line">Out[<span class="number">92</span>]: <span class="number">0.042163887067679262</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="sp-unique函数：查找奇异值"><a href="#sp-unique函数：查找奇异值" class="headerlink" title="sp.unique函数：查找奇异值"></a>sp.unique函数：查找奇异值</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sp.unique([<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">6</span>])</span><br><span class="line">Out[<span class="number">94</span>]: array([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>])</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+<h4 id="sp-median函数：中位数"><a href="#sp-median函数：中位数" class="headerlink" title="sp.median函数：中位数"></a>sp.median函数：中位数</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sp.median([<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">10</span>])</span><br><span class="line">Out[<span class="number">96</span>]: <span class="number">5.5</span></span><br></pre></td></tr></table></figure>
+<h3 id="显示numpy和scipy中的所有函数"><a href="#显示numpy和scipy中的所有函数" class="headerlink" title="显示numpy和scipy中的所有函数"></a>显示numpy和scipy中的所有函数</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = np.array(dir(np))</span><br><span class="line">len(x)</span><br><span class="line">Out[<span class="number">102</span>]: <span class="number">613</span></span><br><span class="line">x[<span class="number">200</span>:<span class="number">210</span>]</span><br><span class="line">Out[<span class="number">103</span>]:</span><br><span class="line">array([<span class="string">'diagonal'</span>, <span class="string">'diff'</span>, <span class="string">'digitize'</span>, <span class="string">'disp'</span>, <span class="string">'divide'</span>, <span class="string">'division'</span>,</span><br><span class="line">       <span class="string">'divmod'</span>, <span class="string">'dot'</span>, <span class="string">'double'</span>, <span class="string">'dsplit'</span>],</span><br><span class="line">      dtype=<span class="string">'&lt;U25'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="numpy包中的数组生成函数"><a href="#numpy包中的数组生成函数" class="headerlink" title="numpy包中的数组生成函数"></a>numpy包中的数组生成函数</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># 生成10个0的数组</span></span><br><span class="line">np.zeros(<span class="number">10</span>)</span><br><span class="line">Out[<span class="number">63</span>]: array([ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>])</span><br><span class="line"><span class="comment"># 生成3行2列的数组</span></span><br><span class="line">np.zeros((<span class="number">3</span>,<span class="number">2</span>), dtype=float)</span><br><span class="line">Out[<span class="number">65</span>]:</span><br><span class="line">array([[ <span class="number">0.</span>,  <span class="number">0.</span>],</span><br><span class="line">       [ <span class="number">0.</span>,  <span class="number">0.</span>],</span><br><span class="line">       [ <span class="number">0.</span>,  <span class="number">0.</span>]])</span><br><span class="line"><span class="comment"># 生成4行3列全是1的数组</span></span><br><span class="line">np.ones((<span class="number">4</span>,<span class="number">3</span>), dtype=float)</span><br><span class="line">Out[<span class="number">67</span>]:</span><br><span class="line">array([[ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>]])</span><br><span class="line"><span class="comment"># 生成0-9的序列</span></span><br><span class="line">np.array(range(<span class="number">10</span>), dtype=float)</span><br><span class="line">Out[<span class="number">69</span>]: array([ <span class="number">0.</span>,  <span class="number">1.</span>,  <span class="number">2.</span>,  <span class="number">3.</span>,  <span class="number">4.</span>,  <span class="number">5.</span>,  <span class="number">6.</span>,  <span class="number">7.</span>,  <span class="number">8.</span>,  <span class="number">9.</span>])</span><br><span class="line"><span class="comment"># 生成4维的单位数组</span></span><br><span class="line">np.identity(<span class="number">4</span>)</span><br><span class="line">Out[<span class="number">71</span>]:</span><br><span class="line">array([[ <span class="number">1.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>],</span><br><span class="line">       [ <span class="number">0.</span>,  <span class="number">1.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>],</span><br><span class="line">       [ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">1.</span>,  <span class="number">0.</span>],</span><br><span class="line">       [ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">1.</span>]])</span><br><span class="line"><span class="comment"># 生成4维的单位数组</span></span><br><span class="line">np.eye(<span class="number">4</span>)</span><br><span class="line">Out[<span class="number">73</span>]:</span><br><span class="line">array([[ <span class="number">1.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>],</span><br><span class="line">       [ <span class="number">0.</span>,  <span class="number">1.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>],</span><br><span class="line">       [ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">1.</span>,  <span class="number">0.</span>],</span><br><span class="line">       [ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">1.</span>]])</span><br><span class="line"><span class="comment"># eye的更多用法</span></span><br><span class="line">np.eye(<span class="number">4</span>, k = <span class="number">1</span>)</span><br><span class="line">Out[<span class="number">75</span>]:</span><br><span class="line">array([[ <span class="number">0.</span>,  <span class="number">1.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>],</span><br><span class="line">       [ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">1.</span>,  <span class="number">0.</span>],</span><br><span class="line">       [ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>]])</span><br><span class="line">np.eye(<span class="number">4</span>, k = <span class="number">2</span>)</span><br><span class="line">Out[<span class="number">76</span>]:</span><br><span class="line">array([[ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">1.</span>,  <span class="number">0.</span>],</span><br><span class="line">       [ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>],</span><br><span class="line">       [ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>]])</span><br><span class="line"><span class="comment"># from 1 to 19 interval 3</span></span><br><span class="line">np.arange(<span class="number">1</span>, <span class="number">20</span>, <span class="number">3</span>, float)</span><br><span class="line">Out[<span class="number">78</span>]: array([  <span class="number">1.</span>,   <span class="number">4.</span>,   <span class="number">7.</span>,  <span class="number">10.</span>,  <span class="number">13.</span>,  <span class="number">16.</span>,  <span class="number">19.</span>])</span><br><span class="line"><span class="comment"># 2x3的数组</span></span><br><span class="line">np.array([[<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>]])</span><br><span class="line">Out[<span class="number">80</span>]:</span><br><span class="line">array([[<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>],</span><br><span class="line">       [<span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>]])</span><br><span class="line"><span class="comment"># 生成一个类似的全为0的数组</span></span><br><span class="line">np.zeros_like(np.array([[<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>]]))</span><br><span class="line">Out[<span class="number">82</span>]:</span><br><span class="line">array([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">       [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]])</span><br><span class="line"><span class="comment"># 生成一个类似的全为1的数组</span></span><br><span class="line">np.ones_like(np.array([[<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>]]))</span><br><span class="line">Out[<span class="number">84</span>]:</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">       [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]])</span><br></pre></td></tr></table></figure>
+<h3 id="numpy包中的运算"><a href="#numpy包中的运算" class="headerlink" title="numpy包中的运算"></a>numpy包中的运算</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加法</span></span><br><span class="line">c1 = np.array([<span class="number">-100</span>, <span class="number">50</span>, <span class="number">20</span>])</span><br><span class="line">c2 = np.array([<span class="number">-80</span>, <span class="number">100</span>, <span class="number">120</span>])</span><br><span class="line">c1 + c2</span><br><span class="line">Out[<span class="number">88</span>]: array([<span class="number">-180</span>,  <span class="number">150</span>,  <span class="number">140</span>])</span><br><span class="line"><span class="comment"># 乘法</span></span><br><span class="line">x1 = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]])</span><br><span class="line">np.dot(x1, x1) <span class="comment"># 点乘</span></span><br><span class="line">Out[<span class="number">91</span>]:</span><br><span class="line">array([[ <span class="number">30</span>,  <span class="number">36</span>,  <span class="number">42</span>],</span><br><span class="line">       [ <span class="number">66</span>,  <span class="number">81</span>,  <span class="number">96</span>],</span><br><span class="line">       [<span class="number">102</span>, <span class="number">126</span>, <span class="number">150</span>]])</span><br><span class="line">x1*x1 <span class="comment"># 叉乘</span></span><br><span class="line">Out[<span class="number">92</span>]:</span><br><span class="line">array([[ <span class="number">1</span>,  <span class="number">4</span>,  <span class="number">9</span>],</span><br><span class="line">       [<span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>],</span><br><span class="line">       [<span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>]])</span><br><span class="line"><span class="comment"># 数组与矩阵之间的转换</span></span><br><span class="line">np.matrix(x1)</span><br><span class="line">Out[<span class="number">94</span>]:</span><br><span class="line">matrix([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">        [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>],</span><br><span class="line">        [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])</span><br><span class="line">np.array(np.matrix(x1))</span><br><span class="line">Out[<span class="number">95</span>]:</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>],</span><br><span class="line">       [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])</span><br><span class="line"><span class="comment"># 一些函数</span></span><br><span class="line">x = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]])</span><br><span class="line"><span class="comment">## 下面两种方式是等价的</span></span><br><span class="line">x.sum()</span><br><span class="line">Out[<span class="number">99</span>]: <span class="number">45</span></span><br><span class="line">np.sum(x)</span><br><span class="line">Out[<span class="number">100</span>]: <span class="number">45</span></span><br><span class="line">x.min()</span><br><span class="line">Out[<span class="number">101</span>]: <span class="number">1</span></span><br><span class="line">np.min(x)</span><br><span class="line">Out[<span class="number">102</span>]: <span class="number">1</span></span><br><span class="line">x.mean()</span><br><span class="line">Out[<span class="number">103</span>]: <span class="number">5.0</span></span><br><span class="line">x.var()</span><br><span class="line">Out[<span class="number">104</span>]: <span class="number">6.666666666666667</span></span><br><span class="line">x.argmin() <span class="comment"># 返回最小值的位置</span></span><br><span class="line">Out[<span class="number">105</span>]: <span class="number">0</span></span><br><span class="line">x.argmax()</span><br><span class="line">Out[<span class="number">106</span>]: <span class="number">8</span></span><br><span class="line">x.clip(min = <span class="number">2</span>) <span class="comment"># 设定最低门限，低于门限值的都会被替换成门限值</span></span><br><span class="line">Out[<span class="number">107</span>]:</span><br><span class="line">array([[<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>],</span><br><span class="line">       [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])</span><br><span class="line">x.clip(max = <span class="number">3</span>) <span class="comment"># 设定最高门限，高于门限值的都会被替换成门限值</span></span><br><span class="line">Out[<span class="number">108</span>]:</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>]])</span><br><span class="line">x.diagonal() <span class="comment"># 返回x的对角线组成的数组</span></span><br><span class="line">Out[<span class="number">109</span>]: array([<span class="number">1</span>, <span class="number">5</span>, <span class="number">9</span>])</span><br><span class="line">x.tolist() <span class="comment"># 返回列表</span></span><br><span class="line">Out[<span class="number">110</span>]: [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line">x.transpose() <span class="comment"># 转置</span></span><br><span class="line">Out[<span class="number">111</span>]:</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>],</span><br><span class="line">       [<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>],</span><br><span class="line">       [<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>]])</span><br><span class="line">x.flatten() <span class="comment"># 返回x的元素组成的列数组</span></span><br><span class="line">Out[<span class="number">112</span>]: array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>])</span><br><span class="line">c = np.array([<span class="number">-100</span>, <span class="number">30</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">30</span>, <span class="number">40</span>])</span><br><span class="line">c.min()</span><br><span class="line">Out[<span class="number">114</span>]: <span class="number">-100</span></span><br><span class="line">c.argmin()</span><br><span class="line"><span class="keyword">for</span> cash <span class="keyword">in</span> c:</span><br><span class="line">    print(cash)</span><br><span class="line">Out[<span class="number">113</span>]:</span><br><span class="line"><span class="number">-100</span></span><br><span class="line"><span class="number">30</span></span><br><span class="line"><span class="number">50</span></span><br><span class="line"><span class="number">100</span></span><br><span class="line"><span class="number">30</span></span><br><span class="line"><span class="number">40</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用scipy包中的累积正态分布函数重新编写BS期权定价公式"><a href="#使用scipy包中的累积正态分布函数重新编写BS期权定价公式" class="headerlink" title="使用scipy包中的累积正态分布函数重新编写BS期权定价公式"></a>使用scipy包中的累积正态分布函数重新编写BS期权定价公式</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># scipy中的累积正态分布函数</span></span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> norm</span><br><span class="line">norm.cdf(<span class="number">0</span>)</span><br><span class="line"><span class="comment"># 重新编写BS期权定价公式</span></span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> log, exp, sqrt, stats</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bs_call_new</span><span class="params">(S = <span class="number">40</span>, X = <span class="number">40</span>, T = <span class="number">1</span>, r = <span class="number">0.03</span>, sigma = <span class="number">0.2</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    BS看涨期权定价公式</span></span><br><span class="line"><span class="string">    BS看涨期权定价模型</span></span><br><span class="line"><span class="string">    :param S: 股票价格，默认为40</span></span><br><span class="line"><span class="string">    :param X: 期权执行价格，默认为40</span></span><br><span class="line"><span class="string">    :param T: 到期时间，默认为1</span></span><br><span class="line"><span class="string">    :param r: 无风险利率，默认为0.03</span></span><br><span class="line"><span class="string">    :param sigma: 股价波动率，默认为0.2</span></span><br><span class="line"><span class="string">    :return: 看涨期权的理论价格</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    d1 = (log(S/X) + (r + sigma*sigma/<span class="number">2.</span>)*T)/(sigma*sqrt(T))</span><br><span class="line">    d2 = d1 - sigma*sqrt(T)</span><br><span class="line">    <span class="keyword">return</span> (S*stats.norm.cdf(d1) - X*exp(-r*T)*stats.norm.cdf(d2))</span><br><span class="line">bs_call_new()</span><br><span class="line">Out[<span class="number">118</span>]: <span class="number">3.7653613535412056</span></span><br></pre></td></tr></table></figure>
+<h3 id="numpy数组中的逻辑运算"><a href="#numpy数组中的逻辑运算" class="headerlink" title="numpy数组中的逻辑运算"></a>numpy数组中的逻辑运算</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 数组中的逻辑运算</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x = np.array([<span class="keyword">True</span>, <span class="keyword">False</span>, <span class="keyword">True</span>, <span class="keyword">False</span>], bool)</span><br><span class="line">any(x) <span class="comment"># True if any element in x is True.</span></span><br><span class="line">Out[<span class="number">122</span>]: <span class="keyword">True</span></span><br><span class="line">all(x) <span class="comment"># True if all elements in x is True.</span></span><br><span class="line">Out[<span class="number">123</span>]: <span class="keyword">False</span></span><br><span class="line">c = np.array([<span class="number">-100</span>, <span class="number">50</span>, <span class="number">40</span>, <span class="number">30</span>, <span class="number">100</span>, <span class="number">-5</span>])</span><br><span class="line">c &gt; <span class="number">0</span></span><br><span class="line">Out[<span class="number">125</span>]: array([<span class="keyword">False</span>,  <span class="keyword">True</span>,  <span class="keyword">True</span>,  <span class="keyword">True</span>,  <span class="keyword">True</span>, <span class="keyword">False</span>], dtype=bool)</span><br><span class="line">np.logical_and(c &gt; <span class="number">0</span>, c &lt; <span class="number">60</span>)</span><br><span class="line">Out[<span class="number">126</span>]: array([<span class="keyword">False</span>,  <span class="keyword">True</span>,  <span class="keyword">True</span>,  <span class="keyword">True</span>, <span class="keyword">False</span>, <span class="keyword">False</span>], dtype=bool)</span><br><span class="line"><span class="comment"># 选择c中于0的子数组</span></span><br><span class="line">c[(c &gt; <span class="number">0</span>)]</span><br><span class="line">Out[<span class="number">128</span>]: array([ <span class="number">50</span>,  <span class="number">40</span>,  <span class="number">30</span>, <span class="number">100</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="scipy包中的统计量"><a href="#scipy包中的统计量" class="headerlink" title="scipy包中的统计量"></a>scipy包中的统计量</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> stats</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">len(np.array(dir(stats)))</span><br><span class="line">Out[<span class="number">132</span>]: <span class="number">246</span></span><br><span class="line"><span class="comment"># 设定种子产生正态随机数</span></span><br><span class="line">np.random.seed(<span class="number">124</span>)</span><br><span class="line">x = np.random.normal(<span class="number">0</span>, <span class="number">1</span>, <span class="number">100</span>)</span><br><span class="line"><span class="comment"># 计算skewness</span></span><br><span class="line">stats.skew(x)</span><br><span class="line">Out[<span class="number">137</span>]: <span class="number">-0.22970945459723696</span></span><br><span class="line"><span class="comment"># 检验均值为0的t统计量和p值</span></span><br><span class="line">stats.ttest_1samp(x, <span class="number">0</span>)</span><br><span class="line">Out[<span class="number">139</span>]: Ttest_1sampResult(statistic=<span class="number">1.1763312806843913</span>, pvalue=<span class="number">0.24228334454436026</span>)</span><br><span class="line"><span class="comment"># 从均匀分布中取值</span></span><br><span class="line">np.random.uniform(low = <span class="number">0.0</span>, high = <span class="number">1.0</span>, size = <span class="number">100</span>)</span><br><span class="line">Out[<span class="number">141</span>]:</span><br><span class="line">array([ <span class="number">0.19275227</span>,  <span class="number">0.00719085</span>,  <span class="number">0.60879808</span>,  <span class="number">0.34413601</span>,  <span class="number">0.46909886</span>,</span><br><span class="line">        <span class="number">0.41924856</span>,  <span class="number">0.70729132</span>,  <span class="number">0.19932869</span>,  <span class="number">0.53038474</span>,  <span class="number">0.65138402</span>,</span><br><span class="line">        ······</span><br><span class="line">        <span class="number">0.72680799</span>,  <span class="number">0.7399658</span> ,  <span class="number">0.61201165</span>,  <span class="number">0.47996572</span>,  <span class="number">0.04460141</span>,</span><br><span class="line">        <span class="number">0.38995655</span>,  <span class="number">0.71368747</span>,  <span class="number">0.54200784</span>,  <span class="number">0.91374774</span>,  <span class="number">0.01945046</span>,</span><br><span class="line">        <span class="number">0.87729023</span>,  <span class="number">0.63369815</span>,  <span class="number">0.94858029</span>,  <span class="number">0.5828617</span> ,  <span class="number">0.25943912</span>])</span><br><span class="line">np.random.randint(low = <span class="number">1</span>, high = <span class="number">500</span>, size = <span class="number">20</span>)</span><br><span class="line">Out[<span class="number">142</span>]:</span><br><span class="line">array([<span class="number">232</span>, <span class="number">434</span>, <span class="number">258</span>,  <span class="number">32</span>, <span class="number">211</span>, <span class="number">112</span>, <span class="number">326</span>, <span class="number">265</span>,  <span class="number">71</span>, <span class="number">301</span>, <span class="number">193</span>, <span class="number">474</span>, <span class="number">240</span>,</span><br><span class="line">       <span class="number">161</span>, <span class="number">479</span>, <span class="number">438</span>,  <span class="number">75</span>, <span class="number">314</span>, <span class="number">454</span>, <span class="number">391</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="scipy包中的插值"><a href="#scipy包中的插值" class="headerlink" title="scipy包中的插值"></a>scipy包中的插值</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span>  matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> scipy.interpolate <span class="keyword">import</span> interp1d</span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">10</span>) <span class="comment"># 0-10 长度为10</span></span><br><span class="line">x</span><br><span class="line">y = np.exp(-x/<span class="number">3.0</span>)</span><br><span class="line">f = interp1d(x, y)</span><br><span class="line">f2 = interp1d(x, y, kind = <span class="string">'cubic'</span>)</span><br><span class="line"><span class="comment"># help(interp1d)</span></span><br><span class="line"><span class="comment"># kind可选项 'linear', 'nearest', 'zero', 'slinear', 'quadratic', 'cubic'</span></span><br><span class="line">xnew = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">40</span>)</span><br><span class="line">plt.plot(x, y, <span class="string">'o'</span>, xnew, f(xnew), <span class="string">'-'</span>, xnew, f2(xnew), <span class="string">'--'</span>)</span><br><span class="line">plt.legend([<span class="string">'data'</span>, <span class="string">'linear'</span>, <span class="string">'cubic'</span>], loc = <span class="string">'best'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.czxa.top/mr/Figure_1.png" alt="Figure_1.png"></p>
+<h3 id="使用scipy包解方程"><a href="#使用scipy包解方程" class="headerlink" title="使用scipy包解方程"></a>使用scipy包解方程</h3><p>$$\left\{<br>\begin{array}{lr}<br>&amp; x +2y+5z = 10 \\<br>&amp; 2x+5y+z = 8 \\<br>&amp; 2x+3y+8z =5 \\<br>\end{array} \right.<br>$$</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy <span class="keyword">as</span> sp</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">A = sp.mat(<span class="string">'[1 2 5; 2 5 1; 2 3 8]'</span>)</span><br><span class="line">b = sp.mat(<span class="string">'[10; 8; 5]'</span>)</span><br><span class="line"><span class="comment">## A.I表示矩阵A的逆</span></span><br><span class="line">A.I*b</span><br><span class="line">Out[<span class="number">148</span>]:</span><br><span class="line">matrix([[<span class="number">-22.45454545</span>],</span><br><span class="line">        [ <span class="number">10.09090909</span>],</span><br><span class="line">        [  <span class="number">2.45454545</span>]])</span><br><span class="line"><span class="comment">## numpy包中也提供了解方程的函数</span></span><br><span class="line">np.linalg.solve(A, b)</span><br><span class="line">Out[<span class="number">150</span>]:</span><br><span class="line">matrix([[<span class="number">-22.45454545</span>],</span><br><span class="line">        [ <span class="number">10.09090909</span>],</span><br><span class="line">        [  <span class="number">2.45454545</span>]])</span><br></pre></td></tr></table></figure>
+<h3 id="随机数种子"><a href="#随机数种子" class="headerlink" title="随机数种子"></a>随机数种子</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy <span class="keyword">as</span> sp</span><br><span class="line">sp.random.rand(<span class="number">10</span>) <span class="comment"># 10 random numbers from [0, 1]</span></span><br><span class="line">Out[<span class="number">152</span>]:</span><br><span class="line">array([ <span class="number">0.30753252</span>,  <span class="number">0.18513044</span>,  <span class="number">0.65942764</span>,  <span class="number">0.46920167</span>,  <span class="number">0.52875454</span>,</span><br><span class="line">        <span class="number">0.16858862</span>,  <span class="number">0.00986553</span>,  <span class="number">0.69832679</span>,  <span class="number">0.4512412</span> ,  <span class="number">0.75672126</span>])</span><br><span class="line">sp.random.rand(<span class="number">5</span>, <span class="number">2</span>) <span class="comment"># random numbers 5 by 2 array</span></span><br><span class="line">Out[<span class="number">153</span>]:</span><br><span class="line">array([[ <span class="number">0.88412845</span>,  <span class="number">0.95585649</span>],</span><br><span class="line">       [ <span class="number">0.28965947</span>,  <span class="number">0.36676156</span>],</span><br><span class="line">       [ <span class="number">0.21277316</span>,  <span class="number">0.20550993</span>],</span><br><span class="line">       [ <span class="number">0.43206176</span>,  <span class="number">0.69406982</span>],</span><br><span class="line">       [ <span class="number">0.95576823</span>,  <span class="number">0.72806124</span>]])</span><br><span class="line">sp.random.normal(size=<span class="number">100</span>)</span><br><span class="line">Out[<span class="number">154</span>]:</span><br><span class="line">array([ <span class="number">-8.91784557e-01</span>,   <span class="number">1.66045973e+00</span>,   <span class="number">4.24440411e-01</span>,</span><br><span class="line">        <span class="number">-1.40459412e+00</span>,  <span class="number">-7.24540377e-01</span>,   <span class="number">3.79290558e-01</span>,</span><br><span class="line">        ······</span><br><span class="line">         <span class="number">8.83488474e-01</span>,  <span class="number">-2.18699157e-01</span>,  <span class="number">-1.05690114e+00</span>,</span><br><span class="line">        <span class="number">-1.45189444e+00</span>,   <span class="number">8.74852067e-02</span>,  <span class="number">-1.18728511e+00</span>,</span><br><span class="line">         <span class="number">2.91119440e-01</span>])</span><br><span class="line">sp.random.seed(<span class="number">123456</span>)</span><br><span class="line">sp.random.rand(<span class="number">5</span>)</span><br><span class="line">Out[<span class="number">156</span>]: array([ <span class="number">0.12696983</span>,  <span class="number">0.96671784</span>,  <span class="number">0.26047601</span>,  <span class="number">0.89723652</span>,  <span class="number">0.37674972</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="从一个包中搜索一个函数"><a href="#从一个包中搜索一个函数" class="headerlink" title="从一个包中搜索一个函数"></a>从一个包中搜索一个函数</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x = np.array(dir(np))</span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> x:</span><br><span class="line">    <span class="keyword">if</span> (k.find(<span class="string">"uni"</span>) != <span class="number">-1</span>):</span><br><span class="line">        print(k)</span><br><span class="line">unicode</span><br><span class="line">unicode_</span><br><span class="line">union1d</span><br><span class="line">unique</span><br></pre></td></tr></table></figure>
+<h3 id="最优化"><a href="#最优化" class="headerlink" title="最优化"></a>最优化</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy.optimize <span class="keyword">as</span> spop</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_f</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">3</span> + x**<span class="number">2</span></span><br><span class="line">spop.fmin(my_f, <span class="number">5</span>) <span class="comment"># 5是初始值</span></span><br><span class="line">Optimization terminated successfully.</span><br><span class="line">         Current function value: <span class="number">3.000000</span></span><br><span class="line">         Iterations: <span class="number">20</span></span><br><span class="line">         Function evaluations: <span class="number">40</span></span><br><span class="line">Out[<span class="number">160</span>]: array([ <span class="number">0.</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="CAPM"><a href="#CAPM" class="headerlink" title="CAPM"></a>CAPM</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> stats</span><br><span class="line">stock_ret = [<span class="number">0.065</span>, <span class="number">0.0265</span>, <span class="number">-0.0593</span>, <span class="number">-0.001</span>, <span class="number">0.0346</span>]</span><br><span class="line">mkt_ret = [<span class="number">0.055</span>, <span class="number">-0.09</span>, <span class="number">-0.041</span>, <span class="number">0.045</span>, <span class="number">0.022</span>]</span><br><span class="line">beta, alpha, r_value, p_value, std_err = stats.linregress(stock_ret, mkt_ret)</span><br><span class="line">print(beta, alpha)</span><br><span class="line"><span class="number">0.507743187877</span> <span class="number">-0.00848190035246</span></span><br><span class="line">stats.linregress(stock_ret, mkt_ret)</span><br><span class="line">Out[<span class="number">168</span>]: LinregressResult(slope=<span class="number">0.50774318787708084</span>, intercept=<span class="number">-0.0084819003524623845</span>, rvalue=<span class="number">0.38455905003823676</span>, pvalue=<span class="number">0.52271552390894616</span>, stderr=<span class="number">0.70367055432215686</span>)</span><br><span class="line">print(<span class="string">"R^2 ="</span> , r_value**<span class="number">2</span>)</span><br><span class="line">R^<span class="number">2</span> = <span class="number">0.147885662966</span></span><br><span class="line">print(<span class="string">"p-value ="</span>, p_value)</span><br><span class="line">p-value = <span class="number">0.522715523909</span></span><br></pre></td></tr></table></figure>
+<h3 id="读取文本文件"><a href="#读取文本文件" class="headerlink" title="读取文本文件"></a>读取文本文件</h3><p>我自己做了个平安银行过去40天的股价数据文件<a href="http://www.czxa.top/mr/pingan.csv">pingan.csv</a>。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">"pingan.csv"</span>, <span class="string">"r"</span>)</span><br><span class="line">data = f.readlines()</span><br><span class="line">type(data)</span><br><span class="line">Out[<span class="number">174</span>]: list</span><br><span class="line">data</span><br><span class="line">Out[<span class="number">175</span>]:</span><br><span class="line">[<span class="string">'stkcd,date,stknme,clsprc,hiprc,lowprc,opnprc,rit,turnover,volume,transaction,tcap,mcap\n'</span>,</span><br><span class="line"> <span class="string">'1,2018-04-23,pingan,11.57,11.61,11.26,11.3,.019383,.63260001,10.7028935,1228544000,198661659505,195741343744\n'</span>,</span><br><span class="line"> ······</span><br><span class="line"> <span class="string">'1,2018-06-20,pingan,9.9099998,9.9499998,9.7600002,9.8699999,.004053,.4447,7.6363731,752950720,170158776637,170157229240\n'</span>]</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">np.loadtxt(<span class="string">"pingan.csv"</span>, delimiter=<span class="string">","</span>) <span class="comment">## 这个出错，没能找到原因</span></span><br><span class="line"><span class="comment"># genfromtxt()函数会把非标准值例如3.5%视为NA</span></span><br><span class="line">np.genfromtxt(<span class="string">"pingan.csv"</span>, delimiter=<span class="string">","</span>)</span><br><span class="line">Out[<span class="number">179</span>]:</span><br><span class="line">array([[             nan,              nan,              nan,</span><br><span class="line">                     nan,              nan,              nan,</span><br><span class="line">                     nan,              nan,              nan,</span><br><span class="line">                     nan,              nan,              nan,</span><br><span class="line">                     nan],</span><br><span class="line">       [  <span class="number">1.00000000e+00</span>,              nan,              nan,</span><br><span class="line">          <span class="number">1.15700000e+01</span>,   <span class="number">1.16100000e+01</span>,   <span class="number">1.12600000e+01</span>,</span><br><span class="line">          <span class="number">1.13000000e+01</span>,   <span class="number">1.93830000e-02</span>,   <span class="number">6.32600010e-01</span>,</span><br><span class="line">          <span class="number">1.07028935e+01</span>,   <span class="number">1.22854400e+09</span>,   <span class="number">1.98661660e+11</span>,</span><br><span class="line">          <span class="number">1.95741344e+11</span>],</span><br><span class="line">          ······</span><br><span class="line">       [  <span class="number">1.00000000e+00</span>,              nan,              nan,</span><br><span class="line">          <span class="number">9.90999980e+00</span>,   <span class="number">9.94999980e+00</span>,   <span class="number">9.76000020e+00</span>,</span><br><span class="line">          <span class="number">9.86999990e+00</span>,   <span class="number">4.05300000e-03</span>,   <span class="number">4.44700000e-01</span>,</span><br><span class="line">          <span class="number">7.63637310e+00</span>,   <span class="number">7.52950720e+08</span>,   <span class="number">1.70158777e+11</span>,</span><br><span class="line">          <span class="number">1.70157229e+11</span>]])</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://www.czxa.top/posts/19677/" data-id="cjk10z265000bfg8e3z0e9aco" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="valine-thread"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/czxa" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="https://weibo.com/p/1005056084580012/photos?from=page_100505&mod=TAB&pids=plc_main" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/notes/posts/43798/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            Python for Finance Chapter 7
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/notes/posts/54264/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">Python for Finance Chapter1~3</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+<div class="widget-wrap widget-list">
+    <h3 class="widget-title">目录</h3>
+    <div class="widget">
+        <div id="toc" class="toc-article">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter4-13-Lines-of-Python-to-Price-a-Call-option"><span class="toc-number">1.</span> <span class="toc-text">Chapter4: 13 Lines of Python to Price a Call option</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一个BS看涨期权定价模型"><span class="toc-number">1.1.</span> <span class="toc-text">一个BS看涨期权定价模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter5-Introduction-to-Modules"><span class="toc-number">2.</span> <span class="toc-text">Chapter5: Introduction to Modules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#调用系统时间"><span class="toc-number">2.1.</span> <span class="toc-text">调用系统时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看包的位置"><span class="toc-number">2.2.</span> <span class="toc-text">查看包的位置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter6-Introduction-to-NumPy-and-SciPy"><span class="toc-number">3.</span> <span class="toc-text">Chapter6: Introduction to NumPy and SciPy</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#numpy使用示例"><span class="toc-number">3.1.</span> <span class="toc-text">numpy使用示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scipy包使用示例"><span class="toc-number">3.2.</span> <span class="toc-text">scipy包使用示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#NPV函数"><span class="toc-number">3.2.1.</span> <span class="toc-text">NPV函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PMT函数"><span class="toc-number">3.2.2.</span> <span class="toc-text">PMT函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PV函数和FV函数"><span class="toc-number">3.2.3.</span> <span class="toc-text">PV函数和FV函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#收益率的算术均值和几何均值"><span class="toc-number">3.2.4.</span> <span class="toc-text">收益率的算术均值和几何均值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sp-unique函数：查找奇异值"><span class="toc-number">3.2.5.</span> <span class="toc-text">sp.unique函数：查找奇异值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sp-median函数：中位数"><span class="toc-number">3.2.6.</span> <span class="toc-text">sp.median函数：中位数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示numpy和scipy中的所有函数"><span class="toc-number">3.3.</span> <span class="toc-text">显示numpy和scipy中的所有函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#numpy包中的数组生成函数"><span class="toc-number">3.4.</span> <span class="toc-text">numpy包中的数组生成函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#numpy包中的运算"><span class="toc-number">3.5.</span> <span class="toc-text">numpy包中的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用scipy包中的累积正态分布函数重新编写BS期权定价公式"><span class="toc-number">3.6.</span> <span class="toc-text">使用scipy包中的累积正态分布函数重新编写BS期权定价公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#numpy数组中的逻辑运算"><span class="toc-number">3.7.</span> <span class="toc-text">numpy数组中的逻辑运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scipy包中的统计量"><span class="toc-number">3.8.</span> <span class="toc-text">scipy包中的统计量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scipy包中的插值"><span class="toc-number">3.9.</span> <span class="toc-text">scipy包中的插值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用scipy包解方程"><span class="toc-number">3.10.</span> <span class="toc-text">使用scipy包解方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#随机数种子"><span class="toc-number">3.11.</span> <span class="toc-text">随机数种子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从一个包中搜索一个函数"><span class="toc-number">3.12.</span> <span class="toc-text">从一个包中搜索一个函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最优化"><span class="toc-number">3.13.</span> <span class="toc-text">最优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CAPM"><span class="toc-number">3.14.</span> <span class="toc-text">CAPM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读取文本文件"><span class="toc-number">3.15.</span> <span class="toc-text">读取文本文件</span></a></li></ol></li></ol>
+        </div>
+    </div>
+</div>
+
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/null/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180719a1.png)" alt="A machine learning odyssey" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/TensorFlow/">TensorFlow</a></p>
+                            <p class="item-title"><a href="/notes/posts/null/" class="title">A machine learning odyssey</a></p>
+                            <p class="item-date"><time datetime="2018-07-21T15:49:32.000Z" itemprop="datePublished">2018-07-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/31323/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://tushare.org/_images/ts.jpg)" alt="Tushare：Python中的财经数据接口包(二)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/31323/" class="title">Tushare：Python中的财经数据接口包(二)</a></p>
+                            <p class="item-date"><time datetime="2018-07-02T10:41:32.000Z" itemprop="datePublished">2018-07-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/25036/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180626a3.png)" alt="Tushare：Python中的财经数据接口包(一)——数据存储" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/25036/" class="title">Tushare：Python中的财经数据接口包(一)——数据存储</a></p>
+                            <p class="item-date"><time datetime="2018-06-26T02:41:32.000Z" itemprop="datePublished">2018-06-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/43149/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180624a1.png)" alt="Python for Finance——入门到放弃" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/43149/" class="title">Python for Finance——入门到放弃</a></p>
+                            <p class="item-date"><time datetime="2018-06-24T06:49:32.000Z" itemprop="datePublished">2018-06-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/43798/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180623c8.png)" alt="Python for Finance Chapter 7" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/43798/" class="title">Python for Finance Chapter 7</a></p>
+                            <p class="item-date"><time datetime="2018-06-23T17:49:32.000Z" itemprop="datePublished">2018-06-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/notes/categories/TensorFlow/">TensorFlow</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/notes/categories/笔记/">笔记</a><span class="category-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/notes/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/notes/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/notes/tags/Python/">Python</a><span class="tag-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/notes/tags/Python/" style="font-size: 10px;">Python</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://dwla.github.io">JWen</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://www.czxa.top/notes/favorites/">我的收藏</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://unsplash.com/@czxa">Unsplash</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://gallery.echartsjs.com/explore.html?u=bd-2472402526&type=work#sort=rank~timeframe=all~author=all">ECharts</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.zingchart.com/gallery/">Zingchart</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.amcharts.com/demos/">Amcharts</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://antv.alipay.com/zh-cn/gallery/index.html">AntV</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.anychart.com/products/anychart/gallery/">Anychart</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.hcharts.cn/demo/highcharts">Highcharts</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/d3/d3/wiki/Gallery">D3.js</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://music.sonimei.cn/">全网音乐免费下载工具</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://carbon.now.sh/">Carbon</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://cn.knoema.com/">knoema</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://zh.tradingeconomics.com/">tradingeconomics</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/notes/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 程振兴</p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#valine-thread' ,
+            notify:true,
+            verify:false,
+            app_id: 'HS0fE2GH92TyPjSpxeuEpr9P-gzGzoHsz',
+            app_key: 'hyvGUifU6e34ODKmahBUtoN6',
+            placeholder: '在这里评论～',
+            pageSize: '10',
+            avatar: 'monsterid',
+            avatar_cdn:  'https://gravatar.loli.net/avatar/'
+        });
+    </script>
+
+
+
+
+
+    
+        <script src="/notes/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/notes/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/notes/js/main.js"></script>
+
+    </div>
+</body>
+</html>
