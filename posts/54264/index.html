@@ -21,7 +21,7 @@
 <meta property="og:description" content="本文PDF版本下载：Python_for_Finance_Chapter1~3.pdf这本书介绍了Python在金融领域的基本应用，非常适合入门。为了保证学习效果，我决定好好记笔记。下面是这本书的下载链接，欢迎一起学习：Python_for_Finance.pdf">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.czxa.top/mr/20180613_IMG_4497.JPG">
-<meta property="og:updated_time" content="2018-07-05T02:46:57.331Z">
+<meta property="og:updated_time" content="2018-07-28T10:52:05.517Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python for Finance Chapter1~3">
 <meta name="twitter:description" content="本文PDF版本下载：Python_for_Finance_Chapter1~3.pdf这本书介绍了Python在金融领域的基本应用，非常适合入门。为了保证学习效果，我决定好好记笔记。下面是这本书的下载链接，欢迎一起学习：Python_for_Finance.pdf">
@@ -195,7 +195,7 @@
         
 <div class="article-gallery">
     
-    <a class="gallery-item" href="http://www.czxa.top/mr/20180326_IMG_3836.JPG" rel="gallery_cjk563lqn0003vu8e7bwzdy3s">
+    <a class="gallery-item" href="http://www.czxa.top/mr/20180326_IMG_3836.JPG" rel="gallery_cjk6k5xbu0002kg8exhsm0ngc">
         <img src="http://www.czxa.top/mr/20180326_IMG_3836.JPG" itemprop="image" />
     </a>
     
@@ -238,7 +238,33 @@
 </tr>
 </tbody>
 </table>
-<p>用中文来说就是：<br>Items|meanings<br>—|—<br>Local |可能是在一个函数或者类方法内部。<br>Enclosed |可能是嵌套函数内，比如说 一个函数包裹在另一个函数内部。<br>Global |代表的是执行脚本自身的最高层次。<br>Built-in |是Python为自身保留的特殊名称。</p>
+<p>用中文来说就是：</p>
+<table>
+<thead>
+<tr>
+<th>Items</th>
+<th>meanings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Local</td>
+<td>可能是在一个函数或者类方法内部。</td>
+</tr>
+<tr>
+<td>Enclosed</td>
+<td>可能是嵌套函数内，比如说 一个函数包裹在另一个函数内部。</td>
+</tr>
+<tr>
+<td>Global</td>
+<td>代表的是执行脚本自身的最高层次。</td>
+</tr>
+<tr>
+<td>Built-in</td>
+<td>是Python为自身保留的特殊名称。</td>
+</tr>
+</tbody>
+</table>
 <h2 id="pow-函数和-的区别"><a href="#pow-函数和-的区别" class="headerlink" title="pow()函数和**的区别"></a>pow()函数和<code>**</code>的区别</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">help(pow)</span><br><span class="line">👇结果</span><br><span class="line">Help on built-<span class="keyword">in</span> function pow <span class="keyword">in</span> module builtins:</span><br><span class="line">pow(x, y, z=<span class="keyword">None</span>, /)</span><br><span class="line">    Equivalent to x**y (<span class="keyword">with</span> two arguments) <span class="keyword">or</span> x**y % z (<span class="keyword">with</span> three arguments)</span><br><span class="line"></span><br><span class="line">    Some types, such <span class="keyword">as</span> ints, are able to use a more efficient algorithm when</span><br><span class="line">    invoked using the three argument form.</span><br></pre></td></tr></table></figure>
 <p>也就是说pow()函数里面可以使用三个参数，如果使用三个参数:<br>$$<br>pow(x, y, z) = mod(x^y, z)<br>$$</p>
 <h2 id="选择精确度"><a href="#选择精确度" class="headerlink" title="选择精确度"></a>选择精确度</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="number">7</span>/<span class="number">3</span>)</span><br><span class="line">payment = <span class="number">7</span>/<span class="number">3</span></span><br><span class="line">payment1 = round(payment, <span class="number">2</span>)</span><br><span class="line">print(payment)</span><br><span class="line">print(payment1)</span><br><span class="line">👇结果</span><br><span class="line"><span class="number">2.3333333333333335</span></span><br><span class="line"><span class="number">2.3333333333333335</span></span><br><span class="line"><span class="number">2.33</span></span><br></pre></td></tr></table></figure>
@@ -260,7 +286,7 @@
 
 
 
-    <a data-url="http://www.czxa.top/posts/54264/" data-id="cjk563lqn0003vu8e7bwzdy3s" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.czxa.top/posts/54264/" data-id="cjk6k5xbu0002kg8exhsm0ngc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -402,6 +428,46 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/notes/posts/62270/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://raw.githubusercontent.com/czxa/mr/master/20180729b3.png)" alt="量化交易入门" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/62270/" class="title">量化交易入门</a></p>
+                            <p class="item-date"><time datetime="2018-07-29T03:24:32.000Z" itemprop="datePublished">2018-07-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/25790/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://joinquant-image.b0.upaiyun.com/ed1cfe7c16ad4e4ea6b9728ccf8699d5)" alt="初识量化交易与Python知识补充" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/25790/" class="title">初识量化交易与Python知识补充</a></p>
+                            <p class="item-date"><time datetime="2018-07-29T02:21:32.000Z" itemprop="datePublished">2018-07-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/notes/posts/13184/" class="thumbnail">
     
     
@@ -459,46 +525,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/notes/posts/25036/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://www.czxa.top/mr/20180626a3.png)" alt="Tushare：Python中的财经数据接口包(一)——数据存储" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
-                            <p class="item-title"><a href="/notes/posts/25036/" class="title">Tushare：Python中的财经数据接口包(一)——数据存储</a></p>
-                            <p class="item-date"><time datetime="2018-06-26T02:41:32.000Z" itemprop="datePublished">2018-06-26</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/notes/posts/43149/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://www.czxa.top/mr/20180624a1.png)" alt="Python for Finance——入门到放弃" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
-                            <p class="item-title"><a href="/notes/posts/43149/" class="title">Python for Finance——入门到放弃</a></p>
-                            <p class="item-date"><time datetime="2018-06-24T06:49:32.000Z" itemprop="datePublished">2018-06-24</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -508,7 +534,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/notes/categories/TensorFlow/">TensorFlow</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/notes/categories/笔记/">笔记</a><span class="category-list-count">7</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/notes/categories/TensorFlow/">TensorFlow</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/notes/categories/笔记/">笔记</a><span class="category-list-count">9</span></li></ul>
         </div>
     </div>
 
@@ -518,7 +544,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/notes/archives/2018/07/">七月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/notes/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/notes/archives/2018/07/">七月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/notes/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li></ul>
         </div>
     </div>
 
@@ -528,7 +554,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/notes/tags/Python/">Python</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/notes/tags/R/">R</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/notes/tags/Stata/">Stata</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/notes/tags/Python/">Python</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/notes/tags/R/">R</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/notes/tags/Stata/">Stata</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
