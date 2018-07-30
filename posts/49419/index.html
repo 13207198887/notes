@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Inreoducing the Series and DataFrame | Notebook</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Python" />
+    
+    <meta name="description" content="This blog is the first note of  Master Pandas for finance .  This notes introduce the basics of the Series and DataFrame objects.">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Inreoducing the Series and DataFrame">
+<meta property="og:url" content="http://www.czxa.top/posts/49419/index.html">
+<meta property="og:site_name" content="Notebook">
+<meta property="og:description" content="This blog is the first note of  Master Pandas for finance .  This notes introduce the basics of the Series and DataFrame objects.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.czxa.top/mr/DSC03628.JPG">
+<meta property="og:updated_time" content="2018-07-30T03:07:36.192Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Inreoducing the Series and DataFrame">
+<meta name="twitter:description" content="This blog is the first note of  Master Pandas for finance .  This notes introduce the basics of the Series and DataFrame objects.">
+<meta name="twitter:image" content="http://www.czxa.top/mr/DSC03628.JPG">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/notes/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/notes/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/notes/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/notes/css/style.css">
+
+    <script src="/notes/libs/jquery/2.2.4/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/notes/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/notes/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/notes/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="http://www.czxa.top">主站</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/">首页</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/tags">标签</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/categories">分类</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/favorites">收藏夹</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/about">联系我</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="http://www.czxa.top/gallery">画廊</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/books">豆瓣书架</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/notes/movies">豆瓣影院</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/notes/',
+        CONTENT_URL: '/notes/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/notes/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/notes/categories/Pandas/">Pandas</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-Inreoducing_the_Series_and_DataFrame" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Inreoducing the Series and DataFrame
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/notes/posts/49419/" class="article-date">
+            <time datetime="2018-07-29T16:57:32.000Z" itemprop="datePublished">2018-07-30</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/notes/tags/Python/">Python</a>
+    </div>
+
+            </div>
+        
+        
+<div class="article-gallery">
+    
+    <a class="gallery-item" href="http://www.czxa.top/mr/DSC03628.JPG" rel="gallery_cjk7trksh0003ue8e032d51np">
+        <img src="http://www.czxa.top/mr/DSC03628.JPG" itemprop="image" />
+    </a>
+    
+</div>
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>This blog is the first note of  <em>Master Pandas for finance</em> .  This notes introduce the basics of the Series and DataFrame objects.<br><a id="more"></a></p>
+<h2 id="The-Basics-of-The-Series-and-DataFrame-Objects"><a href="#The-Basics-of-The-Series-and-DataFrame-Objects" class="headerlink" title="The Basics of The Series and DataFrame Objects"></a>The Basics of The Series and DataFrame Objects</h2><h3 id="Creating-a-Series-and-accessing-elements"><a href="#Creating-a-Series-and-accessing-elements" class="headerlink" title="Creating a Series and accessing elements"></a>Creating a Series and accessing elements</h3><p>It;s very easy to use <code>numpy</code> create a pandas Series:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">np.random.seed(<span class="number">1</span>)</span><br><span class="line">s = pd.Series(np.random.randn(<span class="number">100</span>))</span><br></pre></td></tr></table></figure></p>
+<p>Individual elements  of a series can be retrieved using the [] operator of the series object. The item with the index label 2 can be retrieved using the following  code:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s[<span class="number">2</span>]</span><br><span class="line"><span class="comment">## Multiple values can be retrieved using an array of label values, as shown here:</span></span><br><span class="line">s[[<span class="number">2</span>, <span class="number">5</span>, <span class="number">20</span>]]</span><br><span class="line"><span class="comment">## A series supports slicing using : slice notation.</span></span><br><span class="line">s[<span class="number">3</span>:<span class="number">8</span>] <span class="comment">## Include 3 but not 8</span></span><br></pre></td></tr></table></figure></p>
+<p>The <code>.head()</code> and <code>.tail()</code> methods are provided by pandas to examine just the first or the last few records in s Series. By default, these return the <code>first five</code> or<code>last five</code> rows, respectively, but you can use the n parameter or just pass in an interger to  specify the number of rows.<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s.head()</span><br><span class="line">s.tail()</span><br></pre></td></tr></table></figure></p>
+<h3 id="Retrieve-index-and-values"><a href="#Retrieve-index-and-values" class="headerlink" title="Retrieve index and values"></a>Retrieve index and values</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Retrieve index</span></span><br><span class="line">s.index</span><br><span class="line"><span class="comment">## Retrieve values</span></span><br><span class="line">s.values</span><br></pre></td></tr></table></figure>
+<p>Note the type of index and values:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type(s.index)</span><br><span class="line">Out[<span class="number">23</span>]: pandas.core.indexes.range.RangeIndex</span><br><span class="line">type(s.values)</span><br><span class="line">Out[<span class="number">24</span>]: numpy.ndarray</span><br></pre></td></tr></table></figure></p>
+<h3 id="Creates-a-series-and-set-the-index"><a href="#Creates-a-series-and-set-the-index" class="headerlink" title="Creates a series and set the index:"></a>Creates a series and set the index:</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s2 = pd.Series([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], index = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>])</span><br><span class="line">s2</span><br><span class="line">Out[<span class="number">25</span>]:</span><br><span class="line">a    <span class="number">1</span></span><br><span class="line">b    <span class="number">2</span></span><br><span class="line">c    <span class="number">3</span></span><br><span class="line">d    <span class="number">4</span></span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure>
+<h3 id="A-series-can-be-directly-initialized-from-a-Python-dictionary"><a href="#A-series-can-be-directly-initialized-from-a-Python-dictionary" class="headerlink" title="A series can be directly initialized from a Python dictionary"></a>A series can be directly initialized from a Python dictionary</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">s3 = pd.Series(&#123;<span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>, <span class="string">'c'</span>: <span class="number">3</span>, <span class="string">'d'</span>: <span class="number">4</span>, <span class="string">'e'</span>:<span class="number">5</span>&#125;)</span><br><span class="line">s3</span><br><span class="line">Out[<span class="number">26</span>]:</span><br><span class="line">a    <span class="number">1</span></span><br><span class="line">b    <span class="number">2</span></span><br><span class="line">c    <span class="number">3</span></span><br><span class="line">d    <span class="number">4</span></span><br><span class="line">e    <span class="number">5</span></span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure>
+<h2 id="Size-shape-uniqueness-and-counts-of-values"><a href="#Size-shape-uniqueness-and-counts-of-values" class="headerlink" title="Size, shape, uniqueness, and counts of values"></a>Size, shape, uniqueness, and counts of values</h2><h3 id="length"><a href="#length" class="headerlink" title="length"></a>length</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series([<span class="number">10</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, np.nan])</span><br><span class="line">len(s)</span><br><span class="line">Out[<span class="number">27</span>]: <span class="number">9</span></span><br></pre></td></tr></table></figure>
+<h3 id="shape-return-a-tuple-which-contain-the-object’s-dimension"><a href="#shape-return-a-tuple-which-contain-the-object’s-dimension" class="headerlink" title="shape: return a tuple which contain the object’s dimension"></a>shape: return a tuple which contain the object’s dimension</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s.shape</span><br><span class="line">Out[<span class="number">28</span>]: (<span class="number">9</span>,)</span><br></pre></td></tr></table></figure>
+<h3 id="count-the-count-of-elements-declude-from-NaN"><a href="#count-the-count-of-elements-declude-from-NaN" class="headerlink" title="count: the count of elements declude from NaN"></a>count: the count of elements declude from NaN</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s.count()</span><br><span class="line">Out[<span class="number">29</span>]: <span class="number">8</span></span><br></pre></td></tr></table></figure>
+<h3 id="unique-values-in-a-series"><a href="#unique-values-in-a-series" class="headerlink" title="unique values in a series"></a>unique values in a series</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s.unique()</span><br><span class="line">Out[<span class="number">30</span>]: array([ <span class="number">10.</span>,   <span class="number">0.</span>,   <span class="number">1.</span>,   <span class="number">2.</span>,   <span class="number">3.</span>,   <span class="number">4.</span>,   <span class="number">5.</span>,  nan])</span><br></pre></td></tr></table></figure>
+<h3 id="Obtaining-the-count-of-each-of-the-unique-items-in-a-series"><a href="#Obtaining-the-count-of-each-of-the-unique-items-in-a-series" class="headerlink" title="Obtaining the count of each of the unique items in a series."></a>Obtaining the count of each of the unique items in a series.</h3><p>Also declude from NaN:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">s.value_counts()</span><br><span class="line">Out[<span class="number">31</span>]:</span><br><span class="line"><span class="number">1.0</span>     <span class="number">2</span></span><br><span class="line"><span class="number">5.0</span>     <span class="number">1</span></span><br><span class="line"><span class="number">4.0</span>     <span class="number">1</span></span><br><span class="line"><span class="number">3.0</span>     <span class="number">1</span></span><br><span class="line"><span class="number">2.0</span>     <span class="number">1</span></span><br><span class="line"><span class="number">0.0</span>     <span class="number">1</span></span><br><span class="line"><span class="number">10.0</span>    <span class="number">1</span></span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure></p>
+<h2 id="Alignment-via-index-labels"><a href="#Alignment-via-index-labels" class="headerlink" title="Alignment via index labels"></a>Alignment via index labels</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s3 = pd.Series([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], index = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>])</span><br><span class="line">s4 = pd.Series([<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>], index = [<span class="string">'d'</span>, <span class="string">'c'</span>, <span class="string">'b'</span>, <span class="string">'a'</span>])</span><br></pre></td></tr></table></figure>
+<p>The process of adding two Series objects differs from an array as it first aligns data upon the index label values instead of simple applying the operations to elements in the same position.<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s3 + s4</span><br><span class="line"></span><br><span class="line">Out[<span class="number">35</span>]:</span><br><span class="line">a    <span class="number">2</span></span><br><span class="line">b    <span class="number">4</span></span><br><span class="line">c    <span class="number">6</span></span><br><span class="line">d    <span class="number">8</span></span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure></p>
+<p>While for numpy array:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a1 = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">a2 = np.array([<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>])</span><br><span class="line">a1 + a2</span><br><span class="line"></span><br><span class="line">Out[<span class="number">36</span>]: array([<span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>])</span><br></pre></td></tr></table></figure></p>
+<h2 id="Creating-a-DataFrame"><a href="#Creating-a-DataFrame" class="headerlink" title="Creating a DataFrame"></a>Creating a DataFrame</h2><p>the most straightforward method is creating it from a NumPy array:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pd.DataFrame(np.array([[<span class="number">10</span>, <span class="number">11</span>], [<span class="number">20</span>, <span class="number">21</span>]]))</span><br><span class="line"></span><br><span class="line">Out[<span class="number">37</span>]:</span><br><span class="line">    <span class="number">0</span>   <span class="number">1</span></span><br><span class="line"><span class="number">0</span>  <span class="number">10</span>  <span class="number">11</span></span><br><span class="line"><span class="number">1</span>  <span class="number">20</span>  <span class="number">21</span></span><br></pre></td></tr></table></figure></p>
+<p>A DataFrame can also be initialized by passing a list of Series objects:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df1 = pd.DataFrame([pd.Series(np.arange(<span class="number">10</span>, <span class="number">15</span>)),</span><br><span class="line">                    pd.Series(np.arange(<span class="number">15</span>, <span class="number">20</span>))])</span><br><span class="line">df1</span><br><span class="line">Out[<span class="number">40</span>]:</span><br><span class="line">    <span class="number">0</span>   <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span></span><br><span class="line"><span class="number">0</span>  <span class="number">10</span>  <span class="number">11</span>  <span class="number">12</span>  <span class="number">13</span>  <span class="number">14</span></span><br><span class="line"><span class="number">1</span>  <span class="number">15</span>  <span class="number">16</span>  <span class="number">17</span>  <span class="number">18</span>  <span class="number">19</span></span><br></pre></td></tr></table></figure></p>
+<p>the demensions of it:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df1.shape</span><br><span class="line">Out[<span class="number">39</span>]: (<span class="number">2</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure></p>
+<p>column names can be specified at the time of creating the DataFrame using the columns parameter of the DataFrame constructor:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(np.array([[<span class="number">10</span>, <span class="number">11</span>], [<span class="number">20</span>, <span class="number">21</span>]]), columns = [<span class="string">'a'</span>, <span class="string">'b'</span>])</span><br><span class="line">df</span><br><span class="line"></span><br><span class="line">    Out[<span class="number">41</span>]:</span><br><span class="line">        a   b</span><br><span class="line">    <span class="number">0</span>  <span class="number">10</span>  <span class="number">11</span></span><br><span class="line">    <span class="number">1</span>  <span class="number">20</span>  <span class="number">21</span></span><br><span class="line"></span><br><span class="line">df.columns</span><br><span class="line"></span><br><span class="line">Out[<span class="number">42</span>]: Index([<span class="string">'a'</span>, <span class="string">'b'</span>], dtype=<span class="string">'object'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>change the column names:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">df.columns = [<span class="string">'c1'</span>, <span class="string">'c2'</span>]</span><br><span class="line">df</span><br><span class="line">Out[<span class="number">43</span>]:</span><br><span class="line">   c1  c2</span><br><span class="line"><span class="number">0</span>  <span class="number">10</span>  <span class="number">11</span></span><br><span class="line"><span class="number">1</span>  <span class="number">20</span>  <span class="number">21</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="columns-and-index"><a href="#columns-and-index" class="headerlink" title="columns and index"></a>columns and index</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(np.array([[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">3</span>]]), columns=[<span class="string">'c1'</span>, <span class="string">'c2'</span>], index = [<span class="string">'r1'</span>, <span class="string">'r2'</span>])</span><br><span class="line">df</span><br><span class="line">Out[<span class="number">45</span>]:</span><br><span class="line">    c1  c2</span><br><span class="line">r1   <span class="number">0</span>   <span class="number">1</span></span><br><span class="line">r2   <span class="number">2</span>   <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>A DataFrame can also be created by passing a dictionary containing one or more Series objects, where the dictionary keys contain the column names and each Series is one column of data.<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">s1 = pd.Series(np.arange(<span class="number">1</span>, <span class="number">6</span>, <span class="number">1</span>))</span><br><span class="line">s2 = pd.Series(np.arange(<span class="number">6</span>, <span class="number">11</span>, <span class="number">1</span>))</span><br><span class="line">pd.DataFrame(&#123;<span class="string">'c1'</span>: s1, <span class="string">'c2'</span>: s2&#125;)</span><br><span class="line">Out[<span class="number">46</span>]:</span><br><span class="line">   c1  c2</span><br><span class="line"><span class="number">0</span>   <span class="number">1</span>   <span class="number">6</span></span><br><span class="line"><span class="number">1</span>   <span class="number">2</span>   <span class="number">7</span></span><br><span class="line"><span class="number">2</span>   <span class="number">3</span>   <span class="number">8</span></span><br><span class="line"><span class="number">3</span>   <span class="number">4</span>   <span class="number">9</span></span><br><span class="line"><span class="number">4</span>   <span class="number">5</span>  <span class="number">10</span></span><br></pre></td></tr></table></figure></p>
+<p><strong><em>注意：如果直接用数组和序列创建数据框，原来的数组和序列都是按行排列的，但是如果使用字典创建数据框会按列排列。</em></strong><br>A DataFrame also does automatic alignment of the data for each Series passed in by a dictionary:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">s3 = pd.Series(np.arange(<span class="number">12</span>, <span class="number">14</span>), index=[<span class="number">1</span>, <span class="number">2</span>])</span><br><span class="line">pd.DataFrame(&#123;<span class="string">'c1'</span>: s1, <span class="string">'c2'</span>: s2, <span class="string">'c3'</span>: s3&#125;)</span><br><span class="line">Out[<span class="number">47</span>]:</span><br><span class="line">   c1  c2    c3</span><br><span class="line"><span class="number">0</span>   <span class="number">1</span>   <span class="number">6</span>   NaN</span><br><span class="line"><span class="number">1</span>   <span class="number">2</span>   <span class="number">7</span>  <span class="number">12.0</span></span><br><span class="line"><span class="number">2</span>   <span class="number">3</span>   <span class="number">8</span>  <span class="number">13.0</span></span><br><span class="line"><span class="number">3</span>   <span class="number">4</span>   <span class="number">9</span>   NaN</span><br><span class="line"><span class="number">4</span>   <span class="number">5</span>  <span class="number">10</span>   NaN</span><br></pre></td></tr></table></figure></p>
+<h2 id="Example-data"><a href="#Example-data" class="headerlink" title="Example data"></a>Example data</h2><p>First I use <code>TuShare</code> package create a DataFrame <code>df</code>:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tushare <span class="keyword">as</span> ts</span><br><span class="line">df = ts.get_k_data(<span class="string">'000001'</span>)</span><br><span class="line">df.head()</span><br><span class="line">Out[<span class="number">54</span>]:</span><br><span class="line">         date   open  close    high    low     volume    code</span><br><span class="line"><span class="number">0</span>  <span class="number">2015</span><span class="number">-12</span><span class="number">-15</span>  <span class="number">9.577</span>  <span class="number">9.489</span>   <span class="number">9.624</span>  <span class="number">9.441</span>   <span class="number">364487.0</span>  <span class="number">000001</span></span><br><span class="line"><span class="number">1</span>  <span class="number">2015</span><span class="number">-12</span><span class="number">-16</span>  <span class="number">9.537</span>  <span class="number">9.465</span>   <span class="number">9.561</span>  <span class="number">9.457</span>   <span class="number">392762.0</span>  <span class="number">000001</span></span><br><span class="line"><span class="number">2</span>  <span class="number">2015</span><span class="number">-12</span><span class="number">-17</span>  <span class="number">9.529</span>  <span class="number">9.608</span>   <span class="number">9.664</span>  <span class="number">9.521</span>   <span class="number">648274.0</span>  <span class="number">000001</span></span><br><span class="line"><span class="number">3</span>  <span class="number">2015</span><span class="number">-12</span><span class="number">-18</span>  <span class="number">9.577</span>  <span class="number">9.736</span>   <span class="number">9.991</span>  <span class="number">9.569</span>  <span class="number">1022944.0</span>  <span class="number">000001</span></span><br><span class="line"><span class="number">4</span>  <span class="number">2015</span><span class="number">-12</span><span class="number">-21</span>  <span class="number">9.664</span>  <span class="number">9.959</span>  <span class="number">10.126</span>  <span class="number">9.640</span>  <span class="number">1281142.0</span>  <span class="number">000001</span></span><br><span class="line"></span><br><span class="line">df.index</span><br><span class="line">Out[<span class="number">55</span>]: RangeIndex(start=<span class="number">0</span>, stop=<span class="number">641</span>, step=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 可以比较下面两个用法的小区别：</span></span><br><span class="line"><span class="comment">#############################################</span></span><br><span class="line">df[<span class="string">'date'</span>].head(<span class="number">3</span>)</span><br><span class="line">Out[<span class="number">63</span>]:</span><br><span class="line"><span class="number">0</span>    <span class="number">2015</span><span class="number">-12</span><span class="number">-15</span></span><br><span class="line"><span class="number">1</span>    <span class="number">2015</span><span class="number">-12</span><span class="number">-16</span></span><br><span class="line"><span class="number">2</span>    <span class="number">2015</span><span class="number">-12</span><span class="number">-17</span></span><br><span class="line">Name: date, dtype: object</span><br><span class="line">df[[<span class="string">'date'</span>]].head(<span class="number">3</span>)</span><br><span class="line">Out[<span class="number">64</span>]:</span><br><span class="line">         date</span><br><span class="line"><span class="number">0</span>  <span class="number">2015</span><span class="number">-12</span><span class="number">-15</span></span><br><span class="line"><span class="number">1</span>  <span class="number">2015</span><span class="number">-12</span><span class="number">-16</span></span><br><span class="line"><span class="number">2</span>  <span class="number">2015</span><span class="number">-12</span><span class="number">-17</span></span><br><span class="line"><span class="comment">#############################################</span></span><br><span class="line"></span><br><span class="line">df[[<span class="string">'date'</span>, <span class="string">'open'</span>]]</span><br><span class="line">Out[<span class="number">57</span>]:</span><br><span class="line">           date   open</span><br><span class="line"><span class="number">0</span>    <span class="number">2015</span><span class="number">-12</span><span class="number">-15</span>  <span class="number">9.577</span></span><br><span class="line"><span class="number">1</span>    <span class="number">2015</span><span class="number">-12</span><span class="number">-16</span>  <span class="number">9.537</span></span><br><span class="line">..          ...    ...</span><br><span class="line"><span class="number">640</span>  <span class="number">2018</span><span class="number">-07</span><span class="number">-30</span>  <span class="number">9.320</span></span><br><span class="line">[<span class="number">641</span> rows x <span class="number">2</span> columns]</span><br></pre></td></tr></table></figure></p>
+<h3 id="Selecting-columns-of-a-DataFrame"><a href="#Selecting-columns-of-a-DataFrame" class="headerlink" title="Selecting columns of a DataFrame"></a>Selecting columns of a DataFrame</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">df.date.head(<span class="number">3</span>)</span><br><span class="line">Out[<span class="number">59</span>]:</span><br><span class="line"><span class="number">0</span>    <span class="number">2015</span><span class="number">-12</span><span class="number">-15</span></span><br><span class="line"><span class="number">1</span>    <span class="number">2015</span><span class="number">-12</span><span class="number">-16</span></span><br><span class="line"><span class="number">2</span>    <span class="number">2015</span><span class="number">-12</span><span class="number">-17</span></span><br><span class="line">Name: date, dtype: object</span><br><span class="line">df[[<span class="string">'date'</span>, <span class="string">'open'</span>]].head(<span class="number">3</span>)</span><br><span class="line">Out[<span class="number">60</span>]:</span><br><span class="line">         date   open</span><br><span class="line"><span class="number">0</span>  <span class="number">2015</span><span class="number">-12</span><span class="number">-15</span>  <span class="number">9.577</span></span><br><span class="line"><span class="number">1</span>  <span class="number">2015</span><span class="number">-12</span><span class="number">-16</span>  <span class="number">9.537</span></span><br><span class="line"><span class="number">2</span>  <span class="number">2015</span><span class="number">-12</span><span class="number">-17</span>  <span class="number">9.529</span></span><br></pre></td></tr></table></figure>
+<h2 id="Slecting-rows-of-a-DataFrame-using-the-index"><a href="#Slecting-rows-of-a-DataFrame-using-the-index" class="headerlink" title="Slecting rows of a DataFrame using the index"></a>Slecting rows of a DataFrame using the index</h2><h3 id="Slicing-using-the-operator"><a href="#Slicing-using-the-operator" class="headerlink" title="Slicing using the [] operator"></a>Slicing using the [] operator</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df[:<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">Out[<span class="number">65</span>]:</span><br><span class="line">         date   open  close   high    low    volume    code</span><br><span class="line"><span class="number">0</span>  <span class="number">2015</span><span class="number">-12</span><span class="number">-15</span>  <span class="number">9.577</span>  <span class="number">9.489</span>  <span class="number">9.624</span>  <span class="number">9.441</span>  <span class="number">364487.0</span>  <span class="number">000001</span></span><br><span class="line"><span class="number">1</span>  <span class="number">2015</span><span class="number">-12</span><span class="number">-16</span>  <span class="number">9.537</span>  <span class="number">9.465</span>  <span class="number">9.561</span>  <span class="number">9.457</span>  <span class="number">392762.0</span>  <span class="number">000001</span></span><br><span class="line"><span class="number">2</span>  <span class="number">2015</span><span class="number">-12</span><span class="number">-17</span>  <span class="number">9.529</span>  <span class="number">9.608</span>  <span class="number">9.664</span>  <span class="number">9.521</span>  <span class="number">648274.0</span>  <span class="number">000001</span></span><br></pre></td></tr></table></figure>
+<h3 id="Slecting-rows-by-the-index-label-and-location-loc-amp-iloc"><a href="#Slecting-rows-by-the-index-label-and-location-loc-amp-iloc" class="headerlink" title="Slecting rows by the index label and location .loc[] &amp; .iloc[]"></a>Slecting rows by the index label and location .loc[] &amp; .iloc[]</h3><p>if DataFrame has a numeric index， .loc[] &amp; .iloc[] have same function：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">df.loc[<span class="number">14</span>]</span><br><span class="line">Out[<span class="number">100</span>]:</span><br><span class="line">date      <span class="number">2016</span><span class="number">-01</span><span class="number">-05</span></span><br><span class="line">open           <span class="number">8.972</span></span><br><span class="line">close          <span class="number">9.075</span></span><br><span class="line">high            <span class="number">9.21</span></span><br><span class="line">low            <span class="number">8.876</span></span><br><span class="line">volume        <span class="number">663269</span></span><br><span class="line">code          <span class="number">000001</span></span><br><span class="line">Name: <span class="number">14</span>, dtype: object</span><br><span class="line">df.loc[[<span class="number">12</span>, <span class="number">13</span>]]</span><br><span class="line">Out[<span class="number">101</span>]:</span><br><span class="line">          date   open  close   high    low    volume    code</span><br><span class="line"><span class="number">12</span>  <span class="number">2015</span><span class="number">-12</span><span class="number">-31</span>  <span class="number">9.632</span>  <span class="number">9.545</span>  <span class="number">9.656</span>  <span class="number">9.537</span>  <span class="number">491258.0</span>  <span class="number">000001</span></span><br><span class="line"><span class="number">13</span>  <span class="number">2016</span><span class="number">-01</span><span class="number">-04</span>  <span class="number">9.553</span>  <span class="number">8.995</span>  <span class="number">9.577</span>  <span class="number">8.940</span>  <span class="number">563497.0</span>  <span class="number">000001</span></span><br><span class="line">df.iloc[<span class="number">14</span>]</span><br><span class="line">Out[<span class="number">102</span>]:</span><br><span class="line">date      <span class="number">2016</span><span class="number">-01</span><span class="number">-05</span></span><br><span class="line">open           <span class="number">8.972</span></span><br><span class="line">close          <span class="number">9.075</span></span><br><span class="line">high            <span class="number">9.21</span></span><br><span class="line">low            <span class="number">8.876</span></span><br><span class="line">volume        <span class="number">663269</span></span><br><span class="line">code          <span class="number">000001</span></span><br><span class="line">Name: <span class="number">14</span>, dtype: object</span><br><span class="line">df.iloc[[<span class="number">12</span>, <span class="number">13</span>]]</span><br><span class="line">Out[<span class="number">103</span>]:</span><br><span class="line">          date   open  close   high    low    volume    code</span><br><span class="line"><span class="number">12</span>  <span class="number">2015</span><span class="number">-12</span><span class="number">-31</span>  <span class="number">9.632</span>  <span class="number">9.545</span>  <span class="number">9.656</span>  <span class="number">9.537</span>  <span class="number">491258.0</span>  <span class="number">000001</span></span><br><span class="line"><span class="number">13</span>  <span class="number">2016</span><span class="number">-01</span><span class="number">-04</span>  <span class="number">9.553</span>  <span class="number">8.995</span>  <span class="number">9.577</span>  <span class="number">8.940</span>  <span class="number">563497.0</span>  <span class="number">000001</span></span><br><span class="line">df.index = df.date</span><br><span class="line">df.loc[<span class="string">'2018-06-20'</span>]</span><br><span class="line">Out[<span class="number">105</span>]:</span><br><span class="line">date      <span class="number">2018</span><span class="number">-06</span><span class="number">-20</span></span><br><span class="line">open           <span class="number">9.713</span></span><br><span class="line">close          <span class="number">9.752</span></span><br><span class="line">high           <span class="number">9.792</span></span><br><span class="line">low            <span class="number">9.605</span></span><br><span class="line">volume        <span class="number">763637</span></span><br><span class="line">code          <span class="number">000001</span></span><br><span class="line">Name: <span class="number">2018</span><span class="number">-06</span><span class="number">-20</span>, dtype: object</span><br><span class="line">df.iloc[[<span class="number">1</span>]]</span><br><span class="line">Out[<span class="number">106</span>]:</span><br><span class="line">                  date   open  close   high    low    volume    code</span><br><span class="line">date                                                                </span><br><span class="line"><span class="number">2015</span><span class="number">-12</span><span class="number">-16</span>  <span class="number">2015</span><span class="number">-12</span><span class="number">-16</span>  <span class="number">9.537</span>  <span class="number">9.465</span>  <span class="number">9.561</span>  <span class="number">9.457</span>  <span class="number">392762.0</span>  <span class="number">000001</span></span><br></pre></td></tr></table></figure></p>
+<p>It’s possible to look up the location in index of a specific label value, which can be used to retrieve the row(s):<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">i1 = df.index.get_loc(<span class="string">'2018-06-20'</span>)</span><br><span class="line">i2 = df.index.get_loc(<span class="string">'2018-06-21'</span>)</span><br><span class="line">df.iloc[[i1, i2]]</span><br><span class="line">Out[<span class="number">107</span>]:</span><br><span class="line">                  date   open  close   high    low    volume    code</span><br><span class="line">date                                                                </span><br><span class="line"><span class="number">2018</span><span class="number">-06</span><span class="number">-20</span>  <span class="number">2018</span><span class="number">-06</span><span class="number">-20</span>  <span class="number">9.713</span>  <span class="number">9.752</span>  <span class="number">9.792</span>  <span class="number">9.605</span>  <span class="number">763637.0</span>  <span class="number">000001</span></span><br><span class="line"><span class="number">2018</span><span class="number">-06</span><span class="number">-21</span>  <span class="number">2018</span><span class="number">-06</span><span class="number">-21</span>  <span class="number">9.772</span>  <span class="number">9.703</span>  <span class="number">9.880</span>  <span class="number">9.703</span>  <span class="number">840070.0</span>  <span class="number">000001</span></span><br></pre></td></tr></table></figure></p>
+<p>Selecting rows by the index label and/or location - .ix[]<br>the method is deprecated. please use .loc[] for label based indexing or .iloc[] for positional indexing.<br><del>df.ix[[‘2018-06-20’, ‘2018-06-21’]]</del><br><del>df.ix[[1, 2, 3]]</del></p>
+<h2 id="Scalar-lookup-by-label-or-location-using-at-and-iat"><a href="#Scalar-lookup-by-label-or-location-using-at-and-iat" class="headerlink" title="Scalar lookup by label or location using .at[] and .iat[]"></a>Scalar lookup by label or location using .at[] and .iat[]</h2><h3 id="Scalar-values-can-be-looked-up-by-label-using-at-by-passing-the-row-label-and-then-the-column-name-value"><a href="#Scalar-values-can-be-looked-up-by-label-using-at-by-passing-the-row-label-and-then-the-column-name-value" class="headerlink" title="Scalar values can be looked up by label using .at[] by passing the row label and then the column name/value:"></a>Scalar values can be looked up by label using .at[] by passing the row label and then the column name/value:</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df.at[<span class="string">'2018-06-20'</span>, <span class="string">'open'</span>]</span><br><span class="line">Out[<span class="number">114</span>]: <span class="number">9.7129999999999992</span></span><br><span class="line">df.iat[<span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">Out[<span class="number">115</span>]: <span class="string">'2015-12-15'</span></span><br></pre></td></tr></table></figure>
+<h2 id="Selecting-rows-using-the-Boolean-selection"><a href="#Selecting-rows-using-the-Boolean-selection" class="headerlink" title="Selecting rows using the Boolean selection"></a>Selecting rows using the Boolean selection</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">df.open &lt; <span class="number">10</span></span><br><span class="line">Out[<span class="number">118</span>]:</span><br><span class="line">date</span><br><span class="line"><span class="number">2015</span><span class="number">-12</span><span class="number">-15</span>    <span class="keyword">True</span></span><br><span class="line">·····</span><br><span class="line"><span class="number">2018</span><span class="number">-07</span><span class="number">-30</span>    <span class="keyword">True</span></span><br><span class="line">Name: open, Length: <span class="number">641</span>, dtype: bool</span><br><span class="line">df[df.open &lt; <span class="number">8</span>]</span><br><span class="line">Out[<span class="number">119</span>]:</span><br><span class="line">                  date   open  close   high    low    volume    code</span><br><span class="line">date                                                                </span><br><span class="line"><span class="number">2016</span><span class="number">-01</span><span class="number">-27</span>  <span class="number">2016</span><span class="number">-01</span><span class="number">-27</span>  <span class="number">7.905</span>  <span class="number">7.865</span>  <span class="number">7.945</span>  <span class="number">7.642</span>  <span class="number">569037.0</span>  <span class="number">000001</span></span><br><span class="line">······</span><br><span class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-02</span>  <span class="number">2016</span><span class="number">-03</span><span class="number">-02</span>  <span class="number">7.762</span>  <span class="number">8.040</span>  <span class="number">8.064</span>  <span class="number">7.738</span>  <span class="number">676613.0</span>  <span class="number">000001</span></span><br><span class="line">open = df[df.open &lt; <span class="number">9</span>][[<span class="string">'open'</span>]]</span><br></pre></td></tr></table></figure>
+<h2 id="Arithmetic-on-a-DataFrame"><a href="#Arithmetic-on-a-DataFrame" class="headerlink" title="Arithmetic on a DataFrame"></a>Arithmetic on a DataFrame</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(<span class="number">123456</span>)</span><br><span class="line">df = pd.DataFrame(np.random.randn(<span class="number">5</span>, <span class="number">4</span>), columns = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>])</span><br><span class="line">df</span><br><span class="line">Out[<span class="number">11</span>]:</span><br><span class="line">          A         B         C         D</span><br><span class="line"><span class="number">0</span>  <span class="number">0.469112</span> <span class="number">-0.282863</span> <span class="number">-1.509059</span> <span class="number">-1.135632</span></span><br><span class="line"><span class="number">1</span>  <span class="number">1.212112</span> <span class="number">-0.173215</span>  <span class="number">0.119209</span> <span class="number">-1.044236</span></span><br><span class="line"><span class="number">2</span> <span class="number">-0.861849</span> <span class="number">-2.104569</span> <span class="number">-0.494929</span>  <span class="number">1.071804</span></span><br><span class="line"><span class="number">3</span>  <span class="number">0.721555</span> <span class="number">-0.706771</span> <span class="number">-1.039575</span>  <span class="number">0.271860</span></span><br><span class="line"><span class="number">4</span> <span class="number">-0.424972</span>  <span class="number">0.567020</span>  <span class="number">0.276232</span> <span class="number">-1.087401</span></span><br><span class="line">df * <span class="number">2</span></span><br><span class="line">Out[<span class="number">12</span>]:</span><br><span class="line">          A         B         C         D</span><br><span class="line"><span class="number">0</span>  <span class="number">0.938225</span> <span class="number">-0.565727</span> <span class="number">-3.018117</span> <span class="number">-2.271265</span></span><br><span class="line"><span class="number">1</span>  <span class="number">2.424224</span> <span class="number">-0.346429</span>  <span class="number">0.238417</span> <span class="number">-2.088472</span></span><br><span class="line"><span class="number">2</span> <span class="number">-1.723698</span> <span class="number">-4.209138</span> <span class="number">-0.989859</span>  <span class="number">2.143608</span></span><br><span class="line"><span class="number">3</span>  <span class="number">1.443110</span> <span class="number">-1.413542</span> <span class="number">-2.079150</span>  <span class="number">0.543720</span></span><br><span class="line"><span class="number">4</span> <span class="number">-0.849945</span>  <span class="number">1.134041</span>  <span class="number">0.552464</span> <span class="number">-2.174801</span></span><br><span class="line">df = df - df.iloc[<span class="number">0</span>]</span><br><span class="line">subframe = df[<span class="number">1</span>:<span class="number">4</span>][[<span class="string">'A'</span>, <span class="string">'B'</span>]]</span><br><span class="line">subframe</span><br><span class="line">Out[<span class="number">15</span>]:</span><br><span class="line">          A         B</span><br><span class="line"><span class="number">1</span>  <span class="number">0.743000</span>  <span class="number">0.109649</span></span><br><span class="line"><span class="number">2</span> <span class="number">-1.330961</span> <span class="number">-1.821706</span></span><br><span class="line"><span class="number">3</span>  <span class="number">0.252443</span> <span class="number">-0.423908</span></span><br></pre></td></tr></table></figure>
+<p>The following demonstrates subtraction along a column axis by using the DataFrame object; the .sub() method subtracts the A column from every column<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">df</span><br><span class="line">Out[<span class="number">16</span>]:</span><br><span class="line">          A         B         C         D</span><br><span class="line"><span class="number">0</span>  <span class="number">0.000000</span>  <span class="number">0.000000</span>  <span class="number">0.000000</span>  <span class="number">0.000000</span></span><br><span class="line"><span class="number">1</span>  <span class="number">0.743000</span>  <span class="number">0.109649</span>  <span class="number">1.628267</span>  <span class="number">0.091396</span></span><br><span class="line"><span class="number">2</span> <span class="number">-1.330961</span> <span class="number">-1.821706</span>  <span class="number">1.014129</span>  <span class="number">2.207436</span></span><br><span class="line"><span class="number">3</span>  <span class="number">0.252443</span> <span class="number">-0.423908</span>  <span class="number">0.469484</span>  <span class="number">1.407492</span></span><br><span class="line"><span class="number">4</span> <span class="number">-0.894085</span>  <span class="number">0.849884</span>  <span class="number">1.785291</span>  <span class="number">0.048232</span></span><br><span class="line"></span><br><span class="line">a_col = df[<span class="string">'A'</span>]</span><br><span class="line">df.sub(a_col, axis = <span class="number">0</span>)</span><br><span class="line">Out[<span class="number">17</span>]:</span><br><span class="line">     A         B         C         D</span><br><span class="line"><span class="number">0</span>  <span class="number">0.0</span>  <span class="number">0.000000</span>  <span class="number">0.000000</span>  <span class="number">0.000000</span></span><br><span class="line"><span class="number">1</span>  <span class="number">0.0</span> <span class="number">-0.633351</span>  <span class="number">0.885267</span> <span class="number">-0.651603</span></span><br><span class="line"><span class="number">2</span>  <span class="number">0.0</span> <span class="number">-0.490745</span>  <span class="number">2.345090</span>  <span class="number">3.538397</span></span><br><span class="line"><span class="number">3</span>  <span class="number">0.0</span> <span class="number">-0.676351</span>  <span class="number">0.217041</span>  <span class="number">1.155049</span></span><br><span class="line"><span class="number">4</span>  <span class="number">0.0</span>  <span class="number">1.743968</span>  <span class="number">2.679375</span>  <span class="number">0.942316</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Reindexing-the-Series-and-DataFrame-objects"><a href="#Reindexing-the-Series-and-DataFrame-objects" class="headerlink" title="Reindexing the Series and DataFrame objects"></a>Reindexing the Series and DataFrame objects</h2><p>The process of performing a reindex does the following:</p>
+<ol>
+<li>Reorders existing data to match a set of labels;</li>
+<li>Inserts NaN markers where no data exists for a label;</li>
+<li>Fills missing data for a label using a type of logic(defaulting to adding NaNs)</li>
+</ol>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(<span class="number">1</span>)</span><br><span class="line">s = pd.Series(np.random.randn(<span class="number">5</span>))</span><br><span class="line">s</span><br><span class="line">Out[<span class="number">21</span>]:</span><br><span class="line"><span class="number">0</span>    <span class="number">1.624345</span></span><br><span class="line"><span class="number">1</span>   <span class="number">-0.611756</span></span><br><span class="line"><span class="number">2</span>   <span class="number">-0.528172</span></span><br><span class="line"><span class="number">3</span>   <span class="number">-1.072969</span></span><br><span class="line"><span class="number">4</span>    <span class="number">0.865408</span></span><br><span class="line">dtype: float64</span><br><span class="line">s.index = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>]</span><br><span class="line">s</span><br><span class="line">Out[<span class="number">23</span>]:</span><br><span class="line">a    <span class="number">1.624345</span></span><br><span class="line">b   <span class="number">-0.611756</span></span><br><span class="line">c   <span class="number">-0.528172</span></span><br><span class="line">d   <span class="number">-1.072969</span></span><br><span class="line">e    <span class="number">0.865408</span></span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure>
+<p>Creater flexibility in creating a new index is provide using the .reindex() method. One example of flexibility of .reindex() over assigning the .index property directly is that the list provided to .reindex() can be of a different length than the number of rows in the Series:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">s2 = s.reindex([<span class="string">'a'</span>, <span class="string">'c'</span>, <span class="string">'e'</span>, <span class="string">'g'</span>])</span><br><span class="line">s2</span><br><span class="line">Out[<span class="number">26</span>]:</span><br><span class="line">a    <span class="number">1.624345</span></span><br><span class="line">c   <span class="number">-0.528172</span></span><br><span class="line">e    <span class="number">0.865408</span></span><br><span class="line">g         NaN</span><br><span class="line">dtype: float64</span><br><span class="line">s[<span class="string">'a'</span>]</span><br><span class="line">Out[<span class="number">27</span>]: <span class="number">1.6243453636632417</span></span><br></pre></td></tr></table></figure></p>
+<p>注意下面的两个序列由于索引格式不一致而无法对应相加<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">s1 = pd.Series([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], index = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>])</span><br><span class="line">s1</span><br><span class="line">Out[<span class="number">30</span>]:</span><br><span class="line"><span class="number">0</span>    <span class="number">0</span></span><br><span class="line"><span class="number">1</span>    <span class="number">1</span></span><br><span class="line"><span class="number">2</span>    <span class="number">2</span></span><br><span class="line">dtype: int64</span><br><span class="line">s2 = pd.Series([<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], index = [<span class="string">'0'</span>, <span class="string">'1'</span>, <span class="string">'2'</span>])</span><br><span class="line">s1 + s2</span><br><span class="line">Out[<span class="number">32</span>]:</span><br><span class="line"><span class="number">0</span>   NaN</span><br><span class="line"><span class="number">1</span>   NaN</span><br><span class="line"><span class="number">2</span>   NaN</span><br><span class="line"><span class="number">0</span>   NaN</span><br><span class="line"><span class="number">1</span>   NaN</span><br><span class="line"><span class="number">2</span>   NaN</span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure></p>
+<p>把索引变成数值型索引之后即可相加<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">s2</span><br><span class="line">Out[<span class="number">34</span>]:</span><br><span class="line"><span class="number">0</span>    <span class="number">3</span></span><br><span class="line"><span class="number">1</span>    <span class="number">4</span></span><br><span class="line"><span class="number">2</span>    <span class="number">5</span></span><br><span class="line">dtype: int64</span><br><span class="line">s2.index = s2.index.values.astype(int)</span><br><span class="line">s1 + s2</span><br><span class="line">Out[<span class="number">36</span>]:</span><br><span class="line"><span class="number">0</span>    <span class="number">3</span></span><br><span class="line"><span class="number">1</span>    <span class="number">5</span></span><br><span class="line"><span class="number">2</span>    <span class="number">7</span></span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure></p>
+<h2 id="Filling"><a href="#Filling" class="headerlink" title="Filling"></a>Filling</h2><p>The default action of inserting NaN as a missing value during .reindex() can be changed using fill_value of the method. The following command demonstrates using 0 instead of NaN:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">s</span><br><span class="line">Out[<span class="number">39</span>]:</span><br><span class="line">a    <span class="number">1.624345</span></span><br><span class="line">b   <span class="number">-0.611756</span></span><br><span class="line">c   <span class="number">-0.528172</span></span><br><span class="line">d   <span class="number">-1.072969</span></span><br><span class="line">e    <span class="number">0.865408</span></span><br><span class="line">dtype: float64</span><br><span class="line">s2 = s.copy()</span><br><span class="line">s2.reindex([<span class="string">'a'</span>, <span class="string">'f'</span>], fill_value = <span class="number">0</span>)</span><br><span class="line">Out[<span class="number">41</span>]:</span><br><span class="line">a    <span class="number">1.624345</span></span><br><span class="line">f    <span class="number">0.000000</span></span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure></p>
+<p><code>前向填充</code>：使用前面的一个元素填充<br>The following command demonstrated forward filling, often referred to as the last known value. The Series is reindexed to create a continuous integer index, and using the method = ‘ffill’ parameter, any new index labels are assigned a value from the previously seen value value along the Series. Here’s the command:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">s3 = pd.Series([<span class="string">'red'</span>, <span class="string">'green'</span>, <span class="string">'blue'</span>], index = [<span class="number">0</span>, <span class="number">3</span>, <span class="number">5</span>])</span><br><span class="line">s3.reindex(np.arange(<span class="number">0</span>, <span class="number">7</span>), method = <span class="string">'ffill'</span>)</span><br><span class="line">Out[<span class="number">43</span>]:</span><br><span class="line"><span class="number">0</span>      red</span><br><span class="line"><span class="number">1</span>      red</span><br><span class="line"><span class="number">2</span>      red</span><br><span class="line"><span class="number">3</span>    green</span><br><span class="line"><span class="number">4</span>    green</span><br><span class="line"><span class="number">5</span>     blue</span><br><span class="line"><span class="number">6</span>     blue</span><br><span class="line">dtype: object</span><br></pre></td></tr></table></figure></p>
+<p><code>后向填充</code>：使用后一个值填充，如果没有则使用缺失值填充<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">s3.reindex(np.arange(<span class="number">0</span>, <span class="number">7</span>), method = <span class="string">'bfill'</span>)</span><br><span class="line">Out[<span class="number">44</span>]:</span><br><span class="line"><span class="number">0</span>      red</span><br><span class="line"><span class="number">1</span>    green</span><br><span class="line"><span class="number">2</span>    green</span><br><span class="line"><span class="number">3</span>    green</span><br><span class="line"><span class="number">4</span>     blue</span><br><span class="line"><span class="number">5</span>     blue</span><br><span class="line"><span class="number">6</span>      NaN</span><br><span class="line">dtype: object</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://www.czxa.top/posts/49419/" data-id="cjk7trksh0003ue8e032d51np" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="valine-thread"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/czxa" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="https://weibo.com/p/1005056084580012/photos?from=page_100505&mod=TAB&pids=plc_main" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/notes/posts/27977/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">A machine learning odyssey</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+<div class="widget-wrap widget-list">
+    <h3 class="widget-title">目录</h3>
+    <div class="widget">
+        <div id="toc" class="toc-article">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Basics-of-The-Series-and-DataFrame-Objects"><span class="toc-number">1.</span> <span class="toc-text">The Basics of The Series and DataFrame Objects</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Creating-a-Series-and-accessing-elements"><span class="toc-number">1.1.</span> <span class="toc-text">Creating a Series and accessing elements</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Retrieve-index-and-values"><span class="toc-number">1.2.</span> <span class="toc-text">Retrieve index and values</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Creates-a-series-and-set-the-index"><span class="toc-number">1.3.</span> <span class="toc-text">Creates a series and set the index:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-series-can-be-directly-initialized-from-a-Python-dictionary"><span class="toc-number">1.4.</span> <span class="toc-text">A series can be directly initialized from a Python dictionary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Size-shape-uniqueness-and-counts-of-values"><span class="toc-number">2.</span> <span class="toc-text">Size, shape, uniqueness, and counts of values</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#length"><span class="toc-number">2.1.</span> <span class="toc-text">length</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shape-return-a-tuple-which-contain-the-object’s-dimension"><span class="toc-number">2.2.</span> <span class="toc-text">shape: return a tuple which contain the object’s dimension</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#count-the-count-of-elements-declude-from-NaN"><span class="toc-number">2.3.</span> <span class="toc-text">count: the count of elements declude from NaN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unique-values-in-a-series"><span class="toc-number">2.4.</span> <span class="toc-text">unique values in a series</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Obtaining-the-count-of-each-of-the-unique-items-in-a-series"><span class="toc-number">2.5.</span> <span class="toc-text">Obtaining the count of each of the unique items in a series.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Alignment-via-index-labels"><span class="toc-number">3.</span> <span class="toc-text">Alignment via index labels</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creating-a-DataFrame"><span class="toc-number">4.</span> <span class="toc-text">Creating a DataFrame</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#columns-and-index"><span class="toc-number">4.1.</span> <span class="toc-text">columns and index</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-data"><span class="toc-number">5.</span> <span class="toc-text">Example data</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Selecting-columns-of-a-DataFrame"><span class="toc-number">5.1.</span> <span class="toc-text">Selecting columns of a DataFrame</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Slecting-rows-of-a-DataFrame-using-the-index"><span class="toc-number">6.</span> <span class="toc-text">Slecting rows of a DataFrame using the index</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Slicing-using-the-operator"><span class="toc-number">6.1.</span> <span class="toc-text">Slicing using the [] operator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Slecting-rows-by-the-index-label-and-location-loc-amp-iloc"><span class="toc-number">6.2.</span> <span class="toc-text">Slecting rows by the index label and location .loc[] &amp; .iloc[]</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scalar-lookup-by-label-or-location-using-at-and-iat"><span class="toc-number">7.</span> <span class="toc-text">Scalar lookup by label or location using .at[] and .iat[]</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Scalar-values-can-be-looked-up-by-label-using-at-by-passing-the-row-label-and-then-the-column-name-value"><span class="toc-number">7.1.</span> <span class="toc-text">Scalar values can be looked up by label using .at[] by passing the row label and then the column name/value:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Selecting-rows-using-the-Boolean-selection"><span class="toc-number">8.</span> <span class="toc-text">Selecting rows using the Boolean selection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Arithmetic-on-a-DataFrame"><span class="toc-number">9.</span> <span class="toc-text">Arithmetic on a DataFrame</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reindexing-the-Series-and-DataFrame-objects"><span class="toc-number">10.</span> <span class="toc-text">Reindexing the Series and DataFrame objects</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Filling"><span class="toc-number">11.</span> <span class="toc-text">Filling</span></a></li></ol>
+        </div>
+    </div>
+</div>
+
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/49419/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/DSC03628.JPG)" alt="Inreoducing the Series and DataFrame" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/Pandas/">Pandas</a></p>
+                            <p class="item-title"><a href="/notes/posts/49419/" class="title">Inreoducing the Series and DataFrame</a></p>
+                            <p class="item-date"><time datetime="2018-07-29T16:57:32.000Z" itemprop="datePublished">2018-07-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/27977/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180719a1.png)" alt="A machine learning odyssey" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/TensorFlow/">TensorFlow</a></p>
+                            <p class="item-title"><a href="/notes/posts/27977/" class="title">A machine learning odyssey</a></p>
+                            <p class="item-date"><time datetime="2018-07-21T15:49:32.000Z" itemprop="datePublished">2018-07-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/43149/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180624a1.png)" alt="Python for Finance——入门到放弃" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/43149/" class="title">Python for Finance——入门到放弃</a></p>
+                            <p class="item-date"><time datetime="2018-06-24T06:49:32.000Z" itemprop="datePublished">2018-06-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/43798/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/20180623c8.png)" alt="Python for Finance Chapter 7" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/43798/" class="title">Python for Finance Chapter 7</a></p>
+                            <p class="item-date"><time datetime="2018-06-23T17:49:32.000Z" itemprop="datePublished">2018-06-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/notes/posts/19677/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.czxa.top/mr/mygirl.png)" alt="Python for Finance Chapter4~6" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/notes/categories/笔记/">笔记</a></p>
+                            <p class="item-title"><a href="/notes/posts/19677/" class="title">Python for Finance Chapter4~6</a></p>
+                            <p class="item-date"><time datetime="2018-06-21T10:49:32.000Z" itemprop="datePublished">2018-06-21</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/notes/categories/Pandas/">Pandas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/notes/categories/TensorFlow/">TensorFlow</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/notes/categories/笔记/">笔记</a><span class="category-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/notes/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/notes/archives/2018/06/">六月 2018</a><span class="archive-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/notes/tags/Python/">Python</a><span class="tag-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/notes/tags/Python/" style="font-size: 10px;">Python</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://dwla.github.io">JWen</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://www.czxa.top/notes/favorites/">我的收藏</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://unsplash.com/@czxa">Unsplash</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://gallery.echartsjs.com/explore.html?u=bd-2472402526&type=work#sort=rank~timeframe=all~author=all">ECharts</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.zingchart.com/gallery/">Zingchart</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.amcharts.com/demos/">Amcharts</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://antv.alipay.com/zh-cn/gallery/index.html">AntV</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.anychart.com/products/anychart/gallery/">Anychart</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.hcharts.cn/demo/highcharts">Highcharts</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/d3/d3/wiki/Gallery">D3.js</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://music.sonimei.cn/">全网音乐免费下载工具</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://carbon.now.sh/">Carbon</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://cn.knoema.com/">knoema</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://zh.tradingeconomics.com/">tradingeconomics</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/notes/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 程振兴</p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#valine-thread' ,
+            notify:true,
+            verify:false,
+            app_id: 'HS0fE2GH92TyPjSpxeuEpr9P-gzGzoHsz',
+            app_key: 'hyvGUifU6e34ODKmahBUtoN6',
+            placeholder: '在这里评论～',
+            pageSize: '10',
+            avatar: 'monsterid',
+            avatar_cdn:  'https://gravatar.loli.net/avatar/'
+        });
+    </script>
+
+
+
+
+
+    
+        <script src="/notes/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/notes/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/notes/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/notes/js/main.js"></script>
+
+    </div>
+</body>
+</html>
